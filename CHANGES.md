@@ -30,6 +30,7 @@ The [backward incompatible](http://ydk.cisco.com/py/docs/backward_compatibility.
    * `YFilter` has replaced the functionality of the `READ` and `DELETE` objects
    * When using logging, the suggested level for users of YDK is `INFO` as `DEBUG` provides highly detailed logging suitable for dvelopers working on YDK
    * The type names of `enumerations` and `identities` no longer have `Enum` or `Identity` in their names. For example, the  identity `InterfaceTypeIdentity` in `ydk.models.ietf.ietf_interfaces` is now renamed to just `InterfaceType`.
+   * The `is_config()` method is no longer available for the YDK model APIs. This may be added back in a future release.
 
 ### 2017-06-06 version 0.5.5
 
