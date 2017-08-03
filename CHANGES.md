@@ -1,7 +1,6 @@
 ### 2017-08-01 version 0.6.0
 
 #### Python
-* **NOTE:** Please see [this page](http://ydk.cisco.com/py/docs/backward_compatibility.html) for details on some backward incompatible changes introduced as part of this release
 * Introduced new YDK python [`core`](https://github.com/CiscoDevNet/ydk-py/tree/master/core) package using [pybind11](https://github.com/pybind/pybind11) to wrap around YDK C++ [`core`](https://github.com/CiscoDevNet/ydk-cpp/tree/master/core) ([#507](https://github.com/CiscoDevNet/ydk-gen/pull/507))
   * Introduced `ydk.path` module consisting of APIs to read, manipulate and write YANG data using XPath-like expressions
   * Updated YDK services and providers to internally use the path API
@@ -20,6 +19,17 @@
 * Updated [`cisco-ios-xr`](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/cisco-ios-xr_6_2_2.json) to support Cisco IOS XR 6.2.2 release
 * Updated [`cisco-ios-xe`](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/cisco-ios-xe_16_6_1.json) to support Cisco IOS XE 16.6.1 release
 * Also updated [`openconfig`](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/openconfig_0_1_3.json) and [`ietf`](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/ietf_0_1_3.json) bundles
+
+#### Note on backward compatibility
+The [backward incompatible](http://ydk.cisco.com/py/docs/backward_compatibility.html) changes introduced with `0.6.0` release include:
+
+ * **Installation:** When installing `YDK-Py`, there is a new system requirement which needs to be installed. This is the `libydk` library, which is available on the DevHub website for various OS platforms. Please refer to the [system requirements](https://github.com/CiscoDevNet/ydk-py/blob/master/README.rst#system-requirements) for details.
+* **Windows support:** From release ``0.6.0`` onwards, YDK no longer is supported on the Windows platform. We plan to add back support for this platform in the future.
+* **API changes:**
+   * `NetconfServiceProvider` no longer has the `close()` method. There is no need to explicitly close the provider as it will be automatically cleaned up when the object goes out of scope.
+   * `YFilter` has replaced the functionality of the `READ` and `DELETE` objects
+   * When using logging, the suggested level for users of YDK is `INFO` as `DEBUG` provides highly detailed logging suitable for dvelopers working on YDK
+   * The type names of `enumerations` and `identities` no longer have `Enum` or `Identity` in their names. For example, the  identity `InterfaceTypeIdentity` in `ydk.models.ietf.ietf_interfaces` is now renamed to just `InterfaceType`.
 
 ### 2017-06-06 version 0.5.5
 
