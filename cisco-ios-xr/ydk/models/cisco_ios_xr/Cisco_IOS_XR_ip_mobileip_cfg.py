@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EncapOptEnum(Enum):
+class EncapOpt(Enum):
     """
-    EncapOptEnum
+    EncapOpt
 
     Encap opt
 
@@ -48,24 +42,35 @@ class EncapOptEnum(Enum):
 
     """
 
-    greipv4 = 4
+    greipv4 = Enum.YLeaf(4, "greipv4")
 
-    greipv6 = 5
+    greipv6 = Enum.YLeaf(5, "greipv6")
 
-    mgreipv4 = 7
+    mgreipv4 = Enum.YLeaf(7, "mgreipv4")
 
-    mgreipv6 = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['EncapOptEnum']
+    mgreipv6 = Enum.YLeaf(8, "mgreipv6")
 
 
-class LmaRatEnum(Enum):
+class GreKeyType(Enum):
     """
-    LmaRatEnum
+    GreKeyType
+
+    Gre key type
+
+    .. data:: symmetric = 1
+
+    	Symmetric GRE Key (same Uplink and Downlink
+
+    	key)
+
+    """
+
+    symmetric = Enum.YLeaf(1, "symmetric")
+
+
+class LmaRat(Enum):
+    """
+    LmaRat
 
     Lma rat
 
@@ -119,40 +124,34 @@ class LmaRatEnum(Enum):
 
     """
 
-    virtual = 0
+    virtual = Enum.YLeaf(0, "virtual")
 
-    ppp = 1
+    ppp = Enum.YLeaf(1, "ppp")
 
-    ethernet = 2
+    ethernet = Enum.YLeaf(2, "ethernet")
 
-    wlan = 3
+    wlan = Enum.YLeaf(3, "wlan")
 
-    wi_max = 4
+    wi_max = Enum.YLeaf(4, "wi-max")
 
-    Y_3gppgeran = 5
+    Y_3gppgeran = Enum.YLeaf(5, "3gppgeran")
 
-    Y_3gpputran = 6
+    Y_3gpputran = Enum.YLeaf(6, "3gpputran")
 
-    Y_3gppeutran = 7
+    Y_3gppeutran = Enum.YLeaf(7, "3gppeutran")
 
-    Y_3gpp2ehrpd = 8
+    Y_3gpp2ehrpd = Enum.YLeaf(8, "3gpp2ehrpd")
 
-    Y_3gpp2hrpd = 9
+    Y_3gpp2hrpd = Enum.YLeaf(9, "3gpp2hrpd")
 
-    Y_3gpp21rtt = 10
+    Y_3gpp21rtt = Enum.YLeaf(10, "3gpp21rtt")
 
-    Y_3gpp2umb = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['LmaRatEnum']
+    Y_3gpp2umb = Enum.YLeaf(11, "3gpp2umb")
 
 
-class LmaRoleEnum(Enum):
+class LmaRole(Enum):
     """
-    LmaRoleEnum
+    LmaRole
 
     Lma role
 
@@ -162,18 +161,12 @@ class LmaRoleEnum(Enum):
 
     """
 
-    Y_3gma = 0
+    Y_3gma = Enum.YLeaf(0, "3gma")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['LmaRoleEnum']
-
-
-class LmaServiceEnum(Enum):
+class LmaService(Enum):
     """
-    LmaServiceEnum
+    LmaService
 
     Lma service
 
@@ -183,18 +176,50 @@ class LmaServiceEnum(Enum):
 
     """
 
-    service_mll = 1
+    service_mll = Enum.YLeaf(1, "service-mll")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['LmaServiceEnum']
-
-
-class ServiceTypeEnum(Enum):
+class RedistSubType(Enum):
     """
-    ServiceTypeEnum
+    RedistSubType
+
+    Redist sub type
+
+    .. data:: host_prefix = 1
+
+    	Redistribute HoA/HNP host prefix routes
+
+    .. data:: disable = 2
+
+    	Disable redistribution of HoA/HNP host and pool
+
+    	refix routes
+
+    """
+
+    host_prefix = Enum.YLeaf(1, "host-prefix")
+
+    disable = Enum.YLeaf(2, "disable")
+
+
+class RedistType(Enum):
+    """
+    RedistType
+
+    Redist type
+
+    .. data:: home_address = 1
+
+    	Redistribute HoA/HNP routes
+
+    """
+
+    home_address = Enum.YLeaf(1, "home-address")
+
+
+class ServiceType(Enum):
+    """
+    ServiceType
 
     Service type
 
@@ -212,21 +237,15 @@ class ServiceTypeEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
-    dual = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['ServiceTypeEnum']
+    dual = Enum.YLeaf(3, "dual")
 
 
 
-class MobileIp(object):
+class MobileIp(Entity):
     """
     MobileIP configuration
     
@@ -248,13 +267,24 @@ class MobileIp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(MobileIp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "mobile-ip"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-mobileip-cfg"
+
         self.domains = MobileIp.Domains()
         self.domains.parent = self
+        self._children_name_map["domains"] = "domains"
+        self._children_yang_names.add("domains")
+
         self.lmas = MobileIp.Lmas()
         self.lmas.parent = self
+        self._children_name_map["lmas"] = "lmas"
+        self._children_yang_names.add("lmas")
 
 
-    class Domains(object):
+    class Domains(Entity):
         """
         Table of Domain
         
@@ -271,13 +301,39 @@ class MobileIp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.domain = YList()
-            self.domain.parent = self
-            self.domain.name = 'domain'
+            super(MobileIp.Domains, self).__init__()
+
+            self.yang_name = "domains"
+            self.yang_parent_name = "mobile-ip"
+
+            self.domain = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MobileIp.Domains, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MobileIp.Domains, self).__setattr__(name, value)
 
 
-        class Domain(object):
+        class Domain(Entity):
             """
             PMIPv6 domain configuration
             
@@ -321,20 +377,62 @@ class MobileIp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.domain_name = None
+                super(MobileIp.Domains.Domain, self).__init__()
+
+                self.yang_name = "domain"
+                self.yang_parent_name = "domains"
+
+                self.domain_name = YLeaf(YType.str, "domain-name")
+
+                self.enable = YLeaf(YType.empty, "enable")
+
                 self.authenticate_option = MobileIp.Domains.Domain.AuthenticateOption()
                 self.authenticate_option.parent = self
-                self.enable = None
+                self._children_name_map["authenticate_option"] = "authenticate-option"
+                self._children_yang_names.add("authenticate-option")
+
                 self.lmas = MobileIp.Domains.Domain.Lmas()
                 self.lmas.parent = self
+                self._children_name_map["lmas"] = "lmas"
+                self._children_yang_names.add("lmas")
+
                 self.mags = MobileIp.Domains.Domain.Mags()
                 self.mags.parent = self
+                self._children_name_map["mags"] = "mags"
+                self._children_yang_names.add("mags")
+
                 self.nais = MobileIp.Domains.Domain.Nais()
                 self.nais.parent = self
+                self._children_name_map["nais"] = "nais"
+                self._children_yang_names.add("nais")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("domain_name",
+                                "enable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MobileIp.Domains.Domain, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MobileIp.Domains.Domain, self).__setattr__(name, value)
 
 
-            class Mags(object):
+            class Mags(Entity):
                 """
                 Table of MAG
                 
@@ -351,13 +449,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mag = YList()
-                    self.mag.parent = self
-                    self.mag.name = 'mag'
+                    super(MobileIp.Domains.Domain.Mags, self).__init__()
+
+                    self.yang_name = "mags"
+                    self.yang_parent_name = "domain"
+
+                    self.mag = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Domains.Domain.Mags, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Domains.Domain.Mags, self).__setattr__(name, value)
 
 
-                class Mag(object):
+                class Mag(Entity):
                     """
                     MAG within domain
                     
@@ -376,59 +500,142 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.mag_name = None
+                        super(MobileIp.Domains.Domain.Mags.Mag, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.mag_name is None:
-                            raise YPYModelError('Key property mag_name is None')
+                        self.yang_name = "mag"
+                        self.yang_parent_name = "mags"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mag[Cisco-IOS-XR-ip-mobileip-cfg:mag-name = ' + str(self.mag_name) + ']'
+                        self.mag_name = YLeaf(YType.str, "mag-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("mag_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Domains.Domain.Mags.Mag, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Domains.Domain.Mags.Mag, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.mag_name is not None:
+                    def has_data(self):
+                        return self.mag_name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.mag_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "mag" + "[mag-name='" + self.mag_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.mag_name.is_set or self.mag_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mag_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "mag-name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Domains.Domain.Mags.Mag']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "mag-name"):
+                            self.mag_name = value
+                            self.mag_name.value_namespace = name_space
+                            self.mag_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mags'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.mag is not None:
-                        for child_ref in self.mag:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.mag:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Domains.Domain.Mags']['meta_info']
+                def has_operation(self):
+                    for c in self.mag:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "mags" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "mag"):
+                        for c in self.mag:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Domains.Domain.Mags.Mag()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.mag.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mag"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Nais(object):
+            class Nais(Entity):
                 """
                 Table of NAI
                 
@@ -445,13 +652,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.nai = YList()
-                    self.nai.parent = self
-                    self.nai.name = 'nai'
+                    super(MobileIp.Domains.Domain.Nais, self).__init__()
+
+                    self.yang_name = "nais"
+                    self.yang_parent_name = "domain"
+
+                    self.nai = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Domains.Domain.Nais, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Domains.Domain.Nais, self).__setattr__(name, value)
 
 
-                class Nai(object):
+                class Nai(Entity):
                     """
                     Network access identifier or Realm
                     
@@ -493,7 +726,7 @@ class MobileIp(object):
                     .. attribute:: service
                     
                     	Service type for this MN
-                    	**type**\:   :py:class:`ServiceTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceTypeEnum>`
+                    	**type**\:   :py:class:`ServiceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceType>`
                     
                     
 
@@ -503,79 +736,198 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nai_name = None
-                        self.apn = None
-                        self.customer = None
-                        self.lma = None
-                        self.network = None
-                        self.service = None
+                        super(MobileIp.Domains.Domain.Nais.Nai, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.nai_name is None:
-                            raise YPYModelError('Key property nai_name is None')
+                        self.yang_name = "nai"
+                        self.yang_parent_name = "nais"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:nai[Cisco-IOS-XR-ip-mobileip-cfg:nai-name = ' + str(self.nai_name) + ']'
+                        self.nai_name = YLeaf(YType.str, "nai-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.apn = YLeaf(YType.str, "apn")
 
-                    def _has_data(self):
-                        if self.nai_name is not None:
+                        self.customer = YLeaf(YType.str, "customer")
+
+                        self.lma = YLeaf(YType.str, "lma")
+
+                        self.network = YLeaf(YType.str, "network")
+
+                        self.service = YLeaf(YType.enumeration, "service")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nai_name",
+                                        "apn",
+                                        "customer",
+                                        "lma",
+                                        "network",
+                                        "service") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Domains.Domain.Nais.Nai, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Domains.Domain.Nais.Nai, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nai_name.is_set or
+                            self.apn.is_set or
+                            self.customer.is_set or
+                            self.lma.is_set or
+                            self.network.is_set or
+                            self.service.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nai_name.yfilter != YFilter.not_set or
+                            self.apn.yfilter != YFilter.not_set or
+                            self.customer.yfilter != YFilter.not_set or
+                            self.lma.yfilter != YFilter.not_set or
+                            self.network.yfilter != YFilter.not_set or
+                            self.service.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "nai" + "[nai-name='" + self.nai_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nai_name.is_set or self.nai_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nai_name.get_name_leafdata())
+                        if (self.apn.is_set or self.apn.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.apn.get_name_leafdata())
+                        if (self.customer.is_set or self.customer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.customer.get_name_leafdata())
+                        if (self.lma.is_set or self.lma.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lma.get_name_leafdata())
+                        if (self.network.is_set or self.network.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.network.get_name_leafdata())
+                        if (self.service.is_set or self.service.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.service.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nai-name" or name == "apn" or name == "customer" or name == "lma" or name == "network" or name == "service"):
                             return True
-
-                        if self.apn is not None:
-                            return True
-
-                        if self.customer is not None:
-                            return True
-
-                        if self.lma is not None:
-                            return True
-
-                        if self.network is not None:
-                            return True
-
-                        if self.service is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Domains.Domain.Nais.Nai']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nai-name"):
+                            self.nai_name = value
+                            self.nai_name.value_namespace = name_space
+                            self.nai_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "apn"):
+                            self.apn = value
+                            self.apn.value_namespace = name_space
+                            self.apn.value_namespace_prefix = name_space_prefix
+                        if(value_path == "customer"):
+                            self.customer = value
+                            self.customer.value_namespace = name_space
+                            self.customer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "lma"):
+                            self.lma = value
+                            self.lma.value_namespace = name_space
+                            self.lma.value_namespace_prefix = name_space_prefix
+                        if(value_path == "network"):
+                            self.network = value
+                            self.network.value_namespace = name_space
+                            self.network.value_namespace_prefix = name_space_prefix
+                        if(value_path == "service"):
+                            self.service = value
+                            self.service.value_namespace = name_space
+                            self.service.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:nais'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.nai is not None:
-                        for child_ref in self.nai:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.nai:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Domains.Domain.Nais']['meta_info']
+                def has_operation(self):
+                    for c in self.nai:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "nais" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "nai"):
+                        for c in self.nai:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Domains.Domain.Nais.Nai()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.nai.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "nai"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class AuthenticateOption(object):
+            class AuthenticateOption(Entity):
                 """
                 Authentication option between PMIPV6 entities
                 
@@ -601,37 +953,97 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.key = None
-                    self.spi = None
+                    super(MobileIp.Domains.Domain.AuthenticateOption, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "authenticate-option"
+                    self.yang_parent_name = "domain"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:authenticate-option'
+                    self.key = YLeaf(YType.str, "key")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.spi = YLeaf(YType.str, "spi")
 
-                def _has_data(self):
-                    if self.key is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("key",
+                                    "spi") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Domains.Domain.AuthenticateOption, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Domains.Domain.AuthenticateOption, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.key.is_set or
+                        self.spi.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.key.yfilter != YFilter.not_set or
+                        self.spi.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "authenticate-option" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.key.is_set or self.key.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.key.get_name_leafdata())
+                    if (self.spi.is_set or self.spi.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.spi.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "key" or name == "spi"):
                         return True
-
-                    if self.spi is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Domains.Domain.AuthenticateOption']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "key"):
+                        self.key = value
+                        self.key.value_namespace = name_space
+                        self.key.value_namespace_prefix = name_space_prefix
+                    if(value_path == "spi"):
+                        self.spi = value
+                        self.spi.value_namespace = name_space
+                        self.spi.value_namespace_prefix = name_space_prefix
 
 
-            class Lmas(object):
+            class Lmas(Entity):
                 """
                 Table of LMA
                 
@@ -648,13 +1060,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.lma = YList()
-                    self.lma.parent = self
-                    self.lma.name = 'lma'
+                    super(MobileIp.Domains.Domain.Lmas, self).__init__()
+
+                    self.yang_name = "lmas"
+                    self.yang_parent_name = "domain"
+
+                    self.lma = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Domains.Domain.Lmas, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Domains.Domain.Lmas, self).__setattr__(name, value)
 
 
-                class Lma(object):
+                class Lma(Entity):
                     """
                     LMA within domain
                     
@@ -673,118 +1111,290 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.lma_name = None
+                        super(MobileIp.Domains.Domain.Lmas.Lma, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.lma_name is None:
-                            raise YPYModelError('Key property lma_name is None')
+                        self.yang_name = "lma"
+                        self.yang_parent_name = "lmas"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lma[Cisco-IOS-XR-ip-mobileip-cfg:lma-name = ' + str(self.lma_name) + ']'
+                        self.lma_name = YLeaf(YType.str, "lma-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("lma_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Domains.Domain.Lmas.Lma, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Domains.Domain.Lmas.Lma, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.lma_name is not None:
+                    def has_data(self):
+                        return self.lma_name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.lma_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "lma" + "[lma-name='" + self.lma_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.lma_name.is_set or self.lma_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lma_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "lma-name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Domains.Domain.Lmas.Lma']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "lma-name"):
+                            self.lma_name = value
+                            self.lma_name.value_namespace = name_space
+                            self.lma_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lmas'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.lma is not None:
-                        for child_ref in self.lma:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.lma:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Domains.Domain.Lmas']['meta_info']
+                def has_operation(self):
+                    for c in self.lma:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.domain_name is None:
-                    raise YPYModelError('Key property domain_name is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "lmas" + path_buffer
 
-                return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:domains/Cisco-IOS-XR-ip-mobileip-cfg:domain[Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.domain_name is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "lma"):
+                        for c in self.lma:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Domains.Domain.Lmas.Lma()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.lma.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "lma"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.domain_name.is_set or
+                    self.enable.is_set or
+                    (self.authenticate_option is not None and self.authenticate_option.has_data()) or
+                    (self.lmas is not None and self.lmas.has_data()) or
+                    (self.mags is not None and self.mags.has_data()) or
+                    (self.nais is not None and self.nais.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.domain_name.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    (self.authenticate_option is not None and self.authenticate_option.has_operation()) or
+                    (self.lmas is not None and self.lmas.has_operation()) or
+                    (self.mags is not None and self.mags.has_operation()) or
+                    (self.nais is not None and self.nais.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "domain" + "[domain-name='" + self.domain_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.domain_name.is_set or self.domain_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.domain_name.get_name_leafdata())
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "authenticate-option"):
+                    if (self.authenticate_option is None):
+                        self.authenticate_option = MobileIp.Domains.Domain.AuthenticateOption()
+                        self.authenticate_option.parent = self
+                        self._children_name_map["authenticate_option"] = "authenticate-option"
+                    return self.authenticate_option
+
+                if (child_yang_name == "lmas"):
+                    if (self.lmas is None):
+                        self.lmas = MobileIp.Domains.Domain.Lmas()
+                        self.lmas.parent = self
+                        self._children_name_map["lmas"] = "lmas"
+                    return self.lmas
+
+                if (child_yang_name == "mags"):
+                    if (self.mags is None):
+                        self.mags = MobileIp.Domains.Domain.Mags()
+                        self.mags.parent = self
+                        self._children_name_map["mags"] = "mags"
+                    return self.mags
+
+                if (child_yang_name == "nais"):
+                    if (self.nais is None):
+                        self.nais = MobileIp.Domains.Domain.Nais()
+                        self.nais.parent = self
+                        self._children_name_map["nais"] = "nais"
+                    return self.nais
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "authenticate-option" or name == "lmas" or name == "mags" or name == "nais" or name == "domain-name" or name == "enable"):
                     return True
-
-                if self.authenticate_option is not None and self.authenticate_option._has_data():
-                    return True
-
-                if self.enable is not None:
-                    return True
-
-                if self.lmas is not None and self.lmas._has_data():
-                    return True
-
-                if self.mags is not None and self.mags._has_data():
-                    return True
-
-                if self.nais is not None and self.nais._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                return meta._meta_table['MobileIp.Domains.Domain']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "domain-name"):
+                    self.domain_name = value
+                    self.domain_name.value_namespace = name_space
+                    self.domain_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:domains'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.domain is not None:
-                for child_ref in self.domain:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.domain:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-            return meta._meta_table['MobileIp.Domains']['meta_info']
+        def has_operation(self):
+            for c in self.domain:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "domains" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "domain"):
+                for c in self.domain:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MobileIp.Domains.Domain()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.domain.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "domain"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Lmas(object):
+    class Lmas(Entity):
         """
         Table of LMA
         
@@ -801,13 +1411,39 @@ class MobileIp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.lma = YList()
-            self.lma.parent = self
-            self.lma.name = 'lma'
+            super(MobileIp.Lmas, self).__init__()
+
+            self.yang_name = "lmas"
+            self.yang_parent_name = "mobile-ip"
+
+            self.lma = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MobileIp.Lmas, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MobileIp.Lmas, self).__setattr__(name, value)
 
 
-        class Lma(object):
+        class Lma(Entity):
             """
             PMIPv6 LMA configuration
             
@@ -827,7 +1463,7 @@ class MobileIp(object):
             
             .. attribute:: aaa
             
-            	aaa config attributes for this LMA
+            	AAA configuration for this LMA
             	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Aaa>`
             
             .. attribute:: ani
@@ -971,54 +1607,152 @@ class MobileIp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.lma_name = None
-                self.domain_name = None
+                super(MobileIp.Lmas.Lma, self).__init__()
+
+                self.yang_name = "lma"
+                self.yang_parent_name = "lmas"
+
+                self.lma_name = YLeaf(YType.str, "lma-name")
+
+                self.domain_name = YLeaf(YType.str, "domain-name")
+
+                self.ani = YLeaf(YType.empty, "ani")
+
+                self.default_profile = YLeaf(YType.str, "default-profile")
+
+                self.dynamic = YLeaf(YType.empty, "dynamic")
+
+                self.enforce = YLeaf(YType.empty, "enforce")
+
+                self.generate = YLeaf(YType.empty, "generate")
+
+                self.interface = YLeaf(YType.str, "interface")
+
+                self.mobile_map = YLeaf(YType.str, "mobile-map")
+
+                self.mobile_route_ad = YLeaf(YType.uint32, "mobile-route-ad")
+
+                self.multipath = YLeaf(YType.empty, "multipath")
+
+                self.pgw_subs_cont = YLeaf(YType.empty, "pgw-subs-cont")
+
                 self.aaa = MobileIp.Lmas.Lma.Aaa()
                 self.aaa.parent = self
-                self.ani = None
+                self._children_name_map["aaa"] = "aaa"
+                self._children_yang_names.add("aaa")
+
                 self.binding_attributes = MobileIp.Lmas.Lma.BindingAttributes()
                 self.binding_attributes.parent = self
+                self._children_name_map["binding_attributes"] = "binding-attributes"
+                self._children_yang_names.add("binding-attributes")
+
                 self.binding_revocation_attributes = MobileIp.Lmas.Lma.BindingRevocationAttributes()
                 self.binding_revocation_attributes.parent = self
-                self.default_profile = None
+                self._children_name_map["binding_revocation_attributes"] = "binding-revocation-attributes"
+                self._children_yang_names.add("binding-revocation-attributes")
+
                 self.dscp = MobileIp.Lmas.Lma.Dscp()
                 self.dscp.parent = self
-                self.dynamic = None
-                self.enforce = None
-                self.generate = None
+                self._children_name_map["dscp"] = "dscp"
+                self._children_yang_names.add("dscp")
+
                 self.heart_beat_attributes = MobileIp.Lmas.Lma.HeartBeatAttributes()
                 self.heart_beat_attributes.parent = self
+                self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
+                self._children_yang_names.add("heart-beat-attributes")
+
                 self.hnp = MobileIp.Lmas.Lma.Hnp()
                 self.hnp.parent = self
-                self.interface = None
+                self._children_name_map["hnp"] = "hnp"
+                self._children_yang_names.add("hnp")
+
                 self.lmaipv4_addresses = MobileIp.Lmas.Lma.Lmaipv4Addresses()
                 self.lmaipv4_addresses.parent = self
+                self._children_name_map["lmaipv4_addresses"] = "lmaipv4-addresses"
+                self._children_yang_names.add("lmaipv4-addresses")
+
                 self.lmaipv6_addresses = MobileIp.Lmas.Lma.Lmaipv6Addresses()
                 self.lmaipv6_addresses.parent = self
+                self._children_name_map["lmaipv6_addresses"] = "lmaipv6-addresses"
+                self._children_yang_names.add("lmaipv6-addresses")
+
                 self.mags = MobileIp.Lmas.Lma.Mags()
                 self.mags.parent = self
-                self.mobile_map = None
-                self.mobile_route_ad = None
-                self.multipath = None
+                self._children_name_map["mags"] = "mags"
+                self._children_yang_names.add("mags")
+
                 self.networks = MobileIp.Lmas.Lma.Networks()
                 self.networks.parent = self
-                self.pgw_subs_cont = None
+                self._children_name_map["networks"] = "networks"
+                self._children_yang_names.add("networks")
+
                 self.rat_attributes = MobileIp.Lmas.Lma.RatAttributes()
                 self.rat_attributes.parent = self
+                self._children_name_map["rat_attributes"] = "rat-attributes"
+                self._children_yang_names.add("rat-attributes")
+
                 self.redistribute = MobileIp.Lmas.Lma.Redistribute()
                 self.redistribute.parent = self
+                self._children_name_map["redistribute"] = "redistribute"
+                self._children_yang_names.add("redistribute")
+
                 self.replay_protection = MobileIp.Lmas.Lma.ReplayProtection()
                 self.replay_protection.parent = self
+                self._children_name_map["replay_protection"] = "replay-protection"
+                self._children_yang_names.add("replay-protection")
+
                 self.roles = MobileIp.Lmas.Lma.Roles()
                 self.roles.parent = self
+                self._children_name_map["roles"] = "roles"
+                self._children_yang_names.add("roles")
+
                 self.services = MobileIp.Lmas.Lma.Services()
                 self.services.parent = self
+                self._children_name_map["services"] = "services"
+                self._children_yang_names.add("services")
+
                 self.tunnel_attributes = MobileIp.Lmas.Lma.TunnelAttributes()
                 self.tunnel_attributes.parent = self
+                self._children_name_map["tunnel_attributes"] = "tunnel-attributes"
+                self._children_yang_names.add("tunnel-attributes")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("lma_name",
+                                "domain_name",
+                                "ani",
+                                "default_profile",
+                                "dynamic",
+                                "enforce",
+                                "generate",
+                                "interface",
+                                "mobile_map",
+                                "mobile_route_ad",
+                                "multipath",
+                                "pgw_subs_cont") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MobileIp.Lmas.Lma, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MobileIp.Lmas.Lma, self).__setattr__(name, value)
 
 
-            class BindingRevocationAttributes(object):
+            class BindingRevocationAttributes(Entity):
                 """
                 LMA Binding Revocation Attributes
                 
@@ -1042,27 +1776,58 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__init__()
+
+                    self.yang_name = "binding-revocation-attributes"
+                    self.yang_parent_name = "lma"
+
+                    self.retry = YLeaf(YType.uint32, "retry")
+
                     self.delay = MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay()
                     self.delay.parent = self
-                    self.retry = None
+                    self._children_name_map["delay"] = "delay"
+                    self._children_yang_names.add("delay")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("retry") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__setattr__(name, value)
 
 
-                class Delay(object):
+                class Delay(Entity):
                     """
                     Time to wait before Retransmitting BRI
                     Message
                     
-                    .. attribute:: maximum
+                    .. attribute:: br_max
                     
-                    	Maximum time delay to send BRI
+                    	Specify in millisec
                     	**type**\:  int
                     
                     	**range:** 500..65535
                     
-                    .. attribute:: minimum
+                    .. attribute:: br_min
                     
-                    	Minimum time delay to send BRI
+                    	Specify in millisec
                     	**type**\:  int
                     
                     	**range:** 500..65535
@@ -1075,69 +1840,160 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.maximum = None
-                        self.minimum = None
+                        super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "delay"
+                        self.yang_parent_name = "binding-revocation-attributes"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:delay'
+                        self.br_max = YLeaf(YType.uint32, "br-max")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.br_min = YLeaf(YType.uint32, "br-min")
 
-                    def _has_data(self):
-                        if self.maximum is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("br_max",
+                                        "br_min") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.br_max.is_set or
+                            self.br_min.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.br_max.yfilter != YFilter.not_set or
+                            self.br_min.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "delay" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.br_max.is_set or self.br_max.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.br_max.get_name_leafdata())
+                        if (self.br_min.is_set or self.br_min.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.br_min.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "br-max" or name == "br-min"):
                             return True
-
-                        if self.minimum is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "br-max"):
+                            self.br_max = value
+                            self.br_max.value_namespace = name_space
+                            self.br_max.value_namespace_prefix = name_space_prefix
+                        if(value_path == "br-min"):
+                            self.br_min = value
+                            self.br_min.value_namespace = name_space
+                            self.br_min.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.retry.is_set or
+                        (self.delay is not None and self.delay.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:binding-revocation-attributes'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.retry.yfilter != YFilter.not_set or
+                        (self.delay is not None and self.delay.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "binding-revocation-attributes" + path_buffer
 
-                def _has_data(self):
-                    if self.delay is not None and self.delay._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.retry.is_set or self.retry.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.retry.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "delay"):
+                        if (self.delay is None):
+                            self.delay = MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay()
+                            self.delay.parent = self
+                            self._children_name_map["delay"] = "delay"
+                        return self.delay
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "delay" or name == "retry"):
                         return True
-
-                    if self.retry is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.BindingRevocationAttributes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "retry"):
+                        self.retry = value
+                        self.retry.value_namespace = name_space
+                        self.retry.value_namespace_prefix = name_space_prefix
 
 
-            class RatAttributes(object):
+            class RatAttributes(Entity):
                 """
                 Radio access technology type config  this LMA
                 
                 .. attribute:: lma_rat
                 
                 	LMA rat type
-                	**type**\:   :py:class:`LmaRatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRatEnum>`
+                	**type**\:   :py:class:`LmaRat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRat>`
                 
                 .. attribute:: priority_value
                 
@@ -1154,37 +2010,97 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.lma_rat = None
-                    self.priority_value = None
+                    super(MobileIp.Lmas.Lma.RatAttributes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "rat-attributes"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:rat-attributes'
+                    self.lma_rat = YLeaf(YType.enumeration, "lma-rat")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.priority_value = YLeaf(YType.uint32, "priority-value")
 
-                def _has_data(self):
-                    if self.lma_rat is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("lma_rat",
+                                    "priority_value") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.RatAttributes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.RatAttributes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.lma_rat.is_set or
+                        self.priority_value.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.lma_rat.yfilter != YFilter.not_set or
+                        self.priority_value.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rat-attributes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.lma_rat.is_set or self.lma_rat.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.lma_rat.get_name_leafdata())
+                    if (self.priority_value.is_set or self.priority_value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.priority_value.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "lma-rat" or name == "priority-value"):
                         return True
-
-                    if self.priority_value is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.RatAttributes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "lma-rat"):
+                        self.lma_rat = value
+                        self.lma_rat.value_namespace = name_space
+                        self.lma_rat.value_namespace_prefix = name_space_prefix
+                    if(value_path == "priority-value"):
+                        self.priority_value = value
+                        self.priority_value.value_namespace = name_space
+                        self.priority_value.value_namespace_prefix = name_space_prefix
 
 
-            class HeartBeatAttributes(object):
+            class HeartBeatAttributes(Entity):
                 """
                 heartbeat config for this LMA
                 
@@ -1217,41 +2133,108 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interval = None
-                    self.retries = None
-                    self.timeout = None
+                    super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "heart-beat-attributes"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:heart-beat-attributes'
+                    self.interval = YLeaf(YType.uint32, "interval")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.retries = YLeaf(YType.uint32, "retries")
 
-                def _has_data(self):
-                    if self.interval is not None:
+                    self.timeout = YLeaf(YType.uint32, "timeout")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interval",
+                                    "retries",
+                                    "timeout") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.interval.is_set or
+                        self.retries.is_set or
+                        self.timeout.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interval.yfilter != YFilter.not_set or
+                        self.retries.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "heart-beat-attributes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interval.get_name_leafdata())
+                    if (self.retries.is_set or self.retries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.retries.get_name_leafdata())
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interval" or name == "retries" or name == "timeout"):
                         return True
-
-                    if self.retries is not None:
-                        return True
-
-                    if self.timeout is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.HeartBeatAttributes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interval"):
+                        self.interval = value
+                        self.interval.value_namespace = name_space
+                        self.interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "retries"):
+                        self.retries = value
+                        self.retries.value_namespace = name_space
+                        self.retries.value_namespace_prefix = name_space_prefix
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
 
 
-            class Lmaipv6Addresses(object):
+            class Lmaipv6Addresses(Entity):
                 """
                 Table of LMAIPv6Address
                 
@@ -1268,13 +2251,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.lmaipv6_address = YList()
-                    self.lmaipv6_address.parent = self
-                    self.lmaipv6_address.name = 'lmaipv6_address'
+                    super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__init__()
+
+                    self.yang_name = "lmaipv6-addresses"
+                    self.yang_parent_name = "lma"
+
+                    self.lmaipv6_address = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__setattr__(name, value)
 
 
-                class Lmaipv6Address(object):
+                class Lmaipv6Address(Entity):
                     """
                     Configure IPv6 address for this LMA
                     
@@ -1293,59 +2302,142 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.address = None
+                        super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.address is None:
-                            raise YPYModelError('Key property address is None')
+                        self.yang_name = "lmaipv6-address"
+                        self.yang_parent_name = "lmaipv6-addresses"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lmaipv6-address[Cisco-IOS-XR-ip-mobileip-cfg:address = ' + str(self.address) + ']'
+                        self.address = YLeaf(YType.str, "address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("address") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.address is not None:
+                    def has_data(self):
+                        return self.address.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.address.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "lmaipv6-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.address.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "address"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "address"):
+                            self.address = value
+                            self.address.value_namespace = name_space
+                            self.address.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lmaipv6-addresses'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.lmaipv6_address is not None:
-                        for child_ref in self.lmaipv6_address:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.lmaipv6_address:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv6Addresses']['meta_info']
+                def has_operation(self):
+                    for c in self.lmaipv6_address:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "lmaipv6-addresses" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "lmaipv6-address"):
+                        for c in self.lmaipv6_address:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.lmaipv6_address.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "lmaipv6-address"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Hnp(object):
+            class Hnp(Entity):
                 """
                 LMA HNP options
                 
@@ -1364,49 +2456,97 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.maximum = None
+                    super(MobileIp.Lmas.Lma.Hnp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "hnp"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:hnp'
+                    self.maximum = YLeaf(YType.uint32, "maximum")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("maximum") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Hnp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Hnp, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.maximum is not None:
+                def has_data(self):
+                    return self.maximum.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.maximum.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "hnp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.maximum.is_set or self.maximum.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.maximum.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "maximum"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Hnp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "maximum"):
+                        self.maximum = value
+                        self.maximum.value_namespace = name_space
+                        self.maximum.value_namespace_prefix = name_space_prefix
 
 
-            class Redistribute(object):
+            class Redistribute(Entity):
                 """
                 Redistribute routes
                 
                 .. attribute:: redist_sub_type
                 
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
+                	Redistribute sub\-type
+                	**type**\:   :py:class:`RedistSubType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistSubType>`
                 
                 .. attribute:: redist_type
                 
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
+                	Redistribute type
+                	**type**\:   :py:class:`RedistType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.RedistType>`
                 
                 
 
@@ -1416,46 +2556,296 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.redist_sub_type = None
-                    self.redist_type = None
+                    super(MobileIp.Lmas.Lma.Redistribute, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "redistribute"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:redistribute'
+                    self.redist_sub_type = YLeaf(YType.enumeration, "redist-sub-type")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.redist_type = YLeaf(YType.enumeration, "redist-type")
 
-                def _has_data(self):
-                    if self.redist_sub_type is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("redist_sub_type",
+                                    "redist_type") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Redistribute, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Redistribute, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.redist_sub_type.is_set or
+                        self.redist_type.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.redist_sub_type.yfilter != YFilter.not_set or
+                        self.redist_type.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "redistribute" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.redist_sub_type.is_set or self.redist_sub_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redist_sub_type.get_name_leafdata())
+                    if (self.redist_type.is_set or self.redist_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redist_type.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "redist-sub-type" or name == "redist-type"):
                         return True
-
-                    if self.redist_type is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Redistribute']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "redist-sub-type"):
+                        self.redist_sub_type = value
+                        self.redist_sub_type.value_namespace = name_space
+                        self.redist_sub_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redist-type"):
+                        self.redist_type = value
+                        self.redist_type.value_namespace = name_space
+                        self.redist_type.value_namespace_prefix = name_space_prefix
 
 
-            class Dscp(object):
+            class Aaa(Entity):
+                """
+                AAA configuration for this LMA
+                
+                .. attribute:: accounting
+                
+                	AAA accounting for this LMA
+                	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Aaa.Accounting>`
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.Aaa, self).__init__()
+
+                    self.yang_name = "aaa"
+                    self.yang_parent_name = "lma"
+
+                    self.accounting = MobileIp.Lmas.Lma.Aaa.Accounting()
+                    self.accounting.parent = self
+                    self._children_name_map["accounting"] = "accounting"
+                    self._children_yang_names.add("accounting")
+
+
+                class Accounting(Entity):
+                    """
+                    AAA accounting for this LMA
+                    
+                    .. attribute:: enable
+                    
+                    	Set constant integer
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interim_interval
+                    
+                    	Interim acounting interval (in minutes)
+                    	**type**\:  int
+                    
+                    	**range:** 1..86400
+                    
+                    	**units**\: minute
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-mobileip-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MobileIp.Lmas.Lma.Aaa.Accounting, self).__init__()
+
+                        self.yang_name = "accounting"
+                        self.yang_parent_name = "aaa"
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.interim_interval = YLeaf(YType.uint32, "interim-interval")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("enable",
+                                        "interim_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Aaa.Accounting, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Aaa.Accounting, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.enable.is_set or
+                            self.interim_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.enable.yfilter != YFilter.not_set or
+                            self.interim_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "accounting" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enable.get_name_leafdata())
+                        if (self.interim_interval.is_set or self.interim_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interim_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "enable" or name == "interim-interval"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "enable"):
+                            self.enable = value
+                            self.enable.value_namespace = name_space
+                            self.enable.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interim-interval"):
+                            self.interim_interval = value
+                            self.interim_interval.value_namespace = name_space
+                            self.interim_interval.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    return (self.accounting is not None and self.accounting.has_data())
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.accounting is not None and self.accounting.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "aaa" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "accounting"):
+                        if (self.accounting is None):
+                            self.accounting = MobileIp.Lmas.Lma.Aaa.Accounting()
+                            self.accounting.parent = self
+                            self._children_name_map["accounting"] = "accounting"
+                        return self.accounting
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "accounting"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+
+            class Dscp(Entity):
                 """
                 DSCP for packets originating from this LMA
                 
                 .. attribute:: force
                 
                 	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: value
                 
@@ -1472,37 +2862,97 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.force = None
-                    self.value = None
+                    super(MobileIp.Lmas.Lma.Dscp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "dscp"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:dscp'
+                    self.force = YLeaf(YType.empty, "force")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.value = YLeaf(YType.uint32, "value")
 
-                def _has_data(self):
-                    if self.force is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("force",
+                                    "value") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Dscp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Dscp, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.force.is_set or
+                        self.value.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.force.yfilter != YFilter.not_set or
+                        self.value.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "dscp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.force.get_name_leafdata())
+                    if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.value.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "force" or name == "value"):
                         return True
-
-                    if self.value is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Dscp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "force"):
+                        self.force = value
+                        self.force.value_namespace = name_space
+                        self.force.value_namespace_prefix = name_space_prefix
+                    if(value_path == "value"):
+                        self.value = value
+                        self.value.value_namespace = name_space
+                        self.value.value_namespace_prefix = name_space_prefix
 
 
-            class Lmaipv4Addresses(object):
+            class Lmaipv4Addresses(Entity):
                 """
                 Table of LMAIPv4Address
                 
@@ -1519,13 +2969,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.lmaipv4_address = YList()
-                    self.lmaipv4_address.parent = self
-                    self.lmaipv4_address.name = 'lmaipv4_address'
+                    super(MobileIp.Lmas.Lma.Lmaipv4Addresses, self).__init__()
+
+                    self.yang_name = "lmaipv4-addresses"
+                    self.yang_parent_name = "lma"
+
+                    self.lmaipv4_address = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Lmaipv4Addresses, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Lmaipv4Addresses, self).__setattr__(name, value)
 
 
-                class Lmaipv4Address(object):
+                class Lmaipv4Address(Entity):
                     """
                     Configure IPv4 address for this LMA
                     
@@ -1544,59 +3020,142 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.address = None
+                        super(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.address is None:
-                            raise YPYModelError('Key property address is None')
+                        self.yang_name = "lmaipv4-address"
+                        self.yang_parent_name = "lmaipv4-addresses"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lmaipv4-address[Cisco-IOS-XR-ip-mobileip-cfg:address = ' + str(self.address) + ']'
+                        self.address = YLeaf(YType.str, "address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("address") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.address is not None:
+                    def has_data(self):
+                        return self.address.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.address.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "lmaipv4-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.address.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "address"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "address"):
+                            self.address = value
+                            self.address.value_namespace = name_space
+                            self.address.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:lmaipv4-addresses'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.lmaipv4_address is not None:
-                        for child_ref in self.lmaipv4_address:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.lmaipv4_address:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv4Addresses']['meta_info']
+                def has_operation(self):
+                    for c in self.lmaipv4_address:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "lmaipv4-addresses" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "lmaipv4-address"):
+                        for c in self.lmaipv4_address:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.lmaipv4_address.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "lmaipv4-address"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Roles(object):
+            class Roles(Entity):
                 """
                 Table of Role
                 
@@ -1613,20 +3172,46 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.role = YList()
-                    self.role.parent = self
-                    self.role.name = 'role'
+                    super(MobileIp.Lmas.Lma.Roles, self).__init__()
+
+                    self.yang_name = "roles"
+                    self.yang_parent_name = "lma"
+
+                    self.role = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Roles, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Roles, self).__setattr__(name, value)
 
 
-                class Role(object):
+                class Role(Entity):
                     """
                     Role of this LMA
                     
                     .. attribute:: lma_role  <key>
                     
                     	LMA role mode
-                    	**type**\:   :py:class:`LmaRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRoleEnum>`
+                    	**type**\:   :py:class:`LmaRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRole>`
                     
                     
 
@@ -1636,59 +3221,142 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.lma_role = None
+                        super(MobileIp.Lmas.Lma.Roles.Role, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.lma_role is None:
-                            raise YPYModelError('Key property lma_role is None')
+                        self.yang_name = "role"
+                        self.yang_parent_name = "roles"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:role[Cisco-IOS-XR-ip-mobileip-cfg:lma-role = ' + str(self.lma_role) + ']'
+                        self.lma_role = YLeaf(YType.enumeration, "lma-role")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("lma_role") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Roles.Role, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Roles.Role, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.lma_role is not None:
+                    def has_data(self):
+                        return self.lma_role.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.lma_role.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "role" + "[lma-role='" + self.lma_role.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.lma_role.is_set or self.lma_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lma_role.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "lma-role"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Roles.Role']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "lma-role"):
+                            self.lma_role = value
+                            self.lma_role.value_namespace = name_space
+                            self.lma_role.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:roles'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.role is not None:
-                        for child_ref in self.role:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.role:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Roles']['meta_info']
+                def has_operation(self):
+                    for c in self.role:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "roles" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "role"):
+                        for c in self.role:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Roles.Role()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.role.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "role"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BindingAttributes(object):
+            class BindingAttributes(Entity):
                 """
                 LMA binding attributes
                 
@@ -1739,105 +3407,130 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.create_wait_interval = None
-                    self.delete_wait_interval = None
-                    self.max_life_time = None
-                    self.maximum = None
-                    self.refresh_time = None
+                    super(MobileIp.Lmas.Lma.BindingAttributes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "binding-attributes"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:binding-attributes'
+                    self.create_wait_interval = YLeaf(YType.uint32, "create-wait-interval")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.delete_wait_interval = YLeaf(YType.uint32, "delete-wait-interval")
 
-                def _has_data(self):
-                    if self.create_wait_interval is not None:
+                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
+
+                    self.maximum = YLeaf(YType.uint32, "maximum")
+
+                    self.refresh_time = YLeaf(YType.uint32, "refresh-time")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("create_wait_interval",
+                                    "delete_wait_interval",
+                                    "max_life_time",
+                                    "maximum",
+                                    "refresh_time") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.BindingAttributes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.BindingAttributes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.create_wait_interval.is_set or
+                        self.delete_wait_interval.is_set or
+                        self.max_life_time.is_set or
+                        self.maximum.is_set or
+                        self.refresh_time.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.create_wait_interval.yfilter != YFilter.not_set or
+                        self.delete_wait_interval.yfilter != YFilter.not_set or
+                        self.max_life_time.yfilter != YFilter.not_set or
+                        self.maximum.yfilter != YFilter.not_set or
+                        self.refresh_time.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "binding-attributes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.create_wait_interval.is_set or self.create_wait_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.create_wait_interval.get_name_leafdata())
+                    if (self.delete_wait_interval.is_set or self.delete_wait_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delete_wait_interval.get_name_leafdata())
+                    if (self.max_life_time.is_set or self.max_life_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.max_life_time.get_name_leafdata())
+                    if (self.maximum.is_set or self.maximum.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.maximum.get_name_leafdata())
+                    if (self.refresh_time.is_set or self.refresh_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.refresh_time.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "create-wait-interval" or name == "delete-wait-interval" or name == "max-life-time" or name == "maximum" or name == "refresh-time"):
                         return True
-
-                    if self.delete_wait_interval is not None:
-                        return True
-
-                    if self.max_life_time is not None:
-                        return True
-
-                    if self.maximum is not None:
-                        return True
-
-                    if self.refresh_time is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.BindingAttributes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "create-wait-interval"):
+                        self.create_wait_interval = value
+                        self.create_wait_interval.value_namespace = name_space
+                        self.create_wait_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delete-wait-interval"):
+                        self.delete_wait_interval = value
+                        self.delete_wait_interval.value_namespace = name_space
+                        self.delete_wait_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "max-life-time"):
+                        self.max_life_time = value
+                        self.max_life_time.value_namespace = name_space
+                        self.max_life_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "maximum"):
+                        self.maximum = value
+                        self.maximum.value_namespace = name_space
+                        self.maximum.value_namespace_prefix = name_space_prefix
+                    if(value_path == "refresh-time"):
+                        self.refresh_time = value
+                        self.refresh_time.value_namespace = name_space
+                        self.refresh_time.value_namespace_prefix = name_space_prefix
 
 
-            class Aaa(object):
-                """
-                aaa config attributes for this LMA
-                
-                .. attribute:: enable
-                
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: interim_interval
-                
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                
-
-                """
-
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.enable = None
-                    self.interim_interval = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:aaa'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.enable is not None:
-                        return True
-
-                    if self.interim_interval is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Aaa']['meta_info']
-
-
-            class Mags(object):
+            class Mags(Entity):
                 """
                 Table of MAG
                 
@@ -1854,13 +3547,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mag = YList()
-                    self.mag.parent = self
-                    self.mag.name = 'mag'
+                    super(MobileIp.Lmas.Lma.Mags, self).__init__()
+
+                    self.yang_name = "mags"
+                    self.yang_parent_name = "lma"
+
+                    self.mag = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Mags, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Mags, self).__setattr__(name, value)
 
 
-                class Mag(object):
+                class Mag(Entity):
                     """
                     MAG within LMA
                     
@@ -1891,7 +3610,7 @@ class MobileIp(object):
                     .. attribute:: encap_option
                     
                     	Encapsulation option between PMIPV6 entities
-                    	**type**\:   :py:class:`EncapOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.EncapOptEnum>`
+                    	**type**\:   :py:class:`EncapOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.EncapOpt>`
                     
                     .. attribute:: ipv4_address
                     
@@ -1922,20 +3641,64 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.mag_name = None
-                        self.domain_name = None
+                        super(MobileIp.Lmas.Lma.Mags.Mag, self).__init__()
+
+                        self.yang_name = "mag"
+                        self.yang_parent_name = "mags"
+
+                        self.mag_name = YLeaf(YType.str, "mag-name")
+
+                        self.domain_name = YLeaf(YType.str, "domain-name")
+
+                        self.encap_option = YLeaf(YType.enumeration, "encap-option")
+
+                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        self.tunnel = YLeaf(YType.str, "tunnel")
+
                         self.authenticate_option = MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption()
                         self.authenticate_option.parent = self
+                        self._children_name_map["authenticate_option"] = "authenticate-option"
+                        self._children_yang_names.add("authenticate-option")
+
                         self.dscp = MobileIp.Lmas.Lma.Mags.Mag.Dscp()
                         self.dscp.parent = self
-                        self.encap_option = None
-                        self.ipv4_address = None
-                        self.ipv6_address = None
-                        self.tunnel = None
+                        self._children_name_map["dscp"] = "dscp"
+                        self._children_yang_names.add("dscp")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("mag_name",
+                                        "domain_name",
+                                        "encap_option",
+                                        "ipv4_address",
+                                        "ipv6_address",
+                                        "tunnel") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Mags.Mag, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Mags.Mag, self).__setattr__(name, value)
 
 
-                    class AuthenticateOption(object):
+                    class AuthenticateOption(Entity):
                         """
                         Authentication option between PMIPV6
                         entities
@@ -1962,46 +3725,104 @@ class MobileIp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.key = None
-                            self.spi = None
+                            super(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "authenticate-option"
+                            self.yang_parent_name = "mag"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:authenticate-option'
+                            self.key = YLeaf(YType.str, "key")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.spi = YLeaf(YType.str, "spi")
 
-                        def _has_data(self):
-                            if self.key is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("key",
+                                            "spi") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.key.is_set or
+                                self.spi.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.key.yfilter != YFilter.not_set or
+                                self.spi.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "authenticate-option" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.key.is_set or self.key.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.key.get_name_leafdata())
+                            if (self.spi.is_set or self.spi.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "key" or name == "spi"):
                                 return True
-
-                            if self.spi is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                            return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "key"):
+                                self.key = value
+                                self.key.value_namespace = name_space
+                                self.key.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi"):
+                                self.spi = value
+                                self.spi.value_namespace = name_space
+                                self.spi.value_namespace_prefix = name_space_prefix
 
 
-                    class Dscp(object):
+                    class Dscp(Entity):
                         """
                         DSCP for packets originating from this MAG
                         
                         .. attribute:: force
                         
                         	Set constant integer
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: value
                         
@@ -2018,108 +3839,259 @@ class MobileIp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.force = None
-                            self.value = None
+                            super(MobileIp.Lmas.Lma.Mags.Mag.Dscp, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "dscp"
+                            self.yang_parent_name = "mag"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:dscp'
+                            self.force = YLeaf(YType.empty, "force")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.value = YLeaf(YType.uint32, "value")
 
-                        def _has_data(self):
-                            if self.force is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("force",
+                                            "value") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(MobileIp.Lmas.Lma.Mags.Mag.Dscp, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(MobileIp.Lmas.Lma.Mags.Mag.Dscp, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.force.is_set or
+                                self.value.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.force.yfilter != YFilter.not_set or
+                                self.value.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "dscp" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.force.get_name_leafdata())
+                            if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.value.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "force" or name == "value"):
                                 return True
-
-                            if self.value is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                            return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag.Dscp']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "force"):
+                                self.force = value
+                                self.force.value_namespace = name_space
+                                self.force.value_namespace_prefix = name_space_prefix
+                            if(value_path == "value"):
+                                self.value = value
+                                self.value.value_namespace = name_space
+                                self.value.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.mag_name is None:
-                            raise YPYModelError('Key property mag_name is None')
-                        if self.domain_name is None:
-                            raise YPYModelError('Key property domain_name is None')
+                    def has_data(self):
+                        return (
+                            self.mag_name.is_set or
+                            self.domain_name.is_set or
+                            self.encap_option.is_set or
+                            self.ipv4_address.is_set or
+                            self.ipv6_address.is_set or
+                            self.tunnel.is_set or
+                            (self.authenticate_option is not None and self.authenticate_option.has_data()) or
+                            (self.dscp is not None and self.dscp.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mag[Cisco-IOS-XR-ip-mobileip-cfg:mag-name = ' + str(self.mag_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.mag_name.yfilter != YFilter.not_set or
+                            self.domain_name.yfilter != YFilter.not_set or
+                            self.encap_option.yfilter != YFilter.not_set or
+                            self.ipv4_address.yfilter != YFilter.not_set or
+                            self.ipv6_address.yfilter != YFilter.not_set or
+                            self.tunnel.yfilter != YFilter.not_set or
+                            (self.authenticate_option is not None and self.authenticate_option.has_operation()) or
+                            (self.dscp is not None and self.dscp.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "mag" + "[mag-name='" + self.mag_name.get() + "']" + "[domain-name='" + self.domain_name.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.mag_name is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.mag_name.is_set or self.mag_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mag_name.get_name_leafdata())
+                        if (self.domain_name.is_set or self.domain_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.domain_name.get_name_leafdata())
+                        if (self.encap_option.is_set or self.encap_option.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encap_option.get_name_leafdata())
+                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                        if (self.tunnel.is_set or self.tunnel.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tunnel.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "authenticate-option"):
+                            if (self.authenticate_option is None):
+                                self.authenticate_option = MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption()
+                                self.authenticate_option.parent = self
+                                self._children_name_map["authenticate_option"] = "authenticate-option"
+                            return self.authenticate_option
+
+                        if (child_yang_name == "dscp"):
+                            if (self.dscp is None):
+                                self.dscp = MobileIp.Lmas.Lma.Mags.Mag.Dscp()
+                                self.dscp.parent = self
+                                self._children_name_map["dscp"] = "dscp"
+                            return self.dscp
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "authenticate-option" or name == "dscp" or name == "mag-name" or name == "domain-name" or name == "encap-option" or name == "ipv4-address" or name == "ipv6-address" or name == "tunnel"):
                             return True
-
-                        if self.domain_name is not None:
-                            return True
-
-                        if self.authenticate_option is not None and self.authenticate_option._has_data():
-                            return True
-
-                        if self.dscp is not None and self.dscp._has_data():
-                            return True
-
-                        if self.encap_option is not None:
-                            return True
-
-                        if self.ipv4_address is not None:
-                            return True
-
-                        if self.ipv6_address is not None:
-                            return True
-
-                        if self.tunnel is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "mag-name"):
+                            self.mag_name = value
+                            self.mag_name.value_namespace = name_space
+                            self.mag_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "domain-name"):
+                            self.domain_name = value
+                            self.domain_name.value_namespace = name_space
+                            self.domain_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encap-option"):
+                            self.encap_option = value
+                            self.encap_option.value_namespace = name_space
+                            self.encap_option.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-address"):
+                            self.ipv4_address = value
+                            self.ipv4_address.value_namespace = name_space
+                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-address"):
+                            self.ipv6_address = value
+                            self.ipv6_address.value_namespace = name_space
+                            self.ipv6_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tunnel"):
+                            self.tunnel = value
+                            self.tunnel.value_namespace = name_space
+                            self.tunnel.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mags'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.mag is not None:
-                        for child_ref in self.mag:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.mag:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Mags']['meta_info']
+                def has_operation(self):
+                    for c in self.mag:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "mags" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "mag"):
+                        for c in self.mag:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Mags.Mag()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.mag.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mag"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class TunnelAttributes(object):
+            class TunnelAttributes(Entity):
                 """
                 tunnel attributes
                 
@@ -2145,37 +4117,97 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.acl = None
-                    self.mtu = None
+                    super(MobileIp.Lmas.Lma.TunnelAttributes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "tunnel-attributes"
+                    self.yang_parent_name = "lma"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:tunnel-attributes'
+                    self.acl = YLeaf(YType.str, "acl")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.mtu = YLeaf(YType.uint32, "mtu")
 
-                def _has_data(self):
-                    if self.acl is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("acl",
+                                    "mtu") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.TunnelAttributes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.TunnelAttributes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.acl.is_set or
+                        self.mtu.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.acl.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "tunnel-attributes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.acl.is_set or self.acl.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.acl.get_name_leafdata())
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "acl" or name == "mtu"):
                         return True
-
-                    if self.mtu is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.TunnelAttributes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "acl"):
+                        self.acl = value
+                        self.acl.value_namespace = name_space
+                        self.acl.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
 
 
-            class Services(object):
+            class Services(Entity):
                 """
                 Table of Service
                 
@@ -2192,29 +4224,55 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.service = YList()
-                    self.service.parent = self
-                    self.service.name = 'service'
+                    super(MobileIp.Lmas.Lma.Services, self).__init__()
+
+                    self.yang_name = "services"
+                    self.yang_parent_name = "lma"
+
+                    self.service = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Services, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Services, self).__setattr__(name, value)
 
 
-                class Service(object):
+                class Service(Entity):
                     """
                     Service of this LMA
                     
                     .. attribute:: lma_service  <key>
                     
                     	LMA service mode
-                    	**type**\:   :py:class:`LmaServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaServiceEnum>`
+                    	**type**\:   :py:class:`LmaService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaService>`
                     
                     .. attribute:: customers
                     
                     	Table of Customer
                     	**type**\:   :py:class:`Customers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers>`
                     
-                    .. attribute:: ignore
+                    .. attribute:: ignore_home_address
                     
-                    	ignore options for mobile local loop service
+                    	Ignore HoA/HNP option
                     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: mnp_customer
@@ -2267,20 +4325,65 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.lma_service = None
+                        super(MobileIp.Lmas.Lma.Services.Service, self).__init__()
+
+                        self.yang_name = "service"
+                        self.yang_parent_name = "services"
+
+                        self.lma_service = YLeaf(YType.enumeration, "lma-service")
+
+                        self.ignore_home_address = YLeaf(YType.empty, "ignore-home-address")
+
+                        self.mnp_customer = YLeaf(YType.uint32, "mnp-customer")
+
+                        self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
+
+                        self.mnp_ipv4_lmn = YLeaf(YType.uint32, "mnp-ipv4-lmn")
+
+                        self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
+
+                        self.mnp_ipv6_lmn = YLeaf(YType.uint32, "mnp-ipv6-lmn")
+
+                        self.mnp_lmn = YLeaf(YType.uint32, "mnp-lmn")
+
                         self.customers = MobileIp.Lmas.Lma.Services.Service.Customers()
                         self.customers.parent = self
-                        self.ignore = None
-                        self.mnp_customer = None
-                        self.mnp_ipv4_customer = None
-                        self.mnp_ipv4_lmn = None
-                        self.mnp_ipv6_customer = None
-                        self.mnp_ipv6_lmn = None
-                        self.mnp_lmn = None
+                        self._children_name_map["customers"] = "customers"
+                        self._children_yang_names.add("customers")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("lma_service",
+                                        "ignore_home_address",
+                                        "mnp_customer",
+                                        "mnp_ipv4_customer",
+                                        "mnp_ipv4_lmn",
+                                        "mnp_ipv6_customer",
+                                        "mnp_ipv6_lmn",
+                                        "mnp_lmn") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Services.Service, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Services.Service, self).__setattr__(name, value)
 
 
-                    class Customers(object):
+                    class Customers(Entity):
                         """
                         Table of Customer
                         
@@ -2297,13 +4400,39 @@ class MobileIp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.customer = YList()
-                            self.customer.parent = self
-                            self.customer.name = 'customer'
+                            super(MobileIp.Lmas.Lma.Services.Service.Customers, self).__init__()
+
+                            self.yang_name = "customers"
+                            self.yang_parent_name = "service"
+
+                            self.customer = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers, self).__setattr__(name, value)
 
 
-                        class Customer(object):
+                        class Customer(Entity):
                             """
                             customer configuration on this mobile local
                             loop service
@@ -2313,14 +4442,14 @@ class MobileIp(object):
                             	Customer name
                             	**type**\:  str
                             
-                            	**length:** 1..125
+                            	**length:** 1..32
                             
                             .. attribute:: vrf_name  <key>
                             
                             	VRF name
                             	**type**\:  str
                             
-                            	**length:** 1..125
+                            	**length:** 1..32
                             
                             .. attribute:: authenticate_option
                             
@@ -2418,32 +4547,96 @@ class MobileIp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.customer_name = None
-                                self.vrf_name = None
+                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, self).__init__()
+
+                                self.yang_name = "customer"
+                                self.yang_parent_name = "customers"
+
+                                self.customer_name = YLeaf(YType.str, "customer-name")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.bandwidth_aggregate = YLeaf(YType.int32, "bandwidth-aggregate")
+
+                                self.mnp_customer = YLeaf(YType.uint32, "mnp-customer")
+
+                                self.mnp_ipv4_customer = YLeaf(YType.uint32, "mnp-ipv4-customer")
+
+                                self.mnp_ipv4_lmn = YLeaf(YType.uint32, "mnp-ipv4-lmn")
+
+                                self.mnp_ipv6_customer = YLeaf(YType.uint32, "mnp-ipv6-customer")
+
+                                self.mnp_ipv6_lmn = YLeaf(YType.uint32, "mnp-ipv6-lmn")
+
+                                self.mnp_lmn = YLeaf(YType.uint32, "mnp-lmn")
+
+                                self.mobile_route_ad = YLeaf(YType.uint32, "mobile-route-ad")
+
                                 self.authenticate_option = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption()
                                 self.authenticate_option.parent = self
-                                self.bandwidth_aggregate = None
+                                self._children_name_map["authenticate_option"] = "authenticate-option"
+                                self._children_yang_names.add("authenticate-option")
+
                                 self.binding_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes()
                                 self.binding_attributes.parent = self
+                                self._children_name_map["binding_attributes"] = "binding-attributes"
+                                self._children_yang_names.add("binding-attributes")
+
                                 self.gre_key = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey()
                                 self.gre_key.parent = self
+                                self._children_name_map["gre_key"] = "gre-key"
+                                self._children_yang_names.add("gre-key")
+
                                 self.heart_beat_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes()
                                 self.heart_beat_attributes.parent = self
-                                self.mnp_customer = None
-                                self.mnp_ipv4_customer = None
-                                self.mnp_ipv4_lmn = None
-                                self.mnp_ipv6_customer = None
-                                self.mnp_ipv6_lmn = None
-                                self.mnp_lmn = None
-                                self.mobile_route_ad = None
+                                self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
+                                self._children_yang_names.add("heart-beat-attributes")
+
                                 self.network_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes()
                                 self.network_attributes.parent = self
+                                self._children_name_map["network_attributes"] = "network-attributes"
+                                self._children_yang_names.add("network-attributes")
+
                                 self.transports = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports()
                                 self.transports.parent = self
+                                self._children_name_map["transports"] = "transports"
+                                self._children_yang_names.add("transports")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("customer_name",
+                                                "vrf_name",
+                                                "bandwidth_aggregate",
+                                                "mnp_customer",
+                                                "mnp_ipv4_customer",
+                                                "mnp_ipv4_lmn",
+                                                "mnp_ipv6_customer",
+                                                "mnp_ipv6_lmn",
+                                                "mnp_lmn",
+                                                "mobile_route_ad") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, self).__setattr__(name, value)
 
 
-                            class AuthenticateOption(object):
+                            class AuthenticateOption(Entity):
                                 """
                                 Authentication option between PMIPV6
                                 entities
@@ -2470,37 +4663,97 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.key = None
-                                    self.spi = None
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "authenticate-option"
+                                    self.yang_parent_name = "customer"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:authenticate-option'
+                                    self.key = YLeaf(YType.str, "key")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.spi = YLeaf(YType.str, "spi")
 
-                                def _has_data(self):
-                                    if self.key is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("key",
+                                                    "spi") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.key.is_set or
+                                        self.spi.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.key.yfilter != YFilter.not_set or
+                                        self.spi.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "authenticate-option" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.key.is_set or self.key.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.key.get_name_leafdata())
+                                    if (self.spi.is_set or self.spi.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.spi.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "key" or name == "spi"):
                                         return True
-
-                                    if self.spi is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "key"):
+                                        self.key = value
+                                        self.key.value_namespace = name_space
+                                        self.key.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "spi"):
+                                        self.spi = value
+                                        self.spi.value_namespace = name_space
+                                        self.spi.value_namespace_prefix = name_space_prefix
 
 
-                            class HeartBeatAttributes(object):
+                            class HeartBeatAttributes(Entity):
                                 """
                                 heartbeat config for this Customer
                                 
@@ -2533,41 +4786,108 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.interval = None
-                                    self.retries = None
-                                    self.timeout = None
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "heart-beat-attributes"
+                                    self.yang_parent_name = "customer"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:heart-beat-attributes'
+                                    self.interval = YLeaf(YType.uint32, "interval")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.retries = YLeaf(YType.uint32, "retries")
 
-                                def _has_data(self):
-                                    if self.interval is not None:
+                                    self.timeout = YLeaf(YType.uint32, "timeout")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("interval",
+                                                    "retries",
+                                                    "timeout") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.interval.is_set or
+                                        self.retries.is_set or
+                                        self.timeout.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.interval.yfilter != YFilter.not_set or
+                                        self.retries.yfilter != YFilter.not_set or
+                                        self.timeout.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "heart-beat-attributes" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interval.get_name_leafdata())
+                                    if (self.retries.is_set or self.retries.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.retries.get_name_leafdata())
+                                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "interval" or name == "retries" or name == "timeout"):
                                         return True
-
-                                    if self.retries is not None:
-                                        return True
-
-                                    if self.timeout is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "interval"):
+                                        self.interval = value
+                                        self.interval.value_namespace = name_space
+                                        self.interval.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "retries"):
+                                        self.retries = value
+                                        self.retries.value_namespace = name_space
+                                        self.retries.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "timeout"):
+                                        self.timeout = value
+                                        self.timeout.value_namespace = name_space
+                                        self.timeout.value_namespace_prefix = name_space_prefix
 
 
-                            class Transports(object):
+                            class Transports(Entity):
                                 """
                                 Table of Transport
                                 
@@ -2584,13 +4904,39 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.transport = YList()
-                                    self.transport.parent = self
-                                    self.transport.name = 'transport'
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__init__()
+
+                                    self.yang_name = "transports"
+                                    self.yang_parent_name = "customer"
+
+                                    self.transport = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__setattr__(name, value)
 
 
-                                class Transport(object):
+                                class Transport(Entity):
                                     """
                                     Customer transport attributes
                                     
@@ -2623,67 +4969,165 @@ class MobileIp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.vrf_name = None
-                                        self.ipv4_address = None
-                                        self.ipv6_address = None
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.vrf_name is None:
-                                            raise YPYModelError('Key property vrf_name is None')
+                                        self.yang_name = "transport"
+                                        self.yang_parent_name = "transports"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:transport[Cisco-IOS-XR-ip-mobileip-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                                    def _has_data(self):
-                                        if self.vrf_name is not None:
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("vrf_name",
+                                                        "ipv4_address",
+                                                        "ipv6_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.vrf_name.is_set or
+                                            self.ipv4_address.is_set or
+                                            self.ipv6_address.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.vrf_name.yfilter != YFilter.not_set or
+                                            self.ipv4_address.yfilter != YFilter.not_set or
+                                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "transport" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "vrf-name" or name == "ipv4-address" or name == "ipv6-address"):
                                             return True
-
-                                        if self.ipv4_address is not None:
-                                            return True
-
-                                        if self.ipv6_address is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "vrf-name"):
+                                            self.vrf_name = value
+                                            self.vrf_name.value_namespace = name_space
+                                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv4-address"):
+                                            self.ipv4_address = value
+                                            self.ipv4_address.value_namespace = name_space
+                                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv6-address"):
+                                            self.ipv6_address = value
+                                            self.ipv6_address.value_namespace = name_space
+                                            self.ipv6_address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:transports'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.transport is not None:
-                                        for child_ref in self.transport:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.transport:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports']['meta_info']
+                                def has_operation(self):
+                                    for c in self.transport:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "transports" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "transport"):
+                                        for c in self.transport:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.transport.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "transport"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class NetworkAttributes(object):
+                            class NetworkAttributes(Entity):
                                 """
                                 network parameters for the customer
                                 
@@ -2705,13 +5149,44 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, self).__init__()
+
+                                    self.yang_name = "network-attributes"
+                                    self.yang_parent_name = "customer"
+
+                                    self.unauthorize = YLeaf(YType.empty, "unauthorize")
+
                                     self.authorizes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes()
                                     self.authorizes.parent = self
-                                    self.unauthorize = None
+                                    self._children_name_map["authorizes"] = "authorizes"
+                                    self._children_yang_names.add("authorizes")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("unauthorize") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, self).__setattr__(name, value)
 
 
-                                class Authorizes(object):
+                                class Authorizes(Entity):
                                     """
                                     Table of Authorize
                                     
@@ -2728,13 +5203,39 @@ class MobileIp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.authorize = YList()
-                                        self.authorize.parent = self
-                                        self.authorize.name = 'authorize'
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, self).__init__()
+
+                                        self.yang_name = "authorizes"
+                                        self.yang_parent_name = "network-attributes"
+
+                                        self.authorize = YList(self)
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in () and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, self).__setattr__(name, value)
 
 
-                                    class Authorize(object):
+                                    class Authorize(Entity):
                                         """
                                         not authorize the network prefixes
                                         
@@ -2758,13 +5259,44 @@ class MobileIp(object):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            self.parent = None
-                                            self.name = None
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, self).__init__()
+
+                                            self.yang_name = "authorize"
+                                            self.yang_parent_name = "authorizes"
+
+                                            self.name = YLeaf(YType.str, "name")
+
                                             self.pool_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes()
                                             self.pool_attributes.parent = self
+                                            self._children_name_map["pool_attributes"] = "pool-attributes"
+                                            self._children_yang_names.add("pool-attributes")
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in ("name") and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, self).__setattr__(name, value)
 
 
-                                        class PoolAttributes(object):
+                                        class PoolAttributes(Entity):
                                             """
                                             Pool configs for this network
                                             
@@ -2786,14 +5318,23 @@ class MobileIp(object):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                self.parent = None
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, self).__init__()
+
+                                                self.yang_name = "pool-attributes"
+                                                self.yang_parent_name = "authorize"
+
                                                 self.mobile_network = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork()
                                                 self.mobile_network.parent = self
+                                                self._children_name_map["mobile_network"] = "mobile-network"
+                                                self._children_yang_names.add("mobile-network")
+
                                                 self.mobile_node = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode()
                                                 self.mobile_node.parent = self
+                                                self._children_name_map["mobile_node"] = "mobile-node"
+                                                self._children_yang_names.add("mobile-node")
 
 
-                                            class MobileNode(object):
+                                            class MobileNode(Entity):
                                                 """
                                                 pool configs for the mobile nodes
                                                 
@@ -2815,14 +5356,23 @@ class MobileIp(object):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    self.parent = None
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, self).__init__()
+
+                                                    self.yang_name = "mobile-node"
+                                                    self.yang_parent_name = "pool-attributes"
+
                                                     self.ipv4_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool()
                                                     self.ipv4_pool.parent = self
+                                                    self._children_name_map["ipv4_pool"] = "ipv4-pool"
+                                                    self._children_yang_names.add("ipv4-pool")
+
                                                     self.ipv6_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool()
                                                     self.ipv6_pool.parent = self
+                                                    self._children_name_map["ipv6_pool"] = "ipv6-pool"
+                                                    self._children_yang_names.add("ipv6-pool")
 
 
-                                                class Ipv4Pool(object):
+                                                class Ipv4Pool(Entity):
                                                     """
                                                     None
                                                     
@@ -2848,37 +5398,97 @@ class MobileIp(object):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        self.parent = None
-                                                        self.pool_prefix = None
-                                                        self.start_address = None
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
 
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        self.yang_name = "ipv4-pool"
+                                                        self.yang_parent_name = "mobile-node"
 
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:ipv4-pool'
+                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
 
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
+                                                        self.start_address = YLeaf(YType.str, "start-address")
 
-                                                    def _has_data(self):
-                                                        if self.pool_prefix is not None:
+                                                    def __setattr__(self, name, value):
+                                                        self._check_monkey_patching_error(name, value)
+                                                        with _handle_type_error():
+                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                    "Please use list append or extend method."
+                                                                                    .format(value))
+                                                            if isinstance(value, Enum.YLeaf):
+                                                                value = value.name
+                                                            if name in ("pool_prefix",
+                                                                        "start_address") and name in self.__dict__:
+                                                                if isinstance(value, YLeaf):
+                                                                    self.__dict__[name].set(value.get())
+                                                                elif isinstance(value, YLeafList):
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, self).__setattr__(name, value)
+                                                                else:
+                                                                    self.__dict__[name].set(value)
+                                                            else:
+                                                                if hasattr(value, "parent") and name != "parent":
+                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                        value.parent = self
+                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                        value.parent = self
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, self).__setattr__(name, value)
+
+                                                    def has_data(self):
+                                                        return (
+                                                            self.pool_prefix.is_set or
+                                                            self.start_address.is_set)
+
+                                                    def has_operation(self):
+                                                        return (
+                                                            self.yfilter != YFilter.not_set or
+                                                            self.pool_prefix.yfilter != YFilter.not_set or
+                                                            self.start_address.yfilter != YFilter.not_set)
+
+                                                    def get_segment_path(self):
+                                                        path_buffer = ""
+                                                        path_buffer = "ipv4-pool" + path_buffer
+
+                                                        return path_buffer
+
+                                                    def get_entity_path(self, ancestor):
+                                                        path_buffer = ""
+                                                        if (ancestor is None):
+                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                        else:
+                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                        leaf_name_data = LeafDataList()
+                                                        if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+                                                        if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.start_address.get_name_leafdata())
+
+                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                        return entity_path
+
+                                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                        if child is not None:
+                                                            return child
+
+                                                        return None
+
+                                                    def has_leaf_or_child_of_name(self, name):
+                                                        if(name == "pool-prefix" or name == "start-address"):
                                                             return True
-
-                                                        if self.start_address is not None:
-                                                            return True
-
                                                         return False
 
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool']['meta_info']
+                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                        if(value_path == "pool-prefix"):
+                                                            self.pool_prefix = value
+                                                            self.pool_prefix.value_namespace = name_space
+                                                            self.pool_prefix.value_namespace_prefix = name_space_prefix
+                                                        if(value_path == "start-address"):
+                                                            self.start_address = value
+                                                            self.start_address.value_namespace = name_space
+                                                            self.start_address.value_namespace_prefix = name_space_prefix
 
 
-                                                class Ipv6Pool(object):
+                                                class Ipv6Pool(Entity):
                                                     """
                                                     None
                                                     
@@ -2904,62 +5514,155 @@ class MobileIp(object):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        self.parent = None
-                                                        self.pool_prefix = None
-                                                        self.start_address = None
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
 
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        self.yang_name = "ipv6-pool"
+                                                        self.yang_parent_name = "mobile-node"
 
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:ipv6-pool'
+                                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
 
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
+                                                        self.start_address = YLeaf(YType.str, "start-address")
 
-                                                    def _has_data(self):
-                                                        if self.pool_prefix is not None:
+                                                    def __setattr__(self, name, value):
+                                                        self._check_monkey_patching_error(name, value)
+                                                        with _handle_type_error():
+                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                    "Please use list append or extend method."
+                                                                                    .format(value))
+                                                            if isinstance(value, Enum.YLeaf):
+                                                                value = value.name
+                                                            if name in ("pool_prefix",
+                                                                        "start_address") and name in self.__dict__:
+                                                                if isinstance(value, YLeaf):
+                                                                    self.__dict__[name].set(value.get())
+                                                                elif isinstance(value, YLeafList):
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, self).__setattr__(name, value)
+                                                                else:
+                                                                    self.__dict__[name].set(value)
+                                                            else:
+                                                                if hasattr(value, "parent") and name != "parent":
+                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                        value.parent = self
+                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                        value.parent = self
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, self).__setattr__(name, value)
+
+                                                    def has_data(self):
+                                                        return (
+                                                            self.pool_prefix.is_set or
+                                                            self.start_address.is_set)
+
+                                                    def has_operation(self):
+                                                        return (
+                                                            self.yfilter != YFilter.not_set or
+                                                            self.pool_prefix.yfilter != YFilter.not_set or
+                                                            self.start_address.yfilter != YFilter.not_set)
+
+                                                    def get_segment_path(self):
+                                                        path_buffer = ""
+                                                        path_buffer = "ipv6-pool" + path_buffer
+
+                                                        return path_buffer
+
+                                                    def get_entity_path(self, ancestor):
+                                                        path_buffer = ""
+                                                        if (ancestor is None):
+                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                        else:
+                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                        leaf_name_data = LeafDataList()
+                                                        if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+                                                        if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.start_address.get_name_leafdata())
+
+                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                        return entity_path
+
+                                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                        if child is not None:
+                                                            return child
+
+                                                        return None
+
+                                                    def has_leaf_or_child_of_name(self, name):
+                                                        if(name == "pool-prefix" or name == "start-address"):
                                                             return True
-
-                                                        if self.start_address is not None:
-                                                            return True
-
                                                         return False
 
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool']['meta_info']
+                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                        if(value_path == "pool-prefix"):
+                                                            self.pool_prefix = value
+                                                            self.pool_prefix.value_namespace = name_space
+                                                            self.pool_prefix.value_namespace_prefix = name_space_prefix
+                                                        if(value_path == "start-address"):
+                                                            self.start_address = value
+                                                            self.start_address.value_namespace = name_space
+                                                            self.start_address.value_namespace_prefix = name_space_prefix
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                def has_data(self):
+                                                    return (
+                                                        (self.ipv4_pool is not None and self.ipv4_pool.has_data()) or
+                                                        (self.ipv6_pool is not None and self.ipv6_pool.has_data()))
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mobile-node'
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        (self.ipv4_pool is not None and self.ipv4_pool.has_operation()) or
+                                                        (self.ipv6_pool is not None and self.ipv6_pool.has_operation()))
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "mobile-node" + path_buffer
 
-                                                def _has_data(self):
-                                                    if self.ipv4_pool is not None and self.ipv4_pool._has_data():
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    if (child_yang_name == "ipv4-pool"):
+                                                        if (self.ipv4_pool is None):
+                                                            self.ipv4_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool()
+                                                            self.ipv4_pool.parent = self
+                                                            self._children_name_map["ipv4_pool"] = "ipv4-pool"
+                                                        return self.ipv4_pool
+
+                                                    if (child_yang_name == "ipv6-pool"):
+                                                        if (self.ipv6_pool is None):
+                                                            self.ipv6_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool()
+                                                            self.ipv6_pool.parent = self
+                                                            self._children_name_map["ipv6_pool"] = "ipv6-pool"
+                                                        return self.ipv6_pool
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "ipv4-pool" or name == "ipv6-pool"):
                                                         return True
-
-                                                    if self.ipv6_pool is not None and self.ipv6_pool._has_data():
-                                                        return True
-
                                                     return False
 
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode']['meta_info']
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    pass
 
 
-                                            class MobileNetwork(object):
+                                            class MobileNetwork(Entity):
                                                 """
                                                 pool configs for the mobile network
                                                 
@@ -2981,130 +5684,23 @@ class MobileIp(object):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    self.parent = None
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, self).__init__()
+
+                                                    self.yang_name = "mobile-network"
+                                                    self.yang_parent_name = "pool-attributes"
+
                                                     self.mripv4_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools()
                                                     self.mripv4_pools.parent = self
+                                                    self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                                    self._children_yang_names.add("mripv4-pools")
+
                                                     self.mripv6_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools()
                                                     self.mripv6_pools.parent = self
+                                                    self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                                    self._children_yang_names.add("mripv6-pools")
 
 
-                                                class Mripv4Pools(object):
-                                                    """
-                                                    Table of MRIPV4Pool
-                                                    
-                                                    .. attribute:: mripv4_pool
-                                                    
-                                                    	ipv4 pool
-                                                    	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ip-mobileip-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.mripv4_pool = YList()
-                                                        self.mripv4_pool.parent = self
-                                                        self.mripv4_pool.name = 'mripv4_pool'
-
-
-                                                    class Mripv4Pool(object):
-                                                        """
-                                                        ipv4 pool
-                                                        
-                                                        .. attribute:: start_address  <key>
-                                                        
-                                                        	Pool IPv4 start address
-                                                        	**type**\:  str
-                                                        
-                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                                        
-                                                        .. attribute:: network_prefix
-                                                        
-                                                        	IPv4 Network Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..32
-                                                        
-                                                        .. attribute:: pool_prefix
-                                                        
-                                                        	IPv4 Pool Prefix value
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** 8..30
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'ip-mobileip-cfg'
-                                                        _revision = '2015-11-09'
-
-                                                        def __init__(self):
-                                                            self.parent = None
-                                                            self.start_address = None
-                                                            self.network_prefix = None
-                                                            self.pool_prefix = None
-
-                                                        @property
-                                                        def _common_path(self):
-                                                            if self.parent is None:
-                                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                                            if self.start_address is None:
-                                                                raise YPYModelError('Key property start_address is None')
-
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv4-pool[Cisco-IOS-XR-ip-mobileip-cfg:start-address = ' + str(self.start_address) + ']'
-
-                                                        def is_config(self):
-                                                            ''' Returns True if this instance represents config data else returns False '''
-                                                            return True
-
-                                                        def _has_data(self):
-                                                            if self.start_address is not None:
-                                                                return True
-
-                                                            if self.network_prefix is not None:
-                                                                return True
-
-                                                            if self.pool_prefix is not None:
-                                                                return True
-
-                                                            return False
-
-                                                        @staticmethod
-                                                        def _meta_info():
-                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool']['meta_info']
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv4-pools'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if self.mripv4_pool is not None:
-                                                            for child_ref in self.mripv4_pool:
-                                                                if child_ref._has_data():
-                                                                    return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools']['meta_info']
-
-
-                                                class Mripv6Pools(object):
+                                                class Mripv6Pools(Entity):
                                                     """
                                                     Table of MRIPV6Pool
                                                     
@@ -3121,13 +5717,39 @@ class MobileIp(object):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        self.parent = None
-                                                        self.mripv6_pool = YList()
-                                                        self.mripv6_pool.parent = self
-                                                        self.mripv6_pool.name = 'mripv6_pool'
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+
+                                                        self.yang_name = "mripv6-pools"
+                                                        self.yang_parent_name = "mobile-network"
+
+                                                        self.mripv6_pool = YList(self)
+
+                                                    def __setattr__(self, name, value):
+                                                        self._check_monkey_patching_error(name, value)
+                                                        with _handle_type_error():
+                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                    "Please use list append or extend method."
+                                                                                    .format(value))
+                                                            if isinstance(value, Enum.YLeaf):
+                                                                value = value.name
+                                                            if name in () and name in self.__dict__:
+                                                                if isinstance(value, YLeaf):
+                                                                    self.__dict__[name].set(value.get())
+                                                                elif isinstance(value, YLeafList):
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__setattr__(name, value)
+                                                                else:
+                                                                    self.__dict__[name].set(value)
+                                                            else:
+                                                                if hasattr(value, "parent") and name != "parent":
+                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                        value.parent = self
+                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                        value.parent = self
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__setattr__(name, value)
 
 
-                                                    class Mripv6Pool(object):
+                                                    class Mripv6Pool(Entity):
                                                         """
                                                         ipv6 pool
                                                         
@@ -3160,202 +5782,697 @@ class MobileIp(object):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            self.parent = None
-                                                            self.start_address = None
-                                                            self.network_prefix = None
-                                                            self.pool_prefix = None
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
 
-                                                        @property
-                                                        def _common_path(self):
-                                                            if self.parent is None:
-                                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                                            if self.start_address is None:
-                                                                raise YPYModelError('Key property start_address is None')
+                                                            self.yang_name = "mripv6-pool"
+                                                            self.yang_parent_name = "mripv6-pools"
 
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv6-pool[Cisco-IOS-XR-ip-mobileip-cfg:start-address = ' + str(self.start_address) + ']'
+                                                            self.start_address = YLeaf(YType.str, "start-address")
 
-                                                        def is_config(self):
-                                                            ''' Returns True if this instance represents config data else returns False '''
-                                                            return True
+                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
 
-                                                        def _has_data(self):
-                                                            if self.start_address is not None:
+                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                                        def __setattr__(self, name, value):
+                                                            self._check_monkey_patching_error(name, value)
+                                                            with _handle_type_error():
+                                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                        "Please use list append or extend method."
+                                                                                        .format(value))
+                                                                if isinstance(value, Enum.YLeaf):
+                                                                    value = value.name
+                                                                if name in ("start_address",
+                                                                            "network_prefix",
+                                                                            "pool_prefix") and name in self.__dict__:
+                                                                    if isinstance(value, YLeaf):
+                                                                        self.__dict__[name].set(value.get())
+                                                                    elif isinstance(value, YLeafList):
+                                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__setattr__(name, value)
+                                                                    else:
+                                                                        self.__dict__[name].set(value)
+                                                                else:
+                                                                    if hasattr(value, "parent") and name != "parent":
+                                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                            value.parent = self
+                                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                            value.parent = self
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__setattr__(name, value)
+
+                                                        def has_data(self):
+                                                            return (
+                                                                self.start_address.is_set or
+                                                                self.network_prefix.is_set or
+                                                                self.pool_prefix.is_set)
+
+                                                        def has_operation(self):
+                                                            return (
+                                                                self.yfilter != YFilter.not_set or
+                                                                self.start_address.yfilter != YFilter.not_set or
+                                                                self.network_prefix.yfilter != YFilter.not_set or
+                                                                self.pool_prefix.yfilter != YFilter.not_set)
+
+                                                        def get_segment_path(self):
+                                                            path_buffer = ""
+                                                            path_buffer = "mripv6-pool" + "[start-address='" + self.start_address.get() + "']" + path_buffer
+
+                                                            return path_buffer
+
+                                                        def get_entity_path(self, ancestor):
+                                                            path_buffer = ""
+                                                            if (ancestor is None):
+                                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                            else:
+                                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                            leaf_name_data = LeafDataList()
+                                                            if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.start_address.get_name_leafdata())
+                                                            if (self.network_prefix.is_set or self.network_prefix.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.network_prefix.get_name_leafdata())
+                                                            if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+
+                                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                            return entity_path
+
+                                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                            if child is not None:
+                                                                return child
+
+                                                            return None
+
+                                                        def has_leaf_or_child_of_name(self, name):
+                                                            if(name == "start-address" or name == "network-prefix" or name == "pool-prefix"):
                                                                 return True
-
-                                                            if self.network_prefix is not None:
-                                                                return True
-
-                                                            if self.pool_prefix is not None:
-                                                                return True
-
                                                             return False
 
-                                                        @staticmethod
-                                                        def _meta_info():
-                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool']['meta_info']
+                                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                            if(value_path == "start-address"):
+                                                                self.start_address = value
+                                                                self.start_address.value_namespace = name_space
+                                                                self.start_address.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "network-prefix"):
+                                                                self.network_prefix = value
+                                                                self.network_prefix.value_namespace = name_space
+                                                                self.network_prefix.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "pool-prefix"):
+                                                                self.pool_prefix = value
+                                                                self.pool_prefix.value_namespace = name_space
+                                                                self.pool_prefix.value_namespace_prefix = name_space_prefix
 
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv6-pools'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if self.mripv6_pool is not None:
-                                                            for child_ref in self.mripv6_pool:
-                                                                if child_ref._has_data():
-                                                                    return True
-
+                                                    def has_data(self):
+                                                        for c in self.mripv6_pool:
+                                                            if (c.has_data()):
+                                                                return True
                                                         return False
 
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools']['meta_info']
+                                                    def has_operation(self):
+                                                        for c in self.mripv6_pool:
+                                                            if (c.has_operation()):
+                                                                return True
+                                                        return self.yfilter != YFilter.not_set
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    def get_segment_path(self):
+                                                        path_buffer = ""
+                                                        path_buffer = "mripv6-pools" + path_buffer
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mobile-network'
+                                                        return path_buffer
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
+                                                    def get_entity_path(self, ancestor):
+                                                        path_buffer = ""
+                                                        if (ancestor is None):
+                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                        else:
+                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                                def _has_data(self):
-                                                    if self.mripv4_pools is not None and self.mripv4_pools._has_data():
+                                                        leaf_name_data = LeafDataList()
+
+                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                        return entity_path
+
+                                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                        if child is not None:
+                                                            return child
+
+                                                        if (child_yang_name == "mripv6-pool"):
+                                                            for c in self.mripv6_pool:
+                                                                segment = c.get_segment_path()
+                                                                if (segment_path == segment):
+                                                                    return c
+                                                            c = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool()
+                                                            c.parent = self
+                                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                                            self._local_refs[local_reference_key] = c
+                                                            self.mripv6_pool.append(c)
+                                                            return c
+
+                                                        return None
+
+                                                    def has_leaf_or_child_of_name(self, name):
+                                                        if(name == "mripv6-pool"):
+                                                            return True
+                                                        return False
+
+                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                        pass
+
+
+                                                class Mripv4Pools(Entity):
+                                                    """
+                                                    Table of MRIPV4Pool
+                                                    
+                                                    .. attribute:: mripv4_pool
+                                                    
+                                                    	ipv4 pool
+                                                    	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ip-mobileip-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+
+                                                        self.yang_name = "mripv4-pools"
+                                                        self.yang_parent_name = "mobile-network"
+
+                                                        self.mripv4_pool = YList(self)
+
+                                                    def __setattr__(self, name, value):
+                                                        self._check_monkey_patching_error(name, value)
+                                                        with _handle_type_error():
+                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                    "Please use list append or extend method."
+                                                                                    .format(value))
+                                                            if isinstance(value, Enum.YLeaf):
+                                                                value = value.name
+                                                            if name in () and name in self.__dict__:
+                                                                if isinstance(value, YLeaf):
+                                                                    self.__dict__[name].set(value.get())
+                                                                elif isinstance(value, YLeafList):
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__setattr__(name, value)
+                                                                else:
+                                                                    self.__dict__[name].set(value)
+                                                            else:
+                                                                if hasattr(value, "parent") and name != "parent":
+                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                        value.parent = self
+                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                        value.parent = self
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__setattr__(name, value)
+
+
+                                                    class Mripv4Pool(Entity):
+                                                        """
+                                                        ipv4 pool
+                                                        
+                                                        .. attribute:: start_address  <key>
+                                                        
+                                                        	Pool IPv4 start address
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                        
+                                                        .. attribute:: network_prefix
+                                                        
+                                                        	IPv4 Network Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..32
+                                                        
+                                                        .. attribute:: pool_prefix
+                                                        
+                                                        	IPv4 Pool Prefix value
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 8..30
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'ip-mobileip-cfg'
+                                                        _revision = '2015-11-09'
+
+                                                        def __init__(self):
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
+
+                                                            self.yang_name = "mripv4-pool"
+                                                            self.yang_parent_name = "mripv4-pools"
+
+                                                            self.start_address = YLeaf(YType.str, "start-address")
+
+                                                            self.network_prefix = YLeaf(YType.uint32, "network-prefix")
+
+                                                            self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                                        def __setattr__(self, name, value):
+                                                            self._check_monkey_patching_error(name, value)
+                                                            with _handle_type_error():
+                                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                        "Please use list append or extend method."
+                                                                                        .format(value))
+                                                                if isinstance(value, Enum.YLeaf):
+                                                                    value = value.name
+                                                                if name in ("start_address",
+                                                                            "network_prefix",
+                                                                            "pool_prefix") and name in self.__dict__:
+                                                                    if isinstance(value, YLeaf):
+                                                                        self.__dict__[name].set(value.get())
+                                                                    elif isinstance(value, YLeafList):
+                                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__setattr__(name, value)
+                                                                    else:
+                                                                        self.__dict__[name].set(value)
+                                                                else:
+                                                                    if hasattr(value, "parent") and name != "parent":
+                                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                            value.parent = self
+                                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                            value.parent = self
+                                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__setattr__(name, value)
+
+                                                        def has_data(self):
+                                                            return (
+                                                                self.start_address.is_set or
+                                                                self.network_prefix.is_set or
+                                                                self.pool_prefix.is_set)
+
+                                                        def has_operation(self):
+                                                            return (
+                                                                self.yfilter != YFilter.not_set or
+                                                                self.start_address.yfilter != YFilter.not_set or
+                                                                self.network_prefix.yfilter != YFilter.not_set or
+                                                                self.pool_prefix.yfilter != YFilter.not_set)
+
+                                                        def get_segment_path(self):
+                                                            path_buffer = ""
+                                                            path_buffer = "mripv4-pool" + "[start-address='" + self.start_address.get() + "']" + path_buffer
+
+                                                            return path_buffer
+
+                                                        def get_entity_path(self, ancestor):
+                                                            path_buffer = ""
+                                                            if (ancestor is None):
+                                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                            else:
+                                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                            leaf_name_data = LeafDataList()
+                                                            if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.start_address.get_name_leafdata())
+                                                            if (self.network_prefix.is_set or self.network_prefix.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.network_prefix.get_name_leafdata())
+                                                            if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+
+                                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                            return entity_path
+
+                                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                            if child is not None:
+                                                                return child
+
+                                                            return None
+
+                                                        def has_leaf_or_child_of_name(self, name):
+                                                            if(name == "start-address" or name == "network-prefix" or name == "pool-prefix"):
+                                                                return True
+                                                            return False
+
+                                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                            if(value_path == "start-address"):
+                                                                self.start_address = value
+                                                                self.start_address.value_namespace = name_space
+                                                                self.start_address.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "network-prefix"):
+                                                                self.network_prefix = value
+                                                                self.network_prefix.value_namespace = name_space
+                                                                self.network_prefix.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "pool-prefix"):
+                                                                self.pool_prefix = value
+                                                                self.pool_prefix.value_namespace = name_space
+                                                                self.pool_prefix.value_namespace_prefix = name_space_prefix
+
+                                                    def has_data(self):
+                                                        for c in self.mripv4_pool:
+                                                            if (c.has_data()):
+                                                                return True
+                                                        return False
+
+                                                    def has_operation(self):
+                                                        for c in self.mripv4_pool:
+                                                            if (c.has_operation()):
+                                                                return True
+                                                        return self.yfilter != YFilter.not_set
+
+                                                    def get_segment_path(self):
+                                                        path_buffer = ""
+                                                        path_buffer = "mripv4-pools" + path_buffer
+
+                                                        return path_buffer
+
+                                                    def get_entity_path(self, ancestor):
+                                                        path_buffer = ""
+                                                        if (ancestor is None):
+                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                        else:
+                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                        leaf_name_data = LeafDataList()
+
+                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                        return entity_path
+
+                                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                        if child is not None:
+                                                            return child
+
+                                                        if (child_yang_name == "mripv4-pool"):
+                                                            for c in self.mripv4_pool:
+                                                                segment = c.get_segment_path()
+                                                                if (segment_path == segment):
+                                                                    return c
+                                                            c = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool()
+                                                            c.parent = self
+                                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                                            self._local_refs[local_reference_key] = c
+                                                            self.mripv4_pool.append(c)
+                                                            return c
+
+                                                        return None
+
+                                                    def has_leaf_or_child_of_name(self, name):
+                                                        if(name == "mripv4-pool"):
+                                                            return True
+                                                        return False
+
+                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                        pass
+
+                                                def has_data(self):
+                                                    return (
+                                                        (self.mripv4_pools is not None and self.mripv4_pools.has_data()) or
+                                                        (self.mripv6_pools is not None and self.mripv6_pools.has_data()))
+
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        (self.mripv4_pools is not None and self.mripv4_pools.has_operation()) or
+                                                        (self.mripv6_pools is not None and self.mripv6_pools.has_operation()))
+
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "mobile-network" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    if (child_yang_name == "mripv4-pools"):
+                                                        if (self.mripv4_pools is None):
+                                                            self.mripv4_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools()
+                                                            self.mripv4_pools.parent = self
+                                                            self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                                        return self.mripv4_pools
+
+                                                    if (child_yang_name == "mripv6-pools"):
+                                                        if (self.mripv6_pools is None):
+                                                            self.mripv6_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools()
+                                                            self.mripv6_pools.parent = self
+                                                            self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                                        return self.mripv6_pools
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "mripv4-pools" or name == "mripv6-pools"):
                                                         return True
-
-                                                    if self.mripv6_pools is not None and self.mripv6_pools._has_data():
-                                                        return True
-
                                                     return False
 
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork']['meta_info']
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    pass
 
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                            def has_data(self):
+                                                return (
+                                                    (self.mobile_network is not None and self.mobile_network.has_data()) or
+                                                    (self.mobile_node is not None and self.mobile_node.has_data()))
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:pool-attributes'
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    (self.mobile_network is not None and self.mobile_network.has_operation()) or
+                                                    (self.mobile_node is not None and self.mobile_node.has_operation()))
 
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "pool-attributes" + path_buffer
 
-                                            def _has_data(self):
-                                                if self.mobile_network is not None and self.mobile_network._has_data():
+                                                return path_buffer
+
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                leaf_name_data = LeafDataList()
+
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
+
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
+
+                                                if (child_yang_name == "mobile-network"):
+                                                    if (self.mobile_network is None):
+                                                        self.mobile_network = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork()
+                                                        self.mobile_network.parent = self
+                                                        self._children_name_map["mobile_network"] = "mobile-network"
+                                                    return self.mobile_network
+
+                                                if (child_yang_name == "mobile-node"):
+                                                    if (self.mobile_node is None):
+                                                        self.mobile_node = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode()
+                                                        self.mobile_node.parent = self
+                                                        self._children_name_map["mobile_node"] = "mobile-node"
+                                                    return self.mobile_node
+
+                                                return None
+
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "mobile-network" or name == "mobile-node"):
                                                     return True
-
-                                                if self.mobile_node is not None and self.mobile_node._has_data():
-                                                    return True
-
                                                 return False
 
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                                return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes']['meta_info']
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                pass
 
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.name is None:
-                                                raise YPYModelError('Key property name is None')
+                                        def has_data(self):
+                                            return (
+                                                self.name.is_set or
+                                                (self.pool_attributes is not None and self.pool_attributes.has_data()))
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:authorize[Cisco-IOS-XR-ip-mobileip-cfg:name = ' + str(self.name) + ']'
+                                        def has_operation(self):
+                                            return (
+                                                self.yfilter != YFilter.not_set or
+                                                self.name.yfilter != YFilter.not_set or
+                                                (self.pool_attributes is not None and self.pool_attributes.has_operation()))
 
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "authorize" + "[name='" + self.name.get() + "']" + path_buffer
 
-                                        def _has_data(self):
-                                            if self.name is not None:
+                                            return path_buffer
+
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                            leaf_name_data = LeafDataList()
+                                            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.name.get_name_leafdata())
+
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
+
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
+
+                                            if (child_yang_name == "pool-attributes"):
+                                                if (self.pool_attributes is None):
+                                                    self.pool_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes()
+                                                    self.pool_attributes.parent = self
+                                                    self._children_name_map["pool_attributes"] = "pool-attributes"
+                                                return self.pool_attributes
+
+                                            return None
+
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "pool-attributes" or name == "name"):
                                                 return True
-
-                                            if self.pool_attributes is not None and self.pool_attributes._has_data():
-                                                return True
-
                                             return False
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize']['meta_info']
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            if(value_path == "name"):
+                                                self.name = value
+                                                self.name.value_namespace = name_space
+                                                self.name.value_namespace_prefix = name_space_prefix
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:authorizes'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if self.authorize is not None:
-                                            for child_ref in self.authorize:
-                                                if child_ref._has_data():
-                                                    return True
-
+                                    def has_data(self):
+                                        for c in self.authorize:
+                                            if (c.has_data()):
+                                                return True
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes']['meta_info']
+                                    def has_operation(self):
+                                        for c in self.authorize:
+                                            if (c.has_operation()):
+                                                return True
+                                        return self.yfilter != YFilter.not_set
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "authorizes" + path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:network-attributes'
+                                        return path_buffer
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def _has_data(self):
-                                    if self.authorizes is not None and self.authorizes._has_data():
+                                        leaf_name_data = LeafDataList()
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        if (child_yang_name == "authorize"):
+                                            for c in self.authorize:
+                                                segment = c.get_segment_path()
+                                                if (segment_path == segment):
+                                                    return c
+                                            c = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize()
+                                            c.parent = self
+                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                            self._local_refs[local_reference_key] = c
+                                            self.authorize.append(c)
+                                            return c
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "authorize"):
+                                            return True
+                                        return False
+
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        pass
+
+                                def has_data(self):
+                                    return (
+                                        self.unauthorize.is_set or
+                                        (self.authorizes is not None and self.authorizes.has_data()))
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.unauthorize.yfilter != YFilter.not_set or
+                                        (self.authorizes is not None and self.authorizes.has_operation()))
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "network-attributes" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.unauthorize.is_set or self.unauthorize.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.unauthorize.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "authorizes"):
+                                        if (self.authorizes is None):
+                                            self.authorizes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes()
+                                            self.authorizes.parent = self
+                                            self._children_name_map["authorizes"] = "authorizes"
+                                        return self.authorizes
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "authorizes" or name == "unauthorize"):
                                         return True
-
-                                    if self.unauthorize is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "unauthorize"):
+                                        self.unauthorize = value
+                                        self.unauthorize.value_namespace = name_space
+                                        self.unauthorize.value_namespace_prefix = name_space_prefix
 
 
-                            class GreKey(object):
+                            class GreKey(Entity):
                                 """
                                 Customer specific GRE key
                                 
                                 .. attribute:: gre_key_type
                                 
-                                	Set constant integer
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
+                                	GRE key type
+                                	**type**\:   :py:class:`GreKeyType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.GreKeyType>`
                                 
                                 .. attribute:: gre_key_value
                                 
@@ -3372,37 +6489,97 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.gre_key_type = None
-                                    self.gre_key_value = None
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "gre-key"
+                                    self.yang_parent_name = "customer"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:gre-key'
+                                    self.gre_key_type = YLeaf(YType.enumeration, "gre-key-type")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.gre_key_value = YLeaf(YType.int32, "gre-key-value")
 
-                                def _has_data(self):
-                                    if self.gre_key_type is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("gre_key_type",
+                                                    "gre_key_value") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.gre_key_type.is_set or
+                                        self.gre_key_value.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.gre_key_type.yfilter != YFilter.not_set or
+                                        self.gre_key_value.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "gre-key" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.gre_key_type.is_set or self.gre_key_type.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.gre_key_type.get_name_leafdata())
+                                    if (self.gre_key_value.is_set or self.gre_key_value.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.gre_key_value.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "gre-key-type" or name == "gre-key-value"):
                                         return True
-
-                                    if self.gre_key_value is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "gre-key-type"):
+                                        self.gre_key_type = value
+                                        self.gre_key_type.value_namespace = name_space
+                                        self.gre_key_type.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "gre-key-value"):
+                                        self.gre_key_value = value
+                                        self.gre_key_value.value_namespace = name_space
+                                        self.gre_key_value.value_namespace_prefix = name_space_prefix
 
 
-                            class BindingAttributes(object):
+                            class BindingAttributes(Entity):
                                 """
                                 Customer specific binding attributes
                                 
@@ -3423,258 +6600,484 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.max_life_time = None
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "binding-attributes"
+                                    self.yang_parent_name = "customer"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:binding-attributes'
+                                    self.max_life_time = YLeaf(YType.uint32, "max-life-time")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("max_life_time") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__setattr__(name, value)
 
-                                def _has_data(self):
-                                    if self.max_life_time is not None:
+                                def has_data(self):
+                                    return self.max_life_time.is_set
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.max_life_time.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "binding-attributes" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.max_life_time.is_set or self.max_life_time.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.max_life_time.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "max-life-time"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "max-life-time"):
+                                        self.max_life_time = value
+                                        self.max_life_time.value_namespace = name_space
+                                        self.max_life_time.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.customer_name is None:
-                                    raise YPYModelError('Key property customer_name is None')
-                                if self.vrf_name is None:
-                                    raise YPYModelError('Key property vrf_name is None')
+                            def has_data(self):
+                                return (
+                                    self.customer_name.is_set or
+                                    self.vrf_name.is_set or
+                                    self.bandwidth_aggregate.is_set or
+                                    self.mnp_customer.is_set or
+                                    self.mnp_ipv4_customer.is_set or
+                                    self.mnp_ipv4_lmn.is_set or
+                                    self.mnp_ipv6_customer.is_set or
+                                    self.mnp_ipv6_lmn.is_set or
+                                    self.mnp_lmn.is_set or
+                                    self.mobile_route_ad.is_set or
+                                    (self.authenticate_option is not None and self.authenticate_option.has_data()) or
+                                    (self.binding_attributes is not None and self.binding_attributes.has_data()) or
+                                    (self.gre_key is not None and self.gre_key.has_data()) or
+                                    (self.heart_beat_attributes is not None and self.heart_beat_attributes.has_data()) or
+                                    (self.network_attributes is not None and self.network_attributes.has_data()) or
+                                    (self.transports is not None and self.transports.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:customer[Cisco-IOS-XR-ip-mobileip-cfg:customer-name = ' + str(self.customer_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.customer_name.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set or
+                                    self.bandwidth_aggregate.yfilter != YFilter.not_set or
+                                    self.mnp_customer.yfilter != YFilter.not_set or
+                                    self.mnp_ipv4_customer.yfilter != YFilter.not_set or
+                                    self.mnp_ipv4_lmn.yfilter != YFilter.not_set or
+                                    self.mnp_ipv6_customer.yfilter != YFilter.not_set or
+                                    self.mnp_ipv6_lmn.yfilter != YFilter.not_set or
+                                    self.mnp_lmn.yfilter != YFilter.not_set or
+                                    self.mobile_route_ad.yfilter != YFilter.not_set or
+                                    (self.authenticate_option is not None and self.authenticate_option.has_operation()) or
+                                    (self.binding_attributes is not None and self.binding_attributes.has_operation()) or
+                                    (self.gre_key is not None and self.gre_key.has_operation()) or
+                                    (self.heart_beat_attributes is not None and self.heart_beat_attributes.has_operation()) or
+                                    (self.network_attributes is not None and self.network_attributes.has_operation()) or
+                                    (self.transports is not None and self.transports.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "customer" + "[customer-name='" + self.customer_name.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.customer_name is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.customer_name.is_set or self.customer_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.customer_name.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                                if (self.bandwidth_aggregate.is_set or self.bandwidth_aggregate.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.bandwidth_aggregate.get_name_leafdata())
+                                if (self.mnp_customer.is_set or self.mnp_customer.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_customer.get_name_leafdata())
+                                if (self.mnp_ipv4_customer.is_set or self.mnp_ipv4_customer.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_ipv4_customer.get_name_leafdata())
+                                if (self.mnp_ipv4_lmn.is_set or self.mnp_ipv4_lmn.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_ipv4_lmn.get_name_leafdata())
+                                if (self.mnp_ipv6_customer.is_set or self.mnp_ipv6_customer.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_ipv6_customer.get_name_leafdata())
+                                if (self.mnp_ipv6_lmn.is_set or self.mnp_ipv6_lmn.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_ipv6_lmn.get_name_leafdata())
+                                if (self.mnp_lmn.is_set or self.mnp_lmn.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mnp_lmn.get_name_leafdata())
+                                if (self.mobile_route_ad.is_set or self.mobile_route_ad.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mobile_route_ad.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "authenticate-option"):
+                                    if (self.authenticate_option is None):
+                                        self.authenticate_option = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption()
+                                        self.authenticate_option.parent = self
+                                        self._children_name_map["authenticate_option"] = "authenticate-option"
+                                    return self.authenticate_option
+
+                                if (child_yang_name == "binding-attributes"):
+                                    if (self.binding_attributes is None):
+                                        self.binding_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes()
+                                        self.binding_attributes.parent = self
+                                        self._children_name_map["binding_attributes"] = "binding-attributes"
+                                    return self.binding_attributes
+
+                                if (child_yang_name == "gre-key"):
+                                    if (self.gre_key is None):
+                                        self.gre_key = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey()
+                                        self.gre_key.parent = self
+                                        self._children_name_map["gre_key"] = "gre-key"
+                                    return self.gre_key
+
+                                if (child_yang_name == "heart-beat-attributes"):
+                                    if (self.heart_beat_attributes is None):
+                                        self.heart_beat_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes()
+                                        self.heart_beat_attributes.parent = self
+                                        self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
+                                    return self.heart_beat_attributes
+
+                                if (child_yang_name == "network-attributes"):
+                                    if (self.network_attributes is None):
+                                        self.network_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes()
+                                        self.network_attributes.parent = self
+                                        self._children_name_map["network_attributes"] = "network-attributes"
+                                    return self.network_attributes
+
+                                if (child_yang_name == "transports"):
+                                    if (self.transports is None):
+                                        self.transports = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports()
+                                        self.transports.parent = self
+                                        self._children_name_map["transports"] = "transports"
+                                    return self.transports
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "authenticate-option" or name == "binding-attributes" or name == "gre-key" or name == "heart-beat-attributes" or name == "network-attributes" or name == "transports" or name == "customer-name" or name == "vrf-name" or name == "bandwidth-aggregate" or name == "mnp-customer" or name == "mnp-ipv4-customer" or name == "mnp-ipv4-lmn" or name == "mnp-ipv6-customer" or name == "mnp-ipv6-lmn" or name == "mnp-lmn" or name == "mobile-route-ad"):
                                     return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                if self.authenticate_option is not None and self.authenticate_option._has_data():
-                                    return True
-
-                                if self.bandwidth_aggregate is not None:
-                                    return True
-
-                                if self.binding_attributes is not None and self.binding_attributes._has_data():
-                                    return True
-
-                                if self.gre_key is not None and self.gre_key._has_data():
-                                    return True
-
-                                if self.heart_beat_attributes is not None and self.heart_beat_attributes._has_data():
-                                    return True
-
-                                if self.mnp_customer is not None:
-                                    return True
-
-                                if self.mnp_ipv4_customer is not None:
-                                    return True
-
-                                if self.mnp_ipv4_lmn is not None:
-                                    return True
-
-                                if self.mnp_ipv6_customer is not None:
-                                    return True
-
-                                if self.mnp_ipv6_lmn is not None:
-                                    return True
-
-                                if self.mnp_lmn is not None:
-                                    return True
-
-                                if self.mobile_route_ad is not None:
-                                    return True
-
-                                if self.network_attributes is not None and self.network_attributes._has_data():
-                                    return True
-
-                                if self.transports is not None and self.transports._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "customer-name"):
+                                    self.customer_name = value
+                                    self.customer_name.value_namespace = name_space
+                                    self.customer_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "bandwidth-aggregate"):
+                                    self.bandwidth_aggregate = value
+                                    self.bandwidth_aggregate.value_namespace = name_space
+                                    self.bandwidth_aggregate.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-customer"):
+                                    self.mnp_customer = value
+                                    self.mnp_customer.value_namespace = name_space
+                                    self.mnp_customer.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-ipv4-customer"):
+                                    self.mnp_ipv4_customer = value
+                                    self.mnp_ipv4_customer.value_namespace = name_space
+                                    self.mnp_ipv4_customer.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-ipv4-lmn"):
+                                    self.mnp_ipv4_lmn = value
+                                    self.mnp_ipv4_lmn.value_namespace = name_space
+                                    self.mnp_ipv4_lmn.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-ipv6-customer"):
+                                    self.mnp_ipv6_customer = value
+                                    self.mnp_ipv6_customer.value_namespace = name_space
+                                    self.mnp_ipv6_customer.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-ipv6-lmn"):
+                                    self.mnp_ipv6_lmn = value
+                                    self.mnp_ipv6_lmn.value_namespace = name_space
+                                    self.mnp_ipv6_lmn.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mnp-lmn"):
+                                    self.mnp_lmn = value
+                                    self.mnp_lmn.value_namespace = name_space
+                                    self.mnp_lmn.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mobile-route-ad"):
+                                    self.mobile_route_ad = value
+                                    self.mobile_route_ad.value_namespace = name_space
+                                    self.mobile_route_ad.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:customers'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.customer is not None:
-                                for child_ref in self.customer:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.customer:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers']['meta_info']
+                        def has_operation(self):
+                            for c in self.customer:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.lma_service is None:
-                            raise YPYModelError('Key property lma_service is None')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "customers" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:service[Cisco-IOS-XR-ip-mobileip-cfg:lma-service = ' + str(self.lma_service) + ']'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.lma_service is not None:
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "customer"):
+                                for c in self.customer:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = MobileIp.Lmas.Lma.Services.Service.Customers.Customer()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.customer.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "customer"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (
+                            self.lma_service.is_set or
+                            self.ignore_home_address.is_set or
+                            self.mnp_customer.is_set or
+                            self.mnp_ipv4_customer.is_set or
+                            self.mnp_ipv4_lmn.is_set or
+                            self.mnp_ipv6_customer.is_set or
+                            self.mnp_ipv6_lmn.is_set or
+                            self.mnp_lmn.is_set or
+                            (self.customers is not None and self.customers.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.lma_service.yfilter != YFilter.not_set or
+                            self.ignore_home_address.yfilter != YFilter.not_set or
+                            self.mnp_customer.yfilter != YFilter.not_set or
+                            self.mnp_ipv4_customer.yfilter != YFilter.not_set or
+                            self.mnp_ipv4_lmn.yfilter != YFilter.not_set or
+                            self.mnp_ipv6_customer.yfilter != YFilter.not_set or
+                            self.mnp_ipv6_lmn.yfilter != YFilter.not_set or
+                            self.mnp_lmn.yfilter != YFilter.not_set or
+                            (self.customers is not None and self.customers.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service" + "[lma-service='" + self.lma_service.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.lma_service.is_set or self.lma_service.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lma_service.get_name_leafdata())
+                        if (self.ignore_home_address.is_set or self.ignore_home_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ignore_home_address.get_name_leafdata())
+                        if (self.mnp_customer.is_set or self.mnp_customer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_customer.get_name_leafdata())
+                        if (self.mnp_ipv4_customer.is_set or self.mnp_ipv4_customer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_ipv4_customer.get_name_leafdata())
+                        if (self.mnp_ipv4_lmn.is_set or self.mnp_ipv4_lmn.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_ipv4_lmn.get_name_leafdata())
+                        if (self.mnp_ipv6_customer.is_set or self.mnp_ipv6_customer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_ipv6_customer.get_name_leafdata())
+                        if (self.mnp_ipv6_lmn.is_set or self.mnp_ipv6_lmn.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_ipv6_lmn.get_name_leafdata())
+                        if (self.mnp_lmn.is_set or self.mnp_lmn.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mnp_lmn.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "customers"):
+                            if (self.customers is None):
+                                self.customers = MobileIp.Lmas.Lma.Services.Service.Customers()
+                                self.customers.parent = self
+                                self._children_name_map["customers"] = "customers"
+                            return self.customers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "customers" or name == "lma-service" or name == "ignore-home-address" or name == "mnp-customer" or name == "mnp-ipv4-customer" or name == "mnp-ipv4-lmn" or name == "mnp-ipv6-customer" or name == "mnp-ipv6-lmn" or name == "mnp-lmn"):
                             return True
-
-                        if self.customers is not None and self.customers._has_data():
-                            return True
-
-                        if self.ignore is not None:
-                            return True
-
-                        if self.mnp_customer is not None:
-                            return True
-
-                        if self.mnp_ipv4_customer is not None:
-                            return True
-
-                        if self.mnp_ipv4_lmn is not None:
-                            return True
-
-                        if self.mnp_ipv6_customer is not None:
-                            return True
-
-                        if self.mnp_ipv6_lmn is not None:
-                            return True
-
-                        if self.mnp_lmn is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "lma-service"):
+                            self.lma_service = value
+                            self.lma_service.value_namespace = name_space
+                            self.lma_service.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ignore-home-address"):
+                            self.ignore_home_address = value
+                            self.ignore_home_address.value_namespace = name_space
+                            self.ignore_home_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-customer"):
+                            self.mnp_customer = value
+                            self.mnp_customer.value_namespace = name_space
+                            self.mnp_customer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-ipv4-customer"):
+                            self.mnp_ipv4_customer = value
+                            self.mnp_ipv4_customer.value_namespace = name_space
+                            self.mnp_ipv4_customer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-ipv4-lmn"):
+                            self.mnp_ipv4_lmn = value
+                            self.mnp_ipv4_lmn.value_namespace = name_space
+                            self.mnp_ipv4_lmn.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-ipv6-customer"):
+                            self.mnp_ipv6_customer = value
+                            self.mnp_ipv6_customer.value_namespace = name_space
+                            self.mnp_ipv6_customer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-ipv6-lmn"):
+                            self.mnp_ipv6_lmn = value
+                            self.mnp_ipv6_lmn.value_namespace = name_space
+                            self.mnp_ipv6_lmn.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mnp-lmn"):
+                            self.mnp_lmn = value
+                            self.mnp_lmn.value_namespace = name_space
+                            self.mnp_lmn.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:services'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.service is not None:
-                        for child_ref in self.service:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.service:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Services']['meta_info']
+                def has_operation(self):
+                    for c in self.service:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "services" + path_buffer
 
-            class ReplayProtection(object):
-                """
-                Replay Protection Method
-                
-                .. attribute:: ignore
-                
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: validity_window
-                
-                	Specify window value in seconds
-                	**type**\:  int
-                
-                	**range:** 1..255
-                
-                	**units**\: second
-                
-                
+                    return path_buffer
 
-                """
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                _prefix = 'ip-mobileip-cfg'
-                _revision = '2015-11-09'
+                    leaf_name_data = LeafDataList()
 
-                def __init__(self):
-                    self.parent = None
-                    self.ignore = None
-                    self.validity_window = None
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:replay-protection'
+                    if (child_yang_name == "service"):
+                        for c in self.service:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Services.Service()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.service.append(c)
+                        return c
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    return None
 
-                def _has_data(self):
-                    if self.ignore is not None:
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service"):
                         return True
-
-                    if self.validity_window is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.ReplayProtection']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Networks(object):
+            class Networks(Entity):
                 """
                 Table of Network
                 
@@ -3691,13 +7094,39 @@ class MobileIp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.network = YList()
-                    self.network.parent = self
-                    self.network.name = 'network'
+                    super(MobileIp.Lmas.Lma.Networks, self).__init__()
+
+                    self.yang_name = "networks"
+                    self.yang_parent_name = "lma"
+
+                    self.network = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.Networks, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.Networks, self).__setattr__(name, value)
 
 
-                class Network(object):
+                class Network(Entity):
                     """
                     network for this LMA
                     
@@ -3721,13 +7150,44 @@ class MobileIp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.lma_network = None
+                        super(MobileIp.Lmas.Lma.Networks.Network, self).__init__()
+
+                        self.yang_name = "network"
+                        self.yang_parent_name = "networks"
+
+                        self.lma_network = YLeaf(YType.str, "lma-network")
+
                         self.pool_attributes = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes()
                         self.pool_attributes.parent = self
+                        self._children_name_map["pool_attributes"] = "pool-attributes"
+                        self._children_yang_names.add("pool-attributes")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("lma_network") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MobileIp.Lmas.Lma.Networks.Network, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MobileIp.Lmas.Lma.Networks.Network, self).__setattr__(name, value)
 
 
-                    class PoolAttributes(object):
+                    class PoolAttributes(Entity):
                         """
                         Pool configs for this network
                         
@@ -3749,14 +7209,23 @@ class MobileIp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, self).__init__()
+
+                            self.yang_name = "pool-attributes"
+                            self.yang_parent_name = "network"
+
                             self.mobile_network = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork()
                             self.mobile_network.parent = self
+                            self._children_name_map["mobile_network"] = "mobile-network"
+                            self._children_yang_names.add("mobile-network")
+
                             self.mobile_node = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode()
                             self.mobile_node.parent = self
+                            self._children_name_map["mobile_node"] = "mobile-node"
+                            self._children_yang_names.add("mobile-node")
 
 
-                        class MobileNode(object):
+                        class MobileNode(Entity):
                             """
                             pool configs for the mobile nodes
                             
@@ -3778,14 +7247,23 @@ class MobileIp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, self).__init__()
+
+                                self.yang_name = "mobile-node"
+                                self.yang_parent_name = "pool-attributes"
+
                                 self.ipv4_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool()
                                 self.ipv4_pool.parent = self
+                                self._children_name_map["ipv4_pool"] = "ipv4-pool"
+                                self._children_yang_names.add("ipv4-pool")
+
                                 self.ipv6_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool()
                                 self.ipv6_pool.parent = self
+                                self._children_name_map["ipv6_pool"] = "ipv6-pool"
+                                self._children_yang_names.add("ipv6-pool")
 
 
-                            class Ipv4Pool(object):
+                            class Ipv4Pool(Entity):
                                 """
                                 None
                                 
@@ -3811,37 +7289,97 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.pool_prefix = None
-                                    self.start_address = None
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "ipv4-pool"
+                                    self.yang_parent_name = "mobile-node"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:ipv4-pool'
+                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.start_address = YLeaf(YType.str, "start-address")
 
-                                def _has_data(self):
-                                    if self.pool_prefix is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("pool_prefix",
+                                                    "start_address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.pool_prefix.is_set or
+                                        self.start_address.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.pool_prefix.yfilter != YFilter.not_set or
+                                        self.start_address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "ipv4-pool" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+                                    if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.start_address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "pool-prefix" or name == "start-address"):
                                         return True
-
-                                    if self.start_address is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "pool-prefix"):
+                                        self.pool_prefix = value
+                                        self.pool_prefix.value_namespace = name_space
+                                        self.pool_prefix.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "start-address"):
+                                        self.start_address = value
+                                        self.start_address.value_namespace = name_space
+                                        self.start_address.value_namespace_prefix = name_space_prefix
 
 
-                            class Ipv6Pool(object):
+                            class Ipv6Pool(Entity):
                                 """
                                 None
                                 
@@ -3867,62 +7405,155 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.pool_prefix = None
-                                    self.start_address = None
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "ipv6-pool"
+                                    self.yang_parent_name = "mobile-node"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:ipv6-pool'
+                                    self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.start_address = YLeaf(YType.str, "start-address")
 
-                                def _has_data(self):
-                                    if self.pool_prefix is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("pool_prefix",
+                                                    "start_address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.pool_prefix.is_set or
+                                        self.start_address.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.pool_prefix.yfilter != YFilter.not_set or
+                                        self.start_address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "ipv6-pool" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+                                    if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.start_address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "pool-prefix" or name == "start-address"):
                                         return True
-
-                                    if self.start_address is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "pool-prefix"):
+                                        self.pool_prefix = value
+                                        self.pool_prefix.value_namespace = name_space
+                                        self.pool_prefix.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "start-address"):
+                                        self.start_address = value
+                                        self.start_address.value_namespace = name_space
+                                        self.start_address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (
+                                    (self.ipv4_pool is not None and self.ipv4_pool.has_data()) or
+                                    (self.ipv6_pool is not None and self.ipv6_pool.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mobile-node'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.ipv4_pool is not None and self.ipv4_pool.has_operation()) or
+                                    (self.ipv6_pool is not None and self.ipv6_pool.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mobile-node" + path_buffer
 
-                            def _has_data(self):
-                                if self.ipv4_pool is not None and self.ipv4_pool._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "ipv4-pool"):
+                                    if (self.ipv4_pool is None):
+                                        self.ipv4_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool()
+                                        self.ipv4_pool.parent = self
+                                        self._children_name_map["ipv4_pool"] = "ipv4-pool"
+                                    return self.ipv4_pool
+
+                                if (child_yang_name == "ipv6-pool"):
+                                    if (self.ipv6_pool is None):
+                                        self.ipv6_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool()
+                                        self.ipv6_pool.parent = self
+                                        self._children_name_map["ipv6_pool"] = "ipv6-pool"
+                                    return self.ipv6_pool
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv4-pool" or name == "ipv6-pool"):
                                     return True
-
-                                if self.ipv6_pool is not None and self.ipv6_pool._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
 
-                        class MobileNetwork(object):
+                        class MobileNetwork(Entity):
                             """
                             pool configs for the mobile network
                             
@@ -3944,14 +7575,23 @@ class MobileIp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, self).__init__()
+
+                                self.yang_name = "mobile-network"
+                                self.yang_parent_name = "pool-attributes"
+
                                 self.mripv4_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools()
                                 self.mripv4_pools.parent = self
+                                self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                self._children_yang_names.add("mripv4-pools")
+
                                 self.mripv6_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools()
                                 self.mripv6_pools.parent = self
+                                self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                self._children_yang_names.add("mripv6-pools")
 
 
-                            class Mripv6Pools(object):
+                            class Mripv6Pools(Entity):
                                 """
                                 Table of MRIPV6Pool
                                 
@@ -3968,13 +7608,39 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.mripv6_pool = YList()
-                                    self.mripv6_pool.parent = self
-                                    self.mripv6_pool.name = 'mripv6_pool'
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+
+                                    self.yang_name = "mripv6-pools"
+                                    self.yang_parent_name = "mobile-network"
+
+                                    self.mripv6_pool = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__setattr__(name, value)
 
 
-                                class Mripv6Pool(object):
+                                class Mripv6Pool(Entity):
                                     """
                                     ipv6 pool
                                     
@@ -4007,67 +7673,165 @@ class MobileIp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.start_address = None
-                                        self.network_prefix = None
-                                        self.pool_prefix = None
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.start_address is None:
-                                            raise YPYModelError('Key property start_address is None')
+                                        self.yang_name = "mripv6-pool"
+                                        self.yang_parent_name = "mripv6-pools"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv6-pool[Cisco-IOS-XR-ip-mobileip-cfg:start-address = ' + str(self.start_address) + ']'
+                                        self.start_address = YLeaf(YType.str, "start-address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
 
-                                    def _has_data(self):
-                                        if self.start_address is not None:
+                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("start_address",
+                                                        "network_prefix",
+                                                        "pool_prefix") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.start_address.is_set or
+                                            self.network_prefix.is_set or
+                                            self.pool_prefix.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.start_address.yfilter != YFilter.not_set or
+                                            self.network_prefix.yfilter != YFilter.not_set or
+                                            self.pool_prefix.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "mripv6-pool" + "[start-address='" + self.start_address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.start_address.get_name_leafdata())
+                                        if (self.network_prefix.is_set or self.network_prefix.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.network_prefix.get_name_leafdata())
+                                        if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "start-address" or name == "network-prefix" or name == "pool-prefix"):
                                             return True
-
-                                        if self.network_prefix is not None:
-                                            return True
-
-                                        if self.pool_prefix is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "start-address"):
+                                            self.start_address = value
+                                            self.start_address.value_namespace = name_space
+                                            self.start_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "network-prefix"):
+                                            self.network_prefix = value
+                                            self.network_prefix.value_namespace = name_space
+                                            self.network_prefix.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "pool-prefix"):
+                                            self.pool_prefix = value
+                                            self.pool_prefix.value_namespace = name_space
+                                            self.pool_prefix.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv6-pools'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.mripv6_pool is not None:
-                                        for child_ref in self.mripv6_pool:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.mripv6_pool:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools']['meta_info']
+                                def has_operation(self):
+                                    for c in self.mripv6_pool:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "mripv6-pools" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "mripv6-pool"):
+                                        for c in self.mripv6_pool:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.mripv6_pool.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "mripv6-pool"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Mripv4Pools(object):
+                            class Mripv4Pools(Entity):
                                 """
                                 Table of MRIPV4Pool
                                 
@@ -4084,13 +7848,39 @@ class MobileIp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.mripv4_pool = YList()
-                                    self.mripv4_pool.parent = self
-                                    self.mripv4_pool.name = 'mripv4_pool'
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+
+                                    self.yang_name = "mripv4-pools"
+                                    self.yang_parent_name = "mobile-network"
+
+                                    self.mripv4_pool = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__setattr__(name, value)
 
 
-                                class Mripv4Pool(object):
+                                class Mripv4Pool(Entity):
                                     """
                                     ipv4 pool
                                     
@@ -4123,314 +7913,885 @@ class MobileIp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.start_address = None
-                                        self.network_prefix = None
-                                        self.pool_prefix = None
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.start_address is None:
-                                            raise YPYModelError('Key property start_address is None')
+                                        self.yang_name = "mripv4-pool"
+                                        self.yang_parent_name = "mripv4-pools"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv4-pool[Cisco-IOS-XR-ip-mobileip-cfg:start-address = ' + str(self.start_address) + ']'
+                                        self.start_address = YLeaf(YType.str, "start-address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.network_prefix = YLeaf(YType.uint32, "network-prefix")
 
-                                    def _has_data(self):
-                                        if self.start_address is not None:
+                                        self.pool_prefix = YLeaf(YType.uint32, "pool-prefix")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("start_address",
+                                                        "network_prefix",
+                                                        "pool_prefix") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.start_address.is_set or
+                                            self.network_prefix.is_set or
+                                            self.pool_prefix.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.start_address.yfilter != YFilter.not_set or
+                                            self.network_prefix.yfilter != YFilter.not_set or
+                                            self.pool_prefix.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "mripv4-pool" + "[start-address='" + self.start_address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.start_address.is_set or self.start_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.start_address.get_name_leafdata())
+                                        if (self.network_prefix.is_set or self.network_prefix.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.network_prefix.get_name_leafdata())
+                                        if (self.pool_prefix.is_set or self.pool_prefix.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.pool_prefix.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "start-address" or name == "network-prefix" or name == "pool-prefix"):
                                             return True
-
-                                        if self.network_prefix is not None:
-                                            return True
-
-                                        if self.pool_prefix is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "start-address"):
+                                            self.start_address = value
+                                            self.start_address.value_namespace = name_space
+                                            self.start_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "network-prefix"):
+                                            self.network_prefix = value
+                                            self.network_prefix.value_namespace = name_space
+                                            self.network_prefix.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "pool-prefix"):
+                                            self.pool_prefix = value
+                                            self.pool_prefix.value_namespace = name_space
+                                            self.pool_prefix.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mripv4-pools'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.mripv4_pool is not None:
-                                        for child_ref in self.mripv4_pool:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.mripv4_pool:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools']['meta_info']
+                                def has_operation(self):
+                                    for c in self.mripv4_pool:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "mripv4-pools" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mobile-network'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.mripv4_pools is not None and self.mripv4_pools._has_data():
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "mripv4-pool"):
+                                        for c in self.mripv4_pool:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.mripv4_pool.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "mripv4-pool"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    (self.mripv4_pools is not None and self.mripv4_pools.has_data()) or
+                                    (self.mripv6_pools is not None and self.mripv6_pools.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.mripv4_pools is not None and self.mripv4_pools.has_operation()) or
+                                    (self.mripv6_pools is not None and self.mripv6_pools.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mobile-network" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "mripv4-pools"):
+                                    if (self.mripv4_pools is None):
+                                        self.mripv4_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools()
+                                        self.mripv4_pools.parent = self
+                                        self._children_name_map["mripv4_pools"] = "mripv4-pools"
+                                    return self.mripv4_pools
+
+                                if (child_yang_name == "mripv6-pools"):
+                                    if (self.mripv6_pools is None):
+                                        self.mripv6_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools()
+                                        self.mripv6_pools.parent = self
+                                        self._children_name_map["mripv6_pools"] = "mripv6-pools"
+                                    return self.mripv6_pools
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "mripv4-pools" or name == "mripv6-pools"):
                                     return True
-
-                                if self.mripv6_pools is not None and self.mripv6_pools._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                                return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.mobile_network is not None and self.mobile_network.has_data()) or
+                                (self.mobile_node is not None and self.mobile_node.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:pool-attributes'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.mobile_network is not None and self.mobile_network.has_operation()) or
+                                (self.mobile_node is not None and self.mobile_node.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pool-attributes" + path_buffer
 
-                        def _has_data(self):
-                            if self.mobile_network is not None and self.mobile_network._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "mobile-network"):
+                                if (self.mobile_network is None):
+                                    self.mobile_network = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork()
+                                    self.mobile_network.parent = self
+                                    self._children_name_map["mobile_network"] = "mobile-network"
+                                return self.mobile_network
+
+                            if (child_yang_name == "mobile-node"):
+                                if (self.mobile_node is None):
+                                    self.mobile_node = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode()
+                                    self.mobile_node.parent = self
+                                    self._children_name_map["mobile_node"] = "mobile-node"
+                                return self.mobile_node
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "mobile-network" or name == "mobile-node"):
                                 return True
-
-                            if self.mobile_node is not None and self.mobile_node._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                            return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.lma_network is None:
-                            raise YPYModelError('Key property lma_network is None')
+                    def has_data(self):
+                        return (
+                            self.lma_network.is_set or
+                            (self.pool_attributes is not None and self.pool_attributes.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:network[Cisco-IOS-XR-ip-mobileip-cfg:lma-network = ' + str(self.lma_network) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.lma_network.yfilter != YFilter.not_set or
+                            (self.pool_attributes is not None and self.pool_attributes.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "network" + "[lma-network='" + self.lma_network.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.lma_network is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.lma_network.is_set or self.lma_network.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lma_network.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "pool-attributes"):
+                            if (self.pool_attributes is None):
+                                self.pool_attributes = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes()
+                                self.pool_attributes.parent = self
+                                self._children_name_map["pool_attributes"] = "pool-attributes"
+                            return self.pool_attributes
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "pool-attributes" or name == "lma-network"):
                             return True
-
-                        if self.pool_attributes is not None and self.pool_attributes._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "lma-network"):
+                            self.lma_network = value
+                            self.lma_network.value_namespace = name_space
+                            self.lma_network.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:networks'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.network is not None:
-                        for child_ref in self.network:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.network:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                    return meta._meta_table['MobileIp.Lmas.Lma.Networks']['meta_info']
+                def has_operation(self):
+                    for c in self.network:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.lma_name is None:
-                    raise YPYModelError('Key property lma_name is None')
-                if self.domain_name is None:
-                    raise YPYModelError('Key property domain_name is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "networks" + path_buffer
 
-                return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:lmas/Cisco-IOS-XR-ip-mobileip-cfg:lma[Cisco-IOS-XR-ip-mobileip-cfg:lma-name = ' + str(self.lma_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.lma_name is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "network"):
+                        for c in self.network:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = MobileIp.Lmas.Lma.Networks.Network()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.network.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "network"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+
+            class ReplayProtection(Entity):
+                """
+                Replay Protection Method
+                
+                .. attribute:: timestamp_window
+                
+                	Specify timestamp window value in seconds
+                	**type**\:  int
+                
+                	**range:** 1..255
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'ip-mobileip-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(MobileIp.Lmas.Lma.ReplayProtection, self).__init__()
+
+                    self.yang_name = "replay-protection"
+                    self.yang_parent_name = "lma"
+
+                    self.timestamp_window = YLeaf(YType.uint32, "timestamp-window")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("timestamp_window") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MobileIp.Lmas.Lma.ReplayProtection, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MobileIp.Lmas.Lma.ReplayProtection, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return self.timestamp_window.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.timestamp_window.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "replay-protection" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.timestamp_window.is_set or self.timestamp_window.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timestamp_window.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "timestamp-window"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "timestamp-window"):
+                        self.timestamp_window = value
+                        self.timestamp_window.value_namespace = name_space
+                        self.timestamp_window.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                return (
+                    self.lma_name.is_set or
+                    self.domain_name.is_set or
+                    self.ani.is_set or
+                    self.default_profile.is_set or
+                    self.dynamic.is_set or
+                    self.enforce.is_set or
+                    self.generate.is_set or
+                    self.interface.is_set or
+                    self.mobile_map.is_set or
+                    self.mobile_route_ad.is_set or
+                    self.multipath.is_set or
+                    self.pgw_subs_cont.is_set or
+                    (self.aaa is not None and self.aaa.has_data()) or
+                    (self.binding_attributes is not None and self.binding_attributes.has_data()) or
+                    (self.binding_revocation_attributes is not None and self.binding_revocation_attributes.has_data()) or
+                    (self.dscp is not None and self.dscp.has_data()) or
+                    (self.heart_beat_attributes is not None and self.heart_beat_attributes.has_data()) or
+                    (self.hnp is not None and self.hnp.has_data()) or
+                    (self.lmaipv4_addresses is not None and self.lmaipv4_addresses.has_data()) or
+                    (self.lmaipv6_addresses is not None and self.lmaipv6_addresses.has_data()) or
+                    (self.mags is not None and self.mags.has_data()) or
+                    (self.networks is not None and self.networks.has_data()) or
+                    (self.rat_attributes is not None and self.rat_attributes.has_data()) or
+                    (self.redistribute is not None and self.redistribute.has_data()) or
+                    (self.replay_protection is not None and self.replay_protection.has_data()) or
+                    (self.roles is not None and self.roles.has_data()) or
+                    (self.services is not None and self.services.has_data()) or
+                    (self.tunnel_attributes is not None and self.tunnel_attributes.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.lma_name.yfilter != YFilter.not_set or
+                    self.domain_name.yfilter != YFilter.not_set or
+                    self.ani.yfilter != YFilter.not_set or
+                    self.default_profile.yfilter != YFilter.not_set or
+                    self.dynamic.yfilter != YFilter.not_set or
+                    self.enforce.yfilter != YFilter.not_set or
+                    self.generate.yfilter != YFilter.not_set or
+                    self.interface.yfilter != YFilter.not_set or
+                    self.mobile_map.yfilter != YFilter.not_set or
+                    self.mobile_route_ad.yfilter != YFilter.not_set or
+                    self.multipath.yfilter != YFilter.not_set or
+                    self.pgw_subs_cont.yfilter != YFilter.not_set or
+                    (self.aaa is not None and self.aaa.has_operation()) or
+                    (self.binding_attributes is not None and self.binding_attributes.has_operation()) or
+                    (self.binding_revocation_attributes is not None and self.binding_revocation_attributes.has_operation()) or
+                    (self.dscp is not None and self.dscp.has_operation()) or
+                    (self.heart_beat_attributes is not None and self.heart_beat_attributes.has_operation()) or
+                    (self.hnp is not None and self.hnp.has_operation()) or
+                    (self.lmaipv4_addresses is not None and self.lmaipv4_addresses.has_operation()) or
+                    (self.lmaipv6_addresses is not None and self.lmaipv6_addresses.has_operation()) or
+                    (self.mags is not None and self.mags.has_operation()) or
+                    (self.networks is not None and self.networks.has_operation()) or
+                    (self.rat_attributes is not None and self.rat_attributes.has_operation()) or
+                    (self.redistribute is not None and self.redistribute.has_operation()) or
+                    (self.replay_protection is not None and self.replay_protection.has_operation()) or
+                    (self.roles is not None and self.roles.has_operation()) or
+                    (self.services is not None and self.services.has_operation()) or
+                    (self.tunnel_attributes is not None and self.tunnel_attributes.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "lma" + "[lma-name='" + self.lma_name.get() + "']" + "[domain-name='" + self.domain_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.lma_name.is_set or self.lma_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lma_name.get_name_leafdata())
+                if (self.domain_name.is_set or self.domain_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.domain_name.get_name_leafdata())
+                if (self.ani.is_set or self.ani.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ani.get_name_leafdata())
+                if (self.default_profile.is_set or self.default_profile.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.default_profile.get_name_leafdata())
+                if (self.dynamic.is_set or self.dynamic.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dynamic.get_name_leafdata())
+                if (self.enforce.is_set or self.enforce.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enforce.get_name_leafdata())
+                if (self.generate.is_set or self.generate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.generate.get_name_leafdata())
+                if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface.get_name_leafdata())
+                if (self.mobile_map.is_set or self.mobile_map.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mobile_map.get_name_leafdata())
+                if (self.mobile_route_ad.is_set or self.mobile_route_ad.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mobile_route_ad.get_name_leafdata())
+                if (self.multipath.is_set or self.multipath.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.multipath.get_name_leafdata())
+                if (self.pgw_subs_cont.is_set or self.pgw_subs_cont.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.pgw_subs_cont.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "aaa"):
+                    if (self.aaa is None):
+                        self.aaa = MobileIp.Lmas.Lma.Aaa()
+                        self.aaa.parent = self
+                        self._children_name_map["aaa"] = "aaa"
+                    return self.aaa
+
+                if (child_yang_name == "binding-attributes"):
+                    if (self.binding_attributes is None):
+                        self.binding_attributes = MobileIp.Lmas.Lma.BindingAttributes()
+                        self.binding_attributes.parent = self
+                        self._children_name_map["binding_attributes"] = "binding-attributes"
+                    return self.binding_attributes
+
+                if (child_yang_name == "binding-revocation-attributes"):
+                    if (self.binding_revocation_attributes is None):
+                        self.binding_revocation_attributes = MobileIp.Lmas.Lma.BindingRevocationAttributes()
+                        self.binding_revocation_attributes.parent = self
+                        self._children_name_map["binding_revocation_attributes"] = "binding-revocation-attributes"
+                    return self.binding_revocation_attributes
+
+                if (child_yang_name == "dscp"):
+                    if (self.dscp is None):
+                        self.dscp = MobileIp.Lmas.Lma.Dscp()
+                        self.dscp.parent = self
+                        self._children_name_map["dscp"] = "dscp"
+                    return self.dscp
+
+                if (child_yang_name == "heart-beat-attributes"):
+                    if (self.heart_beat_attributes is None):
+                        self.heart_beat_attributes = MobileIp.Lmas.Lma.HeartBeatAttributes()
+                        self.heart_beat_attributes.parent = self
+                        self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
+                    return self.heart_beat_attributes
+
+                if (child_yang_name == "hnp"):
+                    if (self.hnp is None):
+                        self.hnp = MobileIp.Lmas.Lma.Hnp()
+                        self.hnp.parent = self
+                        self._children_name_map["hnp"] = "hnp"
+                    return self.hnp
+
+                if (child_yang_name == "lmaipv4-addresses"):
+                    if (self.lmaipv4_addresses is None):
+                        self.lmaipv4_addresses = MobileIp.Lmas.Lma.Lmaipv4Addresses()
+                        self.lmaipv4_addresses.parent = self
+                        self._children_name_map["lmaipv4_addresses"] = "lmaipv4-addresses"
+                    return self.lmaipv4_addresses
+
+                if (child_yang_name == "lmaipv6-addresses"):
+                    if (self.lmaipv6_addresses is None):
+                        self.lmaipv6_addresses = MobileIp.Lmas.Lma.Lmaipv6Addresses()
+                        self.lmaipv6_addresses.parent = self
+                        self._children_name_map["lmaipv6_addresses"] = "lmaipv6-addresses"
+                    return self.lmaipv6_addresses
+
+                if (child_yang_name == "mags"):
+                    if (self.mags is None):
+                        self.mags = MobileIp.Lmas.Lma.Mags()
+                        self.mags.parent = self
+                        self._children_name_map["mags"] = "mags"
+                    return self.mags
+
+                if (child_yang_name == "networks"):
+                    if (self.networks is None):
+                        self.networks = MobileIp.Lmas.Lma.Networks()
+                        self.networks.parent = self
+                        self._children_name_map["networks"] = "networks"
+                    return self.networks
+
+                if (child_yang_name == "rat-attributes"):
+                    if (self.rat_attributes is None):
+                        self.rat_attributes = MobileIp.Lmas.Lma.RatAttributes()
+                        self.rat_attributes.parent = self
+                        self._children_name_map["rat_attributes"] = "rat-attributes"
+                    return self.rat_attributes
+
+                if (child_yang_name == "redistribute"):
+                    if (self.redistribute is None):
+                        self.redistribute = MobileIp.Lmas.Lma.Redistribute()
+                        self.redistribute.parent = self
+                        self._children_name_map["redistribute"] = "redistribute"
+                    return self.redistribute
+
+                if (child_yang_name == "replay-protection"):
+                    if (self.replay_protection is None):
+                        self.replay_protection = MobileIp.Lmas.Lma.ReplayProtection()
+                        self.replay_protection.parent = self
+                        self._children_name_map["replay_protection"] = "replay-protection"
+                    return self.replay_protection
+
+                if (child_yang_name == "roles"):
+                    if (self.roles is None):
+                        self.roles = MobileIp.Lmas.Lma.Roles()
+                        self.roles.parent = self
+                        self._children_name_map["roles"] = "roles"
+                    return self.roles
+
+                if (child_yang_name == "services"):
+                    if (self.services is None):
+                        self.services = MobileIp.Lmas.Lma.Services()
+                        self.services.parent = self
+                        self._children_name_map["services"] = "services"
+                    return self.services
+
+                if (child_yang_name == "tunnel-attributes"):
+                    if (self.tunnel_attributes is None):
+                        self.tunnel_attributes = MobileIp.Lmas.Lma.TunnelAttributes()
+                        self.tunnel_attributes.parent = self
+                        self._children_name_map["tunnel_attributes"] = "tunnel-attributes"
+                    return self.tunnel_attributes
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "aaa" or name == "binding-attributes" or name == "binding-revocation-attributes" or name == "dscp" or name == "heart-beat-attributes" or name == "hnp" or name == "lmaipv4-addresses" or name == "lmaipv6-addresses" or name == "mags" or name == "networks" or name == "rat-attributes" or name == "redistribute" or name == "replay-protection" or name == "roles" or name == "services" or name == "tunnel-attributes" or name == "lma-name" or name == "domain-name" or name == "ani" or name == "default-profile" or name == "dynamic" or name == "enforce" or name == "generate" or name == "interface" or name == "mobile-map" or name == "mobile-route-ad" or name == "multipath" or name == "pgw-subs-cont"):
                     return True
-
-                if self.domain_name is not None:
-                    return True
-
-                if self.aaa is not None and self.aaa._has_data():
-                    return True
-
-                if self.ani is not None:
-                    return True
-
-                if self.binding_attributes is not None and self.binding_attributes._has_data():
-                    return True
-
-                if self.binding_revocation_attributes is not None and self.binding_revocation_attributes._has_data():
-                    return True
-
-                if self.default_profile is not None:
-                    return True
-
-                if self.dscp is not None and self.dscp._has_data():
-                    return True
-
-                if self.dynamic is not None:
-                    return True
-
-                if self.enforce is not None:
-                    return True
-
-                if self.generate is not None:
-                    return True
-
-                if self.heart_beat_attributes is not None and self.heart_beat_attributes._has_data():
-                    return True
-
-                if self.hnp is not None and self.hnp._has_data():
-                    return True
-
-                if self.interface is not None:
-                    return True
-
-                if self.lmaipv4_addresses is not None and self.lmaipv4_addresses._has_data():
-                    return True
-
-                if self.lmaipv6_addresses is not None and self.lmaipv6_addresses._has_data():
-                    return True
-
-                if self.mags is not None and self.mags._has_data():
-                    return True
-
-                if self.mobile_map is not None:
-                    return True
-
-                if self.mobile_route_ad is not None:
-                    return True
-
-                if self.multipath is not None:
-                    return True
-
-                if self.networks is not None and self.networks._has_data():
-                    return True
-
-                if self.pgw_subs_cont is not None:
-                    return True
-
-                if self.rat_attributes is not None and self.rat_attributes._has_data():
-                    return True
-
-                if self.redistribute is not None and self.redistribute._has_data():
-                    return True
-
-                if self.replay_protection is not None and self.replay_protection._has_data():
-                    return True
-
-                if self.roles is not None and self.roles._has_data():
-                    return True
-
-                if self.services is not None and self.services._has_data():
-                    return True
-
-                if self.tunnel_attributes is not None and self.tunnel_attributes._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-                return meta._meta_table['MobileIp.Lmas.Lma']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "lma-name"):
+                    self.lma_name = value
+                    self.lma_name.value_namespace = name_space
+                    self.lma_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "domain-name"):
+                    self.domain_name = value
+                    self.domain_name.value_namespace = name_space
+                    self.domain_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "ani"):
+                    self.ani = value
+                    self.ani.value_namespace = name_space
+                    self.ani.value_namespace_prefix = name_space_prefix
+                if(value_path == "default-profile"):
+                    self.default_profile = value
+                    self.default_profile.value_namespace = name_space
+                    self.default_profile.value_namespace_prefix = name_space_prefix
+                if(value_path == "dynamic"):
+                    self.dynamic = value
+                    self.dynamic.value_namespace = name_space
+                    self.dynamic.value_namespace_prefix = name_space_prefix
+                if(value_path == "enforce"):
+                    self.enforce = value
+                    self.enforce.value_namespace = name_space
+                    self.enforce.value_namespace_prefix = name_space_prefix
+                if(value_path == "generate"):
+                    self.generate = value
+                    self.generate.value_namespace = name_space
+                    self.generate.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface"):
+                    self.interface = value
+                    self.interface.value_namespace = name_space
+                    self.interface.value_namespace_prefix = name_space_prefix
+                if(value_path == "mobile-map"):
+                    self.mobile_map = value
+                    self.mobile_map.value_namespace = name_space
+                    self.mobile_map.value_namespace_prefix = name_space_prefix
+                if(value_path == "mobile-route-ad"):
+                    self.mobile_route_ad = value
+                    self.mobile_route_ad.value_namespace = name_space
+                    self.mobile_route_ad.value_namespace_prefix = name_space_prefix
+                if(value_path == "multipath"):
+                    self.multipath = value
+                    self.multipath.value_namespace = name_space
+                    self.multipath.value_namespace_prefix = name_space_prefix
+                if(value_path == "pgw-subs-cont"):
+                    self.pgw_subs_cont = value
+                    self.pgw_subs_cont.value_namespace = name_space
+                    self.pgw_subs_cont.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:lmas'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.lma is not None:
-                for child_ref in self.lma:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.lma:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-            return meta._meta_table['MobileIp.Lmas']['meta_info']
+        def has_operation(self):
+            for c in self.lma:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "lmas" + path_buffer
 
-        return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.domains is not None and self.domains._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "lma"):
+                for c in self.lma:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MobileIp.Lmas.Lma()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.lma.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "lma"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.domains is not None and self.domains.has_data()) or
+            (self.lmas is not None and self.lmas.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.domains is not None and self.domains.has_operation()) or
+            (self.lmas is not None and self.lmas.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "domains"):
+            if (self.domains is None):
+                self.domains = MobileIp.Domains()
+                self.domains.parent = self
+                self._children_name_map["domains"] = "domains"
+            return self.domains
+
+        if (child_yang_name == "lmas"):
+            if (self.lmas is None):
+                self.lmas = MobileIp.Lmas()
+                self.lmas.parent = self
+                self._children_name_map["lmas"] = "lmas"
+            return self.lmas
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "domains" or name == "lmas"):
             return True
-
-        if self.lmas is not None and self.lmas._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
-        return meta._meta_table['MobileIp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = MobileIp()
+        return self._top_entity
 

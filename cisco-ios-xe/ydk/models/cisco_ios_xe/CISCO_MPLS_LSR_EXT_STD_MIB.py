@@ -9,21 +9,15 @@ This MIB module contains generic object definitions for
 MPLS LSR in transport networks.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoMplsLsrExtStdMib(object):
+class CiscoMplsLsrExtStdMib(Entity):
     """
     
     
@@ -40,11 +34,19 @@ class CiscoMplsLsrExtStdMib(object):
     _revision = '2012-04-30'
 
     def __init__(self):
+        super(CiscoMplsLsrExtStdMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
+        self.yang_parent_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
+
         self.cmplsxcexttable = CiscoMplsLsrExtStdMib.Cmplsxcexttable()
         self.cmplsxcexttable.parent = self
+        self._children_name_map["cmplsxcexttable"] = "cmplsXCExtTable"
+        self._children_yang_names.add("cmplsXCExtTable")
 
 
-    class Cmplsxcexttable(object):
+    class Cmplsxcexttable(Entity):
         """
         This table sparse augments the mplsXCTable of
         MPLS\-LSR\-STD\-MIB [RFC3813] to provide MPLS\-TP specific
@@ -63,13 +65,39 @@ class CiscoMplsLsrExtStdMib(object):
         _revision = '2012-04-30'
 
         def __init__(self):
-            self.parent = None
-            self.cmplsxcextentry = YList()
-            self.cmplsxcextentry.parent = self
-            self.cmplsxcextentry.name = 'cmplsxcextentry'
+            super(CiscoMplsLsrExtStdMib.Cmplsxcexttable, self).__init__()
+
+            self.yang_name = "cmplsXCExtTable"
+            self.yang_parent_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
+
+            self.cmplsxcextentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoMplsLsrExtStdMib.Cmplsxcexttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoMplsLsrExtStdMib.Cmplsxcexttable, self).__setattr__(name, value)
 
 
-        class Cmplsxcextentry(object):
+        class Cmplsxcextentry(Entity):
             """
             An entry in this table extends the cross connect
             information represented by an entry in
@@ -127,91 +155,233 @@ class CiscoMplsLsrExtStdMib(object):
             _revision = '2012-04-30'
 
             def __init__(self):
-                self.parent = None
-                self.mplsxcindex = None
-                self.mplsxcinsegmentindex = None
-                self.mplsxcoutsegmentindex = None
-                self.cmplsxcexttunnelpointer = None
-                self.cmplsxcoppositedirxcptr = None
+                super(CiscoMplsLsrExtStdMib.Cmplsxcexttable.Cmplsxcextentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.mplsxcindex is None:
-                    raise YPYModelError('Key property mplsxcindex is None')
-                if self.mplsxcinsegmentindex is None:
-                    raise YPYModelError('Key property mplsxcinsegmentindex is None')
-                if self.mplsxcoutsegmentindex is None:
-                    raise YPYModelError('Key property mplsxcoutsegmentindex is None')
+                self.yang_name = "cmplsXCExtEntry"
+                self.yang_parent_name = "cmplsXCExtTable"
 
-                return '/CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/CISCO-MPLS-LSR-EXT-STD-MIB:cmplsXCExtTable/CISCO-MPLS-LSR-EXT-STD-MIB:cmplsXCExtEntry[CISCO-MPLS-LSR-EXT-STD-MIB:mplsXCIndex = ' + str(self.mplsxcindex) + '][CISCO-MPLS-LSR-EXT-STD-MIB:mplsXCInSegmentIndex = ' + str(self.mplsxcinsegmentindex) + '][CISCO-MPLS-LSR-EXT-STD-MIB:mplsXCOutSegmentIndex = ' + str(self.mplsxcoutsegmentindex) + ']'
+                self.mplsxcindex = YLeaf(YType.str, "mplsXCIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.mplsxcinsegmentindex = YLeaf(YType.str, "mplsXCInSegmentIndex")
+
+                self.mplsxcoutsegmentindex = YLeaf(YType.str, "mplsXCOutSegmentIndex")
+
+                self.cmplsxcexttunnelpointer = YLeaf(YType.str, "cmplsXCExtTunnelPointer")
+
+                self.cmplsxcoppositedirxcptr = YLeaf(YType.str, "cmplsXCOppositeDirXCPtr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsxcindex",
+                                "mplsxcinsegmentindex",
+                                "mplsxcoutsegmentindex",
+                                "cmplsxcexttunnelpointer",
+                                "cmplsxcoppositedirxcptr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoMplsLsrExtStdMib.Cmplsxcexttable.Cmplsxcextentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoMplsLsrExtStdMib.Cmplsxcexttable.Cmplsxcextentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.mplsxcindex.is_set or
+                    self.mplsxcinsegmentindex.is_set or
+                    self.mplsxcoutsegmentindex.is_set or
+                    self.cmplsxcexttunnelpointer.is_set or
+                    self.cmplsxcoppositedirxcptr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsxcindex.yfilter != YFilter.not_set or
+                    self.mplsxcinsegmentindex.yfilter != YFilter.not_set or
+                    self.mplsxcoutsegmentindex.yfilter != YFilter.not_set or
+                    self.cmplsxcexttunnelpointer.yfilter != YFilter.not_set or
+                    self.cmplsxcoppositedirxcptr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cmplsXCExtEntry" + "[mplsXCIndex='" + self.mplsxcindex.get() + "']" + "[mplsXCInSegmentIndex='" + self.mplsxcinsegmentindex.get() + "']" + "[mplsXCOutSegmentIndex='" + self.mplsxcoutsegmentindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/cmplsXCExtTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsxcindex.is_set or self.mplsxcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsxcindex.get_name_leafdata())
+                if (self.mplsxcinsegmentindex.is_set or self.mplsxcinsegmentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsxcinsegmentindex.get_name_leafdata())
+                if (self.mplsxcoutsegmentindex.is_set or self.mplsxcoutsegmentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsxcoutsegmentindex.get_name_leafdata())
+                if (self.cmplsxcexttunnelpointer.is_set or self.cmplsxcexttunnelpointer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsxcexttunnelpointer.get_name_leafdata())
+                if (self.cmplsxcoppositedirxcptr.is_set or self.cmplsxcoppositedirxcptr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsxcoppositedirxcptr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsXCIndex" or name == "mplsXCInSegmentIndex" or name == "mplsXCOutSegmentIndex" or name == "cmplsXCExtTunnelPointer" or name == "cmplsXCOppositeDirXCPtr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsxcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsXCIndex"):
+                    self.mplsxcindex = value
+                    self.mplsxcindex.value_namespace = name_space
+                    self.mplsxcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsXCInSegmentIndex"):
+                    self.mplsxcinsegmentindex = value
+                    self.mplsxcinsegmentindex.value_namespace = name_space
+                    self.mplsxcinsegmentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsXCOutSegmentIndex"):
+                    self.mplsxcoutsegmentindex = value
+                    self.mplsxcoutsegmentindex.value_namespace = name_space
+                    self.mplsxcoutsegmentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsXCExtTunnelPointer"):
+                    self.cmplsxcexttunnelpointer = value
+                    self.cmplsxcexttunnelpointer.value_namespace = name_space
+                    self.cmplsxcexttunnelpointer.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsXCOppositeDirXCPtr"):
+                    self.cmplsxcoppositedirxcptr = value
+                    self.cmplsxcoppositedirxcptr.value_namespace = name_space
+                    self.cmplsxcoppositedirxcptr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cmplsxcextentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsxcinsegmentindex is not None:
-                    return True
-
-                if self.mplsxcoutsegmentindex is not None:
-                    return True
-
-                if self.cmplsxcexttunnelpointer is not None:
-                    return True
-
-                if self.cmplsxcoppositedirxcptr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_MPLS_LSR_EXT_STD_MIB as meta
-                return meta._meta_table['CiscoMplsLsrExtStdMib.Cmplsxcexttable.Cmplsxcextentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/CISCO-MPLS-LSR-EXT-STD-MIB:cmplsXCExtTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cmplsxcextentry is not None:
-                for child_ref in self.cmplsxcextentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cmplsxcextentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cmplsXCExtTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cmplsXCExtEntry"):
+                for c in self.cmplsxcextentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoMplsLsrExtStdMib.Cmplsxcexttable.Cmplsxcextentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cmplsxcextentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cmplsXCExtEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_MPLS_LSR_EXT_STD_MIB as meta
-            return meta._meta_table['CiscoMplsLsrExtStdMib.Cmplsxcexttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.cmplsxcexttable is not None and self.cmplsxcexttable.has_data())
 
-        return '/CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cmplsxcexttable is not None and self.cmplsxcexttable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB" + path_buffer
 
-    def _has_data(self):
-        if self.cmplsxcexttable is not None and self.cmplsxcexttable._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cmplsXCExtTable"):
+            if (self.cmplsxcexttable is None):
+                self.cmplsxcexttable = CiscoMplsLsrExtStdMib.Cmplsxcexttable()
+                self.cmplsxcexttable.parent = self
+                self._children_name_map["cmplsxcexttable"] = "cmplsXCExtTable"
+            return self.cmplsxcexttable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cmplsXCExtTable"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_MPLS_LSR_EXT_STD_MIB as meta
-        return meta._meta_table['CiscoMplsLsrExtStdMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CiscoMplsLsrExtStdMib()
+        return self._top_entity
 

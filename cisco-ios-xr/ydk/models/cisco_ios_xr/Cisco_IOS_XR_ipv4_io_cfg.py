@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ipv4DefaultPingEnum(Enum):
+class Ipv4DefaultPing(Enum):
     """
-    Ipv4DefaultPingEnum
+    Ipv4DefaultPing
 
     Ipv4 default ping
 
@@ -44,20 +38,14 @@ class Ipv4DefaultPingEnum(Enum):
 
     """
 
-    disabled = 0
+    disabled = Enum.YLeaf(0, "disabled")
 
-    enabled = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
-        return meta._meta_table['Ipv4DefaultPingEnum']
+    enabled = Enum.YLeaf(1, "enabled")
 
 
-class Ipv4InterfaceQppbEnum(Enum):
+class Ipv4InterfaceQppb(Enum):
     """
-    Ipv4InterfaceQppbEnum
+    Ipv4InterfaceQppb
 
     Ipv4 interface qppb
 
@@ -77,22 +65,16 @@ class Ipv4InterfaceQppbEnum(Enum):
 
     """
 
-    ip_precedence = 1
+    ip_precedence = Enum.YLeaf(1, "ip-precedence")
 
-    qos_group = 2
+    qos_group = Enum.YLeaf(2, "qos-group")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
-        return meta._meta_table['Ipv4InterfaceQppbEnum']
+    both = Enum.YLeaf(3, "both")
 
 
-class Ipv4ReachableEnum(Enum):
+class Ipv4Reachable(Enum):
     """
-    Ipv4ReachableEnum
+    Ipv4Reachable
 
     Ipv4 reachable
 
@@ -108,20 +90,14 @@ class Ipv4ReachableEnum(Enum):
 
     """
 
-    any = 0
+    any = Enum.YLeaf(0, "any")
 
-    received = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
-        return meta._meta_table['Ipv4ReachableEnum']
+    received = Enum.YLeaf(1, "received")
 
 
-class Ipv4SelfPingEnum(Enum):
+class Ipv4SelfPing(Enum):
     """
-    Ipv4SelfPingEnum
+    Ipv4SelfPing
 
     Ipv4 self ping
 
@@ -135,15 +111,9 @@ class Ipv4SelfPingEnum(Enum):
 
     """
 
-    disabled = 0
+    disabled = Enum.YLeaf(0, "disabled")
 
-    enabled = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
-        return meta._meta_table['Ipv4SelfPingEnum']
+    enabled = Enum.YLeaf(1, "enabled")
 
 
 

@@ -3,21 +3,15 @@
 Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class ParsernameIdentity(object):
+class Parsername(Identity):
     """
      ODM parser names
     
@@ -26,18 +20,13 @@ class ParsernameIdentity(object):
     """
 
     _prefix = 'codm'
-    _revision = '2017-01-25'
+    _revision = '2017-04-25'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['ParsernameIdentity']['meta_info']
+        super(Parsername, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:parsername")
 
 
-class BridgedomainIdentity(ParsernameIdentity):
+class Bridgedomain(Identity):
     """
     show bridge domain
     
@@ -46,38 +35,13 @@ class BridgedomainIdentity(ParsernameIdentity):
     """
 
     _prefix = 'codm'
-    _revision = '2017-01-25'
+    _revision = '2017-04-25'
 
     def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['BridgedomainIdentity']['meta_info']
+        super(Bridgedomain, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BridgeDomain")
 
 
-class MplsforwardingtableIdentity(ParsernameIdentity):
-    """
-    show mpls forwarding\-table
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['MplsforwardingtableIdentity']['meta_info']
-
-
-class MplsstaticbindingIdentity(ParsernameIdentity):
+class Mplsstaticbinding(Identity):
     """
     show mpls static binding
     
@@ -86,178 +50,13 @@ class MplsstaticbindingIdentity(ParsernameIdentity):
     """
 
     _prefix = 'codm'
-    _revision = '2017-01-25'
+    _revision = '2017-04-25'
 
     def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['MplsstaticbindingIdentity']['meta_info']
+        super(Mplsstaticbinding, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSStaticBinding")
 
 
-class IprouteIdentity(ParsernameIdentity):
-    """
-    show ip route
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['IprouteIdentity']['meta_info']
-
-
-class BgpIdentity(ParsernameIdentity):
-    """
-    show bgp
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['BgpIdentity']['meta_info']
-
-
-class BfdneighborsIdentity(ParsernameIdentity):
-    """
-    show bfd neighbors
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['BfdneighborsIdentity']['meta_info']
-
-
-class VirtualserviceIdentity(ParsernameIdentity):
-    """
-    show virtual\-service
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['VirtualserviceIdentity']['meta_info']
-
-
-class MplsldpneighborsIdentity(ParsernameIdentity):
-    """
-    show mpls ldp neighbor detail
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['MplsldpneighborsIdentity']['meta_info']
-
-
-class FlowmonitorIdentity(ParsernameIdentity):
-    """
-    show flow monitor
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['FlowmonitorIdentity']['meta_info']
-
-
-class PlatformsoftwareIdentity(ParsernameIdentity):
-    """
-    show platform software
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['PlatformsoftwareIdentity']['meta_info']
-
-
-class OspfIdentity(ParsernameIdentity):
-    """
-    show ospf
-    
-    
-
-    """
-
-    _prefix = 'codm'
-    _revision = '2017-01-25'
-
-    def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['OspfIdentity']['meta_info']
-
-
-class DiffservIdentity(ParsernameIdentity):
+class Diffserv(Identity):
     """
     show policy\-map interface
     
@@ -266,18 +65,28 @@ class DiffservIdentity(ParsernameIdentity):
     """
 
     _prefix = 'codm'
-    _revision = '2017-01-25'
+    _revision = '2017-04-25'
 
     def __init__(self):
-        ParsernameIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['DiffservIdentity']['meta_info']
+        super(Diffserv, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:Diffserv")
 
 
-class EthernetcfmstatsIdentity(ParsernameIdentity):
+class Ospf(Identity):
+    """
+    show ospf
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Ospf, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:OSPF")
+
+
+class Ethernetcfmstats(Identity):
     """
     show ethernet cfm statistics
     
@@ -286,14 +95,129 @@ class EthernetcfmstatsIdentity(ParsernameIdentity):
     """
 
     _prefix = 'codm'
-    _revision = '2017-01-25'
+    _revision = '2017-04-25'
 
     def __init__(self):
-        ParsernameIdentity.__init__(self)
+        super(Ethernetcfmstats, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:EthernetCFMStats")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_odm as meta
-        return meta._meta_table['EthernetcfmstatsIdentity']['meta_info']
+
+class Mplsldpneighbors(Identity):
+    """
+    show mpls ldp neighbor detail
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Mplsldpneighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSLDPNeighbors")
+
+
+class Flowmonitor(Identity):
+    """
+    show flow monitor
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Flowmonitor, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:FlowMonitor")
+
+
+class Bfdneighbors(Identity):
+    """
+    show bfd neighbors
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Bfdneighbors, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BFDNeighbors")
+
+
+class Virtualservice(Identity):
+    """
+    show virtual\-service
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Virtualservice, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:VirtualService")
+
+
+class Mplsforwardingtable(Identity):
+    """
+    show mpls forwarding\-table
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Mplsforwardingtable, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:MPLSForwardingTable")
+
+
+class Iproute(Identity):
+    """
+    show ip route
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Iproute, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:IPRoute")
+
+
+class Platformsoftware(Identity):
+    """
+    show platform software
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Platformsoftware, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:PlatformSoftware")
+
+
+class Bgp(Identity):
+    """
+    show bgp
+    
+    
+
+    """
+
+    _prefix = 'codm'
+    _revision = '2017-04-25'
+
+    def __init__(self):
+        super(Bgp, self).__init__("http://cisco.com/yang/cisco-odm", "cisco-odm", "cisco-odm:BGP")
 
 

@@ -4,22 +4,16 @@ This module contains a collection of YANG type definitions for
 SYSLOG.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SeverityEnum(Enum):
+class Severity(Enum):
     """
-    SeverityEnum
+    Severity
 
     The definitions for Syslog message severity as per RFC 5424.
 
@@ -57,31 +51,25 @@ class SeverityEnum(Enum):
 
     """
 
-    emergency = 0
+    emergency = Enum.YLeaf(0, "emergency")
 
-    alert = 1
+    alert = Enum.YLeaf(1, "alert")
 
-    critical = 2
+    critical = Enum.YLeaf(2, "critical")
 
-    error = 3
+    error = Enum.YLeaf(3, "error")
 
-    warning = 4
+    warning = Enum.YLeaf(4, "warning")
 
-    notice = 5
+    notice = Enum.YLeaf(5, "notice")
 
-    info = 6
+    info = Enum.YLeaf(6, "info")
 
-    debug = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['SeverityEnum']
+    debug = Enum.YLeaf(7, "debug")
 
 
 
-class SyslogFacilityIdentity(object):
+class SyslogFacility(Identity):
     """
     The base identity to represent syslog facilities
     
@@ -93,157 +81,10 @@ class SyslogFacilityIdentity(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['SyslogFacilityIdentity']['meta_info']
+        super(SyslogFacility, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:syslog-facility")
 
 
-class Local3Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 3 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local3Identity']['meta_info']
-
-
-class DaemonIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the system daemons as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['DaemonIdentity']['meta_info']
-
-
-class Local0Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 0 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local0Identity']['meta_info']
-
-
-class NtpIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the NTP subsystem as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['NtpIdentity']['meta_info']
-
-
-class CronIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the clock daemon as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['CronIdentity']['meta_info']
-
-
-class AuditIdentity(SyslogFacilityIdentity):
-    """
-    The facility for log audit messages as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['AuditIdentity']['meta_info']
-
-
-class KernIdentity(SyslogFacilityIdentity):
-    """
-    The facility for kernel messages as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['KernIdentity']['meta_info']
-
-
-class Local4Identity(SyslogFacilityIdentity):
+class Local4(Identity):
     """
     The facility for local use 4 messages as defined in 
     RFC 5424.
@@ -256,17 +97,12 @@ class Local4Identity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local4Identity']['meta_info']
+        super(Local4, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local4")
 
 
-class MailIdentity(SyslogFacilityIdentity):
+class Daemon(Identity):
     """
-    The facility for the mail system as defined in RFC 5424.
+    The facility for the system daemons as defined in RFC 5424.
     
     
 
@@ -276,76 +112,10 @@ class MailIdentity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['MailIdentity']['meta_info']
+        super(Daemon, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:daemon")
 
 
-class UserIdentity(SyslogFacilityIdentity):
-    """
-    The facility for user\-level messages as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['UserIdentity']['meta_info']
-
-
-class FtpIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the FTP daemon as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['FtpIdentity']['meta_info']
-
-
-class Local6Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 6 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local6Identity']['meta_info']
-
-
-class ConsoleIdentity(SyslogFacilityIdentity):
+class Console(Identity):
     """
     The facility for log alert messages as defined in RFC 5424.
     
@@ -357,99 +127,10 @@ class ConsoleIdentity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['ConsoleIdentity']['meta_info']
+        super(Console, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:console")
 
 
-class LprIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the line printer subsystem as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['LprIdentity']['meta_info']
-
-
-class Local1Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 1 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local1Identity']['meta_info']
-
-
-class AuthIdentity(SyslogFacilityIdentity):
-    """
-    The facility for security/authorization messages as defined 
-    in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['AuthIdentity']['meta_info']
-
-
-class Local2Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 2 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local2Identity']['meta_info']
-
-
-class Local5Identity(SyslogFacilityIdentity):
+class Local5(Identity):
     """
     The facility for local use 5 messages as defined in 
     RFC 5424.
@@ -462,56 +143,10 @@ class Local5Identity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local5Identity']['meta_info']
+        super(Local5, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local5")
 
 
-class Local7Identity(SyslogFacilityIdentity):
-    """
-    The facility for local use 7 messages as defined in 
-    RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Local7Identity']['meta_info']
-
-
-class UucpIdentity(SyslogFacilityIdentity):
-    """
-    The facility for the UUCP subsystem as defined in RFC 5424.
-    
-    
-
-    """
-
-    _prefix = 'syslogtypes'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['UucpIdentity']['meta_info']
-
-
-class NewsIdentity(SyslogFacilityIdentity):
+class News(Identity):
     """
     The facility for the network news subsystem as defined in 
     RFC 5424.
@@ -524,18 +159,12 @@ class NewsIdentity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['NewsIdentity']['meta_info']
+        super(News, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:news")
 
 
-class AuthprivIdentity(SyslogFacilityIdentity):
+class Cron(Identity):
     """
-    The facility for privileged security/authorization messages 
-    as defined in RFC 5424.
+    The facility for the clock daemon as defined in RFC 5424.
     
     
 
@@ -545,15 +174,72 @@ class AuthprivIdentity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['AuthprivIdentity']['meta_info']
+        super(Cron, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron")
 
 
-class Cron2Identity(SyslogFacilityIdentity):
+class Kern(Identity):
+    """
+    The facility for kernel messages as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Kern, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:kern")
+
+
+class Lpr(Identity):
+    """
+    The facility for the line printer subsystem as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Lpr, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:lpr")
+
+
+class Audit(Identity):
+    """
+    The facility for log audit messages as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Audit, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:audit")
+
+
+class Local0(Identity):
+    """
+    The facility for local use 0 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local0, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local0")
+
+
+class Cron2(Identity):
     """
     The facility for the second clock daemon as defined in 
     RFC 5424.
@@ -566,15 +252,181 @@ class Cron2Identity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['Cron2Identity']['meta_info']
+        super(Cron2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:cron2")
 
 
-class SyslogIdentity(SyslogFacilityIdentity):
+class Local1(Identity):
+    """
+    The facility for local use 1 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local1, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local1")
+
+
+class Ntp(Identity):
+    """
+    The facility for the NTP subsystem as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Ntp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:ntp")
+
+
+class Local7(Identity):
+    """
+    The facility for local use 7 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local7, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local7")
+
+
+class Local2(Identity):
+    """
+    The facility for local use 2 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local2")
+
+
+class Uucp(Identity):
+    """
+    The facility for the UUCP subsystem as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Uucp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:uucp")
+
+
+class User(Identity):
+    """
+    The facility for user\-level messages as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(User, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:user")
+
+
+class Mail(Identity):
+    """
+    The facility for the mail system as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Mail, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:mail")
+
+
+class Ftp(Identity):
+    """
+    The facility for the FTP daemon as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Ftp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:ftp")
+
+
+class Auth(Identity):
+    """
+    The facility for security/authorization messages as defined 
+    in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Auth, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:auth")
+
+
+class Local6(Identity):
+    """
+    The facility for local use 6 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local6, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local6")
+
+
+class Authpriv(Identity):
+    """
+    The facility for privileged security/authorization messages 
+    as defined in RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Authpriv, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:authpriv")
+
+
+class Syslog(Identity):
     """
     The facility for messages generated internally by syslogd 
     facility as defined in RFC 5424.
@@ -587,11 +439,22 @@ class SyslogIdentity(SyslogFacilityIdentity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        SyslogFacilityIdentity.__init__(self)
+        super(Syslog, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:syslog")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_syslog_types as meta
-        return meta._meta_table['SyslogIdentity']['meta_info']
+
+class Local3(Identity):
+    """
+    The facility for local use 3 messages as defined in 
+    RFC 5424.
+    
+    
+
+    """
+
+    _prefix = 'syslogtypes'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Local3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-syslog-types", "ietf-syslog-types", "ietf-syslog-types:local3")
 
 

@@ -2,21 +2,15 @@
 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Rfc1315Mib(object):
+class Rfc1315Mib(Entity):
     """
     
     
@@ -47,24 +41,41 @@ class Rfc1315Mib(object):
     _prefix = 'RFC1315-MIB'
 
     def __init__(self):
+        super(Rfc1315Mib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "RFC1315-MIB"
+        self.yang_parent_name = "RFC1315-MIB"
+
         self.frame_relay_globals = Rfc1315Mib.FrameRelayGlobals()
         self.frame_relay_globals.parent = self
+        self._children_name_map["frame_relay_globals"] = "frame-relay-globals"
+        self._children_yang_names.add("frame-relay-globals")
+
         self.frcircuittable = Rfc1315Mib.Frcircuittable()
         self.frcircuittable.parent = self
+        self._children_name_map["frcircuittable"] = "frCircuitTable"
+        self._children_yang_names.add("frCircuitTable")
+
         self.frdlcmitable = Rfc1315Mib.Frdlcmitable()
         self.frdlcmitable.parent = self
+        self._children_name_map["frdlcmitable"] = "frDlcmiTable"
+        self._children_yang_names.add("frDlcmiTable")
+
         self.frerrtable = Rfc1315Mib.Frerrtable()
         self.frerrtable.parent = self
+        self._children_name_map["frerrtable"] = "frErrTable"
+        self._children_yang_names.add("frErrTable")
 
 
-    class FrameRelayGlobals(object):
+    class FrameRelayGlobals(Entity):
         """
         
         
         .. attribute:: frtrapstate
         
         	This variable  indicates  whether  the  system produces the frDLCIStatusChange trap
-        	**type**\:   :py:class:`FrtrapstateEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.FrameRelayGlobals.FrtrapstateEnum>`
+        	**type**\:   :py:class:`Frtrapstate <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.FrameRelayGlobals.Frtrapstate>`
         
         
 
@@ -73,12 +84,40 @@ class Rfc1315Mib(object):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            self.parent = None
-            self.frtrapstate = None
+            super(Rfc1315Mib.FrameRelayGlobals, self).__init__()
 
-        class FrtrapstateEnum(Enum):
+            self.yang_name = "frame-relay-globals"
+            self.yang_parent_name = "RFC1315-MIB"
+
+            self.frtrapstate = YLeaf(YType.enumeration, "frTrapState")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("frtrapstate") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rfc1315Mib.FrameRelayGlobals, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rfc1315Mib.FrameRelayGlobals, self).__setattr__(name, value)
+
+        class Frtrapstate(Enum):
             """
-            FrtrapstateEnum
+            Frtrapstate
 
             This variable  indicates  whether  the  system
 
@@ -90,39 +129,59 @@ class Rfc1315Mib(object):
 
             """
 
-            enabled = 1
+            enabled = Enum.YLeaf(1, "enabled")
 
-            disabled = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                return meta._meta_table['Rfc1315Mib.FrameRelayGlobals.FrtrapstateEnum']
+            disabled = Enum.YLeaf(2, "disabled")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return self.frtrapstate.is_set
 
-            return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frame-relay-globals'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.frtrapstate.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "frame-relay-globals" + path_buffer
 
-        def _has_data(self):
-            if self.frtrapstate is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RFC1315-MIB:RFC1315-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.frtrapstate.is_set or self.frtrapstate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.frtrapstate.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "frTrapState"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-            return meta._meta_table['Rfc1315Mib.FrameRelayGlobals']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "frTrapState"):
+                self.frtrapstate = value
+                self.frtrapstate.value_namespace = name_space
+                self.frtrapstate.value_namespace_prefix = name_space_prefix
 
 
-    class Frdlcmitable(object):
+    class Frdlcmitable(Entity):
         """
         The Parameters for the Data Link Connection Management
         Interface for the frame relay service on this
@@ -140,13 +199,39 @@ class Rfc1315Mib(object):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            self.parent = None
-            self.frdlcmientry = YList()
-            self.frdlcmientry.parent = self
-            self.frdlcmientry.name = 'frdlcmientry'
+            super(Rfc1315Mib.Frdlcmitable, self).__init__()
+
+            self.yang_name = "frDlcmiTable"
+            self.yang_parent_name = "RFC1315-MIB"
+
+            self.frdlcmientry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rfc1315Mib.Frdlcmitable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rfc1315Mib.Frdlcmitable, self).__setattr__(name, value)
 
 
-        class Frdlcmientry(object):
+        class Frdlcmientry(Entity):
             """
             The Parameters for a particular Data Link Con\-
             nection Management Interface.
@@ -161,12 +246,12 @@ class Rfc1315Mib(object):
             .. attribute:: frdlcmiaddress
             
             	This variable states which address  format  is in use on the Frame Relay interface
-            	**type**\:   :py:class:`FrdlcmiaddressEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmiaddressEnum>`
+            	**type**\:   :py:class:`Frdlcmiaddress <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.Frdlcmiaddress>`
             
             .. attribute:: frdlcmiaddresslen
             
             	This variable states which address  length  in octets.  In the case of Q922 format, the length indicates the entire length of the address  in\- cluding the control portion
-            	**type**\:   :py:class:`FrdlcmiaddresslenEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmiaddresslenEnum>`
+            	**type**\:   :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
             
             .. attribute:: frdlcmierrorthreshold
             
@@ -199,7 +284,7 @@ class Rfc1315Mib(object):
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay  inter\- face is using a multicast service
-            	**type**\:   :py:class:`FrdlcmimulticastEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmimulticastEnum>`
+            	**type**\:   :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
             
             .. attribute:: frdlcmipollinginterval
             
@@ -211,7 +296,7 @@ class Rfc1315Mib(object):
             .. attribute:: frdlcmistate
             
             	This variable states which Data  Link  Connec\- tion Management scheme is active (and by impli\- cation, what DLCI it uses) on the  Frame  Relay interface
-            	**type**\:   :py:class:`FrdlcmistateEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmistateEnum>`
+            	**type**\:   :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
             
             
 
@@ -220,21 +305,67 @@ class Rfc1315Mib(object):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                self.parent = None
-                self.frdlcmiifindex = None
-                self.frdlcmiaddress = None
-                self.frdlcmiaddresslen = None
-                self.frdlcmierrorthreshold = None
-                self.frdlcmifullenquiryinterval = None
-                self.frdlcmimaxsupportedvcs = None
-                self.frdlcmimonitoredevents = None
-                self.frdlcmimulticast = None
-                self.frdlcmipollinginterval = None
-                self.frdlcmistate = None
+                super(Rfc1315Mib.Frdlcmitable.Frdlcmientry, self).__init__()
 
-            class FrdlcmiaddressEnum(Enum):
+                self.yang_name = "frDlcmiEntry"
+                self.yang_parent_name = "frDlcmiTable"
+
+                self.frdlcmiifindex = YLeaf(YType.int32, "frDlcmiIfIndex")
+
+                self.frdlcmiaddress = YLeaf(YType.enumeration, "frDlcmiAddress")
+
+                self.frdlcmiaddresslen = YLeaf(YType.enumeration, "frDlcmiAddressLen")
+
+                self.frdlcmierrorthreshold = YLeaf(YType.int32, "frDlcmiErrorThreshold")
+
+                self.frdlcmifullenquiryinterval = YLeaf(YType.int32, "frDlcmiFullEnquiryInterval")
+
+                self.frdlcmimaxsupportedvcs = YLeaf(YType.int32, "frDlcmiMaxSupportedVCs")
+
+                self.frdlcmimonitoredevents = YLeaf(YType.int32, "frDlcmiMonitoredEvents")
+
+                self.frdlcmimulticast = YLeaf(YType.enumeration, "frDlcmiMulticast")
+
+                self.frdlcmipollinginterval = YLeaf(YType.int32, "frDlcmiPollingInterval")
+
+                self.frdlcmistate = YLeaf(YType.enumeration, "frDlcmiState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("frdlcmiifindex",
+                                "frdlcmiaddress",
+                                "frdlcmiaddresslen",
+                                "frdlcmierrorthreshold",
+                                "frdlcmifullenquiryinterval",
+                                "frdlcmimaxsupportedvcs",
+                                "frdlcmimonitoredevents",
+                                "frdlcmimulticast",
+                                "frdlcmipollinginterval",
+                                "frdlcmistate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rfc1315Mib.Frdlcmitable.Frdlcmientry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rfc1315Mib.Frdlcmitable.Frdlcmientry, self).__setattr__(name, value)
+
+            class Frdlcmiaddress(Enum):
                 """
-                FrdlcmiaddressEnum
+                Frdlcmiaddress
 
                 This variable states which address  format  is
 
@@ -250,24 +381,18 @@ class Rfc1315Mib(object):
 
                 """
 
-                q921 = 1
+                q921 = Enum.YLeaf(1, "q921")
 
-                q922March90 = 2
+                q922March90 = Enum.YLeaf(2, "q922March90")
 
-                q922November90 = 3
+                q922November90 = Enum.YLeaf(3, "q922November90")
 
-                q922 = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmiaddressEnum']
+                q922 = Enum.YLeaf(4, "q922")
 
 
-            class FrdlcmiaddresslenEnum(Enum):
+            class Frdlcmiaddresslen(Enum):
                 """
-                FrdlcmiaddresslenEnum
+                Frdlcmiaddresslen
 
                 This variable states which address  length  in
 
@@ -285,22 +410,16 @@ class Rfc1315Mib(object):
 
                 """
 
-                two_octets = 2
+                two_octets = Enum.YLeaf(2, "two-octets")
 
-                three_octets = 3
+                three_octets = Enum.YLeaf(3, "three-octets")
 
-                four_octets = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmiaddresslenEnum']
+                four_octets = Enum.YLeaf(4, "four-octets")
 
 
-            class FrdlcmimulticastEnum(Enum):
+            class Frdlcmimulticast(Enum):
                 """
-                FrdlcmimulticastEnum
+                Frdlcmimulticast
 
                 This indicates whether the Frame Relay  inter\-
 
@@ -312,20 +431,14 @@ class Rfc1315Mib(object):
 
                 """
 
-                nonBroadcast = 1
+                nonBroadcast = Enum.YLeaf(1, "nonBroadcast")
 
-                broadcast = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmimulticastEnum']
+                broadcast = Enum.YLeaf(2, "broadcast")
 
 
-            class FrdlcmistateEnum(Enum):
+            class Frdlcmistate(Enum):
                 """
-                FrdlcmistateEnum
+                Frdlcmistate
 
                 This variable states which Data  Link  Connec\-
 
@@ -345,94 +458,193 @@ class Rfc1315Mib(object):
 
                 """
 
-                noLmiConfigured = 1
+                noLmiConfigured = Enum.YLeaf(1, "noLmiConfigured")
 
-                lmiRev1 = 2
+                lmiRev1 = Enum.YLeaf(2, "lmiRev1")
 
-                ansiT1_617_D = 3
+                ansiT1_617_D = Enum.YLeaf(3, "ansiT1-617-D")
 
-                ansiT1_617_B = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frdlcmitable.Frdlcmientry.FrdlcmistateEnum']
+                ansiT1_617_B = Enum.YLeaf(4, "ansiT1-617-B")
 
 
-            @property
-            def _common_path(self):
-                if self.frdlcmiifindex is None:
-                    raise YPYModelError('Key property frdlcmiifindex is None')
+            def has_data(self):
+                return (
+                    self.frdlcmiifindex.is_set or
+                    self.frdlcmiaddress.is_set or
+                    self.frdlcmiaddresslen.is_set or
+                    self.frdlcmierrorthreshold.is_set or
+                    self.frdlcmifullenquiryinterval.is_set or
+                    self.frdlcmimaxsupportedvcs.is_set or
+                    self.frdlcmimonitoredevents.is_set or
+                    self.frdlcmimulticast.is_set or
+                    self.frdlcmipollinginterval.is_set or
+                    self.frdlcmistate.is_set)
 
-                return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frDlcmiTable/RFC1315-MIB:frDlcmiEntry[RFC1315-MIB:frDlcmiIfIndex = ' + str(self.frdlcmiifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.frdlcmiifindex.yfilter != YFilter.not_set or
+                    self.frdlcmiaddress.yfilter != YFilter.not_set or
+                    self.frdlcmiaddresslen.yfilter != YFilter.not_set or
+                    self.frdlcmierrorthreshold.yfilter != YFilter.not_set or
+                    self.frdlcmifullenquiryinterval.yfilter != YFilter.not_set or
+                    self.frdlcmimaxsupportedvcs.yfilter != YFilter.not_set or
+                    self.frdlcmimonitoredevents.yfilter != YFilter.not_set or
+                    self.frdlcmimulticast.yfilter != YFilter.not_set or
+                    self.frdlcmipollinginterval.yfilter != YFilter.not_set or
+                    self.frdlcmistate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "frDlcmiEntry" + "[frDlcmiIfIndex='" + self.frdlcmiifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RFC1315-MIB:RFC1315-MIB/frDlcmiTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.frdlcmiifindex.is_set or self.frdlcmiifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmiifindex.get_name_leafdata())
+                if (self.frdlcmiaddress.is_set or self.frdlcmiaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmiaddress.get_name_leafdata())
+                if (self.frdlcmiaddresslen.is_set or self.frdlcmiaddresslen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmiaddresslen.get_name_leafdata())
+                if (self.frdlcmierrorthreshold.is_set or self.frdlcmierrorthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmierrorthreshold.get_name_leafdata())
+                if (self.frdlcmifullenquiryinterval.is_set or self.frdlcmifullenquiryinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmifullenquiryinterval.get_name_leafdata())
+                if (self.frdlcmimaxsupportedvcs.is_set or self.frdlcmimaxsupportedvcs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmimaxsupportedvcs.get_name_leafdata())
+                if (self.frdlcmimonitoredevents.is_set or self.frdlcmimonitoredevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmimonitoredevents.get_name_leafdata())
+                if (self.frdlcmimulticast.is_set or self.frdlcmimulticast.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmimulticast.get_name_leafdata())
+                if (self.frdlcmipollinginterval.is_set or self.frdlcmipollinginterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmipollinginterval.get_name_leafdata())
+                if (self.frdlcmistate.is_set or self.frdlcmistate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frdlcmistate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "frDlcmiIfIndex" or name == "frDlcmiAddress" or name == "frDlcmiAddressLen" or name == "frDlcmiErrorThreshold" or name == "frDlcmiFullEnquiryInterval" or name == "frDlcmiMaxSupportedVCs" or name == "frDlcmiMonitoredEvents" or name == "frDlcmiMulticast" or name == "frDlcmiPollingInterval" or name == "frDlcmiState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.frdlcmiifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "frDlcmiIfIndex"):
+                    self.frdlcmiifindex = value
+                    self.frdlcmiifindex.value_namespace = name_space
+                    self.frdlcmiifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiAddress"):
+                    self.frdlcmiaddress = value
+                    self.frdlcmiaddress.value_namespace = name_space
+                    self.frdlcmiaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiAddressLen"):
+                    self.frdlcmiaddresslen = value
+                    self.frdlcmiaddresslen.value_namespace = name_space
+                    self.frdlcmiaddresslen.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiErrorThreshold"):
+                    self.frdlcmierrorthreshold = value
+                    self.frdlcmierrorthreshold.value_namespace = name_space
+                    self.frdlcmierrorthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiFullEnquiryInterval"):
+                    self.frdlcmifullenquiryinterval = value
+                    self.frdlcmifullenquiryinterval.value_namespace = name_space
+                    self.frdlcmifullenquiryinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiMaxSupportedVCs"):
+                    self.frdlcmimaxsupportedvcs = value
+                    self.frdlcmimaxsupportedvcs.value_namespace = name_space
+                    self.frdlcmimaxsupportedvcs.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiMonitoredEvents"):
+                    self.frdlcmimonitoredevents = value
+                    self.frdlcmimonitoredevents.value_namespace = name_space
+                    self.frdlcmimonitoredevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiMulticast"):
+                    self.frdlcmimulticast = value
+                    self.frdlcmimulticast.value_namespace = name_space
+                    self.frdlcmimulticast.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiPollingInterval"):
+                    self.frdlcmipollinginterval = value
+                    self.frdlcmipollinginterval.value_namespace = name_space
+                    self.frdlcmipollinginterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "frDlcmiState"):
+                    self.frdlcmistate = value
+                    self.frdlcmistate.value_namespace = name_space
+                    self.frdlcmistate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.frdlcmientry:
+                if (c.has_data()):
                     return True
-
-                if self.frdlcmiaddress is not None:
-                    return True
-
-                if self.frdlcmiaddresslen is not None:
-                    return True
-
-                if self.frdlcmierrorthreshold is not None:
-                    return True
-
-                if self.frdlcmifullenquiryinterval is not None:
-                    return True
-
-                if self.frdlcmimaxsupportedvcs is not None:
-                    return True
-
-                if self.frdlcmimonitoredevents is not None:
-                    return True
-
-                if self.frdlcmimulticast is not None:
-                    return True
-
-                if self.frdlcmipollinginterval is not None:
-                    return True
-
-                if self.frdlcmistate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                return meta._meta_table['Rfc1315Mib.Frdlcmitable.Frdlcmientry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frDlcmiTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.frdlcmientry is not None:
-                for child_ref in self.frdlcmientry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.frdlcmientry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "frDlcmiTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RFC1315-MIB:RFC1315-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "frDlcmiEntry"):
+                for c in self.frdlcmientry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rfc1315Mib.Frdlcmitable.Frdlcmientry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.frdlcmientry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "frDlcmiEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-            return meta._meta_table['Rfc1315Mib.Frdlcmitable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Frcircuittable(object):
+    class Frcircuittable(Entity):
         """
         A table containing information about specific Data
         Link Connection Identifiers and corresponding virtual
@@ -450,13 +662,39 @@ class Rfc1315Mib(object):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            self.parent = None
-            self.frcircuitentry = YList()
-            self.frcircuitentry.parent = self
-            self.frcircuitentry.name = 'frcircuitentry'
+            super(Rfc1315Mib.Frcircuittable, self).__init__()
+
+            self.yang_name = "frCircuitTable"
+            self.yang_parent_name = "RFC1315-MIB"
+
+            self.frcircuitentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rfc1315Mib.Frcircuittable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rfc1315Mib.Frcircuittable, self).__setattr__(name, value)
 
 
-        class Frcircuitentry(object):
+        class Frcircuitentry(Entity):
             """
             The information regarding a single  Data  Link
             Connection Identifier.
@@ -548,7 +786,7 @@ class Rfc1315Mib(object):
             .. attribute:: frcircuitstate
             
             	Indicates whether the particular virtual  cir\- cuit  is operational.  In the absence of a Data Link Connection Management  Interface,  virtual circuit  entries  (rows) may be created by set\- ting virtual  circuit  state  to  'active',  or deleted by changing Circuit state to 'invalid'. Whether or not the row actually  disappears  is left  to the implementation, so this object may actually read as 'invalid' for  some  arbitrary length  of  time.   It is also legal to set the state of a virtual  circuit  to  'inactive'  to temporarily disable a given circuit
-            	**type**\:   :py:class:`FrcircuitstateEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frcircuittable.Frcircuitentry.FrcircuitstateEnum>`
+            	**type**\:   :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frcircuittable.Frcircuitentry.Frcircuitstate>`
             
             .. attribute:: frcircuitthroughput
             
@@ -564,25 +802,79 @@ class Rfc1315Mib(object):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                self.parent = None
-                self.frcircuitifindex = None
-                self.frcircuitdlci = None
-                self.frcircuitcommittedburst = None
-                self.frcircuitcreationtime = None
-                self.frcircuitexcessburst = None
-                self.frcircuitlasttimechange = None
-                self.frcircuitreceivedbecns = None
-                self.frcircuitreceivedfecns = None
-                self.frcircuitreceivedframes = None
-                self.frcircuitreceivedoctets = None
-                self.frcircuitsentframes = None
-                self.frcircuitsentoctets = None
-                self.frcircuitstate = None
-                self.frcircuitthroughput = None
+                super(Rfc1315Mib.Frcircuittable.Frcircuitentry, self).__init__()
 
-            class FrcircuitstateEnum(Enum):
+                self.yang_name = "frCircuitEntry"
+                self.yang_parent_name = "frCircuitTable"
+
+                self.frcircuitifindex = YLeaf(YType.int32, "frCircuitIfIndex")
+
+                self.frcircuitdlci = YLeaf(YType.int32, "frCircuitDlci")
+
+                self.frcircuitcommittedburst = YLeaf(YType.int32, "frCircuitCommittedBurst")
+
+                self.frcircuitcreationtime = YLeaf(YType.uint32, "frCircuitCreationTime")
+
+                self.frcircuitexcessburst = YLeaf(YType.int32, "frCircuitExcessBurst")
+
+                self.frcircuitlasttimechange = YLeaf(YType.uint32, "frCircuitLastTimeChange")
+
+                self.frcircuitreceivedbecns = YLeaf(YType.uint32, "frCircuitReceivedBECNs")
+
+                self.frcircuitreceivedfecns = YLeaf(YType.uint32, "frCircuitReceivedFECNs")
+
+                self.frcircuitreceivedframes = YLeaf(YType.uint32, "frCircuitReceivedFrames")
+
+                self.frcircuitreceivedoctets = YLeaf(YType.uint32, "frCircuitReceivedOctets")
+
+                self.frcircuitsentframes = YLeaf(YType.uint32, "frCircuitSentFrames")
+
+                self.frcircuitsentoctets = YLeaf(YType.uint32, "frCircuitSentOctets")
+
+                self.frcircuitstate = YLeaf(YType.enumeration, "frCircuitState")
+
+                self.frcircuitthroughput = YLeaf(YType.int32, "frCircuitThroughput")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("frcircuitifindex",
+                                "frcircuitdlci",
+                                "frcircuitcommittedburst",
+                                "frcircuitcreationtime",
+                                "frcircuitexcessburst",
+                                "frcircuitlasttimechange",
+                                "frcircuitreceivedbecns",
+                                "frcircuitreceivedfecns",
+                                "frcircuitreceivedframes",
+                                "frcircuitreceivedoctets",
+                                "frcircuitsentframes",
+                                "frcircuitsentoctets",
+                                "frcircuitstate",
+                                "frcircuitthroughput") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rfc1315Mib.Frcircuittable.Frcircuitentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rfc1315Mib.Frcircuittable.Frcircuitentry, self).__setattr__(name, value)
+
+            class Frcircuitstate(Enum):
                 """
-                FrcircuitstateEnum
+                Frcircuitstate
 
                 Indicates whether the particular virtual  cir\-
 
@@ -616,106 +908,223 @@ class Rfc1315Mib(object):
 
                 """
 
-                invalid = 1
+                invalid = Enum.YLeaf(1, "invalid")
 
-                active = 2
+                active = Enum.YLeaf(2, "active")
 
-                inactive = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frcircuittable.Frcircuitentry.FrcircuitstateEnum']
+                inactive = Enum.YLeaf(3, "inactive")
 
 
-            @property
-            def _common_path(self):
-                if self.frcircuitifindex is None:
-                    raise YPYModelError('Key property frcircuitifindex is None')
-                if self.frcircuitdlci is None:
-                    raise YPYModelError('Key property frcircuitdlci is None')
+            def has_data(self):
+                return (
+                    self.frcircuitifindex.is_set or
+                    self.frcircuitdlci.is_set or
+                    self.frcircuitcommittedburst.is_set or
+                    self.frcircuitcreationtime.is_set or
+                    self.frcircuitexcessburst.is_set or
+                    self.frcircuitlasttimechange.is_set or
+                    self.frcircuitreceivedbecns.is_set or
+                    self.frcircuitreceivedfecns.is_set or
+                    self.frcircuitreceivedframes.is_set or
+                    self.frcircuitreceivedoctets.is_set or
+                    self.frcircuitsentframes.is_set or
+                    self.frcircuitsentoctets.is_set or
+                    self.frcircuitstate.is_set or
+                    self.frcircuitthroughput.is_set)
 
-                return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frCircuitTable/RFC1315-MIB:frCircuitEntry[RFC1315-MIB:frCircuitIfIndex = ' + str(self.frcircuitifindex) + '][RFC1315-MIB:frCircuitDlci = ' + str(self.frcircuitdlci) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.frcircuitifindex.yfilter != YFilter.not_set or
+                    self.frcircuitdlci.yfilter != YFilter.not_set or
+                    self.frcircuitcommittedburst.yfilter != YFilter.not_set or
+                    self.frcircuitcreationtime.yfilter != YFilter.not_set or
+                    self.frcircuitexcessburst.yfilter != YFilter.not_set or
+                    self.frcircuitlasttimechange.yfilter != YFilter.not_set or
+                    self.frcircuitreceivedbecns.yfilter != YFilter.not_set or
+                    self.frcircuitreceivedfecns.yfilter != YFilter.not_set or
+                    self.frcircuitreceivedframes.yfilter != YFilter.not_set or
+                    self.frcircuitreceivedoctets.yfilter != YFilter.not_set or
+                    self.frcircuitsentframes.yfilter != YFilter.not_set or
+                    self.frcircuitsentoctets.yfilter != YFilter.not_set or
+                    self.frcircuitstate.yfilter != YFilter.not_set or
+                    self.frcircuitthroughput.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "frCircuitEntry" + "[frCircuitIfIndex='" + self.frcircuitifindex.get() + "']" + "[frCircuitDlci='" + self.frcircuitdlci.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RFC1315-MIB:RFC1315-MIB/frCircuitTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.frcircuitifindex.is_set or self.frcircuitifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitifindex.get_name_leafdata())
+                if (self.frcircuitdlci.is_set or self.frcircuitdlci.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitdlci.get_name_leafdata())
+                if (self.frcircuitcommittedburst.is_set or self.frcircuitcommittedburst.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitcommittedburst.get_name_leafdata())
+                if (self.frcircuitcreationtime.is_set or self.frcircuitcreationtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitcreationtime.get_name_leafdata())
+                if (self.frcircuitexcessburst.is_set or self.frcircuitexcessburst.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitexcessburst.get_name_leafdata())
+                if (self.frcircuitlasttimechange.is_set or self.frcircuitlasttimechange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitlasttimechange.get_name_leafdata())
+                if (self.frcircuitreceivedbecns.is_set or self.frcircuitreceivedbecns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitreceivedbecns.get_name_leafdata())
+                if (self.frcircuitreceivedfecns.is_set or self.frcircuitreceivedfecns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitreceivedfecns.get_name_leafdata())
+                if (self.frcircuitreceivedframes.is_set or self.frcircuitreceivedframes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitreceivedframes.get_name_leafdata())
+                if (self.frcircuitreceivedoctets.is_set or self.frcircuitreceivedoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitreceivedoctets.get_name_leafdata())
+                if (self.frcircuitsentframes.is_set or self.frcircuitsentframes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitsentframes.get_name_leafdata())
+                if (self.frcircuitsentoctets.is_set or self.frcircuitsentoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitsentoctets.get_name_leafdata())
+                if (self.frcircuitstate.is_set or self.frcircuitstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitstate.get_name_leafdata())
+                if (self.frcircuitthroughput.is_set or self.frcircuitthroughput.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frcircuitthroughput.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "frCircuitIfIndex" or name == "frCircuitDlci" or name == "frCircuitCommittedBurst" or name == "frCircuitCreationTime" or name == "frCircuitExcessBurst" or name == "frCircuitLastTimeChange" or name == "frCircuitReceivedBECNs" or name == "frCircuitReceivedFECNs" or name == "frCircuitReceivedFrames" or name == "frCircuitReceivedOctets" or name == "frCircuitSentFrames" or name == "frCircuitSentOctets" or name == "frCircuitState" or name == "frCircuitThroughput"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.frcircuitifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "frCircuitIfIndex"):
+                    self.frcircuitifindex = value
+                    self.frcircuitifindex.value_namespace = name_space
+                    self.frcircuitifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitDlci"):
+                    self.frcircuitdlci = value
+                    self.frcircuitdlci.value_namespace = name_space
+                    self.frcircuitdlci.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitCommittedBurst"):
+                    self.frcircuitcommittedburst = value
+                    self.frcircuitcommittedburst.value_namespace = name_space
+                    self.frcircuitcommittedburst.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitCreationTime"):
+                    self.frcircuitcreationtime = value
+                    self.frcircuitcreationtime.value_namespace = name_space
+                    self.frcircuitcreationtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitExcessBurst"):
+                    self.frcircuitexcessburst = value
+                    self.frcircuitexcessburst.value_namespace = name_space
+                    self.frcircuitexcessburst.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitLastTimeChange"):
+                    self.frcircuitlasttimechange = value
+                    self.frcircuitlasttimechange.value_namespace = name_space
+                    self.frcircuitlasttimechange.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitReceivedBECNs"):
+                    self.frcircuitreceivedbecns = value
+                    self.frcircuitreceivedbecns.value_namespace = name_space
+                    self.frcircuitreceivedbecns.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitReceivedFECNs"):
+                    self.frcircuitreceivedfecns = value
+                    self.frcircuitreceivedfecns.value_namespace = name_space
+                    self.frcircuitreceivedfecns.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitReceivedFrames"):
+                    self.frcircuitreceivedframes = value
+                    self.frcircuitreceivedframes.value_namespace = name_space
+                    self.frcircuitreceivedframes.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitReceivedOctets"):
+                    self.frcircuitreceivedoctets = value
+                    self.frcircuitreceivedoctets.value_namespace = name_space
+                    self.frcircuitreceivedoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitSentFrames"):
+                    self.frcircuitsentframes = value
+                    self.frcircuitsentframes.value_namespace = name_space
+                    self.frcircuitsentframes.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitSentOctets"):
+                    self.frcircuitsentoctets = value
+                    self.frcircuitsentoctets.value_namespace = name_space
+                    self.frcircuitsentoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitState"):
+                    self.frcircuitstate = value
+                    self.frcircuitstate.value_namespace = name_space
+                    self.frcircuitstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "frCircuitThroughput"):
+                    self.frcircuitthroughput = value
+                    self.frcircuitthroughput.value_namespace = name_space
+                    self.frcircuitthroughput.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.frcircuitentry:
+                if (c.has_data()):
                     return True
-
-                if self.frcircuitdlci is not None:
-                    return True
-
-                if self.frcircuitcommittedburst is not None:
-                    return True
-
-                if self.frcircuitcreationtime is not None:
-                    return True
-
-                if self.frcircuitexcessburst is not None:
-                    return True
-
-                if self.frcircuitlasttimechange is not None:
-                    return True
-
-                if self.frcircuitreceivedbecns is not None:
-                    return True
-
-                if self.frcircuitreceivedfecns is not None:
-                    return True
-
-                if self.frcircuitreceivedframes is not None:
-                    return True
-
-                if self.frcircuitreceivedoctets is not None:
-                    return True
-
-                if self.frcircuitsentframes is not None:
-                    return True
-
-                if self.frcircuitsentoctets is not None:
-                    return True
-
-                if self.frcircuitstate is not None:
-                    return True
-
-                if self.frcircuitthroughput is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                return meta._meta_table['Rfc1315Mib.Frcircuittable.Frcircuitentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frCircuitTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.frcircuitentry is not None:
-                for child_ref in self.frcircuitentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.frcircuitentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "frCircuitTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RFC1315-MIB:RFC1315-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "frCircuitEntry"):
+                for c in self.frcircuitentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rfc1315Mib.Frcircuittable.Frcircuitentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.frcircuitentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "frCircuitEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-            return meta._meta_table['Rfc1315Mib.Frcircuittable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Frerrtable(object):
+    class Frerrtable(Entity):
         """
         A table containing information about Errors on the
         Frame Relay interface.
@@ -732,13 +1141,39 @@ class Rfc1315Mib(object):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            self.parent = None
-            self.frerrentry = YList()
-            self.frerrentry.parent = self
-            self.frerrentry.name = 'frerrentry'
+            super(Rfc1315Mib.Frerrtable, self).__init__()
+
+            self.yang_name = "frErrTable"
+            self.yang_parent_name = "RFC1315-MIB"
+
+            self.frerrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rfc1315Mib.Frerrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rfc1315Mib.Frerrtable, self).__setattr__(name, value)
 
 
-        class Frerrentry(object):
+        class Frerrentry(Entity):
             """
             The error information for a single frame relay
             interface.
@@ -765,7 +1200,7 @@ class Rfc1315Mib(object):
             .. attribute:: frerrtype
             
             	The type of error that was last seen  on  this interface
-            	**type**\:   :py:class:`FrerrtypeEnum <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frerrtable.Frerrentry.FrerrtypeEnum>`
+            	**type**\:   :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.Rfc1315Mib.Frerrtable.Frerrentry.Frerrtype>`
             
             
 
@@ -774,15 +1209,49 @@ class Rfc1315Mib(object):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                self.parent = None
-                self.frerrifindex = None
-                self.frerrdata = None
-                self.frerrtime = None
-                self.frerrtype = None
+                super(Rfc1315Mib.Frerrtable.Frerrentry, self).__init__()
 
-            class FrerrtypeEnum(Enum):
+                self.yang_name = "frErrEntry"
+                self.yang_parent_name = "frErrTable"
+
+                self.frerrifindex = YLeaf(YType.int32, "frErrIfIndex")
+
+                self.frerrdata = YLeaf(YType.str, "frErrData")
+
+                self.frerrtime = YLeaf(YType.uint32, "frErrTime")
+
+                self.frerrtype = YLeaf(YType.enumeration, "frErrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("frerrifindex",
+                                "frerrdata",
+                                "frerrtime",
+                                "frerrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rfc1315Mib.Frerrtable.Frerrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rfc1315Mib.Frerrtable.Frerrentry, self).__setattr__(name, value)
+
+            class Frerrtype(Enum):
                 """
-                FrerrtypeEnum
+                Frerrtype
 
                 The type of error that was last seen  on  this
 
@@ -810,113 +1279,231 @@ class Rfc1315Mib(object):
 
                 """
 
-                unknownError = 1
+                unknownError = Enum.YLeaf(1, "unknownError")
 
-                receiveShort = 2
+                receiveShort = Enum.YLeaf(2, "receiveShort")
 
-                receiveLong = 3
+                receiveLong = Enum.YLeaf(3, "receiveLong")
 
-                illegalDLCI = 4
+                illegalDLCI = Enum.YLeaf(4, "illegalDLCI")
 
-                unknownDLCI = 5
+                unknownDLCI = Enum.YLeaf(5, "unknownDLCI")
 
-                dlcmiProtoErr = 6
+                dlcmiProtoErr = Enum.YLeaf(6, "dlcmiProtoErr")
 
-                dlcmiUnknownIE = 7
+                dlcmiUnknownIE = Enum.YLeaf(7, "dlcmiUnknownIE")
 
-                dlcmiSequenceErr = 8
+                dlcmiSequenceErr = Enum.YLeaf(8, "dlcmiSequenceErr")
 
-                dlcmiUnknownRpt = 9
+                dlcmiUnknownRpt = Enum.YLeaf(9, "dlcmiUnknownRpt")
 
-                noErrorSinceReset = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                    return meta._meta_table['Rfc1315Mib.Frerrtable.Frerrentry.FrerrtypeEnum']
+                noErrorSinceReset = Enum.YLeaf(10, "noErrorSinceReset")
 
 
-            @property
-            def _common_path(self):
-                if self.frerrifindex is None:
-                    raise YPYModelError('Key property frerrifindex is None')
+            def has_data(self):
+                return (
+                    self.frerrifindex.is_set or
+                    self.frerrdata.is_set or
+                    self.frerrtime.is_set or
+                    self.frerrtype.is_set)
 
-                return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frErrTable/RFC1315-MIB:frErrEntry[RFC1315-MIB:frErrIfIndex = ' + str(self.frerrifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.frerrifindex.yfilter != YFilter.not_set or
+                    self.frerrdata.yfilter != YFilter.not_set or
+                    self.frerrtime.yfilter != YFilter.not_set or
+                    self.frerrtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "frErrEntry" + "[frErrIfIndex='" + self.frerrifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RFC1315-MIB:RFC1315-MIB/frErrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.frerrifindex.is_set or self.frerrifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frerrifindex.get_name_leafdata())
+                if (self.frerrdata.is_set or self.frerrdata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frerrdata.get_name_leafdata())
+                if (self.frerrtime.is_set or self.frerrtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frerrtime.get_name_leafdata())
+                if (self.frerrtype.is_set or self.frerrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frerrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "frErrIfIndex" or name == "frErrData" or name == "frErrTime" or name == "frErrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.frerrifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "frErrIfIndex"):
+                    self.frerrifindex = value
+                    self.frerrifindex.value_namespace = name_space
+                    self.frerrifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "frErrData"):
+                    self.frerrdata = value
+                    self.frerrdata.value_namespace = name_space
+                    self.frerrdata.value_namespace_prefix = name_space_prefix
+                if(value_path == "frErrTime"):
+                    self.frerrtime = value
+                    self.frerrtime.value_namespace = name_space
+                    self.frerrtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "frErrType"):
+                    self.frerrtype = value
+                    self.frerrtype.value_namespace = name_space
+                    self.frerrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.frerrentry:
+                if (c.has_data()):
                     return True
-
-                if self.frerrdata is not None:
-                    return True
-
-                if self.frerrtime is not None:
-                    return True
-
-                if self.frerrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-                return meta._meta_table['Rfc1315Mib.Frerrtable.Frerrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RFC1315-MIB:RFC1315-MIB/RFC1315-MIB:frErrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.frerrentry is not None:
-                for child_ref in self.frerrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.frerrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "frErrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RFC1315-MIB:RFC1315-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "frErrEntry"):
+                for c in self.frerrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rfc1315Mib.Frerrtable.Frerrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.frerrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "frErrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-            return meta._meta_table['Rfc1315Mib.Frerrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.frame_relay_globals is not None and self.frame_relay_globals.has_data()) or
+            (self.frcircuittable is not None and self.frcircuittable.has_data()) or
+            (self.frdlcmitable is not None and self.frdlcmitable.has_data()) or
+            (self.frerrtable is not None and self.frerrtable.has_data()))
 
-        return '/RFC1315-MIB:RFC1315-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.frame_relay_globals is not None and self.frame_relay_globals.has_operation()) or
+            (self.frcircuittable is not None and self.frcircuittable.has_operation()) or
+            (self.frdlcmitable is not None and self.frdlcmitable.has_operation()) or
+            (self.frerrtable is not None and self.frerrtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "RFC1315-MIB:RFC1315-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "frame-relay-globals"):
+            if (self.frame_relay_globals is None):
+                self.frame_relay_globals = Rfc1315Mib.FrameRelayGlobals()
+                self.frame_relay_globals.parent = self
+                self._children_name_map["frame_relay_globals"] = "frame-relay-globals"
+            return self.frame_relay_globals
+
+        if (child_yang_name == "frCircuitTable"):
+            if (self.frcircuittable is None):
+                self.frcircuittable = Rfc1315Mib.Frcircuittable()
+                self.frcircuittable.parent = self
+                self._children_name_map["frcircuittable"] = "frCircuitTable"
+            return self.frcircuittable
+
+        if (child_yang_name == "frDlcmiTable"):
+            if (self.frdlcmitable is None):
+                self.frdlcmitable = Rfc1315Mib.Frdlcmitable()
+                self.frdlcmitable.parent = self
+                self._children_name_map["frdlcmitable"] = "frDlcmiTable"
+            return self.frdlcmitable
+
+        if (child_yang_name == "frErrTable"):
+            if (self.frerrtable is None):
+                self.frerrtable = Rfc1315Mib.Frerrtable()
+                self.frerrtable.parent = self
+                self._children_name_map["frerrtable"] = "frErrTable"
+            return self.frerrtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "frame-relay-globals" or name == "frCircuitTable" or name == "frDlcmiTable" or name == "frErrTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.frame_relay_globals is not None and self.frame_relay_globals._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.frcircuittable is not None and self.frcircuittable._has_data():
-            return True
-
-        if self.frdlcmitable is not None and self.frdlcmitable._has_data():
-            return True
-
-        if self.frerrtable is not None and self.frerrtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _RFC1315_MIB as meta
-        return meta._meta_table['Rfc1315Mib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Rfc1315Mib()
+        return self._top_entity
 

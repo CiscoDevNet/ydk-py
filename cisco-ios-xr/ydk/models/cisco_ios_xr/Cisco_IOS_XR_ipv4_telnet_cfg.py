@@ -12,21 +12,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Ipv6Telnet(object):
+class Ipv6Telnet(Entity):
     """
     IPv6 telnet configuration
     
@@ -43,11 +37,19 @@ class Ipv6Telnet(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Ipv6Telnet, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv6-telnet"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
+
         self.client = Ipv6Telnet.Client()
         self.client.parent = self
+        self._children_name_map["client"] = "client"
+        self._children_yang_names.add("client")
 
 
-    class Client(object):
+    class Client(Entity):
         """
         Telnet client configuration
         
@@ -66,51 +68,135 @@ class Ipv6Telnet(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.source_interface = None
+            super(Ipv6Telnet.Client, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "client"
+            self.yang_parent_name = "ipv6-telnet"
 
-            return '/Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet/Cisco-IOS-XR-ipv4-telnet-cfg:client'
+            self.source_interface = YLeaf(YType.str, "source-interface")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("source_interface") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ipv6Telnet.Client, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ipv6Telnet.Client, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.source_interface is not None:
+        def has_data(self):
+            return self.source_interface.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.source_interface.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "client" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "source-interface"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
-            return meta._meta_table['Ipv6Telnet.Client']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "source-interface"):
+                self.source_interface = value
+                self.source_interface.value_namespace = name_space
+                self.source_interface.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.client is not None and self.client.has_data())
 
-        return '/Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.client is not None and self.client.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet" + path_buffer
 
-    def _has_data(self):
-        if self.client is not None and self.client._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "client"):
+            if (self.client is None):
+                self.client = Ipv6Telnet.Client()
+                self.client.parent = self
+                self._children_name_map["client"] = "client"
+            return self.client
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "client"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
-        return meta._meta_table['Ipv6Telnet']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ipv6Telnet()
+        return self._top_entity
 
-class Ipv4Telnet(object):
+class Ipv4Telnet(Entity):
     """
     ipv4 telnet
     
@@ -127,11 +213,19 @@ class Ipv4Telnet(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Ipv4Telnet, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv4-telnet"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
+
         self.client = Ipv4Telnet.Client()
         self.client.parent = self
+        self._children_name_map["client"] = "client"
+        self._children_yang_names.add("client")
 
 
-    class Client(object):
+    class Client(Entity):
         """
         Telnet client configuration
         
@@ -150,47 +244,131 @@ class Ipv4Telnet(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.source_interface = None
+            super(Ipv4Telnet.Client, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "client"
+            self.yang_parent_name = "ipv4-telnet"
 
-            return '/Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/Cisco-IOS-XR-ipv4-telnet-cfg:client'
+            self.source_interface = YLeaf(YType.str, "source-interface")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("source_interface") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ipv4Telnet.Client, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ipv4Telnet.Client, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.source_interface is not None:
+        def has_data(self):
+            return self.source_interface.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.source_interface.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "client" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "source-interface"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
-            return meta._meta_table['Ipv4Telnet.Client']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "source-interface"):
+                self.source_interface = value
+                self.source_interface.value_namespace = name_space
+                self.source_interface.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.client is not None and self.client.has_data())
 
-        return '/Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.client is not None and self.client.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet" + path_buffer
 
-    def _has_data(self):
-        if self.client is not None and self.client._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "client"):
+            if (self.client is None):
+                self.client = Ipv4Telnet.Client()
+                self.client.parent = self
+                self._children_name_map["client"] = "client"
+            return self.client
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "client"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
-        return meta._meta_table['Ipv4Telnet']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ipv4Telnet()
+        return self._top_entity
 

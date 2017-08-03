@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class DpmProtoHostStateEnum(Enum):
+class DpmProtoHostState(Enum):
     """
-    DpmProtoHostStateEnum
+    DpmProtoHostState
 
     Dpm proto host state
 
@@ -44,22 +38,16 @@ class DpmProtoHostStateEnum(Enum):
 
     """
 
-    dpm_proto_host_state_idle = 0
+    dpm_proto_host_state_idle = Enum.YLeaf(0, "dpm-proto-host-state-idle")
 
-    dpm_proto_host_state_discovered = 1
+    dpm_proto_host_state_discovered = Enum.YLeaf(1, "dpm-proto-host-state-discovered")
 
-    dpm_proto_host_state_rejecting = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
-        return meta._meta_table['DpmProtoHostStateEnum']
+    dpm_proto_host_state_rejecting = Enum.YLeaf(2, "dpm-proto-host-state-rejecting")
 
 
-class DpmProtoStateEnum(Enum):
+class DpmProtoState(Enum):
     """
-    DpmProtoStateEnum
+    DpmProtoState
 
     Dpm proto state
 
@@ -93,30 +81,24 @@ class DpmProtoStateEnum(Enum):
 
     """
 
-    dpm_proto_state_idle = 0
+    dpm_proto_state_idle = Enum.YLeaf(0, "dpm-proto-state-idle")
 
-    dpm_proto_state_probing = 1
+    dpm_proto_state_probing = Enum.YLeaf(1, "dpm-proto-state-probing")
 
-    dpm_proto_state_legacy = 2
+    dpm_proto_state_legacy = Enum.YLeaf(2, "dpm-proto-state-legacy")
 
-    dpm_proto_state_configuring = 3
+    dpm_proto_state_configuring = Enum.YLeaf(3, "dpm-proto-state-configuring")
 
-    dpm_proto_state_discovered = 4
+    dpm_proto_state_discovered = Enum.YLeaf(4, "dpm-proto-state-discovered")
 
-    dpm_proto_state_rejecting = 5
+    dpm_proto_state_rejecting = Enum.YLeaf(5, "dpm-proto-state-rejecting")
 
-    dpm_proto_state_seen = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
-        return meta._meta_table['DpmProtoStateEnum']
+    dpm_proto_state_seen = Enum.YLeaf(6, "dpm-proto-state-seen")
 
 
-class IcpeCpmChanFsmStateEnum(Enum):
+class IcpeCpmChanFsmState(Enum):
     """
-    IcpeCpmChanFsmStateEnum
+    IcpeCpmChanFsmState
 
     Icpe cpm chan fsm state
 
@@ -146,28 +128,22 @@ class IcpeCpmChanFsmStateEnum(Enum):
 
     """
 
-    icpe_cpm_chan_fsm_state_down = 0
+    icpe_cpm_chan_fsm_state_down = Enum.YLeaf(0, "icpe-cpm-chan-fsm-state-down")
 
-    icpe_cpm_chan_fsm_state_not_supported = 1
+    icpe_cpm_chan_fsm_state_not_supported = Enum.YLeaf(1, "icpe-cpm-chan-fsm-state-not-supported")
 
-    icpe_cpm_chan_fsm_state_closed = 2
+    icpe_cpm_chan_fsm_state_closed = Enum.YLeaf(2, "icpe-cpm-chan-fsm-state-closed")
 
-    icpe_cpm_chan_fsm_state_opening = 3
+    icpe_cpm_chan_fsm_state_opening = Enum.YLeaf(3, "icpe-cpm-chan-fsm-state-opening")
 
-    icpe_cpm_chan_fsm_state_opened = 4
+    icpe_cpm_chan_fsm_state_opened = Enum.YLeaf(4, "icpe-cpm-chan-fsm-state-opened")
 
-    icpe_cpm_chan_fsm_state_open = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
-        return meta._meta_table['IcpeCpmChanFsmStateEnum']
+    icpe_cpm_chan_fsm_state_open = Enum.YLeaf(5, "icpe-cpm-chan-fsm-state-open")
 
 
-class IcpeCpmChannelResyncStateEnum(Enum):
+class IcpeCpmChannelResyncState(Enum):
     """
-    IcpeCpmChannelResyncStateEnum
+    IcpeCpmChannelResyncState
 
     Icpe cpm channel resync state
 
@@ -189,24 +165,18 @@ class IcpeCpmChannelResyncStateEnum(Enum):
 
     """
 
-    icpe_cpm_channel_resync_state_unknown = 0
+    icpe_cpm_channel_resync_state_unknown = Enum.YLeaf(0, "icpe-cpm-channel-resync-state-unknown")
 
-    icpe_cpm_channel_resync_state_not_in_resync = 1
+    icpe_cpm_channel_resync_state_not_in_resync = Enum.YLeaf(1, "icpe-cpm-channel-resync-state-not-in-resync")
 
-    icpe_cpm_channel_resync_state_in_client_resync = 2
+    icpe_cpm_channel_resync_state_in_client_resync = Enum.YLeaf(2, "icpe-cpm-channel-resync-state-in-client-resync")
 
-    icpe_cpm_channel_resync_state_in_satellite_resync = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
-        return meta._meta_table['IcpeCpmChannelResyncStateEnum']
+    icpe_cpm_channel_resync_state_in_satellite_resync = Enum.YLeaf(3, "icpe-cpm-channel-resync-state-in-satellite-resync")
 
 
-class IcpeCpmControlFsmStateEnum(Enum):
+class IcpeCpmControlFsmState(Enum):
     """
-    IcpeCpmControlFsmStateEnum
+    IcpeCpmControlFsmState
 
     Icpe cpm control fsm state
 
@@ -236,23 +206,17 @@ class IcpeCpmControlFsmStateEnum(Enum):
 
     """
 
-    icpe_cpm_control_fsm_state_disconnected = 0
+    icpe_cpm_control_fsm_state_disconnected = Enum.YLeaf(0, "icpe-cpm-control-fsm-state-disconnected")
 
-    icpe_cpm_control_fsm_state_connecting = 1
+    icpe_cpm_control_fsm_state_connecting = Enum.YLeaf(1, "icpe-cpm-control-fsm-state-connecting")
 
-    icpe_cpm_control_fsm_state_authenticating = 2
+    icpe_cpm_control_fsm_state_authenticating = Enum.YLeaf(2, "icpe-cpm-control-fsm-state-authenticating")
 
-    icpe_cpm_control_fsm_state_check_ing_ver = 3
+    icpe_cpm_control_fsm_state_check_ing_ver = Enum.YLeaf(3, "icpe-cpm-control-fsm-state-check-ing-ver")
 
-    icpe_cpm_control_fsm_state_connected = 4
+    icpe_cpm_control_fsm_state_connected = Enum.YLeaf(4, "icpe-cpm-control-fsm-state-connected")
 
-    icpe_cpm_control_fsm_state_issu = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
-        return meta._meta_table['IcpeCpmControlFsmStateEnum']
+    icpe_cpm_control_fsm_state_issu = Enum.YLeaf(5, "icpe-cpm-control-fsm-state-issu")
 
 
 

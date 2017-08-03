@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class DisconnectCauseEnum(Enum):
+class DisconnectCause(Enum):
     """
-    DisconnectCauseEnum
+    DisconnectCause
 
     Disconnect cause values
 
@@ -44,22 +38,16 @@ class DisconnectCauseEnum(Enum):
 
     """
 
-    reboot = 0
+    reboot = Enum.YLeaf(0, "reboot")
 
-    busy = 1
+    busy = Enum.YLeaf(1, "busy")
 
-    do_not_wait_to_talk = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['DisconnectCauseEnum']
+    do_not_wait_to_talk = Enum.YLeaf(2, "do-not-wait-to-talk")
 
 
-class PeerEnum(Enum):
+class Peer(Enum):
     """
-    PeerEnum
+    Peer
 
      Peer type values
 
@@ -73,20 +61,14 @@ class PeerEnum(Enum):
 
     """
 
-    undefined = 0
+    undefined = Enum.YLeaf(0, "undefined")
 
-    server = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['PeerEnum']
+    server = Enum.YLeaf(1, "server")
 
 
-class PeerStateValueEnum(Enum):
+class PeerStateValue(Enum):
     """
-    PeerStateValueEnum
+    PeerStateValue
 
     Peer State Values
 
@@ -120,30 +102,24 @@ class PeerStateValueEnum(Enum):
 
     """
 
-    state_none = 0
+    state_none = Enum.YLeaf(0, "state-none")
 
-    closed = 1
+    closed = Enum.YLeaf(1, "closed")
 
-    wait_connection_ack = 2
+    wait_connection_ack = Enum.YLeaf(2, "wait-connection-ack")
 
-    wait_cea = 3
+    wait_cea = Enum.YLeaf(3, "wait-cea")
 
-    state_open = 4
+    state_open = Enum.YLeaf(4, "state-open")
 
-    closing = 5
+    closing = Enum.YLeaf(5, "closing")
 
-    suspect = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['PeerStateValueEnum']
+    suspect = Enum.YLeaf(6, "suspect")
 
 
-class ProtocolTypeValueEnum(Enum):
+class ProtocolTypeValue(Enum):
     """
-    ProtocolTypeValueEnum
+    ProtocolTypeValue
 
     Protocol type values
 
@@ -157,20 +133,14 @@ class ProtocolTypeValueEnum(Enum):
 
     """
 
-    protocol_none = 0
+    protocol_none = Enum.YLeaf(0, "protocol-none")
 
-    tcp = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['ProtocolTypeValueEnum']
+    tcp = Enum.YLeaf(1, "tcp")
 
 
-class SecurityTypeValueEnum(Enum):
+class SecurityTypeValue(Enum):
     """
-    SecurityTypeValueEnum
+    SecurityTypeValue
 
     Security type values
 
@@ -188,22 +158,16 @@ class SecurityTypeValueEnum(Enum):
 
     """
 
-    security_type_none = 0
+    security_type_none = Enum.YLeaf(0, "security-type-none")
 
-    type = 1
+    type = Enum.YLeaf(1, "type")
 
-    ipsec = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['SecurityTypeValueEnum']
+    ipsec = Enum.YLeaf(2, "ipsec")
 
 
-class WhoInitiatedDisconnectEnum(Enum):
+class WhoInitiatedDisconnect(Enum):
     """
-    WhoInitiatedDisconnectEnum
+    WhoInitiatedDisconnect
 
     Who initiated to disconnect
 
@@ -221,17 +185,11 @@ class WhoInitiatedDisconnectEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    host = 1
+    host = Enum.YLeaf(1, "host")
 
-    peer = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
-        return meta._meta_table['WhoInitiatedDisconnectEnum']
+    peer = Enum.YLeaf(2, "peer")
 
 
 

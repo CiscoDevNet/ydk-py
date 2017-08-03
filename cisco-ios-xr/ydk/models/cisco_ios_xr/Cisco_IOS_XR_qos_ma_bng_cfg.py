@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Qosl2DataLinkEnum(Enum):
+class Qosl2DataLink(Enum):
     """
-    Qosl2DataLinkEnum
+    Qosl2DataLink
 
     Qosl2 data link
 
@@ -36,18 +30,12 @@ class Qosl2DataLinkEnum(Enum):
 
     """
 
-    aal5 = 0
+    aal5 = Enum.YLeaf(0, "aal5")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_qos_ma_bng_cfg as meta
-        return meta._meta_table['Qosl2DataLinkEnum']
-
-
-class Qosl2EncapEnum(Enum):
+class Qosl2Encap(Enum):
     """
-    Qosl2EncapEnum
+    Qosl2Encap
 
     Qosl2 encap
 
@@ -93,27 +81,21 @@ class Qosl2EncapEnum(Enum):
 
     """
 
-    snap_pppoa = 1
+    snap_pppoa = Enum.YLeaf(1, "snap-pppoa")
 
-    mux_pppoa = 2
+    mux_pppoa = Enum.YLeaf(2, "mux-pppoa")
 
-    snap1483_routed = 3
+    snap1483_routed = Enum.YLeaf(3, "snap1483-routed")
 
-    mux1483_routed = 4
+    mux1483_routed = Enum.YLeaf(4, "mux1483-routed")
 
-    snap_rbe = 5
+    snap_rbe = Enum.YLeaf(5, "snap-rbe")
 
-    snap_dot1qrbe = 6
+    snap_dot1qrbe = Enum.YLeaf(6, "snap-dot1qrbe")
 
-    mux_rbe = 7
+    mux_rbe = Enum.YLeaf(7, "mux-rbe")
 
-    mux_dot1qrbe = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_qos_ma_bng_cfg as meta
-        return meta._meta_table['Qosl2EncapEnum']
+    mux_dot1qrbe = Enum.YLeaf(8, "mux-dot1qrbe")
 
 
 

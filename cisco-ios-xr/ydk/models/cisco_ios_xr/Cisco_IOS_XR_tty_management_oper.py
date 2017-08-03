@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class TransportServiceEnum(Enum):
+class TransportService(Enum):
     """
-    TransportServiceEnum
+    TransportService
 
     Transport service protocol
 
@@ -48,23 +42,17 @@ class TransportServiceEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    telnet = 1
+    telnet = Enum.YLeaf(1, "telnet")
 
-    rlogin = 2
+    rlogin = Enum.YLeaf(2, "rlogin")
 
-    ssh = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['TransportServiceEnum']
+    ssh = Enum.YLeaf(3, "ssh")
 
 
 
-class HostAfIdBaseIdentity(object):
+class HostAfIdBase(Identity):
     """
     Base identity for Host\-af\-id
     
@@ -76,15 +64,10 @@ class HostAfIdBaseIdentity(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['HostAfIdBaseIdentity']['meta_info']
+        super(HostAfIdBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:Host-af-id-base")
 
 
-class Ipv4Identity(HostAfIdBaseIdentity):
+class Ipv4(Identity):
     """
     IPv4 family
     
@@ -96,15 +79,10 @@ class Ipv4Identity(HostAfIdBaseIdentity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        HostAfIdBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['Ipv4Identity']['meta_info']
+        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv4")
 
 
-class Ipv6Identity(HostAfIdBaseIdentity):
+class Ipv6(Identity):
     """
     IPv6 family
     
@@ -116,11 +94,6 @@ class Ipv6Identity(HostAfIdBaseIdentity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        HostAfIdBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['Ipv6Identity']['meta_info']
+        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv6")
 
 

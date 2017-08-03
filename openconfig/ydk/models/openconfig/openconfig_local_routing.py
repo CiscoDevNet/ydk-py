@@ -20,21 +20,15 @@ protocol\-specific policy after importing the route into the
 protocol for distribution (again via routing policy).
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Local_Defined_Next_HopIdentity(object):
+class Local_Defined_Next_Hop(Identity):
     """
     A base identity type of local defined next\-hops
     
@@ -46,15 +40,10 @@ class Local_Defined_Next_HopIdentity(object):
     _revision = '2016-05-11'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-        return meta._meta_table['Local_Defined_Next_HopIdentity']['meta_info']
+        super(Local_Defined_Next_Hop, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP")
 
 
-class LocalRoutes(object):
+class LocalRoutes(Entity):
     """
     Top\-level container for local routes
     
@@ -86,17 +75,34 @@ class LocalRoutes(object):
     _revision = '2016-05-11'
 
     def __init__(self):
+        super(LocalRoutes, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "local-routes"
+        self.yang_parent_name = "openconfig-local-routing"
+
         self.config = LocalRoutes.Config()
         self.config.parent = self
+        self._children_name_map["config"] = "config"
+        self._children_yang_names.add("config")
+
         self.local_aggregates = LocalRoutes.LocalAggregates()
         self.local_aggregates.parent = self
+        self._children_name_map["local_aggregates"] = "local-aggregates"
+        self._children_yang_names.add("local-aggregates")
+
         self.state = LocalRoutes.State()
         self.state.parent = self
+        self._children_name_map["state"] = "state"
+        self._children_yang_names.add("state")
+
         self.static_routes = LocalRoutes.StaticRoutes()
         self.static_routes.parent = self
+        self._children_name_map["static_routes"] = "static-routes"
+        self._children_yang_names.add("static-routes")
 
 
-    class Config(object):
+    class Config(Entity):
         """
         Configuration data for locally defined routes
         
@@ -108,27 +114,50 @@ class LocalRoutes(object):
         _revision = '2016-05-11'
 
         def __init__(self):
-            self.parent = None
+            super(LocalRoutes.Config, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "config"
+            self.yang_parent_name = "local-routes"
 
-            return '/openconfig-local-routing:local-routes/openconfig-local-routing:config'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
+        def has_data(self):
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-            return meta._meta_table['LocalRoutes.Config']['meta_info']
+        def has_operation(self):
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "config" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "openconfig-local-routing:local-routes/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class State(object):
+    class State(Entity):
         """
         Operational state data for locally defined routes
         
@@ -140,27 +169,50 @@ class LocalRoutes(object):
         _revision = '2016-05-11'
 
         def __init__(self):
-            self.parent = None
+            super(LocalRoutes.State, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "state"
+            self.yang_parent_name = "local-routes"
 
-            return '/openconfig-local-routing:local-routes/openconfig-local-routing:state'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
             return False
 
-        def _has_data(self):
+        def has_operation(self):
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "state" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "openconfig-local-routing:local-routes/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-            return meta._meta_table['LocalRoutes.State']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class StaticRoutes(object):
+    class StaticRoutes(Entity):
         """
         Enclosing container for the list of static routes
         
@@ -177,13 +229,39 @@ class LocalRoutes(object):
         _revision = '2016-05-11'
 
         def __init__(self):
-            self.parent = None
-            self.static = YList()
-            self.static.parent = self
-            self.static.name = 'static'
+            super(LocalRoutes.StaticRoutes, self).__init__()
+
+            self.yang_name = "static-routes"
+            self.yang_parent_name = "local-routes"
+
+            self.static = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(LocalRoutes.StaticRoutes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(LocalRoutes.StaticRoutes, self).__setattr__(name, value)
 
 
-        class Static(object):
+        class Static(Entity):
             """
             List of locally configured static routes
             
@@ -227,17 +305,54 @@ class LocalRoutes(object):
             _revision = '2016-05-11'
 
             def __init__(self):
-                self.parent = None
-                self.prefix = None
+                super(LocalRoutes.StaticRoutes.Static, self).__init__()
+
+                self.yang_name = "static"
+                self.yang_parent_name = "static-routes"
+
+                self.prefix = YLeaf(YType.str, "prefix")
+
                 self.config = LocalRoutes.StaticRoutes.Static.Config()
                 self.config.parent = self
+                self._children_name_map["config"] = "config"
+                self._children_yang_names.add("config")
+
                 self.next_hops = LocalRoutes.StaticRoutes.Static.NextHops()
                 self.next_hops.parent = self
+                self._children_name_map["next_hops"] = "next-hops"
+                self._children_yang_names.add("next-hops")
+
                 self.state = LocalRoutes.StaticRoutes.Static.State()
                 self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._children_yang_names.add("state")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("prefix") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(LocalRoutes.StaticRoutes.Static, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(LocalRoutes.StaticRoutes.Static, self).__setattr__(name, value)
 
 
-            class Config(object):
+            class Config(Entity):
                 """
                 Configuration data for static routes
                 
@@ -283,37 +398,97 @@ class LocalRoutes(object):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    self.parent = None
-                    self.prefix = None
-                    self.set_tag = None
+                    super(LocalRoutes.StaticRoutes.Static.Config, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "config"
+                    self.yang_parent_name = "static"
 
-                    return self.parent._common_path +'/openconfig-local-routing:config'
+                    self.prefix = YLeaf(YType.str, "prefix")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.set_tag = YLeaf(YType.str, "set-tag")
 
-                def _has_data(self):
-                    if self.prefix is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prefix",
+                                    "set_tag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(LocalRoutes.StaticRoutes.Static.Config, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(LocalRoutes.StaticRoutes.Static.Config, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.prefix.is_set or
+                        self.set_tag.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prefix.yfilter != YFilter.not_set or
+                        self.set_tag.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "config" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix.get_name_leafdata())
+                    if (self.set_tag.is_set or self.set_tag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_tag.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "prefix" or name == "set-tag"):
                         return True
-
-                    if self.set_tag is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                    return meta._meta_table['LocalRoutes.StaticRoutes.Static.Config']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prefix"):
+                        self.prefix = value
+                        self.prefix.value_namespace = name_space
+                        self.prefix.value_namespace_prefix = name_space_prefix
+                    if(value_path == "set-tag"):
+                        self.set_tag = value
+                        self.set_tag.value_namespace = name_space
+                        self.set_tag.value_namespace_prefix = name_space_prefix
 
 
-            class State(object):
+            class State(Entity):
                 """
                 Operational state data for static routes
                 
@@ -359,37 +534,97 @@ class LocalRoutes(object):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    self.parent = None
-                    self.prefix = None
-                    self.set_tag = None
+                    super(LocalRoutes.StaticRoutes.Static.State, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "state"
+                    self.yang_parent_name = "static"
 
-                    return self.parent._common_path +'/openconfig-local-routing:state'
+                    self.prefix = YLeaf(YType.str, "prefix")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.set_tag = YLeaf(YType.str, "set-tag")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prefix",
+                                    "set_tag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(LocalRoutes.StaticRoutes.Static.State, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(LocalRoutes.StaticRoutes.Static.State, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.prefix.is_set or
+                        self.set_tag.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prefix.yfilter != YFilter.not_set or
+                        self.set_tag.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "state" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix.get_name_leafdata())
+                    if (self.set_tag.is_set or self.set_tag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_tag.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "prefix" or name == "set-tag"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.prefix is not None:
-                        return True
-
-                    if self.set_tag is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                    return meta._meta_table['LocalRoutes.StaticRoutes.Static.State']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prefix"):
+                        self.prefix = value
+                        self.prefix.value_namespace = name_space
+                        self.prefix.value_namespace_prefix = name_space_prefix
+                    if(value_path == "set-tag"):
+                        self.set_tag = value
+                        self.set_tag.value_namespace = name_space
+                        self.set_tag.value_namespace_prefix = name_space_prefix
 
 
-            class NextHops(object):
+            class NextHops(Entity):
                 """
                 Configuration and state parameters relating to the
                 next\-hops that are to be utilised for the static
@@ -408,13 +643,39 @@ class LocalRoutes(object):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    self.parent = None
-                    self.next_hop = YList()
-                    self.next_hop.parent = self
-                    self.next_hop.name = 'next_hop'
+                    super(LocalRoutes.StaticRoutes.Static.NextHops, self).__init__()
+
+                    self.yang_name = "next-hops"
+                    self.yang_parent_name = "static"
+
+                    self.next_hop = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(LocalRoutes.StaticRoutes.Static.NextHops, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(LocalRoutes.StaticRoutes.Static.NextHops, self).__setattr__(name, value)
 
 
-                class NextHop(object):
+                class NextHop(Entity):
                     """
                     A list of next\-hops to be utilised for the static
                     route being specified.
@@ -449,17 +710,54 @@ class LocalRoutes(object):
                     _revision = '2016-05-11'
 
                     def __init__(self):
-                        self.parent = None
-                        self.index = None
+                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, self).__init__()
+
+                        self.yang_name = "next-hop"
+                        self.yang_parent_name = "next-hops"
+
+                        self.index = YLeaf(YType.str, "index")
+
                         self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config()
                         self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
                         self.interface_ref = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef()
                         self.interface_ref.parent = self
+                        self._children_name_map["interface_ref"] = "interface-ref"
+                        self._children_yang_names.add("interface-ref")
+
                         self.state = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State()
                         self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("index") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, self).__setattr__(name, value)
 
 
-                    class Config(object):
+                    class Config(Entity):
                         """
                         Configuration parameters relating to the next\-hop
                         entry
@@ -495,7 +793,7 @@ class LocalRoutes(object):
                         ----
                         
                         ----
-                        	**type**\:   :py:class:`Local_Defined_Next_HopIdentity <ydk.models.openconfig.openconfig_local_routing.Local_Defined_Next_HopIdentity>`
+                        	**type**\:   :py:class:`Local_Defined_Next_Hop <ydk.models.openconfig.openconfig_local_routing.Local_Defined_Next_Hop>`
                         
                         
                         ----
@@ -514,45 +812,119 @@ class LocalRoutes(object):
                         _revision = '2016-05-11'
 
                         def __init__(self):
-                            self.parent = None
-                            self.index = None
-                            self.metric = None
-                            self.next_hop = None
-                            self.recurse = None
+                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "config"
+                            self.yang_parent_name = "next-hop"
 
-                            return self.parent._common_path +'/openconfig-local-routing:config'
+                            self.index = YLeaf(YType.str, "index")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.metric = YLeaf(YType.uint32, "metric")
 
-                        def _has_data(self):
-                            if self.index is not None:
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.recurse = YLeaf(YType.boolean, "recurse")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("index",
+                                            "metric",
+                                            "next_hop",
+                                            "recurse") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.index.is_set or
+                                self.metric.is_set or
+                                self.next_hop.is_set or
+                                self.recurse.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.index.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop.yfilter != YFilter.not_set or
+                                self.recurse.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "config" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.index.get_name_leafdata())
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop.is_set or self.next_hop.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop.get_name_leafdata())
+                            if (self.recurse.is_set or self.recurse.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.recurse.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "index" or name == "metric" or name == "next-hop" or name == "recurse"):
                                 return True
-
-                            if self.metric is not None:
-                                return True
-
-                            if self.next_hop is not None:
-                                return True
-
-                            if self.recurse is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                            return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "index"):
+                                self.index = value
+                                self.index.value_namespace = name_space
+                                self.index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop"):
+                                self.next_hop = value
+                                self.next_hop.value_namespace = name_space
+                                self.next_hop.value_namespace_prefix = name_space_prefix
+                            if(value_path == "recurse"):
+                                self.recurse = value
+                                self.recurse.value_namespace = name_space
+                                self.recurse.value_namespace_prefix = name_space_prefix
 
 
-                    class State(object):
+                    class State(Entity):
                         """
                         Operational state parameters relating to the
                         next\-hop entry
@@ -588,7 +960,7 @@ class LocalRoutes(object):
                         ----
                         
                         ----
-                        	**type**\:   :py:class:`Local_Defined_Next_HopIdentity <ydk.models.openconfig.openconfig_local_routing.Local_Defined_Next_HopIdentity>`
+                        	**type**\:   :py:class:`Local_Defined_Next_Hop <ydk.models.openconfig.openconfig_local_routing.Local_Defined_Next_Hop>`
                         
                         
                         ----
@@ -607,45 +979,119 @@ class LocalRoutes(object):
                         _revision = '2016-05-11'
 
                         def __init__(self):
-                            self.parent = None
-                            self.index = None
-                            self.metric = None
-                            self.next_hop = None
-                            self.recurse = None
+                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "state"
+                            self.yang_parent_name = "next-hop"
 
-                            return self.parent._common_path +'/openconfig-local-routing:state'
+                            self.index = YLeaf(YType.str, "index")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.metric = YLeaf(YType.uint32, "metric")
+
+                            self.next_hop = YLeaf(YType.str, "next-hop")
+
+                            self.recurse = YLeaf(YType.boolean, "recurse")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("index",
+                                            "metric",
+                                            "next_hop",
+                                            "recurse") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.index.is_set or
+                                self.metric.is_set or
+                                self.next_hop.is_set or
+                                self.recurse.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.index.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop.yfilter != YFilter.not_set or
+                                self.recurse.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "state" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.index.get_name_leafdata())
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop.is_set or self.next_hop.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop.get_name_leafdata())
+                            if (self.recurse.is_set or self.recurse.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.recurse.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "index" or name == "metric" or name == "next-hop" or name == "recurse"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.index is not None:
-                                return True
-
-                            if self.metric is not None:
-                                return True
-
-                            if self.next_hop is not None:
-                                return True
-
-                            if self.recurse is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                            return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "index"):
+                                self.index = value
+                                self.index.value_namespace = name_space
+                                self.index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop"):
+                                self.next_hop = value
+                                self.next_hop.value_namespace = name_space
+                                self.next_hop.value_namespace_prefix = name_space_prefix
+                            if(value_path == "recurse"):
+                                self.recurse = value
+                                self.recurse.value_namespace = name_space
+                                self.recurse.value_namespace_prefix = name_space_prefix
 
 
-                    class InterfaceRef(object):
+                    class InterfaceRef(Entity):
                         """
                         Reference to an interface or subinterface
                         
@@ -667,14 +1113,23 @@ class LocalRoutes(object):
                         _revision = '2016-05-11'
 
                         def __init__(self):
-                            self.parent = None
+                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef, self).__init__()
+
+                            self.yang_name = "interface-ref"
+                            self.yang_parent_name = "next-hop"
+
                             self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config()
                             self.config.parent = self
+                            self._children_name_map["config"] = "config"
+                            self._children_yang_names.add("config")
+
                             self.state = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State()
                             self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._children_yang_names.add("state")
 
 
-                        class Config(object):
+                        class Config(Entity):
                             """
                             Configured reference to interface / subinterface
                             
@@ -702,37 +1157,97 @@ class LocalRoutes(object):
                             _revision = '2016-05-11'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface = None
-                                self.subinterface = None
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "config"
+                                self.yang_parent_name = "interface-ref"
 
-                                return self.parent._common_path +'/openconfig-local-routing:config'
+                                self.interface = YLeaf(YType.str, "interface")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.subinterface = YLeaf(YType.str, "subinterface")
 
-                            def _has_data(self):
-                                if self.interface is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("interface",
+                                                "subinterface") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.interface.is_set or
+                                    self.subinterface.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.interface.yfilter != YFilter.not_set or
+                                    self.subinterface.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "config" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface.get_name_leafdata())
+                                if (self.subinterface.is_set or self.subinterface.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.subinterface.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface" or name == "subinterface"):
                                     return True
-
-                                if self.subinterface is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                                return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "interface"):
+                                    self.interface = value
+                                    self.interface.value_namespace = name_space
+                                    self.interface.value_namespace_prefix = name_space_prefix
+                                if(value_path == "subinterface"):
+                                    self.subinterface = value
+                                    self.subinterface.value_namespace = name_space
+                                    self.subinterface.value_namespace_prefix = name_space_prefix
 
 
-                        class State(object):
+                        class State(Entity):
                             """
                             Operational state for interface\-ref
                             
@@ -760,172 +1275,417 @@ class LocalRoutes(object):
                             _revision = '2016-05-11'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface = None
-                                self.subinterface = None
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "state"
+                                self.yang_parent_name = "interface-ref"
 
-                                return self.parent._common_path +'/openconfig-local-routing:state'
+                                self.interface = YLeaf(YType.str, "interface")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.subinterface = YLeaf(YType.str, "subinterface")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("interface",
+                                                "subinterface") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.interface.is_set or
+                                    self.subinterface.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.interface.yfilter != YFilter.not_set or
+                                    self.subinterface.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "state" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface.get_name_leafdata())
+                                if (self.subinterface.is_set or self.subinterface.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.subinterface.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface" or name == "subinterface"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.interface is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "interface"):
+                                    self.interface = value
+                                    self.interface.value_namespace = name_space
+                                    self.interface.value_namespace_prefix = name_space_prefix
+                                if(value_path == "subinterface"):
+                                    self.subinterface = value
+                                    self.subinterface.value_namespace = name_space
+                                    self.subinterface.value_namespace_prefix = name_space_prefix
 
-                                if self.subinterface is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.config is not None and self.config.has_data()) or
+                                (self.state is not None and self.state.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.config is not None and self.config.has_operation()) or
+                                (self.state is not None and self.state.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                                return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface-ref" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/openconfig-local-routing:interface-ref'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            leaf_name_data = LeafDataList()
 
-                        def _has_data(self):
-                            if self.config is not None and self.config._has_data():
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "config"):
+                                if (self.config is None):
+                                    self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+                                return self.config
+
+                            if (child_yang_name == "state"):
+                                if (self.state is None):
+                                    self.state = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                return self.state
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "config" or name == "state"):
                                 return True
-
-                            if self.state is not None and self.state._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                            return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.index is None:
-                            raise YPYModelError('Key property index is None')
+                    def has_data(self):
+                        return (
+                            self.index.is_set or
+                            (self.config is not None and self.config.has_data()) or
+                            (self.interface_ref is not None and self.interface_ref.has_data()) or
+                            (self.state is not None and self.state.has_data()))
 
-                        return self.parent._common_path +'/openconfig-local-routing:next-hop[openconfig-local-routing:index = ' + str(self.index) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.index.yfilter != YFilter.not_set or
+                            (self.config is not None and self.config.has_operation()) or
+                            (self.interface_ref is not None and self.interface_ref.has_operation()) or
+                            (self.state is not None and self.state.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "next-hop" + "[index='" + self.index.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.index is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.index.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "config"):
+                            if (self.config is None):
+                                self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                            return self.config
+
+                        if (child_yang_name == "interface-ref"):
+                            if (self.interface_ref is None):
+                                self.interface_ref = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef()
+                                self.interface_ref.parent = self
+                                self._children_name_map["interface_ref"] = "interface-ref"
+                            return self.interface_ref
+
+                        if (child_yang_name == "state"):
+                            if (self.state is None):
+                                self.state = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                            return self.state
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "config" or name == "interface-ref" or name == "state" or name == "index"):
                             return True
-
-                        if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.interface_ref is not None and self.interface_ref._has_data():
-                            return True
-
-                        if self.state is not None and self.state._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                        return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops.NextHop']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "index"):
+                            self.index = value
+                            self.index.value_namespace = name_space
+                            self.index.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/openconfig-local-routing:next-hops'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.next_hop is not None:
-                        for child_ref in self.next_hop:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.next_hop:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                    return meta._meta_table['LocalRoutes.StaticRoutes.Static.NextHops']['meta_info']
+                def has_operation(self):
+                    for c in self.next_hop:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.prefix is None:
-                    raise YPYModelError('Key property prefix is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "next-hops" + path_buffer
 
-                return '/openconfig-local-routing:local-routes/openconfig-local-routing:static-routes/openconfig-local-routing:static[openconfig-local-routing:prefix = ' + str(self.prefix) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.prefix is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "next-hop"):
+                        for c in self.next_hop:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = LocalRoutes.StaticRoutes.Static.NextHops.NextHop()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.next_hop.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "next-hop"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.prefix.is_set or
+                    (self.config is not None and self.config.has_data()) or
+                    (self.next_hops is not None and self.next_hops.has_data()) or
+                    (self.state is not None and self.state.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.prefix.yfilter != YFilter.not_set or
+                    (self.config is not None and self.config.has_operation()) or
+                    (self.next_hops is not None and self.next_hops.has_operation()) or
+                    (self.state is not None and self.state.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "static" + "[prefix='" + self.prefix.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "openconfig-local-routing:local-routes/static-routes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.prefix.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "config"):
+                    if (self.config is None):
+                        self.config = LocalRoutes.StaticRoutes.Static.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                    return self.config
+
+                if (child_yang_name == "next-hops"):
+                    if (self.next_hops is None):
+                        self.next_hops = LocalRoutes.StaticRoutes.Static.NextHops()
+                        self.next_hops.parent = self
+                        self._children_name_map["next_hops"] = "next-hops"
+                    return self.next_hops
+
+                if (child_yang_name == "state"):
+                    if (self.state is None):
+                        self.state = LocalRoutes.StaticRoutes.Static.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                    return self.state
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "config" or name == "next-hops" or name == "state" or name == "prefix"):
                     return True
-
-                if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.next_hops is not None and self.next_hops._has_data():
-                    return True
-
-                if self.state is not None and self.state._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                return meta._meta_table['LocalRoutes.StaticRoutes.Static']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "prefix"):
+                    self.prefix = value
+                    self.prefix.value_namespace = name_space
+                    self.prefix.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/openconfig-local-routing:local-routes/openconfig-local-routing:static-routes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.static is not None:
-                for child_ref in self.static:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.static:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-            return meta._meta_table['LocalRoutes.StaticRoutes']['meta_info']
+        def has_operation(self):
+            for c in self.static:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "static-routes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "openconfig-local-routing:local-routes/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "static"):
+                for c in self.static:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = LocalRoutes.StaticRoutes.Static()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.static.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "static"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class LocalAggregates(object):
+    class LocalAggregates(Entity):
         """
         Enclosing container for locally\-defined aggregate
         routes
@@ -943,13 +1703,39 @@ class LocalRoutes(object):
         _revision = '2016-05-11'
 
         def __init__(self):
-            self.parent = None
-            self.aggregate = YList()
-            self.aggregate.parent = self
-            self.aggregate.name = 'aggregate'
+            super(LocalRoutes.LocalAggregates, self).__init__()
+
+            self.yang_name = "local-aggregates"
+            self.yang_parent_name = "local-routes"
+
+            self.aggregate = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(LocalRoutes.LocalAggregates, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(LocalRoutes.LocalAggregates, self).__setattr__(name, value)
 
 
-        class Aggregate(object):
+        class Aggregate(Entity):
             """
             List of aggregates
             
@@ -988,15 +1774,49 @@ class LocalRoutes(object):
             _revision = '2016-05-11'
 
             def __init__(self):
-                self.parent = None
-                self.prefix = None
+                super(LocalRoutes.LocalAggregates.Aggregate, self).__init__()
+
+                self.yang_name = "aggregate"
+                self.yang_parent_name = "local-aggregates"
+
+                self.prefix = YLeaf(YType.str, "prefix")
+
                 self.config = LocalRoutes.LocalAggregates.Aggregate.Config()
                 self.config.parent = self
+                self._children_name_map["config"] = "config"
+                self._children_yang_names.add("config")
+
                 self.state = LocalRoutes.LocalAggregates.Aggregate.State()
                 self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._children_yang_names.add("state")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("prefix") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(LocalRoutes.LocalAggregates.Aggregate, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(LocalRoutes.LocalAggregates.Aggregate, self).__setattr__(name, value)
 
 
-            class Config(object):
+            class Config(Entity):
                 """
                 Configuration data for aggregate advertisements
                 
@@ -1049,41 +1869,108 @@ class LocalRoutes(object):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    self.parent = None
-                    self.discard = None
-                    self.prefix = None
-                    self.set_tag = None
+                    super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "config"
+                    self.yang_parent_name = "aggregate"
 
-                    return self.parent._common_path +'/openconfig-local-routing:config'
+                    self.discard = YLeaf(YType.boolean, "discard")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.prefix = YLeaf(YType.str, "prefix")
 
-                def _has_data(self):
-                    if self.discard is not None:
+                    self.set_tag = YLeaf(YType.str, "set-tag")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("discard",
+                                    "prefix",
+                                    "set_tag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.discard.is_set or
+                        self.prefix.is_set or
+                        self.set_tag.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.discard.yfilter != YFilter.not_set or
+                        self.prefix.yfilter != YFilter.not_set or
+                        self.set_tag.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "config" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.discard.is_set or self.discard.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discard.get_name_leafdata())
+                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix.get_name_leafdata())
+                    if (self.set_tag.is_set or self.set_tag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_tag.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discard" or name == "prefix" or name == "set-tag"):
                         return True
-
-                    if self.prefix is not None:
-                        return True
-
-                    if self.set_tag is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                    return meta._meta_table['LocalRoutes.LocalAggregates.Aggregate.Config']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "discard"):
+                        self.discard = value
+                        self.discard.value_namespace = name_space
+                        self.discard.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix"):
+                        self.prefix = value
+                        self.prefix.value_namespace = name_space
+                        self.prefix.value_namespace_prefix = name_space_prefix
+                    if(value_path == "set-tag"):
+                        self.set_tag = value
+                        self.set_tag.value_namespace = name_space
+                        self.set_tag.value_namespace_prefix = name_space_prefix
 
 
-            class State(object):
+            class State(Entity):
                 """
                 Operational state data for aggregate
                 advertisements
@@ -1137,140 +2024,308 @@ class LocalRoutes(object):
                 _revision = '2016-05-11'
 
                 def __init__(self):
-                    self.parent = None
-                    self.discard = None
-                    self.prefix = None
-                    self.set_tag = None
+                    super(LocalRoutes.LocalAggregates.Aggregate.State, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "state"
+                    self.yang_parent_name = "aggregate"
 
-                    return self.parent._common_path +'/openconfig-local-routing:state'
+                    self.discard = YLeaf(YType.boolean, "discard")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.prefix = YLeaf(YType.str, "prefix")
+
+                    self.set_tag = YLeaf(YType.str, "set-tag")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("discard",
+                                    "prefix",
+                                    "set_tag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(LocalRoutes.LocalAggregates.Aggregate.State, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(LocalRoutes.LocalAggregates.Aggregate.State, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.discard.is_set or
+                        self.prefix.is_set or
+                        self.set_tag.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.discard.yfilter != YFilter.not_set or
+                        self.prefix.yfilter != YFilter.not_set or
+                        self.set_tag.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "state" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.discard.is_set or self.discard.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discard.get_name_leafdata())
+                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix.get_name_leafdata())
+                    if (self.set_tag.is_set or self.set_tag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_tag.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discard" or name == "prefix" or name == "set-tag"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.discard is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "discard"):
+                        self.discard = value
+                        self.discard.value_namespace = name_space
+                        self.discard.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix"):
+                        self.prefix = value
+                        self.prefix.value_namespace = name_space
+                        self.prefix.value_namespace_prefix = name_space_prefix
+                    if(value_path == "set-tag"):
+                        self.set_tag = value
+                        self.set_tag.value_namespace = name_space
+                        self.set_tag.value_namespace_prefix = name_space_prefix
 
-                    if self.prefix is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.prefix.is_set or
+                    (self.config is not None and self.config.has_data()) or
+                    (self.state is not None and self.state.has_data()))
 
-                    if self.set_tag is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.prefix.yfilter != YFilter.not_set or
+                    (self.config is not None and self.config.has_operation()) or
+                    (self.state is not None and self.state.has_operation()))
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "aggregate" + "[prefix='" + self.prefix.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                    return meta._meta_table['LocalRoutes.LocalAggregates.Aggregate.State']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.prefix is None:
-                    raise YPYModelError('Key property prefix is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "openconfig-local-routing:local-routes/local-aggregates/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/openconfig-local-routing:local-routes/openconfig-local-routing:local-aggregates/openconfig-local-routing:aggregate[openconfig-local-routing:prefix = ' + str(self.prefix) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.prefix.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            def _has_data(self):
-                if self.prefix is not None:
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "config"):
+                    if (self.config is None):
+                        self.config = LocalRoutes.LocalAggregates.Aggregate.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                    return self.config
+
+                if (child_yang_name == "state"):
+                    if (self.state is None):
+                        self.state = LocalRoutes.LocalAggregates.Aggregate.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                    return self.state
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "config" or name == "state" or name == "prefix"):
                     return True
-
-                if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.state is not None and self.state._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-                return meta._meta_table['LocalRoutes.LocalAggregates.Aggregate']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "prefix"):
+                    self.prefix = value
+                    self.prefix.value_namespace = name_space
+                    self.prefix.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/openconfig-local-routing:local-routes/openconfig-local-routing:local-aggregates'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.aggregate is not None:
-                for child_ref in self.aggregate:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.aggregate:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-            return meta._meta_table['LocalRoutes.LocalAggregates']['meta_info']
+        def has_operation(self):
+            for c in self.aggregate:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "local-aggregates" + path_buffer
 
-        return '/openconfig-local-routing:local-routes'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "openconfig-local-routing:local-routes/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.config is not None and self.config._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "aggregate"):
+                for c in self.aggregate:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = LocalRoutes.LocalAggregates.Aggregate()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.aggregate.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "aggregate"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.config is not None and self.config.has_data()) or
+            (self.local_aggregates is not None and self.local_aggregates.has_data()) or
+            (self.state is not None and self.state.has_data()) or
+            (self.static_routes is not None and self.static_routes.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.config is not None and self.config.has_operation()) or
+            (self.local_aggregates is not None and self.local_aggregates.has_operation()) or
+            (self.state is not None and self.state.has_operation()) or
+            (self.static_routes is not None and self.static_routes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "openconfig-local-routing:local-routes" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "config"):
+            if (self.config is None):
+                self.config = LocalRoutes.Config()
+                self.config.parent = self
+                self._children_name_map["config"] = "config"
+            return self.config
+
+        if (child_yang_name == "local-aggregates"):
+            if (self.local_aggregates is None):
+                self.local_aggregates = LocalRoutes.LocalAggregates()
+                self.local_aggregates.parent = self
+                self._children_name_map["local_aggregates"] = "local-aggregates"
+            return self.local_aggregates
+
+        if (child_yang_name == "state"):
+            if (self.state is None):
+                self.state = LocalRoutes.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+            return self.state
+
+        if (child_yang_name == "static-routes"):
+            if (self.static_routes is None):
+                self.static_routes = LocalRoutes.StaticRoutes()
+                self.static_routes.parent = self
+                self._children_name_map["static_routes"] = "static-routes"
+            return self.static_routes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "config" or name == "local-aggregates" or name == "state" or name == "static-routes"):
             return True
-
-        if self.local_aggregates is not None and self.local_aggregates._has_data():
-            return True
-
-        if self.state is not None and self.state._has_data():
-            return True
-
-        if self.static_routes is not None and self.static_routes._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-        return meta._meta_table['LocalRoutes']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = LocalRoutes()
+        return self._top_entity
 
-class DropIdentity(Local_Defined_Next_HopIdentity):
-    """
-    Discard traffic for the corresponding destination
-    
-    
-
-    """
-
-    _prefix = 'oc-loc-rt'
-    _revision = '2016-05-11'
-
-    def __init__(self):
-        Local_Defined_Next_HopIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-        return meta._meta_table['DropIdentity']['meta_info']
-
-
-class Local_LinkIdentity(Local_Defined_Next_HopIdentity):
+class Local_Link(Identity):
     """
     Treat traffic towards addresses within the specified
     next\-hop prefix as though they are connected to a local
@@ -1287,11 +2342,21 @@ class Local_LinkIdentity(Local_Defined_Next_HopIdentity):
     _revision = '2016-05-11'
 
     def __init__(self):
-        Local_Defined_Next_HopIdentity.__init__(self)
+        super(Local_Link, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:LOCAL_LINK")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_local_routing as meta
-        return meta._meta_table['Local_LinkIdentity']['meta_info']
+
+class Drop(Identity):
+    """
+    Discard traffic for the corresponding destination
+    
+    
+
+    """
+
+    _prefix = 'oc-loc-rt'
+    _revision = '2016-05-11'
+
+    def __init__(self):
+        super(Drop, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:DROP")
 
 

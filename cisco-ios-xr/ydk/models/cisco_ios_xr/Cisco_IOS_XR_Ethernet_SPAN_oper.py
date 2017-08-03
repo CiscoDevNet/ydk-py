@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class DestinationClassEnum(Enum):
+class DestinationClass(Enum):
     """
-    DestinationClassEnum
+    DestinationClass
 
     Destination class
 
@@ -52,26 +46,20 @@ class DestinationClassEnum(Enum):
 
     """
 
-    interface_class = 0
+    interface_class = Enum.YLeaf(0, "interface-class")
 
-    pseudowire_class = 1
+    pseudowire_class = Enum.YLeaf(1, "pseudowire-class")
 
-    next_hop_ipv4_class = 2
+    next_hop_ipv4_class = Enum.YLeaf(2, "next-hop-ipv4-class")
 
-    next_hop_ipv6_class = 3
+    next_hop_ipv6_class = Enum.YLeaf(3, "next-hop-ipv6-class")
 
-    invalid_class = 255
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['DestinationClassEnum']
+    invalid_class = Enum.YLeaf(255, "invalid-class")
 
 
-class ImStateEnumEnum(Enum):
+class ImStateEnum(Enum):
     """
-    ImStateEnumEnum
+    ImStateEnum
 
     Im state enum
 
@@ -153,54 +141,48 @@ class ImStateEnumEnum(Enum):
 
     """
 
-    im_state_not_ready = 0
+    im_state_not_ready = Enum.YLeaf(0, "im-state-not-ready")
 
-    im_state_admin_down = 1
+    im_state_admin_down = Enum.YLeaf(1, "im-state-admin-down")
 
-    im_state_down = 2
+    im_state_down = Enum.YLeaf(2, "im-state-down")
 
-    im_state_up = 3
+    im_state_up = Enum.YLeaf(3, "im-state-up")
 
-    im_state_shutdown = 4
+    im_state_shutdown = Enum.YLeaf(4, "im-state-shutdown")
 
-    im_state_err_disable = 5
+    im_state_err_disable = Enum.YLeaf(5, "im-state-err-disable")
 
-    im_state_down_immediate = 6
+    im_state_down_immediate = Enum.YLeaf(6, "im-state-down-immediate")
 
-    im_state_down_immediate_admin = 7
+    im_state_down_immediate_admin = Enum.YLeaf(7, "im-state-down-immediate-admin")
 
-    im_state_down_graceful = 8
+    im_state_down_graceful = Enum.YLeaf(8, "im-state-down-graceful")
 
-    im_state_begin_shutdown = 9
+    im_state_begin_shutdown = Enum.YLeaf(9, "im-state-begin-shutdown")
 
-    im_state_end_shutdown = 10
+    im_state_end_shutdown = Enum.YLeaf(10, "im-state-end-shutdown")
 
-    im_state_begin_error_disable = 11
+    im_state_begin_error_disable = Enum.YLeaf(11, "im-state-begin-error-disable")
 
-    im_state_end_error_disable = 12
+    im_state_end_error_disable = Enum.YLeaf(12, "im-state-end-error-disable")
 
-    im_state_begin_down_graceful = 13
+    im_state_begin_down_graceful = Enum.YLeaf(13, "im-state-begin-down-graceful")
 
-    im_state_reset = 14
+    im_state_reset = Enum.YLeaf(14, "im-state-reset")
 
-    im_state_operational = 15
+    im_state_operational = Enum.YLeaf(15, "im-state-operational")
 
-    im_state_not_operational = 16
+    im_state_not_operational = Enum.YLeaf(16, "im-state-not-operational")
 
-    im_state_unknown = 17
+    im_state_unknown = Enum.YLeaf(17, "im-state-unknown")
 
-    im_state_last = 18
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['ImStateEnumEnum']
+    im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
-class MirrorIntervalEnum(Enum):
+class MirrorInterval(Enum):
     """
-    MirrorIntervalEnum
+    MirrorInterval
 
     Monitor\-session mirror intervals
 
@@ -234,30 +216,24 @@ class MirrorIntervalEnum(Enum):
 
     """
 
-    mirror_interval_all = 0
+    mirror_interval_all = Enum.YLeaf(0, "mirror-interval-all")
 
-    mirror_interval512 = 1
+    mirror_interval512 = Enum.YLeaf(1, "mirror-interval512")
 
-    mirror_interval1k = 2
+    mirror_interval1k = Enum.YLeaf(2, "mirror-interval1k")
 
-    mirror_interval2k = 3
+    mirror_interval2k = Enum.YLeaf(3, "mirror-interval2k")
 
-    mirror_interval4k = 4
+    mirror_interval4k = Enum.YLeaf(4, "mirror-interval4k")
 
-    mirror_interval8k = 5
+    mirror_interval8k = Enum.YLeaf(5, "mirror-interval8k")
 
-    mirror_interval16k = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['MirrorIntervalEnum']
+    mirror_interval16k = Enum.YLeaf(6, "mirror-interval16k")
 
 
-class SessionClassEnum(Enum):
+class SessionClass(Enum):
     """
-    SessionClassEnum
+    SessionClass
 
     Session class
 
@@ -279,24 +255,18 @@ class SessionClassEnum(Enum):
 
     """
 
-    ethernet_class = 0
+    ethernet_class = Enum.YLeaf(0, "ethernet-class")
 
-    ipv4_class = 1
+    ipv4_class = Enum.YLeaf(1, "ipv4-class")
 
-    ipv6_class = 2
+    ipv6_class = Enum.YLeaf(2, "ipv6-class")
 
-    invalid_class = 65535
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['SessionClassEnum']
+    invalid_class = Enum.YLeaf(65535, "invalid-class")
 
 
-class TrafficDirectionEnum(Enum):
+class TrafficDirection(Enum):
     """
-    TrafficDirectionEnum
+    TrafficDirection
 
     Monitor\-session traffic directions
 
@@ -318,23 +288,17 @@ class TrafficDirectionEnum(Enum):
 
     """
 
-    invalid = 0
+    invalid = Enum.YLeaf(0, "invalid")
 
-    rx_only = 1
+    rx_only = Enum.YLeaf(1, "rx-only")
 
-    tx_only = 2
+    tx_only = Enum.YLeaf(2, "tx-only")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['TrafficDirectionEnum']
+    both = Enum.YLeaf(3, "both")
 
 
 
-class SpanMonitorSession(object):
+class SpanMonitorSession(Entity):
     """
     Monitor Session operational data
     
@@ -356,13 +320,24 @@ class SpanMonitorSession(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(SpanMonitorSession, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "span-monitor-session"
+        self.yang_parent_name = "Cisco-IOS-XR-Ethernet-SPAN-oper"
+
         self.global_ = SpanMonitorSession.Global_()
         self.global_.parent = self
+        self._children_name_map["global_"] = "global"
+        self._children_yang_names.add("global")
+
         self.nodes = SpanMonitorSession.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Global_(object):
+    class Global_(Entity):
         """
         Global operational data
         
@@ -384,14 +359,23 @@ class SpanMonitorSession(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(SpanMonitorSession.Global_, self).__init__()
+
+            self.yang_name = "global"
+            self.yang_parent_name = "span-monitor-session"
+
             self.global_sessions = SpanMonitorSession.Global_.GlobalSessions()
             self.global_sessions.parent = self
+            self._children_name_map["global_sessions"] = "global-sessions"
+            self._children_yang_names.add("global-sessions")
+
             self.statistics = SpanMonitorSession.Global_.Statistics()
             self.statistics.parent = self
+            self._children_name_map["statistics"] = "statistics"
+            self._children_yang_names.add("statistics")
 
 
-        class Statistics(object):
+        class Statistics(Entity):
             """
             Table of statistics for source interfaces
             
@@ -408,13 +392,39 @@ class SpanMonitorSession(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.statistic = YList()
-                self.statistic.parent = self
-                self.statistic.name = 'statistic'
+                super(SpanMonitorSession.Global_.Statistics, self).__init__()
+
+                self.yang_name = "statistics"
+                self.yang_parent_name = "global"
+
+                self.statistic = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SpanMonitorSession.Global_.Statistics, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SpanMonitorSession.Global_.Statistics, self).__setattr__(name, value)
 
 
-            class Statistic(object):
+            class Statistic(Entity):
                 """
                 Statistics for a particular source interface
                 
@@ -482,85 +492,220 @@ class SpanMonitorSession(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = None
-                    self.interface = None
-                    self.octets_not_mirrored = None
-                    self.packets_not_mirrored = None
-                    self.rx_octets_mirrored = None
-                    self.rx_packets_mirrored = None
-                    self.tx_octets_mirrored = None
-                    self.tx_packets_mirrored = None
+                    super(SpanMonitorSession.Global_.Statistics.Statistic, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.session is None:
-                        raise YPYModelError('Key property session is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
+                    self.yang_name = "statistic"
+                    self.yang_parent_name = "statistics"
 
-                    return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:statistics/Cisco-IOS-XR-Ethernet-SPAN-oper:statistic[Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + ']'
+                    self.session = YLeaf(YType.str, "session")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.octets_not_mirrored = YLeaf(YType.uint64, "octets-not-mirrored")
+
+                    self.packets_not_mirrored = YLeaf(YType.uint64, "packets-not-mirrored")
+
+                    self.rx_octets_mirrored = YLeaf(YType.uint64, "rx-octets-mirrored")
+
+                    self.rx_packets_mirrored = YLeaf(YType.uint64, "rx-packets-mirrored")
+
+                    self.tx_octets_mirrored = YLeaf(YType.uint64, "tx-octets-mirrored")
+
+                    self.tx_packets_mirrored = YLeaf(YType.uint64, "tx-packets-mirrored")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("session",
+                                    "interface",
+                                    "octets_not_mirrored",
+                                    "packets_not_mirrored",
+                                    "rx_octets_mirrored",
+                                    "rx_packets_mirrored",
+                                    "tx_octets_mirrored",
+                                    "tx_packets_mirrored") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SpanMonitorSession.Global_.Statistics.Statistic, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SpanMonitorSession.Global_.Statistics.Statistic, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.session.is_set or
+                        self.interface.is_set or
+                        self.octets_not_mirrored.is_set or
+                        self.packets_not_mirrored.is_set or
+                        self.rx_octets_mirrored.is_set or
+                        self.rx_packets_mirrored.is_set or
+                        self.tx_octets_mirrored.is_set or
+                        self.tx_packets_mirrored.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.session.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.octets_not_mirrored.yfilter != YFilter.not_set or
+                        self.packets_not_mirrored.yfilter != YFilter.not_set or
+                        self.rx_octets_mirrored.yfilter != YFilter.not_set or
+                        self.rx_packets_mirrored.yfilter != YFilter.not_set or
+                        self.tx_octets_mirrored.yfilter != YFilter.not_set or
+                        self.tx_packets_mirrored.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistic" + "[session='" + self.session.get() + "']" + "[interface='" + self.interface.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/statistics/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.session.is_set or self.session.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.octets_not_mirrored.is_set or self.octets_not_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.octets_not_mirrored.get_name_leafdata())
+                    if (self.packets_not_mirrored.is_set or self.packets_not_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.packets_not_mirrored.get_name_leafdata())
+                    if (self.rx_octets_mirrored.is_set or self.rx_octets_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rx_octets_mirrored.get_name_leafdata())
+                    if (self.rx_packets_mirrored.is_set or self.rx_packets_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rx_packets_mirrored.get_name_leafdata())
+                    if (self.tx_octets_mirrored.is_set or self.tx_octets_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_octets_mirrored.get_name_leafdata())
+                    if (self.tx_packets_mirrored.is_set or self.tx_packets_mirrored.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_packets_mirrored.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session" or name == "interface" or name == "octets-not-mirrored" or name == "packets-not-mirrored" or name == "rx-octets-mirrored" or name == "rx-packets-mirrored" or name == "tx-octets-mirrored" or name == "tx-packets-mirrored"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "session"):
+                        self.session = value
+                        self.session.value_namespace = name_space
+                        self.session.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "octets-not-mirrored"):
+                        self.octets_not_mirrored = value
+                        self.octets_not_mirrored.value_namespace = name_space
+                        self.octets_not_mirrored.value_namespace_prefix = name_space_prefix
+                    if(value_path == "packets-not-mirrored"):
+                        self.packets_not_mirrored = value
+                        self.packets_not_mirrored.value_namespace = name_space
+                        self.packets_not_mirrored.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rx-octets-mirrored"):
+                        self.rx_octets_mirrored = value
+                        self.rx_octets_mirrored.value_namespace = name_space
+                        self.rx_octets_mirrored.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rx-packets-mirrored"):
+                        self.rx_packets_mirrored = value
+                        self.rx_packets_mirrored.value_namespace = name_space
+                        self.rx_packets_mirrored.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-octets-mirrored"):
+                        self.tx_octets_mirrored = value
+                        self.tx_octets_mirrored.value_namespace = name_space
+                        self.tx_octets_mirrored.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-packets-mirrored"):
+                        self.tx_packets_mirrored = value
+                        self.tx_packets_mirrored.value_namespace = name_space
+                        self.tx_packets_mirrored.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.statistic:
+                    if (c.has_data()):
                         return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.octets_not_mirrored is not None:
-                        return True
-
-                    if self.packets_not_mirrored is not None:
-                        return True
-
-                    if self.rx_octets_mirrored is not None:
-                        return True
-
-                    if self.rx_packets_mirrored is not None:
-                        return True
-
-                    if self.tx_octets_mirrored is not None:
-                        return True
-
-                    if self.tx_packets_mirrored is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Global_.Statistics.Statistic']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:statistics'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.statistic is not None:
-                    for child_ref in self.statistic:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.statistic:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "statistics" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "statistic"):
+                    for c in self.statistic:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = SpanMonitorSession.Global_.Statistics.Statistic()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.statistic.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "statistic"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                return meta._meta_table['SpanMonitorSession.Global_.Statistics']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class GlobalSessions(object):
+        class GlobalSessions(Entity):
             """
             Global Monitor Sessions table
             
@@ -577,13 +722,39 @@ class SpanMonitorSession(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.global_session = YList()
-                self.global_session.parent = self
-                self.global_session.name = 'global_session'
+                super(SpanMonitorSession.Global_.GlobalSessions, self).__init__()
+
+                self.yang_name = "global-sessions"
+                self.yang_parent_name = "global"
+
+                self.global_session = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SpanMonitorSession.Global_.GlobalSessions, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SpanMonitorSession.Global_.GlobalSessions, self).__setattr__(name, value)
 
 
-            class GlobalSession(object):
+            class GlobalSession(Entity):
                 """
                 Information about a globally\-configured
                 monitor session
@@ -646,7 +817,7 @@ class SpanMonitorSession(object):
                 .. attribute:: session_class
                 
                 	Session class
-                	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                 
                 
 
@@ -656,29 +827,77 @@ class SpanMonitorSession(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = None
+                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession, self).__init__()
+
+                    self.yang_name = "global-session"
+                    self.yang_parent_name = "global-sessions"
+
+                    self.session = YLeaf(YType.str, "session")
+
+                    self.destination_error = YLeaf(YType.uint32, "destination-error")
+
+                    self.destination_interface_handle = YLeaf(YType.str, "destination-interface-handle")
+
+                    self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
+
+                    self.id = YLeaf(YType.uint32, "id")
+
+                    self.interface_error = YLeaf(YType.uint32, "interface-error")
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.session_class = YLeaf(YType.enumeration, "session-class")
+
                     self.destination_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData()
                     self.destination_data.parent = self
-                    self.destination_error = None
+                    self._children_name_map["destination_data"] = "destination-data"
+                    self._children_yang_names.add("destination-data")
+
                     self.destination_id = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId()
                     self.destination_id.parent = self
-                    self.destination_interface_handle = None
-                    self.destination_interface_name = None
-                    self.id = None
-                    self.interface_error = None
-                    self.name = None
-                    self.session_class = None
+                    self._children_name_map["destination_id"] = "destination-id"
+                    self._children_yang_names.add("destination-id")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("session",
+                                    "destination_error",
+                                    "destination_interface_handle",
+                                    "destination_interface_name",
+                                    "id",
+                                    "interface_error",
+                                    "name",
+                                    "session_class") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession, self).__setattr__(name, value)
 
 
-                class DestinationData(object):
+                class DestinationData(Entity):
                     """
                     Destination data
                     
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                     
                     .. attribute:: interface_data
                     
@@ -715,20 +934,62 @@ class SpanMonitorSession(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.destination_class = None
+                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData, self).__init__()
+
+                        self.yang_name = "destination-data"
+                        self.yang_parent_name = "global-session"
+
+                        self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                        self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
                         self.interface_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData()
                         self.interface_data.parent = self
-                        self.invalid_value = None
+                        self._children_name_map["interface_data"] = "interface-data"
+                        self._children_yang_names.add("interface-data")
+
                         self.next_hop_ipv4_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data()
                         self.next_hop_ipv4_data.parent = self
+                        self._children_name_map["next_hop_ipv4_data"] = "next-hop-ipv4-data"
+                        self._children_yang_names.add("next-hop-ipv4-data")
+
                         self.next_hop_ipv6_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data()
                         self.next_hop_ipv6_data.parent = self
+                        self._children_name_map["next_hop_ipv6_data"] = "next-hop-ipv6-data"
+                        self._children_yang_names.add("next-hop-ipv6-data")
+
                         self.pseudowire_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
                         self.pseudowire_data.parent = self
+                        self._children_name_map["pseudowire_data"] = "pseudowire-data"
+                        self._children_yang_names.add("pseudowire-data")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_class",
+                                        "invalid_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData, self).__setattr__(name, value)
 
 
-                    class InterfaceData(object):
+                    class InterfaceData(Entity):
                         """
                         Interface data
                         
@@ -740,7 +1001,7 @@ class SpanMonitorSession(object):
                         .. attribute:: interface_state
                         
                         	Interface State
-                        	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
+                        	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
                         
                         
 
@@ -750,37 +1011,97 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
-                            self.interface_state = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interface-data"
+                            self.yang_parent_name = "destination-data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:interface-data'
+                            self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.interface_state = YLeaf(YType.enumeration, "interface-state")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name",
+                                            "interface_state") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface_name.is_set or
+                                self.interface_state.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.interface_state.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface-data" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.interface_state.is_set or self.interface_state.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_state.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-name" or name == "interface-state"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
-                                return True
-
-                            if self.interface_state is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-state"):
+                                self.interface_state = value
+                                self.interface_state.value_namespace = name_space
+                                self.interface_state.value_namespace_prefix = name_space_prefix
 
 
-                    class PseudowireData(object):
+                    class PseudowireData(Entity):
                         """
                         Pseudowire data
                         
@@ -802,37 +1123,97 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.pseudowire_is_up = None
-                            self.pseudowire_name = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "pseudowire-data"
+                            self.yang_parent_name = "destination-data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:pseudowire-data'
+                            self.pseudowire_is_up = YLeaf(YType.boolean, "pseudowire-is-up")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.pseudowire_name = YLeaf(YType.str, "pseudowire-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("pseudowire_is_up",
+                                            "pseudowire_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.pseudowire_is_up.is_set or
+                                self.pseudowire_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.pseudowire_is_up.yfilter != YFilter.not_set or
+                                self.pseudowire_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pseudowire-data" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.pseudowire_is_up.is_set or self.pseudowire_is_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pseudowire_is_up.get_name_leafdata())
+                            if (self.pseudowire_name.is_set or self.pseudowire_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pseudowire_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "pseudowire-is-up" or name == "pseudowire-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.pseudowire_is_up is not None:
-                                return True
-
-                            if self.pseudowire_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "pseudowire-is-up"):
+                                self.pseudowire_is_up = value
+                                self.pseudowire_is_up.value_namespace = name_space
+                                self.pseudowire_is_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pseudowire-name"):
+                                self.pseudowire_name = value
+                                self.pseudowire_name.value_namespace = name_space
+                                self.pseudowire_name.value_namespace_prefix = name_space_prefix
 
 
-                    class NextHopIpv4Data(object):
+                    class NextHopIpv4Data(Entity):
                         """
                         Next\-hop IPv4 data
                         
@@ -861,41 +1242,108 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.address_is_reachable = None
-                            self.ipv4_address = None
-                            self.vrf_name = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "next-hop-ipv4-data"
+                            self.yang_parent_name = "destination-data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:next-hop-ipv4-data'
+                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("address_is_reachable",
+                                            "ipv4_address",
+                                            "vrf_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.address_is_reachable.is_set or
+                                self.ipv4_address.is_set or
+                                self.vrf_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.address_is_reachable.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.vrf_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "next-hop-ipv4-data" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.address_is_reachable.is_set or self.address_is_reachable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.address_is_reachable.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "address-is-reachable" or name == "ipv4-address" or name == "vrf-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.address_is_reachable is not None:
-                                return True
-
-                            if self.ipv4_address is not None:
-                                return True
-
-                            if self.vrf_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "address-is-reachable"):
+                                self.address_is_reachable = value
+                                self.address_is_reachable.value_namespace = name_space
+                                self.address_is_reachable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-name"):
+                                self.vrf_name = value
+                                self.vrf_name.value_namespace = name_space
+                                self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                    class NextHopIpv6Data(object):
+                    class NextHopIpv6Data(Entity):
                         """
                         Next\-hop IPv6 data
                         
@@ -924,85 +1372,206 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.address_is_reachable = None
-                            self.ipv6_address = None
-                            self.vrf_name = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "next-hop-ipv6-data"
+                            self.yang_parent_name = "destination-data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:next-hop-ipv6-data'
+                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("address_is_reachable",
+                                            "ipv6_address",
+                                            "vrf_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.address_is_reachable.is_set or
+                                self.ipv6_address.is_set or
+                                self.vrf_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.address_is_reachable.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set or
+                                self.vrf_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "next-hop-ipv6-data" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.address_is_reachable.is_set or self.address_is_reachable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.address_is_reachable.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "address-is-reachable" or name == "ipv6-address" or name == "vrf-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.address_is_reachable is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "address-is-reachable"):
+                                self.address_is_reachable = value
+                                self.address_is_reachable.value_namespace = name_space
+                                self.address_is_reachable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-name"):
+                                self.vrf_name = value
+                                self.vrf_name.value_namespace = name_space
+                                self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.destination_class.is_set or
+                            self.invalid_value.is_set or
+                            (self.interface_data is not None and self.interface_data.has_data()) or
+                            (self.next_hop_ipv4_data is not None and self.next_hop_ipv4_data.has_data()) or
+                            (self.next_hop_ipv6_data is not None and self.next_hop_ipv6_data.has_data()) or
+                            (self.pseudowire_data is not None and self.pseudowire_data.has_data()))
 
-                            if self.vrf_name is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_class.yfilter != YFilter.not_set or
+                            self.invalid_value.yfilter != YFilter.not_set or
+                            (self.interface_data is not None and self.interface_data.has_operation()) or
+                            (self.next_hop_ipv4_data is not None and self.next_hop_ipv4_data.has_operation()) or
+                            (self.next_hop_ipv6_data is not None and self.next_hop_ipv6_data.has_operation()) or
+                            (self.pseudowire_data is not None and self.pseudowire_data.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "destination-data" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-data'
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_class.get_name_leafdata())
+                        if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_value.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "interface-data"):
+                            if (self.interface_data is None):
+                                self.interface_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData()
+                                self.interface_data.parent = self
+                                self._children_name_map["interface_data"] = "interface-data"
+                            return self.interface_data
+
+                        if (child_yang_name == "next-hop-ipv4-data"):
+                            if (self.next_hop_ipv4_data is None):
+                                self.next_hop_ipv4_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data()
+                                self.next_hop_ipv4_data.parent = self
+                                self._children_name_map["next_hop_ipv4_data"] = "next-hop-ipv4-data"
+                            return self.next_hop_ipv4_data
+
+                        if (child_yang_name == "next-hop-ipv6-data"):
+                            if (self.next_hop_ipv6_data is None):
+                                self.next_hop_ipv6_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data()
+                                self.next_hop_ipv6_data.parent = self
+                                self._children_name_map["next_hop_ipv6_data"] = "next-hop-ipv6-data"
+                            return self.next_hop_ipv6_data
+
+                        if (child_yang_name == "pseudowire-data"):
+                            if (self.pseudowire_data is None):
+                                self.pseudowire_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
+                                self.pseudowire_data.parent = self
+                                self._children_name_map["pseudowire_data"] = "pseudowire-data"
+                            return self.pseudowire_data
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface-data" or name == "next-hop-ipv4-data" or name == "next-hop-ipv6-data" or name == "pseudowire-data" or name == "destination-class" or name == "invalid-value"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.destination_class is not None:
-                            return True
-
-                        if self.interface_data is not None and self.interface_data._has_data():
-                            return True
-
-                        if self.invalid_value is not None:
-                            return True
-
-                        if self.next_hop_ipv4_data is not None and self.next_hop_ipv4_data._has_data():
-                            return True
-
-                        if self.next_hop_ipv6_data is not None and self.next_hop_ipv6_data._has_data():
-                            return True
-
-                        if self.pseudowire_data is not None and self.pseudowire_data._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-class"):
+                            self.destination_class = value
+                            self.destination_class.value_namespace = name_space
+                            self.destination_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-value"):
+                            self.invalid_value = value
+                            self.invalid_value.value_namespace = name_space
+                            self.invalid_value.value_namespace_prefix = name_space_prefix
 
 
-                class DestinationId(object):
+                class DestinationId(Entity):
                     """
                     Destination ID
                     
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                     
                     .. attribute:: interface
                     
@@ -1043,18 +1612,58 @@ class SpanMonitorSession(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.destination_class = None
-                        self.interface = None
-                        self.invalid_value = None
+                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId, self).__init__()
+
+                        self.yang_name = "destination-id"
+                        self.yang_parent_name = "global-session"
+
+                        self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                        self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
                         self.ipv4_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf()
                         self.ipv4_address_and_vrf.parent = self
+                        self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                        self._children_yang_names.add("ipv4-address-and-vrf")
+
                         self.ipv6_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf()
                         self.ipv6_address_and_vrf.parent = self
-                        self.pseudowire_id = None
+                        self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                        self._children_yang_names.add("ipv6-address-and-vrf")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_class",
+                                        "interface",
+                                        "invalid_value",
+                                        "pseudowire_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId, self).__setattr__(name, value)
 
 
-                    class Ipv4AddressAndVrf(object):
+                    class Ipv4AddressAndVrf(Entity):
                         """
                         IPv4 address
                         
@@ -1078,37 +1687,97 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.ipv4_address = None
-                            self.vrf_name = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "ipv4-address-and-vrf"
+                            self.yang_parent_name = "destination-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv4-address-and-vrf'
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("ipv4_address",
+                                            "vrf_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.ipv4_address.is_set or
+                                self.vrf_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.vrf_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ipv4-address-and-vrf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ipv4-address" or name == "vrf-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.ipv4_address is not None:
-                                return True
-
-                            if self.vrf_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-name"):
+                                self.vrf_name = value
+                                self.vrf_name.value_namespace = name_space
+                                self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                    class Ipv6AddressAndVrf(object):
+                    class Ipv6AddressAndVrf(Entity):
                         """
                         IPv6 address
                         
@@ -1132,168 +1801,422 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.ipv6_address = None
-                            self.vrf_name = None
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "ipv6-address-and-vrf"
+                            self.yang_parent_name = "destination-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv6-address-and-vrf'
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("ipv6_address",
+                                            "vrf_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.ipv6_address.is_set or
+                                self.vrf_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set or
+                                self.vrf_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ipv6-address-and-vrf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ipv6-address" or name == "vrf-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.ipv6_address is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-name"):
+                                self.vrf_name = value
+                                self.vrf_name.value_namespace = name_space
+                                self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                            if self.vrf_name is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.destination_class.is_set or
+                            self.interface.is_set or
+                            self.invalid_value.is_set or
+                            self.pseudowire_id.is_set or
+                            (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_data()) or
+                            (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_class.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.invalid_value.yfilter != YFilter.not_set or
+                            self.pseudowire_id.yfilter != YFilter.not_set or
+                            (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_operation()) or
+                            (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "destination-id" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-id'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_class.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_value.get_name_leafdata())
+                        if (self.pseudowire_id.is_set or self.pseudowire_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pseudowire_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "ipv4-address-and-vrf"):
+                            if (self.ipv4_address_and_vrf is None):
+                                self.ipv4_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf()
+                                self.ipv4_address_and_vrf.parent = self
+                                self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                            return self.ipv4_address_and_vrf
+
+                        if (child_yang_name == "ipv6-address-and-vrf"):
+                            if (self.ipv6_address_and_vrf is None):
+                                self.ipv6_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf()
+                                self.ipv6_address_and_vrf.parent = self
+                                self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                            return self.ipv6_address_and_vrf
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv4-address-and-vrf" or name == "ipv6-address-and-vrf" or name == "destination-class" or name == "interface" or name == "invalid-value" or name == "pseudowire-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.destination_class is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-class"):
+                            self.destination_class = value
+                            self.destination_class.value_namespace = name_space
+                            self.destination_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-value"):
+                            self.invalid_value = value
+                            self.invalid_value.value_namespace = name_space
+                            self.invalid_value.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pseudowire-id"):
+                            self.pseudowire_id = value
+                            self.pseudowire_id.value_namespace = name_space
+                            self.pseudowire_id.value_namespace_prefix = name_space_prefix
 
-                        if self.interface is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.session.is_set or
+                        self.destination_error.is_set or
+                        self.destination_interface_handle.is_set or
+                        self.destination_interface_name.is_set or
+                        self.id.is_set or
+                        self.interface_error.is_set or
+                        self.name.is_set or
+                        self.session_class.is_set or
+                        (self.destination_data is not None and self.destination_data.has_data()) or
+                        (self.destination_id is not None and self.destination_id.has_data()))
 
-                        if self.invalid_value is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.session.yfilter != YFilter.not_set or
+                        self.destination_error.yfilter != YFilter.not_set or
+                        self.destination_interface_handle.yfilter != YFilter.not_set or
+                        self.destination_interface_name.yfilter != YFilter.not_set or
+                        self.id.yfilter != YFilter.not_set or
+                        self.interface_error.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.session_class.yfilter != YFilter.not_set or
+                        (self.destination_data is not None and self.destination_data.has_operation()) or
+                        (self.destination_id is not None and self.destination_id.has_operation()))
 
-                        if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "global-session" + "[session='" + self.session.get() + "']" + path_buffer
 
-                        if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                            return True
+                    return path_buffer
 
-                        if self.pseudowire_id is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return False
+                    leaf_name_data = LeafDataList()
+                    if (self.session.is_set or self.session.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session.get_name_leafdata())
+                    if (self.destination_error.is_set or self.destination_error.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_error.get_name_leafdata())
+                    if (self.destination_interface_handle.is_set or self.destination_interface_handle.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_interface_handle.get_name_leafdata())
+                    if (self.destination_interface_name.is_set or self.destination_interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_interface_name.get_name_leafdata())
+                    if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.id.get_name_leafdata())
+                    if (self.interface_error.is_set or self.interface_error.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_error.get_name_leafdata())
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.session_class.is_set or self.session_class.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session_class.get_name_leafdata())
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId']['meta_info']
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                @property
-                def _common_path(self):
-                    if self.session is None:
-                        raise YPYModelError('Key property session is None')
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:global-sessions/Cisco-IOS-XR-Ethernet-SPAN-oper:global-session[Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + ']'
+                    if (child_yang_name == "destination-data"):
+                        if (self.destination_data is None):
+                            self.destination_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData()
+                            self.destination_data.parent = self
+                            self._children_name_map["destination_data"] = "destination-data"
+                        return self.destination_data
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    if (child_yang_name == "destination-id"):
+                        if (self.destination_id is None):
+                            self.destination_id = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId()
+                            self.destination_id.parent = self
+                            self._children_name_map["destination_id"] = "destination-id"
+                        return self.destination_id
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-data" or name == "destination-id" or name == "session" or name == "destination-error" or name == "destination-interface-handle" or name == "destination-interface-name" or name == "id" or name == "interface-error" or name == "name" or name == "session-class"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "session"):
+                        self.session = value
+                        self.session.value_namespace = name_space
+                        self.session.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-error"):
+                        self.destination_error = value
+                        self.destination_error.value_namespace = name_space
+                        self.destination_error.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-interface-handle"):
+                        self.destination_interface_handle = value
+                        self.destination_interface_handle.value_namespace = name_space
+                        self.destination_interface_handle.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-interface-name"):
+                        self.destination_interface_name = value
+                        self.destination_interface_name.value_namespace = name_space
+                        self.destination_interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "id"):
+                        self.id = value
+                        self.id.value_namespace = name_space
+                        self.id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-error"):
+                        self.interface_error = value
+                        self.interface_error.value_namespace = name_space
+                        self.interface_error.value_namespace_prefix = name_space_prefix
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "session-class"):
+                        self.session_class = value
+                        self.session_class.value_namespace = name_space
+                        self.session_class.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.global_session:
+                    if (c.has_data()):
                         return True
-
-                    if self.destination_data is not None and self.destination_data._has_data():
-                        return True
-
-                    if self.destination_error is not None:
-                        return True
-
-                    if self.destination_id is not None and self.destination_id._has_data():
-                        return True
-
-                    if self.destination_interface_handle is not None:
-                        return True
-
-                    if self.destination_interface_name is not None:
-                        return True
-
-                    if self.id is not None:
-                        return True
-
-                    if self.interface_error is not None:
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.session_class is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:global-sessions'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.global_session is not None:
-                    for child_ref in self.global_session:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.global_session:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "global-sessions" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "global-session"):
+                    for c in self.global_session:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = SpanMonitorSession.Global_.GlobalSessions.GlobalSession()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.global_session.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "global-session"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.global_sessions is not None and self.global_sessions.has_data()) or
+                (self.statistics is not None and self.statistics.has_data()))
 
-            return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.global_sessions is not None and self.global_sessions.has_operation()) or
+                (self.statistics is not None and self.statistics.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "global" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "global-sessions"):
+                if (self.global_sessions is None):
+                    self.global_sessions = SpanMonitorSession.Global_.GlobalSessions()
+                    self.global_sessions.parent = self
+                    self._children_name_map["global_sessions"] = "global-sessions"
+                return self.global_sessions
+
+            if (child_yang_name == "statistics"):
+                if (self.statistics is None):
+                    self.statistics = SpanMonitorSession.Global_.Statistics()
+                    self.statistics.parent = self
+                    self._children_name_map["statistics"] = "statistics"
+                return self.statistics
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "global-sessions" or name == "statistics"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.global_sessions is not None and self.global_sessions._has_data():
-                return True
-
-            if self.statistics is not None and self.statistics._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-            return meta._meta_table['SpanMonitorSession.Global_']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Node table for node\-specific operational data
         
@@ -1310,13 +2233,39 @@ class SpanMonitorSession(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(SpanMonitorSession.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "span-monitor-session"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SpanMonitorSession.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SpanMonitorSession.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Node\-specific data for a particular node
             
@@ -1350,17 +2299,54 @@ class SpanMonitorSession(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node = None
+                super(SpanMonitorSession.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node = YLeaf(YType.str, "node")
+
                 self.attachments = SpanMonitorSession.Nodes.Node.Attachments()
                 self.attachments.parent = self
+                self._children_name_map["attachments"] = "attachments"
+                self._children_yang_names.add("attachments")
+
                 self.hardware_sessions = SpanMonitorSession.Nodes.Node.HardwareSessions()
                 self.hardware_sessions.parent = self
+                self._children_name_map["hardware_sessions"] = "hardware-sessions"
+                self._children_yang_names.add("hardware-sessions")
+
                 self.interfaces = SpanMonitorSession.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SpanMonitorSession.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SpanMonitorSession.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Attachments(object):
+            class Attachments(Entity):
                 """
                 Table of source interfaces configured as
                 attached to a session
@@ -1378,13 +2364,39 @@ class SpanMonitorSession(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.attachment = YList()
-                    self.attachment.parent = self
-                    self.attachment.name = 'attachment'
+                    super(SpanMonitorSession.Nodes.Node.Attachments, self).__init__()
+
+                    self.yang_name = "attachments"
+                    self.yang_parent_name = "node"
+
+                    self.attachment = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SpanMonitorSession.Nodes.Node.Attachments, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SpanMonitorSession.Nodes.Node.Attachments, self).__setattr__(name, value)
 
 
-                class Attachment(object):
+                class Attachment(Entity):
                     """
                     Information about a particular source
                     interface configured as attached to monitor
@@ -1424,7 +2436,7 @@ class SpanMonitorSession(object):
                     .. attribute:: global_class
                     
                     	Global session class
-                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: id
                     
@@ -1436,7 +2448,7 @@ class SpanMonitorSession(object):
                     .. attribute:: local_class
                     
                     	Local attachment class
-                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: name
                     
@@ -1470,12 +2482,12 @@ class SpanMonitorSession(object):
                     .. attribute:: source_interface_state
                     
                     	Source interface state
-                    	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
+                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by TrafficParameters)
-                    	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                    	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                     
                     .. attribute:: traffic_parameters
                     
@@ -1490,28 +2502,88 @@ class SpanMonitorSession(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session = None
-                        self.interface = None
-                        self.dest_pw_type_not_supported = None
+                        super(SpanMonitorSession.Nodes.Node.Attachments.Attachment, self).__init__()
+
+                        self.yang_name = "attachment"
+                        self.yang_parent_name = "attachments"
+
+                        self.session = YLeaf(YType.str, "session")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.dest_pw_type_not_supported = YLeaf(YType.boolean, "dest-pw-type-not-supported")
+
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+
+                        self.global_class = YLeaf(YType.enumeration, "global-class")
+
+                        self.id = YLeaf(YType.uint32, "id")
+
+                        self.local_class = YLeaf(YType.enumeration, "local-class")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                        self.pfi_error = YLeaf(YType.uint32, "pfi-error")
+
+                        self.session_is_configured = YLeaf(YType.boolean, "session-is-configured")
+
+                        self.source_interface = YLeaf(YType.str, "source-interface")
+
+                        self.source_interface_is_a_destination = YLeaf(YType.boolean, "source-interface-is-a-destination")
+
+                        self.source_interface_state = YLeaf(YType.enumeration, "source-interface-state")
+
+                        self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
                         self.destination_id = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId()
                         self.destination_id.parent = self
-                        self.destination_interface = None
-                        self.global_class = None
-                        self.id = None
-                        self.local_class = None
-                        self.name = None
-                        self.pfi_error = None
-                        self.session_is_configured = None
-                        self.source_interface = None
-                        self.source_interface_is_a_destination = None
-                        self.source_interface_state = None
-                        self.traffic_direction = None
+                        self._children_name_map["destination_id"] = "destination-id"
+                        self._children_yang_names.add("destination-id")
+
                         self.traffic_parameters = SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters()
                         self.traffic_parameters.parent = self
+                        self._children_name_map["traffic_parameters"] = "traffic-parameters"
+                        self._children_yang_names.add("traffic-parameters")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session",
+                                        "interface",
+                                        "dest_pw_type_not_supported",
+                                        "destination_interface",
+                                        "global_class",
+                                        "id",
+                                        "local_class",
+                                        "name",
+                                        "pfi_error",
+                                        "session_is_configured",
+                                        "source_interface",
+                                        "source_interface_is_a_destination",
+                                        "source_interface_state",
+                                        "traffic_direction") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SpanMonitorSession.Nodes.Node.Attachments.Attachment, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SpanMonitorSession.Nodes.Node.Attachments.Attachment, self).__setattr__(name, value)
 
 
-                    class TrafficParameters(object):
+                    class TrafficParameters(Entity):
                         """
                         Traffic mirroring parameters
                         
@@ -1532,7 +2604,7 @@ class SpanMonitorSession(object):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                         
                         .. attribute:: port_level
                         
@@ -1542,7 +2614,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                         
                         
 
@@ -1552,56 +2624,137 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.is_acl_enabled = None
-                            self.mirror_bytes = None
-                            self.mirror_interval = None
-                            self.port_level = None
-                            self.traffic_direction = None
+                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "traffic-parameters"
+                            self.yang_parent_name = "attachment"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:traffic-parameters'
+                            self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
+
+                            self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
+                            self.port_level = YLeaf(YType.boolean, "port-level")
+
+                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("is_acl_enabled",
+                                            "mirror_bytes",
+                                            "mirror_interval",
+                                            "port_level",
+                                            "traffic_direction") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.is_acl_enabled.is_set or
+                                self.mirror_bytes.is_set or
+                                self.mirror_interval.is_set or
+                                self.port_level.is_set or
+                                self.traffic_direction.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.is_acl_enabled.yfilter != YFilter.not_set or
+                                self.mirror_bytes.yfilter != YFilter.not_set or
+                                self.mirror_interval.yfilter != YFilter.not_set or
+                                self.port_level.yfilter != YFilter.not_set or
+                                self.traffic_direction.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "traffic-parameters" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.is_acl_enabled.is_set or self.is_acl_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_acl_enabled.get_name_leafdata())
+                            if (self.mirror_bytes.is_set or self.mirror_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mirror_bytes.get_name_leafdata())
+                            if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+                            if (self.port_level.is_set or self.port_level.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.port_level.get_name_leafdata())
+                            if (self.traffic_direction.is_set or self.traffic_direction.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.traffic_direction.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "is-acl-enabled" or name == "mirror-bytes" or name == "mirror-interval" or name == "port-level" or name == "traffic-direction"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.is_acl_enabled is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "is-acl-enabled"):
+                                self.is_acl_enabled = value
+                                self.is_acl_enabled.value_namespace = name_space
+                                self.is_acl_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mirror-bytes"):
+                                self.mirror_bytes = value
+                                self.mirror_bytes.value_namespace = name_space
+                                self.mirror_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mirror-interval"):
+                                self.mirror_interval = value
+                                self.mirror_interval.value_namespace = name_space
+                                self.mirror_interval.value_namespace_prefix = name_space_prefix
+                            if(value_path == "port-level"):
+                                self.port_level = value
+                                self.port_level.value_namespace = name_space
+                                self.port_level.value_namespace_prefix = name_space_prefix
+                            if(value_path == "traffic-direction"):
+                                self.traffic_direction = value
+                                self.traffic_direction.value_namespace = name_space
+                                self.traffic_direction.value_namespace_prefix = name_space_prefix
 
-                            if self.mirror_bytes is not None:
-                                return True
 
-                            if self.mirror_interval is not None:
-                                return True
-
-                            if self.port_level is not None:
-                                return True
-
-                            if self.traffic_direction is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters']['meta_info']
-
-
-                    class DestinationId(object):
+                    class DestinationId(Entity):
                         """
                         Destination ID
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
@@ -1642,18 +2795,58 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.destination_class = None
-                            self.interface = None
-                            self.invalid_value = None
+                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, self).__init__()
+
+                            self.yang_name = "destination-id"
+                            self.yang_parent_name = "attachment"
+
+                            self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                            self.interface = YLeaf(YType.str, "interface")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
+                            self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                            self._children_yang_names.add("ipv4-address-and-vrf")
+
                             self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf()
                             self.ipv6_address_and_vrf.parent = self
-                            self.pseudowire_id = None
+                            self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                            self._children_yang_names.add("ipv6-address-and-vrf")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("destination_class",
+                                            "interface",
+                                            "invalid_value",
+                                            "pseudowire_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, self).__setattr__(name, value)
 
 
-                        class Ipv4AddressAndVrf(object):
+                        class Ipv4AddressAndVrf(Entity):
                             """
                             IPv4 address
                             
@@ -1677,37 +2870,97 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv4_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv4-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv4-address-and-vrf'
+                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv4_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv4_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv4_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv4-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv4-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv4_address is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv4-address"):
+                                    self.ipv4_address = value
+                                    self.ipv4_address.value_namespace = name_space
+                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                        class Ipv6AddressAndVrf(object):
+                        class Ipv6AddressAndVrf(Entity):
                             """
                             IPv6 address
                             
@@ -1731,169 +2984,412 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv6_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv6-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv6-address-and-vrf'
+                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv6_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv6_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv6_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv6-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv6-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv6_address is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv6-address"):
+                                    self.ipv6_address = value
+                                    self.ipv6_address.value_namespace = name_space
+                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                                if self.vrf_name is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.destination_class.is_set or
+                                self.interface.is_set or
+                                self.invalid_value.is_set or
+                                self.pseudowire_id.is_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_data()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.destination_class.yfilter != YFilter.not_set or
+                                self.interface.yfilter != YFilter.not_set or
+                                self.invalid_value.yfilter != YFilter.not_set or
+                                self.pseudowire_id.yfilter != YFilter.not_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_operation()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "destination-id" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-id'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_class.get_name_leafdata())
+                            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface.get_name_leafdata())
+                            if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.invalid_value.get_name_leafdata())
+                            if (self.pseudowire_id.is_set or self.pseudowire_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pseudowire_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "ipv4-address-and-vrf"):
+                                if (self.ipv4_address_and_vrf is None):
+                                    self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf()
+                                    self.ipv4_address_and_vrf.parent = self
+                                    self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                return self.ipv4_address_and_vrf
+
+                            if (child_yang_name == "ipv6-address-and-vrf"):
+                                if (self.ipv6_address_and_vrf is None):
+                                    self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf()
+                                    self.ipv6_address_and_vrf.parent = self
+                                    self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                return self.ipv6_address_and_vrf
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ipv4-address-and-vrf" or name == "ipv6-address-and-vrf" or name == "destination-class" or name == "interface" or name == "invalid-value" or name == "pseudowire-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.destination_class is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "destination-class"):
+                                self.destination_class = value
+                                self.destination_class.value_namespace = name_space
+                                self.destination_class.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface"):
+                                self.interface = value
+                                self.interface.value_namespace = name_space
+                                self.interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "invalid-value"):
+                                self.invalid_value = value
+                                self.invalid_value.value_namespace = name_space
+                                self.invalid_value.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pseudowire-id"):
+                                self.pseudowire_id = value
+                                self.pseudowire_id.value_namespace = name_space
+                                self.pseudowire_id.value_namespace_prefix = name_space_prefix
 
-                            if self.interface is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.session.is_set or
+                            self.interface.is_set or
+                            self.dest_pw_type_not_supported.is_set or
+                            self.destination_interface.is_set or
+                            self.global_class.is_set or
+                            self.id.is_set or
+                            self.local_class.is_set or
+                            self.name.is_set or
+                            self.pfi_error.is_set or
+                            self.session_is_configured.is_set or
+                            self.source_interface.is_set or
+                            self.source_interface_is_a_destination.is_set or
+                            self.source_interface_state.is_set or
+                            self.traffic_direction.is_set or
+                            (self.destination_id is not None and self.destination_id.has_data()) or
+                            (self.traffic_parameters is not None and self.traffic_parameters.has_data()))
 
-                            if self.invalid_value is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.dest_pw_type_not_supported.yfilter != YFilter.not_set or
+                            self.destination_interface.yfilter != YFilter.not_set or
+                            self.global_class.yfilter != YFilter.not_set or
+                            self.id.yfilter != YFilter.not_set or
+                            self.local_class.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set or
+                            self.pfi_error.yfilter != YFilter.not_set or
+                            self.session_is_configured.yfilter != YFilter.not_set or
+                            self.source_interface.yfilter != YFilter.not_set or
+                            self.source_interface_is_a_destination.yfilter != YFilter.not_set or
+                            self.source_interface_state.yfilter != YFilter.not_set or
+                            self.traffic_direction.yfilter != YFilter.not_set or
+                            (self.destination_id is not None and self.destination_id.has_operation()) or
+                            (self.traffic_parameters is not None and self.traffic_parameters.has_operation()))
 
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "attachment" + "[session='" + self.session.get() + "']" + "[interface='" + self.interface.get() + "']" + path_buffer
 
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
+                        return path_buffer
 
-                            if self.pseudowire_id is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return False
+                        leaf_name_data = LeafDataList()
+                        if (self.session.is_set or self.session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.dest_pw_type_not_supported.is_set or self.dest_pw_type_not_supported.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dest_pw_type_not_supported.get_name_leafdata())
+                        if (self.destination_interface.is_set or self.destination_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_interface.get_name_leafdata())
+                        if (self.global_class.is_set or self.global_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.global_class.get_name_leafdata())
+                        if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.id.get_name_leafdata())
+                        if (self.local_class.is_set or self.local_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_class.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+                        if (self.pfi_error.is_set or self.pfi_error.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pfi_error.get_name_leafdata())
+                        if (self.session_is_configured.is_set or self.session_is_configured.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_is_configured.get_name_leafdata())
+                        if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.source_interface.get_name_leafdata())
+                        if (self.source_interface_is_a_destination.is_set or self.source_interface_is_a_destination.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.source_interface_is_a_destination.get_name_leafdata())
+                        if (self.source_interface_state.is_set or self.source_interface_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.source_interface_state.get_name_leafdata())
+                        if (self.traffic_direction.is_set or self.traffic_direction.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.traffic_direction.get_name_leafdata())
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId']['meta_info']
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session is None:
-                            raise YPYModelError('Key property session is None')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:attachment[Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + ']'
+                        if (child_yang_name == "destination-id"):
+                            if (self.destination_id is None):
+                                self.destination_id = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId()
+                                self.destination_id.parent = self
+                                self._children_name_map["destination_id"] = "destination-id"
+                            return self.destination_id
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        if (child_yang_name == "traffic-parameters"):
+                            if (self.traffic_parameters is None):
+                                self.traffic_parameters = SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters()
+                                self.traffic_parameters.parent = self
+                                self._children_name_map["traffic_parameters"] = "traffic-parameters"
+                            return self.traffic_parameters
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-id" or name == "traffic-parameters" or name == "session" or name == "interface" or name == "dest-pw-type-not-supported" or name == "destination-interface" or name == "global-class" or name == "id" or name == "local-class" or name == "name" or name == "pfi-error" or name == "session-is-configured" or name == "source-interface" or name == "source-interface-is-a-destination" or name == "source-interface-state" or name == "traffic-direction"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session"):
+                            self.session = value
+                            self.session.value_namespace = name_space
+                            self.session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "dest-pw-type-not-supported"):
+                            self.dest_pw_type_not_supported = value
+                            self.dest_pw_type_not_supported.value_namespace = name_space
+                            self.dest_pw_type_not_supported.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-interface"):
+                            self.destination_interface = value
+                            self.destination_interface.value_namespace = name_space
+                            self.destination_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "global-class"):
+                            self.global_class = value
+                            self.global_class.value_namespace = name_space
+                            self.global_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "id"):
+                            self.id = value
+                            self.id.value_namespace = name_space
+                            self.id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-class"):
+                            self.local_class = value
+                            self.local_class.value_namespace = name_space
+                            self.local_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pfi-error"):
+                            self.pfi_error = value
+                            self.pfi_error.value_namespace = name_space
+                            self.pfi_error.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-is-configured"):
+                            self.session_is_configured = value
+                            self.session_is_configured.value_namespace = name_space
+                            self.session_is_configured.value_namespace_prefix = name_space_prefix
+                        if(value_path == "source-interface"):
+                            self.source_interface = value
+                            self.source_interface.value_namespace = name_space
+                            self.source_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "source-interface-is-a-destination"):
+                            self.source_interface_is_a_destination = value
+                            self.source_interface_is_a_destination.value_namespace = name_space
+                            self.source_interface_is_a_destination.value_namespace_prefix = name_space_prefix
+                        if(value_path == "source-interface-state"):
+                            self.source_interface_state = value
+                            self.source_interface_state.value_namespace = name_space
+                            self.source_interface_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "traffic-direction"):
+                            self.traffic_direction = value
+                            self.traffic_direction.value_namespace = name_space
+                            self.traffic_direction.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.attachment:
+                        if (c.has_data()):
                             return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.dest_pw_type_not_supported is not None:
-                            return True
-
-                        if self.destination_id is not None and self.destination_id._has_data():
-                            return True
-
-                        if self.destination_interface is not None:
-                            return True
-
-                        if self.global_class is not None:
-                            return True
-
-                        if self.id is not None:
-                            return True
-
-                        if self.local_class is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        if self.pfi_error is not None:
-                            return True
-
-                        if self.session_is_configured is not None:
-                            return True
-
-                        if self.source_interface is not None:
-                            return True
-
-                        if self.source_interface_is_a_destination is not None:
-                            return True
-
-                        if self.source_interface_state is not None:
-                            return True
-
-                        if self.traffic_direction is not None:
-                            return True
-
-                        if self.traffic_parameters is not None and self.traffic_parameters._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:attachments'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.attachment is not None:
-                        for child_ref in self.attachment:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.attachment:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "attachments" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "attachment"):
+                        for c in self.attachment:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SpanMonitorSession.Nodes.Node.Attachments.Attachment()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.attachment.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "attachment"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Nodes.Node.Attachments']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class HardwareSessions(object):
+            class HardwareSessions(Entity):
                 """
                 Table of sessions set up in the hardware. 
                 When all sessions are operating correctly the
@@ -1914,13 +3410,39 @@ class SpanMonitorSession(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.hardware_session = YList()
-                    self.hardware_session.parent = self
-                    self.hardware_session.name = 'hardware_session'
+                    super(SpanMonitorSession.Nodes.Node.HardwareSessions, self).__init__()
+
+                    self.yang_name = "hardware-sessions"
+                    self.yang_parent_name = "node"
+
+                    self.hardware_session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SpanMonitorSession.Nodes.Node.HardwareSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SpanMonitorSession.Nodes.Node.HardwareSessions, self).__setattr__(name, value)
 
 
-                class HardwareSession(object):
+                class HardwareSession(Entity):
                     """
                     Information about a particular session that
                     is set up in the hardware
@@ -1959,12 +3481,12 @@ class SpanMonitorSession(object):
                     .. attribute:: session_class
                     
                     	Sesssion class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: session_class_xr
                     
                     	Session class
-                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: session_id
                     
@@ -1981,26 +3503,69 @@ class SpanMonitorSession(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, self).__init__()
+
+                        self.yang_name = "hardware-session"
+                        self.yang_parent_name = "hardware-sessions"
+
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+
+                        self.id = YLeaf(YType.uint32, "id")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                        self.platform_error = YLeaf(YType.uint32, "platform-error")
+
+                        self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                        self.session_class_xr = YLeaf(YType.enumeration, "session-class-xr")
+
+                        self.session_id = YLeaf(YType.int32, "session-id")
+
                         self.destination_id = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId()
                         self.destination_id.parent = self
-                        self.destination_interface = None
-                        self.id = None
-                        self.name = None
-                        self.platform_error = None
-                        self.session_class = None
-                        self.session_class_xr = None
-                        self.session_id = None
+                        self._children_name_map["destination_id"] = "destination-id"
+                        self._children_yang_names.add("destination-id")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_interface",
+                                        "id",
+                                        "name",
+                                        "platform_error",
+                                        "session_class",
+                                        "session_class_xr",
+                                        "session_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, self).__setattr__(name, value)
 
 
-                    class DestinationId(object):
+                    class DestinationId(Entity):
                         """
                         Destination ID
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
@@ -2041,18 +3606,58 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.destination_class = None
-                            self.interface = None
-                            self.invalid_value = None
+                            super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, self).__init__()
+
+                            self.yang_name = "destination-id"
+                            self.yang_parent_name = "hardware-session"
+
+                            self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                            self.interface = YLeaf(YType.str, "interface")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
+                            self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                            self._children_yang_names.add("ipv4-address-and-vrf")
+
                             self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf()
                             self.ipv6_address_and_vrf.parent = self
-                            self.pseudowire_id = None
+                            self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                            self._children_yang_names.add("ipv6-address-and-vrf")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("destination_class",
+                                            "interface",
+                                            "invalid_value",
+                                            "pseudowire_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, self).__setattr__(name, value)
 
 
-                        class Ipv4AddressAndVrf(object):
+                        class Ipv4AddressAndVrf(Entity):
                             """
                             IPv4 address
                             
@@ -2076,37 +3681,97 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv4_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv4-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv4-address-and-vrf'
+                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv4_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv4_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv4_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv4-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv4-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv4_address is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv4-address"):
+                                    self.ipv4_address = value
+                                    self.ipv4_address.value_namespace = name_space
+                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                        class Ipv6AddressAndVrf(object):
+                        class Ipv6AddressAndVrf(Entity):
                             """
                             IPv6 address
                             
@@ -2130,141 +3795,347 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv6_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv6-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv6-address-and-vrf'
+                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv6_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv6_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv6_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv6-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv6-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv6_address is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv6-address"):
+                                    self.ipv6_address = value
+                                    self.ipv6_address.value_namespace = name_space
+                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                                if self.vrf_name is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.destination_class.is_set or
+                                self.interface.is_set or
+                                self.invalid_value.is_set or
+                                self.pseudowire_id.is_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_data()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.destination_class.yfilter != YFilter.not_set or
+                                self.interface.yfilter != YFilter.not_set or
+                                self.invalid_value.yfilter != YFilter.not_set or
+                                self.pseudowire_id.yfilter != YFilter.not_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_operation()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "destination-id" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-id'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_class.get_name_leafdata())
+                            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface.get_name_leafdata())
+                            if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.invalid_value.get_name_leafdata())
+                            if (self.pseudowire_id.is_set or self.pseudowire_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pseudowire_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "ipv4-address-and-vrf"):
+                                if (self.ipv4_address_and_vrf is None):
+                                    self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf()
+                                    self.ipv4_address_and_vrf.parent = self
+                                    self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                return self.ipv4_address_and_vrf
+
+                            if (child_yang_name == "ipv6-address-and-vrf"):
+                                if (self.ipv6_address_and_vrf is None):
+                                    self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf()
+                                    self.ipv6_address_and_vrf.parent = self
+                                    self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                return self.ipv6_address_and_vrf
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ipv4-address-and-vrf" or name == "ipv6-address-and-vrf" or name == "destination-class" or name == "interface" or name == "invalid-value" or name == "pseudowire-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.destination_class is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "destination-class"):
+                                self.destination_class = value
+                                self.destination_class.value_namespace = name_space
+                                self.destination_class.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface"):
+                                self.interface = value
+                                self.interface.value_namespace = name_space
+                                self.interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "invalid-value"):
+                                self.invalid_value = value
+                                self.invalid_value.value_namespace = name_space
+                                self.invalid_value.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pseudowire-id"):
+                                self.pseudowire_id = value
+                                self.pseudowire_id.value_namespace = name_space
+                                self.pseudowire_id.value_namespace_prefix = name_space_prefix
 
-                            if self.interface is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.destination_interface.is_set or
+                            self.id.is_set or
+                            self.name.is_set or
+                            self.platform_error.is_set or
+                            self.session_class.is_set or
+                            self.session_class_xr.is_set or
+                            self.session_id.is_set or
+                            (self.destination_id is not None and self.destination_id.has_data()))
 
-                            if self.invalid_value is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_interface.yfilter != YFilter.not_set or
+                            self.id.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set or
+                            self.platform_error.yfilter != YFilter.not_set or
+                            self.session_class.yfilter != YFilter.not_set or
+                            self.session_class_xr.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            (self.destination_id is not None and self.destination_id.has_operation()))
 
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "hardware-session" + path_buffer
 
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
+                        return path_buffer
 
-                            if self.pseudowire_id is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return False
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_interface.is_set or self.destination_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_interface.get_name_leafdata())
+                        if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.id.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+                        if (self.platform_error.is_set or self.platform_error.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.platform_error.get_name_leafdata())
+                        if (self.session_class.is_set or self.session_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_class.get_name_leafdata())
+                        if (self.session_class_xr.is_set or self.session_class_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_class_xr.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId']['meta_info']
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:hardware-session'
+                        if (child_yang_name == "destination-id"):
+                            if (self.destination_id is None):
+                                self.destination_id = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId()
+                                self.destination_id.parent = self
+                                self._children_name_map["destination_id"] = "destination-id"
+                            return self.destination_id
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-id" or name == "destination-interface" or name == "id" or name == "name" or name == "platform-error" or name == "session-class" or name == "session-class-xr" or name == "session-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.destination_id is not None and self.destination_id._has_data():
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-interface"):
+                            self.destination_interface = value
+                            self.destination_interface.value_namespace = name_space
+                            self.destination_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "id"):
+                            self.id = value
+                            self.id.value_namespace = name_space
+                            self.id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "platform-error"):
+                            self.platform_error = value
+                            self.platform_error.value_namespace = name_space
+                            self.platform_error.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-class"):
+                            self.session_class = value
+                            self.session_class.value_namespace = name_space
+                            self.session_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-class-xr"):
+                            self.session_class_xr = value
+                            self.session_class_xr.value_namespace = name_space
+                            self.session_class_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.hardware_session:
+                        if (c.has_data()):
                             return True
-
-                        if self.destination_interface is not None:
-                            return True
-
-                        if self.id is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        if self.platform_error is not None:
-                            return True
-
-                        if self.session_class is not None:
-                            return True
-
-                        if self.session_class_xr is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:hardware-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.hardware_session is not None:
-                        for child_ref in self.hardware_session:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.hardware_session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "hardware-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "hardware-session"):
+                        for c in self.hardware_session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.hardware_session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "hardware-session"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 Table of source interfaces set up in the
                 hardware.  The entries in this table should
@@ -2284,13 +4155,39 @@ class SpanMonitorSession(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(SpanMonitorSession.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SpanMonitorSession.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SpanMonitorSession.Nodes.Node.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     Information about a particular interface that
                     is set up in the hardware
@@ -2336,7 +4233,7 @@ class SpanMonitorSession(object):
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by Attachment)
-                    	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                    	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                     
                     .. attribute:: traffic_mirroring_parameters
                     
@@ -2351,29 +4248,70 @@ class SpanMonitorSession(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.attachment = YList()
-                        self.attachment.parent = self
-                        self.attachment.name = 'attachment'
+                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+
+                        self.platform_error = YLeaf(YType.uint32, "platform-error")
+
+                        self.source_interface = YLeaf(YType.str, "source-interface")
+
+                        self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
                         self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId()
                         self.destination_id.parent = self
-                        self.destination_interface = None
-                        self.platform_error = None
-                        self.source_interface = None
-                        self.traffic_direction = None
+                        self._children_name_map["destination_id"] = "destination-id"
+                        self._children_yang_names.add("destination-id")
+
                         self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters()
                         self.traffic_mirroring_parameters.parent = self
+                        self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
+                        self._children_yang_names.add("traffic-mirroring-parameters")
+
+                        self.attachment = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface",
+                                        "destination_interface",
+                                        "platform_error",
+                                        "source_interface",
+                                        "traffic_direction") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                    class DestinationId(object):
+                    class DestinationId(Entity):
                         """
                         Destination ID (deprecated by Attachment)
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
@@ -2414,18 +4352,58 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.destination_class = None
-                            self.interface = None
-                            self.invalid_value = None
+                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, self).__init__()
+
+                            self.yang_name = "destination-id"
+                            self.yang_parent_name = "interface"
+
+                            self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                            self.interface = YLeaf(YType.str, "interface")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
+                            self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                            self._children_yang_names.add("ipv4-address-and-vrf")
+
                             self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf()
                             self.ipv6_address_and_vrf.parent = self
-                            self.pseudowire_id = None
+                            self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                            self._children_yang_names.add("ipv6-address-and-vrf")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("destination_class",
+                                            "interface",
+                                            "invalid_value",
+                                            "pseudowire_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, self).__setattr__(name, value)
 
 
-                        class Ipv4AddressAndVrf(object):
+                        class Ipv4AddressAndVrf(Entity):
                             """
                             IPv4 address
                             
@@ -2449,37 +4427,97 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv4_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv4-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv4-address-and-vrf'
+                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv4_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv4_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv4_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv4-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv4-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv4_address is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv4-address"):
+                                    self.ipv4_address = value
+                                    self.ipv4_address.value_namespace = name_space
+                                    self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                        class Ipv6AddressAndVrf(object):
+                        class Ipv6AddressAndVrf(Entity):
                             """
                             IPv6 address
                             
@@ -2503,74 +4541,186 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.ipv6_address = None
-                                self.vrf_name = None
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "ipv6-address-and-vrf"
+                                self.yang_parent_name = "destination-id"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv6-address-and-vrf'
+                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ipv6_address",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ipv6_address.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ipv6_address.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ipv6-address-and-vrf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv6-address" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.ipv6_address is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ipv6-address"):
+                                    self.ipv6_address = value
+                                    self.ipv6_address.value_namespace = name_space
+                                    self.ipv6_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                                if self.vrf_name is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.destination_class.is_set or
+                                self.interface.is_set or
+                                self.invalid_value.is_set or
+                                self.pseudowire_id.is_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_data()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.destination_class.yfilter != YFilter.not_set or
+                                self.interface.yfilter != YFilter.not_set or
+                                self.invalid_value.yfilter != YFilter.not_set or
+                                self.pseudowire_id.yfilter != YFilter.not_set or
+                                (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_operation()) or
+                                (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "destination-id" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-id'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_class.get_name_leafdata())
+                            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface.get_name_leafdata())
+                            if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.invalid_value.get_name_leafdata())
+                            if (self.pseudowire_id.is_set or self.pseudowire_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pseudowire_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "ipv4-address-and-vrf"):
+                                if (self.ipv4_address_and_vrf is None):
+                                    self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf()
+                                    self.ipv4_address_and_vrf.parent = self
+                                    self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                return self.ipv4_address_and_vrf
+
+                            if (child_yang_name == "ipv6-address-and-vrf"):
+                                if (self.ipv6_address_and_vrf is None):
+                                    self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf()
+                                    self.ipv6_address_and_vrf.parent = self
+                                    self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                return self.ipv6_address_and_vrf
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ipv4-address-and-vrf" or name == "ipv6-address-and-vrf" or name == "destination-class" or name == "interface" or name == "invalid-value" or name == "pseudowire-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.destination_class is not None:
-                                return True
-
-                            if self.interface is not None:
-                                return True
-
-                            if self.invalid_value is not None:
-                                return True
-
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
-                                return True
-
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
-
-                            if self.pseudowire_id is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "destination-class"):
+                                self.destination_class = value
+                                self.destination_class.value_namespace = name_space
+                                self.destination_class.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface"):
+                                self.interface = value
+                                self.interface.value_namespace = name_space
+                                self.interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "invalid-value"):
+                                self.invalid_value = value
+                                self.invalid_value.value_namespace = name_space
+                                self.invalid_value.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pseudowire-id"):
+                                self.pseudowire_id = value
+                                self.pseudowire_id.value_namespace = name_space
+                                self.pseudowire_id.value_namespace_prefix = name_space_prefix
 
 
-                    class TrafficMirroringParameters(object):
+                    class TrafficMirroringParameters(Entity):
                         """
                         Traffic mirroring parameters (deprecated by
                         Attachment)
@@ -2592,7 +4742,7 @@ class SpanMonitorSession(object):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                         
                         .. attribute:: port_level
                         
@@ -2602,7 +4752,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                         
                         
 
@@ -2612,56 +4762,137 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.is_acl_enabled = None
-                            self.mirror_bytes = None
-                            self.mirror_interval = None
-                            self.port_level = None
-                            self.traffic_direction = None
+                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "traffic-mirroring-parameters"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:traffic-mirroring-parameters'
+                            self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
+
+                            self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
+                            self.port_level = YLeaf(YType.boolean, "port-level")
+
+                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("is_acl_enabled",
+                                            "mirror_bytes",
+                                            "mirror_interval",
+                                            "port_level",
+                                            "traffic_direction") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.is_acl_enabled.is_set or
+                                self.mirror_bytes.is_set or
+                                self.mirror_interval.is_set or
+                                self.port_level.is_set or
+                                self.traffic_direction.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.is_acl_enabled.yfilter != YFilter.not_set or
+                                self.mirror_bytes.yfilter != YFilter.not_set or
+                                self.mirror_interval.yfilter != YFilter.not_set or
+                                self.port_level.yfilter != YFilter.not_set or
+                                self.traffic_direction.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "traffic-mirroring-parameters" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.is_acl_enabled.is_set or self.is_acl_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_acl_enabled.get_name_leafdata())
+                            if (self.mirror_bytes.is_set or self.mirror_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mirror_bytes.get_name_leafdata())
+                            if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+                            if (self.port_level.is_set or self.port_level.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.port_level.get_name_leafdata())
+                            if (self.traffic_direction.is_set or self.traffic_direction.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.traffic_direction.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "is-acl-enabled" or name == "mirror-bytes" or name == "mirror-interval" or name == "port-level" or name == "traffic-direction"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.is_acl_enabled is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "is-acl-enabled"):
+                                self.is_acl_enabled = value
+                                self.is_acl_enabled.value_namespace = name_space
+                                self.is_acl_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mirror-bytes"):
+                                self.mirror_bytes = value
+                                self.mirror_bytes.value_namespace = name_space
+                                self.mirror_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mirror-interval"):
+                                self.mirror_interval = value
+                                self.mirror_interval.value_namespace = name_space
+                                self.mirror_interval.value_namespace_prefix = name_space_prefix
+                            if(value_path == "port-level"):
+                                self.port_level = value
+                                self.port_level.value_namespace = name_space
+                                self.port_level.value_namespace_prefix = name_space_prefix
+                            if(value_path == "traffic-direction"):
+                                self.traffic_direction = value
+                                self.traffic_direction.value_namespace = name_space
+                                self.traffic_direction.value_namespace_prefix = name_space_prefix
 
-                            if self.mirror_bytes is not None:
-                                return True
 
-                            if self.mirror_interval is not None:
-                                return True
-
-                            if self.port_level is not None:
-                                return True
-
-                            if self.traffic_direction is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters']['meta_info']
-
-
-                    class Attachment(object):
+                    class Attachment(Entity):
                         """
                         Attachment information
                         
                         .. attribute:: class_
                         
                         	Attachment class
-                        	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                        	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                         
                         .. attribute:: destination_id
                         
@@ -2681,22 +4912,56 @@ class SpanMonitorSession(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.class_ = None
+                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "interface"
+
+                            self.class_ = YLeaf(YType.enumeration, "class")
+
                             self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId()
                             self.destination_id.parent = self
+                            self._children_name_map["destination_id"] = "destination-id"
+                            self._children_yang_names.add("destination-id")
+
                             self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters()
                             self.traffic_mirroring_parameters.parent = self
+                            self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
+                            self._children_yang_names.add("traffic-mirroring-parameters")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("class_") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, self).__setattr__(name, value)
 
 
-                        class DestinationId(object):
+                        class DestinationId(Entity):
                             """
                             Destination ID
                             
                             .. attribute:: destination_class
                             
                             	DestinationClass
-                            	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                            	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                             
                             .. attribute:: interface
                             
@@ -2737,18 +5002,58 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.destination_class = None
-                                self.interface = None
-                                self.invalid_value = None
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, self).__init__()
+
+                                self.yang_name = "destination-id"
+                                self.yang_parent_name = "attachment"
+
+                                self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                                self.interface = YLeaf(YType.str, "interface")
+
+                                self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                                self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
                                 self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf()
                                 self.ipv4_address_and_vrf.parent = self
+                                self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                self._children_yang_names.add("ipv4-address-and-vrf")
+
                                 self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf()
                                 self.ipv6_address_and_vrf.parent = self
-                                self.pseudowire_id = None
+                                self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                self._children_yang_names.add("ipv6-address-and-vrf")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("destination_class",
+                                                "interface",
+                                                "invalid_value",
+                                                "pseudowire_id") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, self).__setattr__(name, value)
 
 
-                            class Ipv4AddressAndVrf(object):
+                            class Ipv4AddressAndVrf(Entity):
                                 """
                                 IPv4 address
                                 
@@ -2772,37 +5077,97 @@ class SpanMonitorSession(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.ipv4_address = None
-                                    self.vrf_name = None
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "ipv4-address-and-vrf"
+                                    self.yang_parent_name = "destination-id"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv4-address-and-vrf'
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ipv4_address",
+                                                    "vrf_name") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.ipv4_address.is_set or
+                                        self.vrf_name.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ipv4_address.yfilter != YFilter.not_set or
+                                        self.vrf_name.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "ipv4-address-and-vrf" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "ipv4-address" or name == "vrf-name"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.ipv4_address is not None:
-                                        return True
-
-                                    if self.vrf_name is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                    return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ipv4-address"):
+                                        self.ipv4_address = value
+                                        self.ipv4_address.value_namespace = name_space
+                                        self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "vrf-name"):
+                                        self.vrf_name = value
+                                        self.vrf_name.value_namespace = name_space
+                                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                            class Ipv6AddressAndVrf(object):
+                            class Ipv6AddressAndVrf(Entity):
                                 """
                                 IPv6 address
                                 
@@ -2826,74 +5191,186 @@ class SpanMonitorSession(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.ipv6_address = None
-                                    self.vrf_name = None
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "ipv6-address-and-vrf"
+                                    self.yang_parent_name = "destination-id"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:ipv6-address-and-vrf'
+                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ipv6_address",
+                                                    "vrf_name") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.ipv6_address.is_set or
+                                        self.vrf_name.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ipv6_address.yfilter != YFilter.not_set or
+                                        self.vrf_name.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "ipv6-address-and-vrf" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "ipv6-address" or name == "vrf-name"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.ipv6_address is not None:
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ipv6-address"):
+                                        self.ipv6_address = value
+                                        self.ipv6_address.value_namespace = name_space
+                                        self.ipv6_address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "vrf-name"):
+                                        self.vrf_name = value
+                                        self.vrf_name.value_namespace = name_space
+                                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                                    if self.vrf_name is not None:
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.destination_class.is_set or
+                                    self.interface.is_set or
+                                    self.invalid_value.is_set or
+                                    self.pseudowire_id.is_set or
+                                    (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_data()) or
+                                    (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_data()))
 
-                                    return False
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.destination_class.yfilter != YFilter.not_set or
+                                    self.interface.yfilter != YFilter.not_set or
+                                    self.invalid_value.yfilter != YFilter.not_set or
+                                    self.pseudowire_id.yfilter != YFilter.not_set or
+                                    (self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.has_operation()) or
+                                    (self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.has_operation()))
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                    return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "destination-id" + path_buffer
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                return path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:destination-id'
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                leaf_name_data = LeafDataList()
+                                if (self.destination_class.is_set or self.destination_class.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.destination_class.get_name_leafdata())
+                                if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface.get_name_leafdata())
+                                if (self.invalid_value.is_set or self.invalid_value.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.invalid_value.get_name_leafdata())
+                                if (self.pseudowire_id.is_set or self.pseudowire_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.pseudowire_id.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "ipv4-address-and-vrf"):
+                                    if (self.ipv4_address_and_vrf is None):
+                                        self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf()
+                                        self.ipv4_address_and_vrf.parent = self
+                                        self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                    return self.ipv4_address_and_vrf
+
+                                if (child_yang_name == "ipv6-address-and-vrf"):
+                                    if (self.ipv6_address_and_vrf is None):
+                                        self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf()
+                                        self.ipv6_address_and_vrf.parent = self
+                                        self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                    return self.ipv6_address_and_vrf
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ipv4-address-and-vrf" or name == "ipv6-address-and-vrf" or name == "destination-class" or name == "interface" or name == "invalid-value" or name == "pseudowire-id"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.destination_class is not None:
-                                    return True
-
-                                if self.interface is not None:
-                                    return True
-
-                                if self.invalid_value is not None:
-                                    return True
-
-                                if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
-                                    return True
-
-                                if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                    return True
-
-                                if self.pseudowire_id is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "destination-class"):
+                                    self.destination_class = value
+                                    self.destination_class.value_namespace = name_space
+                                    self.destination_class.value_namespace_prefix = name_space_prefix
+                                if(value_path == "interface"):
+                                    self.interface = value
+                                    self.interface.value_namespace = name_space
+                                    self.interface.value_namespace_prefix = name_space_prefix
+                                if(value_path == "invalid-value"):
+                                    self.invalid_value = value
+                                    self.invalid_value.value_namespace = name_space
+                                    self.invalid_value.value_namespace_prefix = name_space_prefix
+                                if(value_path == "pseudowire-id"):
+                                    self.pseudowire_id = value
+                                    self.pseudowire_id.value_namespace = name_space
+                                    self.pseudowire_id.value_namespace_prefix = name_space_prefix
 
 
-                        class TrafficMirroringParameters(object):
+                        class TrafficMirroringParameters(Entity):
                             """
                             Traffic mirroring parameters
                             
@@ -2914,7 +5391,7 @@ class SpanMonitorSession(object):
                             .. attribute:: mirror_interval
                             
                             	Interval between mirrored packets
-                            	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                            	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                             
                             .. attribute:: port_level
                             
@@ -2924,7 +5401,7 @@ class SpanMonitorSession(object):
                             .. attribute:: traffic_direction
                             
                             	Direction
-                            	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                            	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                             
                             
 
@@ -2934,220 +5411,554 @@ class SpanMonitorSession(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.is_acl_enabled = None
-                                self.mirror_bytes = None
-                                self.mirror_interval = None
-                                self.port_level = None
-                                self.traffic_direction = None
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "traffic-mirroring-parameters"
+                                self.yang_parent_name = "attachment"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:traffic-mirroring-parameters'
+                                self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
+
+                                self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
+                                self.port_level = YLeaf(YType.boolean, "port-level")
+
+                                self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("is_acl_enabled",
+                                                "mirror_bytes",
+                                                "mirror_interval",
+                                                "port_level",
+                                                "traffic_direction") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.is_acl_enabled.is_set or
+                                    self.mirror_bytes.is_set or
+                                    self.mirror_interval.is_set or
+                                    self.port_level.is_set or
+                                    self.traffic_direction.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.is_acl_enabled.yfilter != YFilter.not_set or
+                                    self.mirror_bytes.yfilter != YFilter.not_set or
+                                    self.mirror_interval.yfilter != YFilter.not_set or
+                                    self.port_level.yfilter != YFilter.not_set or
+                                    self.traffic_direction.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "traffic-mirroring-parameters" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.is_acl_enabled.is_set or self.is_acl_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.is_acl_enabled.get_name_leafdata())
+                                if (self.mirror_bytes.is_set or self.mirror_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mirror_bytes.get_name_leafdata())
+                                if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+                                if (self.port_level.is_set or self.port_level.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.port_level.get_name_leafdata())
+                                if (self.traffic_direction.is_set or self.traffic_direction.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.traffic_direction.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "is-acl-enabled" or name == "mirror-bytes" or name == "mirror-interval" or name == "port-level" or name == "traffic-direction"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.is_acl_enabled is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "is-acl-enabled"):
+                                    self.is_acl_enabled = value
+                                    self.is_acl_enabled.value_namespace = name_space
+                                    self.is_acl_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mirror-bytes"):
+                                    self.mirror_bytes = value
+                                    self.mirror_bytes.value_namespace = name_space
+                                    self.mirror_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mirror-interval"):
+                                    self.mirror_interval = value
+                                    self.mirror_interval.value_namespace = name_space
+                                    self.mirror_interval.value_namespace_prefix = name_space_prefix
+                                if(value_path == "port-level"):
+                                    self.port_level = value
+                                    self.port_level.value_namespace = name_space
+                                    self.port_level.value_namespace_prefix = name_space_prefix
+                                if(value_path == "traffic-direction"):
+                                    self.traffic_direction = value
+                                    self.traffic_direction.value_namespace = name_space
+                                    self.traffic_direction.value_namespace_prefix = name_space_prefix
 
-                                if self.mirror_bytes is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.class_.is_set or
+                                (self.destination_id is not None and self.destination_id.has_data()) or
+                                (self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.has_data()))
 
-                                if self.mirror_interval is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.class_.yfilter != YFilter.not_set or
+                                (self.destination_id is not None and self.destination_id.has_operation()) or
+                                (self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.has_operation()))
 
-                                if self.port_level is not None:
-                                    return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "attachment" + path_buffer
 
-                                if self.traffic_direction is not None:
-                                    return True
+                            return path_buffer
 
-                                return False
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                                return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters']['meta_info']
+                            leaf_name_data = LeafDataList()
+                            if (self.class_.is_set or self.class_.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.class_.get_name_leafdata())
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:attachment'
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            if (child_yang_name == "destination-id"):
+                                if (self.destination_id is None):
+                                    self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId()
+                                    self.destination_id.parent = self
+                                    self._children_name_map["destination_id"] = "destination-id"
+                                return self.destination_id
+
+                            if (child_yang_name == "traffic-mirroring-parameters"):
+                                if (self.traffic_mirroring_parameters is None):
+                                    self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters()
+                                    self.traffic_mirroring_parameters.parent = self
+                                    self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
+                                return self.traffic_mirroring_parameters
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "destination-id" or name == "traffic-mirroring-parameters" or name == "class"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.class_ is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "class"):
+                                self.class_ = value
+                                self.class_.value_namespace = name_space
+                                self.class_.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.attachment:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.interface.is_set or
+                            self.destination_interface.is_set or
+                            self.platform_error.is_set or
+                            self.source_interface.is_set or
+                            self.traffic_direction.is_set or
+                            (self.destination_id is not None and self.destination_id.has_data()) or
+                            (self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.has_data()))
 
-                            if self.destination_id is not None and self.destination_id._has_data():
+                    def has_operation(self):
+                        for c in self.attachment:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.destination_interface.yfilter != YFilter.not_set or
+                            self.platform_error.yfilter != YFilter.not_set or
+                            self.source_interface.yfilter != YFilter.not_set or
+                            self.traffic_direction.yfilter != YFilter.not_set or
+                            (self.destination_id is not None and self.destination_id.has_operation()) or
+                            (self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.has_operation()))
 
-                            if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters._has_data():
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface='" + self.interface.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.destination_interface.is_set or self.destination_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_interface.get_name_leafdata())
+                        if (self.platform_error.is_set or self.platform_error.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.platform_error.get_name_leafdata())
+                        if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.source_interface.get_name_leafdata())
+                        if (self.traffic_direction.is_set or self.traffic_direction.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.traffic_direction.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:interface[Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "attachment"):
+                            for c in self.attachment:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.attachment.append(c)
+                            return c
+
+                        if (child_yang_name == "destination-id"):
+                            if (self.destination_id is None):
+                                self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId()
+                                self.destination_id.parent = self
+                                self._children_name_map["destination_id"] = "destination-id"
+                            return self.destination_id
+
+                        if (child_yang_name == "traffic-mirroring-parameters"):
+                            if (self.traffic_mirroring_parameters is None):
+                                self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters()
+                                self.traffic_mirroring_parameters.parent = self
+                                self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
+                            return self.traffic_mirroring_parameters
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attachment" or name == "destination-id" or name == "traffic-mirroring-parameters" or name == "interface" or name == "destination-interface" or name == "platform-error" or name == "source-interface" or name == "traffic-direction"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-interface"):
+                            self.destination_interface = value
+                            self.destination_interface.value_namespace = name_space
+                            self.destination_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "platform-error"):
+                            self.platform_error = value
+                            self.platform_error.value_namespace = name_space
+                            self.platform_error.value_namespace_prefix = name_space_prefix
+                        if(value_path == "source-interface"):
+                            self.source_interface = value
+                            self.source_interface.value_namespace = name_space
+                            self.source_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "traffic-direction"):
+                            self.traffic_direction = value
+                            self.traffic_direction.value_namespace = name_space
+                            self.traffic_direction.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
-
-                        if self.attachment is not None:
-                            for child_ref in self.attachment:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.destination_id is not None and self.destination_id._has_data():
-                            return True
-
-                        if self.destination_interface is not None:
-                            return True
-
-                        if self.platform_error is not None:
-                            return True
-
-                        if self.source_interface is not None:
-                            return True
-
-                        if self.traffic_direction is not None:
-                            return True
-
-                        if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Nodes.Node.Interfaces']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node is None:
-                    raise YPYModelError('Key property node is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:nodes/Cisco-IOS-XR-Ethernet-SPAN-oper:node[Cisco-IOS-XR-Ethernet-SPAN-oper:node = ' + str(self.node) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.node is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.attachments is not None and self.attachments._has_data():
-                    return True
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SpanMonitorSession.Nodes.Node.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
 
-                if self.hardware_sessions is not None and self.hardware_sessions._has_data():
-                    return True
+                    return None
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                return meta._meta_table['SpanMonitorSession.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node.is_set or
+                    (self.attachments is not None and self.attachments.has_data()) or
+                    (self.hardware_sessions is not None and self.hardware_sessions.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node.yfilter != YFilter.not_set or
+                    (self.attachments is not None and self.attachments.has_operation()) or
+                    (self.hardware_sessions is not None and self.hardware_sessions.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node='" + self.node.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node.is_set or self.node.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "attachments"):
+                    if (self.attachments is None):
+                        self.attachments = SpanMonitorSession.Nodes.Node.Attachments()
+                        self.attachments.parent = self
+                        self._children_name_map["attachments"] = "attachments"
+                    return self.attachments
+
+                if (child_yang_name == "hardware-sessions"):
+                    if (self.hardware_sessions is None):
+                        self.hardware_sessions = SpanMonitorSession.Nodes.Node.HardwareSessions()
+                        self.hardware_sessions.parent = self
+                        self._children_name_map["hardware_sessions"] = "hardware-sessions"
+                    return self.hardware_sessions
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = SpanMonitorSession.Nodes.Node.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "attachments" or name == "hardware-sessions" or name == "interfaces" or name == "node"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node"):
+                    self.node = value
+                    self.node.value_namespace = name_space
+                    self.node.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-            return meta._meta_table['SpanMonitorSession.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
 
-        return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SpanMonitorSession.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.global_ is not None and self.global_.has_data()) or
+            (self.nodes is not None and self.nodes.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.global_ is not None and self.global_.has_operation()) or
+            (self.nodes is not None and self.nodes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "global"):
+            if (self.global_ is None):
+                self.global_ = SpanMonitorSession.Global_()
+                self.global_.parent = self
+                self._children_name_map["global_"] = "global"
+            return self.global_
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = SpanMonitorSession.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "global" or name == "nodes"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.global_ is not None and self.global_._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['SpanMonitorSession']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = SpanMonitorSession()
+        return self._top_entity
 

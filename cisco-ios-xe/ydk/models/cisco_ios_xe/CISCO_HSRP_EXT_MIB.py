@@ -31,21 +31,15 @@ identified by a ( ifIndex, cHsrpGrpNumber ) pair.
 BIA stands for Burned In Address.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoHsrpExtMib(object):
+class CiscoHsrpExtMib(Entity):
     """
     
     
@@ -77,17 +71,34 @@ class CiscoHsrpExtMib(object):
     _revision = '2010-09-02'
 
     def __init__(self):
+        super(CiscoHsrpExtMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-HSRP-EXT-MIB"
+        self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
+
         self.chsrpextifstandbytable = CiscoHsrpExtMib.Chsrpextifstandbytable()
         self.chsrpextifstandbytable.parent = self
+        self._children_name_map["chsrpextifstandbytable"] = "cHsrpExtIfStandbyTable"
+        self._children_yang_names.add("cHsrpExtIfStandbyTable")
+
         self.chsrpextiftable = CiscoHsrpExtMib.Chsrpextiftable()
         self.chsrpextiftable.parent = self
+        self._children_name_map["chsrpextiftable"] = "cHsrpExtIfTable"
+        self._children_yang_names.add("cHsrpExtIfTable")
+
         self.chsrpextiftrackedtable = CiscoHsrpExtMib.Chsrpextiftrackedtable()
         self.chsrpextiftrackedtable.parent = self
+        self._children_name_map["chsrpextiftrackedtable"] = "cHsrpExtIfTrackedTable"
+        self._children_yang_names.add("cHsrpExtIfTrackedTable")
+
         self.chsrpextsecaddrtable = CiscoHsrpExtMib.Chsrpextsecaddrtable()
         self.chsrpextsecaddrtable.parent = self
+        self._children_name_map["chsrpextsecaddrtable"] = "cHsrpExtSecAddrTable"
+        self._children_yang_names.add("cHsrpExtSecAddrTable")
 
 
-    class Chsrpextiftrackedtable(object):
+    class Chsrpextiftrackedtable(Entity):
         """
         A table containing information about tracked interfaces per
         HSRP group.
@@ -105,13 +116,39 @@ class CiscoHsrpExtMib(object):
         _revision = '2010-09-02'
 
         def __init__(self):
-            self.parent = None
-            self.chsrpextiftrackedentry = YList()
-            self.chsrpextiftrackedentry.parent = self
-            self.chsrpextiftrackedentry.name = 'chsrpextiftrackedentry'
+            super(CiscoHsrpExtMib.Chsrpextiftrackedtable, self).__init__()
+
+            self.yang_name = "cHsrpExtIfTrackedTable"
+            self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
+
+            self.chsrpextiftrackedentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoHsrpExtMib.Chsrpextiftrackedtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoHsrpExtMib.Chsrpextiftrackedtable, self).__setattr__(name, value)
 
 
-        class Chsrpextiftrackedentry(object):
+        class Chsrpextiftrackedentry(Entity):
             """
             Each row of this table allows the tracking of one
             interface of the HSRP group which is identified by the
@@ -191,7 +228,7 @@ class CiscoHsrpExtMib(object):
             .. attribute:: chsrpextiftrackedrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtIfTrackedEntry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -201,79 +238,198 @@ class CiscoHsrpExtMib(object):
             _revision = '2010-09-02'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.chsrpgrpnumber = None
-                self.chsrpextiftracked = None
-                self.chsrpextiftrackedipnone = None
-                self.chsrpextiftrackedpriority = None
-                self.chsrpextiftrackedrowstatus = None
+                super(CiscoHsrpExtMib.Chsrpextiftrackedtable.Chsrpextiftrackedentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.chsrpgrpnumber is None:
-                    raise YPYModelError('Key property chsrpgrpnumber is None')
-                if self.chsrpextiftracked is None:
-                    raise YPYModelError('Key property chsrpextiftracked is None')
+                self.yang_name = "cHsrpExtIfTrackedEntry"
+                self.yang_parent_name = "cHsrpExtIfTrackedTable"
 
-                return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfTrackedTable/CISCO-HSRP-EXT-MIB:cHsrpExtIfTrackedEntry[CISCO-HSRP-EXT-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-HSRP-EXT-MIB:cHsrpGrpNumber = ' + str(self.chsrpgrpnumber) + '][CISCO-HSRP-EXT-MIB:cHsrpExtIfTracked = ' + str(self.chsrpextiftracked) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
+
+                self.chsrpextiftracked = YLeaf(YType.int32, "cHsrpExtIfTracked")
+
+                self.chsrpextiftrackedipnone = YLeaf(YType.boolean, "cHsrpExtIfTrackedIpNone")
+
+                self.chsrpextiftrackedpriority = YLeaf(YType.uint32, "cHsrpExtIfTrackedPriority")
+
+                self.chsrpextiftrackedrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfTrackedRowStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "chsrpgrpnumber",
+                                "chsrpextiftracked",
+                                "chsrpextiftrackedipnone",
+                                "chsrpextiftrackedpriority",
+                                "chsrpextiftrackedrowstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoHsrpExtMib.Chsrpextiftrackedtable.Chsrpextiftrackedentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoHsrpExtMib.Chsrpextiftrackedtable.Chsrpextiftrackedentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.chsrpgrpnumber.is_set or
+                    self.chsrpextiftracked.is_set or
+                    self.chsrpextiftrackedipnone.is_set or
+                    self.chsrpextiftrackedpriority.is_set or
+                    self.chsrpextiftrackedrowstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.chsrpgrpnumber.yfilter != YFilter.not_set or
+                    self.chsrpextiftracked.yfilter != YFilter.not_set or
+                    self.chsrpextiftrackedipnone.yfilter != YFilter.not_set or
+                    self.chsrpextiftrackedpriority.yfilter != YFilter.not_set or
+                    self.chsrpextiftrackedrowstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cHsrpExtIfTrackedEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtIfTracked='" + self.chsrpextiftracked.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfTrackedTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.chsrpgrpnumber.is_set or self.chsrpgrpnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpgrpnumber.get_name_leafdata())
+                if (self.chsrpextiftracked.is_set or self.chsrpextiftracked.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextiftracked.get_name_leafdata())
+                if (self.chsrpextiftrackedipnone.is_set or self.chsrpextiftrackedipnone.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextiftrackedipnone.get_name_leafdata())
+                if (self.chsrpextiftrackedpriority.is_set or self.chsrpextiftrackedpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextiftrackedpriority.get_name_leafdata())
+                if (self.chsrpextiftrackedrowstatus.is_set or self.chsrpextiftrackedrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextiftrackedrowstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cHsrpGrpNumber" or name == "cHsrpExtIfTracked" or name == "cHsrpExtIfTrackedIpNone" or name == "cHsrpExtIfTrackedPriority" or name == "cHsrpExtIfTrackedRowStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpGrpNumber"):
+                    self.chsrpgrpnumber = value
+                    self.chsrpgrpnumber.value_namespace = name_space
+                    self.chsrpgrpnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfTracked"):
+                    self.chsrpextiftracked = value
+                    self.chsrpextiftracked.value_namespace = name_space
+                    self.chsrpextiftracked.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfTrackedIpNone"):
+                    self.chsrpextiftrackedipnone = value
+                    self.chsrpextiftrackedipnone.value_namespace = name_space
+                    self.chsrpextiftrackedipnone.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfTrackedPriority"):
+                    self.chsrpextiftrackedpriority = value
+                    self.chsrpextiftrackedpriority.value_namespace = name_space
+                    self.chsrpextiftrackedpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfTrackedRowStatus"):
+                    self.chsrpextiftrackedrowstatus = value
+                    self.chsrpextiftrackedrowstatus.value_namespace = name_space
+                    self.chsrpextiftrackedrowstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.chsrpextiftrackedentry:
+                if (c.has_data()):
                     return True
-
-                if self.chsrpgrpnumber is not None:
-                    return True
-
-                if self.chsrpextiftracked is not None:
-                    return True
-
-                if self.chsrpextiftrackedipnone is not None:
-                    return True
-
-                if self.chsrpextiftrackedpriority is not None:
-                    return True
-
-                if self.chsrpextiftrackedrowstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-                return meta._meta_table['CiscoHsrpExtMib.Chsrpextiftrackedtable.Chsrpextiftrackedentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfTrackedTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.chsrpextiftrackedentry is not None:
-                for child_ref in self.chsrpextiftrackedentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.chsrpextiftrackedentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cHsrpExtIfTrackedTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cHsrpExtIfTrackedEntry"):
+                for c in self.chsrpextiftrackedentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoHsrpExtMib.Chsrpextiftrackedtable.Chsrpextiftrackedentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.chsrpextiftrackedentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cHsrpExtIfTrackedEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-            return meta._meta_table['CiscoHsrpExtMib.Chsrpextiftrackedtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Chsrpextsecaddrtable(object):
+    class Chsrpextsecaddrtable(Entity):
         """
         A table containing information about secondary HSRP IP
         Addresses per interface and group.
@@ -291,13 +447,39 @@ class CiscoHsrpExtMib(object):
         _revision = '2010-09-02'
 
         def __init__(self):
-            self.parent = None
-            self.chsrpextsecaddrentry = YList()
-            self.chsrpextsecaddrentry.parent = self
-            self.chsrpextsecaddrentry.name = 'chsrpextsecaddrentry'
+            super(CiscoHsrpExtMib.Chsrpextsecaddrtable, self).__init__()
+
+            self.yang_name = "cHsrpExtSecAddrTable"
+            self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
+
+            self.chsrpextsecaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoHsrpExtMib.Chsrpextsecaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoHsrpExtMib.Chsrpextsecaddrtable, self).__setattr__(name, value)
 
 
-        class Chsrpextsecaddrentry(object):
+        class Chsrpextsecaddrentry(Entity):
             """
             The CHsrpExtSecAddrEntry allows creation of secondary
             IP Addresses for each cHsrpGrpEntry row.
@@ -368,7 +550,7 @@ class CiscoHsrpExtMib(object):
             .. attribute:: chsrpextsecaddrrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtSecAddrEntry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -378,71 +560,176 @@ class CiscoHsrpExtMib(object):
             _revision = '2010-09-02'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.chsrpgrpnumber = None
-                self.chsrpextsecaddraddress = None
-                self.chsrpextsecaddrrowstatus = None
+                super(CiscoHsrpExtMib.Chsrpextsecaddrtable.Chsrpextsecaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.chsrpgrpnumber is None:
-                    raise YPYModelError('Key property chsrpgrpnumber is None')
-                if self.chsrpextsecaddraddress is None:
-                    raise YPYModelError('Key property chsrpextsecaddraddress is None')
+                self.yang_name = "cHsrpExtSecAddrEntry"
+                self.yang_parent_name = "cHsrpExtSecAddrTable"
 
-                return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtSecAddrTable/CISCO-HSRP-EXT-MIB:cHsrpExtSecAddrEntry[CISCO-HSRP-EXT-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-HSRP-EXT-MIB:cHsrpGrpNumber = ' + str(self.chsrpgrpnumber) + '][CISCO-HSRP-EXT-MIB:cHsrpExtSecAddrAddress = ' + str(self.chsrpextsecaddraddress) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
+
+                self.chsrpextsecaddraddress = YLeaf(YType.str, "cHsrpExtSecAddrAddress")
+
+                self.chsrpextsecaddrrowstatus = YLeaf(YType.enumeration, "cHsrpExtSecAddrRowStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "chsrpgrpnumber",
+                                "chsrpextsecaddraddress",
+                                "chsrpextsecaddrrowstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoHsrpExtMib.Chsrpextsecaddrtable.Chsrpextsecaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoHsrpExtMib.Chsrpextsecaddrtable.Chsrpextsecaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.chsrpgrpnumber.is_set or
+                    self.chsrpextsecaddraddress.is_set or
+                    self.chsrpextsecaddrrowstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.chsrpgrpnumber.yfilter != YFilter.not_set or
+                    self.chsrpextsecaddraddress.yfilter != YFilter.not_set or
+                    self.chsrpextsecaddrrowstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cHsrpExtSecAddrEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtSecAddrAddress='" + self.chsrpextsecaddraddress.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtSecAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.chsrpgrpnumber.is_set or self.chsrpgrpnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpgrpnumber.get_name_leafdata())
+                if (self.chsrpextsecaddraddress.is_set or self.chsrpextsecaddraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextsecaddraddress.get_name_leafdata())
+                if (self.chsrpextsecaddrrowstatus.is_set or self.chsrpextsecaddrrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextsecaddrrowstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cHsrpGrpNumber" or name == "cHsrpExtSecAddrAddress" or name == "cHsrpExtSecAddrRowStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpGrpNumber"):
+                    self.chsrpgrpnumber = value
+                    self.chsrpgrpnumber.value_namespace = name_space
+                    self.chsrpgrpnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtSecAddrAddress"):
+                    self.chsrpextsecaddraddress = value
+                    self.chsrpextsecaddraddress.value_namespace = name_space
+                    self.chsrpextsecaddraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtSecAddrRowStatus"):
+                    self.chsrpextsecaddrrowstatus = value
+                    self.chsrpextsecaddrrowstatus.value_namespace = name_space
+                    self.chsrpextsecaddrrowstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.chsrpextsecaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.chsrpgrpnumber is not None:
-                    return True
-
-                if self.chsrpextsecaddraddress is not None:
-                    return True
-
-                if self.chsrpextsecaddrrowstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-                return meta._meta_table['CiscoHsrpExtMib.Chsrpextsecaddrtable.Chsrpextsecaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtSecAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.chsrpextsecaddrentry is not None:
-                for child_ref in self.chsrpextsecaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.chsrpextsecaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cHsrpExtSecAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cHsrpExtSecAddrEntry"):
+                for c in self.chsrpextsecaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoHsrpExtMib.Chsrpextsecaddrtable.Chsrpextsecaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.chsrpextsecaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cHsrpExtSecAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-            return meta._meta_table['CiscoHsrpExtMib.Chsrpextsecaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Chsrpextifstandbytable(object):
+    class Chsrpextifstandbytable(Entity):
         """
         A table containing information about standby
         interfaces per HSRP group.
@@ -460,13 +747,39 @@ class CiscoHsrpExtMib(object):
         _revision = '2010-09-02'
 
         def __init__(self):
-            self.parent = None
-            self.chsrpextifstandbyentry = YList()
-            self.chsrpextifstandbyentry.parent = self
-            self.chsrpextifstandbyentry.name = 'chsrpextifstandbyentry'
+            super(CiscoHsrpExtMib.Chsrpextifstandbytable, self).__init__()
+
+            self.yang_name = "cHsrpExtIfStandbyTable"
+            self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
+
+            self.chsrpextifstandbyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoHsrpExtMib.Chsrpextifstandbytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoHsrpExtMib.Chsrpextifstandbytable, self).__setattr__(name, value)
 
 
-        class Chsrpextifstandbyentry(object):
+        class Chsrpextifstandbyentry(Entity):
             """
             The cHsrpExtIfStandbyEntry allows an HSRP group
             interface to track one or more standby interfaces.
@@ -512,12 +825,12 @@ class CiscoHsrpExtMib(object):
             .. attribute:: chsrpextifstandbydestaddrtype
             
             	This object specifies the type of Internet address denoted by cHsrpExtIfStandbyDestAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: chsrpextifstandbyrowstatus
             
             	The control that allows modification, creation, and deletion of entries. Entries may not be created via SNMP without explicitly setting cHsrpExtIfStandbyRowStatus to either 'createAndGo' or 'createAndWait'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: chsrpextifstandbysourceaddr
             
@@ -529,7 +842,7 @@ class CiscoHsrpExtMib(object):
             .. attribute:: chsrpextifstandbysourceaddrtype
             
             	This object specifies the type of Internet address denoted by cHsrpExtIfStandbySourceAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -539,87 +852,220 @@ class CiscoHsrpExtMib(object):
             _revision = '2010-09-02'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.chsrpgrpnumber = None
-                self.chsrpextifstandbyindex = None
-                self.chsrpextifstandbydestaddr = None
-                self.chsrpextifstandbydestaddrtype = None
-                self.chsrpextifstandbyrowstatus = None
-                self.chsrpextifstandbysourceaddr = None
-                self.chsrpextifstandbysourceaddrtype = None
+                super(CiscoHsrpExtMib.Chsrpextifstandbytable.Chsrpextifstandbyentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.chsrpgrpnumber is None:
-                    raise YPYModelError('Key property chsrpgrpnumber is None')
-                if self.chsrpextifstandbyindex is None:
-                    raise YPYModelError('Key property chsrpextifstandbyindex is None')
+                self.yang_name = "cHsrpExtIfStandbyEntry"
+                self.yang_parent_name = "cHsrpExtIfStandbyTable"
 
-                return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfStandbyTable/CISCO-HSRP-EXT-MIB:cHsrpExtIfStandbyEntry[CISCO-HSRP-EXT-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-HSRP-EXT-MIB:cHsrpGrpNumber = ' + str(self.chsrpgrpnumber) + '][CISCO-HSRP-EXT-MIB:cHsrpExtIfStandbyIndex = ' + str(self.chsrpextifstandbyindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
+
+                self.chsrpextifstandbyindex = YLeaf(YType.uint32, "cHsrpExtIfStandbyIndex")
+
+                self.chsrpextifstandbydestaddr = YLeaf(YType.str, "cHsrpExtIfStandbyDestAddr")
+
+                self.chsrpextifstandbydestaddrtype = YLeaf(YType.enumeration, "cHsrpExtIfStandbyDestAddrType")
+
+                self.chsrpextifstandbyrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfStandbyRowStatus")
+
+                self.chsrpextifstandbysourceaddr = YLeaf(YType.str, "cHsrpExtIfStandbySourceAddr")
+
+                self.chsrpextifstandbysourceaddrtype = YLeaf(YType.enumeration, "cHsrpExtIfStandbySourceAddrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "chsrpgrpnumber",
+                                "chsrpextifstandbyindex",
+                                "chsrpextifstandbydestaddr",
+                                "chsrpextifstandbydestaddrtype",
+                                "chsrpextifstandbyrowstatus",
+                                "chsrpextifstandbysourceaddr",
+                                "chsrpextifstandbysourceaddrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoHsrpExtMib.Chsrpextifstandbytable.Chsrpextifstandbyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoHsrpExtMib.Chsrpextifstandbytable.Chsrpextifstandbyentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.chsrpgrpnumber.is_set or
+                    self.chsrpextifstandbyindex.is_set or
+                    self.chsrpextifstandbydestaddr.is_set or
+                    self.chsrpextifstandbydestaddrtype.is_set or
+                    self.chsrpextifstandbyrowstatus.is_set or
+                    self.chsrpextifstandbysourceaddr.is_set or
+                    self.chsrpextifstandbysourceaddrtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.chsrpgrpnumber.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbyindex.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbydestaddr.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbydestaddrtype.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbyrowstatus.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbysourceaddr.yfilter != YFilter.not_set or
+                    self.chsrpextifstandbysourceaddrtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cHsrpExtIfStandbyEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtIfStandbyIndex='" + self.chsrpextifstandbyindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfStandbyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.chsrpgrpnumber.is_set or self.chsrpgrpnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpgrpnumber.get_name_leafdata())
+                if (self.chsrpextifstandbyindex.is_set or self.chsrpextifstandbyindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbyindex.get_name_leafdata())
+                if (self.chsrpextifstandbydestaddr.is_set or self.chsrpextifstandbydestaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbydestaddr.get_name_leafdata())
+                if (self.chsrpextifstandbydestaddrtype.is_set or self.chsrpextifstandbydestaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbydestaddrtype.get_name_leafdata())
+                if (self.chsrpextifstandbyrowstatus.is_set or self.chsrpextifstandbyrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbyrowstatus.get_name_leafdata())
+                if (self.chsrpextifstandbysourceaddr.is_set or self.chsrpextifstandbysourceaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbysourceaddr.get_name_leafdata())
+                if (self.chsrpextifstandbysourceaddrtype.is_set or self.chsrpextifstandbysourceaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifstandbysourceaddrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cHsrpGrpNumber" or name == "cHsrpExtIfStandbyIndex" or name == "cHsrpExtIfStandbyDestAddr" or name == "cHsrpExtIfStandbyDestAddrType" or name == "cHsrpExtIfStandbyRowStatus" or name == "cHsrpExtIfStandbySourceAddr" or name == "cHsrpExtIfStandbySourceAddrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpGrpNumber"):
+                    self.chsrpgrpnumber = value
+                    self.chsrpgrpnumber.value_namespace = name_space
+                    self.chsrpgrpnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbyIndex"):
+                    self.chsrpextifstandbyindex = value
+                    self.chsrpextifstandbyindex.value_namespace = name_space
+                    self.chsrpextifstandbyindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbyDestAddr"):
+                    self.chsrpextifstandbydestaddr = value
+                    self.chsrpextifstandbydestaddr.value_namespace = name_space
+                    self.chsrpextifstandbydestaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbyDestAddrType"):
+                    self.chsrpextifstandbydestaddrtype = value
+                    self.chsrpextifstandbydestaddrtype.value_namespace = name_space
+                    self.chsrpextifstandbydestaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbyRowStatus"):
+                    self.chsrpextifstandbyrowstatus = value
+                    self.chsrpextifstandbyrowstatus.value_namespace = name_space
+                    self.chsrpextifstandbyrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbySourceAddr"):
+                    self.chsrpextifstandbysourceaddr = value
+                    self.chsrpextifstandbysourceaddr.value_namespace = name_space
+                    self.chsrpextifstandbysourceaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfStandbySourceAddrType"):
+                    self.chsrpextifstandbysourceaddrtype = value
+                    self.chsrpextifstandbysourceaddrtype.value_namespace = name_space
+                    self.chsrpextifstandbysourceaddrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.chsrpextifstandbyentry:
+                if (c.has_data()):
                     return True
-
-                if self.chsrpgrpnumber is not None:
-                    return True
-
-                if self.chsrpextifstandbyindex is not None:
-                    return True
-
-                if self.chsrpextifstandbydestaddr is not None:
-                    return True
-
-                if self.chsrpextifstandbydestaddrtype is not None:
-                    return True
-
-                if self.chsrpextifstandbyrowstatus is not None:
-                    return True
-
-                if self.chsrpextifstandbysourceaddr is not None:
-                    return True
-
-                if self.chsrpextifstandbysourceaddrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-                return meta._meta_table['CiscoHsrpExtMib.Chsrpextifstandbytable.Chsrpextifstandbyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfStandbyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.chsrpextifstandbyentry is not None:
-                for child_ref in self.chsrpextifstandbyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.chsrpextifstandbyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cHsrpExtIfStandbyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cHsrpExtIfStandbyEntry"):
+                for c in self.chsrpextifstandbyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoHsrpExtMib.Chsrpextifstandbytable.Chsrpextifstandbyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.chsrpextifstandbyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cHsrpExtIfStandbyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-            return meta._meta_table['CiscoHsrpExtMib.Chsrpextifstandbytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Chsrpextiftable(object):
+    class Chsrpextiftable(Entity):
         """
         HSRP\-specific configurations for each physical interface.
         
@@ -636,13 +1082,39 @@ class CiscoHsrpExtMib(object):
         _revision = '2010-09-02'
 
         def __init__(self):
-            self.parent = None
-            self.chsrpextifentry = YList()
-            self.chsrpextifentry.parent = self
-            self.chsrpextifentry.name = 'chsrpextifentry'
+            super(CiscoHsrpExtMib.Chsrpextiftable, self).__init__()
+
+            self.yang_name = "cHsrpExtIfTable"
+            self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
+
+            self.chsrpextifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoHsrpExtMib.Chsrpextiftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoHsrpExtMib.Chsrpextiftable, self).__setattr__(name, value)
 
 
-        class Chsrpextifentry(object):
+        class Chsrpextifentry(Entity):
             """
             If HSRP entries on this interface must use the BIA (Burned
             In Address), there must be an entry for the interface in this 
@@ -683,7 +1155,7 @@ class CiscoHsrpExtMib(object):
             .. attribute:: chsrpextifrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtIfEntry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: chsrpextifusebia
             
@@ -698,88 +1170,239 @@ class CiscoHsrpExtMib(object):
             _revision = '2010-09-02'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.chsrpextifrowstatus = None
-                self.chsrpextifusebia = None
+                super(CiscoHsrpExtMib.Chsrpextiftable.Chsrpextifentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cHsrpExtIfEntry"
+                self.yang_parent_name = "cHsrpExtIfTable"
 
-                return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfTable/CISCO-HSRP-EXT-MIB:cHsrpExtIfEntry[CISCO-HSRP-EXT-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.chsrpextifrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfRowStatus")
+
+                self.chsrpextifusebia = YLeaf(YType.boolean, "cHsrpExtIfUseBIA")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "chsrpextifrowstatus",
+                                "chsrpextifusebia") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoHsrpExtMib.Chsrpextiftable.Chsrpextifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoHsrpExtMib.Chsrpextiftable.Chsrpextifentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.chsrpextifrowstatus.is_set or
+                    self.chsrpextifusebia.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.chsrpextifrowstatus.yfilter != YFilter.not_set or
+                    self.chsrpextifusebia.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cHsrpExtIfEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.chsrpextifrowstatus.is_set or self.chsrpextifrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifrowstatus.get_name_leafdata())
+                if (self.chsrpextifusebia.is_set or self.chsrpextifusebia.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.chsrpextifusebia.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cHsrpExtIfRowStatus" or name == "cHsrpExtIfUseBIA"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfRowStatus"):
+                    self.chsrpextifrowstatus = value
+                    self.chsrpextifrowstatus.value_namespace = name_space
+                    self.chsrpextifrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cHsrpExtIfUseBIA"):
+                    self.chsrpextifusebia = value
+                    self.chsrpextifusebia.value_namespace = name_space
+                    self.chsrpextifusebia.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.chsrpextifentry:
+                if (c.has_data()):
                     return True
-
-                if self.chsrpextifrowstatus is not None:
-                    return True
-
-                if self.chsrpextifusebia is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-                return meta._meta_table['CiscoHsrpExtMib.Chsrpextiftable.Chsrpextifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/CISCO-HSRP-EXT-MIB:cHsrpExtIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.chsrpextifentry is not None:
-                for child_ref in self.chsrpextifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.chsrpextifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cHsrpExtIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cHsrpExtIfEntry"):
+                for c in self.chsrpextifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoHsrpExtMib.Chsrpextiftable.Chsrpextifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.chsrpextifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cHsrpExtIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-            return meta._meta_table['CiscoHsrpExtMib.Chsrpextiftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.chsrpextifstandbytable is not None and self.chsrpextifstandbytable.has_data()) or
+            (self.chsrpextiftable is not None and self.chsrpextiftable.has_data()) or
+            (self.chsrpextiftrackedtable is not None and self.chsrpextiftrackedtable.has_data()) or
+            (self.chsrpextsecaddrtable is not None and self.chsrpextsecaddrtable.has_data()))
 
-        return '/CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.chsrpextifstandbytable is not None and self.chsrpextifstandbytable.has_operation()) or
+            (self.chsrpextiftable is not None and self.chsrpextiftable.has_operation()) or
+            (self.chsrpextiftrackedtable is not None and self.chsrpextiftrackedtable.has_operation()) or
+            (self.chsrpextsecaddrtable is not None and self.chsrpextsecaddrtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cHsrpExtIfStandbyTable"):
+            if (self.chsrpextifstandbytable is None):
+                self.chsrpextifstandbytable = CiscoHsrpExtMib.Chsrpextifstandbytable()
+                self.chsrpextifstandbytable.parent = self
+                self._children_name_map["chsrpextifstandbytable"] = "cHsrpExtIfStandbyTable"
+            return self.chsrpextifstandbytable
+
+        if (child_yang_name == "cHsrpExtIfTable"):
+            if (self.chsrpextiftable is None):
+                self.chsrpextiftable = CiscoHsrpExtMib.Chsrpextiftable()
+                self.chsrpextiftable.parent = self
+                self._children_name_map["chsrpextiftable"] = "cHsrpExtIfTable"
+            return self.chsrpextiftable
+
+        if (child_yang_name == "cHsrpExtIfTrackedTable"):
+            if (self.chsrpextiftrackedtable is None):
+                self.chsrpextiftrackedtable = CiscoHsrpExtMib.Chsrpextiftrackedtable()
+                self.chsrpextiftrackedtable.parent = self
+                self._children_name_map["chsrpextiftrackedtable"] = "cHsrpExtIfTrackedTable"
+            return self.chsrpextiftrackedtable
+
+        if (child_yang_name == "cHsrpExtSecAddrTable"):
+            if (self.chsrpextsecaddrtable is None):
+                self.chsrpextsecaddrtable = CiscoHsrpExtMib.Chsrpextsecaddrtable()
+                self.chsrpextsecaddrtable.parent = self
+                self._children_name_map["chsrpextsecaddrtable"] = "cHsrpExtSecAddrTable"
+            return self.chsrpextsecaddrtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cHsrpExtIfStandbyTable" or name == "cHsrpExtIfTable" or name == "cHsrpExtIfTrackedTable" or name == "cHsrpExtSecAddrTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.chsrpextifstandbytable is not None and self.chsrpextifstandbytable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.chsrpextiftable is not None and self.chsrpextiftable._has_data():
-            return True
-
-        if self.chsrpextiftrackedtable is not None and self.chsrpextiftrackedtable._has_data():
-            return True
-
-        if self.chsrpextsecaddrtable is not None and self.chsrpextsecaddrtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_HSRP_EXT_MIB as meta
-        return meta._meta_table['CiscoHsrpExtMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoHsrpExtMib()
+        return self._top_entity
 

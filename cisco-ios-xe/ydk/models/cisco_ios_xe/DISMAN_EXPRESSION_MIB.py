@@ -4,21 +4,15 @@ The MIB module for defining expressions of MIB objects for
 management purposes.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class DismanExpressionMib(object):
+class DismanExpressionMib(Entity):
     """
     
     
@@ -55,19 +49,39 @@ class DismanExpressionMib(object):
     _revision = '2000-10-16'
 
     def __init__(self):
+        super(DismanExpressionMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "DISMAN-EXPRESSION-MIB"
+        self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
+
         self.experrortable = DismanExpressionMib.Experrortable()
         self.experrortable.parent = self
+        self._children_name_map["experrortable"] = "expErrorTable"
+        self._children_yang_names.add("expErrorTable")
+
         self.expexpressiontable = DismanExpressionMib.Expexpressiontable()
         self.expexpressiontable.parent = self
+        self._children_name_map["expexpressiontable"] = "expExpressionTable"
+        self._children_yang_names.add("expExpressionTable")
+
         self.expobjecttable = DismanExpressionMib.Expobjecttable()
         self.expobjecttable.parent = self
+        self._children_name_map["expobjecttable"] = "expObjectTable"
+        self._children_yang_names.add("expObjectTable")
+
         self.expresource = DismanExpressionMib.Expresource()
         self.expresource.parent = self
+        self._children_name_map["expresource"] = "expResource"
+        self._children_yang_names.add("expResource")
+
         self.expvaluetable = DismanExpressionMib.Expvaluetable()
         self.expvaluetable.parent = self
+        self._children_name_map["expvaluetable"] = "expValueTable"
+        self._children_yang_names.add("expValueTable")
 
 
-    class Expresource(object):
+    class Expresource(Entity):
         """
         
         
@@ -124,47 +138,130 @@ class DismanExpressionMib(object):
         _revision = '2000-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.expresourcedeltaminimum = None
-            self.expresourcedeltawildcardinstancemaximum = None
-            self.expresourcedeltawildcardinstanceresourcelacks = None
-            self.expresourcedeltawildcardinstances = None
-            self.expresourcedeltawildcardinstanceshigh = None
+            super(DismanExpressionMib.Expresource, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "expResource"
+            self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
 
-            return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expResource'
+            self.expresourcedeltaminimum = YLeaf(YType.int32, "expResourceDeltaMinimum")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.expresourcedeltawildcardinstancemaximum = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceMaximum")
+
+            self.expresourcedeltawildcardinstanceresourcelacks = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceResourceLacks")
+
+            self.expresourcedeltawildcardinstances = YLeaf(YType.uint32, "expResourceDeltaWildcardInstances")
+
+            self.expresourcedeltawildcardinstanceshigh = YLeaf(YType.uint32, "expResourceDeltaWildcardInstancesHigh")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("expresourcedeltaminimum",
+                            "expresourcedeltawildcardinstancemaximum",
+                            "expresourcedeltawildcardinstanceresourcelacks",
+                            "expresourcedeltawildcardinstances",
+                            "expresourcedeltawildcardinstanceshigh") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DismanExpressionMib.Expresource, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DismanExpressionMib.Expresource, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.expresourcedeltaminimum.is_set or
+                self.expresourcedeltawildcardinstancemaximum.is_set or
+                self.expresourcedeltawildcardinstanceresourcelacks.is_set or
+                self.expresourcedeltawildcardinstances.is_set or
+                self.expresourcedeltawildcardinstanceshigh.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.expresourcedeltaminimum.yfilter != YFilter.not_set or
+                self.expresourcedeltawildcardinstancemaximum.yfilter != YFilter.not_set or
+                self.expresourcedeltawildcardinstanceresourcelacks.yfilter != YFilter.not_set or
+                self.expresourcedeltawildcardinstances.yfilter != YFilter.not_set or
+                self.expresourcedeltawildcardinstanceshigh.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "expResource" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.expresourcedeltaminimum.is_set or self.expresourcedeltaminimum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.expresourcedeltaminimum.get_name_leafdata())
+            if (self.expresourcedeltawildcardinstancemaximum.is_set or self.expresourcedeltawildcardinstancemaximum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.expresourcedeltawildcardinstancemaximum.get_name_leafdata())
+            if (self.expresourcedeltawildcardinstanceresourcelacks.is_set or self.expresourcedeltawildcardinstanceresourcelacks.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.expresourcedeltawildcardinstanceresourcelacks.get_name_leafdata())
+            if (self.expresourcedeltawildcardinstances.is_set or self.expresourcedeltawildcardinstances.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.expresourcedeltawildcardinstances.get_name_leafdata())
+            if (self.expresourcedeltawildcardinstanceshigh.is_set or self.expresourcedeltawildcardinstanceshigh.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.expresourcedeltawildcardinstanceshigh.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "expResourceDeltaMinimum" or name == "expResourceDeltaWildcardInstanceMaximum" or name == "expResourceDeltaWildcardInstanceResourceLacks" or name == "expResourceDeltaWildcardInstances" or name == "expResourceDeltaWildcardInstancesHigh"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.expresourcedeltaminimum is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "expResourceDeltaMinimum"):
+                self.expresourcedeltaminimum = value
+                self.expresourcedeltaminimum.value_namespace = name_space
+                self.expresourcedeltaminimum.value_namespace_prefix = name_space_prefix
+            if(value_path == "expResourceDeltaWildcardInstanceMaximum"):
+                self.expresourcedeltawildcardinstancemaximum = value
+                self.expresourcedeltawildcardinstancemaximum.value_namespace = name_space
+                self.expresourcedeltawildcardinstancemaximum.value_namespace_prefix = name_space_prefix
+            if(value_path == "expResourceDeltaWildcardInstanceResourceLacks"):
+                self.expresourcedeltawildcardinstanceresourcelacks = value
+                self.expresourcedeltawildcardinstanceresourcelacks.value_namespace = name_space
+                self.expresourcedeltawildcardinstanceresourcelacks.value_namespace_prefix = name_space_prefix
+            if(value_path == "expResourceDeltaWildcardInstances"):
+                self.expresourcedeltawildcardinstances = value
+                self.expresourcedeltawildcardinstances.value_namespace = name_space
+                self.expresourcedeltawildcardinstances.value_namespace_prefix = name_space_prefix
+            if(value_path == "expResourceDeltaWildcardInstancesHigh"):
+                self.expresourcedeltawildcardinstanceshigh = value
+                self.expresourcedeltawildcardinstanceshigh.value_namespace = name_space
+                self.expresourcedeltawildcardinstanceshigh.value_namespace_prefix = name_space_prefix
 
-            if self.expresourcedeltawildcardinstancemaximum is not None:
-                return True
 
-            if self.expresourcedeltawildcardinstanceresourcelacks is not None:
-                return True
-
-            if self.expresourcedeltawildcardinstances is not None:
-                return True
-
-            if self.expresourcedeltawildcardinstanceshigh is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-            return meta._meta_table['DismanExpressionMib.Expresource']['meta_info']
-
-
-    class Expexpressiontable(object):
+    class Expexpressiontable(Entity):
         """
         A table of expression definitions.
         
@@ -181,13 +278,39 @@ class DismanExpressionMib(object):
         _revision = '2000-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.expexpressionentry = YList()
-            self.expexpressionentry.parent = self
-            self.expexpressionentry.name = 'expexpressionentry'
+            super(DismanExpressionMib.Expexpressiontable, self).__init__()
+
+            self.yang_name = "expExpressionTable"
+            self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
+
+            self.expexpressionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DismanExpressionMib.Expexpressiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DismanExpressionMib.Expexpressiontable, self).__setattr__(name, value)
 
 
-        class Expexpressionentry(object):
+        class Expexpressionentry(Entity):
             """
             Information about a single expression.  New expressions
             can be created using expExpressionRowStatus.
@@ -265,7 +388,7 @@ class DismanExpressionMib(object):
             .. attribute:: expexpressionentrystatus
             
             	The control that allows creation and deletion of entries
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: expexpressionerrors
             
@@ -284,7 +407,7 @@ class DismanExpressionMib(object):
             .. attribute:: expexpressionvaluetype
             
             	The type of the expression value.  One and only one of the value objects in expValueTable will be instantiated to match this type.  If the result of the expression can not be made into this type, an invalidOperandType error will occur
-            	**type**\:   :py:class:`ExpexpressionvaluetypeEnum <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expexpressiontable.Expexpressionentry.ExpexpressionvaluetypeEnum>`
+            	**type**\:   :py:class:`Expexpressionvaluetype <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expexpressiontable.Expexpressionentry.Expexpressionvaluetype>`
             
             
 
@@ -294,20 +417,64 @@ class DismanExpressionMib(object):
             _revision = '2000-10-16'
 
             def __init__(self):
-                self.parent = None
-                self.expexpressionowner = None
-                self.expexpressionname = None
-                self.expexpression = None
-                self.expexpressioncomment = None
-                self.expexpressiondeltainterval = None
-                self.expexpressionentrystatus = None
-                self.expexpressionerrors = None
-                self.expexpressionprefix = None
-                self.expexpressionvaluetype = None
+                super(DismanExpressionMib.Expexpressiontable.Expexpressionentry, self).__init__()
 
-            class ExpexpressionvaluetypeEnum(Enum):
+                self.yang_name = "expExpressionEntry"
+                self.yang_parent_name = "expExpressionTable"
+
+                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
+
+                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
+
+                self.expexpression = YLeaf(YType.str, "expExpression")
+
+                self.expexpressioncomment = YLeaf(YType.str, "expExpressionComment")
+
+                self.expexpressiondeltainterval = YLeaf(YType.int32, "expExpressionDeltaInterval")
+
+                self.expexpressionentrystatus = YLeaf(YType.enumeration, "expExpressionEntryStatus")
+
+                self.expexpressionerrors = YLeaf(YType.uint32, "expExpressionErrors")
+
+                self.expexpressionprefix = YLeaf(YType.str, "expExpressionPrefix")
+
+                self.expexpressionvaluetype = YLeaf(YType.enumeration, "expExpressionValueType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("expexpressionowner",
+                                "expexpressionname",
+                                "expexpression",
+                                "expexpressioncomment",
+                                "expexpressiondeltainterval",
+                                "expexpressionentrystatus",
+                                "expexpressionerrors",
+                                "expexpressionprefix",
+                                "expexpressionvaluetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DismanExpressionMib.Expexpressiontable.Expexpressionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DismanExpressionMib.Expexpressiontable.Expexpressionentry, self).__setattr__(name, value)
+
+            class Expexpressionvaluetype(Enum):
                 """
-                ExpexpressionvaluetypeEnum
+                Expexpressionvaluetype
 
                 The type of the expression value.  One and only one of the
 
@@ -337,101 +504,193 @@ class DismanExpressionMib(object):
 
                 """
 
-                counter32 = 1
+                counter32 = Enum.YLeaf(1, "counter32")
 
-                unsigned32 = 2
+                unsigned32 = Enum.YLeaf(2, "unsigned32")
 
-                timeTicks = 3
+                timeTicks = Enum.YLeaf(3, "timeTicks")
 
-                integer32 = 4
+                integer32 = Enum.YLeaf(4, "integer32")
 
-                ipAddress = 5
+                ipAddress = Enum.YLeaf(5, "ipAddress")
 
-                octetString = 6
+                octetString = Enum.YLeaf(6, "octetString")
 
-                objectId = 7
+                objectId = Enum.YLeaf(7, "objectId")
 
-                counter64 = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                    return meta._meta_table['DismanExpressionMib.Expexpressiontable.Expexpressionentry.ExpexpressionvaluetypeEnum']
+                counter64 = Enum.YLeaf(8, "counter64")
 
 
-            @property
-            def _common_path(self):
-                if self.expexpressionowner is None:
-                    raise YPYModelError('Key property expexpressionowner is None')
-                if self.expexpressionname is None:
-                    raise YPYModelError('Key property expexpressionname is None')
+            def has_data(self):
+                return (
+                    self.expexpressionowner.is_set or
+                    self.expexpressionname.is_set or
+                    self.expexpression.is_set or
+                    self.expexpressioncomment.is_set or
+                    self.expexpressiondeltainterval.is_set or
+                    self.expexpressionentrystatus.is_set or
+                    self.expexpressionerrors.is_set or
+                    self.expexpressionprefix.is_set or
+                    self.expexpressionvaluetype.is_set)
 
-                return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expExpressionTable/DISMAN-EXPRESSION-MIB:expExpressionEntry[DISMAN-EXPRESSION-MIB:expExpressionOwner = ' + str(self.expexpressionowner) + '][DISMAN-EXPRESSION-MIB:expExpressionName = ' + str(self.expexpressionname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.expexpressionowner.yfilter != YFilter.not_set or
+                    self.expexpressionname.yfilter != YFilter.not_set or
+                    self.expexpression.yfilter != YFilter.not_set or
+                    self.expexpressioncomment.yfilter != YFilter.not_set or
+                    self.expexpressiondeltainterval.yfilter != YFilter.not_set or
+                    self.expexpressionentrystatus.yfilter != YFilter.not_set or
+                    self.expexpressionerrors.yfilter != YFilter.not_set or
+                    self.expexpressionprefix.yfilter != YFilter.not_set or
+                    self.expexpressionvaluetype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "expExpressionEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expExpressionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.expexpressionowner.is_set or self.expexpressionowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionowner.get_name_leafdata())
+                if (self.expexpressionname.is_set or self.expexpressionname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionname.get_name_leafdata())
+                if (self.expexpression.is_set or self.expexpression.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpression.get_name_leafdata())
+                if (self.expexpressioncomment.is_set or self.expexpressioncomment.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressioncomment.get_name_leafdata())
+                if (self.expexpressiondeltainterval.is_set or self.expexpressiondeltainterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressiondeltainterval.get_name_leafdata())
+                if (self.expexpressionentrystatus.is_set or self.expexpressionentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionentrystatus.get_name_leafdata())
+                if (self.expexpressionerrors.is_set or self.expexpressionerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionerrors.get_name_leafdata())
+                if (self.expexpressionprefix.is_set or self.expexpressionprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionprefix.get_name_leafdata())
+                if (self.expexpressionvaluetype.is_set or self.expexpressionvaluetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionvaluetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "expExpressionOwner" or name == "expExpressionName" or name == "expExpression" or name == "expExpressionComment" or name == "expExpressionDeltaInterval" or name == "expExpressionEntryStatus" or name == "expExpressionErrors" or name == "expExpressionPrefix" or name == "expExpressionValueType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.expexpressionowner is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "expExpressionOwner"):
+                    self.expexpressionowner = value
+                    self.expexpressionowner.value_namespace = name_space
+                    self.expexpressionowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionName"):
+                    self.expexpressionname = value
+                    self.expexpressionname.value_namespace = name_space
+                    self.expexpressionname.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpression"):
+                    self.expexpression = value
+                    self.expexpression.value_namespace = name_space
+                    self.expexpression.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionComment"):
+                    self.expexpressioncomment = value
+                    self.expexpressioncomment.value_namespace = name_space
+                    self.expexpressioncomment.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionDeltaInterval"):
+                    self.expexpressiondeltainterval = value
+                    self.expexpressiondeltainterval.value_namespace = name_space
+                    self.expexpressiondeltainterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionEntryStatus"):
+                    self.expexpressionentrystatus = value
+                    self.expexpressionentrystatus.value_namespace = name_space
+                    self.expexpressionentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionErrors"):
+                    self.expexpressionerrors = value
+                    self.expexpressionerrors.value_namespace = name_space
+                    self.expexpressionerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionPrefix"):
+                    self.expexpressionprefix = value
+                    self.expexpressionprefix.value_namespace = name_space
+                    self.expexpressionprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionValueType"):
+                    self.expexpressionvaluetype = value
+                    self.expexpressionvaluetype.value_namespace = name_space
+                    self.expexpressionvaluetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.expexpressionentry:
+                if (c.has_data()):
                     return True
-
-                if self.expexpressionname is not None:
-                    return True
-
-                if self.expexpression is not None:
-                    return True
-
-                if self.expexpressioncomment is not None:
-                    return True
-
-                if self.expexpressiondeltainterval is not None:
-                    return True
-
-                if self.expexpressionentrystatus is not None:
-                    return True
-
-                if self.expexpressionerrors is not None:
-                    return True
-
-                if self.expexpressionprefix is not None:
-                    return True
-
-                if self.expexpressionvaluetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                return meta._meta_table['DismanExpressionMib.Expexpressiontable.Expexpressionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expExpressionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.expexpressionentry is not None:
-                for child_ref in self.expexpressionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.expexpressionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "expExpressionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "expExpressionEntry"):
+                for c in self.expexpressionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DismanExpressionMib.Expexpressiontable.Expexpressionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.expexpressionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "expExpressionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-            return meta._meta_table['DismanExpressionMib.Expexpressiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Experrortable(object):
+    class Experrortable(Entity):
         """
         A table of expression errors.
         
@@ -448,13 +707,39 @@ class DismanExpressionMib(object):
         _revision = '2000-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.experrorentry = YList()
-            self.experrorentry.parent = self
-            self.experrorentry.name = 'experrorentry'
+            super(DismanExpressionMib.Experrortable, self).__init__()
+
+            self.yang_name = "expErrorTable"
+            self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
+
+            self.experrorentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DismanExpressionMib.Experrortable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DismanExpressionMib.Experrortable, self).__setattr__(name, value)
 
 
-        class Experrorentry(object):
+        class Experrorentry(Entity):
             """
             Information about errors in processing an expression.
             
@@ -484,7 +769,7 @@ class DismanExpressionMib(object):
             .. attribute:: experrorcode
             
             	The error that occurred.  In the following explanations the expected timing of the error is in parentheses.  'S' means the error occurs on a Set request.  'E' means the error occurs on the attempt to evaluate the expression either due to Get from expValueTable or in ongoing delta processing.  invalidSyntax       the value sent for expExpression is not                valid Expression MIB expression syntax                (S) undefinedObjectIndex     an object reference ($n) in                expExpression does not have a matching                instance in expObjectTable (E) unrecognizedOperator     the value sent for expExpression held an                unrecognized operator (S) unrecognizedFunction     the value sent for expExpression held an                unrecognized function name (S) invalidOperandType  an operand in expExpression is not the                right type for the associated operator                or result (SE) unmatchedParenthesis     the value sent for expExpression is not                correctly parenthesized (S) tooManyWildcardValues    evaluating the expression exceeded the                limit set by                expResourceDeltaWildcardInstanceMaximum                (E) recursion      through some chain of embedded                expressions the expression invokes itself                (E) deltaTooShort       the delta for the next evaluation passed                before the system could evaluate the                present sample (E) resourceUnavailable some resource, typically dynamic memory,                was unavailable (SE) divideByZero        an attempt to divide by zero occurred                (E)  For the errors that occur when the attempt is made to set expExpression Set request fails with the SNMP error code 'wrongValue'.  Such failures refer to the most recent failure to Set expExpression, not to the present value of expExpression which must be either unset or syntactically correct.  Errors that occur during evaluation for a Get\* operation return the SNMP error code 'genErr' except for 'tooManyWildcardValues' and 'resourceUnavailable' which return the SNMP error code 'resourceUnavailable'
-            	**type**\:   :py:class:`ExperrorcodeEnum <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Experrortable.Experrorentry.ExperrorcodeEnum>`
+            	**type**\:   :py:class:`Experrorcode <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Experrortable.Experrorentry.Experrorcode>`
             
             .. attribute:: experrorindex
             
@@ -515,17 +800,55 @@ class DismanExpressionMib(object):
             _revision = '2000-10-16'
 
             def __init__(self):
-                self.parent = None
-                self.expexpressionowner = None
-                self.expexpressionname = None
-                self.experrorcode = None
-                self.experrorindex = None
-                self.experrorinstance = None
-                self.experrortime = None
+                super(DismanExpressionMib.Experrortable.Experrorentry, self).__init__()
 
-            class ExperrorcodeEnum(Enum):
+                self.yang_name = "expErrorEntry"
+                self.yang_parent_name = "expErrorTable"
+
+                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
+
+                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
+
+                self.experrorcode = YLeaf(YType.enumeration, "expErrorCode")
+
+                self.experrorindex = YLeaf(YType.int32, "expErrorIndex")
+
+                self.experrorinstance = YLeaf(YType.str, "expErrorInstance")
+
+                self.experrortime = YLeaf(YType.uint32, "expErrorTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("expexpressionowner",
+                                "expexpressionname",
+                                "experrorcode",
+                                "experrorindex",
+                                "experrorinstance",
+                                "experrortime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DismanExpressionMib.Experrortable.Experrorentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DismanExpressionMib.Experrortable.Experrorentry, self).__setattr__(name, value)
+
+            class Experrorcode(Enum):
                 """
-                ExperrorcodeEnum
+                Experrorcode
 
                 The error that occurred.  In the following explanations the
 
@@ -637,98 +960,175 @@ class DismanExpressionMib(object):
 
                 """
 
-                invalidSyntax = 1
+                invalidSyntax = Enum.YLeaf(1, "invalidSyntax")
 
-                undefinedObjectIndex = 2
+                undefinedObjectIndex = Enum.YLeaf(2, "undefinedObjectIndex")
 
-                unrecognizedOperator = 3
+                unrecognizedOperator = Enum.YLeaf(3, "unrecognizedOperator")
 
-                unrecognizedFunction = 4
+                unrecognizedFunction = Enum.YLeaf(4, "unrecognizedFunction")
 
-                invalidOperandType = 5
+                invalidOperandType = Enum.YLeaf(5, "invalidOperandType")
 
-                unmatchedParenthesis = 6
+                unmatchedParenthesis = Enum.YLeaf(6, "unmatchedParenthesis")
 
-                tooManyWildcardValues = 7
+                tooManyWildcardValues = Enum.YLeaf(7, "tooManyWildcardValues")
 
-                recursion = 8
+                recursion = Enum.YLeaf(8, "recursion")
 
-                deltaTooShort = 9
+                deltaTooShort = Enum.YLeaf(9, "deltaTooShort")
 
-                resourceUnavailable = 10
+                resourceUnavailable = Enum.YLeaf(10, "resourceUnavailable")
 
-                divideByZero = 11
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                    return meta._meta_table['DismanExpressionMib.Experrortable.Experrorentry.ExperrorcodeEnum']
+                divideByZero = Enum.YLeaf(11, "divideByZero")
 
 
-            @property
-            def _common_path(self):
-                if self.expexpressionowner is None:
-                    raise YPYModelError('Key property expexpressionowner is None')
-                if self.expexpressionname is None:
-                    raise YPYModelError('Key property expexpressionname is None')
+            def has_data(self):
+                return (
+                    self.expexpressionowner.is_set or
+                    self.expexpressionname.is_set or
+                    self.experrorcode.is_set or
+                    self.experrorindex.is_set or
+                    self.experrorinstance.is_set or
+                    self.experrortime.is_set)
 
-                return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expErrorTable/DISMAN-EXPRESSION-MIB:expErrorEntry[DISMAN-EXPRESSION-MIB:expExpressionOwner = ' + str(self.expexpressionowner) + '][DISMAN-EXPRESSION-MIB:expExpressionName = ' + str(self.expexpressionname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.expexpressionowner.yfilter != YFilter.not_set or
+                    self.expexpressionname.yfilter != YFilter.not_set or
+                    self.experrorcode.yfilter != YFilter.not_set or
+                    self.experrorindex.yfilter != YFilter.not_set or
+                    self.experrorinstance.yfilter != YFilter.not_set or
+                    self.experrortime.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "expErrorEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expErrorTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.expexpressionowner.is_set or self.expexpressionowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionowner.get_name_leafdata())
+                if (self.expexpressionname.is_set or self.expexpressionname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionname.get_name_leafdata())
+                if (self.experrorcode.is_set or self.experrorcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.experrorcode.get_name_leafdata())
+                if (self.experrorindex.is_set or self.experrorindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.experrorindex.get_name_leafdata())
+                if (self.experrorinstance.is_set or self.experrorinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.experrorinstance.get_name_leafdata())
+                if (self.experrortime.is_set or self.experrortime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.experrortime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "expExpressionOwner" or name == "expExpressionName" or name == "expErrorCode" or name == "expErrorIndex" or name == "expErrorInstance" or name == "expErrorTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.expexpressionowner is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "expExpressionOwner"):
+                    self.expexpressionowner = value
+                    self.expexpressionowner.value_namespace = name_space
+                    self.expexpressionowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionName"):
+                    self.expexpressionname = value
+                    self.expexpressionname.value_namespace = name_space
+                    self.expexpressionname.value_namespace_prefix = name_space_prefix
+                if(value_path == "expErrorCode"):
+                    self.experrorcode = value
+                    self.experrorcode.value_namespace = name_space
+                    self.experrorcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "expErrorIndex"):
+                    self.experrorindex = value
+                    self.experrorindex.value_namespace = name_space
+                    self.experrorindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "expErrorInstance"):
+                    self.experrorinstance = value
+                    self.experrorinstance.value_namespace = name_space
+                    self.experrorinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "expErrorTime"):
+                    self.experrortime = value
+                    self.experrortime.value_namespace = name_space
+                    self.experrortime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.experrorentry:
+                if (c.has_data()):
                     return True
-
-                if self.expexpressionname is not None:
-                    return True
-
-                if self.experrorcode is not None:
-                    return True
-
-                if self.experrorindex is not None:
-                    return True
-
-                if self.experrorinstance is not None:
-                    return True
-
-                if self.experrortime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                return meta._meta_table['DismanExpressionMib.Experrortable.Experrorentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expErrorTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.experrorentry is not None:
-                for child_ref in self.experrorentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.experrorentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "expErrorTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "expErrorEntry"):
+                for c in self.experrorentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DismanExpressionMib.Experrortable.Experrorentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.experrorentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "expErrorEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-            return meta._meta_table['DismanExpressionMib.Experrortable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Expobjecttable(object):
+    class Expobjecttable(Entity):
         """
         A table of object definitions for each expExpression.
         
@@ -757,13 +1157,39 @@ class DismanExpressionMib(object):
         _revision = '2000-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.expobjectentry = YList()
-            self.expobjectentry.parent = self
-            self.expobjectentry.name = 'expobjectentry'
+            super(DismanExpressionMib.Expobjecttable, self).__init__()
+
+            self.yang_name = "expObjectTable"
+            self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
+
+            self.expobjectentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DismanExpressionMib.Expobjecttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DismanExpressionMib.Expobjecttable, self).__setattr__(name, value)
 
 
-        class Expobjectentry(object):
+        class Expobjectentry(Entity):
             """
             Information about an object.  An application uses
             expObjectEntryStatus to create entries in this table while
@@ -819,7 +1245,7 @@ class DismanExpressionMib(object):
             .. attribute:: expobjectdiscontinuityidtype
             
             	The value 'timeTicks' indicates the expObjectDeltaDiscontinuityID of this row is of syntax TimeTicks.  The value 'timeStamp' indicates syntax TimeStamp.  The value 'dateAndTime indicates syntax DateAndTime.  This object is instantiated only if expObjectSampleType is 'deltaValue' or 'changedValue'
-            	**type**\:   :py:class:`ExpobjectdiscontinuityidtypeEnum <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expobjecttable.Expobjectentry.ExpobjectdiscontinuityidtypeEnum>`
+            	**type**\:   :py:class:`Expobjectdiscontinuityidtype <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expobjecttable.Expobjectentry.Expobjectdiscontinuityidtype>`
             
             .. attribute:: expobjectdiscontinuityidwildcard
             
@@ -829,7 +1255,7 @@ class DismanExpressionMib(object):
             .. attribute:: expobjectentrystatus
             
             	The control that allows creation/deletion of entries.  Objects in this table may be changed while expObjectEntryStatus is in any state
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: expobjectid
             
@@ -846,7 +1272,7 @@ class DismanExpressionMib(object):
             .. attribute:: expobjectsampletype
             
             	The method of sampling the selected variable.  An 'absoluteValue' is simply the present value of the object.  A 'deltaValue' is the present value minus the previous value, which was sampled expExpressionDeltaInterval seconds ago. This is intended primarily for use with SNMP counters, which are meaningless as an 'absoluteValue', but may be used with any integer\-based value.  A 'changedValue' is a boolean for whether the present value is different from the previous value.  It is applicable to any data type and results in an Unsigned32 with value 1 if the object's value is changed and 0 if not.  In all other respects it is as a 'deltaValue' and all statements and operation regarding delta values apply to changed values.  When an expression contains both delta and absolute values the absolute values are obtained at the end of the delta period
-            	**type**\:   :py:class:`ExpobjectsampletypeEnum <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expobjecttable.Expobjectentry.ExpobjectsampletypeEnum>`
+            	**type**\:   :py:class:`Expobjectsampletype <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DismanExpressionMib.Expobjecttable.Expobjectentry.Expobjectsampletype>`
             
             
 
@@ -856,23 +1282,73 @@ class DismanExpressionMib(object):
             _revision = '2000-10-16'
 
             def __init__(self):
-                self.parent = None
-                self.expexpressionowner = None
-                self.expexpressionname = None
-                self.expobjectindex = None
-                self.expobjectconditional = None
-                self.expobjectconditionalwildcard = None
-                self.expobjectdeltadiscontinuityid = None
-                self.expobjectdiscontinuityidtype = None
-                self.expobjectdiscontinuityidwildcard = None
-                self.expobjectentrystatus = None
-                self.expobjectid = None
-                self.expobjectidwildcard = None
-                self.expobjectsampletype = None
+                super(DismanExpressionMib.Expobjecttable.Expobjectentry, self).__init__()
 
-            class ExpobjectdiscontinuityidtypeEnum(Enum):
+                self.yang_name = "expObjectEntry"
+                self.yang_parent_name = "expObjectTable"
+
+                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
+
+                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
+
+                self.expobjectindex = YLeaf(YType.uint32, "expObjectIndex")
+
+                self.expobjectconditional = YLeaf(YType.str, "expObjectConditional")
+
+                self.expobjectconditionalwildcard = YLeaf(YType.boolean, "expObjectConditionalWildcard")
+
+                self.expobjectdeltadiscontinuityid = YLeaf(YType.str, "expObjectDeltaDiscontinuityID")
+
+                self.expobjectdiscontinuityidtype = YLeaf(YType.enumeration, "expObjectDiscontinuityIDType")
+
+                self.expobjectdiscontinuityidwildcard = YLeaf(YType.boolean, "expObjectDiscontinuityIDWildcard")
+
+                self.expobjectentrystatus = YLeaf(YType.enumeration, "expObjectEntryStatus")
+
+                self.expobjectid = YLeaf(YType.str, "expObjectID")
+
+                self.expobjectidwildcard = YLeaf(YType.boolean, "expObjectIDWildcard")
+
+                self.expobjectsampletype = YLeaf(YType.enumeration, "expObjectSampleType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("expexpressionowner",
+                                "expexpressionname",
+                                "expobjectindex",
+                                "expobjectconditional",
+                                "expobjectconditionalwildcard",
+                                "expobjectdeltadiscontinuityid",
+                                "expobjectdiscontinuityidtype",
+                                "expobjectdiscontinuityidwildcard",
+                                "expobjectentrystatus",
+                                "expobjectid",
+                                "expobjectidwildcard",
+                                "expobjectsampletype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DismanExpressionMib.Expobjecttable.Expobjectentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DismanExpressionMib.Expobjecttable.Expobjectentry, self).__setattr__(name, value)
+
+            class Expobjectdiscontinuityidtype(Enum):
                 """
-                ExpobjectdiscontinuityidtypeEnum
+                Expobjectdiscontinuityidtype
 
                 The value 'timeTicks' indicates the expObjectDeltaDiscontinuityID
 
@@ -894,22 +1370,16 @@ class DismanExpressionMib(object):
 
                 """
 
-                timeTicks = 1
+                timeTicks = Enum.YLeaf(1, "timeTicks")
 
-                timeStamp = 2
+                timeStamp = Enum.YLeaf(2, "timeStamp")
 
-                dateAndTime = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                    return meta._meta_table['DismanExpressionMib.Expobjecttable.Expobjectentry.ExpobjectdiscontinuityidtypeEnum']
+                dateAndTime = Enum.YLeaf(3, "dateAndTime")
 
 
-            class ExpobjectsampletypeEnum(Enum):
+            class Expobjectsampletype(Enum):
                 """
-                ExpobjectsampletypeEnum
+                Expobjectsampletype
 
                 The method of sampling the selected variable.
 
@@ -951,102 +1421,207 @@ class DismanExpressionMib(object):
 
                 """
 
-                absoluteValue = 1
+                absoluteValue = Enum.YLeaf(1, "absoluteValue")
 
-                deltaValue = 2
+                deltaValue = Enum.YLeaf(2, "deltaValue")
 
-                changedValue = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                    return meta._meta_table['DismanExpressionMib.Expobjecttable.Expobjectentry.ExpobjectsampletypeEnum']
+                changedValue = Enum.YLeaf(3, "changedValue")
 
 
-            @property
-            def _common_path(self):
-                if self.expexpressionowner is None:
-                    raise YPYModelError('Key property expexpressionowner is None')
-                if self.expexpressionname is None:
-                    raise YPYModelError('Key property expexpressionname is None')
-                if self.expobjectindex is None:
-                    raise YPYModelError('Key property expobjectindex is None')
+            def has_data(self):
+                return (
+                    self.expexpressionowner.is_set or
+                    self.expexpressionname.is_set or
+                    self.expobjectindex.is_set or
+                    self.expobjectconditional.is_set or
+                    self.expobjectconditionalwildcard.is_set or
+                    self.expobjectdeltadiscontinuityid.is_set or
+                    self.expobjectdiscontinuityidtype.is_set or
+                    self.expobjectdiscontinuityidwildcard.is_set or
+                    self.expobjectentrystatus.is_set or
+                    self.expobjectid.is_set or
+                    self.expobjectidwildcard.is_set or
+                    self.expobjectsampletype.is_set)
 
-                return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expObjectTable/DISMAN-EXPRESSION-MIB:expObjectEntry[DISMAN-EXPRESSION-MIB:expExpressionOwner = ' + str(self.expexpressionowner) + '][DISMAN-EXPRESSION-MIB:expExpressionName = ' + str(self.expexpressionname) + '][DISMAN-EXPRESSION-MIB:expObjectIndex = ' + str(self.expobjectindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.expexpressionowner.yfilter != YFilter.not_set or
+                    self.expexpressionname.yfilter != YFilter.not_set or
+                    self.expobjectindex.yfilter != YFilter.not_set or
+                    self.expobjectconditional.yfilter != YFilter.not_set or
+                    self.expobjectconditionalwildcard.yfilter != YFilter.not_set or
+                    self.expobjectdeltadiscontinuityid.yfilter != YFilter.not_set or
+                    self.expobjectdiscontinuityidtype.yfilter != YFilter.not_set or
+                    self.expobjectdiscontinuityidwildcard.yfilter != YFilter.not_set or
+                    self.expobjectentrystatus.yfilter != YFilter.not_set or
+                    self.expobjectid.yfilter != YFilter.not_set or
+                    self.expobjectidwildcard.yfilter != YFilter.not_set or
+                    self.expobjectsampletype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "expObjectEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + "[expObjectIndex='" + self.expobjectindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expObjectTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.expexpressionowner.is_set or self.expexpressionowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionowner.get_name_leafdata())
+                if (self.expexpressionname.is_set or self.expexpressionname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionname.get_name_leafdata())
+                if (self.expobjectindex.is_set or self.expobjectindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectindex.get_name_leafdata())
+                if (self.expobjectconditional.is_set or self.expobjectconditional.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectconditional.get_name_leafdata())
+                if (self.expobjectconditionalwildcard.is_set or self.expobjectconditionalwildcard.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectconditionalwildcard.get_name_leafdata())
+                if (self.expobjectdeltadiscontinuityid.is_set or self.expobjectdeltadiscontinuityid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectdeltadiscontinuityid.get_name_leafdata())
+                if (self.expobjectdiscontinuityidtype.is_set or self.expobjectdiscontinuityidtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectdiscontinuityidtype.get_name_leafdata())
+                if (self.expobjectdiscontinuityidwildcard.is_set or self.expobjectdiscontinuityidwildcard.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectdiscontinuityidwildcard.get_name_leafdata())
+                if (self.expobjectentrystatus.is_set or self.expobjectentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectentrystatus.get_name_leafdata())
+                if (self.expobjectid.is_set or self.expobjectid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectid.get_name_leafdata())
+                if (self.expobjectidwildcard.is_set or self.expobjectidwildcard.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectidwildcard.get_name_leafdata())
+                if (self.expobjectsampletype.is_set or self.expobjectsampletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expobjectsampletype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "expExpressionOwner" or name == "expExpressionName" or name == "expObjectIndex" or name == "expObjectConditional" or name == "expObjectConditionalWildcard" or name == "expObjectDeltaDiscontinuityID" or name == "expObjectDiscontinuityIDType" or name == "expObjectDiscontinuityIDWildcard" or name == "expObjectEntryStatus" or name == "expObjectID" or name == "expObjectIDWildcard" or name == "expObjectSampleType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.expexpressionowner is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "expExpressionOwner"):
+                    self.expexpressionowner = value
+                    self.expexpressionowner.value_namespace = name_space
+                    self.expexpressionowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionName"):
+                    self.expexpressionname = value
+                    self.expexpressionname.value_namespace = name_space
+                    self.expexpressionname.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectIndex"):
+                    self.expobjectindex = value
+                    self.expobjectindex.value_namespace = name_space
+                    self.expobjectindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectConditional"):
+                    self.expobjectconditional = value
+                    self.expobjectconditional.value_namespace = name_space
+                    self.expobjectconditional.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectConditionalWildcard"):
+                    self.expobjectconditionalwildcard = value
+                    self.expobjectconditionalwildcard.value_namespace = name_space
+                    self.expobjectconditionalwildcard.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectDeltaDiscontinuityID"):
+                    self.expobjectdeltadiscontinuityid = value
+                    self.expobjectdeltadiscontinuityid.value_namespace = name_space
+                    self.expobjectdeltadiscontinuityid.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectDiscontinuityIDType"):
+                    self.expobjectdiscontinuityidtype = value
+                    self.expobjectdiscontinuityidtype.value_namespace = name_space
+                    self.expobjectdiscontinuityidtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectDiscontinuityIDWildcard"):
+                    self.expobjectdiscontinuityidwildcard = value
+                    self.expobjectdiscontinuityidwildcard.value_namespace = name_space
+                    self.expobjectdiscontinuityidwildcard.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectEntryStatus"):
+                    self.expobjectentrystatus = value
+                    self.expobjectentrystatus.value_namespace = name_space
+                    self.expobjectentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectID"):
+                    self.expobjectid = value
+                    self.expobjectid.value_namespace = name_space
+                    self.expobjectid.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectIDWildcard"):
+                    self.expobjectidwildcard = value
+                    self.expobjectidwildcard.value_namespace = name_space
+                    self.expobjectidwildcard.value_namespace_prefix = name_space_prefix
+                if(value_path == "expObjectSampleType"):
+                    self.expobjectsampletype = value
+                    self.expobjectsampletype.value_namespace = name_space
+                    self.expobjectsampletype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.expobjectentry:
+                if (c.has_data()):
                     return True
-
-                if self.expexpressionname is not None:
-                    return True
-
-                if self.expobjectindex is not None:
-                    return True
-
-                if self.expobjectconditional is not None:
-                    return True
-
-                if self.expobjectconditionalwildcard is not None:
-                    return True
-
-                if self.expobjectdeltadiscontinuityid is not None:
-                    return True
-
-                if self.expobjectdiscontinuityidtype is not None:
-                    return True
-
-                if self.expobjectdiscontinuityidwildcard is not None:
-                    return True
-
-                if self.expobjectentrystatus is not None:
-                    return True
-
-                if self.expobjectid is not None:
-                    return True
-
-                if self.expobjectidwildcard is not None:
-                    return True
-
-                if self.expobjectsampletype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                return meta._meta_table['DismanExpressionMib.Expobjecttable.Expobjectentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expObjectTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.expobjectentry is not None:
-                for child_ref in self.expobjectentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.expobjectentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "expObjectTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "expObjectEntry"):
+                for c in self.expobjectentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DismanExpressionMib.Expobjecttable.Expobjectentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.expobjectentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "expObjectEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-            return meta._meta_table['DismanExpressionMib.Expobjecttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Expvaluetable(object):
+    class Expvaluetable(Entity):
         """
         A table of values from evaluated expressions.
         
@@ -1063,13 +1638,39 @@ class DismanExpressionMib(object):
         _revision = '2000-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.expvalueentry = YList()
-            self.expvalueentry.parent = self
-            self.expvalueentry.name = 'expvalueentry'
+            super(DismanExpressionMib.Expvaluetable, self).__init__()
+
+            self.yang_name = "expValueTable"
+            self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
+
+            self.expvalueentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DismanExpressionMib.Expvaluetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DismanExpressionMib.Expvaluetable, self).__setattr__(name, value)
 
 
-        class Expvalueentry(object):
+        class Expvalueentry(Entity):
             """
             A single value from an evaluated expression.  For a given
             instance, only one 'Val' object in the conceptual row will be
@@ -1192,127 +1793,336 @@ class DismanExpressionMib(object):
             _revision = '2000-10-16'
 
             def __init__(self):
-                self.parent = None
-                self.expexpressionowner = None
-                self.expexpressionname = None
-                self.expvalueinstance = None
-                self.expvaluecounter32val = None
-                self.expvaluecounter64val = None
-                self.expvalueinteger32val = None
-                self.expvalueipaddressval = None
-                self.expvalueoctetstringval = None
-                self.expvalueoidval = None
-                self.expvaluetimeticksval = None
-                self.expvalueunsigned32val = None
+                super(DismanExpressionMib.Expvaluetable.Expvalueentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.expexpressionowner is None:
-                    raise YPYModelError('Key property expexpressionowner is None')
-                if self.expexpressionname is None:
-                    raise YPYModelError('Key property expexpressionname is None')
-                if self.expvalueinstance is None:
-                    raise YPYModelError('Key property expvalueinstance is None')
+                self.yang_name = "expValueEntry"
+                self.yang_parent_name = "expValueTable"
 
-                return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expValueTable/DISMAN-EXPRESSION-MIB:expValueEntry[DISMAN-EXPRESSION-MIB:expExpressionOwner = ' + str(self.expexpressionowner) + '][DISMAN-EXPRESSION-MIB:expExpressionName = ' + str(self.expexpressionname) + '][DISMAN-EXPRESSION-MIB:expValueInstance = ' + str(self.expvalueinstance) + ']'
+                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
+
+                self.expvalueinstance = YLeaf(YType.str, "expValueInstance")
+
+                self.expvaluecounter32val = YLeaf(YType.uint32, "expValueCounter32Val")
+
+                self.expvaluecounter64val = YLeaf(YType.uint64, "expValueCounter64Val")
+
+                self.expvalueinteger32val = YLeaf(YType.int32, "expValueInteger32Val")
+
+                self.expvalueipaddressval = YLeaf(YType.str, "expValueIpAddressVal")
+
+                self.expvalueoctetstringval = YLeaf(YType.str, "expValueOctetStringVal")
+
+                self.expvalueoidval = YLeaf(YType.str, "expValueOidVal")
+
+                self.expvaluetimeticksval = YLeaf(YType.uint32, "expValueTimeTicksVal")
+
+                self.expvalueunsigned32val = YLeaf(YType.uint32, "expValueUnsigned32Val")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("expexpressionowner",
+                                "expexpressionname",
+                                "expvalueinstance",
+                                "expvaluecounter32val",
+                                "expvaluecounter64val",
+                                "expvalueinteger32val",
+                                "expvalueipaddressval",
+                                "expvalueoctetstringval",
+                                "expvalueoidval",
+                                "expvaluetimeticksval",
+                                "expvalueunsigned32val") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DismanExpressionMib.Expvaluetable.Expvalueentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DismanExpressionMib.Expvaluetable.Expvalueentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.expexpressionowner.is_set or
+                    self.expexpressionname.is_set or
+                    self.expvalueinstance.is_set or
+                    self.expvaluecounter32val.is_set or
+                    self.expvaluecounter64val.is_set or
+                    self.expvalueinteger32val.is_set or
+                    self.expvalueipaddressval.is_set or
+                    self.expvalueoctetstringval.is_set or
+                    self.expvalueoidval.is_set or
+                    self.expvaluetimeticksval.is_set or
+                    self.expvalueunsigned32val.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.expexpressionowner.yfilter != YFilter.not_set or
+                    self.expexpressionname.yfilter != YFilter.not_set or
+                    self.expvalueinstance.yfilter != YFilter.not_set or
+                    self.expvaluecounter32val.yfilter != YFilter.not_set or
+                    self.expvaluecounter64val.yfilter != YFilter.not_set or
+                    self.expvalueinteger32val.yfilter != YFilter.not_set or
+                    self.expvalueipaddressval.yfilter != YFilter.not_set or
+                    self.expvalueoctetstringval.yfilter != YFilter.not_set or
+                    self.expvalueoidval.yfilter != YFilter.not_set or
+                    self.expvaluetimeticksval.yfilter != YFilter.not_set or
+                    self.expvalueunsigned32val.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "expValueEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + "[expValueInstance='" + self.expvalueinstance.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expValueTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.expexpressionowner.is_set or self.expexpressionowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionowner.get_name_leafdata())
+                if (self.expexpressionname.is_set or self.expexpressionname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expexpressionname.get_name_leafdata())
+                if (self.expvalueinstance.is_set or self.expvalueinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueinstance.get_name_leafdata())
+                if (self.expvaluecounter32val.is_set or self.expvaluecounter32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvaluecounter32val.get_name_leafdata())
+                if (self.expvaluecounter64val.is_set or self.expvaluecounter64val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvaluecounter64val.get_name_leafdata())
+                if (self.expvalueinteger32val.is_set or self.expvalueinteger32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueinteger32val.get_name_leafdata())
+                if (self.expvalueipaddressval.is_set or self.expvalueipaddressval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueipaddressval.get_name_leafdata())
+                if (self.expvalueoctetstringval.is_set or self.expvalueoctetstringval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueoctetstringval.get_name_leafdata())
+                if (self.expvalueoidval.is_set or self.expvalueoidval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueoidval.get_name_leafdata())
+                if (self.expvaluetimeticksval.is_set or self.expvaluetimeticksval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvaluetimeticksval.get_name_leafdata())
+                if (self.expvalueunsigned32val.is_set or self.expvalueunsigned32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.expvalueunsigned32val.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "expExpressionOwner" or name == "expExpressionName" or name == "expValueInstance" or name == "expValueCounter32Val" or name == "expValueCounter64Val" or name == "expValueInteger32Val" or name == "expValueIpAddressVal" or name == "expValueOctetStringVal" or name == "expValueOidVal" or name == "expValueTimeTicksVal" or name == "expValueUnsigned32Val"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.expexpressionowner is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "expExpressionOwner"):
+                    self.expexpressionowner = value
+                    self.expexpressionowner.value_namespace = name_space
+                    self.expexpressionowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "expExpressionName"):
+                    self.expexpressionname = value
+                    self.expexpressionname.value_namespace = name_space
+                    self.expexpressionname.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueInstance"):
+                    self.expvalueinstance = value
+                    self.expvalueinstance.value_namespace = name_space
+                    self.expvalueinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueCounter32Val"):
+                    self.expvaluecounter32val = value
+                    self.expvaluecounter32val.value_namespace = name_space
+                    self.expvaluecounter32val.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueCounter64Val"):
+                    self.expvaluecounter64val = value
+                    self.expvaluecounter64val.value_namespace = name_space
+                    self.expvaluecounter64val.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueInteger32Val"):
+                    self.expvalueinteger32val = value
+                    self.expvalueinteger32val.value_namespace = name_space
+                    self.expvalueinteger32val.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueIpAddressVal"):
+                    self.expvalueipaddressval = value
+                    self.expvalueipaddressval.value_namespace = name_space
+                    self.expvalueipaddressval.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueOctetStringVal"):
+                    self.expvalueoctetstringval = value
+                    self.expvalueoctetstringval.value_namespace = name_space
+                    self.expvalueoctetstringval.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueOidVal"):
+                    self.expvalueoidval = value
+                    self.expvalueoidval.value_namespace = name_space
+                    self.expvalueoidval.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueTimeTicksVal"):
+                    self.expvaluetimeticksval = value
+                    self.expvaluetimeticksval.value_namespace = name_space
+                    self.expvaluetimeticksval.value_namespace_prefix = name_space_prefix
+                if(value_path == "expValueUnsigned32Val"):
+                    self.expvalueunsigned32val = value
+                    self.expvalueunsigned32val.value_namespace = name_space
+                    self.expvalueunsigned32val.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.expvalueentry:
+                if (c.has_data()):
                     return True
-
-                if self.expexpressionname is not None:
-                    return True
-
-                if self.expvalueinstance is not None:
-                    return True
-
-                if self.expvaluecounter32val is not None:
-                    return True
-
-                if self.expvaluecounter64val is not None:
-                    return True
-
-                if self.expvalueinteger32val is not None:
-                    return True
-
-                if self.expvalueipaddressval is not None:
-                    return True
-
-                if self.expvalueoctetstringval is not None:
-                    return True
-
-                if self.expvalueoidval is not None:
-                    return True
-
-                if self.expvaluetimeticksval is not None:
-                    return True
-
-                if self.expvalueunsigned32val is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-                return meta._meta_table['DismanExpressionMib.Expvaluetable.Expvalueentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/DISMAN-EXPRESSION-MIB:expValueTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.expvalueentry is not None:
-                for child_ref in self.expvalueentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.expvalueentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "expValueTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "expValueEntry"):
+                for c in self.expvalueentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DismanExpressionMib.Expvaluetable.Expvalueentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.expvalueentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "expValueEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-            return meta._meta_table['DismanExpressionMib.Expvaluetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.experrortable is not None and self.experrortable.has_data()) or
+            (self.expexpressiontable is not None and self.expexpressiontable.has_data()) or
+            (self.expobjecttable is not None and self.expobjecttable.has_data()) or
+            (self.expresource is not None and self.expresource.has_data()) or
+            (self.expvaluetable is not None and self.expvaluetable.has_data()))
 
-        return '/DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.experrortable is not None and self.experrortable.has_operation()) or
+            (self.expexpressiontable is not None and self.expexpressiontable.has_operation()) or
+            (self.expobjecttable is not None and self.expobjecttable.has_operation()) or
+            (self.expresource is not None and self.expresource.has_operation()) or
+            (self.expvaluetable is not None and self.expvaluetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "expErrorTable"):
+            if (self.experrortable is None):
+                self.experrortable = DismanExpressionMib.Experrortable()
+                self.experrortable.parent = self
+                self._children_name_map["experrortable"] = "expErrorTable"
+            return self.experrortable
+
+        if (child_yang_name == "expExpressionTable"):
+            if (self.expexpressiontable is None):
+                self.expexpressiontable = DismanExpressionMib.Expexpressiontable()
+                self.expexpressiontable.parent = self
+                self._children_name_map["expexpressiontable"] = "expExpressionTable"
+            return self.expexpressiontable
+
+        if (child_yang_name == "expObjectTable"):
+            if (self.expobjecttable is None):
+                self.expobjecttable = DismanExpressionMib.Expobjecttable()
+                self.expobjecttable.parent = self
+                self._children_name_map["expobjecttable"] = "expObjectTable"
+            return self.expobjecttable
+
+        if (child_yang_name == "expResource"):
+            if (self.expresource is None):
+                self.expresource = DismanExpressionMib.Expresource()
+                self.expresource.parent = self
+                self._children_name_map["expresource"] = "expResource"
+            return self.expresource
+
+        if (child_yang_name == "expValueTable"):
+            if (self.expvaluetable is None):
+                self.expvaluetable = DismanExpressionMib.Expvaluetable()
+                self.expvaluetable.parent = self
+                self._children_name_map["expvaluetable"] = "expValueTable"
+            return self.expvaluetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "expErrorTable" or name == "expExpressionTable" or name == "expObjectTable" or name == "expResource" or name == "expValueTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.experrortable is not None and self.experrortable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.expexpressiontable is not None and self.expexpressiontable._has_data():
-            return True
-
-        if self.expobjecttable is not None and self.expobjecttable._has_data():
-            return True
-
-        if self.expresource is not None and self.expresource._has_data():
-            return True
-
-        if self.expvaluetable is not None and self.expvaluetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _DISMAN_EXPRESSION_MIB as meta
-        return meta._meta_table['DismanExpressionMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = DismanExpressionMib()
+        return self._top_entity
 

@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AaaServiceAccountingEnum(Enum):
+class AaaServiceAccounting(Enum):
     """
-    AaaServiceAccountingEnum
+    AaaServiceAccounting
 
     Aaa service accounting
 
@@ -45,22 +39,16 @@ class AaaServiceAccountingEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    extended = 1
+    extended = Enum.YLeaf(1, "extended")
 
-    brief = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_aaacore_cfg as meta
-        return meta._meta_table['AaaServiceAccountingEnum']
+    brief = Enum.YLeaf(2, "brief")
 
 
-class NasPortValueEnum(Enum):
+class NasPortValue(Enum):
     """
-    NasPortValueEnum
+    NasPortValue
 
     Nas port value
 
@@ -162,59 +150,53 @@ class NasPortValueEnum(Enum):
 
     """
 
-    async = 0
+    async = Enum.YLeaf(0, "async")
 
-    sync = 1
+    sync = Enum.YLeaf(1, "sync")
 
-    isdn = 2
+    isdn = Enum.YLeaf(2, "isdn")
 
-    isdn_async_v120 = 3
+    isdn_async_v120 = Enum.YLeaf(3, "isdn-async-v120")
 
-    isdn_async_v110 = 4
+    isdn_async_v110 = Enum.YLeaf(4, "isdn-async-v110")
 
-    virtual = 5
+    virtual = Enum.YLeaf(5, "virtual")
 
-    isdn_async_piafs = 6
+    isdn_async_piafs = Enum.YLeaf(6, "isdn-async-piafs")
 
-    x75 = 9
+    x75 = Enum.YLeaf(9, "x75")
 
-    ethernet = 15
+    ethernet = Enum.YLeaf(15, "ethernet")
 
-    pppoa = 30
+    pppoa = Enum.YLeaf(30, "pppoa")
 
-    pppoeoa = 31
+    pppoeoa = Enum.YLeaf(31, "pppoeoa")
 
-    pppoeoe = 32
+    pppoeoe = Enum.YLeaf(32, "pppoeoe")
 
-    pppoeovlan = 33
+    pppoeovlan = Enum.YLeaf(33, "pppoeovlan")
 
-    pppoeoqinq = 34
+    pppoeoqinq = Enum.YLeaf(34, "pppoeoqinq")
 
-    virtual_pppoeoe = 35
+    virtual_pppoeoe = Enum.YLeaf(35, "virtual-pppoeoe")
 
-    virtual_pppoeovlan = 36
+    virtual_pppoeovlan = Enum.YLeaf(36, "virtual-pppoeovlan")
 
-    virtual_pppoeoqinaq = 37
+    virtual_pppoeoqinaq = Enum.YLeaf(37, "virtual-pppoeoqinaq")
 
-    ipsec = 38
+    ipsec = Enum.YLeaf(38, "ipsec")
 
-    ipoeoe = 39
+    ipoeoe = Enum.YLeaf(39, "ipoeoe")
 
-    ipoeovlan = 40
+    ipoeovlan = Enum.YLeaf(40, "ipoeovlan")
 
-    ipoeoqinq = 41
+    ipoeoqinq = Enum.YLeaf(41, "ipoeoqinq")
 
-    virtual_ipoeoe = 42
+    virtual_ipoeoe = Enum.YLeaf(42, "virtual-ipoeoe")
 
-    virtual_ipoeovlan = 43
+    virtual_ipoeovlan = Enum.YLeaf(43, "virtual-ipoeovlan")
 
-    virtual_ipoeoqinq = 44
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_aaacore_cfg as meta
-        return meta._meta_table['NasPortValueEnum']
+    virtual_ipoeoqinq = Enum.YLeaf(44, "virtual-ipoeoqinq")
 
 
 

@@ -11,21 +11,15 @@ PW\-specific MIBs (such as this) contain config and stats for
 specific PW types.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIetfPwTdmMib(object):
+class CiscoIetfPwTdmMib(Entity):
     """
     
     
@@ -67,21 +61,44 @@ class CiscoIetfPwTdmMib(object):
     _revision = '2006-07-21'
 
     def __init__(self):
+        super(CiscoIetfPwTdmMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IETF-PW-TDM-MIB"
+        self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
         self.cpwctdmcfgtable = CiscoIetfPwTdmMib.Cpwctdmcfgtable()
         self.cpwctdmcfgtable.parent = self
+        self._children_name_map["cpwctdmcfgtable"] = "cpwCTDMCfgTable"
+        self._children_yang_names.add("cpwCTDMCfgTable")
+
         self.cpwctdmobjects = CiscoIetfPwTdmMib.Cpwctdmobjects()
         self.cpwctdmobjects.parent = self
+        self._children_name_map["cpwctdmobjects"] = "cpwCTDMObjects"
+        self._children_yang_names.add("cpwCTDMObjects")
+
         self.cpwctdmperf1dayintervaltable = CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable()
         self.cpwctdmperf1dayintervaltable.parent = self
+        self._children_name_map["cpwctdmperf1dayintervaltable"] = "cpwCTDMPerf1DayIntervalTable"
+        self._children_yang_names.add("cpwCTDMPerf1DayIntervalTable")
+
         self.cpwctdmperfcurrenttable = CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable()
         self.cpwctdmperfcurrenttable.parent = self
+        self._children_name_map["cpwctdmperfcurrenttable"] = "cpwCTDMPerfCurrentTable"
+        self._children_yang_names.add("cpwCTDMPerfCurrentTable")
+
         self.cpwctdmperfintervaltable = CiscoIetfPwTdmMib.Cpwctdmperfintervaltable()
         self.cpwctdmperfintervaltable.parent = self
+        self._children_name_map["cpwctdmperfintervaltable"] = "cpwCTDMPerfIntervalTable"
+        self._children_yang_names.add("cpwCTDMPerfIntervalTable")
+
         self.cpwctdmtable = CiscoIetfPwTdmMib.Cpwctdmtable()
         self.cpwctdmtable.parent = self
+        self._children_name_map["cpwctdmtable"] = "cpwCTDMTable"
+        self._children_yang_names.add("cpwCTDMTable")
 
 
-    class Cpwctdmobjects(object):
+    class Cpwctdmobjects(Entity):
         """
         
         
@@ -100,31 +117,85 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmcfgindexnext = None
+            super(CiscoIetfPwTdmMib.Cpwctdmobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cpwCTDMObjects"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
 
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMObjects'
+            self.cpwctdmcfgindexnext = YLeaf(YType.uint32, "cpwCTDMCfgIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cpwctdmcfgindexnext") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmobjects, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.cpwctdmcfgindexnext is not None:
+        def has_data(self):
+            return self.cpwctdmcfgindexnext.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cpwctdmcfgindexnext.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cpwctdmcfgindexnext.is_set or self.cpwctdmcfgindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwctdmcfgindexnext.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMCfgIndexNext"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cpwCTDMCfgIndexNext"):
+                self.cpwctdmcfgindexnext = value
+                self.cpwctdmcfgindexnext.value_namespace = name_space
+                self.cpwctdmcfgindexnext.value_namespace_prefix = name_space_prefix
 
 
-    class Cpwctdmtable(object):
+    class Cpwctdmtable(Entity):
         """
         This table contains basic information including ifIndex,
         and pointers to entries in the relevant TDM config
@@ -143,13 +214,39 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmentry = YList()
-            self.cpwctdmentry.parent = self
-            self.cpwctdmentry.name = 'cpwctdmentry'
+            super(CiscoIetfPwTdmMib.Cpwctdmtable, self).__init__()
+
+            self.yang_name = "cpwCTDMTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
+            self.cpwctdmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmtable, self).__setattr__(name, value)
 
 
-        class Cpwctdmentry(object):
+        class Cpwctdmentry(Entity):
             """
             This table is indexed by the same index that was
             created for the associated entry in the VC Table
@@ -258,252 +355,258 @@ class CiscoIetfPwTdmMib(object):
             _revision = '2006-07-21'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwcgentdmcfgindex = None
-                self.cpwcreltdmcfgindex = None
-                self.cpwctdmconfigerror = CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry.Cpwctdmconfigerror()
-                self.cpwctdmcurrentindications = CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry.Cpwctdmcurrentindications()
-                self.cpwctdmifindex = None
-                self.cpwctdmlastestimestamp = None
-                self.cpwctdmlatchedindications = CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry.Cpwctdmlatchedindications()
-                self.cpwctdmrate = None
-                self.cpwctdmtimeelapsed = None
-                self.cpwctdmvaliddayintervals = None
-                self.cpwctdmvalidintervals = None
+                super(CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry, self).__init__()
 
-            class Cpwctdmconfigerror(FixedBitsDict):
-                """
-                Cpwctdmconfigerror
+                self.yang_name = "cpwCTDMEntry"
+                self.yang_parent_name = "cpwCTDMTable"
 
-                Any of the bits are set if the local configuration is
-                not compatible with the peer configuration as available
-                from the various parameters options.
-                
-                \-tdmTypeIncompatible bit is set if the local configuration
-                is not carrying the same TDM type as the peer configuration.
-                
-                \-peerRtpIncompatible bit is set if the local configuration
-                is configured to send RTP packets for this PW, and the
-                remote is not capable of accepting RTP packets.
-                
-                \-peerPayloadSizeIncompatible bit is set if the local
-                configuration is not carrying the same Payload Size as the
-                peer configuration.
-                Keys are:- other , tdmTypeIncompatible , peerRtpIncompatible , peerPayloadSizeIncompatible
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-                """
+                self.cpwcgentdmcfgindex = YLeaf(YType.uint32, "cpwCGenTDMCfgIndex")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'other':False,
-                        'tdmTypeIncompatible':False,
-                        'peerRtpIncompatible':False,
-                        'peerPayloadSizeIncompatible':False,
-                    }
-                    self._pos_map = { 
-                        'other':0,
-                        'tdmTypeIncompatible':1,
-                        'peerRtpIncompatible':2,
-                        'peerPayloadSizeIncompatible':3,
-                    }
+                self.cpwcreltdmcfgindex = YLeaf(YType.uint32, "cpwCRelTDMCfgIndex")
 
-            class Cpwctdmcurrentindications(FixedBitsDict):
-                """
-                Cpwctdmcurrentindications
+                self.cpwctdmconfigerror = YLeaf(YType.bits, "cpwCTDMConfigError")
 
-                The following defects should be detected and reported
-                upon request\:
-                
-                \-Stray packets MAY be detected by the PSN and multiplexing
-                layers. Stray packets MUST be discarded by the CE\-bound IWF
-                and their detection MUST NOT affect mechanisms for
-                detection of packet loss.
-                
-                \-Malformed packets are detected by mismatch between the
-                expected packet size (taking the value of the L bit into
-                account) and the actual packet size inferred from the PSN
-                and multiplexing layers. Malformed in\-order packets MUST be
-                discarded by the CE\-bound IWF and replacement data
-                generated as for lost packets.
-                
-                \-Excessive packet loss rate is detected by computing the
-                average packet loss rate over the value of
-                cpwCTDMAvePktLossTimeWindow and comparing it with a
-                preconfigured threshold [SATOP].
-                
-                \-Buffer overrun is detected in the normal operation state
-                when the CE bound IWF's jitter buffer cannot accommodate
-                newly arrived packets.
-                
-                \-Remote packet loss is indicated by reception of packets 
-                with their R bit set.
-                
-                \-Packet misorder is detected by looking at the Sequence
-                number provided by the control word.
-                
-                \-TDM Fault, if L bit in the control word is set, it
-                indicates that TDM data carried in the payload is invalid
-                due an attachment circuit fault.  When the L bit is set the
-                payload MAY be omitted in order to conserve bandwidth.
-                
-                Note\: the algorithm used to capture these indications
-                is implementation specific.
-                Keys are:- pktMisOrder , tdmFault , packetLoss , bufferUnderrun , malformedPacket , bufferOverrun , remotePktLoss , other , strayPacket , excessivePktLossRate
+                self.cpwctdmcurrentindications = YLeaf(YType.bits, "cpwCTDMCurrentIndications")
 
-                """
+                self.cpwctdmifindex = YLeaf(YType.int32, "cpwCTDMIfIndex")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'pktMisOrder':False,
-                        'tdmFault':False,
-                        'packetLoss':False,
-                        'bufferUnderrun':False,
-                        'malformedPacket':False,
-                        'bufferOverrun':False,
-                        'remotePktLoss':False,
-                        'other':False,
-                        'strayPacket':False,
-                        'excessivePktLossRate':False,
-                    }
-                    self._pos_map = { 
-                        'pktMisOrder':7,
-                        'tdmFault':9,
-                        'packetLoss':8,
-                        'bufferUnderrun':5,
-                        'malformedPacket':2,
-                        'bufferOverrun':4,
-                        'remotePktLoss':6,
-                        'other':0,
-                        'strayPacket':1,
-                        'excessivePktLossRate':3,
-                    }
+                self.cpwctdmlastestimestamp = YLeaf(YType.uint32, "cpwCTDMLastEsTimeStamp")
 
-            class Cpwctdmlatchedindications(FixedBitsDict):
-                """
-                Cpwctdmlatchedindications
+                self.cpwctdmlatchedindications = YLeaf(YType.bits, "cpwCTDMLatchedIndications")
 
-                The state of TDM indicators when the TDM PW last declared
-                an error second (either as ES, SES or a second with
-                errors inside a UAS) condition. At this time, only LOPS
-                can create a failure. Since indicators other than LOPS are
-                useful, all are latched here. For bit definitions, see
-                cpwCTDMCurrentIndications above.
-                
-                Note\: the algorithm used to latch these indications when
-                entering a defect state is implementation specific.
-                Keys are:- pktMisOrder , tdmFault , packetLoss , bufferUnderrun , malformedPacket , bufferOverrun , remotePktLoss , other , staryPacket , excessivePktLossRate
+                self.cpwctdmrate = YLeaf(YType.int32, "cpwCTDMRate")
 
-                """
+                self.cpwctdmtimeelapsed = YLeaf(YType.int32, "cpwCTDMTimeElapsed")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'pktMisOrder':False,
-                        'tdmFault':False,
-                        'packetLoss':False,
-                        'bufferUnderrun':False,
-                        'malformedPacket':False,
-                        'bufferOverrun':False,
-                        'remotePktLoss':False,
-                        'other':False,
-                        'staryPacket':False,
-                        'excessivePktLossRate':False,
-                    }
-                    self._pos_map = { 
-                        'pktMisOrder':7,
-                        'tdmFault':9,
-                        'packetLoss':8,
-                        'bufferUnderrun':5,
-                        'malformedPacket':2,
-                        'bufferOverrun':4,
-                        'remotePktLoss':6,
-                        'other':0,
-                        'staryPacket':1,
-                        'excessivePktLossRate':3,
-                    }
+                self.cpwctdmvaliddayintervals = YLeaf(YType.int32, "cpwCTDMValidDayIntervals")
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+                self.cpwctdmvalidintervals = YLeaf(YType.int32, "cpwCTDMValidIntervals")
 
-                return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMTable/CISCO-IETF-PW-TDM-MIB:cpwCTDMEntry[CISCO-IETF-PW-TDM-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwcgentdmcfgindex",
+                                "cpwcreltdmcfgindex",
+                                "cpwctdmconfigerror",
+                                "cpwctdmcurrentindications",
+                                "cpwctdmifindex",
+                                "cpwctdmlastestimestamp",
+                                "cpwctdmlatchedindications",
+                                "cpwctdmrate",
+                                "cpwctdmtimeelapsed",
+                                "cpwctdmvaliddayintervals",
+                                "cpwctdmvalidintervals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry, self).__setattr__(name, value)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwcgentdmcfgindex.is_set or
+                    self.cpwcreltdmcfgindex.is_set or
+                    self.cpwctdmconfigerror.is_set or
+                    self.cpwctdmcurrentindications.is_set or
+                    self.cpwctdmifindex.is_set or
+                    self.cpwctdmlastestimestamp.is_set or
+                    self.cpwctdmlatchedindications.is_set or
+                    self.cpwctdmrate.is_set or
+                    self.cpwctdmtimeelapsed.is_set or
+                    self.cpwctdmvaliddayintervals.is_set or
+                    self.cpwctdmvalidintervals.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwcgentdmcfgindex.yfilter != YFilter.not_set or
+                    self.cpwcreltdmcfgindex.yfilter != YFilter.not_set or
+                    self.cpwctdmconfigerror.yfilter != YFilter.not_set or
+                    self.cpwctdmcurrentindications.yfilter != YFilter.not_set or
+                    self.cpwctdmifindex.yfilter != YFilter.not_set or
+                    self.cpwctdmlastestimestamp.yfilter != YFilter.not_set or
+                    self.cpwctdmlatchedindications.yfilter != YFilter.not_set or
+                    self.cpwctdmrate.yfilter != YFilter.not_set or
+                    self.cpwctdmtimeelapsed.yfilter != YFilter.not_set or
+                    self.cpwctdmvaliddayintervals.yfilter != YFilter.not_set or
+                    self.cpwctdmvalidintervals.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwCTDMEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwcgentdmcfgindex.is_set or self.cpwcgentdmcfgindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwcgentdmcfgindex.get_name_leafdata())
+                if (self.cpwcreltdmcfgindex.is_set or self.cpwcreltdmcfgindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwcreltdmcfgindex.get_name_leafdata())
+                if (self.cpwctdmconfigerror.is_set or self.cpwctdmconfigerror.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmconfigerror.get_name_leafdata())
+                if (self.cpwctdmcurrentindications.is_set or self.cpwctdmcurrentindications.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcurrentindications.get_name_leafdata())
+                if (self.cpwctdmifindex.is_set or self.cpwctdmifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmifindex.get_name_leafdata())
+                if (self.cpwctdmlastestimestamp.is_set or self.cpwctdmlastestimestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmlastestimestamp.get_name_leafdata())
+                if (self.cpwctdmlatchedindications.is_set or self.cpwctdmlatchedindications.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmlatchedindications.get_name_leafdata())
+                if (self.cpwctdmrate.is_set or self.cpwctdmrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmrate.get_name_leafdata())
+                if (self.cpwctdmtimeelapsed.is_set or self.cpwctdmtimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmtimeelapsed.get_name_leafdata())
+                if (self.cpwctdmvaliddayintervals.is_set or self.cpwctdmvaliddayintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmvaliddayintervals.get_name_leafdata())
+                if (self.cpwctdmvalidintervals.is_set or self.cpwctdmvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmvalidintervals.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwCGenTDMCfgIndex" or name == "cpwCRelTDMCfgIndex" or name == "cpwCTDMConfigError" or name == "cpwCTDMCurrentIndications" or name == "cpwCTDMIfIndex" or name == "cpwCTDMLastEsTimeStamp" or name == "cpwCTDMLatchedIndications" or name == "cpwCTDMRate" or name == "cpwCTDMTimeElapsed" or name == "cpwCTDMValidDayIntervals" or name == "cpwCTDMValidIntervals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCGenTDMCfgIndex"):
+                    self.cpwcgentdmcfgindex = value
+                    self.cpwcgentdmcfgindex.value_namespace = name_space
+                    self.cpwcgentdmcfgindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCRelTDMCfgIndex"):
+                    self.cpwcreltdmcfgindex = value
+                    self.cpwcreltdmcfgindex.value_namespace = name_space
+                    self.cpwcreltdmcfgindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMConfigError"):
+                    self.cpwctdmconfigerror[value] = True
+                if(value_path == "cpwCTDMCurrentIndications"):
+                    self.cpwctdmcurrentindications[value] = True
+                if(value_path == "cpwCTDMIfIndex"):
+                    self.cpwctdmifindex = value
+                    self.cpwctdmifindex.value_namespace = name_space
+                    self.cpwctdmifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMLastEsTimeStamp"):
+                    self.cpwctdmlastestimestamp = value
+                    self.cpwctdmlastestimestamp.value_namespace = name_space
+                    self.cpwctdmlastestimestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMLatchedIndications"):
+                    self.cpwctdmlatchedindications[value] = True
+                if(value_path == "cpwCTDMRate"):
+                    self.cpwctdmrate = value
+                    self.cpwctdmrate.value_namespace = name_space
+                    self.cpwctdmrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMTimeElapsed"):
+                    self.cpwctdmtimeelapsed = value
+                    self.cpwctdmtimeelapsed.value_namespace = name_space
+                    self.cpwctdmtimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMValidDayIntervals"):
+                    self.cpwctdmvaliddayintervals = value
+                    self.cpwctdmvaliddayintervals.value_namespace = name_space
+                    self.cpwctdmvaliddayintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMValidIntervals"):
+                    self.cpwctdmvalidintervals = value
+                    self.cpwctdmvalidintervals.value_namespace = name_space
+                    self.cpwctdmvalidintervals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwctdmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwcgentdmcfgindex is not None:
-                    return True
-
-                if self.cpwcreltdmcfgindex is not None:
-                    return True
-
-                if self.cpwctdmconfigerror is not None:
-                    if self.cpwctdmconfigerror._has_data():
-                        return True
-
-                if self.cpwctdmcurrentindications is not None:
-                    if self.cpwctdmcurrentindications._has_data():
-                        return True
-
-                if self.cpwctdmifindex is not None:
-                    return True
-
-                if self.cpwctdmlastestimestamp is not None:
-                    return True
-
-                if self.cpwctdmlatchedindications is not None:
-                    if self.cpwctdmlatchedindications._has_data():
-                        return True
-
-                if self.cpwctdmrate is not None:
-                    return True
-
-                if self.cpwctdmtimeelapsed is not None:
-                    return True
-
-                if self.cpwctdmvaliddayintervals is not None:
-                    return True
-
-                if self.cpwctdmvalidintervals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwctdmentry is not None:
-                for child_ref in self.cpwctdmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwctdmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwCTDMEntry"):
+                for c in self.cpwctdmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwTdmMib.Cpwctdmtable.Cpwctdmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwctdmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwctdmcfgtable(object):
+    class Cpwctdmcfgtable(Entity):
         """
         This table contains a set of parameters that may be
         referenced by one or more TDM PWs in cpwCTDMTable.
@@ -521,13 +624,39 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmcfgentry = YList()
-            self.cpwctdmcfgentry.parent = self
-            self.cpwctdmcfgentry.name = 'cpwctdmcfgentry'
+            super(CiscoIetfPwTdmMib.Cpwctdmcfgtable, self).__init__()
+
+            self.yang_name = "cpwCTDMCfgTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
+            self.cpwctdmcfgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmcfgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmcfgtable, self).__setattr__(name, value)
 
 
-        class Cpwctdmcfgentry(object):
+        class Cpwctdmcfgentry(Entity):
             """
             These parameters define the characteristics of a
             TDM PW. They are grouped here to ease NMS burden.
@@ -628,7 +757,7 @@ class CiscoIetfPwTdmMib(object):
             .. attribute:: cpwctdmcfgpayloadsuppression
             
             	This object indicates whether the Payload suppression is eanbled or disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  \- Payload suppression is allowed. disable \- No Payload suppresion under any condition
-            	**type**\:   :py:class:`CpwctdmcfgpayloadsuppressionEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgpayloadsuppressionEnum>`
+            	**type**\:   :py:class:`Cpwctdmcfgpayloadsuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpayloadsuppression>`
             
             .. attribute:: cpwctdmcfgpktreorder
             
@@ -638,12 +767,12 @@ class CiscoIetfPwTdmMib(object):
             .. attribute:: cpwctdmcfgpktreplacepolicy
             
             	This parameter determines the value to be played when CE bound packets have over/underflow the jitter buffer, or are missing for any reason. This AIS (Alarm Indication Signal) pattern is sent (played) on the TDM line.  ais                    \- AIS (Alarm Indication Signal)                          pattern is sent (played) on                          the TDM line.  implementationSpecific \- Implementation specific pattern is                          sent on the TDM line
-            	**type**\:   :py:class:`CpwctdmcfgpktreplacepolicyEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgpktreplacepolicyEnum>`
+            	**type**\:   :py:class:`Cpwctdmcfgpktreplacepolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpktreplacepolicy>`
             
             .. attribute:: cpwctdmcfgrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  All of the columnar objects have to be set to valid values before the row can be activated. Default value will be automatically provisioned if for those objects not specified during row creation.  No objects in cascading tables have to be populated with related data before the row can be activated.  The following objects cannot be modified if the RowStatus is active\: cpwCTDMCfgPayloadSize, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, and cpwCTDMCfgPayloadSuppression.  If the RowStatus is active, the following parameters can be modified\:  cpwCTDMCfgConfErr, cpwCTDMCfgPktReorder,  cpwCTDMCfgConsecPktsInSynch, cpwCTDMCfgConsecMissPktsOutSynch, cpwCTDMCfgSetUp2SynchTimeOut, cpwCTDMCfgPktReplacePolicy, cpwCTDMCfgAvePktLossTimeWindow,  cpwCTDMCfgExcessivePktLossThreshold, cpwCTDMCfgAlarmThreshold, cpwCTDMCfgClearAlarmThreshold, cpwCTDMCfgMissingPktsToSes, cpwCTDMCfgTimestampMode, cpwCTDMCfgStorageType.  A row may be deleted by setting the RowStatus to 'destroy'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cpwctdmcfgrtphdrused
             
@@ -662,12 +791,12 @@ class CiscoIetfPwTdmMib(object):
             .. attribute:: cpwctdmcfgstoragetype
             
             	This variable indicates the storage type for this row. The following are the read\-write objects in permanent(4) rows, that an agent must allow to be writable\: cpwCTDMCfgPayloadSize, cpwCTDMCfgPktReorder, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, cpwCTDMCfgPayloadSuppression, cpwCTDMCfgConfErr
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cpwctdmcfgtimestampmode
             
             	Timestamp generation MAY be used in one of the following modes\: 1. Absolute mode\: the PSN\-bound IWF sets timestamps  using the clock recovered from the incoming TDM attachment  circuit. As a consequence, the timestamps are closely  correlated with the sequence numbers. All TDM   implementations that support usage of the RTP header MUST  support this mode. 2. Differential mode\: Both IWFs have access to a common  high\-quality timing source, and this source is used for  timestamp generation. Support of this mode is OPTIONAL
-            	**type**\:   :py:class:`CpwctdmcfgtimestampmodeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgtimestampmodeEnum>`
+            	**type**\:   :py:class:`Cpwctdmcfgtimestampmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgtimestampmode>`
             
             
 
@@ -677,30 +806,94 @@ class CiscoIetfPwTdmMib(object):
             _revision = '2006-07-21'
 
             def __init__(self):
-                self.parent = None
-                self.cpwctdmcfgindex = None
-                self.cpwctdmcfgalarmthreshold = None
-                self.cpwctdmcfgavepktlosstimewindow = None
-                self.cpwctdmcfgclearalarmthreshold = None
-                self.cpwctdmcfgconferr = CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgconferr()
-                self.cpwctdmcfgconsecmisspktsoutsynch = None
-                self.cpwctdmcfgconsecpktsinsynch = None
-                self.cpwctdmcfgexcessivepktlossthreshold = None
-                self.cpwctdmcfgjtrbfrdepth = None
-                self.cpwctdmcfgmissingpktstoses = None
-                self.cpwctdmcfgpayloadsize = None
-                self.cpwctdmcfgpayloadsuppression = None
-                self.cpwctdmcfgpktreorder = None
-                self.cpwctdmcfgpktreplacepolicy = None
-                self.cpwctdmcfgrowstatus = None
-                self.cpwctdmcfgrtphdrused = None
-                self.cpwctdmcfgsetup2synchtimeout = None
-                self.cpwctdmcfgstoragetype = None
-                self.cpwctdmcfgtimestampmode = None
+                super(CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry, self).__init__()
 
-            class CpwctdmcfgpayloadsuppressionEnum(Enum):
+                self.yang_name = "cpwCTDMCfgEntry"
+                self.yang_parent_name = "cpwCTDMCfgTable"
+
+                self.cpwctdmcfgindex = YLeaf(YType.uint32, "cpwCTDMCfgIndex")
+
+                self.cpwctdmcfgalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgAlarmThreshold")
+
+                self.cpwctdmcfgavepktlosstimewindow = YLeaf(YType.int32, "cpwCTDMCfgAvePktLossTimeWindow")
+
+                self.cpwctdmcfgclearalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgClearAlarmThreshold")
+
+                self.cpwctdmcfgconferr = YLeaf(YType.bits, "cpwCTDMCfgConfErr")
+
+                self.cpwctdmcfgconsecmisspktsoutsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecMissPktsOutSynch")
+
+                self.cpwctdmcfgconsecpktsinsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecPktsInSynch")
+
+                self.cpwctdmcfgexcessivepktlossthreshold = YLeaf(YType.uint32, "cpwCTDMCfgExcessivePktLossThreshold")
+
+                self.cpwctdmcfgjtrbfrdepth = YLeaf(YType.uint32, "cpwCTDMCfgJtrBfrDepth")
+
+                self.cpwctdmcfgmissingpktstoses = YLeaf(YType.uint32, "cpwCTDMCfgMissingPktsToSes")
+
+                self.cpwctdmcfgpayloadsize = YLeaf(YType.uint32, "cpwCTDMCfgPayloadSize")
+
+                self.cpwctdmcfgpayloadsuppression = YLeaf(YType.enumeration, "cpwCTDMCfgPayloadSuppression")
+
+                self.cpwctdmcfgpktreorder = YLeaf(YType.boolean, "cpwCTDMCfgPktReorder")
+
+                self.cpwctdmcfgpktreplacepolicy = YLeaf(YType.enumeration, "cpwCTDMCfgPktReplacePolicy")
+
+                self.cpwctdmcfgrowstatus = YLeaf(YType.enumeration, "cpwCTDMCfgRowStatus")
+
+                self.cpwctdmcfgrtphdrused = YLeaf(YType.boolean, "cpwCTDMCfgRtpHdrUsed")
+
+                self.cpwctdmcfgsetup2synchtimeout = YLeaf(YType.uint32, "cpwCTDMCfgSetUp2SynchTimeOut")
+
+                self.cpwctdmcfgstoragetype = YLeaf(YType.enumeration, "cpwCTDMCfgStorageType")
+
+                self.cpwctdmcfgtimestampmode = YLeaf(YType.enumeration, "cpwCTDMCfgTimestampMode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwctdmcfgindex",
+                                "cpwctdmcfgalarmthreshold",
+                                "cpwctdmcfgavepktlosstimewindow",
+                                "cpwctdmcfgclearalarmthreshold",
+                                "cpwctdmcfgconferr",
+                                "cpwctdmcfgconsecmisspktsoutsynch",
+                                "cpwctdmcfgconsecpktsinsynch",
+                                "cpwctdmcfgexcessivepktlossthreshold",
+                                "cpwctdmcfgjtrbfrdepth",
+                                "cpwctdmcfgmissingpktstoses",
+                                "cpwctdmcfgpayloadsize",
+                                "cpwctdmcfgpayloadsuppression",
+                                "cpwctdmcfgpktreorder",
+                                "cpwctdmcfgpktreplacepolicy",
+                                "cpwctdmcfgrowstatus",
+                                "cpwctdmcfgrtphdrused",
+                                "cpwctdmcfgsetup2synchtimeout",
+                                "cpwctdmcfgstoragetype",
+                                "cpwctdmcfgtimestampmode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry, self).__setattr__(name, value)
+
+            class Cpwctdmcfgpayloadsuppression(Enum):
                 """
-                CpwctdmcfgpayloadsuppressionEnum
+                Cpwctdmcfgpayloadsuppression
 
                 This object indicates whether the Payload suppression
 
@@ -718,20 +911,14 @@ class CiscoIetfPwTdmMib(object):
 
                 """
 
-                enable = 1
+                enable = Enum.YLeaf(1, "enable")
 
-                disable = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                    return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgpayloadsuppressionEnum']
+                disable = Enum.YLeaf(2, "disable")
 
 
-            class CpwctdmcfgpktreplacepolicyEnum(Enum):
+            class Cpwctdmcfgpktreplacepolicy(Enum):
                 """
-                CpwctdmcfgpktreplacepolicyEnum
+                Cpwctdmcfgpktreplacepolicy
 
                 This parameter determines the value to be played when CE
 
@@ -757,20 +944,14 @@ class CiscoIetfPwTdmMib(object):
 
                 """
 
-                ais = 1
+                ais = Enum.YLeaf(1, "ais")
 
-                implementationSpecific = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                    return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgpktreplacepolicyEnum']
+                implementationSpecific = Enum.YLeaf(2, "implementationSpecific")
 
 
-            class CpwctdmcfgtimestampmodeEnum(Enum):
+            class Cpwctdmcfgtimestampmode(Enum):
                 """
-                CpwctdmcfgtimestampmodeEnum
+                Cpwctdmcfgtimestampmode
 
                 Timestamp generation MAY be used in one of the following
 
@@ -802,152 +983,261 @@ class CiscoIetfPwTdmMib(object):
 
                 """
 
-                notApplicable = 1
+                notApplicable = Enum.YLeaf(1, "notApplicable")
 
-                absolute = 2
+                absolute = Enum.YLeaf(2, "absolute")
 
-                differential = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                    return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry.CpwctdmcfgtimestampmodeEnum']
+                differential = Enum.YLeaf(3, "differential")
 
 
-            class Cpwctdmcfgconferr(FixedBitsDict):
-                """
-                Cpwctdmcfgconferr
+            def has_data(self):
+                return (
+                    self.cpwctdmcfgindex.is_set or
+                    self.cpwctdmcfgalarmthreshold.is_set or
+                    self.cpwctdmcfgavepktlosstimewindow.is_set or
+                    self.cpwctdmcfgclearalarmthreshold.is_set or
+                    self.cpwctdmcfgconferr.is_set or
+                    self.cpwctdmcfgconsecmisspktsoutsynch.is_set or
+                    self.cpwctdmcfgconsecpktsinsynch.is_set or
+                    self.cpwctdmcfgexcessivepktlossthreshold.is_set or
+                    self.cpwctdmcfgjtrbfrdepth.is_set or
+                    self.cpwctdmcfgmissingpktstoses.is_set or
+                    self.cpwctdmcfgpayloadsize.is_set or
+                    self.cpwctdmcfgpayloadsuppression.is_set or
+                    self.cpwctdmcfgpktreorder.is_set or
+                    self.cpwctdmcfgpktreplacepolicy.is_set or
+                    self.cpwctdmcfgrowstatus.is_set or
+                    self.cpwctdmcfgrtphdrused.is_set or
+                    self.cpwctdmcfgsetup2synchtimeout.is_set or
+                    self.cpwctdmcfgstoragetype.is_set or
+                    self.cpwctdmcfgtimestampmode.is_set)
 
-                This object indicates the various configuration errors,
-                illegal settings within the cpwCTDMCfg table. The errors
-                can be due to several reasons, like Payload size mismatch
-                or Jitter Buffer depth value mistmatch. 
-                
-                payloadSize \- This bit is set if there is Payload size
-                              mismatch between the local and peer
-                              configurations. 
-                jtrBfrDepth \- This bit is set if there is Jitter Buffer
-                              depth value mistmatch.
-                other       \- This bit is set if the error is not due to
-                              payloadSize and jtrBfrDepth mismatch.
-                Keys are:- other , jtrBfrDepth , payloadSize
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgindex.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgalarmthreshold.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgavepktlosstimewindow.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgclearalarmthreshold.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgconferr.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgconsecmisspktsoutsynch.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgconsecpktsinsynch.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgexcessivepktlossthreshold.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgjtrbfrdepth.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgmissingpktstoses.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgpayloadsize.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgpayloadsuppression.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgpktreorder.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgpktreplacepolicy.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgrowstatus.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgrtphdrused.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgsetup2synchtimeout.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgstoragetype.yfilter != YFilter.not_set or
+                    self.cpwctdmcfgtimestampmode.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwCTDMCfgEntry" + "[cpwCTDMCfgIndex='" + self.cpwctdmcfgindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'other':False,
-                        'jtrBfrDepth':False,
-                        'payloadSize':False,
-                    }
-                    self._pos_map = { 
-                        'other':0,
-                        'jtrBfrDepth':2,
-                        'payloadSize':1,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.cpwctdmcfgindex is None:
-                    raise YPYModelError('Key property cpwctdmcfgindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMCfgTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMCfgTable/CISCO-IETF-PW-TDM-MIB:cpwCTDMCfgEntry[CISCO-IETF-PW-TDM-MIB:cpwCTDMCfgIndex = ' + str(self.cpwctdmcfgindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.cpwctdmcfgindex.is_set or self.cpwctdmcfgindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgindex.get_name_leafdata())
+                if (self.cpwctdmcfgalarmthreshold.is_set or self.cpwctdmcfgalarmthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgalarmthreshold.get_name_leafdata())
+                if (self.cpwctdmcfgavepktlosstimewindow.is_set or self.cpwctdmcfgavepktlosstimewindow.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgavepktlosstimewindow.get_name_leafdata())
+                if (self.cpwctdmcfgclearalarmthreshold.is_set or self.cpwctdmcfgclearalarmthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgclearalarmthreshold.get_name_leafdata())
+                if (self.cpwctdmcfgconferr.is_set or self.cpwctdmcfgconferr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgconferr.get_name_leafdata())
+                if (self.cpwctdmcfgconsecmisspktsoutsynch.is_set or self.cpwctdmcfgconsecmisspktsoutsynch.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgconsecmisspktsoutsynch.get_name_leafdata())
+                if (self.cpwctdmcfgconsecpktsinsynch.is_set or self.cpwctdmcfgconsecpktsinsynch.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgconsecpktsinsynch.get_name_leafdata())
+                if (self.cpwctdmcfgexcessivepktlossthreshold.is_set or self.cpwctdmcfgexcessivepktlossthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgexcessivepktlossthreshold.get_name_leafdata())
+                if (self.cpwctdmcfgjtrbfrdepth.is_set or self.cpwctdmcfgjtrbfrdepth.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgjtrbfrdepth.get_name_leafdata())
+                if (self.cpwctdmcfgmissingpktstoses.is_set or self.cpwctdmcfgmissingpktstoses.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgmissingpktstoses.get_name_leafdata())
+                if (self.cpwctdmcfgpayloadsize.is_set or self.cpwctdmcfgpayloadsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgpayloadsize.get_name_leafdata())
+                if (self.cpwctdmcfgpayloadsuppression.is_set or self.cpwctdmcfgpayloadsuppression.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgpayloadsuppression.get_name_leafdata())
+                if (self.cpwctdmcfgpktreorder.is_set or self.cpwctdmcfgpktreorder.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgpktreorder.get_name_leafdata())
+                if (self.cpwctdmcfgpktreplacepolicy.is_set or self.cpwctdmcfgpktreplacepolicy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgpktreplacepolicy.get_name_leafdata())
+                if (self.cpwctdmcfgrowstatus.is_set or self.cpwctdmcfgrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgrowstatus.get_name_leafdata())
+                if (self.cpwctdmcfgrtphdrused.is_set or self.cpwctdmcfgrtphdrused.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgrtphdrused.get_name_leafdata())
+                if (self.cpwctdmcfgsetup2synchtimeout.is_set or self.cpwctdmcfgsetup2synchtimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgsetup2synchtimeout.get_name_leafdata())
+                if (self.cpwctdmcfgstoragetype.is_set or self.cpwctdmcfgstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgstoragetype.get_name_leafdata())
+                if (self.cpwctdmcfgtimestampmode.is_set or self.cpwctdmcfgtimestampmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmcfgtimestampmode.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwCTDMCfgIndex" or name == "cpwCTDMCfgAlarmThreshold" or name == "cpwCTDMCfgAvePktLossTimeWindow" or name == "cpwCTDMCfgClearAlarmThreshold" or name == "cpwCTDMCfgConfErr" or name == "cpwCTDMCfgConsecMissPktsOutSynch" or name == "cpwCTDMCfgConsecPktsInSynch" or name == "cpwCTDMCfgExcessivePktLossThreshold" or name == "cpwCTDMCfgJtrBfrDepth" or name == "cpwCTDMCfgMissingPktsToSes" or name == "cpwCTDMCfgPayloadSize" or name == "cpwCTDMCfgPayloadSuppression" or name == "cpwCTDMCfgPktReorder" or name == "cpwCTDMCfgPktReplacePolicy" or name == "cpwCTDMCfgRowStatus" or name == "cpwCTDMCfgRtpHdrUsed" or name == "cpwCTDMCfgSetUp2SynchTimeOut" or name == "cpwCTDMCfgStorageType" or name == "cpwCTDMCfgTimestampMode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwctdmcfgindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwCTDMCfgIndex"):
+                    self.cpwctdmcfgindex = value
+                    self.cpwctdmcfgindex.value_namespace = name_space
+                    self.cpwctdmcfgindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgAlarmThreshold"):
+                    self.cpwctdmcfgalarmthreshold = value
+                    self.cpwctdmcfgalarmthreshold.value_namespace = name_space
+                    self.cpwctdmcfgalarmthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgAvePktLossTimeWindow"):
+                    self.cpwctdmcfgavepktlosstimewindow = value
+                    self.cpwctdmcfgavepktlosstimewindow.value_namespace = name_space
+                    self.cpwctdmcfgavepktlosstimewindow.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgClearAlarmThreshold"):
+                    self.cpwctdmcfgclearalarmthreshold = value
+                    self.cpwctdmcfgclearalarmthreshold.value_namespace = name_space
+                    self.cpwctdmcfgclearalarmthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgConfErr"):
+                    self.cpwctdmcfgconferr[value] = True
+                if(value_path == "cpwCTDMCfgConsecMissPktsOutSynch"):
+                    self.cpwctdmcfgconsecmisspktsoutsynch = value
+                    self.cpwctdmcfgconsecmisspktsoutsynch.value_namespace = name_space
+                    self.cpwctdmcfgconsecmisspktsoutsynch.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgConsecPktsInSynch"):
+                    self.cpwctdmcfgconsecpktsinsynch = value
+                    self.cpwctdmcfgconsecpktsinsynch.value_namespace = name_space
+                    self.cpwctdmcfgconsecpktsinsynch.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgExcessivePktLossThreshold"):
+                    self.cpwctdmcfgexcessivepktlossthreshold = value
+                    self.cpwctdmcfgexcessivepktlossthreshold.value_namespace = name_space
+                    self.cpwctdmcfgexcessivepktlossthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgJtrBfrDepth"):
+                    self.cpwctdmcfgjtrbfrdepth = value
+                    self.cpwctdmcfgjtrbfrdepth.value_namespace = name_space
+                    self.cpwctdmcfgjtrbfrdepth.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgMissingPktsToSes"):
+                    self.cpwctdmcfgmissingpktstoses = value
+                    self.cpwctdmcfgmissingpktstoses.value_namespace = name_space
+                    self.cpwctdmcfgmissingpktstoses.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgPayloadSize"):
+                    self.cpwctdmcfgpayloadsize = value
+                    self.cpwctdmcfgpayloadsize.value_namespace = name_space
+                    self.cpwctdmcfgpayloadsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgPayloadSuppression"):
+                    self.cpwctdmcfgpayloadsuppression = value
+                    self.cpwctdmcfgpayloadsuppression.value_namespace = name_space
+                    self.cpwctdmcfgpayloadsuppression.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgPktReorder"):
+                    self.cpwctdmcfgpktreorder = value
+                    self.cpwctdmcfgpktreorder.value_namespace = name_space
+                    self.cpwctdmcfgpktreorder.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgPktReplacePolicy"):
+                    self.cpwctdmcfgpktreplacepolicy = value
+                    self.cpwctdmcfgpktreplacepolicy.value_namespace = name_space
+                    self.cpwctdmcfgpktreplacepolicy.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgRowStatus"):
+                    self.cpwctdmcfgrowstatus = value
+                    self.cpwctdmcfgrowstatus.value_namespace = name_space
+                    self.cpwctdmcfgrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgRtpHdrUsed"):
+                    self.cpwctdmcfgrtphdrused = value
+                    self.cpwctdmcfgrtphdrused.value_namespace = name_space
+                    self.cpwctdmcfgrtphdrused.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgSetUp2SynchTimeOut"):
+                    self.cpwctdmcfgsetup2synchtimeout = value
+                    self.cpwctdmcfgsetup2synchtimeout.value_namespace = name_space
+                    self.cpwctdmcfgsetup2synchtimeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgStorageType"):
+                    self.cpwctdmcfgstoragetype = value
+                    self.cpwctdmcfgstoragetype.value_namespace = name_space
+                    self.cpwctdmcfgstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMCfgTimestampMode"):
+                    self.cpwctdmcfgtimestampmode = value
+                    self.cpwctdmcfgtimestampmode.value_namespace = name_space
+                    self.cpwctdmcfgtimestampmode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwctdmcfgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwctdmcfgalarmthreshold is not None:
-                    return True
-
-                if self.cpwctdmcfgavepktlosstimewindow is not None:
-                    return True
-
-                if self.cpwctdmcfgclearalarmthreshold is not None:
-                    return True
-
-                if self.cpwctdmcfgconferr is not None:
-                    if self.cpwctdmcfgconferr._has_data():
-                        return True
-
-                if self.cpwctdmcfgconsecmisspktsoutsynch is not None:
-                    return True
-
-                if self.cpwctdmcfgconsecpktsinsynch is not None:
-                    return True
-
-                if self.cpwctdmcfgexcessivepktlossthreshold is not None:
-                    return True
-
-                if self.cpwctdmcfgjtrbfrdepth is not None:
-                    return True
-
-                if self.cpwctdmcfgmissingpktstoses is not None:
-                    return True
-
-                if self.cpwctdmcfgpayloadsize is not None:
-                    return True
-
-                if self.cpwctdmcfgpayloadsuppression is not None:
-                    return True
-
-                if self.cpwctdmcfgpktreorder is not None:
-                    return True
-
-                if self.cpwctdmcfgpktreplacepolicy is not None:
-                    return True
-
-                if self.cpwctdmcfgrowstatus is not None:
-                    return True
-
-                if self.cpwctdmcfgrtphdrused is not None:
-                    return True
-
-                if self.cpwctdmcfgsetup2synchtimeout is not None:
-                    return True
-
-                if self.cpwctdmcfgstoragetype is not None:
-                    return True
-
-                if self.cpwctdmcfgtimestampmode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMCfgTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwctdmcfgentry is not None:
-                for child_ref in self.cpwctdmcfgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwctdmcfgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMCfgTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwCTDMCfgEntry"):
+                for c in self.cpwctdmcfgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwTdmMib.Cpwctdmcfgtable.Cpwctdmcfgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwctdmcfgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMCfgEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmcfgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwctdmperfcurrenttable(object):
+    class Cpwctdmperfcurrenttable(Entity):
         """
         This table provides TDM PW performance information.
         This includes current 15 minute interval counts. 
@@ -974,13 +1264,39 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmperfcurrententry = YList()
-            self.cpwctdmperfcurrententry.parent = self
-            self.cpwctdmperfcurrententry.name = 'cpwctdmperfcurrententry'
+            super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable, self).__init__()
+
+            self.yang_name = "cpwCTDMPerfCurrentTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
+            self.cpwctdmperfcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable, self).__setattr__(name, value)
 
 
-        class Cpwctdmperfcurrententry(object):
+        class Cpwctdmperfcurrententry(Entity):
             """
             An entry in this table is created by the agent for every
             cpwCTDMTable entry. After 15 minutes, the contents of this
@@ -1082,91 +1398,242 @@ class CiscoIetfPwTdmMib(object):
             _revision = '2006-07-21'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwctdmperfcurrentess = None
-                self.cpwctdmperfcurrentfc = None
-                self.cpwctdmperfcurrentjtrbfrunderruns = None
-                self.cpwctdmperfcurrentmalformedpkt = None
-                self.cpwctdmperfcurrentmisorderdropped = None
-                self.cpwctdmperfcurrentmissingpkts = None
-                self.cpwctdmperfcurrentpktsreorder = None
-                self.cpwctdmperfcurrentsess = None
-                self.cpwctdmperfcurrentuass = None
+                super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+                self.yang_name = "cpwCTDMPerfCurrentEntry"
+                self.yang_parent_name = "cpwCTDMPerfCurrentTable"
 
-                return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfCurrentTable/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfCurrentEntry[CISCO-IETF-PW-TDM-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwctdmperfcurrentess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentESs")
+
+                self.cpwctdmperfcurrentfc = YLeaf(YType.uint32, "cpwCTDMPerfCurrentFC")
+
+                self.cpwctdmperfcurrentjtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfCurrentJtrBfrUnderruns")
+
+                self.cpwctdmperfcurrentmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMalformedPkt")
+
+                self.cpwctdmperfcurrentmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMisOrderDropped")
+
+                self.cpwctdmperfcurrentmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMissingPkts")
+
+                self.cpwctdmperfcurrentpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfCurrentPktsReOrder")
+
+                self.cpwctdmperfcurrentsess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentSESs")
+
+                self.cpwctdmperfcurrentuass = YLeaf(YType.uint32, "cpwCTDMPerfCurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwctdmperfcurrentess",
+                                "cpwctdmperfcurrentfc",
+                                "cpwctdmperfcurrentjtrbfrunderruns",
+                                "cpwctdmperfcurrentmalformedpkt",
+                                "cpwctdmperfcurrentmisorderdropped",
+                                "cpwctdmperfcurrentmissingpkts",
+                                "cpwctdmperfcurrentpktsreorder",
+                                "cpwctdmperfcurrentsess",
+                                "cpwctdmperfcurrentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwctdmperfcurrentess.is_set or
+                    self.cpwctdmperfcurrentfc.is_set or
+                    self.cpwctdmperfcurrentjtrbfrunderruns.is_set or
+                    self.cpwctdmperfcurrentmalformedpkt.is_set or
+                    self.cpwctdmperfcurrentmisorderdropped.is_set or
+                    self.cpwctdmperfcurrentmissingpkts.is_set or
+                    self.cpwctdmperfcurrentpktsreorder.is_set or
+                    self.cpwctdmperfcurrentsess.is_set or
+                    self.cpwctdmperfcurrentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentess.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentfc.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentjtrbfrunderruns.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentmalformedpkt.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentmisorderdropped.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentmissingpkts.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentpktsreorder.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentsess.yfilter != YFilter.not_set or
+                    self.cpwctdmperfcurrentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwCTDMPerfCurrentEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwctdmperfcurrentess.is_set or self.cpwctdmperfcurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentess.get_name_leafdata())
+                if (self.cpwctdmperfcurrentfc.is_set or self.cpwctdmperfcurrentfc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentfc.get_name_leafdata())
+                if (self.cpwctdmperfcurrentjtrbfrunderruns.is_set or self.cpwctdmperfcurrentjtrbfrunderruns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentjtrbfrunderruns.get_name_leafdata())
+                if (self.cpwctdmperfcurrentmalformedpkt.is_set or self.cpwctdmperfcurrentmalformedpkt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentmalformedpkt.get_name_leafdata())
+                if (self.cpwctdmperfcurrentmisorderdropped.is_set or self.cpwctdmperfcurrentmisorderdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentmisorderdropped.get_name_leafdata())
+                if (self.cpwctdmperfcurrentmissingpkts.is_set or self.cpwctdmperfcurrentmissingpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentmissingpkts.get_name_leafdata())
+                if (self.cpwctdmperfcurrentpktsreorder.is_set or self.cpwctdmperfcurrentpktsreorder.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentpktsreorder.get_name_leafdata())
+                if (self.cpwctdmperfcurrentsess.is_set or self.cpwctdmperfcurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentsess.get_name_leafdata())
+                if (self.cpwctdmperfcurrentuass.is_set or self.cpwctdmperfcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfcurrentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwCTDMPerfCurrentESs" or name == "cpwCTDMPerfCurrentFC" or name == "cpwCTDMPerfCurrentJtrBfrUnderruns" or name == "cpwCTDMPerfCurrentMalformedPkt" or name == "cpwCTDMPerfCurrentMisOrderDropped" or name == "cpwCTDMPerfCurrentMissingPkts" or name == "cpwCTDMPerfCurrentPktsReOrder" or name == "cpwCTDMPerfCurrentSESs" or name == "cpwCTDMPerfCurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentESs"):
+                    self.cpwctdmperfcurrentess = value
+                    self.cpwctdmperfcurrentess.value_namespace = name_space
+                    self.cpwctdmperfcurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentFC"):
+                    self.cpwctdmperfcurrentfc = value
+                    self.cpwctdmperfcurrentfc.value_namespace = name_space
+                    self.cpwctdmperfcurrentfc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentJtrBfrUnderruns"):
+                    self.cpwctdmperfcurrentjtrbfrunderruns = value
+                    self.cpwctdmperfcurrentjtrbfrunderruns.value_namespace = name_space
+                    self.cpwctdmperfcurrentjtrbfrunderruns.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentMalformedPkt"):
+                    self.cpwctdmperfcurrentmalformedpkt = value
+                    self.cpwctdmperfcurrentmalformedpkt.value_namespace = name_space
+                    self.cpwctdmperfcurrentmalformedpkt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentMisOrderDropped"):
+                    self.cpwctdmperfcurrentmisorderdropped = value
+                    self.cpwctdmperfcurrentmisorderdropped.value_namespace = name_space
+                    self.cpwctdmperfcurrentmisorderdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentMissingPkts"):
+                    self.cpwctdmperfcurrentmissingpkts = value
+                    self.cpwctdmperfcurrentmissingpkts.value_namespace = name_space
+                    self.cpwctdmperfcurrentmissingpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentPktsReOrder"):
+                    self.cpwctdmperfcurrentpktsreorder = value
+                    self.cpwctdmperfcurrentpktsreorder.value_namespace = name_space
+                    self.cpwctdmperfcurrentpktsreorder.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentSESs"):
+                    self.cpwctdmperfcurrentsess = value
+                    self.cpwctdmperfcurrentsess.value_namespace = name_space
+                    self.cpwctdmperfcurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfCurrentUASs"):
+                    self.cpwctdmperfcurrentuass = value
+                    self.cpwctdmperfcurrentuass.value_namespace = name_space
+                    self.cpwctdmperfcurrentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwctdmperfcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwctdmperfcurrentess is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentfc is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentjtrbfrunderruns is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentmalformedpkt is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentmisorderdropped is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentmissingpkts is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentpktsreorder is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentsess is not None:
-                    return True
-
-                if self.cpwctdmperfcurrentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwctdmperfcurrententry is not None:
-                for child_ref in self.cpwctdmperfcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwctdmperfcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMPerfCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwCTDMPerfCurrentEntry"):
+                for c in self.cpwctdmperfcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwctdmperfcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMPerfCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwctdmperfintervaltable(object):
+    class Cpwctdmperfintervaltable(Entity):
         """
         This table provides performance information per TDM PW
         similar to the cpwCTDMPerfCurrentTable above. However,
@@ -1187,13 +1654,39 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmperfintervalentry = YList()
-            self.cpwctdmperfintervalentry.parent = self
-            self.cpwctdmperfintervalentry.name = 'cpwctdmperfintervalentry'
+            super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable, self).__init__()
+
+            self.yang_name = "cpwCTDMPerfIntervalTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
+            self.cpwctdmperfintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable, self).__setattr__(name, value)
 
 
-        class Cpwctdmperfintervalentry(object):
+        class Cpwctdmperfintervalentry(Entity):
             """
             An entry in this table is created by the agent for
             every cpwCTDMPerfCurrentEntry that is 15 minutes old.
@@ -1314,105 +1807,275 @@ class CiscoIetfPwTdmMib(object):
             _revision = '2006-07-21'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwctdmperfintervalnumber = None
-                self.cpwctdmperfintervalduration = None
-                self.cpwctdmperfintervaless = None
-                self.cpwctdmperfintervalfc = None
-                self.cpwctdmperfintervaljtrbfrunderruns = None
-                self.cpwctdmperfintervalmalformedpkt = None
-                self.cpwctdmperfintervalmisorderdropped = None
-                self.cpwctdmperfintervalmissingpkts = None
-                self.cpwctdmperfintervalpktsreorder = None
-                self.cpwctdmperfintervalsess = None
-                self.cpwctdmperfintervaluass = None
-                self.cpwctdmperfintervalvaliddata = None
+                super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
-                if self.cpwctdmperfintervalnumber is None:
-                    raise YPYModelError('Key property cpwctdmperfintervalnumber is None')
+                self.yang_name = "cpwCTDMPerfIntervalEntry"
+                self.yang_parent_name = "cpwCTDMPerfIntervalTable"
 
-                return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfIntervalTable/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfIntervalEntry[CISCO-IETF-PW-TDM-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + '][CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfIntervalNumber = ' + str(self.cpwctdmperfintervalnumber) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwctdmperfintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerfIntervalNumber")
+
+                self.cpwctdmperfintervalduration = YLeaf(YType.uint32, "cpwCTDMPerfIntervalDuration")
+
+                self.cpwctdmperfintervaless = YLeaf(YType.uint32, "cpwCTDMPerfIntervalESs")
+
+                self.cpwctdmperfintervalfc = YLeaf(YType.uint32, "cpwCTDMPerfIntervalFC")
+
+                self.cpwctdmperfintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfIntervalJtrBfrUnderruns")
+
+                self.cpwctdmperfintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMalformedPkt")
+
+                self.cpwctdmperfintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMisOrderDropped")
+
+                self.cpwctdmperfintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMissingPkts")
+
+                self.cpwctdmperfintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfIntervalPktsReOrder")
+
+                self.cpwctdmperfintervalsess = YLeaf(YType.uint32, "cpwCTDMPerfIntervalSESs")
+
+                self.cpwctdmperfintervaluass = YLeaf(YType.uint32, "cpwCTDMPerfIntervalUASs")
+
+                self.cpwctdmperfintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerfIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwctdmperfintervalnumber",
+                                "cpwctdmperfintervalduration",
+                                "cpwctdmperfintervaless",
+                                "cpwctdmperfintervalfc",
+                                "cpwctdmperfintervaljtrbfrunderruns",
+                                "cpwctdmperfintervalmalformedpkt",
+                                "cpwctdmperfintervalmisorderdropped",
+                                "cpwctdmperfintervalmissingpkts",
+                                "cpwctdmperfintervalpktsreorder",
+                                "cpwctdmperfintervalsess",
+                                "cpwctdmperfintervaluass",
+                                "cpwctdmperfintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwTdmMib.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwctdmperfintervalnumber.is_set or
+                    self.cpwctdmperfintervalduration.is_set or
+                    self.cpwctdmperfintervaless.is_set or
+                    self.cpwctdmperfintervalfc.is_set or
+                    self.cpwctdmperfintervaljtrbfrunderruns.is_set or
+                    self.cpwctdmperfintervalmalformedpkt.is_set or
+                    self.cpwctdmperfintervalmisorderdropped.is_set or
+                    self.cpwctdmperfintervalmissingpkts.is_set or
+                    self.cpwctdmperfintervalpktsreorder.is_set or
+                    self.cpwctdmperfintervalsess.is_set or
+                    self.cpwctdmperfintervaluass.is_set or
+                    self.cpwctdmperfintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalnumber.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalduration.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervaless.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalfc.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervaljtrbfrunderruns.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalmalformedpkt.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalmisorderdropped.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalmissingpkts.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalpktsreorder.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalsess.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervaluass.yfilter != YFilter.not_set or
+                    self.cpwctdmperfintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwCTDMPerfIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerfIntervalNumber='" + self.cpwctdmperfintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwctdmperfintervalnumber.is_set or self.cpwctdmperfintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalnumber.get_name_leafdata())
+                if (self.cpwctdmperfintervalduration.is_set or self.cpwctdmperfintervalduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalduration.get_name_leafdata())
+                if (self.cpwctdmperfintervaless.is_set or self.cpwctdmperfintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervaless.get_name_leafdata())
+                if (self.cpwctdmperfintervalfc.is_set or self.cpwctdmperfintervalfc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalfc.get_name_leafdata())
+                if (self.cpwctdmperfintervaljtrbfrunderruns.is_set or self.cpwctdmperfintervaljtrbfrunderruns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervaljtrbfrunderruns.get_name_leafdata())
+                if (self.cpwctdmperfintervalmalformedpkt.is_set or self.cpwctdmperfintervalmalformedpkt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalmalformedpkt.get_name_leafdata())
+                if (self.cpwctdmperfintervalmisorderdropped.is_set or self.cpwctdmperfintervalmisorderdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalmisorderdropped.get_name_leafdata())
+                if (self.cpwctdmperfintervalmissingpkts.is_set or self.cpwctdmperfintervalmissingpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalmissingpkts.get_name_leafdata())
+                if (self.cpwctdmperfintervalpktsreorder.is_set or self.cpwctdmperfintervalpktsreorder.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalpktsreorder.get_name_leafdata())
+                if (self.cpwctdmperfintervalsess.is_set or self.cpwctdmperfintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalsess.get_name_leafdata())
+                if (self.cpwctdmperfintervaluass.is_set or self.cpwctdmperfintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervaluass.get_name_leafdata())
+                if (self.cpwctdmperfintervalvaliddata.is_set or self.cpwctdmperfintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperfintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwCTDMPerfIntervalNumber" or name == "cpwCTDMPerfIntervalDuration" or name == "cpwCTDMPerfIntervalESs" or name == "cpwCTDMPerfIntervalFC" or name == "cpwCTDMPerfIntervalJtrBfrUnderruns" or name == "cpwCTDMPerfIntervalMalformedPkt" or name == "cpwCTDMPerfIntervalMisOrderDropped" or name == "cpwCTDMPerfIntervalMissingPkts" or name == "cpwCTDMPerfIntervalPktsReOrder" or name == "cpwCTDMPerfIntervalSESs" or name == "cpwCTDMPerfIntervalUASs" or name == "cpwCTDMPerfIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalNumber"):
+                    self.cpwctdmperfintervalnumber = value
+                    self.cpwctdmperfintervalnumber.value_namespace = name_space
+                    self.cpwctdmperfintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalDuration"):
+                    self.cpwctdmperfintervalduration = value
+                    self.cpwctdmperfintervalduration.value_namespace = name_space
+                    self.cpwctdmperfintervalduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalESs"):
+                    self.cpwctdmperfintervaless = value
+                    self.cpwctdmperfintervaless.value_namespace = name_space
+                    self.cpwctdmperfintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalFC"):
+                    self.cpwctdmperfintervalfc = value
+                    self.cpwctdmperfintervalfc.value_namespace = name_space
+                    self.cpwctdmperfintervalfc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalJtrBfrUnderruns"):
+                    self.cpwctdmperfintervaljtrbfrunderruns = value
+                    self.cpwctdmperfintervaljtrbfrunderruns.value_namespace = name_space
+                    self.cpwctdmperfintervaljtrbfrunderruns.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalMalformedPkt"):
+                    self.cpwctdmperfintervalmalformedpkt = value
+                    self.cpwctdmperfintervalmalformedpkt.value_namespace = name_space
+                    self.cpwctdmperfintervalmalformedpkt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalMisOrderDropped"):
+                    self.cpwctdmperfintervalmisorderdropped = value
+                    self.cpwctdmperfintervalmisorderdropped.value_namespace = name_space
+                    self.cpwctdmperfintervalmisorderdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalMissingPkts"):
+                    self.cpwctdmperfintervalmissingpkts = value
+                    self.cpwctdmperfintervalmissingpkts.value_namespace = name_space
+                    self.cpwctdmperfintervalmissingpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalPktsReOrder"):
+                    self.cpwctdmperfintervalpktsreorder = value
+                    self.cpwctdmperfintervalpktsreorder.value_namespace = name_space
+                    self.cpwctdmperfintervalpktsreorder.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalSESs"):
+                    self.cpwctdmperfintervalsess = value
+                    self.cpwctdmperfintervalsess.value_namespace = name_space
+                    self.cpwctdmperfintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalUASs"):
+                    self.cpwctdmperfintervaluass = value
+                    self.cpwctdmperfintervaluass.value_namespace = name_space
+                    self.cpwctdmperfintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerfIntervalValidData"):
+                    self.cpwctdmperfintervalvaliddata = value
+                    self.cpwctdmperfintervalvaliddata.value_namespace = name_space
+                    self.cpwctdmperfintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwctdmperfintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwctdmperfintervalnumber is not None:
-                    return True
-
-                if self.cpwctdmperfintervalduration is not None:
-                    return True
-
-                if self.cpwctdmperfintervaless is not None:
-                    return True
-
-                if self.cpwctdmperfintervalfc is not None:
-                    return True
-
-                if self.cpwctdmperfintervaljtrbfrunderruns is not None:
-                    return True
-
-                if self.cpwctdmperfintervalmalformedpkt is not None:
-                    return True
-
-                if self.cpwctdmperfintervalmisorderdropped is not None:
-                    return True
-
-                if self.cpwctdmperfintervalmissingpkts is not None:
-                    return True
-
-                if self.cpwctdmperfintervalpktsreorder is not None:
-                    return True
-
-                if self.cpwctdmperfintervalsess is not None:
-                    return True
-
-                if self.cpwctdmperfintervaluass is not None:
-                    return True
-
-                if self.cpwctdmperfintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerfIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwctdmperfintervalentry is not None:
-                for child_ref in self.cpwctdmperfintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwctdmperfintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMPerfIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwCTDMPerfIntervalEntry"):
+                for c in self.cpwctdmperfintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwTdmMib.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwctdmperfintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMPerfIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperfintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwctdmperf1Dayintervaltable(object):
+    class Cpwctdmperf1Dayintervaltable(Entity):
         """
         This table provides performance information per TDM PW
         similar to the cpwCTDMPerfIntervalTable above. However,
@@ -1433,13 +2096,39 @@ class CiscoIetfPwTdmMib(object):
         _revision = '2006-07-21'
 
         def __init__(self):
-            self.parent = None
-            self.cpwctdmperf1dayintervalentry = YList()
-            self.cpwctdmperf1dayintervalentry.parent = self
-            self.cpwctdmperf1dayintervalentry.name = 'cpwctdmperf1dayintervalentry'
+            super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable, self).__init__()
+
+            self.yang_name = "cpwCTDMPerf1DayIntervalTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+
+            self.cpwctdmperf1dayintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable, self).__setattr__(name, value)
 
 
-        class Cpwctdmperf1Dayintervalentry(object):
+        class Cpwctdmperf1Dayintervalentry(Entity):
             """
             An entry is created in this table by the agent
             for every entry in the cpwCTDMTable table.
@@ -1559,136 +2248,367 @@ class CiscoIetfPwTdmMib(object):
             _revision = '2006-07-21'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwctdmperf1dayintervalnumber = None
-                self.cpwctdmperf1dayintervalduration = None
-                self.cpwctdmperf1dayintervaless = None
-                self.cpwctdmperf1dayintervalfc = None
-                self.cpwctdmperf1dayintervaljtrbfrunderruns = None
-                self.cpwctdmperf1dayintervalmalformedpkt = None
-                self.cpwctdmperf1dayintervalmisorderdropped = None
-                self.cpwctdmperf1dayintervalmissingpkts = None
-                self.cpwctdmperf1dayintervalpktsreorder = None
-                self.cpwctdmperf1dayintervalsess = None
-                self.cpwctdmperf1dayintervaluass = None
-                self.cpwctdmperf1dayintervalvaliddata = None
+                super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
-                if self.cpwctdmperf1dayintervalnumber is None:
-                    raise YPYModelError('Key property cpwctdmperf1dayintervalnumber is None')
+                self.yang_name = "cpwCTDMPerf1DayIntervalEntry"
+                self.yang_parent_name = "cpwCTDMPerf1DayIntervalTable"
 
-                return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerf1DayIntervalTable/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerf1DayIntervalEntry[CISCO-IETF-PW-TDM-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + '][CISCO-IETF-PW-TDM-MIB:cpwCTDMPerf1DayIntervalNumber = ' + str(self.cpwctdmperf1dayintervalnumber) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwctdmperf1dayintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalNumber")
+
+                self.cpwctdmperf1dayintervalduration = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalDuration")
+
+                self.cpwctdmperf1dayintervaless = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalESs")
+
+                self.cpwctdmperf1dayintervalfc = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalFC")
+
+                self.cpwctdmperf1dayintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalJtrBfrUnderruns")
+
+                self.cpwctdmperf1dayintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMalformedPkt")
+
+                self.cpwctdmperf1dayintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMisOrderDropped")
+
+                self.cpwctdmperf1dayintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMissingPkts")
+
+                self.cpwctdmperf1dayintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalPktsReOrder")
+
+                self.cpwctdmperf1dayintervalsess = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalSESs")
+
+                self.cpwctdmperf1dayintervaluass = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalUASs")
+
+                self.cpwctdmperf1dayintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerf1DayIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwctdmperf1dayintervalnumber",
+                                "cpwctdmperf1dayintervalduration",
+                                "cpwctdmperf1dayintervaless",
+                                "cpwctdmperf1dayintervalfc",
+                                "cpwctdmperf1dayintervaljtrbfrunderruns",
+                                "cpwctdmperf1dayintervalmalformedpkt",
+                                "cpwctdmperf1dayintervalmisorderdropped",
+                                "cpwctdmperf1dayintervalmissingpkts",
+                                "cpwctdmperf1dayintervalpktsreorder",
+                                "cpwctdmperf1dayintervalsess",
+                                "cpwctdmperf1dayintervaluass",
+                                "cpwctdmperf1dayintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwctdmperf1dayintervalnumber.is_set or
+                    self.cpwctdmperf1dayintervalduration.is_set or
+                    self.cpwctdmperf1dayintervaless.is_set or
+                    self.cpwctdmperf1dayintervalfc.is_set or
+                    self.cpwctdmperf1dayintervaljtrbfrunderruns.is_set or
+                    self.cpwctdmperf1dayintervalmalformedpkt.is_set or
+                    self.cpwctdmperf1dayintervalmisorderdropped.is_set or
+                    self.cpwctdmperf1dayintervalmissingpkts.is_set or
+                    self.cpwctdmperf1dayintervalpktsreorder.is_set or
+                    self.cpwctdmperf1dayintervalsess.is_set or
+                    self.cpwctdmperf1dayintervaluass.is_set or
+                    self.cpwctdmperf1dayintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalnumber.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalduration.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervaless.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalfc.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervaljtrbfrunderruns.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalmalformedpkt.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalmisorderdropped.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalmissingpkts.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalpktsreorder.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalsess.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervaluass.yfilter != YFilter.not_set or
+                    self.cpwctdmperf1dayintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + self.cpwctdmperf1dayintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalnumber.is_set or self.cpwctdmperf1dayintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalnumber.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalduration.is_set or self.cpwctdmperf1dayintervalduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalduration.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervaless.is_set or self.cpwctdmperf1dayintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervaless.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalfc.is_set or self.cpwctdmperf1dayintervalfc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalfc.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervaljtrbfrunderruns.is_set or self.cpwctdmperf1dayintervaljtrbfrunderruns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervaljtrbfrunderruns.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalmalformedpkt.is_set or self.cpwctdmperf1dayintervalmalformedpkt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalmalformedpkt.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalmisorderdropped.is_set or self.cpwctdmperf1dayintervalmisorderdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalmisorderdropped.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalmissingpkts.is_set or self.cpwctdmperf1dayintervalmissingpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalmissingpkts.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalpktsreorder.is_set or self.cpwctdmperf1dayintervalpktsreorder.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalpktsreorder.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalsess.is_set or self.cpwctdmperf1dayintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalsess.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervaluass.is_set or self.cpwctdmperf1dayintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervaluass.get_name_leafdata())
+                if (self.cpwctdmperf1dayintervalvaliddata.is_set or self.cpwctdmperf1dayintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwctdmperf1dayintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwCTDMPerf1DayIntervalNumber" or name == "cpwCTDMPerf1DayIntervalDuration" or name == "cpwCTDMPerf1DayIntervalESs" or name == "cpwCTDMPerf1DayIntervalFC" or name == "cpwCTDMPerf1DayIntervalJtrBfrUnderruns" or name == "cpwCTDMPerf1DayIntervalMalformedPkt" or name == "cpwCTDMPerf1DayIntervalMisOrderDropped" or name == "cpwCTDMPerf1DayIntervalMissingPkts" or name == "cpwCTDMPerf1DayIntervalPktsReOrder" or name == "cpwCTDMPerf1DayIntervalSESs" or name == "cpwCTDMPerf1DayIntervalUASs" or name == "cpwCTDMPerf1DayIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalNumber"):
+                    self.cpwctdmperf1dayintervalnumber = value
+                    self.cpwctdmperf1dayintervalnumber.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalDuration"):
+                    self.cpwctdmperf1dayintervalduration = value
+                    self.cpwctdmperf1dayintervalduration.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalESs"):
+                    self.cpwctdmperf1dayintervaless = value
+                    self.cpwctdmperf1dayintervaless.value_namespace = name_space
+                    self.cpwctdmperf1dayintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalFC"):
+                    self.cpwctdmperf1dayintervalfc = value
+                    self.cpwctdmperf1dayintervalfc.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalfc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalJtrBfrUnderruns"):
+                    self.cpwctdmperf1dayintervaljtrbfrunderruns = value
+                    self.cpwctdmperf1dayintervaljtrbfrunderruns.value_namespace = name_space
+                    self.cpwctdmperf1dayintervaljtrbfrunderruns.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalMalformedPkt"):
+                    self.cpwctdmperf1dayintervalmalformedpkt = value
+                    self.cpwctdmperf1dayintervalmalformedpkt.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalmalformedpkt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalMisOrderDropped"):
+                    self.cpwctdmperf1dayintervalmisorderdropped = value
+                    self.cpwctdmperf1dayintervalmisorderdropped.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalmisorderdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalMissingPkts"):
+                    self.cpwctdmperf1dayintervalmissingpkts = value
+                    self.cpwctdmperf1dayintervalmissingpkts.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalmissingpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalPktsReOrder"):
+                    self.cpwctdmperf1dayintervalpktsreorder = value
+                    self.cpwctdmperf1dayintervalpktsreorder.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalpktsreorder.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalSESs"):
+                    self.cpwctdmperf1dayintervalsess = value
+                    self.cpwctdmperf1dayintervalsess.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalUASs"):
+                    self.cpwctdmperf1dayintervaluass = value
+                    self.cpwctdmperf1dayintervaluass.value_namespace = name_space
+                    self.cpwctdmperf1dayintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwCTDMPerf1DayIntervalValidData"):
+                    self.cpwctdmperf1dayintervalvaliddata = value
+                    self.cpwctdmperf1dayintervalvaliddata.value_namespace = name_space
+                    self.cpwctdmperf1dayintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwctdmperf1dayintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwctdmperf1dayintervalnumber is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalduration is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervaless is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalfc is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervaljtrbfrunderruns is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalmalformedpkt is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalmisorderdropped is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalmissingpkts is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalpktsreorder is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalsess is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervaluass is not None:
-                    return True
-
-                if self.cpwctdmperf1dayintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-                return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/CISCO-IETF-PW-TDM-MIB:cpwCTDMPerf1DayIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwctdmperf1dayintervalentry is not None:
-                for child_ref in self.cpwctdmperf1dayintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwctdmperf1dayintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwCTDMPerf1DayIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwCTDMPerf1DayIntervalEntry"):
+                for c in self.cpwctdmperf1dayintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwctdmperf1dayintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwCTDMPerf1DayIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-            return meta._meta_table['CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cpwctdmcfgtable is not None and self.cpwctdmcfgtable.has_data()) or
+            (self.cpwctdmobjects is not None and self.cpwctdmobjects.has_data()) or
+            (self.cpwctdmperf1dayintervaltable is not None and self.cpwctdmperf1dayintervaltable.has_data()) or
+            (self.cpwctdmperfcurrenttable is not None and self.cpwctdmperfcurrenttable.has_data()) or
+            (self.cpwctdmperfintervaltable is not None and self.cpwctdmperfintervaltable.has_data()) or
+            (self.cpwctdmtable is not None and self.cpwctdmtable.has_data()))
 
-        return '/CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cpwctdmcfgtable is not None and self.cpwctdmcfgtable.has_operation()) or
+            (self.cpwctdmobjects is not None and self.cpwctdmobjects.has_operation()) or
+            (self.cpwctdmperf1dayintervaltable is not None and self.cpwctdmperf1dayintervaltable.has_operation()) or
+            (self.cpwctdmperfcurrenttable is not None and self.cpwctdmperfcurrenttable.has_operation()) or
+            (self.cpwctdmperfintervaltable is not None and self.cpwctdmperfintervaltable.has_operation()) or
+            (self.cpwctdmtable is not None and self.cpwctdmtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cpwCTDMCfgTable"):
+            if (self.cpwctdmcfgtable is None):
+                self.cpwctdmcfgtable = CiscoIetfPwTdmMib.Cpwctdmcfgtable()
+                self.cpwctdmcfgtable.parent = self
+                self._children_name_map["cpwctdmcfgtable"] = "cpwCTDMCfgTable"
+            return self.cpwctdmcfgtable
+
+        if (child_yang_name == "cpwCTDMObjects"):
+            if (self.cpwctdmobjects is None):
+                self.cpwctdmobjects = CiscoIetfPwTdmMib.Cpwctdmobjects()
+                self.cpwctdmobjects.parent = self
+                self._children_name_map["cpwctdmobjects"] = "cpwCTDMObjects"
+            return self.cpwctdmobjects
+
+        if (child_yang_name == "cpwCTDMPerf1DayIntervalTable"):
+            if (self.cpwctdmperf1dayintervaltable is None):
+                self.cpwctdmperf1dayintervaltable = CiscoIetfPwTdmMib.Cpwctdmperf1Dayintervaltable()
+                self.cpwctdmperf1dayintervaltable.parent = self
+                self._children_name_map["cpwctdmperf1dayintervaltable"] = "cpwCTDMPerf1DayIntervalTable"
+            return self.cpwctdmperf1dayintervaltable
+
+        if (child_yang_name == "cpwCTDMPerfCurrentTable"):
+            if (self.cpwctdmperfcurrenttable is None):
+                self.cpwctdmperfcurrenttable = CiscoIetfPwTdmMib.Cpwctdmperfcurrenttable()
+                self.cpwctdmperfcurrenttable.parent = self
+                self._children_name_map["cpwctdmperfcurrenttable"] = "cpwCTDMPerfCurrentTable"
+            return self.cpwctdmperfcurrenttable
+
+        if (child_yang_name == "cpwCTDMPerfIntervalTable"):
+            if (self.cpwctdmperfintervaltable is None):
+                self.cpwctdmperfintervaltable = CiscoIetfPwTdmMib.Cpwctdmperfintervaltable()
+                self.cpwctdmperfintervaltable.parent = self
+                self._children_name_map["cpwctdmperfintervaltable"] = "cpwCTDMPerfIntervalTable"
+            return self.cpwctdmperfintervaltable
+
+        if (child_yang_name == "cpwCTDMTable"):
+            if (self.cpwctdmtable is None):
+                self.cpwctdmtable = CiscoIetfPwTdmMib.Cpwctdmtable()
+                self.cpwctdmtable.parent = self
+                self._children_name_map["cpwctdmtable"] = "cpwCTDMTable"
+            return self.cpwctdmtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cpwCTDMCfgTable" or name == "cpwCTDMObjects" or name == "cpwCTDMPerf1DayIntervalTable" or name == "cpwCTDMPerfCurrentTable" or name == "cpwCTDMPerfIntervalTable" or name == "cpwCTDMTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cpwctdmcfgtable is not None and self.cpwctdmcfgtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cpwctdmobjects is not None and self.cpwctdmobjects._has_data():
-            return True
-
-        if self.cpwctdmperf1dayintervaltable is not None and self.cpwctdmperf1dayintervaltable._has_data():
-            return True
-
-        if self.cpwctdmperfcurrenttable is not None and self.cpwctdmperfcurrenttable._has_data():
-            return True
-
-        if self.cpwctdmperfintervaltable is not None and self.cpwctdmperfintervaltable._has_data():
-            return True
-
-        if self.cpwctdmtable is not None and self.cpwctdmtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TDM_MIB as meta
-        return meta._meta_table['CiscoIetfPwTdmMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIetfPwTdmMib()
+        return self._top_entity
 

@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class MplsOam(object):
+class MplsOam(Entity):
     """
     MPLS LSP verification configuration
     
@@ -52,13 +46,48 @@ class MplsOam(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.disable_vendor_extension = None
-        self.enable_oam = None
+        super(MplsOam, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "mpls-oam"
+        self.yang_parent_name = "Cisco-IOS-XR-mpls-oam-cfg"
+
+        self.disable_vendor_extension = YLeaf(YType.empty, "disable-vendor-extension")
+
+        self.enable_oam = YLeaf(YType.empty, "enable-oam")
+
         self.reply_mode = MplsOam.ReplyMode()
         self.reply_mode.parent = self
+        self._children_name_map["reply_mode"] = "reply-mode"
+        self._children_yang_names.add("reply-mode")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("disable_vendor_extension",
+                        "enable_oam") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(MplsOam, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(MplsOam, self).__setattr__(name, value)
 
 
-    class ReplyMode(object):
+    class ReplyMode(Entity):
         """
         Echo request reply mode attributes
         
@@ -75,12 +104,18 @@ class MplsOam(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(MplsOam.ReplyMode, self).__init__()
+
+            self.yang_name = "reply-mode"
+            self.yang_parent_name = "mpls-oam"
+
             self.control_channel = MplsOam.ReplyMode.ControlChannel()
             self.control_channel.parent = self
+            self._children_name_map["control_channel"] = "control-channel"
+            self._children_yang_names.add("control-channel")
 
 
-        class ControlChannel(object):
+        class ControlChannel(Entity):
             """
             Configure control channel reply mode
             
@@ -97,73 +132,195 @@ class MplsOam(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.allow_reverse_lsp = None
+                super(MplsOam.ReplyMode.ControlChannel, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "control-channel"
+                self.yang_parent_name = "reply-mode"
 
-                return '/Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/Cisco-IOS-XR-mpls-oam-cfg:reply-mode/Cisco-IOS-XR-mpls-oam-cfg:control-channel'
+                self.allow_reverse_lsp = YLeaf(YType.empty, "allow-reverse-lsp")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("allow_reverse_lsp") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsOam.ReplyMode.ControlChannel, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsOam.ReplyMode.ControlChannel, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.allow_reverse_lsp is not None:
+            def has_data(self):
+                return self.allow_reverse_lsp.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.allow_reverse_lsp.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "control-channel" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/reply-mode/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.allow_reverse_lsp.is_set or self.allow_reverse_lsp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.allow_reverse_lsp.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "allow-reverse-lsp"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
-                return meta._meta_table['MplsOam.ReplyMode.ControlChannel']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "allow-reverse-lsp"):
+                    self.allow_reverse_lsp = value
+                    self.allow_reverse_lsp.value_namespace = name_space
+                    self.allow_reverse_lsp.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.control_channel is not None and self.control_channel.has_data())
 
-            return '/Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/Cisco-IOS-XR-mpls-oam-cfg:reply-mode'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.control_channel is not None and self.control_channel.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "reply-mode" + path_buffer
 
-        def _has_data(self):
-            if self.control_channel is not None and self.control_channel._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "control-channel"):
+                if (self.control_channel is None):
+                    self.control_channel = MplsOam.ReplyMode.ControlChannel()
+                    self.control_channel.parent = self
+                    self._children_name_map["control_channel"] = "control-channel"
+                return self.control_channel
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "control-channel"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
-            return meta._meta_table['MplsOam.ReplyMode']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.disable_vendor_extension.is_set or
+            self.enable_oam.is_set or
+            (self.reply_mode is not None and self.reply_mode.has_data()))
 
-        return '/Cisco-IOS-XR-mpls-oam-cfg:mpls-oam'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.disable_vendor_extension.yfilter != YFilter.not_set or
+            self.enable_oam.yfilter != YFilter.not_set or
+            (self.reply_mode is not None and self.reply_mode.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam" + path_buffer
 
-    def _has_data(self):
-        if self.disable_vendor_extension is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.disable_vendor_extension.is_set or self.disable_vendor_extension.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.disable_vendor_extension.get_name_leafdata())
+        if (self.enable_oam.is_set or self.enable_oam.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable_oam.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "reply-mode"):
+            if (self.reply_mode is None):
+                self.reply_mode = MplsOam.ReplyMode()
+                self.reply_mode.parent = self
+                self._children_name_map["reply_mode"] = "reply-mode"
+            return self.reply_mode
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "reply-mode" or name == "disable-vendor-extension" or name == "enable-oam"):
             return True
-
-        if self.enable_oam is not None:
-            return True
-
-        if self.reply_mode is not None and self.reply_mode._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
-        return meta._meta_table['MplsOam']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "disable-vendor-extension"):
+            self.disable_vendor_extension = value
+            self.disable_vendor_extension.value_namespace = name_space
+            self.disable_vendor_extension.value_namespace_prefix = name_space_prefix
+        if(value_path == "enable-oam"):
+            self.enable_oam = value
+            self.enable_oam.value_namespace = name_space
+            self.enable_oam.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = MplsOam()
+        return self._top_entity
 

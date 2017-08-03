@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class FileSystem(object):
+class FileSystem(Entity):
     """
     List of filesystems
     
@@ -42,12 +36,40 @@ class FileSystem(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.node = YList()
-        self.node.parent = self
-        self.node.name = 'node'
+        super(FileSystem, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "file-system"
+        self.yang_parent_name = "Cisco-IOS-XR-shellutil-filesystem-oper"
+
+        self.node = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(FileSystem, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(FileSystem, self).__setattr__(name, value)
 
 
-    class Node(object):
+    class Node(Entity):
         """
         Node ID
         
@@ -61,7 +83,7 @@ class FileSystem(object):
         .. attribute:: file_system
         
         	Available file systems
-        	**type**\: list of    :py:class:`FileSystem_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem_>`
+        	**type**\: list of    :py:class:`FileSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem>`
         
         
 
@@ -71,14 +93,41 @@ class FileSystem(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node_name = None
-            self.file_system = YList()
-            self.file_system.parent = self
-            self.file_system.name = 'file_system'
+            super(FileSystem.Node, self).__init__()
+
+            self.yang_name = "node"
+            self.yang_parent_name = "file-system"
+
+            self.node_name = YLeaf(YType.str, "node-name")
+
+            self.file_system = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("node_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(FileSystem.Node, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(FileSystem.Node, self).__setattr__(name, value)
 
 
-        class FileSystem_(object):
+        class FileSystem(Entity):
             """
             Available file systems
             
@@ -119,94 +168,249 @@ class FileSystem(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.flags = None
-                self.free = None
-                self.prefixes = None
-                self.size = None
-                self.type = None
+                super(FileSystem.Node.FileSystem, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+                self.yang_name = "file-system"
+                self.yang_parent_name = "node"
 
-                return self.parent._common_path +'/Cisco-IOS-XR-shellutil-filesystem-oper:file-system'
+                self.flags = YLeaf(YType.str, "flags")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.free = YLeaf(YType.str, "free")
+
+                self.prefixes = YLeaf(YType.str, "prefixes")
+
+                self.size = YLeaf(YType.str, "size")
+
+                self.type = YLeaf(YType.str, "type")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("flags",
+                                "free",
+                                "prefixes",
+                                "size",
+                                "type") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(FileSystem.Node.FileSystem, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(FileSystem.Node.FileSystem, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.flags.is_set or
+                    self.free.is_set or
+                    self.prefixes.is_set or
+                    self.size.is_set or
+                    self.type.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.flags.yfilter != YFilter.not_set or
+                    self.free.yfilter != YFilter.not_set or
+                    self.prefixes.yfilter != YFilter.not_set or
+                    self.size.yfilter != YFilter.not_set or
+                    self.type.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "file-system" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.flags.is_set or self.flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flags.get_name_leafdata())
+                if (self.free.is_set or self.free.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.free.get_name_leafdata())
+                if (self.prefixes.is_set or self.prefixes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.prefixes.get_name_leafdata())
+                if (self.size.is_set or self.size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.size.get_name_leafdata())
+                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.type.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "flags" or name == "free" or name == "prefixes" or name == "size" or name == "type"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.flags is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "flags"):
+                    self.flags = value
+                    self.flags.value_namespace = name_space
+                    self.flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "free"):
+                    self.free = value
+                    self.free.value_namespace = name_space
+                    self.free.value_namespace_prefix = name_space_prefix
+                if(value_path == "prefixes"):
+                    self.prefixes = value
+                    self.prefixes.value_namespace = name_space
+                    self.prefixes.value_namespace_prefix = name_space_prefix
+                if(value_path == "size"):
+                    self.size = value
+                    self.size.value_namespace = name_space
+                    self.size.value_namespace_prefix = name_space_prefix
+                if(value_path == "type"):
+                    self.type = value
+                    self.type.value_namespace = name_space
+                    self.type.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.file_system:
+                if (c.has_data()):
                     return True
+            return self.node_name.is_set
 
-                if self.free is not None:
+        def has_operation(self):
+            for c in self.file_system:
+                if (c.has_operation()):
                     return True
+            return (
+                self.yfilter != YFilter.not_set or
+                self.node_name.yfilter != YFilter.not_set)
 
-                if self.prefixes is not None:
-                    return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
 
-                if self.size is not None:
-                    return True
+            return path_buffer
 
-                if self.type is not None:
-                    return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return False
+            leaf_name_data = LeafDataList()
+            if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.node_name.get_name_leafdata())
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
-                return meta._meta_table['FileSystem.Node.FileSystem_']['meta_info']
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
 
-        @property
-        def _common_path(self):
-            if self.node_name is None:
-                raise YPYModelError('Key property node_name is None')
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
 
-            return '/Cisco-IOS-XR-shellutil-filesystem-oper:file-system/Cisco-IOS-XR-shellutil-filesystem-oper:node[Cisco-IOS-XR-shellutil-filesystem-oper:node-name = ' + str(self.node_name) + ']'
+            if (child_yang_name == "file-system"):
+                for c in self.file_system:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = FileSystem.Node.FileSystem()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.file_system.append(c)
+                return c
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+            return None
 
-        def _has_data(self):
-            if self.node_name is not None:
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "file-system" or name == "node-name"):
                 return True
-
-            if self.file_system is not None:
-                for child_ref in self.file_system:
-                    if child_ref._has_data():
-                        return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
-            return meta._meta_table['FileSystem.Node']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "node-name"):
+                self.node_name = value
+                self.node_name.value_namespace = name_space
+                self.node_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-shellutil-filesystem-oper:file-system'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def has_data(self):
+        for c in self.node:
+            if (c.has_data()):
+                return True
         return False
 
-    def _has_data(self):
-        if self.node is not None:
-            for child_ref in self.node:
-                if child_ref._has_data():
-                    return True
+    def has_operation(self):
+        for c in self.node:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "node"):
+            for c in self.node:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = FileSystem.Node()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.node.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "node"):
+            return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
-        return meta._meta_table['FileSystem']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = FileSystem()
+        return self._top_entity
 

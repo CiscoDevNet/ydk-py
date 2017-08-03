@@ -13,22 +13,16 @@ of this MIB module is part of RFC 4001, see the RFC
 itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class InetaddresstypeEnum(Enum):
+class Inetaddresstype(Enum):
     """
-    InetaddresstypeEnum
+    Inetaddresstype
 
     A value that represents a type of Internet address.
 
@@ -114,28 +108,22 @@ class InetaddresstypeEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
-    ipv4z = 3
+    ipv4z = Enum.YLeaf(3, "ipv4z")
 
-    ipv6z = 4
+    ipv6z = Enum.YLeaf(4, "ipv6z")
 
-    dns = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _INET_ADDRESS_MIB as meta
-        return meta._meta_table['InetaddresstypeEnum']
+    dns = Enum.YLeaf(16, "dns")
 
 
-class InetscopetypeEnum(Enum):
+class Inetscopetype(Enum):
     """
-    InetscopetypeEnum
+    Inetscopetype
 
     Represents a scope type.  This textual convention can be used
 
@@ -169,30 +157,24 @@ class InetscopetypeEnum(Enum):
 
     """
 
-    interfaceLocal = 1
+    interfaceLocal = Enum.YLeaf(1, "interfaceLocal")
 
-    linkLocal = 2
+    linkLocal = Enum.YLeaf(2, "linkLocal")
 
-    subnetLocal = 3
+    subnetLocal = Enum.YLeaf(3, "subnetLocal")
 
-    adminLocal = 4
+    adminLocal = Enum.YLeaf(4, "adminLocal")
 
-    siteLocal = 5
+    siteLocal = Enum.YLeaf(5, "siteLocal")
 
-    organizationLocal = 8
+    organizationLocal = Enum.YLeaf(8, "organizationLocal")
 
-    global_ = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _INET_ADDRESS_MIB as meta
-        return meta._meta_table['InetscopetypeEnum']
+    global_ = Enum.YLeaf(14, "global")
 
 
-class InetversionEnum(Enum):
+class Inetversion(Enum):
     """
-    InetversionEnum
+    Inetversion
 
     A value representing a version of the IP protocol.
 
@@ -220,17 +202,11 @@ class InetversionEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _INET_ADDRESS_MIB as meta
-        return meta._meta_table['InetversionEnum']
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
 
 

@@ -4,21 +4,15 @@ The MIB module for management of the Cisco Discovery
 Protocol in Cisco devices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoCdpMib(object):
+class CiscoCdpMib(Entity):
     """
     
     
@@ -55,19 +49,39 @@ class CiscoCdpMib(object):
     _revision = '2005-03-21'
 
     def __init__(self):
+        super(CiscoCdpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-CDP-MIB"
+        self.yang_parent_name = "CISCO-CDP-MIB"
+
         self.cdpcachetable = CiscoCdpMib.Cdpcachetable()
         self.cdpcachetable.parent = self
+        self._children_name_map["cdpcachetable"] = "cdpCacheTable"
+        self._children_yang_names.add("cdpCacheTable")
+
         self.cdpctaddresstable = CiscoCdpMib.Cdpctaddresstable()
         self.cdpctaddresstable.parent = self
+        self._children_name_map["cdpctaddresstable"] = "cdpCtAddressTable"
+        self._children_yang_names.add("cdpCtAddressTable")
+
         self.cdpglobal = CiscoCdpMib.Cdpglobal()
         self.cdpglobal.parent = self
+        self._children_name_map["cdpglobal"] = "cdpGlobal"
+        self._children_yang_names.add("cdpGlobal")
+
         self.cdpinterfaceexttable = CiscoCdpMib.Cdpinterfaceexttable()
         self.cdpinterfaceexttable.parent = self
+        self._children_name_map["cdpinterfaceexttable"] = "cdpInterfaceExtTable"
+        self._children_yang_names.add("cdpInterfaceExtTable")
+
         self.cdpinterfacetable = CiscoCdpMib.Cdpinterfacetable()
         self.cdpinterfacetable.parent = self
+        self._children_name_map["cdpinterfacetable"] = "cdpInterfaceTable"
+        self._children_yang_names.add("cdpInterfaceTable")
 
 
-    class Cdpglobal(object):
+    class Cdpglobal(Entity):
         """
         
         
@@ -79,7 +93,7 @@ class CiscoCdpMib(object):
         .. attribute:: cdpglobaldeviceidformat
         
         	An indication of the format of Device\-Id contained in the corresponding instance of cdpGlobalDeviceId. User can only specify the formats that the device is capable of as denoted in cdpGlobalDeviceIdFormatCpb object.  serialNumber(1) indicates that the value of cdpGlobalDeviceId  object is in the form of an ASCII string contain the device serial number.   macAddress(2) indicates that the value of cdpGlobalDeviceId  object is in the form of Layer 2 MAC address.  other(3) indicates that the value of cdpGlobalDeviceId object is in the form of a platform specific ASCII string contain info that identifies the device. For example\: ASCII string contains serialNumber appended/prepened with system name
-        	**type**\:   :py:class:`CdpglobaldeviceidformatEnum <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpglobal.CdpglobaldeviceidformatEnum>`
+        	**type**\:   :py:class:`Cdpglobaldeviceidformat <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpglobal.Cdpglobaldeviceidformat>`
         
         .. attribute:: cdpglobaldeviceidformatcpb
         
@@ -124,18 +138,58 @@ class CiscoCdpMib(object):
         _revision = '2005-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.cdpglobaldeviceid = None
-            self.cdpglobaldeviceidformat = None
-            self.cdpglobaldeviceidformatcpb = CiscoCdpMib.Cdpglobal.Cdpglobaldeviceidformatcpb()
-            self.cdpglobalholdtime = None
-            self.cdpgloballastchange = None
-            self.cdpglobalmessageinterval = None
-            self.cdpglobalrun = None
+            super(CiscoCdpMib.Cdpglobal, self).__init__()
 
-        class CdpglobaldeviceidformatEnum(Enum):
+            self.yang_name = "cdpGlobal"
+            self.yang_parent_name = "CISCO-CDP-MIB"
+
+            self.cdpglobaldeviceid = YLeaf(YType.str, "cdpGlobalDeviceId")
+
+            self.cdpglobaldeviceidformat = YLeaf(YType.enumeration, "cdpGlobalDeviceIdFormat")
+
+            self.cdpglobaldeviceidformatcpb = YLeaf(YType.bits, "cdpGlobalDeviceIdFormatCpb")
+
+            self.cdpglobalholdtime = YLeaf(YType.int32, "cdpGlobalHoldTime")
+
+            self.cdpgloballastchange = YLeaf(YType.uint32, "cdpGlobalLastChange")
+
+            self.cdpglobalmessageinterval = YLeaf(YType.int32, "cdpGlobalMessageInterval")
+
+            self.cdpglobalrun = YLeaf(YType.boolean, "cdpGlobalRun")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cdpglobaldeviceid",
+                            "cdpglobaldeviceidformat",
+                            "cdpglobaldeviceidformatcpb",
+                            "cdpglobalholdtime",
+                            "cdpgloballastchange",
+                            "cdpglobalmessageinterval",
+                            "cdpglobalrun") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoCdpMib.Cdpglobal, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoCdpMib.Cdpglobal, self).__setattr__(name, value)
+
+        class Cdpglobaldeviceidformat(Enum):
             """
-            CdpglobaldeviceidformatEnum
+            Cdpglobaldeviceidformat
 
             An indication of the format of Device\-Id contained in the
 
@@ -171,90 +225,108 @@ class CiscoCdpMib(object):
 
             """
 
-            serialNumber = 1
+            serialNumber = Enum.YLeaf(1, "serialNumber")
 
-            macAddress = 2
+            macAddress = Enum.YLeaf(2, "macAddress")
 
-            other = 3
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                return meta._meta_table['CiscoCdpMib.Cdpglobal.CdpglobaldeviceidformatEnum']
+            other = Enum.YLeaf(3, "other")
 
 
-        class Cdpglobaldeviceidformatcpb(FixedBitsDict):
-            """
-            Cdpglobaldeviceidformatcpb
+        def has_data(self):
+            return (
+                self.cdpglobaldeviceid.is_set or
+                self.cdpglobaldeviceidformat.is_set or
+                self.cdpglobaldeviceidformatcpb.is_set or
+                self.cdpglobalholdtime.is_set or
+                self.cdpgloballastchange.is_set or
+                self.cdpglobalmessageinterval.is_set or
+                self.cdpglobalrun.is_set)
 
-            Indicate the Device\-Id format capability of the device.
-            
-            serialNumber(0) indicates that the device supports using
-            serial number as the format for its DeviceId.
-            
-            macAddress(1) indicates that the device supports using
-            layer 2 MAC address as the format for its DeviceId.
-            
-            other(2) indicates that the device supports using its
-            platform specific format as the format for its DeviceId.
-            Keys are:- serialNumber , macAddress , other
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cdpglobaldeviceid.yfilter != YFilter.not_set or
+                self.cdpglobaldeviceidformat.yfilter != YFilter.not_set or
+                self.cdpglobaldeviceidformatcpb.yfilter != YFilter.not_set or
+                self.cdpglobalholdtime.yfilter != YFilter.not_set or
+                self.cdpgloballastchange.yfilter != YFilter.not_set or
+                self.cdpglobalmessageinterval.yfilter != YFilter.not_set or
+                self.cdpglobalrun.yfilter != YFilter.not_set)
 
-            """
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdpGlobal" + path_buffer
 
-            def __init__(self):
-                self._dictionary = { 
-                    'serialNumber':False,
-                    'macAddress':False,
-                    'other':False,
-                }
-                self._pos_map = { 
-                    'serialNumber':0,
-                    'macAddress':1,
-                    'other':2,
-                }
+            return path_buffer
 
-        @property
-        def _common_path(self):
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpGlobal'
+            leaf_name_data = LeafDataList()
+            if (self.cdpglobaldeviceid.is_set or self.cdpglobaldeviceid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobaldeviceid.get_name_leafdata())
+            if (self.cdpglobaldeviceidformat.is_set or self.cdpglobaldeviceidformat.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobaldeviceidformat.get_name_leafdata())
+            if (self.cdpglobaldeviceidformatcpb.is_set or self.cdpglobaldeviceidformatcpb.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobaldeviceidformatcpb.get_name_leafdata())
+            if (self.cdpglobalholdtime.is_set or self.cdpglobalholdtime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobalholdtime.get_name_leafdata())
+            if (self.cdpgloballastchange.is_set or self.cdpgloballastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpgloballastchange.get_name_leafdata())
+            if (self.cdpglobalmessageinterval.is_set or self.cdpglobalmessageinterval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobalmessageinterval.get_name_leafdata())
+            if (self.cdpglobalrun.is_set or self.cdpglobalrun.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdpglobalrun.get_name_leafdata())
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdpGlobalDeviceId" or name == "cdpGlobalDeviceIdFormat" or name == "cdpGlobalDeviceIdFormatCpb" or name == "cdpGlobalHoldTime" or name == "cdpGlobalLastChange" or name == "cdpGlobalMessageInterval" or name == "cdpGlobalRun"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cdpglobaldeviceid is not None:
-                return True
-
-            if self.cdpglobaldeviceidformat is not None:
-                return True
-
-            if self.cdpglobaldeviceidformatcpb is not None:
-                if self.cdpglobaldeviceidformatcpb._has_data():
-                    return True
-
-            if self.cdpglobalholdtime is not None:
-                return True
-
-            if self.cdpgloballastchange is not None:
-                return True
-
-            if self.cdpglobalmessageinterval is not None:
-                return True
-
-            if self.cdpglobalrun is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-            return meta._meta_table['CiscoCdpMib.Cdpglobal']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cdpGlobalDeviceId"):
+                self.cdpglobaldeviceid = value
+                self.cdpglobaldeviceid.value_namespace = name_space
+                self.cdpglobaldeviceid.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdpGlobalDeviceIdFormat"):
+                self.cdpglobaldeviceidformat = value
+                self.cdpglobaldeviceidformat.value_namespace = name_space
+                self.cdpglobaldeviceidformat.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdpGlobalDeviceIdFormatCpb"):
+                self.cdpglobaldeviceidformatcpb[value] = True
+            if(value_path == "cdpGlobalHoldTime"):
+                self.cdpglobalholdtime = value
+                self.cdpglobalholdtime.value_namespace = name_space
+                self.cdpglobalholdtime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdpGlobalLastChange"):
+                self.cdpgloballastchange = value
+                self.cdpgloballastchange.value_namespace = name_space
+                self.cdpgloballastchange.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdpGlobalMessageInterval"):
+                self.cdpglobalmessageinterval = value
+                self.cdpglobalmessageinterval.value_namespace = name_space
+                self.cdpglobalmessageinterval.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdpGlobalRun"):
+                self.cdpglobalrun = value
+                self.cdpglobalrun.value_namespace = name_space
+                self.cdpglobalrun.value_namespace_prefix = name_space_prefix
 
 
-    class Cdpinterfacetable(object):
+    class Cdpinterfacetable(Entity):
         """
         The (conceptual) table containing the status of CDP on
         the device's interfaces.
@@ -272,13 +344,39 @@ class CiscoCdpMib(object):
         _revision = '2005-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.cdpinterfaceentry = YList()
-            self.cdpinterfaceentry.parent = self
-            self.cdpinterfaceentry.name = 'cdpinterfaceentry'
+            super(CiscoCdpMib.Cdpinterfacetable, self).__init__()
+
+            self.yang_name = "cdpInterfaceTable"
+            self.yang_parent_name = "CISCO-CDP-MIB"
+
+            self.cdpinterfaceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoCdpMib.Cdpinterfacetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoCdpMib.Cdpinterfacetable, self).__setattr__(name, value)
 
 
-        class Cdpinterfaceentry(object):
+        class Cdpinterfaceentry(Entity):
             """
             An entry (conceptual row) in the cdpInterfaceTable,
             containing the status of CDP on an interface.
@@ -333,75 +431,198 @@ class CiscoCdpMib(object):
             _revision = '2005-03-21'
 
             def __init__(self):
-                self.parent = None
-                self.cdpinterfaceifindex = None
-                self.cdpinterfaceenable = None
-                self.cdpinterfacegroup = None
-                self.cdpinterfacemessageinterval = None
-                self.cdpinterfacename = None
-                self.cdpinterfaceport = None
+                super(CiscoCdpMib.Cdpinterfacetable.Cdpinterfaceentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdpinterfaceifindex is None:
-                    raise YPYModelError('Key property cdpinterfaceifindex is None')
+                self.yang_name = "cdpInterfaceEntry"
+                self.yang_parent_name = "cdpInterfaceTable"
 
-                return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpInterfaceTable/CISCO-CDP-MIB:cdpInterfaceEntry[CISCO-CDP-MIB:cdpInterfaceIfIndex = ' + str(self.cdpinterfaceifindex) + ']'
+                self.cdpinterfaceifindex = YLeaf(YType.int32, "cdpInterfaceIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdpinterfaceenable = YLeaf(YType.boolean, "cdpInterfaceEnable")
+
+                self.cdpinterfacegroup = YLeaf(YType.int32, "cdpInterfaceGroup")
+
+                self.cdpinterfacemessageinterval = YLeaf(YType.int32, "cdpInterfaceMessageInterval")
+
+                self.cdpinterfacename = YLeaf(YType.str, "cdpInterfaceName")
+
+                self.cdpinterfaceport = YLeaf(YType.int32, "cdpInterfacePort")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdpinterfaceifindex",
+                                "cdpinterfaceenable",
+                                "cdpinterfacegroup",
+                                "cdpinterfacemessageinterval",
+                                "cdpinterfacename",
+                                "cdpinterfaceport") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoCdpMib.Cdpinterfacetable.Cdpinterfaceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoCdpMib.Cdpinterfacetable.Cdpinterfaceentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdpinterfaceifindex.is_set or
+                    self.cdpinterfaceenable.is_set or
+                    self.cdpinterfacegroup.is_set or
+                    self.cdpinterfacemessageinterval.is_set or
+                    self.cdpinterfacename.is_set or
+                    self.cdpinterfaceport.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdpinterfaceifindex.yfilter != YFilter.not_set or
+                    self.cdpinterfaceenable.yfilter != YFilter.not_set or
+                    self.cdpinterfacegroup.yfilter != YFilter.not_set or
+                    self.cdpinterfacemessageinterval.yfilter != YFilter.not_set or
+                    self.cdpinterfacename.yfilter != YFilter.not_set or
+                    self.cdpinterfaceport.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdpInterfaceEntry" + "[cdpInterfaceIfIndex='" + self.cdpinterfaceifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdpinterfaceifindex.is_set or self.cdpinterfaceifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfaceifindex.get_name_leafdata())
+                if (self.cdpinterfaceenable.is_set or self.cdpinterfaceenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfaceenable.get_name_leafdata())
+                if (self.cdpinterfacegroup.is_set or self.cdpinterfacegroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfacegroup.get_name_leafdata())
+                if (self.cdpinterfacemessageinterval.is_set or self.cdpinterfacemessageinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfacemessageinterval.get_name_leafdata())
+                if (self.cdpinterfacename.is_set or self.cdpinterfacename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfacename.get_name_leafdata())
+                if (self.cdpinterfaceport.is_set or self.cdpinterfaceport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfaceport.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdpInterfaceIfIndex" or name == "cdpInterfaceEnable" or name == "cdpInterfaceGroup" or name == "cdpInterfaceMessageInterval" or name == "cdpInterfaceName" or name == "cdpInterfacePort"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdpinterfaceifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdpInterfaceIfIndex"):
+                    self.cdpinterfaceifindex = value
+                    self.cdpinterfaceifindex.value_namespace = name_space
+                    self.cdpinterfaceifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceEnable"):
+                    self.cdpinterfaceenable = value
+                    self.cdpinterfaceenable.value_namespace = name_space
+                    self.cdpinterfaceenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceGroup"):
+                    self.cdpinterfacegroup = value
+                    self.cdpinterfacegroup.value_namespace = name_space
+                    self.cdpinterfacegroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceMessageInterval"):
+                    self.cdpinterfacemessageinterval = value
+                    self.cdpinterfacemessageinterval.value_namespace = name_space
+                    self.cdpinterfacemessageinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceName"):
+                    self.cdpinterfacename = value
+                    self.cdpinterfacename.value_namespace = name_space
+                    self.cdpinterfacename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfacePort"):
+                    self.cdpinterfaceport = value
+                    self.cdpinterfaceport.value_namespace = name_space
+                    self.cdpinterfaceport.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdpinterfaceentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdpinterfaceenable is not None:
-                    return True
-
-                if self.cdpinterfacegroup is not None:
-                    return True
-
-                if self.cdpinterfacemessageinterval is not None:
-                    return True
-
-                if self.cdpinterfacename is not None:
-                    return True
-
-                if self.cdpinterfaceport is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                return meta._meta_table['CiscoCdpMib.Cdpinterfacetable.Cdpinterfaceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpInterfaceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdpinterfaceentry is not None:
-                for child_ref in self.cdpinterfaceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdpinterfaceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdpInterfaceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdpInterfaceEntry"):
+                for c in self.cdpinterfaceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoCdpMib.Cdpinterfacetable.Cdpinterfaceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdpinterfaceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdpInterfaceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-            return meta._meta_table['CiscoCdpMib.Cdpinterfacetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdpinterfaceexttable(object):
+    class Cdpinterfaceexttable(Entity):
         """
         This table contains the additional CDP configuration on
         the device's interfaces.
@@ -419,13 +640,39 @@ class CiscoCdpMib(object):
         _revision = '2005-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.cdpinterfaceextentry = YList()
-            self.cdpinterfaceextentry.parent = self
-            self.cdpinterfaceextentry.name = 'cdpinterfaceextentry'
+            super(CiscoCdpMib.Cdpinterfaceexttable, self).__init__()
+
+            self.yang_name = "cdpInterfaceExtTable"
+            self.yang_parent_name = "CISCO-CDP-MIB"
+
+            self.cdpinterfaceextentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoCdpMib.Cdpinterfaceexttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoCdpMib.Cdpinterfaceexttable, self).__setattr__(name, value)
 
 
-        class Cdpinterfaceextentry(object):
+        class Cdpinterfaceextentry(Entity):
             """
             An entry in the cdpInterfaceExtTable contains the values
             configured for Extented Trust TLV and COS (Class of Service)
@@ -451,7 +698,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpinterfaceextendedtrust
             
             	Indicates the value to be sent by Extended Trust TLV.  If trusted(1) is configured, the value of Extended Trust TLV is one byte in length with its least significant bit equal to 1 to indicate extended trust. All other bits are 0.  If noTrust(2) is configured, the value of Extended Trust TLV is one byte in length with its least significant bit equal to 0 to indicate no extended trust. All other bits are 0
-            	**type**\:   :py:class:`CdpinterfaceextendedtrustEnum <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry.CdpinterfaceextendedtrustEnum>`
+            	**type**\:   :py:class:`Cdpinterfaceextendedtrust <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry.Cdpinterfaceextendedtrust>`
             
             
 
@@ -461,14 +708,46 @@ class CiscoCdpMib(object):
             _revision = '2005-03-21'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdpinterfacecosforuntrustedport = None
-                self.cdpinterfaceextendedtrust = None
+                super(CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry, self).__init__()
 
-            class CdpinterfaceextendedtrustEnum(Enum):
+                self.yang_name = "cdpInterfaceExtEntry"
+                self.yang_parent_name = "cdpInterfaceExtTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cdpinterfacecosforuntrustedport = YLeaf(YType.uint32, "cdpInterfaceCosForUntrustedPort")
+
+                self.cdpinterfaceextendedtrust = YLeaf(YType.enumeration, "cdpInterfaceExtendedTrust")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdpinterfacecosforuntrustedport",
+                                "cdpinterfaceextendedtrust") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry, self).__setattr__(name, value)
+
+            class Cdpinterfaceextendedtrust(Enum):
                 """
-                CdpinterfaceextendedtrustEnum
+                Cdpinterfaceextendedtrust
 
                 Indicates the value to be sent by Extended Trust TLV.
 
@@ -490,69 +769,133 @@ class CiscoCdpMib(object):
 
                 """
 
-                trusted = 1
+                trusted = Enum.YLeaf(1, "trusted")
 
-                noTrust = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                    return meta._meta_table['CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry.CdpinterfaceextendedtrustEnum']
+                noTrust = Enum.YLeaf(2, "noTrust")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdpinterfacecosforuntrustedport.is_set or
+                    self.cdpinterfaceextendedtrust.is_set)
 
-                return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpInterfaceExtTable/CISCO-CDP-MIB:cdpInterfaceExtEntry[CISCO-CDP-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdpinterfacecosforuntrustedport.yfilter != YFilter.not_set or
+                    self.cdpinterfaceextendedtrust.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdpInterfaceExtEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceExtTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdpinterfacecosforuntrustedport.is_set or self.cdpinterfacecosforuntrustedport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfacecosforuntrustedport.get_name_leafdata())
+                if (self.cdpinterfaceextendedtrust.is_set or self.cdpinterfaceextendedtrust.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpinterfaceextendedtrust.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdpInterfaceCosForUntrustedPort" or name == "cdpInterfaceExtendedTrust"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceCosForUntrustedPort"):
+                    self.cdpinterfacecosforuntrustedport = value
+                    self.cdpinterfacecosforuntrustedport.value_namespace = name_space
+                    self.cdpinterfacecosforuntrustedport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpInterfaceExtendedTrust"):
+                    self.cdpinterfaceextendedtrust = value
+                    self.cdpinterfaceextendedtrust.value_namespace = name_space
+                    self.cdpinterfaceextendedtrust.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdpinterfaceextentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdpinterfacecosforuntrustedport is not None:
-                    return True
-
-                if self.cdpinterfaceextendedtrust is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                return meta._meta_table['CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpInterfaceExtTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdpinterfaceextentry is not None:
-                for child_ref in self.cdpinterfaceextentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdpinterfaceextentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdpInterfaceExtTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdpInterfaceExtEntry"):
+                for c in self.cdpinterfaceextentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoCdpMib.Cdpinterfaceexttable.Cdpinterfaceextentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdpinterfaceextentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdpInterfaceExtEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-            return meta._meta_table['CiscoCdpMib.Cdpinterfaceexttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdpcachetable(object):
+    class Cdpcachetable(Entity):
         """
         The (conceptual) table containing the cached
         information obtained via receiving CDP messages.
@@ -570,13 +913,39 @@ class CiscoCdpMib(object):
         _revision = '2005-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.cdpcacheentry = YList()
-            self.cdpcacheentry.parent = self
-            self.cdpcacheentry.name = 'cdpcacheentry'
+            super(CiscoCdpMib.Cdpcachetable, self).__init__()
+
+            self.yang_name = "cdpCacheTable"
+            self.yang_parent_name = "CISCO-CDP-MIB"
+
+            self.cdpcacheentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoCdpMib.Cdpcachetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoCdpMib.Cdpcachetable, self).__setattr__(name, value)
 
 
-        class Cdpcacheentry(object):
+        class Cdpcacheentry(Entity):
             """
             An entry (conceptual row) in the cdpCacheTable,
             containing the information received via CDP on one
@@ -607,7 +976,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpcacheaddresstype
             
             	An indication of the type of address contained in the corresponding instance of cdpCacheAddress
-            	**type**\:   :py:class:`CisconetworkprotocolEnum <ydk.models.cisco_ios_xe.CISCO_TC.CisconetworkprotocolEnum>`
+            	**type**\:   :py:class:`Cisconetworkprotocol <ydk.models.cisco_ios_xe.CISCO_TC.Cisconetworkprotocol>`
             
             .. attribute:: cdpcacheapplianceid
             
@@ -636,7 +1005,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpcacheduplex
             
             	The remote device's interface's duplex mode, as reported in the  most recent CDP message.  The value unknown(1) indicates no duplex mode field (TLV) was reported in the most recent CDP message
-            	**type**\:   :py:class:`CdpcacheduplexEnum <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpcachetable.Cdpcacheentry.CdpcacheduplexEnum>`
+            	**type**\:   :py:class:`Cdpcacheduplex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CiscoCdpMib.Cdpcachetable.Cdpcacheentry.Cdpcacheduplex>`
             
             .. attribute:: cdpcachelastchange
             
@@ -686,7 +1055,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpcacheprimarymgmtaddrtype
             
             	An indication of the type of address contained in the corresponding instance of cdpCachePrimaryMgmtAddress
-            	**type**\:   :py:class:`CisconetworkprotocolEnum <ydk.models.cisco_ios_xe.CISCO_TC.CisconetworkprotocolEnum>`
+            	**type**\:   :py:class:`Cisconetworkprotocol <ydk.models.cisco_ios_xe.CISCO_TC.Cisconetworkprotocol>`
             
             .. attribute:: cdpcachesecondarymgmtaddr
             
@@ -696,7 +1065,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpcachesecondarymgmtaddrtype
             
             	An indication of the type of address contained in the corresponding instance of cdpCacheSecondaryMgmtAddress
-            	**type**\:   :py:class:`CisconetworkprotocolEnum <ydk.models.cisco_ios_xe.CISCO_TC.CisconetworkprotocolEnum>`
+            	**type**\:   :py:class:`Cisconetworkprotocol <ydk.models.cisco_ios_xe.CISCO_TC.Cisconetworkprotocol>`
             
             .. attribute:: cdpcachesysname
             
@@ -739,35 +1108,109 @@ class CiscoCdpMib(object):
             _revision = '2005-03-21'
 
             def __init__(self):
-                self.parent = None
-                self.cdpcacheifindex = None
-                self.cdpcachedeviceindex = None
-                self.cdpcacheaddress = None
-                self.cdpcacheaddresstype = None
-                self.cdpcacheapplianceid = None
-                self.cdpcachecapabilities = None
-                self.cdpcachedeviceid = None
-                self.cdpcachedeviceport = None
-                self.cdpcacheduplex = None
-                self.cdpcachelastchange = None
-                self.cdpcachemtu = None
-                self.cdpcachenativevlan = None
-                self.cdpcachephyslocation = None
-                self.cdpcacheplatform = None
-                self.cdpcachepowerconsumption = None
-                self.cdpcacheprimarymgmtaddr = None
-                self.cdpcacheprimarymgmtaddrtype = None
-                self.cdpcachesecondarymgmtaddr = None
-                self.cdpcachesecondarymgmtaddrtype = None
-                self.cdpcachesysname = None
-                self.cdpcachesysobjectid = None
-                self.cdpcacheversion = None
-                self.cdpcachevlanid = None
-                self.cdpcachevtpmgmtdomain = None
+                super(CiscoCdpMib.Cdpcachetable.Cdpcacheentry, self).__init__()
 
-            class CdpcacheduplexEnum(Enum):
+                self.yang_name = "cdpCacheEntry"
+                self.yang_parent_name = "cdpCacheTable"
+
+                self.cdpcacheifindex = YLeaf(YType.int32, "cdpCacheIfIndex")
+
+                self.cdpcachedeviceindex = YLeaf(YType.int32, "cdpCacheDeviceIndex")
+
+                self.cdpcacheaddress = YLeaf(YType.str, "cdpCacheAddress")
+
+                self.cdpcacheaddresstype = YLeaf(YType.enumeration, "cdpCacheAddressType")
+
+                self.cdpcacheapplianceid = YLeaf(YType.uint32, "cdpCacheApplianceID")
+
+                self.cdpcachecapabilities = YLeaf(YType.str, "cdpCacheCapabilities")
+
+                self.cdpcachedeviceid = YLeaf(YType.str, "cdpCacheDeviceId")
+
+                self.cdpcachedeviceport = YLeaf(YType.str, "cdpCacheDevicePort")
+
+                self.cdpcacheduplex = YLeaf(YType.enumeration, "cdpCacheDuplex")
+
+                self.cdpcachelastchange = YLeaf(YType.uint32, "cdpCacheLastChange")
+
+                self.cdpcachemtu = YLeaf(YType.uint32, "cdpCacheMTU")
+
+                self.cdpcachenativevlan = YLeaf(YType.int32, "cdpCacheNativeVLAN")
+
+                self.cdpcachephyslocation = YLeaf(YType.str, "cdpCachePhysLocation")
+
+                self.cdpcacheplatform = YLeaf(YType.str, "cdpCachePlatform")
+
+                self.cdpcachepowerconsumption = YLeaf(YType.uint32, "cdpCachePowerConsumption")
+
+                self.cdpcacheprimarymgmtaddr = YLeaf(YType.str, "cdpCachePrimaryMgmtAddr")
+
+                self.cdpcacheprimarymgmtaddrtype = YLeaf(YType.enumeration, "cdpCachePrimaryMgmtAddrType")
+
+                self.cdpcachesecondarymgmtaddr = YLeaf(YType.str, "cdpCacheSecondaryMgmtAddr")
+
+                self.cdpcachesecondarymgmtaddrtype = YLeaf(YType.enumeration, "cdpCacheSecondaryMgmtAddrType")
+
+                self.cdpcachesysname = YLeaf(YType.str, "cdpCacheSysName")
+
+                self.cdpcachesysobjectid = YLeaf(YType.str, "cdpCacheSysObjectID")
+
+                self.cdpcacheversion = YLeaf(YType.str, "cdpCacheVersion")
+
+                self.cdpcachevlanid = YLeaf(YType.uint32, "cdpCacheVlanID")
+
+                self.cdpcachevtpmgmtdomain = YLeaf(YType.str, "cdpCacheVTPMgmtDomain")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdpcacheifindex",
+                                "cdpcachedeviceindex",
+                                "cdpcacheaddress",
+                                "cdpcacheaddresstype",
+                                "cdpcacheapplianceid",
+                                "cdpcachecapabilities",
+                                "cdpcachedeviceid",
+                                "cdpcachedeviceport",
+                                "cdpcacheduplex",
+                                "cdpcachelastchange",
+                                "cdpcachemtu",
+                                "cdpcachenativevlan",
+                                "cdpcachephyslocation",
+                                "cdpcacheplatform",
+                                "cdpcachepowerconsumption",
+                                "cdpcacheprimarymgmtaddr",
+                                "cdpcacheprimarymgmtaddrtype",
+                                "cdpcachesecondarymgmtaddr",
+                                "cdpcachesecondarymgmtaddrtype",
+                                "cdpcachesysname",
+                                "cdpcachesysobjectid",
+                                "cdpcacheversion",
+                                "cdpcachevlanid",
+                                "cdpcachevtpmgmtdomain") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoCdpMib.Cdpcachetable.Cdpcacheentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoCdpMib.Cdpcachetable.Cdpcacheentry, self).__setattr__(name, value)
+
+            class Cdpcacheduplex(Enum):
                 """
-                CdpcacheduplexEnum
+                Cdpcacheduplex
 
                 The remote device's interface's duplex mode, as reported in the 
 
@@ -785,136 +1228,303 @@ class CiscoCdpMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                halfduplex = 2
+                halfduplex = Enum.YLeaf(2, "halfduplex")
 
-                fullduplex = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                    return meta._meta_table['CiscoCdpMib.Cdpcachetable.Cdpcacheentry.CdpcacheduplexEnum']
+                fullduplex = Enum.YLeaf(3, "fullduplex")
 
 
-            @property
-            def _common_path(self):
-                if self.cdpcacheifindex is None:
-                    raise YPYModelError('Key property cdpcacheifindex is None')
-                if self.cdpcachedeviceindex is None:
-                    raise YPYModelError('Key property cdpcachedeviceindex is None')
+            def has_data(self):
+                return (
+                    self.cdpcacheifindex.is_set or
+                    self.cdpcachedeviceindex.is_set or
+                    self.cdpcacheaddress.is_set or
+                    self.cdpcacheaddresstype.is_set or
+                    self.cdpcacheapplianceid.is_set or
+                    self.cdpcachecapabilities.is_set or
+                    self.cdpcachedeviceid.is_set or
+                    self.cdpcachedeviceport.is_set or
+                    self.cdpcacheduplex.is_set or
+                    self.cdpcachelastchange.is_set or
+                    self.cdpcachemtu.is_set or
+                    self.cdpcachenativevlan.is_set or
+                    self.cdpcachephyslocation.is_set or
+                    self.cdpcacheplatform.is_set or
+                    self.cdpcachepowerconsumption.is_set or
+                    self.cdpcacheprimarymgmtaddr.is_set or
+                    self.cdpcacheprimarymgmtaddrtype.is_set or
+                    self.cdpcachesecondarymgmtaddr.is_set or
+                    self.cdpcachesecondarymgmtaddrtype.is_set or
+                    self.cdpcachesysname.is_set or
+                    self.cdpcachesysobjectid.is_set or
+                    self.cdpcacheversion.is_set or
+                    self.cdpcachevlanid.is_set or
+                    self.cdpcachevtpmgmtdomain.is_set)
 
-                return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpCacheTable/CISCO-CDP-MIB:cdpCacheEntry[CISCO-CDP-MIB:cdpCacheIfIndex = ' + str(self.cdpcacheifindex) + '][CISCO-CDP-MIB:cdpCacheDeviceIndex = ' + str(self.cdpcachedeviceindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdpcacheifindex.yfilter != YFilter.not_set or
+                    self.cdpcachedeviceindex.yfilter != YFilter.not_set or
+                    self.cdpcacheaddress.yfilter != YFilter.not_set or
+                    self.cdpcacheaddresstype.yfilter != YFilter.not_set or
+                    self.cdpcacheapplianceid.yfilter != YFilter.not_set or
+                    self.cdpcachecapabilities.yfilter != YFilter.not_set or
+                    self.cdpcachedeviceid.yfilter != YFilter.not_set or
+                    self.cdpcachedeviceport.yfilter != YFilter.not_set or
+                    self.cdpcacheduplex.yfilter != YFilter.not_set or
+                    self.cdpcachelastchange.yfilter != YFilter.not_set or
+                    self.cdpcachemtu.yfilter != YFilter.not_set or
+                    self.cdpcachenativevlan.yfilter != YFilter.not_set or
+                    self.cdpcachephyslocation.yfilter != YFilter.not_set or
+                    self.cdpcacheplatform.yfilter != YFilter.not_set or
+                    self.cdpcachepowerconsumption.yfilter != YFilter.not_set or
+                    self.cdpcacheprimarymgmtaddr.yfilter != YFilter.not_set or
+                    self.cdpcacheprimarymgmtaddrtype.yfilter != YFilter.not_set or
+                    self.cdpcachesecondarymgmtaddr.yfilter != YFilter.not_set or
+                    self.cdpcachesecondarymgmtaddrtype.yfilter != YFilter.not_set or
+                    self.cdpcachesysname.yfilter != YFilter.not_set or
+                    self.cdpcachesysobjectid.yfilter != YFilter.not_set or
+                    self.cdpcacheversion.yfilter != YFilter.not_set or
+                    self.cdpcachevlanid.yfilter != YFilter.not_set or
+                    self.cdpcachevtpmgmtdomain.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdpCacheEntry" + "[cdpCacheIfIndex='" + self.cdpcacheifindex.get() + "']" + "[cdpCacheDeviceIndex='" + self.cdpcachedeviceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCacheTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdpcacheifindex.is_set or self.cdpcacheifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheifindex.get_name_leafdata())
+                if (self.cdpcachedeviceindex.is_set or self.cdpcachedeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachedeviceindex.get_name_leafdata())
+                if (self.cdpcacheaddress.is_set or self.cdpcacheaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheaddress.get_name_leafdata())
+                if (self.cdpcacheaddresstype.is_set or self.cdpcacheaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheaddresstype.get_name_leafdata())
+                if (self.cdpcacheapplianceid.is_set or self.cdpcacheapplianceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheapplianceid.get_name_leafdata())
+                if (self.cdpcachecapabilities.is_set or self.cdpcachecapabilities.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachecapabilities.get_name_leafdata())
+                if (self.cdpcachedeviceid.is_set or self.cdpcachedeviceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachedeviceid.get_name_leafdata())
+                if (self.cdpcachedeviceport.is_set or self.cdpcachedeviceport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachedeviceport.get_name_leafdata())
+                if (self.cdpcacheduplex.is_set or self.cdpcacheduplex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheduplex.get_name_leafdata())
+                if (self.cdpcachelastchange.is_set or self.cdpcachelastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachelastchange.get_name_leafdata())
+                if (self.cdpcachemtu.is_set or self.cdpcachemtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachemtu.get_name_leafdata())
+                if (self.cdpcachenativevlan.is_set or self.cdpcachenativevlan.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachenativevlan.get_name_leafdata())
+                if (self.cdpcachephyslocation.is_set or self.cdpcachephyslocation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachephyslocation.get_name_leafdata())
+                if (self.cdpcacheplatform.is_set or self.cdpcacheplatform.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheplatform.get_name_leafdata())
+                if (self.cdpcachepowerconsumption.is_set or self.cdpcachepowerconsumption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachepowerconsumption.get_name_leafdata())
+                if (self.cdpcacheprimarymgmtaddr.is_set or self.cdpcacheprimarymgmtaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheprimarymgmtaddr.get_name_leafdata())
+                if (self.cdpcacheprimarymgmtaddrtype.is_set or self.cdpcacheprimarymgmtaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheprimarymgmtaddrtype.get_name_leafdata())
+                if (self.cdpcachesecondarymgmtaddr.is_set or self.cdpcachesecondarymgmtaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachesecondarymgmtaddr.get_name_leafdata())
+                if (self.cdpcachesecondarymgmtaddrtype.is_set or self.cdpcachesecondarymgmtaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachesecondarymgmtaddrtype.get_name_leafdata())
+                if (self.cdpcachesysname.is_set or self.cdpcachesysname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachesysname.get_name_leafdata())
+                if (self.cdpcachesysobjectid.is_set or self.cdpcachesysobjectid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachesysobjectid.get_name_leafdata())
+                if (self.cdpcacheversion.is_set or self.cdpcacheversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheversion.get_name_leafdata())
+                if (self.cdpcachevlanid.is_set or self.cdpcachevlanid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachevlanid.get_name_leafdata())
+                if (self.cdpcachevtpmgmtdomain.is_set or self.cdpcachevtpmgmtdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachevtpmgmtdomain.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdpCacheIfIndex" or name == "cdpCacheDeviceIndex" or name == "cdpCacheAddress" or name == "cdpCacheAddressType" or name == "cdpCacheApplianceID" or name == "cdpCacheCapabilities" or name == "cdpCacheDeviceId" or name == "cdpCacheDevicePort" or name == "cdpCacheDuplex" or name == "cdpCacheLastChange" or name == "cdpCacheMTU" or name == "cdpCacheNativeVLAN" or name == "cdpCachePhysLocation" or name == "cdpCachePlatform" or name == "cdpCachePowerConsumption" or name == "cdpCachePrimaryMgmtAddr" or name == "cdpCachePrimaryMgmtAddrType" or name == "cdpCacheSecondaryMgmtAddr" or name == "cdpCacheSecondaryMgmtAddrType" or name == "cdpCacheSysName" or name == "cdpCacheSysObjectID" or name == "cdpCacheVersion" or name == "cdpCacheVlanID" or name == "cdpCacheVTPMgmtDomain"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdpcacheifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdpCacheIfIndex"):
+                    self.cdpcacheifindex = value
+                    self.cdpcacheifindex.value_namespace = name_space
+                    self.cdpcacheifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheDeviceIndex"):
+                    self.cdpcachedeviceindex = value
+                    self.cdpcachedeviceindex.value_namespace = name_space
+                    self.cdpcachedeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheAddress"):
+                    self.cdpcacheaddress = value
+                    self.cdpcacheaddress.value_namespace = name_space
+                    self.cdpcacheaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheAddressType"):
+                    self.cdpcacheaddresstype = value
+                    self.cdpcacheaddresstype.value_namespace = name_space
+                    self.cdpcacheaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheApplianceID"):
+                    self.cdpcacheapplianceid = value
+                    self.cdpcacheapplianceid.value_namespace = name_space
+                    self.cdpcacheapplianceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheCapabilities"):
+                    self.cdpcachecapabilities = value
+                    self.cdpcachecapabilities.value_namespace = name_space
+                    self.cdpcachecapabilities.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheDeviceId"):
+                    self.cdpcachedeviceid = value
+                    self.cdpcachedeviceid.value_namespace = name_space
+                    self.cdpcachedeviceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheDevicePort"):
+                    self.cdpcachedeviceport = value
+                    self.cdpcachedeviceport.value_namespace = name_space
+                    self.cdpcachedeviceport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheDuplex"):
+                    self.cdpcacheduplex = value
+                    self.cdpcacheduplex.value_namespace = name_space
+                    self.cdpcacheduplex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheLastChange"):
+                    self.cdpcachelastchange = value
+                    self.cdpcachelastchange.value_namespace = name_space
+                    self.cdpcachelastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheMTU"):
+                    self.cdpcachemtu = value
+                    self.cdpcachemtu.value_namespace = name_space
+                    self.cdpcachemtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheNativeVLAN"):
+                    self.cdpcachenativevlan = value
+                    self.cdpcachenativevlan.value_namespace = name_space
+                    self.cdpcachenativevlan.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCachePhysLocation"):
+                    self.cdpcachephyslocation = value
+                    self.cdpcachephyslocation.value_namespace = name_space
+                    self.cdpcachephyslocation.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCachePlatform"):
+                    self.cdpcacheplatform = value
+                    self.cdpcacheplatform.value_namespace = name_space
+                    self.cdpcacheplatform.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCachePowerConsumption"):
+                    self.cdpcachepowerconsumption = value
+                    self.cdpcachepowerconsumption.value_namespace = name_space
+                    self.cdpcachepowerconsumption.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCachePrimaryMgmtAddr"):
+                    self.cdpcacheprimarymgmtaddr = value
+                    self.cdpcacheprimarymgmtaddr.value_namespace = name_space
+                    self.cdpcacheprimarymgmtaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCachePrimaryMgmtAddrType"):
+                    self.cdpcacheprimarymgmtaddrtype = value
+                    self.cdpcacheprimarymgmtaddrtype.value_namespace = name_space
+                    self.cdpcacheprimarymgmtaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheSecondaryMgmtAddr"):
+                    self.cdpcachesecondarymgmtaddr = value
+                    self.cdpcachesecondarymgmtaddr.value_namespace = name_space
+                    self.cdpcachesecondarymgmtaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheSecondaryMgmtAddrType"):
+                    self.cdpcachesecondarymgmtaddrtype = value
+                    self.cdpcachesecondarymgmtaddrtype.value_namespace = name_space
+                    self.cdpcachesecondarymgmtaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheSysName"):
+                    self.cdpcachesysname = value
+                    self.cdpcachesysname.value_namespace = name_space
+                    self.cdpcachesysname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheSysObjectID"):
+                    self.cdpcachesysobjectid = value
+                    self.cdpcachesysobjectid.value_namespace = name_space
+                    self.cdpcachesysobjectid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheVersion"):
+                    self.cdpcacheversion = value
+                    self.cdpcacheversion.value_namespace = name_space
+                    self.cdpcacheversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheVlanID"):
+                    self.cdpcachevlanid = value
+                    self.cdpcachevlanid.value_namespace = name_space
+                    self.cdpcachevlanid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheVTPMgmtDomain"):
+                    self.cdpcachevtpmgmtdomain = value
+                    self.cdpcachevtpmgmtdomain.value_namespace = name_space
+                    self.cdpcachevtpmgmtdomain.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdpcacheentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdpcachedeviceindex is not None:
-                    return True
-
-                if self.cdpcacheaddress is not None:
-                    return True
-
-                if self.cdpcacheaddresstype is not None:
-                    return True
-
-                if self.cdpcacheapplianceid is not None:
-                    return True
-
-                if self.cdpcachecapabilities is not None:
-                    return True
-
-                if self.cdpcachedeviceid is not None:
-                    return True
-
-                if self.cdpcachedeviceport is not None:
-                    return True
-
-                if self.cdpcacheduplex is not None:
-                    return True
-
-                if self.cdpcachelastchange is not None:
-                    return True
-
-                if self.cdpcachemtu is not None:
-                    return True
-
-                if self.cdpcachenativevlan is not None:
-                    return True
-
-                if self.cdpcachephyslocation is not None:
-                    return True
-
-                if self.cdpcacheplatform is not None:
-                    return True
-
-                if self.cdpcachepowerconsumption is not None:
-                    return True
-
-                if self.cdpcacheprimarymgmtaddr is not None:
-                    return True
-
-                if self.cdpcacheprimarymgmtaddrtype is not None:
-                    return True
-
-                if self.cdpcachesecondarymgmtaddr is not None:
-                    return True
-
-                if self.cdpcachesecondarymgmtaddrtype is not None:
-                    return True
-
-                if self.cdpcachesysname is not None:
-                    return True
-
-                if self.cdpcachesysobjectid is not None:
-                    return True
-
-                if self.cdpcacheversion is not None:
-                    return True
-
-                if self.cdpcachevlanid is not None:
-                    return True
-
-                if self.cdpcachevtpmgmtdomain is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                return meta._meta_table['CiscoCdpMib.Cdpcachetable.Cdpcacheentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpCacheTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdpcacheentry is not None:
-                for child_ref in self.cdpcacheentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdpcacheentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdpCacheTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdpCacheEntry"):
+                for c in self.cdpcacheentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoCdpMib.Cdpcachetable.Cdpcacheentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdpcacheentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdpCacheEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-            return meta._meta_table['CiscoCdpMib.Cdpcachetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdpctaddresstable(object):
+    class Cdpctaddresstable(Entity):
         """
         The (conceptual) table containing the list of 
         network\-layer addresses of a neighbor interface,
@@ -937,13 +1547,39 @@ class CiscoCdpMib(object):
         _revision = '2005-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.cdpctaddressentry = YList()
-            self.cdpctaddressentry.parent = self
-            self.cdpctaddressentry.name = 'cdpctaddressentry'
+            super(CiscoCdpMib.Cdpctaddresstable, self).__init__()
+
+            self.yang_name = "cdpCtAddressTable"
+            self.yang_parent_name = "CISCO-CDP-MIB"
+
+            self.cdpctaddressentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoCdpMib.Cdpctaddresstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoCdpMib.Cdpctaddresstable, self).__setattr__(name, value)
 
 
-        class Cdpctaddressentry(object):
+        class Cdpctaddressentry(Entity):
             """
             An entry (conceptual row) in the cdpCtAddressTable,
             containing the information on one address received via CDP 
@@ -988,7 +1624,7 @@ class CiscoCdpMib(object):
             .. attribute:: cdpctaddresstype
             
             	An indication of the type of address contained in the corresponding instance of cdpCtAddress
-            	**type**\:   :py:class:`CisconetworkprotocolEnum <ydk.models.cisco_ios_xe.CISCO_TC.CisconetworkprotocolEnum>`
+            	**type**\:   :py:class:`Cisconetworkprotocol <ydk.models.cisco_ios_xe.CISCO_TC.Cisconetworkprotocol>`
             
             
 
@@ -998,103 +1634,270 @@ class CiscoCdpMib(object):
             _revision = '2005-03-21'
 
             def __init__(self):
-                self.parent = None
-                self.cdpcacheifindex = None
-                self.cdpcachedeviceindex = None
-                self.cdpctaddressindex = None
-                self.cdpctaddress = None
-                self.cdpctaddresstype = None
+                super(CiscoCdpMib.Cdpctaddresstable.Cdpctaddressentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdpcacheifindex is None:
-                    raise YPYModelError('Key property cdpcacheifindex is None')
-                if self.cdpcachedeviceindex is None:
-                    raise YPYModelError('Key property cdpcachedeviceindex is None')
-                if self.cdpctaddressindex is None:
-                    raise YPYModelError('Key property cdpctaddressindex is None')
+                self.yang_name = "cdpCtAddressEntry"
+                self.yang_parent_name = "cdpCtAddressTable"
 
-                return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpCtAddressTable/CISCO-CDP-MIB:cdpCtAddressEntry[CISCO-CDP-MIB:cdpCacheIfIndex = ' + str(self.cdpcacheifindex) + '][CISCO-CDP-MIB:cdpCacheDeviceIndex = ' + str(self.cdpcachedeviceindex) + '][CISCO-CDP-MIB:cdpCtAddressIndex = ' + str(self.cdpctaddressindex) + ']'
+                self.cdpcacheifindex = YLeaf(YType.str, "cdpCacheIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdpcachedeviceindex = YLeaf(YType.str, "cdpCacheDeviceIndex")
+
+                self.cdpctaddressindex = YLeaf(YType.int32, "cdpCtAddressIndex")
+
+                self.cdpctaddress = YLeaf(YType.str, "cdpCtAddress")
+
+                self.cdpctaddresstype = YLeaf(YType.enumeration, "cdpCtAddressType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdpcacheifindex",
+                                "cdpcachedeviceindex",
+                                "cdpctaddressindex",
+                                "cdpctaddress",
+                                "cdpctaddresstype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoCdpMib.Cdpctaddresstable.Cdpctaddressentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoCdpMib.Cdpctaddresstable.Cdpctaddressentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdpcacheifindex.is_set or
+                    self.cdpcachedeviceindex.is_set or
+                    self.cdpctaddressindex.is_set or
+                    self.cdpctaddress.is_set or
+                    self.cdpctaddresstype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdpcacheifindex.yfilter != YFilter.not_set or
+                    self.cdpcachedeviceindex.yfilter != YFilter.not_set or
+                    self.cdpctaddressindex.yfilter != YFilter.not_set or
+                    self.cdpctaddress.yfilter != YFilter.not_set or
+                    self.cdpctaddresstype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdpCtAddressEntry" + "[cdpCacheIfIndex='" + self.cdpcacheifindex.get() + "']" + "[cdpCacheDeviceIndex='" + self.cdpcachedeviceindex.get() + "']" + "[cdpCtAddressIndex='" + self.cdpctaddressindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCtAddressTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdpcacheifindex.is_set or self.cdpcacheifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcacheifindex.get_name_leafdata())
+                if (self.cdpcachedeviceindex.is_set or self.cdpcachedeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpcachedeviceindex.get_name_leafdata())
+                if (self.cdpctaddressindex.is_set or self.cdpctaddressindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpctaddressindex.get_name_leafdata())
+                if (self.cdpctaddress.is_set or self.cdpctaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpctaddress.get_name_leafdata())
+                if (self.cdpctaddresstype.is_set or self.cdpctaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdpctaddresstype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdpCacheIfIndex" or name == "cdpCacheDeviceIndex" or name == "cdpCtAddressIndex" or name == "cdpCtAddress" or name == "cdpCtAddressType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdpcacheifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdpCacheIfIndex"):
+                    self.cdpcacheifindex = value
+                    self.cdpcacheifindex.value_namespace = name_space
+                    self.cdpcacheifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCacheDeviceIndex"):
+                    self.cdpcachedeviceindex = value
+                    self.cdpcachedeviceindex.value_namespace = name_space
+                    self.cdpcachedeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCtAddressIndex"):
+                    self.cdpctaddressindex = value
+                    self.cdpctaddressindex.value_namespace = name_space
+                    self.cdpctaddressindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCtAddress"):
+                    self.cdpctaddress = value
+                    self.cdpctaddress.value_namespace = name_space
+                    self.cdpctaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdpCtAddressType"):
+                    self.cdpctaddresstype = value
+                    self.cdpctaddresstype.value_namespace = name_space
+                    self.cdpctaddresstype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdpctaddressentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdpcachedeviceindex is not None:
-                    return True
-
-                if self.cdpctaddressindex is not None:
-                    return True
-
-                if self.cdpctaddress is not None:
-                    return True
-
-                if self.cdpctaddresstype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-                return meta._meta_table['CiscoCdpMib.Cdpctaddresstable.Cdpctaddressentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CDP-MIB:CISCO-CDP-MIB/CISCO-CDP-MIB:cdpCtAddressTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdpctaddressentry is not None:
-                for child_ref in self.cdpctaddressentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdpctaddressentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdpCtAddressTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdpCtAddressEntry"):
+                for c in self.cdpctaddressentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoCdpMib.Cdpctaddresstable.Cdpctaddressentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdpctaddressentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdpCtAddressEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-            return meta._meta_table['CiscoCdpMib.Cdpctaddresstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cdpcachetable is not None and self.cdpcachetable.has_data()) or
+            (self.cdpctaddresstable is not None and self.cdpctaddresstable.has_data()) or
+            (self.cdpglobal is not None and self.cdpglobal.has_data()) or
+            (self.cdpinterfaceexttable is not None and self.cdpinterfaceexttable.has_data()) or
+            (self.cdpinterfacetable is not None and self.cdpinterfacetable.has_data()))
 
-        return '/CISCO-CDP-MIB:CISCO-CDP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cdpcachetable is not None and self.cdpcachetable.has_operation()) or
+            (self.cdpctaddresstable is not None and self.cdpctaddresstable.has_operation()) or
+            (self.cdpglobal is not None and self.cdpglobal.has_operation()) or
+            (self.cdpinterfaceexttable is not None and self.cdpinterfaceexttable.has_operation()) or
+            (self.cdpinterfacetable is not None and self.cdpinterfacetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-CDP-MIB:CISCO-CDP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cdpCacheTable"):
+            if (self.cdpcachetable is None):
+                self.cdpcachetable = CiscoCdpMib.Cdpcachetable()
+                self.cdpcachetable.parent = self
+                self._children_name_map["cdpcachetable"] = "cdpCacheTable"
+            return self.cdpcachetable
+
+        if (child_yang_name == "cdpCtAddressTable"):
+            if (self.cdpctaddresstable is None):
+                self.cdpctaddresstable = CiscoCdpMib.Cdpctaddresstable()
+                self.cdpctaddresstable.parent = self
+                self._children_name_map["cdpctaddresstable"] = "cdpCtAddressTable"
+            return self.cdpctaddresstable
+
+        if (child_yang_name == "cdpGlobal"):
+            if (self.cdpglobal is None):
+                self.cdpglobal = CiscoCdpMib.Cdpglobal()
+                self.cdpglobal.parent = self
+                self._children_name_map["cdpglobal"] = "cdpGlobal"
+            return self.cdpglobal
+
+        if (child_yang_name == "cdpInterfaceExtTable"):
+            if (self.cdpinterfaceexttable is None):
+                self.cdpinterfaceexttable = CiscoCdpMib.Cdpinterfaceexttable()
+                self.cdpinterfaceexttable.parent = self
+                self._children_name_map["cdpinterfaceexttable"] = "cdpInterfaceExtTable"
+            return self.cdpinterfaceexttable
+
+        if (child_yang_name == "cdpInterfaceTable"):
+            if (self.cdpinterfacetable is None):
+                self.cdpinterfacetable = CiscoCdpMib.Cdpinterfacetable()
+                self.cdpinterfacetable.parent = self
+                self._children_name_map["cdpinterfacetable"] = "cdpInterfaceTable"
+            return self.cdpinterfacetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cdpCacheTable" or name == "cdpCtAddressTable" or name == "cdpGlobal" or name == "cdpInterfaceExtTable" or name == "cdpInterfaceTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cdpcachetable is not None and self.cdpcachetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cdpctaddresstable is not None and self.cdpctaddresstable._has_data():
-            return True
-
-        if self.cdpglobal is not None and self.cdpglobal._has_data():
-            return True
-
-        if self.cdpinterfaceexttable is not None and self.cdpinterfaceexttable._has_data():
-            return True
-
-        if self.cdpinterfacetable is not None and self.cdpinterfacetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CDP_MIB as meta
-        return meta._meta_table['CiscoCdpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoCdpMib()
+        return self._top_entity
 

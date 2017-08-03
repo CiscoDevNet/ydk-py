@@ -2,22 +2,16 @@
 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AtmservicecategoryEnum(Enum):
+class Atmservicecategory(Enum):
     """
-    AtmservicecategoryEnum
+    Atmservicecategory
 
     ATM Service Categories use this data type
 
@@ -35,28 +29,22 @@ class AtmservicecategoryEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    cbr = 2
+    cbr = Enum.YLeaf(2, "cbr")
 
-    rtVbr = 3
+    rtVbr = Enum.YLeaf(3, "rtVbr")
 
-    nrtVbr = 4
+    nrtVbr = Enum.YLeaf(4, "nrtVbr")
 
-    abr = 5
+    abr = Enum.YLeaf(5, "abr")
 
-    ubr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_FORUM_TC_MIB as meta
-        return meta._meta_table['AtmservicecategoryEnum']
+    ubr = Enum.YLeaf(6, "ubr")
 
 
-class TruthvalueEnum(Enum):
+class Truthvalue(Enum):
     """
-    TruthvalueEnum
+    Truthvalue
 
     Boolean values use this data type from RFC\-1903
 
@@ -66,15 +54,9 @@ class TruthvalueEnum(Enum):
 
     """
 
-    true = 1
+    true = Enum.YLeaf(1, "true")
 
-    false = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_FORUM_TC_MIB as meta
-        return meta._meta_table['TruthvalueEnum']
+    false = Enum.YLeaf(2, "false")
 
 
 

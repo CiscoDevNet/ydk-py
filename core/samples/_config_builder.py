@@ -25,13 +25,13 @@ def _get_bgp_config():
     bgp_cfg.global_.config.as_ = 65001
 
     ipv4_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
-    ipv4_afsf.afi_safi_name = openconfig_bgp_types.Ipv4UnicastIdentity()
-    ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv4UnicastIdentity()
+    ipv4_afsf.afi_safi_name = openconfig_bgp_types.Ipv4_Unicast()
+    ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv4_Unicast()
     ipv4_afsf.config.enabled = True
 
     ipv6_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
-    ipv6_afsf.afi_safi_name = openconfig_bgp_types.Ipv6UnicastIdentity()
-    ipv6_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv6UnicastIdentity()
+    ipv6_afsf.afi_safi_name = openconfig_bgp_types.Ipv6_Unicast()
+    ipv6_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv6_Unicast()
     ipv6_afsf.config.enabled = True
 
     bgp_cfg.global_.afi_safis.afi_safi.append(ipv4_afsf)
@@ -45,9 +45,9 @@ def _get_bgp_config():
     nbr_ipv4.config.peer_as = 65002
 
     nbr_ipv4_afsf = nbr_ipv4.afi_safis.AfiSafi()
-    nbr_ipv4_afsf.afi_safi_name = openconfig_bgp_types.Ipv4UnicastIdentity()
+    nbr_ipv4_afsf.afi_safi_name = openconfig_bgp_types.Ipv4_Unicast()
     nbr_ipv4_afsf.config.peer_as = 65002
-    nbr_ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv4UnicastIdentity()
+    nbr_ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv4_Unicast()
     nbr_ipv4_afsf.config.enabled = True
 
     # Create afi-safi policy instances
@@ -66,13 +66,13 @@ def _get_routing_cfg():
     pass_all_policy_defn.name = 'PASS-ALL'
 
     routing_policy.policy_definitions.policy_definition.append(pass_all_policy_defn)
-    pass_all_policy_defn._parent = routing_policy.policy_definitions
+    pass_all_policy_defn.parent = routing_policy.policy_definitions
 
-    comm_set = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet()
-    comm_set.community_set_name = 'testing'
-    comm_set.community_member.append("65172:16001")
-    comm_set.community_member.append("65172:16032")
-    routing_policy.defined_sets.bgp_defined_sets.community_sets.community_set.append(comm_set)
+#    RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet()
+#    comm_set.community_set_name = 'testing'
+#comm_set.config.community_member.append("65172:16001")
+#comm_set.config.community_member.append("65172:16032")
+#    routing_policy.defined_sets.bgp_defined_sets.community_sets.community_set.append(comm_set)
     return routing_policy
 
 

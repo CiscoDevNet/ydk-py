@@ -24,13 +24,10 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['enum34==1.1.3',
-                        'lxml>=3.4.4',
-                        'ncclient>=0.4.7',
-                        'ydk>=0.5.4']
+INSTALL_REQUIREMENTS = ['ydk>=0.6.0']
 
 NMSP_PKG_NAME = "ydk-models-ietf"
-NMSP_PKG_VERSION = "0.1.2"
+NMSP_PKG_VERSION = "0.1.3"
 NMSP_PKG_DEPENDENCIES = []
 
 
@@ -43,7 +40,7 @@ YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
 
 
 DESCRIPTION = "YDK bundle for IETF models"
-LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for IETF YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for IETF models uses the YDK core package."
+LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for IETF YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for IETF models uses the YDK core package.  You can find the SDK documentation at http://ydk.cisco.com/py/docs"
 
 setup(
     name=NMSP_PKG_NAME,
@@ -75,5 +72,6 @@ setup(
     keywords='yang, C++11, python bindings',
     packages=YDK_PACKAGES,
     namespace_packages=NMSP_PACKAGES,
-    install_requires=INSTALL_REQUIREMENTS
+    install_requires=INSTALL_REQUIREMENTS,
+    include_package_data=True
 )

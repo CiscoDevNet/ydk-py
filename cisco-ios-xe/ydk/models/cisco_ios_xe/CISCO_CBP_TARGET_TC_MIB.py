@@ -7,22 +7,16 @@ or entity to which a class based policy is able to be
 associated.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CcbptpolicysourcetypeEnum(Enum):
+class Ccbptpolicysourcetype(Enum):
     """
-    CcbptpolicysourcetypeEnum
+    Ccbptpolicysourcetype
 
     This Textual Convention represents the types of sources of 
 
@@ -46,20 +40,14 @@ class CcbptpolicysourcetypeEnum(Enum):
 
     """
 
-    ciscoCbQos = 1
+    ciscoCbQos = Enum.YLeaf(1, "ciscoCbQos")
 
-    ciscoCbpBase = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CBP_TARGET_TC_MIB as meta
-        return meta._meta_table['CcbptpolicysourcetypeEnum']
+    ciscoCbpBase = Enum.YLeaf(2, "ciscoCbpBase")
 
 
-class CcbpttargetdirectionEnum(Enum):
+class Ccbpttargetdirection(Enum):
     """
-    CcbpttargetdirectionEnum
+    Ccbpttargetdirection
 
     A Textual Convention that represents a direction for a target.
 
@@ -89,24 +77,18 @@ class CcbpttargetdirectionEnum(Enum):
 
     """
 
-    undirected = 1
+    undirected = Enum.YLeaf(1, "undirected")
 
-    input = 2
+    input = Enum.YLeaf(2, "input")
 
-    output = 3
+    output = Enum.YLeaf(3, "output")
 
-    inOut = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CBP_TARGET_TC_MIB as meta
-        return meta._meta_table['CcbpttargetdirectionEnum']
+    inOut = Enum.YLeaf(4, "inOut")
 
 
-class CcbpttargettypeEnum(Enum):
+class Ccbpttargettype(Enum):
     """
-    CcbpttargettypeEnum
+    Ccbpttargettype
 
     A Textual Convention that represents a type of target.
 
@@ -154,7 +136,7 @@ class CcbpttargettypeEnum(Enum):
 
     .. data:: frDlci = 3
 
-    .. data:: entity = 4
+    .. data:: entity_ = 4
 
     .. data:: fwZone = 5
 
@@ -164,25 +146,19 @@ class CcbpttargettypeEnum(Enum):
 
     """
 
-    genIf = 1
+    genIf = Enum.YLeaf(1, "genIf")
 
-    atmPvc = 2
+    atmPvc = Enum.YLeaf(2, "atmPvc")
 
-    frDlci = 3
+    frDlci = Enum.YLeaf(3, "frDlci")
 
-    entity = 4
+    entity_ = Enum.YLeaf(4, "entity")
 
-    fwZone = 5
+    fwZone = Enum.YLeaf(5, "fwZone")
 
-    fwZonePair = 6
+    fwZonePair = Enum.YLeaf(6, "fwZonePair")
 
-    aaaSession = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CBP_TARGET_TC_MIB as meta
-        return meta._meta_table['CcbpttargettypeEnum']
+    aaaSession = Enum.YLeaf(7, "aaaSession")
 
 
 

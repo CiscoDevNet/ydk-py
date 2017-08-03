@@ -10,21 +10,15 @@ Callon, Multiprotocol Label Switching Architecture,
 RFC3031, January 2001.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class MplsVpnMib(object):
+class MplsVpnMib(Entity):
     """
     
     
@@ -71,23 +65,49 @@ class MplsVpnMib(object):
     _revision = '2001-10-15'
 
     def __init__(self):
+        super(MplsVpnMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "MPLS-VPN-MIB"
+        self.yang_parent_name = "MPLS-VPN-MIB"
+
         self.mplsvpninterfaceconftable = MplsVpnMib.Mplsvpninterfaceconftable()
         self.mplsvpninterfaceconftable.parent = self
+        self._children_name_map["mplsvpninterfaceconftable"] = "mplsVpnInterfaceConfTable"
+        self._children_yang_names.add("mplsVpnInterfaceConfTable")
+
         self.mplsvpnscalars = MplsVpnMib.Mplsvpnscalars()
         self.mplsvpnscalars.parent = self
+        self._children_name_map["mplsvpnscalars"] = "mplsVpnScalars"
+        self._children_yang_names.add("mplsVpnScalars")
+
         self.mplsvpnvrfbgpnbraddrtable = MplsVpnMib.Mplsvpnvrfbgpnbraddrtable()
         self.mplsvpnvrfbgpnbraddrtable.parent = self
+        self._children_name_map["mplsvpnvrfbgpnbraddrtable"] = "mplsVpnVrfBgpNbrAddrTable"
+        self._children_yang_names.add("mplsVpnVrfBgpNbrAddrTable")
+
         self.mplsvpnvrfbgpnbrprefixtable = MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable()
         self.mplsvpnvrfbgpnbrprefixtable.parent = self
+        self._children_name_map["mplsvpnvrfbgpnbrprefixtable"] = "mplsVpnVrfBgpNbrPrefixTable"
+        self._children_yang_names.add("mplsVpnVrfBgpNbrPrefixTable")
+
         self.mplsvpnvrfroutetable = MplsVpnMib.Mplsvpnvrfroutetable()
         self.mplsvpnvrfroutetable.parent = self
+        self._children_name_map["mplsvpnvrfroutetable"] = "mplsVpnVrfRouteTable"
+        self._children_yang_names.add("mplsVpnVrfRouteTable")
+
         self.mplsvpnvrfroutetargettable = MplsVpnMib.Mplsvpnvrfroutetargettable()
         self.mplsvpnvrfroutetargettable.parent = self
+        self._children_name_map["mplsvpnvrfroutetargettable"] = "mplsVpnVrfRouteTargetTable"
+        self._children_yang_names.add("mplsVpnVrfRouteTargetTable")
+
         self.mplsvpnvrftable = MplsVpnMib.Mplsvpnvrftable()
         self.mplsvpnvrftable.parent = self
+        self._children_name_map["mplsvpnvrftable"] = "mplsVpnVrfTable"
+        self._children_yang_names.add("mplsVpnVrfTable")
 
 
-    class Mplsvpnscalars(object):
+    class Mplsvpnscalars(Entity):
         """
         
         
@@ -132,47 +152,130 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnactivevrfs = None
-            self.mplsvpnconfiguredvrfs = None
-            self.mplsvpnconnectedinterfaces = None
-            self.mplsvpnnotificationenable = None
-            self.mplsvpnvrfconfmaxpossibleroutes = None
+            super(MplsVpnMib.Mplsvpnscalars, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "mplsVpnScalars"
+            self.yang_parent_name = "MPLS-VPN-MIB"
 
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnScalars'
+            self.mplsvpnactivevrfs = YLeaf(YType.uint32, "mplsVpnActiveVrfs")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.mplsvpnconfiguredvrfs = YLeaf(YType.uint32, "mplsVpnConfiguredVrfs")
+
+            self.mplsvpnconnectedinterfaces = YLeaf(YType.uint32, "mplsVpnConnectedInterfaces")
+
+            self.mplsvpnnotificationenable = YLeaf(YType.boolean, "mplsVpnNotificationEnable")
+
+            self.mplsvpnvrfconfmaxpossibleroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxPossibleRoutes")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("mplsvpnactivevrfs",
+                            "mplsvpnconfiguredvrfs",
+                            "mplsvpnconnectedinterfaces",
+                            "mplsvpnnotificationenable",
+                            "mplsvpnvrfconfmaxpossibleroutes") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnscalars, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnscalars, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.mplsvpnactivevrfs.is_set or
+                self.mplsvpnconfiguredvrfs.is_set or
+                self.mplsvpnconnectedinterfaces.is_set or
+                self.mplsvpnnotificationenable.is_set or
+                self.mplsvpnvrfconfmaxpossibleroutes.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.mplsvpnactivevrfs.yfilter != YFilter.not_set or
+                self.mplsvpnconfiguredvrfs.yfilter != YFilter.not_set or
+                self.mplsvpnconnectedinterfaces.yfilter != YFilter.not_set or
+                self.mplsvpnnotificationenable.yfilter != YFilter.not_set or
+                self.mplsvpnvrfconfmaxpossibleroutes.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnScalars" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.mplsvpnactivevrfs.is_set or self.mplsvpnactivevrfs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsvpnactivevrfs.get_name_leafdata())
+            if (self.mplsvpnconfiguredvrfs.is_set or self.mplsvpnconfiguredvrfs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsvpnconfiguredvrfs.get_name_leafdata())
+            if (self.mplsvpnconnectedinterfaces.is_set or self.mplsvpnconnectedinterfaces.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsvpnconnectedinterfaces.get_name_leafdata())
+            if (self.mplsvpnnotificationenable.is_set or self.mplsvpnnotificationenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsvpnnotificationenable.get_name_leafdata())
+            if (self.mplsvpnvrfconfmaxpossibleroutes.is_set or self.mplsvpnvrfconfmaxpossibleroutes.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsvpnvrfconfmaxpossibleroutes.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnActiveVrfs" or name == "mplsVpnConfiguredVrfs" or name == "mplsVpnConnectedInterfaces" or name == "mplsVpnNotificationEnable" or name == "mplsVpnVrfConfMaxPossibleRoutes"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.mplsvpnactivevrfs is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "mplsVpnActiveVrfs"):
+                self.mplsvpnactivevrfs = value
+                self.mplsvpnactivevrfs.value_namespace = name_space
+                self.mplsvpnactivevrfs.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsVpnConfiguredVrfs"):
+                self.mplsvpnconfiguredvrfs = value
+                self.mplsvpnconfiguredvrfs.value_namespace = name_space
+                self.mplsvpnconfiguredvrfs.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsVpnConnectedInterfaces"):
+                self.mplsvpnconnectedinterfaces = value
+                self.mplsvpnconnectedinterfaces.value_namespace = name_space
+                self.mplsvpnconnectedinterfaces.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsVpnNotificationEnable"):
+                self.mplsvpnnotificationenable = value
+                self.mplsvpnnotificationenable.value_namespace = name_space
+                self.mplsvpnnotificationenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsVpnVrfConfMaxPossibleRoutes"):
+                self.mplsvpnvrfconfmaxpossibleroutes = value
+                self.mplsvpnvrfconfmaxpossibleroutes.value_namespace = name_space
+                self.mplsvpnvrfconfmaxpossibleroutes.value_namespace_prefix = name_space_prefix
 
-            if self.mplsvpnconfiguredvrfs is not None:
-                return True
 
-            if self.mplsvpnconnectedinterfaces is not None:
-                return True
-
-            if self.mplsvpnnotificationenable is not None:
-                return True
-
-            if self.mplsvpnvrfconfmaxpossibleroutes is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnscalars']['meta_info']
-
-
-    class Mplsvpninterfaceconftable(object):
+    class Mplsvpninterfaceconftable(Entity):
         """
         This table specifies per\-interface MPLS capability
         and associated information.
@@ -190,13 +293,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpninterfaceconfentry = YList()
-            self.mplsvpninterfaceconfentry.parent = self
-            self.mplsvpninterfaceconfentry.name = 'mplsvpninterfaceconfentry'
+            super(MplsVpnMib.Mplsvpninterfaceconftable, self).__init__()
+
+            self.yang_name = "mplsVpnInterfaceConfTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpninterfaceconfentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpninterfaceconftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpninterfaceconftable, self).__setattr__(name, value)
 
 
-        class Mplsvpninterfaceconfentry(object):
+        class Mplsvpninterfaceconfentry(Entity):
             """
             An entry in this table is created by an LSR for
             every interface capable of supporting MPLS/BGP VPN.
@@ -224,22 +353,22 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpninterfaceconfrowstatus
             
             	The row status for this entry. This value is used to create a row in this table, signifying that the specified interface is to be associated with the specified interface. If this operation succeeds, the interface will have been associated, otherwise the agent would not allow the association.  If the agent only allows read\-only operations on this table, it will create entries in this table as they are created
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsvpninterfaceconfstoragetype
             
             	The storage type for this entry
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsvpninterfacelabeledgetype
             
             	Either the providerEdge(0) (PE) or customerEdge(1) (CE) bit MUST be set
-            	**type**\:   :py:class:`MplsvpninterfacelabeledgetypeEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.MplsvpninterfacelabeledgetypeEnum>`
+            	**type**\:   :py:class:`Mplsvpninterfacelabeledgetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacelabeledgetype>`
             
             .. attribute:: mplsvpninterfacevpnclassification
             
             	Denotes whether this link participates in a carrier\-of\-carrier's, enterprise, or inter\-provider scenario
-            	**type**\:   :py:class:`MplsvpninterfacevpnclassificationEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.MplsvpninterfacevpnclassificationEnum>`
+            	**type**\:   :py:class:`Mplsvpninterfacevpnclassification <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacevpnclassification>`
             
             .. attribute:: mplsvpninterfacevpnroutedistprotocol
             
@@ -254,18 +383,58 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpninterfaceconfindex = None
-                self.mplsvpninterfaceconfrowstatus = None
-                self.mplsvpninterfaceconfstoragetype = None
-                self.mplsvpninterfacelabeledgetype = None
-                self.mplsvpninterfacevpnclassification = None
-                self.mplsvpninterfacevpnroutedistprotocol = MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacevpnroutedistprotocol()
+                super(MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, self).__init__()
 
-            class MplsvpninterfacelabeledgetypeEnum(Enum):
+                self.yang_name = "mplsVpnInterfaceConfEntry"
+                self.yang_parent_name = "mplsVpnInterfaceConfTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpninterfaceconfindex = YLeaf(YType.int32, "mplsVpnInterfaceConfIndex")
+
+                self.mplsvpninterfaceconfrowstatus = YLeaf(YType.enumeration, "mplsVpnInterfaceConfRowStatus")
+
+                self.mplsvpninterfaceconfstoragetype = YLeaf(YType.enumeration, "mplsVpnInterfaceConfStorageType")
+
+                self.mplsvpninterfacelabeledgetype = YLeaf(YType.enumeration, "mplsVpnInterfaceLabelEdgeType")
+
+                self.mplsvpninterfacevpnclassification = YLeaf(YType.enumeration, "mplsVpnInterfaceVpnClassification")
+
+                self.mplsvpninterfacevpnroutedistprotocol = YLeaf(YType.bits, "mplsVpnInterfaceVpnRouteDistProtocol")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpninterfaceconfindex",
+                                "mplsvpninterfaceconfrowstatus",
+                                "mplsvpninterfaceconfstoragetype",
+                                "mplsvpninterfacelabeledgetype",
+                                "mplsvpninterfacevpnclassification",
+                                "mplsvpninterfacevpnroutedistprotocol") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, self).__setattr__(name, value)
+
+            class Mplsvpninterfacelabeledgetype(Enum):
                 """
-                MplsvpninterfacelabeledgetypeEnum
+                Mplsvpninterfacelabeledgetype
 
                 Either the providerEdge(0) (PE) or customerEdge(1)
 
@@ -277,20 +446,14 @@ class MplsVpnMib(object):
 
                 """
 
-                providerEdge = 1
+                providerEdge = Enum.YLeaf(1, "providerEdge")
 
-                customerEdge = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.MplsvpninterfacelabeledgetypeEnum']
+                customerEdge = Enum.YLeaf(2, "customerEdge")
 
 
-            class MplsvpninterfacevpnclassificationEnum(Enum):
+            class Mplsvpninterfacevpnclassification(Enum):
                 """
-                MplsvpninterfacevpnclassificationEnum
+                Mplsvpninterfacevpnclassification
 
                 Denotes whether this link participates in a
 
@@ -306,117 +469,165 @@ class MplsVpnMib(object):
 
                 """
 
-                carrierOfCarrier = 1
+                carrierOfCarrier = Enum.YLeaf(1, "carrierOfCarrier")
 
-                enterprise = 2
+                enterprise = Enum.YLeaf(2, "enterprise")
 
-                interProvider = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.MplsvpninterfacevpnclassificationEnum']
+                interProvider = Enum.YLeaf(3, "interProvider")
 
 
-            class Mplsvpninterfacevpnroutedistprotocol(FixedBitsDict):
-                """
-                Mplsvpninterfacevpnroutedistprotocol
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpninterfaceconfindex.is_set or
+                    self.mplsvpninterfaceconfrowstatus.is_set or
+                    self.mplsvpninterfaceconfstoragetype.is_set or
+                    self.mplsvpninterfacelabeledgetype.is_set or
+                    self.mplsvpninterfacevpnclassification.is_set or
+                    self.mplsvpninterfacevpnroutedistprotocol.is_set)
 
-                Denotes the route distribution protocol across the
-                PE\-CE link. Note that more than one routing protocol
-                may be enabled at the same time.
-                Keys are:- rip , isis , none , other , bgp , dummy , ospf
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpninterfaceconfindex.yfilter != YFilter.not_set or
+                    self.mplsvpninterfaceconfrowstatus.yfilter != YFilter.not_set or
+                    self.mplsvpninterfaceconfstoragetype.yfilter != YFilter.not_set or
+                    self.mplsvpninterfacelabeledgetype.yfilter != YFilter.not_set or
+                    self.mplsvpninterfacevpnclassification.yfilter != YFilter.not_set or
+                    self.mplsvpninterfacevpnroutedistprotocol.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnInterfaceConfEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnInterfaceConfIndex='" + self.mplsvpninterfaceconfindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'rip':False,
-                        'isis':False,
-                        'none':False,
-                        'other':False,
-                        'bgp':False,
-                        'dummy':False,
-                        'ospf':False,
-                    }
-                    self._pos_map = { 
-                        'rip':4,
-                        'isis':5,
-                        'none':1,
-                        'other':6,
-                        'bgp':2,
-                        'dummy':0,
-                        'ospf':3,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
-                if self.mplsvpninterfaceconfindex is None:
-                    raise YPYModelError('Key property mplsvpninterfaceconfindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnInterfaceConfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnInterfaceConfTable/MPLS-VPN-MIB:mplsVpnInterfaceConfEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + '][MPLS-VPN-MIB:mplsVpnInterfaceConfIndex = ' + str(self.mplsvpninterfaceconfindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpninterfaceconfindex.is_set or self.mplsvpninterfaceconfindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfaceconfindex.get_name_leafdata())
+                if (self.mplsvpninterfaceconfrowstatus.is_set or self.mplsvpninterfaceconfrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfaceconfrowstatus.get_name_leafdata())
+                if (self.mplsvpninterfaceconfstoragetype.is_set or self.mplsvpninterfaceconfstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfaceconfstoragetype.get_name_leafdata())
+                if (self.mplsvpninterfacelabeledgetype.is_set or self.mplsvpninterfacelabeledgetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfacelabeledgetype.get_name_leafdata())
+                if (self.mplsvpninterfacevpnclassification.is_set or self.mplsvpninterfacevpnclassification.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfacevpnclassification.get_name_leafdata())
+                if (self.mplsvpninterfacevpnroutedistprotocol.is_set or self.mplsvpninterfacevpnroutedistprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfacevpnroutedistprotocol.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnInterfaceConfIndex" or name == "mplsVpnInterfaceConfRowStatus" or name == "mplsVpnInterfaceConfStorageType" or name == "mplsVpnInterfaceLabelEdgeType" or name == "mplsVpnInterfaceVpnClassification" or name == "mplsVpnInterfaceVpnRouteDistProtocol"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceConfIndex"):
+                    self.mplsvpninterfaceconfindex = value
+                    self.mplsvpninterfaceconfindex.value_namespace = name_space
+                    self.mplsvpninterfaceconfindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceConfRowStatus"):
+                    self.mplsvpninterfaceconfrowstatus = value
+                    self.mplsvpninterfaceconfrowstatus.value_namespace = name_space
+                    self.mplsvpninterfaceconfrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceConfStorageType"):
+                    self.mplsvpninterfaceconfstoragetype = value
+                    self.mplsvpninterfaceconfstoragetype.value_namespace = name_space
+                    self.mplsvpninterfaceconfstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceLabelEdgeType"):
+                    self.mplsvpninterfacelabeledgetype = value
+                    self.mplsvpninterfacelabeledgetype.value_namespace = name_space
+                    self.mplsvpninterfacelabeledgetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceVpnClassification"):
+                    self.mplsvpninterfacevpnclassification = value
+                    self.mplsvpninterfacevpnclassification.value_namespace = name_space
+                    self.mplsvpninterfacevpnclassification.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceVpnRouteDistProtocol"):
+                    self.mplsvpninterfacevpnroutedistprotocol[value] = True
+
+        def has_data(self):
+            for c in self.mplsvpninterfaceconfentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpninterfaceconfindex is not None:
-                    return True
-
-                if self.mplsvpninterfaceconfrowstatus is not None:
-                    return True
-
-                if self.mplsvpninterfaceconfstoragetype is not None:
-                    return True
-
-                if self.mplsvpninterfacelabeledgetype is not None:
-                    return True
-
-                if self.mplsvpninterfacevpnclassification is not None:
-                    return True
-
-                if self.mplsvpninterfacevpnroutedistprotocol is not None:
-                    if self.mplsvpninterfacevpnroutedistprotocol._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnInterfaceConfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpninterfaceconfentry is not None:
-                for child_ref in self.mplsvpninterfaceconfentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpninterfaceconfentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnInterfaceConfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnInterfaceConfEntry"):
+                for c in self.mplsvpninterfaceconfentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpninterfaceconfentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnInterfaceConfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpninterfaceconftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsvpnvrftable(object):
+    class Mplsvpnvrftable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN
         VRF Table capability and associated information.
@@ -439,13 +650,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnvrfentry = YList()
-            self.mplsvpnvrfentry.parent = self
-            self.mplsvpnvrfentry.name = 'mplsvpnvrfentry'
+            super(MplsVpnMib.Mplsvpnvrftable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpnvrfentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnvrftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnvrftable, self).__setattr__(name, value)
 
 
-        class Mplsvpnvrfentry(object):
+        class Mplsvpnvrfentry(Entity):
             """
             An entry in this table is created by an LSR for
             every VRF capable of supporting MPLS/BGP VPN. The
@@ -504,12 +741,12 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfconfrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsvpnvrfconfstoragetype
             
             	The storage type for this entry
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsvpnvrfcreationtime
             
@@ -526,7 +763,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfoperstatus
             
             	Denotes whether a VRF is operational or not. A VRF is  up(1) when at least one interface associated with the VRF, which ifOperStatus is up(1). A VRF is down(2) when\:  a. There does not exist at least one interface whose    ifOperStatus is up(1).  b. There are no interfaces associated with the VRF
-            	**type**\:   :py:class:`MplsvpnvrfoperstatusEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry.MplsvpnvrfoperstatusEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfoperstatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry.Mplsvpnvrfoperstatus>`
             
             .. attribute:: mplsvpnvrfperfcurrnumroutes
             
@@ -578,29 +815,91 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpnvrfactiveinterfaces = None
-                self.mplsvpnvrfassociatedinterfaces = None
-                self.mplsvpnvrfconfhighroutethreshold = None
-                self.mplsvpnvrfconflastchanged = None
-                self.mplsvpnvrfconfmaxroutes = None
-                self.mplsvpnvrfconfmidroutethreshold = None
-                self.mplsvpnvrfconfrowstatus = None
-                self.mplsvpnvrfconfstoragetype = None
-                self.mplsvpnvrfcreationtime = None
-                self.mplsvpnvrfdescription = None
-                self.mplsvpnvrfoperstatus = None
-                self.mplsvpnvrfperfcurrnumroutes = None
-                self.mplsvpnvrfperfroutesadded = None
-                self.mplsvpnvrfperfroutesdeleted = None
-                self.mplsvpnvrfroutedistinguisher = None
-                self.mplsvpnvrfsecillegallabelrcvthresh = None
-                self.mplsvpnvrfsecillegallabelviolations = None
+                super(MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry, self).__init__()
 
-            class MplsvpnvrfoperstatusEnum(Enum):
+                self.yang_name = "mplsVpnVrfEntry"
+                self.yang_parent_name = "mplsVpnVrfTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfactiveinterfaces = YLeaf(YType.uint32, "mplsVpnVrfActiveInterfaces")
+
+                self.mplsvpnvrfassociatedinterfaces = YLeaf(YType.uint32, "mplsVpnVrfAssociatedInterfaces")
+
+                self.mplsvpnvrfconfhighroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfHighRouteThreshold")
+
+                self.mplsvpnvrfconflastchanged = YLeaf(YType.uint32, "mplsVpnVrfConfLastChanged")
+
+                self.mplsvpnvrfconfmaxroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxRoutes")
+
+                self.mplsvpnvrfconfmidroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfMidRouteThreshold")
+
+                self.mplsvpnvrfconfrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfConfRowStatus")
+
+                self.mplsvpnvrfconfstoragetype = YLeaf(YType.enumeration, "mplsVpnVrfConfStorageType")
+
+                self.mplsvpnvrfcreationtime = YLeaf(YType.uint32, "mplsVpnVrfCreationTime")
+
+                self.mplsvpnvrfdescription = YLeaf(YType.str, "mplsVpnVrfDescription")
+
+                self.mplsvpnvrfoperstatus = YLeaf(YType.enumeration, "mplsVpnVrfOperStatus")
+
+                self.mplsvpnvrfperfcurrnumroutes = YLeaf(YType.uint32, "mplsVpnVrfPerfCurrNumRoutes")
+
+                self.mplsvpnvrfperfroutesadded = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesAdded")
+
+                self.mplsvpnvrfperfroutesdeleted = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesDeleted")
+
+                self.mplsvpnvrfroutedistinguisher = YLeaf(YType.str, "mplsVpnVrfRouteDistinguisher")
+
+                self.mplsvpnvrfsecillegallabelrcvthresh = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelRcvThresh")
+
+                self.mplsvpnvrfsecillegallabelviolations = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelViolations")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpnvrfactiveinterfaces",
+                                "mplsvpnvrfassociatedinterfaces",
+                                "mplsvpnvrfconfhighroutethreshold",
+                                "mplsvpnvrfconflastchanged",
+                                "mplsvpnvrfconfmaxroutes",
+                                "mplsvpnvrfconfmidroutethreshold",
+                                "mplsvpnvrfconfrowstatus",
+                                "mplsvpnvrfconfstoragetype",
+                                "mplsvpnvrfcreationtime",
+                                "mplsvpnvrfdescription",
+                                "mplsvpnvrfoperstatus",
+                                "mplsvpnvrfperfcurrnumroutes",
+                                "mplsvpnvrfperfroutesadded",
+                                "mplsvpnvrfperfroutesdeleted",
+                                "mplsvpnvrfroutedistinguisher",
+                                "mplsvpnvrfsecillegallabelrcvthresh",
+                                "mplsvpnvrfsecillegallabelviolations") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry, self).__setattr__(name, value)
+
+            class Mplsvpnvrfoperstatus(Enum):
                 """
-                MplsvpnvrfoperstatusEnum
+                Mplsvpnvrfoperstatus
 
                 Denotes whether a VRF is operational or not. A VRF is 
 
@@ -620,114 +919,253 @@ class MplsVpnMib(object):
 
                 """
 
-                up = 1
+                up = Enum.YLeaf(1, "up")
 
-                down = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry.MplsvpnvrfoperstatusEnum']
+                down = Enum.YLeaf(2, "down")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpnvrfactiveinterfaces.is_set or
+                    self.mplsvpnvrfassociatedinterfaces.is_set or
+                    self.mplsvpnvrfconfhighroutethreshold.is_set or
+                    self.mplsvpnvrfconflastchanged.is_set or
+                    self.mplsvpnvrfconfmaxroutes.is_set or
+                    self.mplsvpnvrfconfmidroutethreshold.is_set or
+                    self.mplsvpnvrfconfrowstatus.is_set or
+                    self.mplsvpnvrfconfstoragetype.is_set or
+                    self.mplsvpnvrfcreationtime.is_set or
+                    self.mplsvpnvrfdescription.is_set or
+                    self.mplsvpnvrfoperstatus.is_set or
+                    self.mplsvpnvrfperfcurrnumroutes.is_set or
+                    self.mplsvpnvrfperfroutesadded.is_set or
+                    self.mplsvpnvrfperfroutesdeleted.is_set or
+                    self.mplsvpnvrfroutedistinguisher.is_set or
+                    self.mplsvpnvrfsecillegallabelrcvthresh.is_set or
+                    self.mplsvpnvrfsecillegallabelviolations.is_set)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfTable/MPLS-VPN-MIB:mplsVpnVrfEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfactiveinterfaces.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfassociatedinterfaces.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconfhighroutethreshold.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconflastchanged.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconfmaxroutes.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconfmidroutethreshold.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconfrowstatus.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfconfstoragetype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfcreationtime.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfdescription.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfoperstatus.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfperfcurrnumroutes.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfperfroutesadded.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfperfroutesdeleted.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutedistinguisher.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfsecillegallabelrcvthresh.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfsecillegallabelviolations.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpnvrfactiveinterfaces.is_set or self.mplsvpnvrfactiveinterfaces.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfactiveinterfaces.get_name_leafdata())
+                if (self.mplsvpnvrfassociatedinterfaces.is_set or self.mplsvpnvrfassociatedinterfaces.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfassociatedinterfaces.get_name_leafdata())
+                if (self.mplsvpnvrfconfhighroutethreshold.is_set or self.mplsvpnvrfconfhighroutethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconfhighroutethreshold.get_name_leafdata())
+                if (self.mplsvpnvrfconflastchanged.is_set or self.mplsvpnvrfconflastchanged.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconflastchanged.get_name_leafdata())
+                if (self.mplsvpnvrfconfmaxroutes.is_set or self.mplsvpnvrfconfmaxroutes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconfmaxroutes.get_name_leafdata())
+                if (self.mplsvpnvrfconfmidroutethreshold.is_set or self.mplsvpnvrfconfmidroutethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconfmidroutethreshold.get_name_leafdata())
+                if (self.mplsvpnvrfconfrowstatus.is_set or self.mplsvpnvrfconfrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconfrowstatus.get_name_leafdata())
+                if (self.mplsvpnvrfconfstoragetype.is_set or self.mplsvpnvrfconfstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfconfstoragetype.get_name_leafdata())
+                if (self.mplsvpnvrfcreationtime.is_set or self.mplsvpnvrfcreationtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfcreationtime.get_name_leafdata())
+                if (self.mplsvpnvrfdescription.is_set or self.mplsvpnvrfdescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfdescription.get_name_leafdata())
+                if (self.mplsvpnvrfoperstatus.is_set or self.mplsvpnvrfoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfoperstatus.get_name_leafdata())
+                if (self.mplsvpnvrfperfcurrnumroutes.is_set or self.mplsvpnvrfperfcurrnumroutes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfperfcurrnumroutes.get_name_leafdata())
+                if (self.mplsvpnvrfperfroutesadded.is_set or self.mplsvpnvrfperfroutesadded.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfperfroutesadded.get_name_leafdata())
+                if (self.mplsvpnvrfperfroutesdeleted.is_set or self.mplsvpnvrfperfroutesdeleted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfperfroutesdeleted.get_name_leafdata())
+                if (self.mplsvpnvrfroutedistinguisher.is_set or self.mplsvpnvrfroutedistinguisher.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutedistinguisher.get_name_leafdata())
+                if (self.mplsvpnvrfsecillegallabelrcvthresh.is_set or self.mplsvpnvrfsecillegallabelrcvthresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfsecillegallabelrcvthresh.get_name_leafdata())
+                if (self.mplsvpnvrfsecillegallabelviolations.is_set or self.mplsvpnvrfsecillegallabelviolations.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfsecillegallabelviolations.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnVrfActiveInterfaces" or name == "mplsVpnVrfAssociatedInterfaces" or name == "mplsVpnVrfConfHighRouteThreshold" or name == "mplsVpnVrfConfLastChanged" or name == "mplsVpnVrfConfMaxRoutes" or name == "mplsVpnVrfConfMidRouteThreshold" or name == "mplsVpnVrfConfRowStatus" or name == "mplsVpnVrfConfStorageType" or name == "mplsVpnVrfCreationTime" or name == "mplsVpnVrfDescription" or name == "mplsVpnVrfOperStatus" or name == "mplsVpnVrfPerfCurrNumRoutes" or name == "mplsVpnVrfPerfRoutesAdded" or name == "mplsVpnVrfPerfRoutesDeleted" or name == "mplsVpnVrfRouteDistinguisher" or name == "mplsVpnVrfSecIllegalLabelRcvThresh" or name == "mplsVpnVrfSecIllegalLabelViolations"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfActiveInterfaces"):
+                    self.mplsvpnvrfactiveinterfaces = value
+                    self.mplsvpnvrfactiveinterfaces.value_namespace = name_space
+                    self.mplsvpnvrfactiveinterfaces.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfAssociatedInterfaces"):
+                    self.mplsvpnvrfassociatedinterfaces = value
+                    self.mplsvpnvrfassociatedinterfaces.value_namespace = name_space
+                    self.mplsvpnvrfassociatedinterfaces.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfHighRouteThreshold"):
+                    self.mplsvpnvrfconfhighroutethreshold = value
+                    self.mplsvpnvrfconfhighroutethreshold.value_namespace = name_space
+                    self.mplsvpnvrfconfhighroutethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfLastChanged"):
+                    self.mplsvpnvrfconflastchanged = value
+                    self.mplsvpnvrfconflastchanged.value_namespace = name_space
+                    self.mplsvpnvrfconflastchanged.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfMaxRoutes"):
+                    self.mplsvpnvrfconfmaxroutes = value
+                    self.mplsvpnvrfconfmaxroutes.value_namespace = name_space
+                    self.mplsvpnvrfconfmaxroutes.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfMidRouteThreshold"):
+                    self.mplsvpnvrfconfmidroutethreshold = value
+                    self.mplsvpnvrfconfmidroutethreshold.value_namespace = name_space
+                    self.mplsvpnvrfconfmidroutethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfRowStatus"):
+                    self.mplsvpnvrfconfrowstatus = value
+                    self.mplsvpnvrfconfrowstatus.value_namespace = name_space
+                    self.mplsvpnvrfconfrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfConfStorageType"):
+                    self.mplsvpnvrfconfstoragetype = value
+                    self.mplsvpnvrfconfstoragetype.value_namespace = name_space
+                    self.mplsvpnvrfconfstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfCreationTime"):
+                    self.mplsvpnvrfcreationtime = value
+                    self.mplsvpnvrfcreationtime.value_namespace = name_space
+                    self.mplsvpnvrfcreationtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfDescription"):
+                    self.mplsvpnvrfdescription = value
+                    self.mplsvpnvrfdescription.value_namespace = name_space
+                    self.mplsvpnvrfdescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfOperStatus"):
+                    self.mplsvpnvrfoperstatus = value
+                    self.mplsvpnvrfoperstatus.value_namespace = name_space
+                    self.mplsvpnvrfoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfPerfCurrNumRoutes"):
+                    self.mplsvpnvrfperfcurrnumroutes = value
+                    self.mplsvpnvrfperfcurrnumroutes.value_namespace = name_space
+                    self.mplsvpnvrfperfcurrnumroutes.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfPerfRoutesAdded"):
+                    self.mplsvpnvrfperfroutesadded = value
+                    self.mplsvpnvrfperfroutesadded.value_namespace = name_space
+                    self.mplsvpnvrfperfroutesadded.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfPerfRoutesDeleted"):
+                    self.mplsvpnvrfperfroutesdeleted = value
+                    self.mplsvpnvrfperfroutesdeleted.value_namespace = name_space
+                    self.mplsvpnvrfperfroutesdeleted.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteDistinguisher"):
+                    self.mplsvpnvrfroutedistinguisher = value
+                    self.mplsvpnvrfroutedistinguisher.value_namespace = name_space
+                    self.mplsvpnvrfroutedistinguisher.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfSecIllegalLabelRcvThresh"):
+                    self.mplsvpnvrfsecillegallabelrcvthresh = value
+                    self.mplsvpnvrfsecillegallabelrcvthresh.value_namespace = name_space
+                    self.mplsvpnvrfsecillegallabelrcvthresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfSecIllegalLabelViolations"):
+                    self.mplsvpnvrfsecillegallabelviolations = value
+                    self.mplsvpnvrfsecillegallabelviolations.value_namespace = name_space
+                    self.mplsvpnvrfsecillegallabelviolations.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsvpnvrfentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpnvrfactiveinterfaces is not None:
-                    return True
-
-                if self.mplsvpnvrfassociatedinterfaces is not None:
-                    return True
-
-                if self.mplsvpnvrfconfhighroutethreshold is not None:
-                    return True
-
-                if self.mplsvpnvrfconflastchanged is not None:
-                    return True
-
-                if self.mplsvpnvrfconfmaxroutes is not None:
-                    return True
-
-                if self.mplsvpnvrfconfmidroutethreshold is not None:
-                    return True
-
-                if self.mplsvpnvrfconfrowstatus is not None:
-                    return True
-
-                if self.mplsvpnvrfconfstoragetype is not None:
-                    return True
-
-                if self.mplsvpnvrfcreationtime is not None:
-                    return True
-
-                if self.mplsvpnvrfdescription is not None:
-                    return True
-
-                if self.mplsvpnvrfoperstatus is not None:
-                    return True
-
-                if self.mplsvpnvrfperfcurrnumroutes is not None:
-                    return True
-
-                if self.mplsvpnvrfperfroutesadded is not None:
-                    return True
-
-                if self.mplsvpnvrfperfroutesdeleted is not None:
-                    return True
-
-                if self.mplsvpnvrfroutedistinguisher is not None:
-                    return True
-
-                if self.mplsvpnvrfsecillegallabelrcvthresh is not None:
-                    return True
-
-                if self.mplsvpnvrfsecillegallabelviolations is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpnvrfentry is not None:
-                for child_ref in self.mplsvpnvrfentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpnvrfentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnVrfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnVrfEntry"):
+                for c in self.mplsvpnvrfentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpnvrftable.Mplsvpnvrfentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpnvrfentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnVrfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnvrftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsvpnvrfroutetargettable(object):
+    class Mplsvpnvrfroutetargettable(Entity):
         """
         This table specifies per\-VRF route target association.
         Each entry identifies a connectivity policy supported
@@ -746,13 +1184,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnvrfroutetargetentry = YList()
-            self.mplsvpnvrfroutetargetentry.parent = self
-            self.mplsvpnvrfroutetargetentry.name = 'mplsvpnvrfroutetargetentry'
+            super(MplsVpnMib.Mplsvpnvrfroutetargettable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfRouteTargetTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpnvrfroutetargetentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnvrfroutetargettable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnvrfroutetargettable, self).__setattr__(name, value)
 
 
-        class Mplsvpnvrfroutetargetentry(object):
+        class Mplsvpnvrfroutetargetentry(Entity):
             """
              An entry in this table is created by an LSR for
             each route target configured for a VRF supporting
@@ -778,7 +1242,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfroutetargettype  <key>
             
             	The route target export distribution type
-            	**type**\:   :py:class:`MplsvpnvrfroutetargettypeEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.MplsvpnvrfroutetargettypeEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfroutetargettype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype>`
             
             .. attribute:: mplsvpnvrfroutetarget
             
@@ -795,7 +1259,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfroutetargetrowstatus
             
             	Row status for this entry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -805,17 +1269,55 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpnvrfroutetargetindex = None
-                self.mplsvpnvrfroutetargettype = None
-                self.mplsvpnvrfroutetarget = None
-                self.mplsvpnvrfroutetargetdescr = None
-                self.mplsvpnvrfroutetargetrowstatus = None
+                super(MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__init__()
 
-            class MplsvpnvrfroutetargettypeEnum(Enum):
+                self.yang_name = "mplsVpnVrfRouteTargetEntry"
+                self.yang_parent_name = "mplsVpnVrfRouteTargetTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfroutetargetindex = YLeaf(YType.uint32, "mplsVpnVrfRouteTargetIndex")
+
+                self.mplsvpnvrfroutetargettype = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetType")
+
+                self.mplsvpnvrfroutetarget = YLeaf(YType.str, "mplsVpnVrfRouteTarget")
+
+                self.mplsvpnvrfroutetargetdescr = YLeaf(YType.str, "mplsVpnVrfRouteTargetDescr")
+
+                self.mplsvpnvrfroutetargetrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetRowStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpnvrfroutetargetindex",
+                                "mplsvpnvrfroutetargettype",
+                                "mplsvpnvrfroutetarget",
+                                "mplsvpnvrfroutetargetdescr",
+                                "mplsvpnvrfroutetargetrowstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__setattr__(name, value)
+
+            class Mplsvpnvrfroutetargettype(Enum):
                 """
-                MplsvpnvrfroutetargettypeEnum
+                Mplsvpnvrfroutetargettype
 
                 The route target export distribution type.
 
@@ -827,84 +1329,159 @@ class MplsVpnMib(object):
 
                 """
 
-                import_ = 1
+                import_ = Enum.YLeaf(1, "import")
 
-                export = 2
+                export = Enum.YLeaf(2, "export")
 
-                both = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.MplsvpnvrfroutetargettypeEnum']
+                both = Enum.YLeaf(3, "both")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
-                if self.mplsvpnvrfroutetargetindex is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutetargetindex is None')
-                if self.mplsvpnvrfroutetargettype is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutetargettype is None')
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpnvrfroutetargetindex.is_set or
+                    self.mplsvpnvrfroutetargettype.is_set or
+                    self.mplsvpnvrfroutetarget.is_set or
+                    self.mplsvpnvrfroutetargetdescr.is_set or
+                    self.mplsvpnvrfroutetargetrowstatus.is_set)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfRouteTargetTable/MPLS-VPN-MIB:mplsVpnVrfRouteTargetEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + '][MPLS-VPN-MIB:mplsVpnVrfRouteTargetIndex = ' + str(self.mplsvpnvrfroutetargetindex) + '][MPLS-VPN-MIB:mplsVpnVrfRouteTargetType = ' + str(self.mplsvpnvrfroutetargettype) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetargetindex.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetargettype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetarget.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetargetdescr.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetargetrowstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfRouteTargetIndex='" + self.mplsvpnvrfroutetargetindex.get() + "']" + "[mplsVpnVrfRouteTargetType='" + self.mplsvpnvrfroutetargettype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpnvrfroutetargetindex.is_set or self.mplsvpnvrfroutetargetindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetargetindex.get_name_leafdata())
+                if (self.mplsvpnvrfroutetargettype.is_set or self.mplsvpnvrfroutetargettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetargettype.get_name_leafdata())
+                if (self.mplsvpnvrfroutetarget.is_set or self.mplsvpnvrfroutetarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetarget.get_name_leafdata())
+                if (self.mplsvpnvrfroutetargetdescr.is_set or self.mplsvpnvrfroutetargetdescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetargetdescr.get_name_leafdata())
+                if (self.mplsvpnvrfroutetargetrowstatus.is_set or self.mplsvpnvrfroutetargetrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetargetrowstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnVrfRouteTargetIndex" or name == "mplsVpnVrfRouteTargetType" or name == "mplsVpnVrfRouteTarget" or name == "mplsVpnVrfRouteTargetDescr" or name == "mplsVpnVrfRouteTargetRowStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTargetIndex"):
+                    self.mplsvpnvrfroutetargetindex = value
+                    self.mplsvpnvrfroutetargetindex.value_namespace = name_space
+                    self.mplsvpnvrfroutetargetindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTargetType"):
+                    self.mplsvpnvrfroutetargettype = value
+                    self.mplsvpnvrfroutetargettype.value_namespace = name_space
+                    self.mplsvpnvrfroutetargettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTarget"):
+                    self.mplsvpnvrfroutetarget = value
+                    self.mplsvpnvrfroutetarget.value_namespace = name_space
+                    self.mplsvpnvrfroutetarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTargetDescr"):
+                    self.mplsvpnvrfroutetargetdescr = value
+                    self.mplsvpnvrfroutetargetdescr.value_namespace = name_space
+                    self.mplsvpnvrfroutetargetdescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTargetRowStatus"):
+                    self.mplsvpnvrfroutetargetrowstatus = value
+                    self.mplsvpnvrfroutetargetrowstatus.value_namespace = name_space
+                    self.mplsvpnvrfroutetargetrowstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsvpnvrfroutetargetentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpnvrfroutetargetindex is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetargettype is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetarget is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetargetdescr is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetargetrowstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfRouteTargetTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpnvrfroutetargetentry is not None:
-                for child_ref in self.mplsvpnvrfroutetargetentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpnvrfroutetargetentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnVrfRouteTargetTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnVrfRouteTargetEntry"):
+                for c in self.mplsvpnvrfroutetargetentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpnvrfroutetargetentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnVrfRouteTargetEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetargettable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsvpnvrfbgpnbraddrtable(object):
+    class Mplsvpnvrfbgpnbraddrtable(Entity):
         """
         Each entry in this table specifies a per\-interface 
         MPLS/EBGP neighbor.
@@ -922,13 +1499,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnvrfbgpnbraddrentry = YList()
-            self.mplsvpnvrfbgpnbraddrentry.parent = self
-            self.mplsvpnvrfbgpnbraddrentry.name = 'mplsvpnvrfbgpnbraddrentry'
+            super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfBgpNbrAddrTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpnvrfbgpnbraddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable, self).__setattr__(name, value)
 
 
-        class Mplsvpnvrfbgpnbraddrentry(object):
+        class Mplsvpnvrfbgpnbraddrentry(Entity):
             """
             An entry in this table is created by an LSR for
             every VRF capable of supporting MPLS/BGP VPN. The
@@ -970,22 +1573,22 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfbgpnbrrole
             
             	Denotes the role played by this EBGP neighbor with respect to this VRF
-            	**type**\:   :py:class:`MplsvpnvrfbgpnbrroleEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.MplsvpnvrfbgpnbrroleEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfbgpnbrrole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole>`
             
             .. attribute:: mplsvpnvrfbgpnbrrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsvpnvrfbgpnbrstoragetype
             
             	The storage type for this entry
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsvpnvrfbgpnbrtype
             
             	Denotes the address family of the PE address
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -995,19 +1598,61 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpninterfaceconfindex = None
-                self.mplsvpnvrfbgpnbrindex = None
-                self.mplsvpnvrfbgpnbraddr = None
-                self.mplsvpnvrfbgpnbrrole = None
-                self.mplsvpnvrfbgpnbrrowstatus = None
-                self.mplsvpnvrfbgpnbrstoragetype = None
-                self.mplsvpnvrfbgpnbrtype = None
+                super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, self).__init__()
 
-            class MplsvpnvrfbgpnbrroleEnum(Enum):
+                self.yang_name = "mplsVpnVrfBgpNbrAddrEntry"
+                self.yang_parent_name = "mplsVpnVrfBgpNbrAddrTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpninterfaceconfindex = YLeaf(YType.str, "mplsVpnInterfaceConfIndex")
+
+                self.mplsvpnvrfbgpnbrindex = YLeaf(YType.uint32, "mplsVpnVrfBgpNbrIndex")
+
+                self.mplsvpnvrfbgpnbraddr = YLeaf(YType.str, "mplsVpnVrfBgpNbrAddr")
+
+                self.mplsvpnvrfbgpnbrrole = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrRole")
+
+                self.mplsvpnvrfbgpnbrrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrRowStatus")
+
+                self.mplsvpnvrfbgpnbrstoragetype = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrStorageType")
+
+                self.mplsvpnvrfbgpnbrtype = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpninterfaceconfindex",
+                                "mplsvpnvrfbgpnbrindex",
+                                "mplsvpnvrfbgpnbraddr",
+                                "mplsvpnvrfbgpnbrrole",
+                                "mplsvpnvrfbgpnbrrowstatus",
+                                "mplsvpnvrfbgpnbrstoragetype",
+                                "mplsvpnvrfbgpnbrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, self).__setattr__(name, value)
+
+            class Mplsvpnvrfbgpnbrrole(Enum):
                 """
-                MplsvpnvrfbgpnbrroleEnum
+                Mplsvpnvrfbgpnbrrole
 
                 Denotes the role played by this EBGP neighbor
 
@@ -1019,88 +1664,173 @@ class MplsVpnMib(object):
 
                 """
 
-                ce = 1
+                ce = Enum.YLeaf(1, "ce")
 
-                pe = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.MplsvpnvrfbgpnbrroleEnum']
+                pe = Enum.YLeaf(2, "pe")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
-                if self.mplsvpninterfaceconfindex is None:
-                    raise YPYModelError('Key property mplsvpninterfaceconfindex is None')
-                if self.mplsvpnvrfbgpnbrindex is None:
-                    raise YPYModelError('Key property mplsvpnvrfbgpnbrindex is None')
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpninterfaceconfindex.is_set or
+                    self.mplsvpnvrfbgpnbrindex.is_set or
+                    self.mplsvpnvrfbgpnbraddr.is_set or
+                    self.mplsvpnvrfbgpnbrrole.is_set or
+                    self.mplsvpnvrfbgpnbrrowstatus.is_set or
+                    self.mplsvpnvrfbgpnbrstoragetype.is_set or
+                    self.mplsvpnvrfbgpnbrtype.is_set)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfBgpNbrAddrTable/MPLS-VPN-MIB:mplsVpnVrfBgpNbrAddrEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + '][MPLS-VPN-MIB:mplsVpnInterfaceConfIndex = ' + str(self.mplsvpninterfaceconfindex) + '][MPLS-VPN-MIB:mplsVpnVrfBgpNbrIndex = ' + str(self.mplsvpnvrfbgpnbrindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpninterfaceconfindex.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbrindex.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbraddr.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbrrole.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbrrowstatus.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbrstoragetype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgpnbrtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnVrfBgpNbrAddrEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnInterfaceConfIndex='" + self.mplsvpninterfaceconfindex.get() + "']" + "[mplsVpnVrfBgpNbrIndex='" + self.mplsvpnvrfbgpnbrindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpninterfaceconfindex.is_set or self.mplsvpninterfaceconfindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpninterfaceconfindex.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbrindex.is_set or self.mplsvpnvrfbgpnbrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbrindex.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbraddr.is_set or self.mplsvpnvrfbgpnbraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbraddr.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbrrole.is_set or self.mplsvpnvrfbgpnbrrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbrrole.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbrrowstatus.is_set or self.mplsvpnvrfbgpnbrrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbrrowstatus.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbrstoragetype.is_set or self.mplsvpnvrfbgpnbrstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbrstoragetype.get_name_leafdata())
+                if (self.mplsvpnvrfbgpnbrtype.is_set or self.mplsvpnvrfbgpnbrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgpnbrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnInterfaceConfIndex" or name == "mplsVpnVrfBgpNbrIndex" or name == "mplsVpnVrfBgpNbrAddr" or name == "mplsVpnVrfBgpNbrRole" or name == "mplsVpnVrfBgpNbrRowStatus" or name == "mplsVpnVrfBgpNbrStorageType" or name == "mplsVpnVrfBgpNbrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnInterfaceConfIndex"):
+                    self.mplsvpninterfaceconfindex = value
+                    self.mplsvpninterfaceconfindex.value_namespace = name_space
+                    self.mplsvpninterfaceconfindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrIndex"):
+                    self.mplsvpnvrfbgpnbrindex = value
+                    self.mplsvpnvrfbgpnbrindex.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrAddr"):
+                    self.mplsvpnvrfbgpnbraddr = value
+                    self.mplsvpnvrfbgpnbraddr.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrRole"):
+                    self.mplsvpnvrfbgpnbrrole = value
+                    self.mplsvpnvrfbgpnbrrole.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbrrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrRowStatus"):
+                    self.mplsvpnvrfbgpnbrrowstatus = value
+                    self.mplsvpnvrfbgpnbrrowstatus.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbrrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrStorageType"):
+                    self.mplsvpnvrfbgpnbrstoragetype = value
+                    self.mplsvpnvrfbgpnbrstoragetype.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbrstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpNbrType"):
+                    self.mplsvpnvrfbgpnbrtype = value
+                    self.mplsvpnvrfbgpnbrtype.value_namespace = name_space
+                    self.mplsvpnvrfbgpnbrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsvpnvrfbgpnbraddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpninterfaceconfindex is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbrindex is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbraddr is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbrrole is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbrrowstatus is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbrstoragetype is not None:
-                    return True
-
-                if self.mplsvpnvrfbgpnbrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfBgpNbrAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpnvrfbgpnbraddrentry is not None:
-                for child_ref in self.mplsvpnvrfbgpnbraddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpnvrfbgpnbraddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnVrfBgpNbrAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnVrfBgpNbrAddrEntry"):
+                for c in self.mplsvpnvrfbgpnbraddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpnvrfbgpnbraddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnVrfBgpNbrAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbraddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsvpnvrfbgpnbrprefixtable(object):
+    class Mplsvpnvrfbgpnbrprefixtable(Entity):
         """
         This table specifies per\-VRF vpnv4 multi\-protocol
         prefixes supported by BGP.
@@ -1118,13 +1848,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnvrfbgpnbrprefixentry = YList()
-            self.mplsvpnvrfbgpnbrprefixentry.parent = self
-            self.mplsvpnvrfbgpnbrprefixentry.name = 'mplsvpnvrfbgpnbrprefixentry'
+            super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfBgpNbrPrefixTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpnvrfbgpnbrprefixentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable, self).__setattr__(name, value)
 
 
-        class Mplsvpnvrfbgpnbrprefixentry(object):
+        class Mplsvpnvrfbgpnbrprefixentry(Entity):
             """
             An entry in this table is created by an LSR for
             every BGP prefix associated with a VRF supporting a 
@@ -1185,12 +1941,12 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfbgppathattratomicaggregate
             
             	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:   :py:class:`MplsvpnvrfbgppathattratomicaggregateEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattratomicaggregateEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattratomicaggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate>`
             
             .. attribute:: mplsvpnvrfbgppathattrbest
             
             	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:   :py:class:`MplsvpnvrfbgppathattrbestEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattrbestEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrbest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest>`
             
             .. attribute:: mplsvpnvrfbgppathattrcalclocalpref
             
@@ -1223,7 +1979,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfbgppathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:   :py:class:`MplsvpnvrfbgppathattroriginEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattroriginEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrorigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin>`
             
             .. attribute:: mplsvpnvrfbgppathattrunknown
             
@@ -1240,26 +1996,82 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpnvrfbgppathattripaddrprefix = None
-                self.mplsvpnvrfbgppathattripaddrprefixlen = None
-                self.mplsvpnvrfbgppathattrpeer = None
-                self.mplsvpnvrfbgppathattraggregatoraddr = None
-                self.mplsvpnvrfbgppathattraggregatoras = None
-                self.mplsvpnvrfbgppathattraspathsegment = None
-                self.mplsvpnvrfbgppathattratomicaggregate = None
-                self.mplsvpnvrfbgppathattrbest = None
-                self.mplsvpnvrfbgppathattrcalclocalpref = None
-                self.mplsvpnvrfbgppathattrlocalpref = None
-                self.mplsvpnvrfbgppathattrmultiexitdisc = None
-                self.mplsvpnvrfbgppathattrnexthop = None
-                self.mplsvpnvrfbgppathattrorigin = None
-                self.mplsvpnvrfbgppathattrunknown = None
+                super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, self).__init__()
 
-            class MplsvpnvrfbgppathattratomicaggregateEnum(Enum):
+                self.yang_name = "mplsVpnVrfBgpNbrPrefixEntry"
+                self.yang_parent_name = "mplsVpnVrfBgpNbrPrefixTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfbgppathattripaddrprefix = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrIpAddrPrefix")
+
+                self.mplsvpnvrfbgppathattripaddrprefixlen = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrIpAddrPrefixLen")
+
+                self.mplsvpnvrfbgppathattrpeer = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrPeer")
+
+                self.mplsvpnvrfbgppathattraggregatoraddr = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrAggregatorAddr")
+
+                self.mplsvpnvrfbgppathattraggregatoras = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrAggregatorAS")
+
+                self.mplsvpnvrfbgppathattraspathsegment = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrASPathSegment")
+
+                self.mplsvpnvrfbgppathattratomicaggregate = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrAtomicAggregate")
+
+                self.mplsvpnvrfbgppathattrbest = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrBest")
+
+                self.mplsvpnvrfbgppathattrcalclocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrCalcLocalPref")
+
+                self.mplsvpnvrfbgppathattrlocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrLocalPref")
+
+                self.mplsvpnvrfbgppathattrmultiexitdisc = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrMultiExitDisc")
+
+                self.mplsvpnvrfbgppathattrnexthop = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrNextHop")
+
+                self.mplsvpnvrfbgppathattrorigin = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrOrigin")
+
+                self.mplsvpnvrfbgppathattrunknown = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrUnknown")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpnvrfbgppathattripaddrprefix",
+                                "mplsvpnvrfbgppathattripaddrprefixlen",
+                                "mplsvpnvrfbgppathattrpeer",
+                                "mplsvpnvrfbgppathattraggregatoraddr",
+                                "mplsvpnvrfbgppathattraggregatoras",
+                                "mplsvpnvrfbgppathattraspathsegment",
+                                "mplsvpnvrfbgppathattratomicaggregate",
+                                "mplsvpnvrfbgppathattrbest",
+                                "mplsvpnvrfbgppathattrcalclocalpref",
+                                "mplsvpnvrfbgppathattrlocalpref",
+                                "mplsvpnvrfbgppathattrmultiexitdisc",
+                                "mplsvpnvrfbgppathattrnexthop",
+                                "mplsvpnvrfbgppathattrorigin",
+                                "mplsvpnvrfbgppathattrunknown") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, self).__setattr__(name, value)
+
+            class Mplsvpnvrfbgppathattratomicaggregate(Enum):
                 """
-                MplsvpnvrfbgppathattratomicaggregateEnum
+                Mplsvpnvrfbgppathattratomicaggregate
 
                 Whether or not the local system has
 
@@ -1273,20 +2085,14 @@ class MplsVpnMib(object):
 
                 """
 
-                lessSpecificRrouteNotSelected = 1
+                lessSpecificRrouteNotSelected = Enum.YLeaf(1, "lessSpecificRrouteNotSelected")
 
-                lessSpecificRouteSelected = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattratomicaggregateEnum']
+                lessSpecificRouteSelected = Enum.YLeaf(2, "lessSpecificRouteSelected")
 
 
-            class MplsvpnvrfbgppathattrbestEnum(Enum):
+            class Mplsvpnvrfbgppathattrbest(Enum):
                 """
-                MplsvpnvrfbgppathattrbestEnum
+                Mplsvpnvrfbgppathattrbest
 
                 An indication of whether or not this route
 
@@ -1298,20 +2104,14 @@ class MplsVpnMib(object):
 
                 """
 
-                false = 1
+                false = Enum.YLeaf(1, "false")
 
-                true = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattrbestEnum']
+                true = Enum.YLeaf(2, "true")
 
 
-            class MplsvpnvrfbgppathattroriginEnum(Enum):
+            class Mplsvpnvrfbgppathattrorigin(Enum):
                 """
-                MplsvpnvrfbgppathattroriginEnum
+                Mplsvpnvrfbgppathattrorigin
 
                 The ultimate origin of the path
 
@@ -1325,113 +2125,231 @@ class MplsVpnMib(object):
 
                 """
 
-                igp = 1
+                igp = Enum.YLeaf(1, "igp")
 
-                egp = 2
+                egp = Enum.YLeaf(2, "egp")
 
-                incomplete = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.MplsvpnvrfbgppathattroriginEnum']
+                incomplete = Enum.YLeaf(3, "incomplete")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
-                if self.mplsvpnvrfbgppathattripaddrprefix is None:
-                    raise YPYModelError('Key property mplsvpnvrfbgppathattripaddrprefix is None')
-                if self.mplsvpnvrfbgppathattripaddrprefixlen is None:
-                    raise YPYModelError('Key property mplsvpnvrfbgppathattripaddrprefixlen is None')
-                if self.mplsvpnvrfbgppathattrpeer is None:
-                    raise YPYModelError('Key property mplsvpnvrfbgppathattrpeer is None')
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpnvrfbgppathattripaddrprefix.is_set or
+                    self.mplsvpnvrfbgppathattripaddrprefixlen.is_set or
+                    self.mplsvpnvrfbgppathattrpeer.is_set or
+                    self.mplsvpnvrfbgppathattraggregatoraddr.is_set or
+                    self.mplsvpnvrfbgppathattraggregatoras.is_set or
+                    self.mplsvpnvrfbgppathattraspathsegment.is_set or
+                    self.mplsvpnvrfbgppathattratomicaggregate.is_set or
+                    self.mplsvpnvrfbgppathattrbest.is_set or
+                    self.mplsvpnvrfbgppathattrcalclocalpref.is_set or
+                    self.mplsvpnvrfbgppathattrlocalpref.is_set or
+                    self.mplsvpnvrfbgppathattrmultiexitdisc.is_set or
+                    self.mplsvpnvrfbgppathattrnexthop.is_set or
+                    self.mplsvpnvrfbgppathattrorigin.is_set or
+                    self.mplsvpnvrfbgppathattrunknown.is_set)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfBgpNbrPrefixTable/MPLS-VPN-MIB:mplsVpnVrfBgpNbrPrefixEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + '][MPLS-VPN-MIB:mplsVpnVrfBgpPathAttrIpAddrPrefix = ' + str(self.mplsvpnvrfbgppathattripaddrprefix) + '][MPLS-VPN-MIB:mplsVpnVrfBgpPathAttrIpAddrPrefixLen = ' + str(self.mplsvpnvrfbgppathattripaddrprefixlen) + '][MPLS-VPN-MIB:mplsVpnVrfBgpPathAttrPeer = ' + str(self.mplsvpnvrfbgppathattrpeer) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattripaddrprefix.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattripaddrprefixlen.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrpeer.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattraggregatoraddr.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattraggregatoras.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattraspathsegment.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattratomicaggregate.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrbest.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrcalclocalpref.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrlocalpref.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrmultiexitdisc.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrnexthop.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrorigin.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfbgppathattrunknown.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnVrfBgpNbrPrefixEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefix='" + self.mplsvpnvrfbgppathattripaddrprefix.get() + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefixLen='" + self.mplsvpnvrfbgppathattripaddrprefixlen.get() + "']" + "[mplsVpnVrfBgpPathAttrPeer='" + self.mplsvpnvrfbgppathattrpeer.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrPrefixTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattripaddrprefix.is_set or self.mplsvpnvrfbgppathattripaddrprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattripaddrprefix.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattripaddrprefixlen.is_set or self.mplsvpnvrfbgppathattripaddrprefixlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattripaddrprefixlen.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrpeer.is_set or self.mplsvpnvrfbgppathattrpeer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrpeer.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattraggregatoraddr.is_set or self.mplsvpnvrfbgppathattraggregatoraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattraggregatoraddr.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattraggregatoras.is_set or self.mplsvpnvrfbgppathattraggregatoras.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattraggregatoras.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattraspathsegment.is_set or self.mplsvpnvrfbgppathattraspathsegment.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattraspathsegment.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattratomicaggregate.is_set or self.mplsvpnvrfbgppathattratomicaggregate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattratomicaggregate.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrbest.is_set or self.mplsvpnvrfbgppathattrbest.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrbest.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrcalclocalpref.is_set or self.mplsvpnvrfbgppathattrcalclocalpref.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrcalclocalpref.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrlocalpref.is_set or self.mplsvpnvrfbgppathattrlocalpref.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrlocalpref.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrmultiexitdisc.is_set or self.mplsvpnvrfbgppathattrmultiexitdisc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrmultiexitdisc.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrnexthop.is_set or self.mplsvpnvrfbgppathattrnexthop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrnexthop.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrorigin.is_set or self.mplsvpnvrfbgppathattrorigin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrorigin.get_name_leafdata())
+                if (self.mplsvpnvrfbgppathattrunknown.is_set or self.mplsvpnvrfbgppathattrunknown.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfbgppathattrunknown.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnVrfBgpPathAttrIpAddrPrefix" or name == "mplsVpnVrfBgpPathAttrIpAddrPrefixLen" or name == "mplsVpnVrfBgpPathAttrPeer" or name == "mplsVpnVrfBgpPathAttrAggregatorAddr" or name == "mplsVpnVrfBgpPathAttrAggregatorAS" or name == "mplsVpnVrfBgpPathAttrASPathSegment" or name == "mplsVpnVrfBgpPathAttrAtomicAggregate" or name == "mplsVpnVrfBgpPathAttrBest" or name == "mplsVpnVrfBgpPathAttrCalcLocalPref" or name == "mplsVpnVrfBgpPathAttrLocalPref" or name == "mplsVpnVrfBgpPathAttrMultiExitDisc" or name == "mplsVpnVrfBgpPathAttrNextHop" or name == "mplsVpnVrfBgpPathAttrOrigin" or name == "mplsVpnVrfBgpPathAttrUnknown"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrIpAddrPrefix"):
+                    self.mplsvpnvrfbgppathattripaddrprefix = value
+                    self.mplsvpnvrfbgppathattripaddrprefix.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattripaddrprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrIpAddrPrefixLen"):
+                    self.mplsvpnvrfbgppathattripaddrprefixlen = value
+                    self.mplsvpnvrfbgppathattripaddrprefixlen.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattripaddrprefixlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrPeer"):
+                    self.mplsvpnvrfbgppathattrpeer = value
+                    self.mplsvpnvrfbgppathattrpeer.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrpeer.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrAggregatorAddr"):
+                    self.mplsvpnvrfbgppathattraggregatoraddr = value
+                    self.mplsvpnvrfbgppathattraggregatoraddr.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattraggregatoraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrAggregatorAS"):
+                    self.mplsvpnvrfbgppathattraggregatoras = value
+                    self.mplsvpnvrfbgppathattraggregatoras.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattraggregatoras.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrASPathSegment"):
+                    self.mplsvpnvrfbgppathattraspathsegment = value
+                    self.mplsvpnvrfbgppathattraspathsegment.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattraspathsegment.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrAtomicAggregate"):
+                    self.mplsvpnvrfbgppathattratomicaggregate = value
+                    self.mplsvpnvrfbgppathattratomicaggregate.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattratomicaggregate.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrBest"):
+                    self.mplsvpnvrfbgppathattrbest = value
+                    self.mplsvpnvrfbgppathattrbest.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrbest.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrCalcLocalPref"):
+                    self.mplsvpnvrfbgppathattrcalclocalpref = value
+                    self.mplsvpnvrfbgppathattrcalclocalpref.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrcalclocalpref.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrLocalPref"):
+                    self.mplsvpnvrfbgppathattrlocalpref = value
+                    self.mplsvpnvrfbgppathattrlocalpref.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrlocalpref.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrMultiExitDisc"):
+                    self.mplsvpnvrfbgppathattrmultiexitdisc = value
+                    self.mplsvpnvrfbgppathattrmultiexitdisc.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrmultiexitdisc.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrNextHop"):
+                    self.mplsvpnvrfbgppathattrnexthop = value
+                    self.mplsvpnvrfbgppathattrnexthop.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrnexthop.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrOrigin"):
+                    self.mplsvpnvrfbgppathattrorigin = value
+                    self.mplsvpnvrfbgppathattrorigin.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrorigin.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfBgpPathAttrUnknown"):
+                    self.mplsvpnvrfbgppathattrunknown = value
+                    self.mplsvpnvrfbgppathattrunknown.value_namespace = name_space
+                    self.mplsvpnvrfbgppathattrunknown.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsvpnvrfbgpnbrprefixentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpnvrfbgppathattripaddrprefix is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattripaddrprefixlen is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrpeer is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattraggregatoraddr is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattraggregatoras is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattraspathsegment is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattratomicaggregate is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrbest is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrcalclocalpref is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrlocalpref is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrmultiexitdisc is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrnexthop is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrorigin is not None:
-                    return True
-
-                if self.mplsvpnvrfbgppathattrunknown is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfBgpNbrPrefixTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpnvrfbgpnbrprefixentry is not None:
-                for child_ref in self.mplsvpnvrfbgpnbrprefixentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpnvrfbgpnbrprefixentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnVrfBgpNbrPrefixTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnVrfBgpNbrPrefixEntry"):
+                for c in self.mplsvpnvrfbgpnbrprefixentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpnvrfbgpnbrprefixentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnVrfBgpNbrPrefixEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsvpnvrfroutetable(object):
+    class Mplsvpnvrfroutetable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN VRF Table
         routing information. Entries in this table define VRF routing
@@ -1452,13 +2370,39 @@ class MplsVpnMib(object):
         _revision = '2001-10-15'
 
         def __init__(self):
-            self.parent = None
-            self.mplsvpnvrfrouteentry = YList()
-            self.mplsvpnvrfrouteentry.parent = self
-            self.mplsvpnvrfrouteentry.name = 'mplsvpnvrfrouteentry'
+            super(MplsVpnMib.Mplsvpnvrfroutetable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfRouteTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+
+            self.mplsvpnvrfrouteentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsVpnMib.Mplsvpnvrfroutetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsVpnMib.Mplsvpnvrfroutetable, self).__setattr__(name, value)
 
 
-        class Mplsvpnvrfrouteentry(object):
+        class Mplsvpnvrfrouteentry(Entity):
             """
             An entry in this table is created by an LSR for every route
             present configured (either dynamically or statically) within
@@ -1513,7 +2457,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfroutedestaddrtype
             
             	The address type of the mplsVpnVrfRouteDest entry
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsvpnvrfrouteifindex
             
@@ -1532,7 +2476,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfroutemaskaddrtype
             
             	The address type of mplsVpnVrfRouteMask
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsvpnvrfroutemetric1
             
@@ -1572,7 +2516,7 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfroutenexthopaddrtype
             
             	The address type of the mplsVpnVrfRouteNextHopAddrType object
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsvpnvrfroutenexthopas
             
@@ -1584,22 +2528,22 @@ class MplsVpnMib(object):
             .. attribute:: mplsvpnvrfrouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
-            	**type**\:   :py:class:`MplsvpnvrfrouteprotoEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.MplsvpnvrfrouteprotoEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfrouteproto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto>`
             
             .. attribute:: mplsvpnvrfrouterowstatus
             
             	Row status for this table. It is used according to row installation and removal conventions
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsvpnvrfroutestoragetype
             
             	Storage type value
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsvpnvrfroutetype
             
             	The type of route.  Note that local(3)  refers to a route for which the next hop is the final destination; remote(4) refers to a route for that the next  hop is not the final destination. Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
-            	**type**\:   :py:class:`MplsvpnvrfroutetypeEnum <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.MplsvpnvrfroutetypeEnum>`
+            	**type**\:   :py:class:`Mplsvpnvrfroutetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfroutetype>`
             
             
 
@@ -1609,32 +2553,100 @@ class MplsVpnMib(object):
             _revision = '2001-10-15'
 
             def __init__(self):
-                self.parent = None
-                self.mplsvpnvrfname = None
-                self.mplsvpnvrfroutedest = None
-                self.mplsvpnvrfroutemask = None
-                self.mplsvpnvrfroutetos = None
-                self.mplsvpnvrfroutenexthop = None
-                self.mplsvpnvrfrouteage = None
-                self.mplsvpnvrfroutedestaddrtype = None
-                self.mplsvpnvrfrouteifindex = None
-                self.mplsvpnvrfrouteinfo = None
-                self.mplsvpnvrfroutemaskaddrtype = None
-                self.mplsvpnvrfroutemetric1 = None
-                self.mplsvpnvrfroutemetric2 = None
-                self.mplsvpnvrfroutemetric3 = None
-                self.mplsvpnvrfroutemetric4 = None
-                self.mplsvpnvrfroutemetric5 = None
-                self.mplsvpnvrfroutenexthopaddrtype = None
-                self.mplsvpnvrfroutenexthopas = None
-                self.mplsvpnvrfrouteproto = None
-                self.mplsvpnvrfrouterowstatus = None
-                self.mplsvpnvrfroutestoragetype = None
-                self.mplsvpnvrfroutetype = None
+                super(MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, self).__init__()
 
-            class MplsvpnvrfrouteprotoEnum(Enum):
+                self.yang_name = "mplsVpnVrfRouteEntry"
+                self.yang_parent_name = "mplsVpnVrfRouteTable"
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfroutedest = YLeaf(YType.str, "mplsVpnVrfRouteDest")
+
+                self.mplsvpnvrfroutemask = YLeaf(YType.str, "mplsVpnVrfRouteMask")
+
+                self.mplsvpnvrfroutetos = YLeaf(YType.uint32, "mplsVpnVrfRouteTos")
+
+                self.mplsvpnvrfroutenexthop = YLeaf(YType.str, "mplsVpnVrfRouteNextHop")
+
+                self.mplsvpnvrfrouteage = YLeaf(YType.uint32, "mplsVpnVrfRouteAge")
+
+                self.mplsvpnvrfroutedestaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteDestAddrType")
+
+                self.mplsvpnvrfrouteifindex = YLeaf(YType.int32, "mplsVpnVrfRouteIfIndex")
+
+                self.mplsvpnvrfrouteinfo = YLeaf(YType.str, "mplsVpnVrfRouteInfo")
+
+                self.mplsvpnvrfroutemaskaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteMaskAddrType")
+
+                self.mplsvpnvrfroutemetric1 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric1")
+
+                self.mplsvpnvrfroutemetric2 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric2")
+
+                self.mplsvpnvrfroutemetric3 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric3")
+
+                self.mplsvpnvrfroutemetric4 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric4")
+
+                self.mplsvpnvrfroutemetric5 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric5")
+
+                self.mplsvpnvrfroutenexthopaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteNextHopAddrType")
+
+                self.mplsvpnvrfroutenexthopas = YLeaf(YType.uint32, "mplsVpnVrfRouteNextHopAS")
+
+                self.mplsvpnvrfrouteproto = YLeaf(YType.enumeration, "mplsVpnVrfRouteProto")
+
+                self.mplsvpnvrfrouterowstatus = YLeaf(YType.enumeration, "mplsVpnVrfRouteRowStatus")
+
+                self.mplsvpnvrfroutestoragetype = YLeaf(YType.enumeration, "mplsVpnVrfRouteStorageType")
+
+                self.mplsvpnvrfroutetype = YLeaf(YType.enumeration, "mplsVpnVrfRouteType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsvpnvrfname",
+                                "mplsvpnvrfroutedest",
+                                "mplsvpnvrfroutemask",
+                                "mplsvpnvrfroutetos",
+                                "mplsvpnvrfroutenexthop",
+                                "mplsvpnvrfrouteage",
+                                "mplsvpnvrfroutedestaddrtype",
+                                "mplsvpnvrfrouteifindex",
+                                "mplsvpnvrfrouteinfo",
+                                "mplsvpnvrfroutemaskaddrtype",
+                                "mplsvpnvrfroutemetric1",
+                                "mplsvpnvrfroutemetric2",
+                                "mplsvpnvrfroutemetric3",
+                                "mplsvpnvrfroutemetric4",
+                                "mplsvpnvrfroutemetric5",
+                                "mplsvpnvrfroutenexthopaddrtype",
+                                "mplsvpnvrfroutenexthopas",
+                                "mplsvpnvrfrouteproto",
+                                "mplsvpnvrfrouterowstatus",
+                                "mplsvpnvrfroutestoragetype",
+                                "mplsvpnvrfroutetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, self).__setattr__(name, value)
+
+            class Mplsvpnvrfrouteproto(Enum):
                 """
-                MplsvpnvrfrouteprotoEnum
+                Mplsvpnvrfrouteproto
 
                 The routing mechanism via which this route was
 
@@ -1678,48 +2690,42 @@ class MplsVpnMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                local = 2
+                local = Enum.YLeaf(2, "local")
 
-                netmgmt = 3
+                netmgmt = Enum.YLeaf(3, "netmgmt")
 
-                icmp = 4
+                icmp = Enum.YLeaf(4, "icmp")
 
-                egp = 5
+                egp = Enum.YLeaf(5, "egp")
 
-                ggp = 6
+                ggp = Enum.YLeaf(6, "ggp")
 
-                hello = 7
+                hello = Enum.YLeaf(7, "hello")
 
-                rip = 8
+                rip = Enum.YLeaf(8, "rip")
 
-                isIs = 9
+                isIs = Enum.YLeaf(9, "isIs")
 
-                esIs = 10
+                esIs = Enum.YLeaf(10, "esIs")
 
-                ciscoIgrp = 11
+                ciscoIgrp = Enum.YLeaf(11, "ciscoIgrp")
 
-                bbnSpfIgp = 12
+                bbnSpfIgp = Enum.YLeaf(12, "bbnSpfIgp")
 
-                ospf = 13
+                ospf = Enum.YLeaf(13, "ospf")
 
-                bgp = 14
+                bgp = Enum.YLeaf(14, "bgp")
 
-                idpr = 15
+                idpr = Enum.YLeaf(15, "idpr")
 
-                ciscoEigrp = 16
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.MplsvpnvrfrouteprotoEnum']
+                ciscoEigrp = Enum.YLeaf(16, "ciscoEigrp")
 
 
-            class MplsvpnvrfroutetypeEnum(Enum):
+            class Mplsvpnvrfroutetype(Enum):
                 """
-                MplsvpnvrfroutetypeEnum
+                Mplsvpnvrfroutetype
 
                 The type of route.  Note that local(3)  refers
 
@@ -1753,169 +2759,382 @@ class MplsVpnMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                reject = 2
+                reject = Enum.YLeaf(2, "reject")
 
-                local = 3
+                local = Enum.YLeaf(3, "local")
 
-                remote = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                    return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.MplsvpnvrfroutetypeEnum']
+                remote = Enum.YLeaf(4, "remote")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsvpnvrfname is None:
-                    raise YPYModelError('Key property mplsvpnvrfname is None')
-                if self.mplsvpnvrfroutedest is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutedest is None')
-                if self.mplsvpnvrfroutemask is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutemask is None')
-                if self.mplsvpnvrfroutetos is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutetos is None')
-                if self.mplsvpnvrfroutenexthop is None:
-                    raise YPYModelError('Key property mplsvpnvrfroutenexthop is None')
+            def has_data(self):
+                return (
+                    self.mplsvpnvrfname.is_set or
+                    self.mplsvpnvrfroutedest.is_set or
+                    self.mplsvpnvrfroutemask.is_set or
+                    self.mplsvpnvrfroutetos.is_set or
+                    self.mplsvpnvrfroutenexthop.is_set or
+                    self.mplsvpnvrfrouteage.is_set or
+                    self.mplsvpnvrfroutedestaddrtype.is_set or
+                    self.mplsvpnvrfrouteifindex.is_set or
+                    self.mplsvpnvrfrouteinfo.is_set or
+                    self.mplsvpnvrfroutemaskaddrtype.is_set or
+                    self.mplsvpnvrfroutemetric1.is_set or
+                    self.mplsvpnvrfroutemetric2.is_set or
+                    self.mplsvpnvrfroutemetric3.is_set or
+                    self.mplsvpnvrfroutemetric4.is_set or
+                    self.mplsvpnvrfroutemetric5.is_set or
+                    self.mplsvpnvrfroutenexthopaddrtype.is_set or
+                    self.mplsvpnvrfroutenexthopas.is_set or
+                    self.mplsvpnvrfrouteproto.is_set or
+                    self.mplsvpnvrfrouterowstatus.is_set or
+                    self.mplsvpnvrfroutestoragetype.is_set or
+                    self.mplsvpnvrfroutetype.is_set)
 
-                return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfRouteTable/MPLS-VPN-MIB:mplsVpnVrfRouteEntry[MPLS-VPN-MIB:mplsVpnVrfName = ' + str(self.mplsvpnvrfname) + '][MPLS-VPN-MIB:mplsVpnVrfRouteDest = ' + str(self.mplsvpnvrfroutedest) + '][MPLS-VPN-MIB:mplsVpnVrfRouteMask = ' + str(self.mplsvpnvrfroutemask) + '][MPLS-VPN-MIB:mplsVpnVrfRouteTos = ' + str(self.mplsvpnvrfroutetos) + '][MPLS-VPN-MIB:mplsVpnVrfRouteNextHop = ' + str(self.mplsvpnvrfroutenexthop) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfname.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutedest.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemask.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetos.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutenexthop.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfrouteage.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutedestaddrtype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfrouteifindex.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfrouteinfo.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemaskaddrtype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemetric1.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemetric2.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemetric3.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemetric4.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutemetric5.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutenexthopaddrtype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutenexthopas.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfrouteproto.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfrouterowstatus.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutestoragetype.yfilter != YFilter.not_set or
+                    self.mplsvpnvrfroutetype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsVpnVrfRouteEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfRouteDest='" + self.mplsvpnvrfroutedest.get() + "']" + "[mplsVpnVrfRouteMask='" + self.mplsvpnvrfroutemask.get() + "']" + "[mplsVpnVrfRouteTos='" + self.mplsvpnvrfroutetos.get() + "']" + "[mplsVpnVrfRouteNextHop='" + self.mplsvpnvrfroutenexthop.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsvpnvrfname.is_set or self.mplsvpnvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfname.get_name_leafdata())
+                if (self.mplsvpnvrfroutedest.is_set or self.mplsvpnvrfroutedest.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutedest.get_name_leafdata())
+                if (self.mplsvpnvrfroutemask.is_set or self.mplsvpnvrfroutemask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemask.get_name_leafdata())
+                if (self.mplsvpnvrfroutetos.is_set or self.mplsvpnvrfroutetos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetos.get_name_leafdata())
+                if (self.mplsvpnvrfroutenexthop.is_set or self.mplsvpnvrfroutenexthop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutenexthop.get_name_leafdata())
+                if (self.mplsvpnvrfrouteage.is_set or self.mplsvpnvrfrouteage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfrouteage.get_name_leafdata())
+                if (self.mplsvpnvrfroutedestaddrtype.is_set or self.mplsvpnvrfroutedestaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutedestaddrtype.get_name_leafdata())
+                if (self.mplsvpnvrfrouteifindex.is_set or self.mplsvpnvrfrouteifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfrouteifindex.get_name_leafdata())
+                if (self.mplsvpnvrfrouteinfo.is_set or self.mplsvpnvrfrouteinfo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfrouteinfo.get_name_leafdata())
+                if (self.mplsvpnvrfroutemaskaddrtype.is_set or self.mplsvpnvrfroutemaskaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemaskaddrtype.get_name_leafdata())
+                if (self.mplsvpnvrfroutemetric1.is_set or self.mplsvpnvrfroutemetric1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemetric1.get_name_leafdata())
+                if (self.mplsvpnvrfroutemetric2.is_set or self.mplsvpnvrfroutemetric2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemetric2.get_name_leafdata())
+                if (self.mplsvpnvrfroutemetric3.is_set or self.mplsvpnvrfroutemetric3.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemetric3.get_name_leafdata())
+                if (self.mplsvpnvrfroutemetric4.is_set or self.mplsvpnvrfroutemetric4.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemetric4.get_name_leafdata())
+                if (self.mplsvpnvrfroutemetric5.is_set or self.mplsvpnvrfroutemetric5.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutemetric5.get_name_leafdata())
+                if (self.mplsvpnvrfroutenexthopaddrtype.is_set or self.mplsvpnvrfroutenexthopaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutenexthopaddrtype.get_name_leafdata())
+                if (self.mplsvpnvrfroutenexthopas.is_set or self.mplsvpnvrfroutenexthopas.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutenexthopas.get_name_leafdata())
+                if (self.mplsvpnvrfrouteproto.is_set or self.mplsvpnvrfrouteproto.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfrouteproto.get_name_leafdata())
+                if (self.mplsvpnvrfrouterowstatus.is_set or self.mplsvpnvrfrouterowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfrouterowstatus.get_name_leafdata())
+                if (self.mplsvpnvrfroutestoragetype.is_set or self.mplsvpnvrfroutestoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutestoragetype.get_name_leafdata())
+                if (self.mplsvpnvrfroutetype.is_set or self.mplsvpnvrfroutetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsvpnvrfroutetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsVpnVrfName" or name == "mplsVpnVrfRouteDest" or name == "mplsVpnVrfRouteMask" or name == "mplsVpnVrfRouteTos" or name == "mplsVpnVrfRouteNextHop" or name == "mplsVpnVrfRouteAge" or name == "mplsVpnVrfRouteDestAddrType" or name == "mplsVpnVrfRouteIfIndex" or name == "mplsVpnVrfRouteInfo" or name == "mplsVpnVrfRouteMaskAddrType" or name == "mplsVpnVrfRouteMetric1" or name == "mplsVpnVrfRouteMetric2" or name == "mplsVpnVrfRouteMetric3" or name == "mplsVpnVrfRouteMetric4" or name == "mplsVpnVrfRouteMetric5" or name == "mplsVpnVrfRouteNextHopAddrType" or name == "mplsVpnVrfRouteNextHopAS" or name == "mplsVpnVrfRouteProto" or name == "mplsVpnVrfRouteRowStatus" or name == "mplsVpnVrfRouteStorageType" or name == "mplsVpnVrfRouteType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsvpnvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsVpnVrfName"):
+                    self.mplsvpnvrfname = value
+                    self.mplsvpnvrfname.value_namespace = name_space
+                    self.mplsvpnvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteDest"):
+                    self.mplsvpnvrfroutedest = value
+                    self.mplsvpnvrfroutedest.value_namespace = name_space
+                    self.mplsvpnvrfroutedest.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMask"):
+                    self.mplsvpnvrfroutemask = value
+                    self.mplsvpnvrfroutemask.value_namespace = name_space
+                    self.mplsvpnvrfroutemask.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteTos"):
+                    self.mplsvpnvrfroutetos = value
+                    self.mplsvpnvrfroutetos.value_namespace = name_space
+                    self.mplsvpnvrfroutetos.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteNextHop"):
+                    self.mplsvpnvrfroutenexthop = value
+                    self.mplsvpnvrfroutenexthop.value_namespace = name_space
+                    self.mplsvpnvrfroutenexthop.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteAge"):
+                    self.mplsvpnvrfrouteage = value
+                    self.mplsvpnvrfrouteage.value_namespace = name_space
+                    self.mplsvpnvrfrouteage.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteDestAddrType"):
+                    self.mplsvpnvrfroutedestaddrtype = value
+                    self.mplsvpnvrfroutedestaddrtype.value_namespace = name_space
+                    self.mplsvpnvrfroutedestaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteIfIndex"):
+                    self.mplsvpnvrfrouteifindex = value
+                    self.mplsvpnvrfrouteifindex.value_namespace = name_space
+                    self.mplsvpnvrfrouteifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteInfo"):
+                    self.mplsvpnvrfrouteinfo = value
+                    self.mplsvpnvrfrouteinfo.value_namespace = name_space
+                    self.mplsvpnvrfrouteinfo.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMaskAddrType"):
+                    self.mplsvpnvrfroutemaskaddrtype = value
+                    self.mplsvpnvrfroutemaskaddrtype.value_namespace = name_space
+                    self.mplsvpnvrfroutemaskaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMetric1"):
+                    self.mplsvpnvrfroutemetric1 = value
+                    self.mplsvpnvrfroutemetric1.value_namespace = name_space
+                    self.mplsvpnvrfroutemetric1.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMetric2"):
+                    self.mplsvpnvrfroutemetric2 = value
+                    self.mplsvpnvrfroutemetric2.value_namespace = name_space
+                    self.mplsvpnvrfroutemetric2.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMetric3"):
+                    self.mplsvpnvrfroutemetric3 = value
+                    self.mplsvpnvrfroutemetric3.value_namespace = name_space
+                    self.mplsvpnvrfroutemetric3.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMetric4"):
+                    self.mplsvpnvrfroutemetric4 = value
+                    self.mplsvpnvrfroutemetric4.value_namespace = name_space
+                    self.mplsvpnvrfroutemetric4.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteMetric5"):
+                    self.mplsvpnvrfroutemetric5 = value
+                    self.mplsvpnvrfroutemetric5.value_namespace = name_space
+                    self.mplsvpnvrfroutemetric5.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteNextHopAddrType"):
+                    self.mplsvpnvrfroutenexthopaddrtype = value
+                    self.mplsvpnvrfroutenexthopaddrtype.value_namespace = name_space
+                    self.mplsvpnvrfroutenexthopaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteNextHopAS"):
+                    self.mplsvpnvrfroutenexthopas = value
+                    self.mplsvpnvrfroutenexthopas.value_namespace = name_space
+                    self.mplsvpnvrfroutenexthopas.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteProto"):
+                    self.mplsvpnvrfrouteproto = value
+                    self.mplsvpnvrfrouteproto.value_namespace = name_space
+                    self.mplsvpnvrfrouteproto.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteRowStatus"):
+                    self.mplsvpnvrfrouterowstatus = value
+                    self.mplsvpnvrfrouterowstatus.value_namespace = name_space
+                    self.mplsvpnvrfrouterowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteStorageType"):
+                    self.mplsvpnvrfroutestoragetype = value
+                    self.mplsvpnvrfroutestoragetype.value_namespace = name_space
+                    self.mplsvpnvrfroutestoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsVpnVrfRouteType"):
+                    self.mplsvpnvrfroutetype = value
+                    self.mplsvpnvrfroutetype.value_namespace = name_space
+                    self.mplsvpnvrfroutetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsvpnvrfrouteentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsvpnvrfroutedest is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemask is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetos is not None:
-                    return True
-
-                if self.mplsvpnvrfroutenexthop is not None:
-                    return True
-
-                if self.mplsvpnvrfrouteage is not None:
-                    return True
-
-                if self.mplsvpnvrfroutedestaddrtype is not None:
-                    return True
-
-                if self.mplsvpnvrfrouteifindex is not None:
-                    return True
-
-                if self.mplsvpnvrfrouteinfo is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemaskaddrtype is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemetric1 is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemetric2 is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemetric3 is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemetric4 is not None:
-                    return True
-
-                if self.mplsvpnvrfroutemetric5 is not None:
-                    return True
-
-                if self.mplsvpnvrfroutenexthopaddrtype is not None:
-                    return True
-
-                if self.mplsvpnvrfroutenexthopas is not None:
-                    return True
-
-                if self.mplsvpnvrfrouteproto is not None:
-                    return True
-
-                if self.mplsvpnvrfrouterowstatus is not None:
-                    return True
-
-                if self.mplsvpnvrfroutestoragetype is not None:
-                    return True
-
-                if self.mplsvpnvrfroutetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-                return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-VPN-MIB:MPLS-VPN-MIB/MPLS-VPN-MIB:mplsVpnVrfRouteTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsvpnvrfrouteentry is not None:
-                for child_ref in self.mplsvpnvrfrouteentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsvpnvrfrouteentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsVpnVrfRouteTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsVpnVrfRouteEntry"):
+                for c in self.mplsvpnvrfrouteentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsVpnMib.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsvpnvrfrouteentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsVpnVrfRouteEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-            return meta._meta_table['MplsVpnMib.Mplsvpnvrfroutetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.mplsvpninterfaceconftable is not None and self.mplsvpninterfaceconftable.has_data()) or
+            (self.mplsvpnscalars is not None and self.mplsvpnscalars.has_data()) or
+            (self.mplsvpnvrfbgpnbraddrtable is not None and self.mplsvpnvrfbgpnbraddrtable.has_data()) or
+            (self.mplsvpnvrfbgpnbrprefixtable is not None and self.mplsvpnvrfbgpnbrprefixtable.has_data()) or
+            (self.mplsvpnvrfroutetable is not None and self.mplsvpnvrfroutetable.has_data()) or
+            (self.mplsvpnvrfroutetargettable is not None and self.mplsvpnvrfroutetargettable.has_data()) or
+            (self.mplsvpnvrftable is not None and self.mplsvpnvrftable.has_data()))
 
-        return '/MPLS-VPN-MIB:MPLS-VPN-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.mplsvpninterfaceconftable is not None and self.mplsvpninterfaceconftable.has_operation()) or
+            (self.mplsvpnscalars is not None and self.mplsvpnscalars.has_operation()) or
+            (self.mplsvpnvrfbgpnbraddrtable is not None and self.mplsvpnvrfbgpnbraddrtable.has_operation()) or
+            (self.mplsvpnvrfbgpnbrprefixtable is not None and self.mplsvpnvrfbgpnbrprefixtable.has_operation()) or
+            (self.mplsvpnvrfroutetable is not None and self.mplsvpnvrfroutetable.has_operation()) or
+            (self.mplsvpnvrfroutetargettable is not None and self.mplsvpnvrfroutetargettable.has_operation()) or
+            (self.mplsvpnvrftable is not None and self.mplsvpnvrftable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "MPLS-VPN-MIB:MPLS-VPN-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "mplsVpnInterfaceConfTable"):
+            if (self.mplsvpninterfaceconftable is None):
+                self.mplsvpninterfaceconftable = MplsVpnMib.Mplsvpninterfaceconftable()
+                self.mplsvpninterfaceconftable.parent = self
+                self._children_name_map["mplsvpninterfaceconftable"] = "mplsVpnInterfaceConfTable"
+            return self.mplsvpninterfaceconftable
+
+        if (child_yang_name == "mplsVpnScalars"):
+            if (self.mplsvpnscalars is None):
+                self.mplsvpnscalars = MplsVpnMib.Mplsvpnscalars()
+                self.mplsvpnscalars.parent = self
+                self._children_name_map["mplsvpnscalars"] = "mplsVpnScalars"
+            return self.mplsvpnscalars
+
+        if (child_yang_name == "mplsVpnVrfBgpNbrAddrTable"):
+            if (self.mplsvpnvrfbgpnbraddrtable is None):
+                self.mplsvpnvrfbgpnbraddrtable = MplsVpnMib.Mplsvpnvrfbgpnbraddrtable()
+                self.mplsvpnvrfbgpnbraddrtable.parent = self
+                self._children_name_map["mplsvpnvrfbgpnbraddrtable"] = "mplsVpnVrfBgpNbrAddrTable"
+            return self.mplsvpnvrfbgpnbraddrtable
+
+        if (child_yang_name == "mplsVpnVrfBgpNbrPrefixTable"):
+            if (self.mplsvpnvrfbgpnbrprefixtable is None):
+                self.mplsvpnvrfbgpnbrprefixtable = MplsVpnMib.Mplsvpnvrfbgpnbrprefixtable()
+                self.mplsvpnvrfbgpnbrprefixtable.parent = self
+                self._children_name_map["mplsvpnvrfbgpnbrprefixtable"] = "mplsVpnVrfBgpNbrPrefixTable"
+            return self.mplsvpnvrfbgpnbrprefixtable
+
+        if (child_yang_name == "mplsVpnVrfRouteTable"):
+            if (self.mplsvpnvrfroutetable is None):
+                self.mplsvpnvrfroutetable = MplsVpnMib.Mplsvpnvrfroutetable()
+                self.mplsvpnvrfroutetable.parent = self
+                self._children_name_map["mplsvpnvrfroutetable"] = "mplsVpnVrfRouteTable"
+            return self.mplsvpnvrfroutetable
+
+        if (child_yang_name == "mplsVpnVrfRouteTargetTable"):
+            if (self.mplsvpnvrfroutetargettable is None):
+                self.mplsvpnvrfroutetargettable = MplsVpnMib.Mplsvpnvrfroutetargettable()
+                self.mplsvpnvrfroutetargettable.parent = self
+                self._children_name_map["mplsvpnvrfroutetargettable"] = "mplsVpnVrfRouteTargetTable"
+            return self.mplsvpnvrfroutetargettable
+
+        if (child_yang_name == "mplsVpnVrfTable"):
+            if (self.mplsvpnvrftable is None):
+                self.mplsvpnvrftable = MplsVpnMib.Mplsvpnvrftable()
+                self.mplsvpnvrftable.parent = self
+                self._children_name_map["mplsvpnvrftable"] = "mplsVpnVrfTable"
+            return self.mplsvpnvrftable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "mplsVpnInterfaceConfTable" or name == "mplsVpnScalars" or name == "mplsVpnVrfBgpNbrAddrTable" or name == "mplsVpnVrfBgpNbrPrefixTable" or name == "mplsVpnVrfRouteTable" or name == "mplsVpnVrfRouteTargetTable" or name == "mplsVpnVrfTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.mplsvpninterfaceconftable is not None and self.mplsvpninterfaceconftable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.mplsvpnscalars is not None and self.mplsvpnscalars._has_data():
-            return True
-
-        if self.mplsvpnvrfbgpnbraddrtable is not None and self.mplsvpnvrfbgpnbraddrtable._has_data():
-            return True
-
-        if self.mplsvpnvrfbgpnbrprefixtable is not None and self.mplsvpnvrfbgpnbrprefixtable._has_data():
-            return True
-
-        if self.mplsvpnvrfroutetable is not None and self.mplsvpnvrfroutetable._has_data():
-            return True
-
-        if self.mplsvpnvrfroutetargettable is not None and self.mplsvpnvrfroutetargettable._has_data():
-            return True
-
-        if self.mplsvpnvrftable is not None and self.mplsvpnvrftable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_VPN_MIB as meta
-        return meta._meta_table['MplsVpnMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = MplsVpnMib()
+        return self._top_entity
 

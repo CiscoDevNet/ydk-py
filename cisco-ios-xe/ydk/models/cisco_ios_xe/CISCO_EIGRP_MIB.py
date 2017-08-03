@@ -44,21 +44,15 @@ There are five main tables within this mib\:
       configured to run.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoEigrpMib(object):
+class CiscoEigrpMib(Entity):
     """
     
     
@@ -95,19 +89,39 @@ class CiscoEigrpMib(object):
     _revision = '2004-11-16'
 
     def __init__(self):
+        super(CiscoEigrpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-EIGRP-MIB"
+        self.yang_parent_name = "CISCO-EIGRP-MIB"
+
         self.ceigrpinterfacetable = CiscoEigrpMib.Ceigrpinterfacetable()
         self.ceigrpinterfacetable.parent = self
+        self._children_name_map["ceigrpinterfacetable"] = "cEigrpInterfaceTable"
+        self._children_yang_names.add("cEigrpInterfaceTable")
+
         self.ceigrppeertable = CiscoEigrpMib.Ceigrppeertable()
         self.ceigrppeertable.parent = self
+        self._children_name_map["ceigrppeertable"] = "cEigrpPeerTable"
+        self._children_yang_names.add("cEigrpPeerTable")
+
         self.ceigrptopotable = CiscoEigrpMib.Ceigrptopotable()
         self.ceigrptopotable.parent = self
+        self._children_name_map["ceigrptopotable"] = "cEigrpTopoTable"
+        self._children_yang_names.add("cEigrpTopoTable")
+
         self.ceigrptraffstatstable = CiscoEigrpMib.Ceigrptraffstatstable()
         self.ceigrptraffstatstable.parent = self
+        self._children_name_map["ceigrptraffstatstable"] = "cEigrpTraffStatsTable"
+        self._children_yang_names.add("cEigrpTraffStatsTable")
+
         self.ceigrpvpntable = CiscoEigrpMib.Ceigrpvpntable()
         self.ceigrpvpntable.parent = self
+        self._children_name_map["ceigrpvpntable"] = "cEigrpVpnTable"
+        self._children_yang_names.add("cEigrpVpnTable")
 
 
-    class Ceigrpvpntable(object):
+    class Ceigrpvpntable(Entity):
         """
         This table contains information on those VPN's configured
         to run EIGRP.  The VPN creation on a router is independent
@@ -129,13 +143,39 @@ class CiscoEigrpMib(object):
         _revision = '2004-11-16'
 
         def __init__(self):
-            self.parent = None
-            self.ceigrpvpnentry = YList()
-            self.ceigrpvpnentry.parent = self
-            self.ceigrpvpnentry.name = 'ceigrpvpnentry'
+            super(CiscoEigrpMib.Ceigrpvpntable, self).__init__()
+
+            self.yang_name = "cEigrpVpnTable"
+            self.yang_parent_name = "CISCO-EIGRP-MIB"
+
+            self.ceigrpvpnentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEigrpMib.Ceigrpvpntable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEigrpMib.Ceigrpvpntable, self).__setattr__(name, value)
 
 
-        class Ceigrpvpnentry(object):
+        class Ceigrpvpnentry(Entity):
             """
             Information relating to a single VPN which is configured
             to run EIGRP.
@@ -160,59 +200,154 @@ class CiscoEigrpMib(object):
             _revision = '2004-11-16'
 
             def __init__(self):
-                self.parent = None
-                self.ceigrpvpnid = None
-                self.ceigrpvpnname = None
+                super(CiscoEigrpMib.Ceigrpvpntable.Ceigrpvpnentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceigrpvpnid is None:
-                    raise YPYModelError('Key property ceigrpvpnid is None')
+                self.yang_name = "cEigrpVpnEntry"
+                self.yang_parent_name = "cEigrpVpnTable"
 
-                return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpVpnTable/CISCO-EIGRP-MIB:cEigrpVpnEntry[CISCO-EIGRP-MIB:cEigrpVpnId = ' + str(self.ceigrpvpnid) + ']'
+                self.ceigrpvpnid = YLeaf(YType.uint32, "cEigrpVpnId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceigrpvpnname = YLeaf(YType.str, "cEigrpVpnName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceigrpvpnid",
+                                "ceigrpvpnname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEigrpMib.Ceigrpvpntable.Ceigrpvpnentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEigrpMib.Ceigrpvpntable.Ceigrpvpnentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceigrpvpnid.is_set or
+                    self.ceigrpvpnname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceigrpvpnid.yfilter != YFilter.not_set or
+                    self.ceigrpvpnname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cEigrpVpnEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpVpnTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceigrpvpnid.is_set or self.ceigrpvpnid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnid.get_name_leafdata())
+                if (self.ceigrpvpnname.is_set or self.ceigrpvpnname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cEigrpVpnId" or name == "cEigrpVpnName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceigrpvpnid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cEigrpVpnId"):
+                    self.ceigrpvpnid = value
+                    self.ceigrpvpnid.value_namespace = name_space
+                    self.ceigrpvpnid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpVpnName"):
+                    self.ceigrpvpnname = value
+                    self.ceigrpvpnname.value_namespace = name_space
+                    self.ceigrpvpnname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceigrpvpnentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceigrpvpnname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                return meta._meta_table['CiscoEigrpMib.Ceigrpvpntable.Ceigrpvpnentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpVpnTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceigrpvpnentry is not None:
-                for child_ref in self.ceigrpvpnentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceigrpvpnentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cEigrpVpnTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cEigrpVpnEntry"):
+                for c in self.ceigrpvpnentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEigrpMib.Ceigrpvpntable.Ceigrpvpnentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceigrpvpnentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cEigrpVpnEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-            return meta._meta_table['CiscoEigrpMib.Ceigrpvpntable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceigrptraffstatstable(object):
+    class Ceigrptraffstatstable(Entity):
         """
         Table of EIGRP traffic statistics and information
         associated with all EIGRP autonomous systems.
@@ -230,13 +365,39 @@ class CiscoEigrpMib(object):
         _revision = '2004-11-16'
 
         def __init__(self):
-            self.parent = None
-            self.ceigrptraffstatsentry = YList()
-            self.ceigrptraffstatsentry.parent = self
-            self.ceigrptraffstatsentry.name = 'ceigrptraffstatsentry'
+            super(CiscoEigrpMib.Ceigrptraffstatstable, self).__init__()
+
+            self.yang_name = "cEigrpTraffStatsTable"
+            self.yang_parent_name = "CISCO-EIGRP-MIB"
+
+            self.ceigrptraffstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEigrpMib.Ceigrptraffstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEigrpMib.Ceigrptraffstatstable, self).__setattr__(name, value)
 
 
-        class Ceigrptraffstatsentry(object):
+        class Ceigrptraffstatsentry(Entity):
             """
             The set of statistics and information for a single EIGRP
             Autonomous System.
@@ -281,7 +442,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrpasrouteridtype
             
             	The format of the router\-id configured or automatically selected for the EIGRP AS
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ceigrpheadserial
             
@@ -417,149 +578,396 @@ class CiscoEigrpMib(object):
             _revision = '2004-11-16'
 
             def __init__(self):
-                self.parent = None
-                self.ceigrpvpnid = None
-                self.ceigrpasnumber = None
-                self.ceigrpacksrcvd = None
-                self.ceigrpackssent = None
-                self.ceigrpasrouterid = None
-                self.ceigrpasrouteridtype = None
-                self.ceigrpheadserial = None
-                self.ceigrphellosrcvd = None
-                self.ceigrphellossent = None
-                self.ceigrpinputqdrops = None
-                self.ceigrpinputqhighmark = None
-                self.ceigrpnbrcount = None
-                self.ceigrpnextserial = None
-                self.ceigrpqueriesrcvd = None
-                self.ceigrpqueriessent = None
-                self.ceigrprepliesrcvd = None
-                self.ceigrprepliessent = None
-                self.ceigrpsiaqueriesrcvd = None
-                self.ceigrpsiaqueriessent = None
-                self.ceigrptoporoutes = None
-                self.ceigrpupdatesrcvd = None
-                self.ceigrpupdatessent = None
-                self.ceigrpxmitdummies = None
-                self.ceigrpxmitpendreplies = None
+                super(CiscoEigrpMib.Ceigrptraffstatstable.Ceigrptraffstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceigrpvpnid is None:
-                    raise YPYModelError('Key property ceigrpvpnid is None')
-                if self.ceigrpasnumber is None:
-                    raise YPYModelError('Key property ceigrpasnumber is None')
+                self.yang_name = "cEigrpTraffStatsEntry"
+                self.yang_parent_name = "cEigrpTraffStatsTable"
 
-                return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpTraffStatsTable/CISCO-EIGRP-MIB:cEigrpTraffStatsEntry[CISCO-EIGRP-MIB:cEigrpVpnId = ' + str(self.ceigrpvpnid) + '][CISCO-EIGRP-MIB:cEigrpAsNumber = ' + str(self.ceigrpasnumber) + ']'
+                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceigrpasnumber = YLeaf(YType.uint32, "cEigrpAsNumber")
+
+                self.ceigrpacksrcvd = YLeaf(YType.uint32, "cEigrpAcksRcvd")
+
+                self.ceigrpackssent = YLeaf(YType.uint32, "cEigrpAcksSent")
+
+                self.ceigrpasrouterid = YLeaf(YType.str, "cEigrpAsRouterId")
+
+                self.ceigrpasrouteridtype = YLeaf(YType.enumeration, "cEigrpAsRouterIdType")
+
+                self.ceigrpheadserial = YLeaf(YType.uint64, "cEigrpHeadSerial")
+
+                self.ceigrphellosrcvd = YLeaf(YType.uint32, "cEigrpHellosRcvd")
+
+                self.ceigrphellossent = YLeaf(YType.uint32, "cEigrpHellosSent")
+
+                self.ceigrpinputqdrops = YLeaf(YType.uint32, "cEigrpInputQDrops")
+
+                self.ceigrpinputqhighmark = YLeaf(YType.uint32, "cEigrpInputQHighMark")
+
+                self.ceigrpnbrcount = YLeaf(YType.uint32, "cEigrpNbrCount")
+
+                self.ceigrpnextserial = YLeaf(YType.uint64, "cEigrpNextSerial")
+
+                self.ceigrpqueriesrcvd = YLeaf(YType.uint32, "cEigrpQueriesRcvd")
+
+                self.ceigrpqueriessent = YLeaf(YType.uint32, "cEigrpQueriesSent")
+
+                self.ceigrprepliesrcvd = YLeaf(YType.uint32, "cEigrpRepliesRcvd")
+
+                self.ceigrprepliessent = YLeaf(YType.uint32, "cEigrpRepliesSent")
+
+                self.ceigrpsiaqueriesrcvd = YLeaf(YType.uint32, "cEigrpSiaQueriesRcvd")
+
+                self.ceigrpsiaqueriessent = YLeaf(YType.uint32, "cEigrpSiaQueriesSent")
+
+                self.ceigrptoporoutes = YLeaf(YType.uint32, "cEigrpTopoRoutes")
+
+                self.ceigrpupdatesrcvd = YLeaf(YType.uint32, "cEigrpUpdatesRcvd")
+
+                self.ceigrpupdatessent = YLeaf(YType.uint32, "cEigrpUpdatesSent")
+
+                self.ceigrpxmitdummies = YLeaf(YType.uint32, "cEigrpXmitDummies")
+
+                self.ceigrpxmitpendreplies = YLeaf(YType.uint32, "cEigrpXmitPendReplies")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceigrpvpnid",
+                                "ceigrpasnumber",
+                                "ceigrpacksrcvd",
+                                "ceigrpackssent",
+                                "ceigrpasrouterid",
+                                "ceigrpasrouteridtype",
+                                "ceigrpheadserial",
+                                "ceigrphellosrcvd",
+                                "ceigrphellossent",
+                                "ceigrpinputqdrops",
+                                "ceigrpinputqhighmark",
+                                "ceigrpnbrcount",
+                                "ceigrpnextserial",
+                                "ceigrpqueriesrcvd",
+                                "ceigrpqueriessent",
+                                "ceigrprepliesrcvd",
+                                "ceigrprepliessent",
+                                "ceigrpsiaqueriesrcvd",
+                                "ceigrpsiaqueriessent",
+                                "ceigrptoporoutes",
+                                "ceigrpupdatesrcvd",
+                                "ceigrpupdatessent",
+                                "ceigrpxmitdummies",
+                                "ceigrpxmitpendreplies") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEigrpMib.Ceigrptraffstatstable.Ceigrptraffstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEigrpMib.Ceigrptraffstatstable.Ceigrptraffstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceigrpvpnid.is_set or
+                    self.ceigrpasnumber.is_set or
+                    self.ceigrpacksrcvd.is_set or
+                    self.ceigrpackssent.is_set or
+                    self.ceigrpasrouterid.is_set or
+                    self.ceigrpasrouteridtype.is_set or
+                    self.ceigrpheadserial.is_set or
+                    self.ceigrphellosrcvd.is_set or
+                    self.ceigrphellossent.is_set or
+                    self.ceigrpinputqdrops.is_set or
+                    self.ceigrpinputqhighmark.is_set or
+                    self.ceigrpnbrcount.is_set or
+                    self.ceigrpnextserial.is_set or
+                    self.ceigrpqueriesrcvd.is_set or
+                    self.ceigrpqueriessent.is_set or
+                    self.ceigrprepliesrcvd.is_set or
+                    self.ceigrprepliessent.is_set or
+                    self.ceigrpsiaqueriesrcvd.is_set or
+                    self.ceigrpsiaqueriessent.is_set or
+                    self.ceigrptoporoutes.is_set or
+                    self.ceigrpupdatesrcvd.is_set or
+                    self.ceigrpupdatessent.is_set or
+                    self.ceigrpxmitdummies.is_set or
+                    self.ceigrpxmitpendreplies.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceigrpvpnid.yfilter != YFilter.not_set or
+                    self.ceigrpasnumber.yfilter != YFilter.not_set or
+                    self.ceigrpacksrcvd.yfilter != YFilter.not_set or
+                    self.ceigrpackssent.yfilter != YFilter.not_set or
+                    self.ceigrpasrouterid.yfilter != YFilter.not_set or
+                    self.ceigrpasrouteridtype.yfilter != YFilter.not_set or
+                    self.ceigrpheadserial.yfilter != YFilter.not_set or
+                    self.ceigrphellosrcvd.yfilter != YFilter.not_set or
+                    self.ceigrphellossent.yfilter != YFilter.not_set or
+                    self.ceigrpinputqdrops.yfilter != YFilter.not_set or
+                    self.ceigrpinputqhighmark.yfilter != YFilter.not_set or
+                    self.ceigrpnbrcount.yfilter != YFilter.not_set or
+                    self.ceigrpnextserial.yfilter != YFilter.not_set or
+                    self.ceigrpqueriesrcvd.yfilter != YFilter.not_set or
+                    self.ceigrpqueriessent.yfilter != YFilter.not_set or
+                    self.ceigrprepliesrcvd.yfilter != YFilter.not_set or
+                    self.ceigrprepliessent.yfilter != YFilter.not_set or
+                    self.ceigrpsiaqueriesrcvd.yfilter != YFilter.not_set or
+                    self.ceigrpsiaqueriessent.yfilter != YFilter.not_set or
+                    self.ceigrptoporoutes.yfilter != YFilter.not_set or
+                    self.ceigrpupdatesrcvd.yfilter != YFilter.not_set or
+                    self.ceigrpupdatessent.yfilter != YFilter.not_set or
+                    self.ceigrpxmitdummies.yfilter != YFilter.not_set or
+                    self.ceigrpxmitpendreplies.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cEigrpTraffStatsEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTraffStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceigrpvpnid.is_set or self.ceigrpvpnid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnid.get_name_leafdata())
+                if (self.ceigrpasnumber.is_set or self.ceigrpasnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasnumber.get_name_leafdata())
+                if (self.ceigrpacksrcvd.is_set or self.ceigrpacksrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpacksrcvd.get_name_leafdata())
+                if (self.ceigrpackssent.is_set or self.ceigrpackssent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpackssent.get_name_leafdata())
+                if (self.ceigrpasrouterid.is_set or self.ceigrpasrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasrouterid.get_name_leafdata())
+                if (self.ceigrpasrouteridtype.is_set or self.ceigrpasrouteridtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasrouteridtype.get_name_leafdata())
+                if (self.ceigrpheadserial.is_set or self.ceigrpheadserial.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpheadserial.get_name_leafdata())
+                if (self.ceigrphellosrcvd.is_set or self.ceigrphellosrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrphellosrcvd.get_name_leafdata())
+                if (self.ceigrphellossent.is_set or self.ceigrphellossent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrphellossent.get_name_leafdata())
+                if (self.ceigrpinputqdrops.is_set or self.ceigrpinputqdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpinputqdrops.get_name_leafdata())
+                if (self.ceigrpinputqhighmark.is_set or self.ceigrpinputqhighmark.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpinputqhighmark.get_name_leafdata())
+                if (self.ceigrpnbrcount.is_set or self.ceigrpnbrcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpnbrcount.get_name_leafdata())
+                if (self.ceigrpnextserial.is_set or self.ceigrpnextserial.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpnextserial.get_name_leafdata())
+                if (self.ceigrpqueriesrcvd.is_set or self.ceigrpqueriesrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpqueriesrcvd.get_name_leafdata())
+                if (self.ceigrpqueriessent.is_set or self.ceigrpqueriessent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpqueriessent.get_name_leafdata())
+                if (self.ceigrprepliesrcvd.is_set or self.ceigrprepliesrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprepliesrcvd.get_name_leafdata())
+                if (self.ceigrprepliessent.is_set or self.ceigrprepliessent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprepliessent.get_name_leafdata())
+                if (self.ceigrpsiaqueriesrcvd.is_set or self.ceigrpsiaqueriesrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpsiaqueriesrcvd.get_name_leafdata())
+                if (self.ceigrpsiaqueriessent.is_set or self.ceigrpsiaqueriessent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpsiaqueriessent.get_name_leafdata())
+                if (self.ceigrptoporoutes.is_set or self.ceigrptoporoutes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrptoporoutes.get_name_leafdata())
+                if (self.ceigrpupdatesrcvd.is_set or self.ceigrpupdatesrcvd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpupdatesrcvd.get_name_leafdata())
+                if (self.ceigrpupdatessent.is_set or self.ceigrpupdatessent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpupdatessent.get_name_leafdata())
+                if (self.ceigrpxmitdummies.is_set or self.ceigrpxmitdummies.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpxmitdummies.get_name_leafdata())
+                if (self.ceigrpxmitpendreplies.is_set or self.ceigrpxmitpendreplies.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpxmitpendreplies.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cEigrpVpnId" or name == "cEigrpAsNumber" or name == "cEigrpAcksRcvd" or name == "cEigrpAcksSent" or name == "cEigrpAsRouterId" or name == "cEigrpAsRouterIdType" or name == "cEigrpHeadSerial" or name == "cEigrpHellosRcvd" or name == "cEigrpHellosSent" or name == "cEigrpInputQDrops" or name == "cEigrpInputQHighMark" or name == "cEigrpNbrCount" or name == "cEigrpNextSerial" or name == "cEigrpQueriesRcvd" or name == "cEigrpQueriesSent" or name == "cEigrpRepliesRcvd" or name == "cEigrpRepliesSent" or name == "cEigrpSiaQueriesRcvd" or name == "cEigrpSiaQueriesSent" or name == "cEigrpTopoRoutes" or name == "cEigrpUpdatesRcvd" or name == "cEigrpUpdatesSent" or name == "cEigrpXmitDummies" or name == "cEigrpXmitPendReplies"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceigrpvpnid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cEigrpVpnId"):
+                    self.ceigrpvpnid = value
+                    self.ceigrpvpnid.value_namespace = name_space
+                    self.ceigrpvpnid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsNumber"):
+                    self.ceigrpasnumber = value
+                    self.ceigrpasnumber.value_namespace = name_space
+                    self.ceigrpasnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAcksRcvd"):
+                    self.ceigrpacksrcvd = value
+                    self.ceigrpacksrcvd.value_namespace = name_space
+                    self.ceigrpacksrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAcksSent"):
+                    self.ceigrpackssent = value
+                    self.ceigrpackssent.value_namespace = name_space
+                    self.ceigrpackssent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsRouterId"):
+                    self.ceigrpasrouterid = value
+                    self.ceigrpasrouterid.value_namespace = name_space
+                    self.ceigrpasrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsRouterIdType"):
+                    self.ceigrpasrouteridtype = value
+                    self.ceigrpasrouteridtype.value_namespace = name_space
+                    self.ceigrpasrouteridtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHeadSerial"):
+                    self.ceigrpheadserial = value
+                    self.ceigrpheadserial.value_namespace = name_space
+                    self.ceigrpheadserial.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHellosRcvd"):
+                    self.ceigrphellosrcvd = value
+                    self.ceigrphellosrcvd.value_namespace = name_space
+                    self.ceigrphellosrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHellosSent"):
+                    self.ceigrphellossent = value
+                    self.ceigrphellossent.value_namespace = name_space
+                    self.ceigrphellossent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpInputQDrops"):
+                    self.ceigrpinputqdrops = value
+                    self.ceigrpinputqdrops.value_namespace = name_space
+                    self.ceigrpinputqdrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpInputQHighMark"):
+                    self.ceigrpinputqhighmark = value
+                    self.ceigrpinputqhighmark.value_namespace = name_space
+                    self.ceigrpinputqhighmark.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpNbrCount"):
+                    self.ceigrpnbrcount = value
+                    self.ceigrpnbrcount.value_namespace = name_space
+                    self.ceigrpnbrcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpNextSerial"):
+                    self.ceigrpnextserial = value
+                    self.ceigrpnextserial.value_namespace = name_space
+                    self.ceigrpnextserial.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpQueriesRcvd"):
+                    self.ceigrpqueriesrcvd = value
+                    self.ceigrpqueriesrcvd.value_namespace = name_space
+                    self.ceigrpqueriesrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpQueriesSent"):
+                    self.ceigrpqueriessent = value
+                    self.ceigrpqueriessent.value_namespace = name_space
+                    self.ceigrpqueriessent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRepliesRcvd"):
+                    self.ceigrprepliesrcvd = value
+                    self.ceigrprepliesrcvd.value_namespace = name_space
+                    self.ceigrprepliesrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRepliesSent"):
+                    self.ceigrprepliessent = value
+                    self.ceigrprepliessent.value_namespace = name_space
+                    self.ceigrprepliessent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpSiaQueriesRcvd"):
+                    self.ceigrpsiaqueriesrcvd = value
+                    self.ceigrpsiaqueriesrcvd.value_namespace = name_space
+                    self.ceigrpsiaqueriesrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpSiaQueriesSent"):
+                    self.ceigrpsiaqueriessent = value
+                    self.ceigrpsiaqueriessent.value_namespace = name_space
+                    self.ceigrpsiaqueriessent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpTopoRoutes"):
+                    self.ceigrptoporoutes = value
+                    self.ceigrptoporoutes.value_namespace = name_space
+                    self.ceigrptoporoutes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpUpdatesRcvd"):
+                    self.ceigrpupdatesrcvd = value
+                    self.ceigrpupdatesrcvd.value_namespace = name_space
+                    self.ceigrpupdatesrcvd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpUpdatesSent"):
+                    self.ceigrpupdatessent = value
+                    self.ceigrpupdatessent.value_namespace = name_space
+                    self.ceigrpupdatessent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpXmitDummies"):
+                    self.ceigrpxmitdummies = value
+                    self.ceigrpxmitdummies.value_namespace = name_space
+                    self.ceigrpxmitdummies.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpXmitPendReplies"):
+                    self.ceigrpxmitpendreplies = value
+                    self.ceigrpxmitpendreplies.value_namespace = name_space
+                    self.ceigrpxmitpendreplies.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceigrptraffstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceigrpasnumber is not None:
-                    return True
-
-                if self.ceigrpacksrcvd is not None:
-                    return True
-
-                if self.ceigrpackssent is not None:
-                    return True
-
-                if self.ceigrpasrouterid is not None:
-                    return True
-
-                if self.ceigrpasrouteridtype is not None:
-                    return True
-
-                if self.ceigrpheadserial is not None:
-                    return True
-
-                if self.ceigrphellosrcvd is not None:
-                    return True
-
-                if self.ceigrphellossent is not None:
-                    return True
-
-                if self.ceigrpinputqdrops is not None:
-                    return True
-
-                if self.ceigrpinputqhighmark is not None:
-                    return True
-
-                if self.ceigrpnbrcount is not None:
-                    return True
-
-                if self.ceigrpnextserial is not None:
-                    return True
-
-                if self.ceigrpqueriesrcvd is not None:
-                    return True
-
-                if self.ceigrpqueriessent is not None:
-                    return True
-
-                if self.ceigrprepliesrcvd is not None:
-                    return True
-
-                if self.ceigrprepliessent is not None:
-                    return True
-
-                if self.ceigrpsiaqueriesrcvd is not None:
-                    return True
-
-                if self.ceigrpsiaqueriessent is not None:
-                    return True
-
-                if self.ceigrptoporoutes is not None:
-                    return True
-
-                if self.ceigrpupdatesrcvd is not None:
-                    return True
-
-                if self.ceigrpupdatessent is not None:
-                    return True
-
-                if self.ceigrpxmitdummies is not None:
-                    return True
-
-                if self.ceigrpxmitpendreplies is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                return meta._meta_table['CiscoEigrpMib.Ceigrptraffstatstable.Ceigrptraffstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpTraffStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceigrptraffstatsentry is not None:
-                for child_ref in self.ceigrptraffstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceigrptraffstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cEigrpTraffStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cEigrpTraffStatsEntry"):
+                for c in self.ceigrptraffstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEigrpMib.Ceigrptraffstatstable.Ceigrptraffstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceigrptraffstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cEigrpTraffStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-            return meta._meta_table['CiscoEigrpMib.Ceigrptraffstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceigrptopotable(object):
+    class Ceigrptopotable(Entity):
         """
         The table of EIGRP routes and their associated
         attributes for an Autonomous System (AS) configured
@@ -580,13 +988,39 @@ class CiscoEigrpMib(object):
         _revision = '2004-11-16'
 
         def __init__(self):
-            self.parent = None
-            self.ceigrptopoentry = YList()
-            self.ceigrptopoentry.parent = self
-            self.ceigrptopoentry.name = 'ceigrptopoentry'
+            super(CiscoEigrpMib.Ceigrptopotable, self).__init__()
+
+            self.yang_name = "cEigrpTopoTable"
+            self.yang_parent_name = "CISCO-EIGRP-MIB"
+
+            self.ceigrptopoentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEigrpMib.Ceigrptopotable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEigrpMib.Ceigrptopotable, self).__setattr__(name, value)
 
 
-        class Ceigrptopoentry(object):
+        class Ceigrptopoentry(Entity):
             """
             The entry for a single EIGRP topology table in the given
             AS.
@@ -612,7 +1046,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrpdestnettype  <key>
             
             	The format of the destination IP network number for a single route in the topology table in the AS specified in cEigrpDestNet
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ceigrpdestnet  <key>
             
@@ -664,7 +1098,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrpnexthopaddresstype
             
             	The format of the next hop IP address for the route represented by the topology entry
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ceigrpnexthopinterface
             
@@ -688,7 +1122,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrprouteoriginaddrtype
             
             	The format of the IP address defined as the origin of this topology route entry
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ceigrprouteorigintype
             
@@ -708,127 +1142,319 @@ class CiscoEigrpMib(object):
             _revision = '2004-11-16'
 
             def __init__(self):
-                self.parent = None
-                self.ceigrpvpnid = None
-                self.ceigrpasnumber = None
-                self.ceigrpdestnettype = None
-                self.ceigrpdestnet = None
-                self.ceigrpdestnetprefixlen = None
-                self.ceigrpactive = None
-                self.ceigrpdestsuccessors = None
-                self.ceigrpdistance = None
-                self.ceigrpfdistance = None
-                self.ceigrpnexthopaddress = None
-                self.ceigrpnexthopaddresstype = None
-                self.ceigrpnexthopinterface = None
-                self.ceigrpreportdistance = None
-                self.ceigrprouteoriginaddr = None
-                self.ceigrprouteoriginaddrtype = None
-                self.ceigrprouteorigintype = None
-                self.ceigrpstuckinactive = None
+                super(CiscoEigrpMib.Ceigrptopotable.Ceigrptopoentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceigrpvpnid is None:
-                    raise YPYModelError('Key property ceigrpvpnid is None')
-                if self.ceigrpasnumber is None:
-                    raise YPYModelError('Key property ceigrpasnumber is None')
-                if self.ceigrpdestnettype is None:
-                    raise YPYModelError('Key property ceigrpdestnettype is None')
-                if self.ceigrpdestnet is None:
-                    raise YPYModelError('Key property ceigrpdestnet is None')
-                if self.ceigrpdestnetprefixlen is None:
-                    raise YPYModelError('Key property ceigrpdestnetprefixlen is None')
+                self.yang_name = "cEigrpTopoEntry"
+                self.yang_parent_name = "cEigrpTopoTable"
 
-                return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpTopoTable/CISCO-EIGRP-MIB:cEigrpTopoEntry[CISCO-EIGRP-MIB:cEigrpVpnId = ' + str(self.ceigrpvpnid) + '][CISCO-EIGRP-MIB:cEigrpAsNumber = ' + str(self.ceigrpasnumber) + '][CISCO-EIGRP-MIB:cEigrpDestNetType = ' + str(self.ceigrpdestnettype) + '][CISCO-EIGRP-MIB:cEigrpDestNet = ' + str(self.ceigrpdestnet) + '][CISCO-EIGRP-MIB:cEigrpDestNetPrefixLen = ' + str(self.ceigrpdestnetprefixlen) + ']'
+                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
+
+                self.ceigrpdestnettype = YLeaf(YType.enumeration, "cEigrpDestNetType")
+
+                self.ceigrpdestnet = YLeaf(YType.str, "cEigrpDestNet")
+
+                self.ceigrpdestnetprefixlen = YLeaf(YType.uint32, "cEigrpDestNetPrefixLen")
+
+                self.ceigrpactive = YLeaf(YType.boolean, "cEigrpActive")
+
+                self.ceigrpdestsuccessors = YLeaf(YType.uint32, "cEigrpDestSuccessors")
+
+                self.ceigrpdistance = YLeaf(YType.uint32, "cEigrpDistance")
+
+                self.ceigrpfdistance = YLeaf(YType.uint32, "cEigrpFdistance")
+
+                self.ceigrpnexthopaddress = YLeaf(YType.str, "cEigrpNextHopAddress")
+
+                self.ceigrpnexthopaddresstype = YLeaf(YType.enumeration, "cEigrpNextHopAddressType")
+
+                self.ceigrpnexthopinterface = YLeaf(YType.str, "cEigrpNextHopInterface")
+
+                self.ceigrpreportdistance = YLeaf(YType.uint32, "cEigrpReportDistance")
+
+                self.ceigrprouteoriginaddr = YLeaf(YType.str, "cEigrpRouteOriginAddr")
+
+                self.ceigrprouteoriginaddrtype = YLeaf(YType.enumeration, "cEigrpRouteOriginAddrType")
+
+                self.ceigrprouteorigintype = YLeaf(YType.str, "cEigrpRouteOriginType")
+
+                self.ceigrpstuckinactive = YLeaf(YType.boolean, "cEigrpStuckInActive")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceigrpvpnid",
+                                "ceigrpasnumber",
+                                "ceigrpdestnettype",
+                                "ceigrpdestnet",
+                                "ceigrpdestnetprefixlen",
+                                "ceigrpactive",
+                                "ceigrpdestsuccessors",
+                                "ceigrpdistance",
+                                "ceigrpfdistance",
+                                "ceigrpnexthopaddress",
+                                "ceigrpnexthopaddresstype",
+                                "ceigrpnexthopinterface",
+                                "ceigrpreportdistance",
+                                "ceigrprouteoriginaddr",
+                                "ceigrprouteoriginaddrtype",
+                                "ceigrprouteorigintype",
+                                "ceigrpstuckinactive") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEigrpMib.Ceigrptopotable.Ceigrptopoentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEigrpMib.Ceigrptopotable.Ceigrptopoentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceigrpvpnid.is_set or
+                    self.ceigrpasnumber.is_set or
+                    self.ceigrpdestnettype.is_set or
+                    self.ceigrpdestnet.is_set or
+                    self.ceigrpdestnetprefixlen.is_set or
+                    self.ceigrpactive.is_set or
+                    self.ceigrpdestsuccessors.is_set or
+                    self.ceigrpdistance.is_set or
+                    self.ceigrpfdistance.is_set or
+                    self.ceigrpnexthopaddress.is_set or
+                    self.ceigrpnexthopaddresstype.is_set or
+                    self.ceigrpnexthopinterface.is_set or
+                    self.ceigrpreportdistance.is_set or
+                    self.ceigrprouteoriginaddr.is_set or
+                    self.ceigrprouteoriginaddrtype.is_set or
+                    self.ceigrprouteorigintype.is_set or
+                    self.ceigrpstuckinactive.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceigrpvpnid.yfilter != YFilter.not_set or
+                    self.ceigrpasnumber.yfilter != YFilter.not_set or
+                    self.ceigrpdestnettype.yfilter != YFilter.not_set or
+                    self.ceigrpdestnet.yfilter != YFilter.not_set or
+                    self.ceigrpdestnetprefixlen.yfilter != YFilter.not_set or
+                    self.ceigrpactive.yfilter != YFilter.not_set or
+                    self.ceigrpdestsuccessors.yfilter != YFilter.not_set or
+                    self.ceigrpdistance.yfilter != YFilter.not_set or
+                    self.ceigrpfdistance.yfilter != YFilter.not_set or
+                    self.ceigrpnexthopaddress.yfilter != YFilter.not_set or
+                    self.ceigrpnexthopaddresstype.yfilter != YFilter.not_set or
+                    self.ceigrpnexthopinterface.yfilter != YFilter.not_set or
+                    self.ceigrpreportdistance.yfilter != YFilter.not_set or
+                    self.ceigrprouteoriginaddr.yfilter != YFilter.not_set or
+                    self.ceigrprouteoriginaddrtype.yfilter != YFilter.not_set or
+                    self.ceigrprouteorigintype.yfilter != YFilter.not_set or
+                    self.ceigrpstuckinactive.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cEigrpTopoEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[cEigrpDestNetType='" + self.ceigrpdestnettype.get() + "']" + "[cEigrpDestNet='" + self.ceigrpdestnet.get() + "']" + "[cEigrpDestNetPrefixLen='" + self.ceigrpdestnetprefixlen.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTopoTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceigrpvpnid.is_set or self.ceigrpvpnid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnid.get_name_leafdata())
+                if (self.ceigrpasnumber.is_set or self.ceigrpasnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasnumber.get_name_leafdata())
+                if (self.ceigrpdestnettype.is_set or self.ceigrpdestnettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpdestnettype.get_name_leafdata())
+                if (self.ceigrpdestnet.is_set or self.ceigrpdestnet.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpdestnet.get_name_leafdata())
+                if (self.ceigrpdestnetprefixlen.is_set or self.ceigrpdestnetprefixlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpdestnetprefixlen.get_name_leafdata())
+                if (self.ceigrpactive.is_set or self.ceigrpactive.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpactive.get_name_leafdata())
+                if (self.ceigrpdestsuccessors.is_set or self.ceigrpdestsuccessors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpdestsuccessors.get_name_leafdata())
+                if (self.ceigrpdistance.is_set or self.ceigrpdistance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpdistance.get_name_leafdata())
+                if (self.ceigrpfdistance.is_set or self.ceigrpfdistance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpfdistance.get_name_leafdata())
+                if (self.ceigrpnexthopaddress.is_set or self.ceigrpnexthopaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpnexthopaddress.get_name_leafdata())
+                if (self.ceigrpnexthopaddresstype.is_set or self.ceigrpnexthopaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpnexthopaddresstype.get_name_leafdata())
+                if (self.ceigrpnexthopinterface.is_set or self.ceigrpnexthopinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpnexthopinterface.get_name_leafdata())
+                if (self.ceigrpreportdistance.is_set or self.ceigrpreportdistance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpreportdistance.get_name_leafdata())
+                if (self.ceigrprouteoriginaddr.is_set or self.ceigrprouteoriginaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprouteoriginaddr.get_name_leafdata())
+                if (self.ceigrprouteoriginaddrtype.is_set or self.ceigrprouteoriginaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprouteoriginaddrtype.get_name_leafdata())
+                if (self.ceigrprouteorigintype.is_set or self.ceigrprouteorigintype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprouteorigintype.get_name_leafdata())
+                if (self.ceigrpstuckinactive.is_set or self.ceigrpstuckinactive.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpstuckinactive.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cEigrpVpnId" or name == "cEigrpAsNumber" or name == "cEigrpDestNetType" or name == "cEigrpDestNet" or name == "cEigrpDestNetPrefixLen" or name == "cEigrpActive" or name == "cEigrpDestSuccessors" or name == "cEigrpDistance" or name == "cEigrpFdistance" or name == "cEigrpNextHopAddress" or name == "cEigrpNextHopAddressType" or name == "cEigrpNextHopInterface" or name == "cEigrpReportDistance" or name == "cEigrpRouteOriginAddr" or name == "cEigrpRouteOriginAddrType" or name == "cEigrpRouteOriginType" or name == "cEigrpStuckInActive"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceigrpvpnid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cEigrpVpnId"):
+                    self.ceigrpvpnid = value
+                    self.ceigrpvpnid.value_namespace = name_space
+                    self.ceigrpvpnid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsNumber"):
+                    self.ceigrpasnumber = value
+                    self.ceigrpasnumber.value_namespace = name_space
+                    self.ceigrpasnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpDestNetType"):
+                    self.ceigrpdestnettype = value
+                    self.ceigrpdestnettype.value_namespace = name_space
+                    self.ceigrpdestnettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpDestNet"):
+                    self.ceigrpdestnet = value
+                    self.ceigrpdestnet.value_namespace = name_space
+                    self.ceigrpdestnet.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpDestNetPrefixLen"):
+                    self.ceigrpdestnetprefixlen = value
+                    self.ceigrpdestnetprefixlen.value_namespace = name_space
+                    self.ceigrpdestnetprefixlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpActive"):
+                    self.ceigrpactive = value
+                    self.ceigrpactive.value_namespace = name_space
+                    self.ceigrpactive.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpDestSuccessors"):
+                    self.ceigrpdestsuccessors = value
+                    self.ceigrpdestsuccessors.value_namespace = name_space
+                    self.ceigrpdestsuccessors.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpDistance"):
+                    self.ceigrpdistance = value
+                    self.ceigrpdistance.value_namespace = name_space
+                    self.ceigrpdistance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpFdistance"):
+                    self.ceigrpfdistance = value
+                    self.ceigrpfdistance.value_namespace = name_space
+                    self.ceigrpfdistance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpNextHopAddress"):
+                    self.ceigrpnexthopaddress = value
+                    self.ceigrpnexthopaddress.value_namespace = name_space
+                    self.ceigrpnexthopaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpNextHopAddressType"):
+                    self.ceigrpnexthopaddresstype = value
+                    self.ceigrpnexthopaddresstype.value_namespace = name_space
+                    self.ceigrpnexthopaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpNextHopInterface"):
+                    self.ceigrpnexthopinterface = value
+                    self.ceigrpnexthopinterface.value_namespace = name_space
+                    self.ceigrpnexthopinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpReportDistance"):
+                    self.ceigrpreportdistance = value
+                    self.ceigrpreportdistance.value_namespace = name_space
+                    self.ceigrpreportdistance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRouteOriginAddr"):
+                    self.ceigrprouteoriginaddr = value
+                    self.ceigrprouteoriginaddr.value_namespace = name_space
+                    self.ceigrprouteoriginaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRouteOriginAddrType"):
+                    self.ceigrprouteoriginaddrtype = value
+                    self.ceigrprouteoriginaddrtype.value_namespace = name_space
+                    self.ceigrprouteoriginaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRouteOriginType"):
+                    self.ceigrprouteorigintype = value
+                    self.ceigrprouteorigintype.value_namespace = name_space
+                    self.ceigrprouteorigintype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpStuckInActive"):
+                    self.ceigrpstuckinactive = value
+                    self.ceigrpstuckinactive.value_namespace = name_space
+                    self.ceigrpstuckinactive.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceigrptopoentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceigrpasnumber is not None:
-                    return True
-
-                if self.ceigrpdestnettype is not None:
-                    return True
-
-                if self.ceigrpdestnet is not None:
-                    return True
-
-                if self.ceigrpdestnetprefixlen is not None:
-                    return True
-
-                if self.ceigrpactive is not None:
-                    return True
-
-                if self.ceigrpdestsuccessors is not None:
-                    return True
-
-                if self.ceigrpdistance is not None:
-                    return True
-
-                if self.ceigrpfdistance is not None:
-                    return True
-
-                if self.ceigrpnexthopaddress is not None:
-                    return True
-
-                if self.ceigrpnexthopaddresstype is not None:
-                    return True
-
-                if self.ceigrpnexthopinterface is not None:
-                    return True
-
-                if self.ceigrpreportdistance is not None:
-                    return True
-
-                if self.ceigrprouteoriginaddr is not None:
-                    return True
-
-                if self.ceigrprouteoriginaddrtype is not None:
-                    return True
-
-                if self.ceigrprouteorigintype is not None:
-                    return True
-
-                if self.ceigrpstuckinactive is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                return meta._meta_table['CiscoEigrpMib.Ceigrptopotable.Ceigrptopoentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpTopoTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceigrptopoentry is not None:
-                for child_ref in self.ceigrptopoentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceigrptopoentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cEigrpTopoTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cEigrpTopoEntry"):
+                for c in self.ceigrptopoentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEigrpMib.Ceigrptopotable.Ceigrptopoentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceigrptopoentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cEigrpTopoEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-            return meta._meta_table['CiscoEigrpMib.Ceigrptopotable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceigrppeertable(object):
+    class Ceigrppeertable(Entity):
         """
         The table of established EIGRP peers (neighbors) in the
         selected autonomous system.   Peers are indexed by their
@@ -849,13 +1475,39 @@ class CiscoEigrpMib(object):
         _revision = '2004-11-16'
 
         def __init__(self):
-            self.parent = None
-            self.ceigrppeerentry = YList()
-            self.ceigrppeerentry.parent = self
-            self.ceigrppeerentry.name = 'ceigrppeerentry'
+            super(CiscoEigrpMib.Ceigrppeertable, self).__init__()
+
+            self.yang_name = "cEigrpPeerTable"
+            self.yang_parent_name = "CISCO-EIGRP-MIB"
+
+            self.ceigrppeerentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEigrpMib.Ceigrppeertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEigrpMib.Ceigrppeertable, self).__setattr__(name, value)
 
 
-        class Ceigrppeerentry(object):
+        class Ceigrppeerentry(Entity):
             """
             Statistics and operational parameters for a single peer
             in the AS.
@@ -911,7 +1563,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrppeeraddrtype
             
             	The format of the remote source IP address used by the peer to establish the EIGRP adjacency with this router
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ceigrppeerifindex
             
@@ -977,115 +1629,297 @@ class CiscoEigrpMib(object):
             _revision = '2004-11-16'
 
             def __init__(self):
-                self.parent = None
-                self.ceigrpvpnid = None
-                self.ceigrpasnumber = None
-                self.ceigrphandle = None
-                self.ceigrpholdtime = None
-                self.ceigrplastseq = None
-                self.ceigrppeeraddr = None
-                self.ceigrppeeraddrtype = None
-                self.ceigrppeerifindex = None
-                self.ceigrppktsenqueued = None
-                self.ceigrpretrans = None
-                self.ceigrpretries = None
-                self.ceigrprto = None
-                self.ceigrpsrtt = None
-                self.ceigrpuptime = None
-                self.ceigrpversion = None
+                super(CiscoEigrpMib.Ceigrppeertable.Ceigrppeerentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceigrpvpnid is None:
-                    raise YPYModelError('Key property ceigrpvpnid is None')
-                if self.ceigrpasnumber is None:
-                    raise YPYModelError('Key property ceigrpasnumber is None')
-                if self.ceigrphandle is None:
-                    raise YPYModelError('Key property ceigrphandle is None')
+                self.yang_name = "cEigrpPeerEntry"
+                self.yang_parent_name = "cEigrpPeerTable"
 
-                return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpPeerTable/CISCO-EIGRP-MIB:cEigrpPeerEntry[CISCO-EIGRP-MIB:cEigrpVpnId = ' + str(self.ceigrpvpnid) + '][CISCO-EIGRP-MIB:cEigrpAsNumber = ' + str(self.ceigrpasnumber) + '][CISCO-EIGRP-MIB:cEigrpHandle = ' + str(self.ceigrphandle) + ']'
+                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
+
+                self.ceigrphandle = YLeaf(YType.uint32, "cEigrpHandle")
+
+                self.ceigrpholdtime = YLeaf(YType.uint32, "cEigrpHoldTime")
+
+                self.ceigrplastseq = YLeaf(YType.uint32, "cEigrpLastSeq")
+
+                self.ceigrppeeraddr = YLeaf(YType.str, "cEigrpPeerAddr")
+
+                self.ceigrppeeraddrtype = YLeaf(YType.enumeration, "cEigrpPeerAddrType")
+
+                self.ceigrppeerifindex = YLeaf(YType.int32, "cEigrpPeerIfIndex")
+
+                self.ceigrppktsenqueued = YLeaf(YType.uint32, "cEigrpPktsEnqueued")
+
+                self.ceigrpretrans = YLeaf(YType.uint32, "cEigrpRetrans")
+
+                self.ceigrpretries = YLeaf(YType.uint32, "cEigrpRetries")
+
+                self.ceigrprto = YLeaf(YType.uint32, "cEigrpRto")
+
+                self.ceigrpsrtt = YLeaf(YType.uint32, "cEigrpSrtt")
+
+                self.ceigrpuptime = YLeaf(YType.str, "cEigrpUpTime")
+
+                self.ceigrpversion = YLeaf(YType.str, "cEigrpVersion")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceigrpvpnid",
+                                "ceigrpasnumber",
+                                "ceigrphandle",
+                                "ceigrpholdtime",
+                                "ceigrplastseq",
+                                "ceigrppeeraddr",
+                                "ceigrppeeraddrtype",
+                                "ceigrppeerifindex",
+                                "ceigrppktsenqueued",
+                                "ceigrpretrans",
+                                "ceigrpretries",
+                                "ceigrprto",
+                                "ceigrpsrtt",
+                                "ceigrpuptime",
+                                "ceigrpversion") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEigrpMib.Ceigrppeertable.Ceigrppeerentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEigrpMib.Ceigrppeertable.Ceigrppeerentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceigrpvpnid.is_set or
+                    self.ceigrpasnumber.is_set or
+                    self.ceigrphandle.is_set or
+                    self.ceigrpholdtime.is_set or
+                    self.ceigrplastseq.is_set or
+                    self.ceigrppeeraddr.is_set or
+                    self.ceigrppeeraddrtype.is_set or
+                    self.ceigrppeerifindex.is_set or
+                    self.ceigrppktsenqueued.is_set or
+                    self.ceigrpretrans.is_set or
+                    self.ceigrpretries.is_set or
+                    self.ceigrprto.is_set or
+                    self.ceigrpsrtt.is_set or
+                    self.ceigrpuptime.is_set or
+                    self.ceigrpversion.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceigrpvpnid.yfilter != YFilter.not_set or
+                    self.ceigrpasnumber.yfilter != YFilter.not_set or
+                    self.ceigrphandle.yfilter != YFilter.not_set or
+                    self.ceigrpholdtime.yfilter != YFilter.not_set or
+                    self.ceigrplastseq.yfilter != YFilter.not_set or
+                    self.ceigrppeeraddr.yfilter != YFilter.not_set or
+                    self.ceigrppeeraddrtype.yfilter != YFilter.not_set or
+                    self.ceigrppeerifindex.yfilter != YFilter.not_set or
+                    self.ceigrppktsenqueued.yfilter != YFilter.not_set or
+                    self.ceigrpretrans.yfilter != YFilter.not_set or
+                    self.ceigrpretries.yfilter != YFilter.not_set or
+                    self.ceigrprto.yfilter != YFilter.not_set or
+                    self.ceigrpsrtt.yfilter != YFilter.not_set or
+                    self.ceigrpuptime.yfilter != YFilter.not_set or
+                    self.ceigrpversion.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cEigrpPeerEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[cEigrpHandle='" + self.ceigrphandle.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpPeerTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceigrpvpnid.is_set or self.ceigrpvpnid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnid.get_name_leafdata())
+                if (self.ceigrpasnumber.is_set or self.ceigrpasnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasnumber.get_name_leafdata())
+                if (self.ceigrphandle.is_set or self.ceigrphandle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrphandle.get_name_leafdata())
+                if (self.ceigrpholdtime.is_set or self.ceigrpholdtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpholdtime.get_name_leafdata())
+                if (self.ceigrplastseq.is_set or self.ceigrplastseq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrplastseq.get_name_leafdata())
+                if (self.ceigrppeeraddr.is_set or self.ceigrppeeraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppeeraddr.get_name_leafdata())
+                if (self.ceigrppeeraddrtype.is_set or self.ceigrppeeraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppeeraddrtype.get_name_leafdata())
+                if (self.ceigrppeerifindex.is_set or self.ceigrppeerifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppeerifindex.get_name_leafdata())
+                if (self.ceigrppktsenqueued.is_set or self.ceigrppktsenqueued.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppktsenqueued.get_name_leafdata())
+                if (self.ceigrpretrans.is_set or self.ceigrpretrans.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpretrans.get_name_leafdata())
+                if (self.ceigrpretries.is_set or self.ceigrpretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpretries.get_name_leafdata())
+                if (self.ceigrprto.is_set or self.ceigrprto.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprto.get_name_leafdata())
+                if (self.ceigrpsrtt.is_set or self.ceigrpsrtt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpsrtt.get_name_leafdata())
+                if (self.ceigrpuptime.is_set or self.ceigrpuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpuptime.get_name_leafdata())
+                if (self.ceigrpversion.is_set or self.ceigrpversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpversion.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cEigrpVpnId" or name == "cEigrpAsNumber" or name == "cEigrpHandle" or name == "cEigrpHoldTime" or name == "cEigrpLastSeq" or name == "cEigrpPeerAddr" or name == "cEigrpPeerAddrType" or name == "cEigrpPeerIfIndex" or name == "cEigrpPktsEnqueued" or name == "cEigrpRetrans" or name == "cEigrpRetries" or name == "cEigrpRto" or name == "cEigrpSrtt" or name == "cEigrpUpTime" or name == "cEigrpVersion"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceigrpvpnid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cEigrpVpnId"):
+                    self.ceigrpvpnid = value
+                    self.ceigrpvpnid.value_namespace = name_space
+                    self.ceigrpvpnid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsNumber"):
+                    self.ceigrpasnumber = value
+                    self.ceigrpasnumber.value_namespace = name_space
+                    self.ceigrpasnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHandle"):
+                    self.ceigrphandle = value
+                    self.ceigrphandle.value_namespace = name_space
+                    self.ceigrphandle.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHoldTime"):
+                    self.ceigrpholdtime = value
+                    self.ceigrpholdtime.value_namespace = name_space
+                    self.ceigrpholdtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpLastSeq"):
+                    self.ceigrplastseq = value
+                    self.ceigrplastseq.value_namespace = name_space
+                    self.ceigrplastseq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPeerAddr"):
+                    self.ceigrppeeraddr = value
+                    self.ceigrppeeraddr.value_namespace = name_space
+                    self.ceigrppeeraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPeerAddrType"):
+                    self.ceigrppeeraddrtype = value
+                    self.ceigrppeeraddrtype.value_namespace = name_space
+                    self.ceigrppeeraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPeerIfIndex"):
+                    self.ceigrppeerifindex = value
+                    self.ceigrppeerifindex.value_namespace = name_space
+                    self.ceigrppeerifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPktsEnqueued"):
+                    self.ceigrppktsenqueued = value
+                    self.ceigrppktsenqueued.value_namespace = name_space
+                    self.ceigrppktsenqueued.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRetrans"):
+                    self.ceigrpretrans = value
+                    self.ceigrpretrans.value_namespace = name_space
+                    self.ceigrpretrans.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRetries"):
+                    self.ceigrpretries = value
+                    self.ceigrpretries.value_namespace = name_space
+                    self.ceigrpretries.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRto"):
+                    self.ceigrprto = value
+                    self.ceigrprto.value_namespace = name_space
+                    self.ceigrprto.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpSrtt"):
+                    self.ceigrpsrtt = value
+                    self.ceigrpsrtt.value_namespace = name_space
+                    self.ceigrpsrtt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpUpTime"):
+                    self.ceigrpuptime = value
+                    self.ceigrpuptime.value_namespace = name_space
+                    self.ceigrpuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpVersion"):
+                    self.ceigrpversion = value
+                    self.ceigrpversion.value_namespace = name_space
+                    self.ceigrpversion.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceigrppeerentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceigrpasnumber is not None:
-                    return True
-
-                if self.ceigrphandle is not None:
-                    return True
-
-                if self.ceigrpholdtime is not None:
-                    return True
-
-                if self.ceigrplastseq is not None:
-                    return True
-
-                if self.ceigrppeeraddr is not None:
-                    return True
-
-                if self.ceigrppeeraddrtype is not None:
-                    return True
-
-                if self.ceigrppeerifindex is not None:
-                    return True
-
-                if self.ceigrppktsenqueued is not None:
-                    return True
-
-                if self.ceigrpretrans is not None:
-                    return True
-
-                if self.ceigrpretries is not None:
-                    return True
-
-                if self.ceigrprto is not None:
-                    return True
-
-                if self.ceigrpsrtt is not None:
-                    return True
-
-                if self.ceigrpuptime is not None:
-                    return True
-
-                if self.ceigrpversion is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                return meta._meta_table['CiscoEigrpMib.Ceigrppeertable.Ceigrppeerentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpPeerTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceigrppeerentry is not None:
-                for child_ref in self.ceigrppeerentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceigrppeerentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cEigrpPeerTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cEigrpPeerEntry"):
+                for c in self.ceigrppeerentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEigrpMib.Ceigrppeertable.Ceigrppeerentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceigrppeerentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cEigrpPeerEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-            return meta._meta_table['CiscoEigrpMib.Ceigrppeertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceigrpinterfacetable(object):
+    class Ceigrpinterfacetable(Entity):
         """
         The table of interfaces over which EIGRP is running, and
         their associated statistics.   This table is independent
@@ -1107,13 +1941,39 @@ class CiscoEigrpMib(object):
         _revision = '2004-11-16'
 
         def __init__(self):
-            self.parent = None
-            self.ceigrpinterfaceentry = YList()
-            self.ceigrpinterfaceentry.parent = self
-            self.ceigrpinterfaceentry.name = 'ceigrpinterfaceentry'
+            super(CiscoEigrpMib.Ceigrpinterfacetable, self).__init__()
+
+            self.yang_name = "cEigrpInterfaceTable"
+            self.yang_parent_name = "CISCO-EIGRP-MIB"
+
+            self.ceigrpinterfaceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEigrpMib.Ceigrpinterfacetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEigrpMib.Ceigrpinterfacetable, self).__setattr__(name, value)
 
 
-        class Ceigrpinterfaceentry(object):
+        class Ceigrpinterfaceentry(Entity):
             """
             Information for a single interface running EIGRP in the
             AS and VPN.
@@ -1160,7 +2020,7 @@ class CiscoEigrpMib(object):
             .. attribute:: ceigrpauthmode
             
             	The EIGRP authentication mode of the interface. none  \:  no authentication enabled on the interface md5   \:  MD5 authentication enabled on the interface
-            	**type**\:   :py:class:`CeigrpauthmodeEnum <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry.CeigrpauthmodeEnum>`
+            	**type**\:   :py:class:`Ceigrpauthmode <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry.Ceigrpauthmode>`
             
             .. attribute:: ceigrpcrpkts
             
@@ -1306,35 +2166,109 @@ class CiscoEigrpMib(object):
             _revision = '2004-11-16'
 
             def __init__(self):
-                self.parent = None
-                self.ceigrpvpnid = None
-                self.ceigrpasnumber = None
-                self.ifindex = None
-                self.ceigrpackssuppressed = None
-                self.ceigrpauthkeychain = None
-                self.ceigrpauthmode = None
-                self.ceigrpcrpkts = None
-                self.ceigrphellointerval = None
-                self.ceigrpmcastexcepts = None
-                self.ceigrpmeansrtt = None
-                self.ceigrpmflowtimer = None
-                self.ceigrpoosrvcd = None
-                self.ceigrppacingreliable = None
-                self.ceigrppacingunreliable = None
-                self.ceigrppeercount = None
-                self.ceigrppendingroutes = None
-                self.ceigrpretranssent = None
-                self.ceigrprmcasts = None
-                self.ceigrprucasts = None
-                self.ceigrpumcasts = None
-                self.ceigrpuucasts = None
-                self.ceigrpxmitnextserial = None
-                self.ceigrpxmitreliableq = None
-                self.ceigrpxmitunreliableq = None
+                super(CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry, self).__init__()
 
-            class CeigrpauthmodeEnum(Enum):
+                self.yang_name = "cEigrpInterfaceEntry"
+                self.yang_parent_name = "cEigrpInterfaceTable"
+
+                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
+
+                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.ceigrpackssuppressed = YLeaf(YType.uint32, "cEigrpAcksSuppressed")
+
+                self.ceigrpauthkeychain = YLeaf(YType.str, "cEigrpAuthKeyChain")
+
+                self.ceigrpauthmode = YLeaf(YType.enumeration, "cEigrpAuthMode")
+
+                self.ceigrpcrpkts = YLeaf(YType.uint32, "cEigrpCRpkts")
+
+                self.ceigrphellointerval = YLeaf(YType.uint32, "cEigrpHelloInterval")
+
+                self.ceigrpmcastexcepts = YLeaf(YType.uint32, "cEigrpMcastExcepts")
+
+                self.ceigrpmeansrtt = YLeaf(YType.uint32, "cEigrpMeanSrtt")
+
+                self.ceigrpmflowtimer = YLeaf(YType.uint32, "cEigrpMFlowTimer")
+
+                self.ceigrpoosrvcd = YLeaf(YType.uint32, "cEigrpOOSrvcd")
+
+                self.ceigrppacingreliable = YLeaf(YType.uint32, "cEigrpPacingReliable")
+
+                self.ceigrppacingunreliable = YLeaf(YType.uint32, "cEigrpPacingUnreliable")
+
+                self.ceigrppeercount = YLeaf(YType.uint32, "cEigrpPeerCount")
+
+                self.ceigrppendingroutes = YLeaf(YType.uint32, "cEigrpPendingRoutes")
+
+                self.ceigrpretranssent = YLeaf(YType.uint32, "cEigrpRetransSent")
+
+                self.ceigrprmcasts = YLeaf(YType.uint32, "cEigrpRMcasts")
+
+                self.ceigrprucasts = YLeaf(YType.uint32, "cEigrpRUcasts")
+
+                self.ceigrpumcasts = YLeaf(YType.uint32, "cEigrpUMcasts")
+
+                self.ceigrpuucasts = YLeaf(YType.uint32, "cEigrpUUcasts")
+
+                self.ceigrpxmitnextserial = YLeaf(YType.uint64, "cEigrpXmitNextSerial")
+
+                self.ceigrpxmitreliableq = YLeaf(YType.uint32, "cEigrpXmitReliableQ")
+
+                self.ceigrpxmitunreliableq = YLeaf(YType.uint32, "cEigrpXmitUnreliableQ")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceigrpvpnid",
+                                "ceigrpasnumber",
+                                "ifindex",
+                                "ceigrpackssuppressed",
+                                "ceigrpauthkeychain",
+                                "ceigrpauthmode",
+                                "ceigrpcrpkts",
+                                "ceigrphellointerval",
+                                "ceigrpmcastexcepts",
+                                "ceigrpmeansrtt",
+                                "ceigrpmflowtimer",
+                                "ceigrpoosrvcd",
+                                "ceigrppacingreliable",
+                                "ceigrppacingunreliable",
+                                "ceigrppeercount",
+                                "ceigrppendingroutes",
+                                "ceigrpretranssent",
+                                "ceigrprmcasts",
+                                "ceigrprucasts",
+                                "ceigrpumcasts",
+                                "ceigrpuucasts",
+                                "ceigrpxmitnextserial",
+                                "ceigrpxmitreliableq",
+                                "ceigrpxmitunreliableq") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry, self).__setattr__(name, value)
+
+            class Ceigrpauthmode(Enum):
                 """
-                CeigrpauthmodeEnum
+                Ceigrpauthmode
 
                 The EIGRP authentication mode of the interface.
 
@@ -1348,164 +2282,384 @@ class CiscoEigrpMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                md5 = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                    return meta._meta_table['CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry.CeigrpauthmodeEnum']
+                md5 = Enum.YLeaf(2, "md5")
 
 
-            @property
-            def _common_path(self):
-                if self.ceigrpvpnid is None:
-                    raise YPYModelError('Key property ceigrpvpnid is None')
-                if self.ceigrpasnumber is None:
-                    raise YPYModelError('Key property ceigrpasnumber is None')
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ceigrpvpnid.is_set or
+                    self.ceigrpasnumber.is_set or
+                    self.ifindex.is_set or
+                    self.ceigrpackssuppressed.is_set or
+                    self.ceigrpauthkeychain.is_set or
+                    self.ceigrpauthmode.is_set or
+                    self.ceigrpcrpkts.is_set or
+                    self.ceigrphellointerval.is_set or
+                    self.ceigrpmcastexcepts.is_set or
+                    self.ceigrpmeansrtt.is_set or
+                    self.ceigrpmflowtimer.is_set or
+                    self.ceigrpoosrvcd.is_set or
+                    self.ceigrppacingreliable.is_set or
+                    self.ceigrppacingunreliable.is_set or
+                    self.ceigrppeercount.is_set or
+                    self.ceigrppendingroutes.is_set or
+                    self.ceigrpretranssent.is_set or
+                    self.ceigrprmcasts.is_set or
+                    self.ceigrprucasts.is_set or
+                    self.ceigrpumcasts.is_set or
+                    self.ceigrpuucasts.is_set or
+                    self.ceigrpxmitnextserial.is_set or
+                    self.ceigrpxmitreliableq.is_set or
+                    self.ceigrpxmitunreliableq.is_set)
 
-                return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpInterfaceTable/CISCO-EIGRP-MIB:cEigrpInterfaceEntry[CISCO-EIGRP-MIB:cEigrpVpnId = ' + str(self.ceigrpvpnid) + '][CISCO-EIGRP-MIB:cEigrpAsNumber = ' + str(self.ceigrpasnumber) + '][CISCO-EIGRP-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceigrpvpnid.yfilter != YFilter.not_set or
+                    self.ceigrpasnumber.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.ceigrpackssuppressed.yfilter != YFilter.not_set or
+                    self.ceigrpauthkeychain.yfilter != YFilter.not_set or
+                    self.ceigrpauthmode.yfilter != YFilter.not_set or
+                    self.ceigrpcrpkts.yfilter != YFilter.not_set or
+                    self.ceigrphellointerval.yfilter != YFilter.not_set or
+                    self.ceigrpmcastexcepts.yfilter != YFilter.not_set or
+                    self.ceigrpmeansrtt.yfilter != YFilter.not_set or
+                    self.ceigrpmflowtimer.yfilter != YFilter.not_set or
+                    self.ceigrpoosrvcd.yfilter != YFilter.not_set or
+                    self.ceigrppacingreliable.yfilter != YFilter.not_set or
+                    self.ceigrppacingunreliable.yfilter != YFilter.not_set or
+                    self.ceigrppeercount.yfilter != YFilter.not_set or
+                    self.ceigrppendingroutes.yfilter != YFilter.not_set or
+                    self.ceigrpretranssent.yfilter != YFilter.not_set or
+                    self.ceigrprmcasts.yfilter != YFilter.not_set or
+                    self.ceigrprucasts.yfilter != YFilter.not_set or
+                    self.ceigrpumcasts.yfilter != YFilter.not_set or
+                    self.ceigrpuucasts.yfilter != YFilter.not_set or
+                    self.ceigrpxmitnextserial.yfilter != YFilter.not_set or
+                    self.ceigrpxmitreliableq.yfilter != YFilter.not_set or
+                    self.ceigrpxmitunreliableq.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cEigrpInterfaceEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpInterfaceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceigrpvpnid.is_set or self.ceigrpvpnid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpvpnid.get_name_leafdata())
+                if (self.ceigrpasnumber.is_set or self.ceigrpasnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpasnumber.get_name_leafdata())
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.ceigrpackssuppressed.is_set or self.ceigrpackssuppressed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpackssuppressed.get_name_leafdata())
+                if (self.ceigrpauthkeychain.is_set or self.ceigrpauthkeychain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpauthkeychain.get_name_leafdata())
+                if (self.ceigrpauthmode.is_set or self.ceigrpauthmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpauthmode.get_name_leafdata())
+                if (self.ceigrpcrpkts.is_set or self.ceigrpcrpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpcrpkts.get_name_leafdata())
+                if (self.ceigrphellointerval.is_set or self.ceigrphellointerval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrphellointerval.get_name_leafdata())
+                if (self.ceigrpmcastexcepts.is_set or self.ceigrpmcastexcepts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpmcastexcepts.get_name_leafdata())
+                if (self.ceigrpmeansrtt.is_set or self.ceigrpmeansrtt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpmeansrtt.get_name_leafdata())
+                if (self.ceigrpmflowtimer.is_set or self.ceigrpmflowtimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpmflowtimer.get_name_leafdata())
+                if (self.ceigrpoosrvcd.is_set or self.ceigrpoosrvcd.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpoosrvcd.get_name_leafdata())
+                if (self.ceigrppacingreliable.is_set or self.ceigrppacingreliable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppacingreliable.get_name_leafdata())
+                if (self.ceigrppacingunreliable.is_set or self.ceigrppacingunreliable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppacingunreliable.get_name_leafdata())
+                if (self.ceigrppeercount.is_set or self.ceigrppeercount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppeercount.get_name_leafdata())
+                if (self.ceigrppendingroutes.is_set or self.ceigrppendingroutes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrppendingroutes.get_name_leafdata())
+                if (self.ceigrpretranssent.is_set or self.ceigrpretranssent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpretranssent.get_name_leafdata())
+                if (self.ceigrprmcasts.is_set or self.ceigrprmcasts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprmcasts.get_name_leafdata())
+                if (self.ceigrprucasts.is_set or self.ceigrprucasts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrprucasts.get_name_leafdata())
+                if (self.ceigrpumcasts.is_set or self.ceigrpumcasts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpumcasts.get_name_leafdata())
+                if (self.ceigrpuucasts.is_set or self.ceigrpuucasts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpuucasts.get_name_leafdata())
+                if (self.ceigrpxmitnextserial.is_set or self.ceigrpxmitnextserial.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpxmitnextserial.get_name_leafdata())
+                if (self.ceigrpxmitreliableq.is_set or self.ceigrpxmitreliableq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpxmitreliableq.get_name_leafdata())
+                if (self.ceigrpxmitunreliableq.is_set or self.ceigrpxmitunreliableq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceigrpxmitunreliableq.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cEigrpVpnId" or name == "cEigrpAsNumber" or name == "ifIndex" or name == "cEigrpAcksSuppressed" or name == "cEigrpAuthKeyChain" or name == "cEigrpAuthMode" or name == "cEigrpCRpkts" or name == "cEigrpHelloInterval" or name == "cEigrpMcastExcepts" or name == "cEigrpMeanSrtt" or name == "cEigrpMFlowTimer" or name == "cEigrpOOSrvcd" or name == "cEigrpPacingReliable" or name == "cEigrpPacingUnreliable" or name == "cEigrpPeerCount" or name == "cEigrpPendingRoutes" or name == "cEigrpRetransSent" or name == "cEigrpRMcasts" or name == "cEigrpRUcasts" or name == "cEigrpUMcasts" or name == "cEigrpUUcasts" or name == "cEigrpXmitNextSerial" or name == "cEigrpXmitReliableQ" or name == "cEigrpXmitUnreliableQ"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceigrpvpnid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cEigrpVpnId"):
+                    self.ceigrpvpnid = value
+                    self.ceigrpvpnid.value_namespace = name_space
+                    self.ceigrpvpnid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAsNumber"):
+                    self.ceigrpasnumber = value
+                    self.ceigrpasnumber.value_namespace = name_space
+                    self.ceigrpasnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAcksSuppressed"):
+                    self.ceigrpackssuppressed = value
+                    self.ceigrpackssuppressed.value_namespace = name_space
+                    self.ceigrpackssuppressed.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAuthKeyChain"):
+                    self.ceigrpauthkeychain = value
+                    self.ceigrpauthkeychain.value_namespace = name_space
+                    self.ceigrpauthkeychain.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpAuthMode"):
+                    self.ceigrpauthmode = value
+                    self.ceigrpauthmode.value_namespace = name_space
+                    self.ceigrpauthmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpCRpkts"):
+                    self.ceigrpcrpkts = value
+                    self.ceigrpcrpkts.value_namespace = name_space
+                    self.ceigrpcrpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpHelloInterval"):
+                    self.ceigrphellointerval = value
+                    self.ceigrphellointerval.value_namespace = name_space
+                    self.ceigrphellointerval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpMcastExcepts"):
+                    self.ceigrpmcastexcepts = value
+                    self.ceigrpmcastexcepts.value_namespace = name_space
+                    self.ceigrpmcastexcepts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpMeanSrtt"):
+                    self.ceigrpmeansrtt = value
+                    self.ceigrpmeansrtt.value_namespace = name_space
+                    self.ceigrpmeansrtt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpMFlowTimer"):
+                    self.ceigrpmflowtimer = value
+                    self.ceigrpmflowtimer.value_namespace = name_space
+                    self.ceigrpmflowtimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpOOSrvcd"):
+                    self.ceigrpoosrvcd = value
+                    self.ceigrpoosrvcd.value_namespace = name_space
+                    self.ceigrpoosrvcd.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPacingReliable"):
+                    self.ceigrppacingreliable = value
+                    self.ceigrppacingreliable.value_namespace = name_space
+                    self.ceigrppacingreliable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPacingUnreliable"):
+                    self.ceigrppacingunreliable = value
+                    self.ceigrppacingunreliable.value_namespace = name_space
+                    self.ceigrppacingunreliable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPeerCount"):
+                    self.ceigrppeercount = value
+                    self.ceigrppeercount.value_namespace = name_space
+                    self.ceigrppeercount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpPendingRoutes"):
+                    self.ceigrppendingroutes = value
+                    self.ceigrppendingroutes.value_namespace = name_space
+                    self.ceigrppendingroutes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRetransSent"):
+                    self.ceigrpretranssent = value
+                    self.ceigrpretranssent.value_namespace = name_space
+                    self.ceigrpretranssent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRMcasts"):
+                    self.ceigrprmcasts = value
+                    self.ceigrprmcasts.value_namespace = name_space
+                    self.ceigrprmcasts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpRUcasts"):
+                    self.ceigrprucasts = value
+                    self.ceigrprucasts.value_namespace = name_space
+                    self.ceigrprucasts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpUMcasts"):
+                    self.ceigrpumcasts = value
+                    self.ceigrpumcasts.value_namespace = name_space
+                    self.ceigrpumcasts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpUUcasts"):
+                    self.ceigrpuucasts = value
+                    self.ceigrpuucasts.value_namespace = name_space
+                    self.ceigrpuucasts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpXmitNextSerial"):
+                    self.ceigrpxmitnextserial = value
+                    self.ceigrpxmitnextserial.value_namespace = name_space
+                    self.ceigrpxmitnextserial.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpXmitReliableQ"):
+                    self.ceigrpxmitreliableq = value
+                    self.ceigrpxmitreliableq.value_namespace = name_space
+                    self.ceigrpxmitreliableq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cEigrpXmitUnreliableQ"):
+                    self.ceigrpxmitunreliableq = value
+                    self.ceigrpxmitunreliableq.value_namespace = name_space
+                    self.ceigrpxmitunreliableq.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceigrpinterfaceentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceigrpasnumber is not None:
-                    return True
-
-                if self.ifindex is not None:
-                    return True
-
-                if self.ceigrpackssuppressed is not None:
-                    return True
-
-                if self.ceigrpauthkeychain is not None:
-                    return True
-
-                if self.ceigrpauthmode is not None:
-                    return True
-
-                if self.ceigrpcrpkts is not None:
-                    return True
-
-                if self.ceigrphellointerval is not None:
-                    return True
-
-                if self.ceigrpmcastexcepts is not None:
-                    return True
-
-                if self.ceigrpmeansrtt is not None:
-                    return True
-
-                if self.ceigrpmflowtimer is not None:
-                    return True
-
-                if self.ceigrpoosrvcd is not None:
-                    return True
-
-                if self.ceigrppacingreliable is not None:
-                    return True
-
-                if self.ceigrppacingunreliable is not None:
-                    return True
-
-                if self.ceigrppeercount is not None:
-                    return True
-
-                if self.ceigrppendingroutes is not None:
-                    return True
-
-                if self.ceigrpretranssent is not None:
-                    return True
-
-                if self.ceigrprmcasts is not None:
-                    return True
-
-                if self.ceigrprucasts is not None:
-                    return True
-
-                if self.ceigrpumcasts is not None:
-                    return True
-
-                if self.ceigrpuucasts is not None:
-                    return True
-
-                if self.ceigrpxmitnextserial is not None:
-                    return True
-
-                if self.ceigrpxmitreliableq is not None:
-                    return True
-
-                if self.ceigrpxmitunreliableq is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-                return meta._meta_table['CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/CISCO-EIGRP-MIB:cEigrpInterfaceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceigrpinterfaceentry is not None:
-                for child_ref in self.ceigrpinterfaceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceigrpinterfaceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cEigrpInterfaceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cEigrpInterfaceEntry"):
+                for c in self.ceigrpinterfaceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEigrpMib.Ceigrpinterfacetable.Ceigrpinterfaceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceigrpinterfaceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cEigrpInterfaceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-            return meta._meta_table['CiscoEigrpMib.Ceigrpinterfacetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ceigrpinterfacetable is not None and self.ceigrpinterfacetable.has_data()) or
+            (self.ceigrppeertable is not None and self.ceigrppeertable.has_data()) or
+            (self.ceigrptopotable is not None and self.ceigrptopotable.has_data()) or
+            (self.ceigrptraffstatstable is not None and self.ceigrptraffstatstable.has_data()) or
+            (self.ceigrpvpntable is not None and self.ceigrpvpntable.has_data()))
 
-        return '/CISCO-EIGRP-MIB:CISCO-EIGRP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ceigrpinterfacetable is not None and self.ceigrpinterfacetable.has_operation()) or
+            (self.ceigrppeertable is not None and self.ceigrppeertable.has_operation()) or
+            (self.ceigrptopotable is not None and self.ceigrptopotable.has_operation()) or
+            (self.ceigrptraffstatstable is not None and self.ceigrptraffstatstable.has_operation()) or
+            (self.ceigrpvpntable is not None and self.ceigrpvpntable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cEigrpInterfaceTable"):
+            if (self.ceigrpinterfacetable is None):
+                self.ceigrpinterfacetable = CiscoEigrpMib.Ceigrpinterfacetable()
+                self.ceigrpinterfacetable.parent = self
+                self._children_name_map["ceigrpinterfacetable"] = "cEigrpInterfaceTable"
+            return self.ceigrpinterfacetable
+
+        if (child_yang_name == "cEigrpPeerTable"):
+            if (self.ceigrppeertable is None):
+                self.ceigrppeertable = CiscoEigrpMib.Ceigrppeertable()
+                self.ceigrppeertable.parent = self
+                self._children_name_map["ceigrppeertable"] = "cEigrpPeerTable"
+            return self.ceigrppeertable
+
+        if (child_yang_name == "cEigrpTopoTable"):
+            if (self.ceigrptopotable is None):
+                self.ceigrptopotable = CiscoEigrpMib.Ceigrptopotable()
+                self.ceigrptopotable.parent = self
+                self._children_name_map["ceigrptopotable"] = "cEigrpTopoTable"
+            return self.ceigrptopotable
+
+        if (child_yang_name == "cEigrpTraffStatsTable"):
+            if (self.ceigrptraffstatstable is None):
+                self.ceigrptraffstatstable = CiscoEigrpMib.Ceigrptraffstatstable()
+                self.ceigrptraffstatstable.parent = self
+                self._children_name_map["ceigrptraffstatstable"] = "cEigrpTraffStatsTable"
+            return self.ceigrptraffstatstable
+
+        if (child_yang_name == "cEigrpVpnTable"):
+            if (self.ceigrpvpntable is None):
+                self.ceigrpvpntable = CiscoEigrpMib.Ceigrpvpntable()
+                self.ceigrpvpntable.parent = self
+                self._children_name_map["ceigrpvpntable"] = "cEigrpVpnTable"
+            return self.ceigrpvpntable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cEigrpInterfaceTable" or name == "cEigrpPeerTable" or name == "cEigrpTopoTable" or name == "cEigrpTraffStatsTable" or name == "cEigrpVpnTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ceigrpinterfacetable is not None and self.ceigrpinterfacetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ceigrppeertable is not None and self.ceigrppeertable._has_data():
-            return True
-
-        if self.ceigrptopotable is not None and self.ceigrptopotable._has_data():
-            return True
-
-        if self.ceigrptraffstatstable is not None and self.ceigrptraffstatstable._has_data():
-            return True
-
-        if self.ceigrpvpntable is not None and self.ceigrpvpntable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_EIGRP_MIB as meta
-        return meta._meta_table['CiscoEigrpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoEigrpMib()
+        return self._top_entity
 

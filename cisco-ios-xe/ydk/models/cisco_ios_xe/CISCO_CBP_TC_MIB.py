@@ -5,22 +5,16 @@ CISCO\-CBP\-BASE\-CFG\-MIB, CISCO\-CBP\-BASE\-MON\-MIB, and any MIB
 modules extending these MIB modules.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CbpexecutionstrategyEnum(Enum):
+class Cbpexecutionstrategy(Enum):
     """
-    CbpexecutionstrategyEnum
+    Cbpexecutionstrategy
 
     An enumerated integer\-value describing how to execute an
 
@@ -62,19 +56,13 @@ class CbpexecutionstrategyEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    doUntilSuccess = 2
+    doUntilSuccess = Enum.YLeaf(2, "doUntilSuccess")
 
-    doUntilFailure = 3
+    doUntilFailure = Enum.YLeaf(3, "doUntilFailure")
 
-    doAll = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CBP_TC_MIB as meta
-        return meta._meta_table['CbpexecutionstrategyEnum']
+    doAll = Enum.YLeaf(4, "doAll")
 
 
 

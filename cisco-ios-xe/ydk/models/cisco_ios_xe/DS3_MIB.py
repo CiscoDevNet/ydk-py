@@ -4,21 +4,15 @@ The is the MIB module that describes
 DS3 and E3 interfaces objects.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Ds3Mib(object):
+class Ds3Mib(Entity):
     """
     
     
@@ -77,27 +71,59 @@ class Ds3Mib(object):
     _revision = '1998-08-01'
 
     def __init__(self):
+        super(Ds3Mib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "DS3-MIB"
+        self.yang_parent_name = "DS3-MIB"
+
         self.dsx3configtable = Ds3Mib.Dsx3Configtable()
         self.dsx3configtable.parent = self
+        self._children_name_map["dsx3configtable"] = "dsx3ConfigTable"
+        self._children_yang_names.add("dsx3ConfigTable")
+
         self.dsx3currenttable = Ds3Mib.Dsx3Currenttable()
         self.dsx3currenttable.parent = self
+        self._children_name_map["dsx3currenttable"] = "dsx3CurrentTable"
+        self._children_yang_names.add("dsx3CurrentTable")
+
         self.dsx3farendconfigtable = Ds3Mib.Dsx3Farendconfigtable()
         self.dsx3farendconfigtable.parent = self
+        self._children_name_map["dsx3farendconfigtable"] = "dsx3FarEndConfigTable"
+        self._children_yang_names.add("dsx3FarEndConfigTable")
+
         self.dsx3farendcurrenttable = Ds3Mib.Dsx3Farendcurrenttable()
         self.dsx3farendcurrenttable.parent = self
+        self._children_name_map["dsx3farendcurrenttable"] = "dsx3FarEndCurrentTable"
+        self._children_yang_names.add("dsx3FarEndCurrentTable")
+
         self.dsx3farendintervaltable = Ds3Mib.Dsx3Farendintervaltable()
         self.dsx3farendintervaltable.parent = self
+        self._children_name_map["dsx3farendintervaltable"] = "dsx3FarEndIntervalTable"
+        self._children_yang_names.add("dsx3FarEndIntervalTable")
+
         self.dsx3farendtotaltable = Ds3Mib.Dsx3Farendtotaltable()
         self.dsx3farendtotaltable.parent = self
+        self._children_name_map["dsx3farendtotaltable"] = "dsx3FarEndTotalTable"
+        self._children_yang_names.add("dsx3FarEndTotalTable")
+
         self.dsx3fractable = Ds3Mib.Dsx3Fractable()
         self.dsx3fractable.parent = self
+        self._children_name_map["dsx3fractable"] = "dsx3FracTable"
+        self._children_yang_names.add("dsx3FracTable")
+
         self.dsx3intervaltable = Ds3Mib.Dsx3Intervaltable()
         self.dsx3intervaltable.parent = self
+        self._children_name_map["dsx3intervaltable"] = "dsx3IntervalTable"
+        self._children_yang_names.add("dsx3IntervalTable")
+
         self.dsx3totaltable = Ds3Mib.Dsx3Totaltable()
         self.dsx3totaltable.parent = self
+        self._children_name_map["dsx3totaltable"] = "dsx3TotalTable"
+        self._children_yang_names.add("dsx3TotalTable")
 
 
-    class Dsx3Configtable(object):
+    class Dsx3Configtable(Entity):
         """
         The DS3/E3 Configuration table.
         
@@ -114,13 +140,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3configentry = YList()
-            self.dsx3configentry.parent = self
-            self.dsx3configentry.name = 'dsx3configentry'
+            super(Ds3Mib.Dsx3Configtable, self).__init__()
+
+            self.yang_name = "dsx3ConfigTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3configentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Configtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Configtable, self).__setattr__(name, value)
 
 
-        class Dsx3Configentry(object):
+        class Dsx3Configentry(Entity):
             """
             An entry in the DS3/E3 Configuration table.
             
@@ -134,7 +186,7 @@ class Ds3Mib(object):
             .. attribute:: dsx3channelization
             
             	Indicates whether this ds3/e3 is channelized or unchannelized.  The value of enabledDs1 indicates that this is a DS3 channelized into DS1s.  The value of enabledDs3 indicated that this is a DS3 channelized into DS2s.  Setting this object will cause the creation or deletion of DS2 or DS1 entries in the ifTable.  
-            	**type**\:   :py:class:`Dsx3ChannelizationEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3ChannelizationEnum>`
+            	**type**\:   :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Channelization>`
             
             .. attribute:: dsx3circuitidentifier
             
@@ -169,7 +221,7 @@ class Ds3Mib(object):
             .. attribute:: dsx3linecoding
             
             	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx3B3ZS and e3HDB3 refer to the use of specified patterns of normal bits and bipolar violations which are used to replace sequences of zero bits of a specified length
-            	**type**\:   :py:class:`Dsx3LinecodingEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinecodingEnum>`
+            	**type**\:   :py:class:`Dsx3Linecoding <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Linecoding>`
             
             .. attribute:: dsx3linelength
             
@@ -190,7 +242,7 @@ class Ds3Mib(object):
             .. attribute:: dsx3linestatuschangetrapenable
             
             	Indicates whether dsx3LineStatusChange traps should be generated for this interface
-            	**type**\:   :py:class:`Dsx3LinestatuschangetrapenableEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinestatuschangetrapenableEnum>`
+            	**type**\:   :py:class:`Dsx3Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Linestatuschangetrapenable>`
             
             .. attribute:: dsx3linestatuslastchange
             
@@ -202,12 +254,12 @@ class Ds3Mib(object):
             .. attribute:: dsx3linetype
             
             	This variable indicates the variety of DS3 C\-bit or E3 application implementing this interface. The type of interface affects the interpretation of the usage and error statistics.  The rate of DS3 is 44.736 Mbps and E3 is 34.368 Mbps.  The dsx3ClearChannel value means that the C\-bits are not used except for sending/receiving AIS. The values, in sequence, describe\:  TITLE\:            SPECIFICATION\: dsx3M23            ANSI T1.107\-1988 [9] dsx3SYNTRAN        ANSI T1.107\-1988 [9] dsx3CbitParity     ANSI T1.107a\-1990 [9a] dsx3ClearChannel   ANSI T1.102\-1987 [8] e3Framed           CCITT G.751 [12] e3Plcp             ETSI T/NA(91)18 [13]
-            	**type**\:   :py:class:`Dsx3LinetypeEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinetypeEnum>`
+            	**type**\:   :py:class:`Dsx3Linetype <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Linetype>`
             
             .. attribute:: dsx3loopbackconfig
             
             	This variable represents the desired loopback configuration of the DS3/E3 interface.  The values mean\:  dsx3NoLoop   Not in the loopback state.  A device that is   not capable of performing a loopback on   the interface shall always return this as   its value.  dsx3PayloadLoop   The received signal at this interface is looped   through the device.  Typically the received signal   is looped back for retransmission after it has   passed through the device's framing function.  dsx3LineLoop   The received signal at this interface does not   go through the device (minimum penetration) but   is looped back out.  dsx3OtherLoop   Loopbacks that are not defined here.  dsx3InwardLoop   The sent signal at this interface is looped back   through the device.  dsx3DualLoop   Both dsx1LineLoop and dsx1InwardLoop will be   active simultaneously
-            	**type**\:   :py:class:`Dsx3LoopbackconfigEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LoopbackconfigEnum>`
+            	**type**\:   :py:class:`Dsx3Loopbackconfig <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Loopbackconfig>`
             
             .. attribute:: dsx3loopbackstatus
             
@@ -219,7 +271,7 @@ class Ds3Mib(object):
             .. attribute:: dsx3sendcode
             
             	This variable indicates what type of code is being sent across the DS3/E3 interface by the device.  (These are optional for E3 interfaces.) Setting this variable causes the interface to begin sending the code requested. The values mean\:     dsx3SendNoCode        sending looped or normal data     dsx3SendLineCode        sending a request for a line loopback     dsx3SendPayloadCode        sending a request for a payload loopback        (i.e., all DS1/E1s in a DS3/E3 frame)     dsx3SendResetCode        sending a loopback deactivation request     dsx3SendDS1LoopCode        requesting to loopback a particular DS1/E1        within a DS3/E3 frame.  The DS1/E1 is        indicated in dsx3Ds1ForRemoteLoop.     dsx3SendTestPattern        sending a test pattern
-            	**type**\:   :py:class:`Dsx3SendcodeEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3SendcodeEnum>`
+            	**type**\:   :py:class:`Dsx3Sendcode <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Sendcode>`
             
             .. attribute:: dsx3timeelapsed
             
@@ -231,7 +283,7 @@ class Ds3Mib(object):
             .. attribute:: dsx3transmitclocksource
             
             	The source of Transmit Clock.  loopTiming indicates that the recovered receive clock is used as the transmit clock.  localTiming indicates that a local clock source is used or that an external clock is attached to the box containing the interface.  throughTiming indicates that transmit clock is derived from the recovered receive clock of another DS3 interface
-            	**type**\:   :py:class:`Dsx3TransmitclocksourceEnum <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3TransmitclocksourceEnum>`
+            	**type**\:   :py:class:`Dsx3Transmitclocksource <ydk.models.cisco_ios_xe.DS3_MIB.Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3Transmitclocksource>`
             
             .. attribute:: dsx3validintervals
             
@@ -248,29 +300,91 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3lineindex = None
-                self.dsx3channelization = None
-                self.dsx3circuitidentifier = None
-                self.dsx3ds1forremoteloop = None
-                self.dsx3ifindex = None
-                self.dsx3invalidintervals = None
-                self.dsx3linecoding = None
-                self.dsx3linelength = None
-                self.dsx3linestatus = None
-                self.dsx3linestatuschangetrapenable = None
-                self.dsx3linestatuslastchange = None
-                self.dsx3linetype = None
-                self.dsx3loopbackconfig = None
-                self.dsx3loopbackstatus = None
-                self.dsx3sendcode = None
-                self.dsx3timeelapsed = None
-                self.dsx3transmitclocksource = None
-                self.dsx3validintervals = None
+                super(Ds3Mib.Dsx3Configtable.Dsx3Configentry, self).__init__()
 
-            class Dsx3ChannelizationEnum(Enum):
+                self.yang_name = "dsx3ConfigEntry"
+                self.yang_parent_name = "dsx3ConfigTable"
+
+                self.dsx3lineindex = YLeaf(YType.int32, "dsx3LineIndex")
+
+                self.dsx3channelization = YLeaf(YType.enumeration, "dsx3Channelization")
+
+                self.dsx3circuitidentifier = YLeaf(YType.str, "dsx3CircuitIdentifier")
+
+                self.dsx3ds1forremoteloop = YLeaf(YType.int32, "dsx3Ds1ForRemoteLoop")
+
+                self.dsx3ifindex = YLeaf(YType.int32, "dsx3IfIndex")
+
+                self.dsx3invalidintervals = YLeaf(YType.int32, "dsx3InvalidIntervals")
+
+                self.dsx3linecoding = YLeaf(YType.enumeration, "dsx3LineCoding")
+
+                self.dsx3linelength = YLeaf(YType.int32, "dsx3LineLength")
+
+                self.dsx3linestatus = YLeaf(YType.int32, "dsx3LineStatus")
+
+                self.dsx3linestatuschangetrapenable = YLeaf(YType.enumeration, "dsx3LineStatusChangeTrapEnable")
+
+                self.dsx3linestatuslastchange = YLeaf(YType.uint32, "dsx3LineStatusLastChange")
+
+                self.dsx3linetype = YLeaf(YType.enumeration, "dsx3LineType")
+
+                self.dsx3loopbackconfig = YLeaf(YType.enumeration, "dsx3LoopbackConfig")
+
+                self.dsx3loopbackstatus = YLeaf(YType.int32, "dsx3LoopbackStatus")
+
+                self.dsx3sendcode = YLeaf(YType.enumeration, "dsx3SendCode")
+
+                self.dsx3timeelapsed = YLeaf(YType.int32, "dsx3TimeElapsed")
+
+                self.dsx3transmitclocksource = YLeaf(YType.enumeration, "dsx3TransmitClockSource")
+
+                self.dsx3validintervals = YLeaf(YType.int32, "dsx3ValidIntervals")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3lineindex",
+                                "dsx3channelization",
+                                "dsx3circuitidentifier",
+                                "dsx3ds1forremoteloop",
+                                "dsx3ifindex",
+                                "dsx3invalidintervals",
+                                "dsx3linecoding",
+                                "dsx3linelength",
+                                "dsx3linestatus",
+                                "dsx3linestatuschangetrapenable",
+                                "dsx3linestatuslastchange",
+                                "dsx3linetype",
+                                "dsx3loopbackconfig",
+                                "dsx3loopbackstatus",
+                                "dsx3sendcode",
+                                "dsx3timeelapsed",
+                                "dsx3transmitclocksource",
+                                "dsx3validintervals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Configtable.Dsx3Configentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Configtable.Dsx3Configentry, self).__setattr__(name, value)
+
+            class Dsx3Channelization(Enum):
                 """
-                Dsx3ChannelizationEnum
+                Dsx3Channelization
 
                 Indicates whether this ds3/e3 is channelized or
 
@@ -294,22 +408,16 @@ class Ds3Mib(object):
 
                 """
 
-                disabled = 1
+                disabled = Enum.YLeaf(1, "disabled")
 
-                enabledDs1 = 2
+                enabledDs1 = Enum.YLeaf(2, "enabledDs1")
 
-                enabledDs2 = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3ChannelizationEnum']
+                enabledDs2 = Enum.YLeaf(3, "enabledDs2")
 
 
-            class Dsx3LinecodingEnum(Enum):
+            class Dsx3Linecoding(Enum):
                 """
-                Dsx3LinecodingEnum
+                Dsx3Linecoding
 
                 This variable describes the variety of Zero Code
 
@@ -333,22 +441,16 @@ class Ds3Mib(object):
 
                 """
 
-                dsx3Other = 1
+                dsx3Other = Enum.YLeaf(1, "dsx3Other")
 
-                dsx3B3ZS = 2
+                dsx3B3ZS = Enum.YLeaf(2, "dsx3B3ZS")
 
-                e3HDB3 = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinecodingEnum']
+                e3HDB3 = Enum.YLeaf(3, "e3HDB3")
 
 
-            class Dsx3LinestatuschangetrapenableEnum(Enum):
+            class Dsx3Linestatuschangetrapenable(Enum):
                 """
-                Dsx3LinestatuschangetrapenableEnum
+                Dsx3Linestatuschangetrapenable
 
                 Indicates whether dsx3LineStatusChange traps
 
@@ -360,20 +462,14 @@ class Ds3Mib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinestatuschangetrapenableEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Dsx3LinetypeEnum(Enum):
+            class Dsx3Linetype(Enum):
                 """
-                Dsx3LinetypeEnum
+                Dsx3Linetype
 
                 This variable indicates the variety of DS3 C\-bit
 
@@ -423,32 +519,26 @@ class Ds3Mib(object):
 
                 """
 
-                dsx3other = 1
+                dsx3other = Enum.YLeaf(1, "dsx3other")
 
-                dsx3M23 = 2
+                dsx3M23 = Enum.YLeaf(2, "dsx3M23")
 
-                dsx3SYNTRAN = 3
+                dsx3SYNTRAN = Enum.YLeaf(3, "dsx3SYNTRAN")
 
-                dsx3CbitParity = 4
+                dsx3CbitParity = Enum.YLeaf(4, "dsx3CbitParity")
 
-                dsx3ClearChannel = 5
+                dsx3ClearChannel = Enum.YLeaf(5, "dsx3ClearChannel")
 
-                e3other = 6
+                e3other = Enum.YLeaf(6, "e3other")
 
-                e3Framed = 7
+                e3Framed = Enum.YLeaf(7, "e3Framed")
 
-                e3Plcp = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LinetypeEnum']
+                e3Plcp = Enum.YLeaf(8, "e3Plcp")
 
 
-            class Dsx3LoopbackconfigEnum(Enum):
+            class Dsx3Loopbackconfig(Enum):
                 """
-                Dsx3LoopbackconfigEnum
+                Dsx3Loopbackconfig
 
                 This variable represents the desired loopback
 
@@ -514,28 +604,22 @@ class Ds3Mib(object):
 
                 """
 
-                dsx3NoLoop = 1
+                dsx3NoLoop = Enum.YLeaf(1, "dsx3NoLoop")
 
-                dsx3PayloadLoop = 2
+                dsx3PayloadLoop = Enum.YLeaf(2, "dsx3PayloadLoop")
 
-                dsx3LineLoop = 3
+                dsx3LineLoop = Enum.YLeaf(3, "dsx3LineLoop")
 
-                dsx3OtherLoop = 4
+                dsx3OtherLoop = Enum.YLeaf(4, "dsx3OtherLoop")
 
-                dsx3InwardLoop = 5
+                dsx3InwardLoop = Enum.YLeaf(5, "dsx3InwardLoop")
 
-                dsx3DualLoop = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3LoopbackconfigEnum']
+                dsx3DualLoop = Enum.YLeaf(6, "dsx3DualLoop")
 
 
-            class Dsx3SendcodeEnum(Enum):
+            class Dsx3Sendcode(Enum):
                 """
-                Dsx3SendcodeEnum
+                Dsx3Sendcode
 
                 This variable indicates what type of code is
 
@@ -593,28 +677,22 @@ class Ds3Mib(object):
 
                 """
 
-                dsx3SendNoCode = 1
+                dsx3SendNoCode = Enum.YLeaf(1, "dsx3SendNoCode")
 
-                dsx3SendLineCode = 2
+                dsx3SendLineCode = Enum.YLeaf(2, "dsx3SendLineCode")
 
-                dsx3SendPayloadCode = 3
+                dsx3SendPayloadCode = Enum.YLeaf(3, "dsx3SendPayloadCode")
 
-                dsx3SendResetCode = 4
+                dsx3SendResetCode = Enum.YLeaf(4, "dsx3SendResetCode")
 
-                dsx3SendDS1LoopCode = 5
+                dsx3SendDS1LoopCode = Enum.YLeaf(5, "dsx3SendDS1LoopCode")
 
-                dsx3SendTestPattern = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3SendcodeEnum']
+                dsx3SendTestPattern = Enum.YLeaf(6, "dsx3SendTestPattern")
 
 
-            class Dsx3TransmitclocksourceEnum(Enum):
+            class Dsx3Transmitclocksource(Enum):
                 """
-                Dsx3TransmitclocksourceEnum
+                Dsx3Transmitclocksource
 
                 The source of Transmit Clock.
 
@@ -642,116 +720,255 @@ class Ds3Mib(object):
 
                 """
 
-                loopTiming = 1
+                loopTiming = Enum.YLeaf(1, "loopTiming")
 
-                localTiming = 2
+                localTiming = Enum.YLeaf(2, "localTiming")
 
-                throughTiming = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                    return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry.Dsx3TransmitclocksourceEnum']
+                throughTiming = Enum.YLeaf(3, "throughTiming")
 
 
-            @property
-            def _common_path(self):
-                if self.dsx3lineindex is None:
-                    raise YPYModelError('Key property dsx3lineindex is None')
+            def has_data(self):
+                return (
+                    self.dsx3lineindex.is_set or
+                    self.dsx3channelization.is_set or
+                    self.dsx3circuitidentifier.is_set or
+                    self.dsx3ds1forremoteloop.is_set or
+                    self.dsx3ifindex.is_set or
+                    self.dsx3invalidintervals.is_set or
+                    self.dsx3linecoding.is_set or
+                    self.dsx3linelength.is_set or
+                    self.dsx3linestatus.is_set or
+                    self.dsx3linestatuschangetrapenable.is_set or
+                    self.dsx3linestatuslastchange.is_set or
+                    self.dsx3linetype.is_set or
+                    self.dsx3loopbackconfig.is_set or
+                    self.dsx3loopbackstatus.is_set or
+                    self.dsx3sendcode.is_set or
+                    self.dsx3timeelapsed.is_set or
+                    self.dsx3transmitclocksource.is_set or
+                    self.dsx3validintervals.is_set)
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3ConfigTable/DS3-MIB:dsx3ConfigEntry[DS3-MIB:dsx3LineIndex = ' + str(self.dsx3lineindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3lineindex.yfilter != YFilter.not_set or
+                    self.dsx3channelization.yfilter != YFilter.not_set or
+                    self.dsx3circuitidentifier.yfilter != YFilter.not_set or
+                    self.dsx3ds1forremoteloop.yfilter != YFilter.not_set or
+                    self.dsx3ifindex.yfilter != YFilter.not_set or
+                    self.dsx3invalidintervals.yfilter != YFilter.not_set or
+                    self.dsx3linecoding.yfilter != YFilter.not_set or
+                    self.dsx3linelength.yfilter != YFilter.not_set or
+                    self.dsx3linestatus.yfilter != YFilter.not_set or
+                    self.dsx3linestatuschangetrapenable.yfilter != YFilter.not_set or
+                    self.dsx3linestatuslastchange.yfilter != YFilter.not_set or
+                    self.dsx3linetype.yfilter != YFilter.not_set or
+                    self.dsx3loopbackconfig.yfilter != YFilter.not_set or
+                    self.dsx3loopbackstatus.yfilter != YFilter.not_set or
+                    self.dsx3sendcode.yfilter != YFilter.not_set or
+                    self.dsx3timeelapsed.yfilter != YFilter.not_set or
+                    self.dsx3transmitclocksource.yfilter != YFilter.not_set or
+                    self.dsx3validintervals.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3ConfigEntry" + "[dsx3LineIndex='" + self.dsx3lineindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3ConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3lineindex.is_set or self.dsx3lineindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3lineindex.get_name_leafdata())
+                if (self.dsx3channelization.is_set or self.dsx3channelization.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3channelization.get_name_leafdata())
+                if (self.dsx3circuitidentifier.is_set or self.dsx3circuitidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3circuitidentifier.get_name_leafdata())
+                if (self.dsx3ds1forremoteloop.is_set or self.dsx3ds1forremoteloop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3ds1forremoteloop.get_name_leafdata())
+                if (self.dsx3ifindex.is_set or self.dsx3ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3ifindex.get_name_leafdata())
+                if (self.dsx3invalidintervals.is_set or self.dsx3invalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3invalidintervals.get_name_leafdata())
+                if (self.dsx3linecoding.is_set or self.dsx3linecoding.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linecoding.get_name_leafdata())
+                if (self.dsx3linelength.is_set or self.dsx3linelength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linelength.get_name_leafdata())
+                if (self.dsx3linestatus.is_set or self.dsx3linestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linestatus.get_name_leafdata())
+                if (self.dsx3linestatuschangetrapenable.is_set or self.dsx3linestatuschangetrapenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linestatuschangetrapenable.get_name_leafdata())
+                if (self.dsx3linestatuslastchange.is_set or self.dsx3linestatuslastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linestatuslastchange.get_name_leafdata())
+                if (self.dsx3linetype.is_set or self.dsx3linetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3linetype.get_name_leafdata())
+                if (self.dsx3loopbackconfig.is_set or self.dsx3loopbackconfig.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3loopbackconfig.get_name_leafdata())
+                if (self.dsx3loopbackstatus.is_set or self.dsx3loopbackstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3loopbackstatus.get_name_leafdata())
+                if (self.dsx3sendcode.is_set or self.dsx3sendcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3sendcode.get_name_leafdata())
+                if (self.dsx3timeelapsed.is_set or self.dsx3timeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3timeelapsed.get_name_leafdata())
+                if (self.dsx3transmitclocksource.is_set or self.dsx3transmitclocksource.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3transmitclocksource.get_name_leafdata())
+                if (self.dsx3validintervals.is_set or self.dsx3validintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3validintervals.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3LineIndex" or name == "dsx3Channelization" or name == "dsx3CircuitIdentifier" or name == "dsx3Ds1ForRemoteLoop" or name == "dsx3IfIndex" or name == "dsx3InvalidIntervals" or name == "dsx3LineCoding" or name == "dsx3LineLength" or name == "dsx3LineStatus" or name == "dsx3LineStatusChangeTrapEnable" or name == "dsx3LineStatusLastChange" or name == "dsx3LineType" or name == "dsx3LoopbackConfig" or name == "dsx3LoopbackStatus" or name == "dsx3SendCode" or name == "dsx3TimeElapsed" or name == "dsx3TransmitClockSource" or name == "dsx3ValidIntervals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3lineindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3LineIndex"):
+                    self.dsx3lineindex = value
+                    self.dsx3lineindex.value_namespace = name_space
+                    self.dsx3lineindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3Channelization"):
+                    self.dsx3channelization = value
+                    self.dsx3channelization.value_namespace = name_space
+                    self.dsx3channelization.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CircuitIdentifier"):
+                    self.dsx3circuitidentifier = value
+                    self.dsx3circuitidentifier.value_namespace = name_space
+                    self.dsx3circuitidentifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3Ds1ForRemoteLoop"):
+                    self.dsx3ds1forremoteloop = value
+                    self.dsx3ds1forremoteloop.value_namespace = name_space
+                    self.dsx3ds1forremoteloop.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IfIndex"):
+                    self.dsx3ifindex = value
+                    self.dsx3ifindex.value_namespace = name_space
+                    self.dsx3ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3InvalidIntervals"):
+                    self.dsx3invalidintervals = value
+                    self.dsx3invalidintervals.value_namespace = name_space
+                    self.dsx3invalidintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineCoding"):
+                    self.dsx3linecoding = value
+                    self.dsx3linecoding.value_namespace = name_space
+                    self.dsx3linecoding.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineLength"):
+                    self.dsx3linelength = value
+                    self.dsx3linelength.value_namespace = name_space
+                    self.dsx3linelength.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineStatus"):
+                    self.dsx3linestatus = value
+                    self.dsx3linestatus.value_namespace = name_space
+                    self.dsx3linestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineStatusChangeTrapEnable"):
+                    self.dsx3linestatuschangetrapenable = value
+                    self.dsx3linestatuschangetrapenable.value_namespace = name_space
+                    self.dsx3linestatuschangetrapenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineStatusLastChange"):
+                    self.dsx3linestatuslastchange = value
+                    self.dsx3linestatuslastchange.value_namespace = name_space
+                    self.dsx3linestatuslastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LineType"):
+                    self.dsx3linetype = value
+                    self.dsx3linetype.value_namespace = name_space
+                    self.dsx3linetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LoopbackConfig"):
+                    self.dsx3loopbackconfig = value
+                    self.dsx3loopbackconfig.value_namespace = name_space
+                    self.dsx3loopbackconfig.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3LoopbackStatus"):
+                    self.dsx3loopbackstatus = value
+                    self.dsx3loopbackstatus.value_namespace = name_space
+                    self.dsx3loopbackstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3SendCode"):
+                    self.dsx3sendcode = value
+                    self.dsx3sendcode.value_namespace = name_space
+                    self.dsx3sendcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TimeElapsed"):
+                    self.dsx3timeelapsed = value
+                    self.dsx3timeelapsed.value_namespace = name_space
+                    self.dsx3timeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TransmitClockSource"):
+                    self.dsx3transmitclocksource = value
+                    self.dsx3transmitclocksource.value_namespace = name_space
+                    self.dsx3transmitclocksource.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3ValidIntervals"):
+                    self.dsx3validintervals = value
+                    self.dsx3validintervals.value_namespace = name_space
+                    self.dsx3validintervals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3configentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3channelization is not None:
-                    return True
-
-                if self.dsx3circuitidentifier is not None:
-                    return True
-
-                if self.dsx3ds1forremoteloop is not None:
-                    return True
-
-                if self.dsx3ifindex is not None:
-                    return True
-
-                if self.dsx3invalidintervals is not None:
-                    return True
-
-                if self.dsx3linecoding is not None:
-                    return True
-
-                if self.dsx3linelength is not None:
-                    return True
-
-                if self.dsx3linestatus is not None:
-                    return True
-
-                if self.dsx3linestatuschangetrapenable is not None:
-                    return True
-
-                if self.dsx3linestatuslastchange is not None:
-                    return True
-
-                if self.dsx3linetype is not None:
-                    return True
-
-                if self.dsx3loopbackconfig is not None:
-                    return True
-
-                if self.dsx3loopbackstatus is not None:
-                    return True
-
-                if self.dsx3sendcode is not None:
-                    return True
-
-                if self.dsx3timeelapsed is not None:
-                    return True
-
-                if self.dsx3transmitclocksource is not None:
-                    return True
-
-                if self.dsx3validintervals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Configtable.Dsx3Configentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3ConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3configentry is not None:
-                for child_ref in self.dsx3configentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3configentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3ConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3ConfigEntry"):
+                for c in self.dsx3configentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Configtable.Dsx3Configentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3configentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3ConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Configtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Currenttable(object):
+    class Dsx3Currenttable(Entity):
         """
         The DS3/E3 current table contains various
         statistics being collected for the current 15
@@ -770,13 +987,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3currententry = YList()
-            self.dsx3currententry.parent = self
-            self.dsx3currententry.name = 'dsx3currententry'
+            super(Ds3Mib.Dsx3Currenttable, self).__init__()
+
+            self.yang_name = "dsx3CurrentTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3currententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Currenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Currenttable, self).__setattr__(name, value)
 
 
-        class Dsx3Currententry(object):
+        class Dsx3Currententry(Entity):
             """
             An entry in the DS3/E3 Current table.
             
@@ -865,95 +1108,253 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3currentindex = None
-                self.dsx3currentccvs = None
-                self.dsx3currentcess = None
-                self.dsx3currentcsess = None
-                self.dsx3currentlcvs = None
-                self.dsx3currentless = None
-                self.dsx3currentpcvs = None
-                self.dsx3currentpess = None
-                self.dsx3currentpsess = None
-                self.dsx3currentsefss = None
-                self.dsx3currentuass = None
+                super(Ds3Mib.Dsx3Currenttable.Dsx3Currententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3currentindex is None:
-                    raise YPYModelError('Key property dsx3currentindex is None')
+                self.yang_name = "dsx3CurrentEntry"
+                self.yang_parent_name = "dsx3CurrentTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3CurrentTable/DS3-MIB:dsx3CurrentEntry[DS3-MIB:dsx3CurrentIndex = ' + str(self.dsx3currentindex) + ']'
+                self.dsx3currentindex = YLeaf(YType.int32, "dsx3CurrentIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3currentccvs = YLeaf(YType.uint32, "dsx3CurrentCCVs")
+
+                self.dsx3currentcess = YLeaf(YType.uint32, "dsx3CurrentCESs")
+
+                self.dsx3currentcsess = YLeaf(YType.uint32, "dsx3CurrentCSESs")
+
+                self.dsx3currentlcvs = YLeaf(YType.uint32, "dsx3CurrentLCVs")
+
+                self.dsx3currentless = YLeaf(YType.uint32, "dsx3CurrentLESs")
+
+                self.dsx3currentpcvs = YLeaf(YType.uint32, "dsx3CurrentPCVs")
+
+                self.dsx3currentpess = YLeaf(YType.uint32, "dsx3CurrentPESs")
+
+                self.dsx3currentpsess = YLeaf(YType.uint32, "dsx3CurrentPSESs")
+
+                self.dsx3currentsefss = YLeaf(YType.uint32, "dsx3CurrentSEFSs")
+
+                self.dsx3currentuass = YLeaf(YType.uint32, "dsx3CurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3currentindex",
+                                "dsx3currentccvs",
+                                "dsx3currentcess",
+                                "dsx3currentcsess",
+                                "dsx3currentlcvs",
+                                "dsx3currentless",
+                                "dsx3currentpcvs",
+                                "dsx3currentpess",
+                                "dsx3currentpsess",
+                                "dsx3currentsefss",
+                                "dsx3currentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Currenttable.Dsx3Currententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Currenttable.Dsx3Currententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3currentindex.is_set or
+                    self.dsx3currentccvs.is_set or
+                    self.dsx3currentcess.is_set or
+                    self.dsx3currentcsess.is_set or
+                    self.dsx3currentlcvs.is_set or
+                    self.dsx3currentless.is_set or
+                    self.dsx3currentpcvs.is_set or
+                    self.dsx3currentpess.is_set or
+                    self.dsx3currentpsess.is_set or
+                    self.dsx3currentsefss.is_set or
+                    self.dsx3currentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3currentindex.yfilter != YFilter.not_set or
+                    self.dsx3currentccvs.yfilter != YFilter.not_set or
+                    self.dsx3currentcess.yfilter != YFilter.not_set or
+                    self.dsx3currentcsess.yfilter != YFilter.not_set or
+                    self.dsx3currentlcvs.yfilter != YFilter.not_set or
+                    self.dsx3currentless.yfilter != YFilter.not_set or
+                    self.dsx3currentpcvs.yfilter != YFilter.not_set or
+                    self.dsx3currentpess.yfilter != YFilter.not_set or
+                    self.dsx3currentpsess.yfilter != YFilter.not_set or
+                    self.dsx3currentsefss.yfilter != YFilter.not_set or
+                    self.dsx3currentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3CurrentEntry" + "[dsx3CurrentIndex='" + self.dsx3currentindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3CurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3currentindex.is_set or self.dsx3currentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentindex.get_name_leafdata())
+                if (self.dsx3currentccvs.is_set or self.dsx3currentccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentccvs.get_name_leafdata())
+                if (self.dsx3currentcess.is_set or self.dsx3currentcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentcess.get_name_leafdata())
+                if (self.dsx3currentcsess.is_set or self.dsx3currentcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentcsess.get_name_leafdata())
+                if (self.dsx3currentlcvs.is_set or self.dsx3currentlcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentlcvs.get_name_leafdata())
+                if (self.dsx3currentless.is_set or self.dsx3currentless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentless.get_name_leafdata())
+                if (self.dsx3currentpcvs.is_set or self.dsx3currentpcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentpcvs.get_name_leafdata())
+                if (self.dsx3currentpess.is_set or self.dsx3currentpess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentpess.get_name_leafdata())
+                if (self.dsx3currentpsess.is_set or self.dsx3currentpsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentpsess.get_name_leafdata())
+                if (self.dsx3currentsefss.is_set or self.dsx3currentsefss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentsefss.get_name_leafdata())
+                if (self.dsx3currentuass.is_set or self.dsx3currentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3currentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3CurrentIndex" or name == "dsx3CurrentCCVs" or name == "dsx3CurrentCESs" or name == "dsx3CurrentCSESs" or name == "dsx3CurrentLCVs" or name == "dsx3CurrentLESs" or name == "dsx3CurrentPCVs" or name == "dsx3CurrentPESs" or name == "dsx3CurrentPSESs" or name == "dsx3CurrentSEFSs" or name == "dsx3CurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3currentindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3CurrentIndex"):
+                    self.dsx3currentindex = value
+                    self.dsx3currentindex.value_namespace = name_space
+                    self.dsx3currentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentCCVs"):
+                    self.dsx3currentccvs = value
+                    self.dsx3currentccvs.value_namespace = name_space
+                    self.dsx3currentccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentCESs"):
+                    self.dsx3currentcess = value
+                    self.dsx3currentcess.value_namespace = name_space
+                    self.dsx3currentcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentCSESs"):
+                    self.dsx3currentcsess = value
+                    self.dsx3currentcsess.value_namespace = name_space
+                    self.dsx3currentcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentLCVs"):
+                    self.dsx3currentlcvs = value
+                    self.dsx3currentlcvs.value_namespace = name_space
+                    self.dsx3currentlcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentLESs"):
+                    self.dsx3currentless = value
+                    self.dsx3currentless.value_namespace = name_space
+                    self.dsx3currentless.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentPCVs"):
+                    self.dsx3currentpcvs = value
+                    self.dsx3currentpcvs.value_namespace = name_space
+                    self.dsx3currentpcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentPESs"):
+                    self.dsx3currentpess = value
+                    self.dsx3currentpess.value_namespace = name_space
+                    self.dsx3currentpess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentPSESs"):
+                    self.dsx3currentpsess = value
+                    self.dsx3currentpsess.value_namespace = name_space
+                    self.dsx3currentpsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentSEFSs"):
+                    self.dsx3currentsefss = value
+                    self.dsx3currentsefss.value_namespace = name_space
+                    self.dsx3currentsefss.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3CurrentUASs"):
+                    self.dsx3currentuass = value
+                    self.dsx3currentuass.value_namespace = name_space
+                    self.dsx3currentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3currententry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3currentccvs is not None:
-                    return True
-
-                if self.dsx3currentcess is not None:
-                    return True
-
-                if self.dsx3currentcsess is not None:
-                    return True
-
-                if self.dsx3currentlcvs is not None:
-                    return True
-
-                if self.dsx3currentless is not None:
-                    return True
-
-                if self.dsx3currentpcvs is not None:
-                    return True
-
-                if self.dsx3currentpess is not None:
-                    return True
-
-                if self.dsx3currentpsess is not None:
-                    return True
-
-                if self.dsx3currentsefss is not None:
-                    return True
-
-                if self.dsx3currentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Currenttable.Dsx3Currententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3CurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3currententry is not None:
-                for child_ref in self.dsx3currententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3currententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3CurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3CurrentEntry"):
+                for c in self.dsx3currententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Currenttable.Dsx3Currententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3currententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3CurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Currenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Intervaltable(object):
+    class Dsx3Intervaltable(Entity):
         """
         The DS3/E3 Interval Table contains various
         statistics collected by each DS3/E3 Interface over
@@ -977,13 +1378,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3intervalentry = YList()
-            self.dsx3intervalentry.parent = self
-            self.dsx3intervalentry.name = 'dsx3intervalentry'
+            super(Ds3Mib.Dsx3Intervaltable, self).__init__()
+
+            self.yang_name = "dsx3IntervalTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3intervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Intervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Intervaltable, self).__setattr__(name, value)
 
 
-        class Dsx3Intervalentry(object):
+        class Dsx3Intervalentry(Entity):
             """
             An entry in the DS3/E3 Interval table.
             
@@ -1084,105 +1511,275 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3intervalindex = None
-                self.dsx3intervalnumber = None
-                self.dsx3intervalccvs = None
-                self.dsx3intervalcess = None
-                self.dsx3intervalcsess = None
-                self.dsx3intervallcvs = None
-                self.dsx3intervalless = None
-                self.dsx3intervalpcvs = None
-                self.dsx3intervalpess = None
-                self.dsx3intervalpsess = None
-                self.dsx3intervalsefss = None
-                self.dsx3intervaluass = None
-                self.dsx3intervalvaliddata = None
+                super(Ds3Mib.Dsx3Intervaltable.Dsx3Intervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3intervalindex is None:
-                    raise YPYModelError('Key property dsx3intervalindex is None')
-                if self.dsx3intervalnumber is None:
-                    raise YPYModelError('Key property dsx3intervalnumber is None')
+                self.yang_name = "dsx3IntervalEntry"
+                self.yang_parent_name = "dsx3IntervalTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3IntervalTable/DS3-MIB:dsx3IntervalEntry[DS3-MIB:dsx3IntervalIndex = ' + str(self.dsx3intervalindex) + '][DS3-MIB:dsx3IntervalNumber = ' + str(self.dsx3intervalnumber) + ']'
+                self.dsx3intervalindex = YLeaf(YType.int32, "dsx3IntervalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3intervalnumber = YLeaf(YType.int32, "dsx3IntervalNumber")
+
+                self.dsx3intervalccvs = YLeaf(YType.uint32, "dsx3IntervalCCVs")
+
+                self.dsx3intervalcess = YLeaf(YType.uint32, "dsx3IntervalCESs")
+
+                self.dsx3intervalcsess = YLeaf(YType.uint32, "dsx3IntervalCSESs")
+
+                self.dsx3intervallcvs = YLeaf(YType.uint32, "dsx3IntervalLCVs")
+
+                self.dsx3intervalless = YLeaf(YType.uint32, "dsx3IntervalLESs")
+
+                self.dsx3intervalpcvs = YLeaf(YType.uint32, "dsx3IntervalPCVs")
+
+                self.dsx3intervalpess = YLeaf(YType.uint32, "dsx3IntervalPESs")
+
+                self.dsx3intervalpsess = YLeaf(YType.uint32, "dsx3IntervalPSESs")
+
+                self.dsx3intervalsefss = YLeaf(YType.uint32, "dsx3IntervalSEFSs")
+
+                self.dsx3intervaluass = YLeaf(YType.uint32, "dsx3IntervalUASs")
+
+                self.dsx3intervalvaliddata = YLeaf(YType.boolean, "dsx3IntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3intervalindex",
+                                "dsx3intervalnumber",
+                                "dsx3intervalccvs",
+                                "dsx3intervalcess",
+                                "dsx3intervalcsess",
+                                "dsx3intervallcvs",
+                                "dsx3intervalless",
+                                "dsx3intervalpcvs",
+                                "dsx3intervalpess",
+                                "dsx3intervalpsess",
+                                "dsx3intervalsefss",
+                                "dsx3intervaluass",
+                                "dsx3intervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Intervaltable.Dsx3Intervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Intervaltable.Dsx3Intervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3intervalindex.is_set or
+                    self.dsx3intervalnumber.is_set or
+                    self.dsx3intervalccvs.is_set or
+                    self.dsx3intervalcess.is_set or
+                    self.dsx3intervalcsess.is_set or
+                    self.dsx3intervallcvs.is_set or
+                    self.dsx3intervalless.is_set or
+                    self.dsx3intervalpcvs.is_set or
+                    self.dsx3intervalpess.is_set or
+                    self.dsx3intervalpsess.is_set or
+                    self.dsx3intervalsefss.is_set or
+                    self.dsx3intervaluass.is_set or
+                    self.dsx3intervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3intervalindex.yfilter != YFilter.not_set or
+                    self.dsx3intervalnumber.yfilter != YFilter.not_set or
+                    self.dsx3intervalccvs.yfilter != YFilter.not_set or
+                    self.dsx3intervalcess.yfilter != YFilter.not_set or
+                    self.dsx3intervalcsess.yfilter != YFilter.not_set or
+                    self.dsx3intervallcvs.yfilter != YFilter.not_set or
+                    self.dsx3intervalless.yfilter != YFilter.not_set or
+                    self.dsx3intervalpcvs.yfilter != YFilter.not_set or
+                    self.dsx3intervalpess.yfilter != YFilter.not_set or
+                    self.dsx3intervalpsess.yfilter != YFilter.not_set or
+                    self.dsx3intervalsefss.yfilter != YFilter.not_set or
+                    self.dsx3intervaluass.yfilter != YFilter.not_set or
+                    self.dsx3intervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3IntervalEntry" + "[dsx3IntervalIndex='" + self.dsx3intervalindex.get() + "']" + "[dsx3IntervalNumber='" + self.dsx3intervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3IntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3intervalindex.is_set or self.dsx3intervalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalindex.get_name_leafdata())
+                if (self.dsx3intervalnumber.is_set or self.dsx3intervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalnumber.get_name_leafdata())
+                if (self.dsx3intervalccvs.is_set or self.dsx3intervalccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalccvs.get_name_leafdata())
+                if (self.dsx3intervalcess.is_set or self.dsx3intervalcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalcess.get_name_leafdata())
+                if (self.dsx3intervalcsess.is_set or self.dsx3intervalcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalcsess.get_name_leafdata())
+                if (self.dsx3intervallcvs.is_set or self.dsx3intervallcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervallcvs.get_name_leafdata())
+                if (self.dsx3intervalless.is_set or self.dsx3intervalless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalless.get_name_leafdata())
+                if (self.dsx3intervalpcvs.is_set or self.dsx3intervalpcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalpcvs.get_name_leafdata())
+                if (self.dsx3intervalpess.is_set or self.dsx3intervalpess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalpess.get_name_leafdata())
+                if (self.dsx3intervalpsess.is_set or self.dsx3intervalpsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalpsess.get_name_leafdata())
+                if (self.dsx3intervalsefss.is_set or self.dsx3intervalsefss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalsefss.get_name_leafdata())
+                if (self.dsx3intervaluass.is_set or self.dsx3intervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervaluass.get_name_leafdata())
+                if (self.dsx3intervalvaliddata.is_set or self.dsx3intervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3intervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3IntervalIndex" or name == "dsx3IntervalNumber" or name == "dsx3IntervalCCVs" or name == "dsx3IntervalCESs" or name == "dsx3IntervalCSESs" or name == "dsx3IntervalLCVs" or name == "dsx3IntervalLESs" or name == "dsx3IntervalPCVs" or name == "dsx3IntervalPESs" or name == "dsx3IntervalPSESs" or name == "dsx3IntervalSEFSs" or name == "dsx3IntervalUASs" or name == "dsx3IntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3intervalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3IntervalIndex"):
+                    self.dsx3intervalindex = value
+                    self.dsx3intervalindex.value_namespace = name_space
+                    self.dsx3intervalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalNumber"):
+                    self.dsx3intervalnumber = value
+                    self.dsx3intervalnumber.value_namespace = name_space
+                    self.dsx3intervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalCCVs"):
+                    self.dsx3intervalccvs = value
+                    self.dsx3intervalccvs.value_namespace = name_space
+                    self.dsx3intervalccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalCESs"):
+                    self.dsx3intervalcess = value
+                    self.dsx3intervalcess.value_namespace = name_space
+                    self.dsx3intervalcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalCSESs"):
+                    self.dsx3intervalcsess = value
+                    self.dsx3intervalcsess.value_namespace = name_space
+                    self.dsx3intervalcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalLCVs"):
+                    self.dsx3intervallcvs = value
+                    self.dsx3intervallcvs.value_namespace = name_space
+                    self.dsx3intervallcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalLESs"):
+                    self.dsx3intervalless = value
+                    self.dsx3intervalless.value_namespace = name_space
+                    self.dsx3intervalless.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalPCVs"):
+                    self.dsx3intervalpcvs = value
+                    self.dsx3intervalpcvs.value_namespace = name_space
+                    self.dsx3intervalpcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalPESs"):
+                    self.dsx3intervalpess = value
+                    self.dsx3intervalpess.value_namespace = name_space
+                    self.dsx3intervalpess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalPSESs"):
+                    self.dsx3intervalpsess = value
+                    self.dsx3intervalpsess.value_namespace = name_space
+                    self.dsx3intervalpsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalSEFSs"):
+                    self.dsx3intervalsefss = value
+                    self.dsx3intervalsefss.value_namespace = name_space
+                    self.dsx3intervalsefss.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalUASs"):
+                    self.dsx3intervaluass = value
+                    self.dsx3intervaluass.value_namespace = name_space
+                    self.dsx3intervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3IntervalValidData"):
+                    self.dsx3intervalvaliddata = value
+                    self.dsx3intervalvaliddata.value_namespace = name_space
+                    self.dsx3intervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3intervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3intervalnumber is not None:
-                    return True
-
-                if self.dsx3intervalccvs is not None:
-                    return True
-
-                if self.dsx3intervalcess is not None:
-                    return True
-
-                if self.dsx3intervalcsess is not None:
-                    return True
-
-                if self.dsx3intervallcvs is not None:
-                    return True
-
-                if self.dsx3intervalless is not None:
-                    return True
-
-                if self.dsx3intervalpcvs is not None:
-                    return True
-
-                if self.dsx3intervalpess is not None:
-                    return True
-
-                if self.dsx3intervalpsess is not None:
-                    return True
-
-                if self.dsx3intervalsefss is not None:
-                    return True
-
-                if self.dsx3intervaluass is not None:
-                    return True
-
-                if self.dsx3intervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Intervaltable.Dsx3Intervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3IntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3intervalentry is not None:
-                for child_ref in self.dsx3intervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3intervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3IntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3IntervalEntry"):
+                for c in self.dsx3intervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Intervaltable.Dsx3Intervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3intervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3IntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Intervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Totaltable(object):
+    class Dsx3Totaltable(Entity):
         """
         The DS3/E3 Total Table contains the cumulative
         sum of the various statistics for the 24 hour
@@ -1201,13 +1798,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3totalentry = YList()
-            self.dsx3totalentry.parent = self
-            self.dsx3totalentry.name = 'dsx3totalentry'
+            super(Ds3Mib.Dsx3Totaltable, self).__init__()
+
+            self.yang_name = "dsx3TotalTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3totalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Totaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Totaltable, self).__setattr__(name, value)
 
 
-        class Dsx3Totalentry(object):
+        class Dsx3Totalentry(Entity):
             """
             An entry in the DS3/E3 Total table.
             
@@ -1296,95 +1919,253 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3totalindex = None
-                self.dsx3totalccvs = None
-                self.dsx3totalcess = None
-                self.dsx3totalcsess = None
-                self.dsx3totallcvs = None
-                self.dsx3totalless = None
-                self.dsx3totalpcvs = None
-                self.dsx3totalpess = None
-                self.dsx3totalpsess = None
-                self.dsx3totalsefss = None
-                self.dsx3totaluass = None
+                super(Ds3Mib.Dsx3Totaltable.Dsx3Totalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3totalindex is None:
-                    raise YPYModelError('Key property dsx3totalindex is None')
+                self.yang_name = "dsx3TotalEntry"
+                self.yang_parent_name = "dsx3TotalTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3TotalTable/DS3-MIB:dsx3TotalEntry[DS3-MIB:dsx3TotalIndex = ' + str(self.dsx3totalindex) + ']'
+                self.dsx3totalindex = YLeaf(YType.int32, "dsx3TotalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3totalccvs = YLeaf(YType.uint32, "dsx3TotalCCVs")
+
+                self.dsx3totalcess = YLeaf(YType.uint32, "dsx3TotalCESs")
+
+                self.dsx3totalcsess = YLeaf(YType.uint32, "dsx3TotalCSESs")
+
+                self.dsx3totallcvs = YLeaf(YType.uint32, "dsx3TotalLCVs")
+
+                self.dsx3totalless = YLeaf(YType.uint32, "dsx3TotalLESs")
+
+                self.dsx3totalpcvs = YLeaf(YType.uint32, "dsx3TotalPCVs")
+
+                self.dsx3totalpess = YLeaf(YType.uint32, "dsx3TotalPESs")
+
+                self.dsx3totalpsess = YLeaf(YType.uint32, "dsx3TotalPSESs")
+
+                self.dsx3totalsefss = YLeaf(YType.uint32, "dsx3TotalSEFSs")
+
+                self.dsx3totaluass = YLeaf(YType.uint32, "dsx3TotalUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3totalindex",
+                                "dsx3totalccvs",
+                                "dsx3totalcess",
+                                "dsx3totalcsess",
+                                "dsx3totallcvs",
+                                "dsx3totalless",
+                                "dsx3totalpcvs",
+                                "dsx3totalpess",
+                                "dsx3totalpsess",
+                                "dsx3totalsefss",
+                                "dsx3totaluass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Totaltable.Dsx3Totalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Totaltable.Dsx3Totalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3totalindex.is_set or
+                    self.dsx3totalccvs.is_set or
+                    self.dsx3totalcess.is_set or
+                    self.dsx3totalcsess.is_set or
+                    self.dsx3totallcvs.is_set or
+                    self.dsx3totalless.is_set or
+                    self.dsx3totalpcvs.is_set or
+                    self.dsx3totalpess.is_set or
+                    self.dsx3totalpsess.is_set or
+                    self.dsx3totalsefss.is_set or
+                    self.dsx3totaluass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3totalindex.yfilter != YFilter.not_set or
+                    self.dsx3totalccvs.yfilter != YFilter.not_set or
+                    self.dsx3totalcess.yfilter != YFilter.not_set or
+                    self.dsx3totalcsess.yfilter != YFilter.not_set or
+                    self.dsx3totallcvs.yfilter != YFilter.not_set or
+                    self.dsx3totalless.yfilter != YFilter.not_set or
+                    self.dsx3totalpcvs.yfilter != YFilter.not_set or
+                    self.dsx3totalpess.yfilter != YFilter.not_set or
+                    self.dsx3totalpsess.yfilter != YFilter.not_set or
+                    self.dsx3totalsefss.yfilter != YFilter.not_set or
+                    self.dsx3totaluass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3TotalEntry" + "[dsx3TotalIndex='" + self.dsx3totalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3TotalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3totalindex.is_set or self.dsx3totalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalindex.get_name_leafdata())
+                if (self.dsx3totalccvs.is_set or self.dsx3totalccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalccvs.get_name_leafdata())
+                if (self.dsx3totalcess.is_set or self.dsx3totalcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalcess.get_name_leafdata())
+                if (self.dsx3totalcsess.is_set or self.dsx3totalcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalcsess.get_name_leafdata())
+                if (self.dsx3totallcvs.is_set or self.dsx3totallcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totallcvs.get_name_leafdata())
+                if (self.dsx3totalless.is_set or self.dsx3totalless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalless.get_name_leafdata())
+                if (self.dsx3totalpcvs.is_set or self.dsx3totalpcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalpcvs.get_name_leafdata())
+                if (self.dsx3totalpess.is_set or self.dsx3totalpess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalpess.get_name_leafdata())
+                if (self.dsx3totalpsess.is_set or self.dsx3totalpsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalpsess.get_name_leafdata())
+                if (self.dsx3totalsefss.is_set or self.dsx3totalsefss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totalsefss.get_name_leafdata())
+                if (self.dsx3totaluass.is_set or self.dsx3totaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3totaluass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3TotalIndex" or name == "dsx3TotalCCVs" or name == "dsx3TotalCESs" or name == "dsx3TotalCSESs" or name == "dsx3TotalLCVs" or name == "dsx3TotalLESs" or name == "dsx3TotalPCVs" or name == "dsx3TotalPESs" or name == "dsx3TotalPSESs" or name == "dsx3TotalSEFSs" or name == "dsx3TotalUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3totalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3TotalIndex"):
+                    self.dsx3totalindex = value
+                    self.dsx3totalindex.value_namespace = name_space
+                    self.dsx3totalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalCCVs"):
+                    self.dsx3totalccvs = value
+                    self.dsx3totalccvs.value_namespace = name_space
+                    self.dsx3totalccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalCESs"):
+                    self.dsx3totalcess = value
+                    self.dsx3totalcess.value_namespace = name_space
+                    self.dsx3totalcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalCSESs"):
+                    self.dsx3totalcsess = value
+                    self.dsx3totalcsess.value_namespace = name_space
+                    self.dsx3totalcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalLCVs"):
+                    self.dsx3totallcvs = value
+                    self.dsx3totallcvs.value_namespace = name_space
+                    self.dsx3totallcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalLESs"):
+                    self.dsx3totalless = value
+                    self.dsx3totalless.value_namespace = name_space
+                    self.dsx3totalless.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalPCVs"):
+                    self.dsx3totalpcvs = value
+                    self.dsx3totalpcvs.value_namespace = name_space
+                    self.dsx3totalpcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalPESs"):
+                    self.dsx3totalpess = value
+                    self.dsx3totalpess.value_namespace = name_space
+                    self.dsx3totalpess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalPSESs"):
+                    self.dsx3totalpsess = value
+                    self.dsx3totalpsess.value_namespace = name_space
+                    self.dsx3totalpsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalSEFSs"):
+                    self.dsx3totalsefss = value
+                    self.dsx3totalsefss.value_namespace = name_space
+                    self.dsx3totalsefss.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3TotalUASs"):
+                    self.dsx3totaluass = value
+                    self.dsx3totaluass.value_namespace = name_space
+                    self.dsx3totaluass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3totalentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3totalccvs is not None:
-                    return True
-
-                if self.dsx3totalcess is not None:
-                    return True
-
-                if self.dsx3totalcsess is not None:
-                    return True
-
-                if self.dsx3totallcvs is not None:
-                    return True
-
-                if self.dsx3totalless is not None:
-                    return True
-
-                if self.dsx3totalpcvs is not None:
-                    return True
-
-                if self.dsx3totalpess is not None:
-                    return True
-
-                if self.dsx3totalpsess is not None:
-                    return True
-
-                if self.dsx3totalsefss is not None:
-                    return True
-
-                if self.dsx3totaluass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Totaltable.Dsx3Totalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3TotalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3totalentry is not None:
-                for child_ref in self.dsx3totalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3totalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3TotalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3TotalEntry"):
+                for c in self.dsx3totalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Totaltable.Dsx3Totalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3totalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3TotalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Totaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Farendconfigtable(object):
+    class Dsx3Farendconfigtable(Entity):
         """
         The DS3 Far End Configuration Table contains
         configuration information reported in the C\-bits
@@ -1403,13 +2184,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3farendconfigentry = YList()
-            self.dsx3farendconfigentry.parent = self
-            self.dsx3farendconfigentry.name = 'dsx3farendconfigentry'
+            super(Ds3Mib.Dsx3Farendconfigtable, self).__init__()
+
+            self.yang_name = "dsx3FarEndConfigTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3farendconfigentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Farendconfigtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Farendconfigtable, self).__setattr__(name, value)
 
 
-        class Dsx3Farendconfigentry(object):
+        class Dsx3Farendconfigentry(Entity):
             """
             An entry in the DS3 Far End Configuration table.
             
@@ -1463,75 +2270,198 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3farendlineindex = None
-                self.dsx3farendequipcode = None
-                self.dsx3farendfacilityidcode = None
-                self.dsx3farendframeidcode = None
-                self.dsx3farendlocationidcode = None
-                self.dsx3farendunitcode = None
+                super(Ds3Mib.Dsx3Farendconfigtable.Dsx3Farendconfigentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3farendlineindex is None:
-                    raise YPYModelError('Key property dsx3farendlineindex is None')
+                self.yang_name = "dsx3FarEndConfigEntry"
+                self.yang_parent_name = "dsx3FarEndConfigTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndConfigTable/DS3-MIB:dsx3FarEndConfigEntry[DS3-MIB:dsx3FarEndLineIndex = ' + str(self.dsx3farendlineindex) + ']'
+                self.dsx3farendlineindex = YLeaf(YType.int32, "dsx3FarEndLineIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3farendequipcode = YLeaf(YType.str, "dsx3FarEndEquipCode")
+
+                self.dsx3farendfacilityidcode = YLeaf(YType.str, "dsx3FarEndFacilityIDCode")
+
+                self.dsx3farendframeidcode = YLeaf(YType.str, "dsx3FarEndFrameIDCode")
+
+                self.dsx3farendlocationidcode = YLeaf(YType.str, "dsx3FarEndLocationIDCode")
+
+                self.dsx3farendunitcode = YLeaf(YType.str, "dsx3FarEndUnitCode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3farendlineindex",
+                                "dsx3farendequipcode",
+                                "dsx3farendfacilityidcode",
+                                "dsx3farendframeidcode",
+                                "dsx3farendlocationidcode",
+                                "dsx3farendunitcode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Farendconfigtable.Dsx3Farendconfigentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Farendconfigtable.Dsx3Farendconfigentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3farendlineindex.is_set or
+                    self.dsx3farendequipcode.is_set or
+                    self.dsx3farendfacilityidcode.is_set or
+                    self.dsx3farendframeidcode.is_set or
+                    self.dsx3farendlocationidcode.is_set or
+                    self.dsx3farendunitcode.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3farendlineindex.yfilter != YFilter.not_set or
+                    self.dsx3farendequipcode.yfilter != YFilter.not_set or
+                    self.dsx3farendfacilityidcode.yfilter != YFilter.not_set or
+                    self.dsx3farendframeidcode.yfilter != YFilter.not_set or
+                    self.dsx3farendlocationidcode.yfilter != YFilter.not_set or
+                    self.dsx3farendunitcode.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3FarEndConfigEntry" + "[dsx3FarEndLineIndex='" + self.dsx3farendlineindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3FarEndConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3farendlineindex.is_set or self.dsx3farendlineindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendlineindex.get_name_leafdata())
+                if (self.dsx3farendequipcode.is_set or self.dsx3farendequipcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendequipcode.get_name_leafdata())
+                if (self.dsx3farendfacilityidcode.is_set or self.dsx3farendfacilityidcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendfacilityidcode.get_name_leafdata())
+                if (self.dsx3farendframeidcode.is_set or self.dsx3farendframeidcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendframeidcode.get_name_leafdata())
+                if (self.dsx3farendlocationidcode.is_set or self.dsx3farendlocationidcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendlocationidcode.get_name_leafdata())
+                if (self.dsx3farendunitcode.is_set or self.dsx3farendunitcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendunitcode.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3FarEndLineIndex" or name == "dsx3FarEndEquipCode" or name == "dsx3FarEndFacilityIDCode" or name == "dsx3FarEndFrameIDCode" or name == "dsx3FarEndLocationIDCode" or name == "dsx3FarEndUnitCode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3farendlineindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3FarEndLineIndex"):
+                    self.dsx3farendlineindex = value
+                    self.dsx3farendlineindex.value_namespace = name_space
+                    self.dsx3farendlineindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndEquipCode"):
+                    self.dsx3farendequipcode = value
+                    self.dsx3farendequipcode.value_namespace = name_space
+                    self.dsx3farendequipcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndFacilityIDCode"):
+                    self.dsx3farendfacilityidcode = value
+                    self.dsx3farendfacilityidcode.value_namespace = name_space
+                    self.dsx3farendfacilityidcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndFrameIDCode"):
+                    self.dsx3farendframeidcode = value
+                    self.dsx3farendframeidcode.value_namespace = name_space
+                    self.dsx3farendframeidcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndLocationIDCode"):
+                    self.dsx3farendlocationidcode = value
+                    self.dsx3farendlocationidcode.value_namespace = name_space
+                    self.dsx3farendlocationidcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndUnitCode"):
+                    self.dsx3farendunitcode = value
+                    self.dsx3farendunitcode.value_namespace = name_space
+                    self.dsx3farendunitcode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3farendconfigentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3farendequipcode is not None:
-                    return True
-
-                if self.dsx3farendfacilityidcode is not None:
-                    return True
-
-                if self.dsx3farendframeidcode is not None:
-                    return True
-
-                if self.dsx3farendlocationidcode is not None:
-                    return True
-
-                if self.dsx3farendunitcode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Farendconfigtable.Dsx3Farendconfigentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3farendconfigentry is not None:
-                for child_ref in self.dsx3farendconfigentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3farendconfigentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3FarEndConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3FarEndConfigEntry"):
+                for c in self.dsx3farendconfigentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Farendconfigtable.Dsx3Farendconfigentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3farendconfigentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3FarEndConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Farendconfigtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Farendcurrenttable(object):
+    class Dsx3Farendcurrenttable(Entity):
         """
         The DS3 Far End Current table contains various
         statistics being collected for the current 15
@@ -1552,13 +2482,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3farendcurrententry = YList()
-            self.dsx3farendcurrententry.parent = self
-            self.dsx3farendcurrententry.name = 'dsx3farendcurrententry'
+            super(Ds3Mib.Dsx3Farendcurrenttable, self).__init__()
+
+            self.yang_name = "dsx3FarEndCurrentTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3farendcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Farendcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Farendcurrenttable, self).__setattr__(name, value)
 
 
-        class Dsx3Farendcurrententry(object):
+        class Dsx3Farendcurrententry(Entity):
             """
             An entry in the DS3 Far End Current table.
             
@@ -1626,83 +2582,220 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3farendcurrentindex = None
-                self.dsx3farendcurrentccvs = None
-                self.dsx3farendcurrentcess = None
-                self.dsx3farendcurrentcsess = None
-                self.dsx3farendcurrentuass = None
-                self.dsx3farendinvalidintervals = None
-                self.dsx3farendtimeelapsed = None
-                self.dsx3farendvalidintervals = None
+                super(Ds3Mib.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3farendcurrentindex is None:
-                    raise YPYModelError('Key property dsx3farendcurrentindex is None')
+                self.yang_name = "dsx3FarEndCurrentEntry"
+                self.yang_parent_name = "dsx3FarEndCurrentTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndCurrentTable/DS3-MIB:dsx3FarEndCurrentEntry[DS3-MIB:dsx3FarEndCurrentIndex = ' + str(self.dsx3farendcurrentindex) + ']'
+                self.dsx3farendcurrentindex = YLeaf(YType.int32, "dsx3FarEndCurrentIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3farendcurrentccvs = YLeaf(YType.uint32, "dsx3FarEndCurrentCCVs")
+
+                self.dsx3farendcurrentcess = YLeaf(YType.uint32, "dsx3FarEndCurrentCESs")
+
+                self.dsx3farendcurrentcsess = YLeaf(YType.uint32, "dsx3FarEndCurrentCSESs")
+
+                self.dsx3farendcurrentuass = YLeaf(YType.uint32, "dsx3FarEndCurrentUASs")
+
+                self.dsx3farendinvalidintervals = YLeaf(YType.int32, "dsx3FarEndInvalidIntervals")
+
+                self.dsx3farendtimeelapsed = YLeaf(YType.int32, "dsx3FarEndTimeElapsed")
+
+                self.dsx3farendvalidintervals = YLeaf(YType.int32, "dsx3FarEndValidIntervals")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3farendcurrentindex",
+                                "dsx3farendcurrentccvs",
+                                "dsx3farendcurrentcess",
+                                "dsx3farendcurrentcsess",
+                                "dsx3farendcurrentuass",
+                                "dsx3farendinvalidintervals",
+                                "dsx3farendtimeelapsed",
+                                "dsx3farendvalidintervals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3farendcurrentindex.is_set or
+                    self.dsx3farendcurrentccvs.is_set or
+                    self.dsx3farendcurrentcess.is_set or
+                    self.dsx3farendcurrentcsess.is_set or
+                    self.dsx3farendcurrentuass.is_set or
+                    self.dsx3farendinvalidintervals.is_set or
+                    self.dsx3farendtimeelapsed.is_set or
+                    self.dsx3farendvalidintervals.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3farendcurrentindex.yfilter != YFilter.not_set or
+                    self.dsx3farendcurrentccvs.yfilter != YFilter.not_set or
+                    self.dsx3farendcurrentcess.yfilter != YFilter.not_set or
+                    self.dsx3farendcurrentcsess.yfilter != YFilter.not_set or
+                    self.dsx3farendcurrentuass.yfilter != YFilter.not_set or
+                    self.dsx3farendinvalidintervals.yfilter != YFilter.not_set or
+                    self.dsx3farendtimeelapsed.yfilter != YFilter.not_set or
+                    self.dsx3farendvalidintervals.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3FarEndCurrentEntry" + "[dsx3FarEndCurrentIndex='" + self.dsx3farendcurrentindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3FarEndCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3farendcurrentindex.is_set or self.dsx3farendcurrentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendcurrentindex.get_name_leafdata())
+                if (self.dsx3farendcurrentccvs.is_set or self.dsx3farendcurrentccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendcurrentccvs.get_name_leafdata())
+                if (self.dsx3farendcurrentcess.is_set or self.dsx3farendcurrentcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendcurrentcess.get_name_leafdata())
+                if (self.dsx3farendcurrentcsess.is_set or self.dsx3farendcurrentcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendcurrentcsess.get_name_leafdata())
+                if (self.dsx3farendcurrentuass.is_set or self.dsx3farendcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendcurrentuass.get_name_leafdata())
+                if (self.dsx3farendinvalidintervals.is_set or self.dsx3farendinvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendinvalidintervals.get_name_leafdata())
+                if (self.dsx3farendtimeelapsed.is_set or self.dsx3farendtimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtimeelapsed.get_name_leafdata())
+                if (self.dsx3farendvalidintervals.is_set or self.dsx3farendvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendvalidintervals.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3FarEndCurrentIndex" or name == "dsx3FarEndCurrentCCVs" or name == "dsx3FarEndCurrentCESs" or name == "dsx3FarEndCurrentCSESs" or name == "dsx3FarEndCurrentUASs" or name == "dsx3FarEndInvalidIntervals" or name == "dsx3FarEndTimeElapsed" or name == "dsx3FarEndValidIntervals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3farendcurrentindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3FarEndCurrentIndex"):
+                    self.dsx3farendcurrentindex = value
+                    self.dsx3farendcurrentindex.value_namespace = name_space
+                    self.dsx3farendcurrentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndCurrentCCVs"):
+                    self.dsx3farendcurrentccvs = value
+                    self.dsx3farendcurrentccvs.value_namespace = name_space
+                    self.dsx3farendcurrentccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndCurrentCESs"):
+                    self.dsx3farendcurrentcess = value
+                    self.dsx3farendcurrentcess.value_namespace = name_space
+                    self.dsx3farendcurrentcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndCurrentCSESs"):
+                    self.dsx3farendcurrentcsess = value
+                    self.dsx3farendcurrentcsess.value_namespace = name_space
+                    self.dsx3farendcurrentcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndCurrentUASs"):
+                    self.dsx3farendcurrentuass = value
+                    self.dsx3farendcurrentuass.value_namespace = name_space
+                    self.dsx3farendcurrentuass.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndInvalidIntervals"):
+                    self.dsx3farendinvalidintervals = value
+                    self.dsx3farendinvalidintervals.value_namespace = name_space
+                    self.dsx3farendinvalidintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndTimeElapsed"):
+                    self.dsx3farendtimeelapsed = value
+                    self.dsx3farendtimeelapsed.value_namespace = name_space
+                    self.dsx3farendtimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndValidIntervals"):
+                    self.dsx3farendvalidintervals = value
+                    self.dsx3farendvalidintervals.value_namespace = name_space
+                    self.dsx3farendvalidintervals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3farendcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3farendcurrentccvs is not None:
-                    return True
-
-                if self.dsx3farendcurrentcess is not None:
-                    return True
-
-                if self.dsx3farendcurrentcsess is not None:
-                    return True
-
-                if self.dsx3farendcurrentuass is not None:
-                    return True
-
-                if self.dsx3farendinvalidintervals is not None:
-                    return True
-
-                if self.dsx3farendtimeelapsed is not None:
-                    return True
-
-                if self.dsx3farendvalidintervals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Farendcurrenttable.Dsx3Farendcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3farendcurrententry is not None:
-                for child_ref in self.dsx3farendcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3farendcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3FarEndCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3FarEndCurrentEntry"):
+                for c in self.dsx3farendcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Farendcurrenttable.Dsx3Farendcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3farendcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3FarEndCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Farendcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Farendintervaltable(object):
+    class Dsx3Farendintervaltable(Entity):
         """
         The DS3 Far End Interval Table contains various
         statistics collected by each DS3 interface over
@@ -1723,13 +2816,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3farendintervalentry = YList()
-            self.dsx3farendintervalentry.parent = self
-            self.dsx3farendintervalentry.name = 'dsx3farendintervalentry'
+            super(Ds3Mib.Dsx3Farendintervaltable, self).__init__()
+
+            self.yang_name = "dsx3FarEndIntervalTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3farendintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Farendintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Farendintervaltable, self).__setattr__(name, value)
 
 
-        class Dsx3Farendintervalentry(object):
+        class Dsx3Farendintervalentry(Entity):
             """
             An entry in the DS3 Far End Interval table.
             
@@ -1788,81 +2907,209 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3farendintervalindex = None
-                self.dsx3farendintervalnumber = None
-                self.dsx3farendintervalccvs = None
-                self.dsx3farendintervalcess = None
-                self.dsx3farendintervalcsess = None
-                self.dsx3farendintervaluass = None
-                self.dsx3farendintervalvaliddata = None
+                super(Ds3Mib.Dsx3Farendintervaltable.Dsx3Farendintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3farendintervalindex is None:
-                    raise YPYModelError('Key property dsx3farendintervalindex is None')
-                if self.dsx3farendintervalnumber is None:
-                    raise YPYModelError('Key property dsx3farendintervalnumber is None')
+                self.yang_name = "dsx3FarEndIntervalEntry"
+                self.yang_parent_name = "dsx3FarEndIntervalTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndIntervalTable/DS3-MIB:dsx3FarEndIntervalEntry[DS3-MIB:dsx3FarEndIntervalIndex = ' + str(self.dsx3farendintervalindex) + '][DS3-MIB:dsx3FarEndIntervalNumber = ' + str(self.dsx3farendintervalnumber) + ']'
+                self.dsx3farendintervalindex = YLeaf(YType.int32, "dsx3FarEndIntervalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3farendintervalnumber = YLeaf(YType.int32, "dsx3FarEndIntervalNumber")
+
+                self.dsx3farendintervalccvs = YLeaf(YType.uint32, "dsx3FarEndIntervalCCVs")
+
+                self.dsx3farendintervalcess = YLeaf(YType.uint32, "dsx3FarEndIntervalCESs")
+
+                self.dsx3farendintervalcsess = YLeaf(YType.uint32, "dsx3FarEndIntervalCSESs")
+
+                self.dsx3farendintervaluass = YLeaf(YType.uint32, "dsx3FarEndIntervalUASs")
+
+                self.dsx3farendintervalvaliddata = YLeaf(YType.boolean, "dsx3FarEndIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3farendintervalindex",
+                                "dsx3farendintervalnumber",
+                                "dsx3farendintervalccvs",
+                                "dsx3farendintervalcess",
+                                "dsx3farendintervalcsess",
+                                "dsx3farendintervaluass",
+                                "dsx3farendintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Farendintervaltable.Dsx3Farendintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Farendintervaltable.Dsx3Farendintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3farendintervalindex.is_set or
+                    self.dsx3farendintervalnumber.is_set or
+                    self.dsx3farendintervalccvs.is_set or
+                    self.dsx3farendintervalcess.is_set or
+                    self.dsx3farendintervalcsess.is_set or
+                    self.dsx3farendintervaluass.is_set or
+                    self.dsx3farendintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalindex.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalnumber.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalccvs.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalcess.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalcsess.yfilter != YFilter.not_set or
+                    self.dsx3farendintervaluass.yfilter != YFilter.not_set or
+                    self.dsx3farendintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3FarEndIntervalEntry" + "[dsx3FarEndIntervalIndex='" + self.dsx3farendintervalindex.get() + "']" + "[dsx3FarEndIntervalNumber='" + self.dsx3farendintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3FarEndIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3farendintervalindex.is_set or self.dsx3farendintervalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalindex.get_name_leafdata())
+                if (self.dsx3farendintervalnumber.is_set or self.dsx3farendintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalnumber.get_name_leafdata())
+                if (self.dsx3farendintervalccvs.is_set or self.dsx3farendintervalccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalccvs.get_name_leafdata())
+                if (self.dsx3farendintervalcess.is_set or self.dsx3farendintervalcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalcess.get_name_leafdata())
+                if (self.dsx3farendintervalcsess.is_set or self.dsx3farendintervalcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalcsess.get_name_leafdata())
+                if (self.dsx3farendintervaluass.is_set or self.dsx3farendintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervaluass.get_name_leafdata())
+                if (self.dsx3farendintervalvaliddata.is_set or self.dsx3farendintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3FarEndIntervalIndex" or name == "dsx3FarEndIntervalNumber" or name == "dsx3FarEndIntervalCCVs" or name == "dsx3FarEndIntervalCESs" or name == "dsx3FarEndIntervalCSESs" or name == "dsx3FarEndIntervalUASs" or name == "dsx3FarEndIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3farendintervalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3FarEndIntervalIndex"):
+                    self.dsx3farendintervalindex = value
+                    self.dsx3farendintervalindex.value_namespace = name_space
+                    self.dsx3farendintervalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalNumber"):
+                    self.dsx3farendintervalnumber = value
+                    self.dsx3farendintervalnumber.value_namespace = name_space
+                    self.dsx3farendintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalCCVs"):
+                    self.dsx3farendintervalccvs = value
+                    self.dsx3farendintervalccvs.value_namespace = name_space
+                    self.dsx3farendintervalccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalCESs"):
+                    self.dsx3farendintervalcess = value
+                    self.dsx3farendintervalcess.value_namespace = name_space
+                    self.dsx3farendintervalcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalCSESs"):
+                    self.dsx3farendintervalcsess = value
+                    self.dsx3farendintervalcsess.value_namespace = name_space
+                    self.dsx3farendintervalcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalUASs"):
+                    self.dsx3farendintervaluass = value
+                    self.dsx3farendintervaluass.value_namespace = name_space
+                    self.dsx3farendintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndIntervalValidData"):
+                    self.dsx3farendintervalvaliddata = value
+                    self.dsx3farendintervalvaliddata.value_namespace = name_space
+                    self.dsx3farendintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3farendintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3farendintervalnumber is not None:
-                    return True
-
-                if self.dsx3farendintervalccvs is not None:
-                    return True
-
-                if self.dsx3farendintervalcess is not None:
-                    return True
-
-                if self.dsx3farendintervalcsess is not None:
-                    return True
-
-                if self.dsx3farendintervaluass is not None:
-                    return True
-
-                if self.dsx3farendintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Farendintervaltable.Dsx3Farendintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3farendintervalentry is not None:
-                for child_ref in self.dsx3farendintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3farendintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3FarEndIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3FarEndIntervalEntry"):
+                for c in self.dsx3farendintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Farendintervaltable.Dsx3Farendintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3farendintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3FarEndIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Farendintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Farendtotaltable(object):
+    class Dsx3Farendtotaltable(Entity):
         """
         The DS3 Far End Total Table contains the
         cumulative sum of the various statistics for the
@@ -1881,13 +3128,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3farendtotalentry = YList()
-            self.dsx3farendtotalentry.parent = self
-            self.dsx3farendtotalentry.name = 'dsx3farendtotalentry'
+            super(Ds3Mib.Dsx3Farendtotaltable, self).__init__()
+
+            self.yang_name = "dsx3FarEndTotalTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3farendtotalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Farendtotaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Farendtotaltable, self).__setattr__(name, value)
 
 
-        class Dsx3Farendtotalentry(object):
+        class Dsx3Farendtotalentry(Entity):
             """
             An entry in the DS3 Far End Total table.
             
@@ -1934,71 +3207,187 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3farendtotalindex = None
-                self.dsx3farendtotalccvs = None
-                self.dsx3farendtotalcess = None
-                self.dsx3farendtotalcsess = None
-                self.dsx3farendtotaluass = None
+                super(Ds3Mib.Dsx3Farendtotaltable.Dsx3Farendtotalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3farendtotalindex is None:
-                    raise YPYModelError('Key property dsx3farendtotalindex is None')
+                self.yang_name = "dsx3FarEndTotalEntry"
+                self.yang_parent_name = "dsx3FarEndTotalTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndTotalTable/DS3-MIB:dsx3FarEndTotalEntry[DS3-MIB:dsx3FarEndTotalIndex = ' + str(self.dsx3farendtotalindex) + ']'
+                self.dsx3farendtotalindex = YLeaf(YType.int32, "dsx3FarEndTotalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3farendtotalccvs = YLeaf(YType.uint32, "dsx3FarEndTotalCCVs")
+
+                self.dsx3farendtotalcess = YLeaf(YType.uint32, "dsx3FarEndTotalCESs")
+
+                self.dsx3farendtotalcsess = YLeaf(YType.uint32, "dsx3FarEndTotalCSESs")
+
+                self.dsx3farendtotaluass = YLeaf(YType.uint32, "dsx3FarEndTotalUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3farendtotalindex",
+                                "dsx3farendtotalccvs",
+                                "dsx3farendtotalcess",
+                                "dsx3farendtotalcsess",
+                                "dsx3farendtotaluass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Farendtotaltable.Dsx3Farendtotalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Farendtotaltable.Dsx3Farendtotalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3farendtotalindex.is_set or
+                    self.dsx3farendtotalccvs.is_set or
+                    self.dsx3farendtotalcess.is_set or
+                    self.dsx3farendtotalcsess.is_set or
+                    self.dsx3farendtotaluass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3farendtotalindex.yfilter != YFilter.not_set or
+                    self.dsx3farendtotalccvs.yfilter != YFilter.not_set or
+                    self.dsx3farendtotalcess.yfilter != YFilter.not_set or
+                    self.dsx3farendtotalcsess.yfilter != YFilter.not_set or
+                    self.dsx3farendtotaluass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3FarEndTotalEntry" + "[dsx3FarEndTotalIndex='" + self.dsx3farendtotalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3FarEndTotalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3farendtotalindex.is_set or self.dsx3farendtotalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtotalindex.get_name_leafdata())
+                if (self.dsx3farendtotalccvs.is_set or self.dsx3farendtotalccvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtotalccvs.get_name_leafdata())
+                if (self.dsx3farendtotalcess.is_set or self.dsx3farendtotalcess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtotalcess.get_name_leafdata())
+                if (self.dsx3farendtotalcsess.is_set or self.dsx3farendtotalcsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtotalcsess.get_name_leafdata())
+                if (self.dsx3farendtotaluass.is_set or self.dsx3farendtotaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3farendtotaluass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3FarEndTotalIndex" or name == "dsx3FarEndTotalCCVs" or name == "dsx3FarEndTotalCESs" or name == "dsx3FarEndTotalCSESs" or name == "dsx3FarEndTotalUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3farendtotalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3FarEndTotalIndex"):
+                    self.dsx3farendtotalindex = value
+                    self.dsx3farendtotalindex.value_namespace = name_space
+                    self.dsx3farendtotalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndTotalCCVs"):
+                    self.dsx3farendtotalccvs = value
+                    self.dsx3farendtotalccvs.value_namespace = name_space
+                    self.dsx3farendtotalccvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndTotalCESs"):
+                    self.dsx3farendtotalcess = value
+                    self.dsx3farendtotalcess.value_namespace = name_space
+                    self.dsx3farendtotalcess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndTotalCSESs"):
+                    self.dsx3farendtotalcsess = value
+                    self.dsx3farendtotalcsess.value_namespace = name_space
+                    self.dsx3farendtotalcsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FarEndTotalUASs"):
+                    self.dsx3farendtotaluass = value
+                    self.dsx3farendtotaluass.value_namespace = name_space
+                    self.dsx3farendtotaluass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3farendtotalentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3farendtotalccvs is not None:
-                    return True
-
-                if self.dsx3farendtotalcess is not None:
-                    return True
-
-                if self.dsx3farendtotalcsess is not None:
-                    return True
-
-                if self.dsx3farendtotaluass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Farendtotaltable.Dsx3Farendtotalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FarEndTotalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3farendtotalentry is not None:
-                for child_ref in self.dsx3farendtotalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3farendtotalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3FarEndTotalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3FarEndTotalEntry"):
+                for c in self.dsx3farendtotalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Farendtotaltable.Dsx3Farendtotalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3farendtotalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3FarEndTotalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Farendtotaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dsx3Fractable(object):
+    class Dsx3Fractable(Entity):
         """
         This table is deprecated in favour of using
         ifStackTable.
@@ -2057,13 +3446,39 @@ class Ds3Mib(object):
         _revision = '1998-08-01'
 
         def __init__(self):
-            self.parent = None
-            self.dsx3fracentry = YList()
-            self.dsx3fracentry.parent = self
-            self.dsx3fracentry.name = 'dsx3fracentry'
+            super(Ds3Mib.Dsx3Fractable, self).__init__()
+
+            self.yang_name = "dsx3FracTable"
+            self.yang_parent_name = "DS3-MIB"
+
+            self.dsx3fracentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ds3Mib.Dsx3Fractable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ds3Mib.Dsx3Fractable, self).__setattr__(name, value)
 
 
-        class Dsx3Fracentry(object):
+        class Dsx3Fracentry(Entity):
             """
             An entry in the DS3 Fractional table.
             
@@ -2102,105 +3517,284 @@ class Ds3Mib(object):
             _revision = '1998-08-01'
 
             def __init__(self):
-                self.parent = None
-                self.dsx3fracindex = None
-                self.dsx3fracnumber = None
-                self.dsx3fracifindex = None
+                super(Ds3Mib.Dsx3Fractable.Dsx3Fracentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dsx3fracindex is None:
-                    raise YPYModelError('Key property dsx3fracindex is None')
-                if self.dsx3fracnumber is None:
-                    raise YPYModelError('Key property dsx3fracnumber is None')
+                self.yang_name = "dsx3FracEntry"
+                self.yang_parent_name = "dsx3FracTable"
 
-                return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FracTable/DS3-MIB:dsx3FracEntry[DS3-MIB:dsx3FracIndex = ' + str(self.dsx3fracindex) + '][DS3-MIB:dsx3FracNumber = ' + str(self.dsx3fracnumber) + ']'
+                self.dsx3fracindex = YLeaf(YType.int32, "dsx3FracIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dsx3fracnumber = YLeaf(YType.int32, "dsx3FracNumber")
+
+                self.dsx3fracifindex = YLeaf(YType.int32, "dsx3FracIfIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dsx3fracindex",
+                                "dsx3fracnumber",
+                                "dsx3fracifindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ds3Mib.Dsx3Fractable.Dsx3Fracentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ds3Mib.Dsx3Fractable.Dsx3Fracentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dsx3fracindex.is_set or
+                    self.dsx3fracnumber.is_set or
+                    self.dsx3fracifindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dsx3fracindex.yfilter != YFilter.not_set or
+                    self.dsx3fracnumber.yfilter != YFilter.not_set or
+                    self.dsx3fracifindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dsx3FracEntry" + "[dsx3FracIndex='" + self.dsx3fracindex.get() + "']" + "[dsx3FracNumber='" + self.dsx3fracnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "DS3-MIB:DS3-MIB/dsx3FracTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dsx3fracindex.is_set or self.dsx3fracindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3fracindex.get_name_leafdata())
+                if (self.dsx3fracnumber.is_set or self.dsx3fracnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3fracnumber.get_name_leafdata())
+                if (self.dsx3fracifindex.is_set or self.dsx3fracifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dsx3fracifindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dsx3FracIndex" or name == "dsx3FracNumber" or name == "dsx3FracIfIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dsx3fracindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dsx3FracIndex"):
+                    self.dsx3fracindex = value
+                    self.dsx3fracindex.value_namespace = name_space
+                    self.dsx3fracindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FracNumber"):
+                    self.dsx3fracnumber = value
+                    self.dsx3fracnumber.value_namespace = name_space
+                    self.dsx3fracnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "dsx3FracIfIndex"):
+                    self.dsx3fracifindex = value
+                    self.dsx3fracifindex.value_namespace = name_space
+                    self.dsx3fracifindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dsx3fracentry:
+                if (c.has_data()):
                     return True
-
-                if self.dsx3fracnumber is not None:
-                    return True
-
-                if self.dsx3fracifindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-                return meta._meta_table['Ds3Mib.Dsx3Fractable.Dsx3Fracentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/DS3-MIB:DS3-MIB/DS3-MIB:dsx3FracTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dsx3fracentry is not None:
-                for child_ref in self.dsx3fracentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dsx3fracentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dsx3FracTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "DS3-MIB:DS3-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dsx3FracEntry"):
+                for c in self.dsx3fracentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ds3Mib.Dsx3Fractable.Dsx3Fracentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dsx3fracentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dsx3FracEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-            return meta._meta_table['Ds3Mib.Dsx3Fractable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.dsx3configtable is not None and self.dsx3configtable.has_data()) or
+            (self.dsx3currenttable is not None and self.dsx3currenttable.has_data()) or
+            (self.dsx3farendconfigtable is not None and self.dsx3farendconfigtable.has_data()) or
+            (self.dsx3farendcurrenttable is not None and self.dsx3farendcurrenttable.has_data()) or
+            (self.dsx3farendintervaltable is not None and self.dsx3farendintervaltable.has_data()) or
+            (self.dsx3farendtotaltable is not None and self.dsx3farendtotaltable.has_data()) or
+            (self.dsx3fractable is not None and self.dsx3fractable.has_data()) or
+            (self.dsx3intervaltable is not None and self.dsx3intervaltable.has_data()) or
+            (self.dsx3totaltable is not None and self.dsx3totaltable.has_data()))
 
-        return '/DS3-MIB:DS3-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.dsx3configtable is not None and self.dsx3configtable.has_operation()) or
+            (self.dsx3currenttable is not None and self.dsx3currenttable.has_operation()) or
+            (self.dsx3farendconfigtable is not None and self.dsx3farendconfigtable.has_operation()) or
+            (self.dsx3farendcurrenttable is not None and self.dsx3farendcurrenttable.has_operation()) or
+            (self.dsx3farendintervaltable is not None and self.dsx3farendintervaltable.has_operation()) or
+            (self.dsx3farendtotaltable is not None and self.dsx3farendtotaltable.has_operation()) or
+            (self.dsx3fractable is not None and self.dsx3fractable.has_operation()) or
+            (self.dsx3intervaltable is not None and self.dsx3intervaltable.has_operation()) or
+            (self.dsx3totaltable is not None and self.dsx3totaltable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "DS3-MIB:DS3-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "dsx3ConfigTable"):
+            if (self.dsx3configtable is None):
+                self.dsx3configtable = Ds3Mib.Dsx3Configtable()
+                self.dsx3configtable.parent = self
+                self._children_name_map["dsx3configtable"] = "dsx3ConfigTable"
+            return self.dsx3configtable
+
+        if (child_yang_name == "dsx3CurrentTable"):
+            if (self.dsx3currenttable is None):
+                self.dsx3currenttable = Ds3Mib.Dsx3Currenttable()
+                self.dsx3currenttable.parent = self
+                self._children_name_map["dsx3currenttable"] = "dsx3CurrentTable"
+            return self.dsx3currenttable
+
+        if (child_yang_name == "dsx3FarEndConfigTable"):
+            if (self.dsx3farendconfigtable is None):
+                self.dsx3farendconfigtable = Ds3Mib.Dsx3Farendconfigtable()
+                self.dsx3farendconfigtable.parent = self
+                self._children_name_map["dsx3farendconfigtable"] = "dsx3FarEndConfigTable"
+            return self.dsx3farendconfigtable
+
+        if (child_yang_name == "dsx3FarEndCurrentTable"):
+            if (self.dsx3farendcurrenttable is None):
+                self.dsx3farendcurrenttable = Ds3Mib.Dsx3Farendcurrenttable()
+                self.dsx3farendcurrenttable.parent = self
+                self._children_name_map["dsx3farendcurrenttable"] = "dsx3FarEndCurrentTable"
+            return self.dsx3farendcurrenttable
+
+        if (child_yang_name == "dsx3FarEndIntervalTable"):
+            if (self.dsx3farendintervaltable is None):
+                self.dsx3farendintervaltable = Ds3Mib.Dsx3Farendintervaltable()
+                self.dsx3farendintervaltable.parent = self
+                self._children_name_map["dsx3farendintervaltable"] = "dsx3FarEndIntervalTable"
+            return self.dsx3farendintervaltable
+
+        if (child_yang_name == "dsx3FarEndTotalTable"):
+            if (self.dsx3farendtotaltable is None):
+                self.dsx3farendtotaltable = Ds3Mib.Dsx3Farendtotaltable()
+                self.dsx3farendtotaltable.parent = self
+                self._children_name_map["dsx3farendtotaltable"] = "dsx3FarEndTotalTable"
+            return self.dsx3farendtotaltable
+
+        if (child_yang_name == "dsx3FracTable"):
+            if (self.dsx3fractable is None):
+                self.dsx3fractable = Ds3Mib.Dsx3Fractable()
+                self.dsx3fractable.parent = self
+                self._children_name_map["dsx3fractable"] = "dsx3FracTable"
+            return self.dsx3fractable
+
+        if (child_yang_name == "dsx3IntervalTable"):
+            if (self.dsx3intervaltable is None):
+                self.dsx3intervaltable = Ds3Mib.Dsx3Intervaltable()
+                self.dsx3intervaltable.parent = self
+                self._children_name_map["dsx3intervaltable"] = "dsx3IntervalTable"
+            return self.dsx3intervaltable
+
+        if (child_yang_name == "dsx3TotalTable"):
+            if (self.dsx3totaltable is None):
+                self.dsx3totaltable = Ds3Mib.Dsx3Totaltable()
+                self.dsx3totaltable.parent = self
+                self._children_name_map["dsx3totaltable"] = "dsx3TotalTable"
+            return self.dsx3totaltable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "dsx3ConfigTable" or name == "dsx3CurrentTable" or name == "dsx3FarEndConfigTable" or name == "dsx3FarEndCurrentTable" or name == "dsx3FarEndIntervalTable" or name == "dsx3FarEndTotalTable" or name == "dsx3FracTable" or name == "dsx3IntervalTable" or name == "dsx3TotalTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.dsx3configtable is not None and self.dsx3configtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.dsx3currenttable is not None and self.dsx3currenttable._has_data():
-            return True
-
-        if self.dsx3farendconfigtable is not None and self.dsx3farendconfigtable._has_data():
-            return True
-
-        if self.dsx3farendcurrenttable is not None and self.dsx3farendcurrenttable._has_data():
-            return True
-
-        if self.dsx3farendintervaltable is not None and self.dsx3farendintervaltable._has_data():
-            return True
-
-        if self.dsx3farendtotaltable is not None and self.dsx3farendtotaltable._has_data():
-            return True
-
-        if self.dsx3fractable is not None and self.dsx3fractable._has_data():
-            return True
-
-        if self.dsx3intervaltable is not None and self.dsx3intervaltable._has_data():
-            return True
-
-        if self.dsx3totaltable is not None and self.dsx3totaltable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _DS3_MIB as meta
-        return meta._meta_table['Ds3Mib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Ds3Mib()
+        return self._top_entity
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class InfraLtraceModeEnum(Enum):
+class InfraLtraceMode(Enum):
     """
-    InfraLtraceModeEnum
+    InfraLtraceMode
 
     Infra ltrace mode
 
@@ -40,20 +34,14 @@ class InfraLtraceModeEnum(Enum):
 
     """
 
-    static = 1
+    static = Enum.YLeaf(1, "static")
 
-    dynamic = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_ltrace_cfg as meta
-        return meta._meta_table['InfraLtraceModeEnum']
+    dynamic = Enum.YLeaf(2, "dynamic")
 
 
-class InfraLtraceScaleEnum(Enum):
+class InfraLtraceScale(Enum):
     """
-    InfraLtraceScaleEnum
+    InfraLtraceScale
 
     Infra ltrace scale
 
@@ -83,23 +71,17 @@ class InfraLtraceScaleEnum(Enum):
 
     """
 
-    Y_0 = 0
+    Y_0 = Enum.YLeaf(0, "0")
 
-    Y_1 = 1
+    Y_1 = Enum.YLeaf(1, "1")
 
-    Y_2 = 2
+    Y_2 = Enum.YLeaf(2, "2")
 
-    Y_4 = 4
+    Y_4 = Enum.YLeaf(4, "4")
 
-    Y_8 = 8
+    Y_8 = Enum.YLeaf(8, "8")
 
-    Y_16 = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_ltrace_cfg as meta
-        return meta._meta_table['InfraLtraceScaleEnum']
+    Y_16 = Enum.YLeaf(16, "16")
 
 
 

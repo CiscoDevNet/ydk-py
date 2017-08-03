@@ -6,22 +6,16 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AccessListInOutTypeEnum(Enum):
+class AccessListInOutType(Enum):
     """
-    AccessListInOutTypeEnum
+    AccessListInOutType
 
     Access list in and out
 
@@ -35,20 +29,14 @@ class AccessListInOutTypeEnum(Enum):
 
     """
 
-    in_ = 0
+    in_ = Enum.YLeaf(0, "in")
 
-    out = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ospf as meta
-        return meta._meta_table['AccessListInOutTypeEnum']
+    out = Enum.YLeaf(1, "out")
 
 
-class OspfExternalTypeEnum(Enum):
+class OspfExternalType(Enum):
     """
-    OspfExternalTypeEnum
+    OspfExternalType
 
     external route types
 
@@ -62,20 +50,14 @@ class OspfExternalTypeEnum(Enum):
 
     """
 
-    Y_1 = 0
+    Y_1 = Enum.YLeaf(0, "1")
 
-    Y_2 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ospf as meta
-        return meta._meta_table['OspfExternalTypeEnum']
+    Y_2 = Enum.YLeaf(1, "2")
 
 
-class OspfLogAdjEnum(Enum):
+class OspfLogAdj(Enum):
     """
-    OspfLogAdjEnum
+    OspfLogAdj
 
     Ospf log adjacency changes
 
@@ -93,22 +75,16 @@ class OspfLogAdjEnum(Enum):
 
     """
 
-    enable = 0
+    enable = Enum.YLeaf(0, "enable")
 
-    detail = 1
+    detail = Enum.YLeaf(1, "detail")
 
-    disable = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ospf as meta
-        return meta._meta_table['OspfLogAdjEnum']
+    disable = Enum.YLeaf(2, "disable")
 
 
-class PrefixApplicabilityEnum(Enum):
+class PrefixApplicability(Enum):
     """
-    PrefixApplicabilityEnum
+    PrefixApplicability
 
     Ospf uloop avoidance
 
@@ -122,15 +98,9 @@ class PrefixApplicabilityEnum(Enum):
 
     """
 
-    protected = 1
+    protected = Enum.YLeaf(1, "protected")
 
-    all = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ospf as meta
-        return meta._meta_table['PrefixApplicabilityEnum']
+    all = Enum.YLeaf(2, "all")
 
 
 

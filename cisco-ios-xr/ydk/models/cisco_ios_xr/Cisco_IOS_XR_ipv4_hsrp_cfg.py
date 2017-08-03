@@ -15,22 +15,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class HsrpLinklocalEnum(Enum):
+class HsrpLinklocal(Enum):
     """
-    HsrpLinklocalEnum
+    HsrpLinklocal
 
     Hsrp linklocal
 
@@ -50,21 +44,15 @@ class HsrpLinklocalEnum(Enum):
 
     """
 
-    manual = 0
+    manual = Enum.YLeaf(0, "manual")
 
-    auto = 1
+    auto = Enum.YLeaf(1, "auto")
 
-    legacy = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-        return meta._meta_table['HsrpLinklocalEnum']
+    legacy = Enum.YLeaf(2, "legacy")
 
 
 
-class Hsrp(object):
+class Hsrp(Entity):
     """
     HSRP configuration
     
@@ -86,13 +74,24 @@ class Hsrp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Hsrp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hsrp"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-hsrp-cfg"
+
         self.interfaces = Hsrp.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.logging = Hsrp.Logging()
         self.logging.parent = self
+        self._children_name_map["logging"] = "logging"
+        self._children_yang_names.add("logging")
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         Interface Table for HSRP configuration
         
@@ -109,13 +108,39 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(Hsrp.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "hsrp"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Hsrp.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Hsrp.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             Per\-interface HSRP configuration
             
@@ -173,22 +198,68 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
+                super(Hsrp.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.mac_refresh = YLeaf(YType.uint32, "mac-refresh")
+
+                self.redirects_disable = YLeaf(YType.empty, "redirects-disable")
+
+                self.use_bia = YLeaf(YType.empty, "use-bia")
+
                 self.bfd = Hsrp.Interfaces.Interface.Bfd()
                 self.bfd.parent = self
+                self._children_name_map["bfd"] = "bfd"
+                self._children_yang_names.add("bfd")
+
                 self.delay = Hsrp.Interfaces.Interface.Delay()
                 self.delay.parent = self
+                self._children_name_map["delay"] = "delay"
+                self._children_yang_names.add("delay")
+
                 self.ipv4 = Hsrp.Interfaces.Interface.Ipv4()
                 self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+                self._children_yang_names.add("ipv4")
+
                 self.ipv6 = Hsrp.Interfaces.Interface.Ipv6()
                 self.ipv6.parent = self
-                self.mac_refresh = None
-                self.redirects_disable = None
-                self.use_bia = None
+                self._children_name_map["ipv6"] = "ipv6"
+                self._children_yang_names.add("ipv6")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "mac_refresh",
+                                "redirects_disable",
+                                "use_bia") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Interfaces.Interface, self).__setattr__(name, value)
 
 
-            class Ipv6(object):
+            class Ipv6(Entity):
                 """
                 IPv6 HSRP configuration
                 
@@ -210,14 +281,23 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Hsrp.Interfaces.Interface.Ipv6, self).__init__()
+
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "interface"
+
                     self.slave_groups = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups()
                     self.slave_groups.parent = self
+                    self._children_name_map["slave_groups"] = "slave-groups"
+                    self._children_yang_names.add("slave-groups")
+
                     self.version2 = Hsrp.Interfaces.Interface.Ipv6.Version2()
                     self.version2.parent = self
+                    self._children_name_map["version2"] = "version2"
+                    self._children_yang_names.add("version2")
 
 
-                class Version2(object):
+                class Version2(Entity):
                     """
                     Version 2 HSRP configuration
                     
@@ -234,12 +314,18 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Hsrp.Interfaces.Interface.Ipv6.Version2, self).__init__()
+
+                        self.yang_name = "version2"
+                        self.yang_parent_name = "ipv6"
+
                         self.groups = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups()
                         self.groups.parent = self
+                        self._children_name_map["groups"] = "groups"
+                        self._children_yang_names.add("groups")
 
 
-                    class Groups(object):
+                    class Groups(Entity):
                         """
                         The HSRP group configuration table
                         
@@ -256,13 +342,39 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.group = YList()
-                            self.group.parent = self
-                            self.group.name = 'group'
+                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups, self).__init__()
+
+                            self.yang_name = "groups"
+                            self.yang_parent_name = "version2"
+
+                            self.group = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups, self).__setattr__(name, value)
 
 
-                        class Group(object):
+                        class Group(Entity):
                             """
                             The HSRP group being configured
                             
@@ -343,27 +455,81 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.group_number = None
+                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group, self).__init__()
+
+                                self.yang_name = "group"
+                                self.yang_parent_name = "groups"
+
+                                self.group_number = YLeaf(YType.uint32, "group-number")
+
+                                self.preempt = YLeaf(YType.int32, "preempt")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd()
                                 self.bfd.parent = self
+                                self._children_name_map["bfd"] = "bfd"
+                                self._children_yang_names.add("bfd")
+
                                 self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses()
                                 self.global_ipv6_addresses.parent = self
+                                self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                self._children_yang_names.add("global-ipv6-addresses")
+
                                 self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address()
                                 self.link_local_ipv6_address.parent = self
-                                self.preempt = None
-                                self.priority = None
-                                self.session_name = None
+                                self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                self._children_yang_names.add("link-local-ipv6-address")
+
                                 self.timers = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers()
                                 self.timers.parent = self
+                                self._children_name_map["timers"] = "timers"
+                                self._children_yang_names.add("timers")
+
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
+                                self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                self._children_yang_names.add("tracked-interfaces")
+
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
-                                self.virtual_mac_address = None
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("group_number",
+                                                "preempt",
+                                                "priority",
+                                                "session_name",
+                                                "virtual_mac_address") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group, self).__setattr__(name, value)
 
 
-                            class Bfd(object):
+                            class Bfd(Entity):
                                 """
                                 Enable use of Bidirectional Forwarding
                                 Detection
@@ -390,37 +556,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.interface_name = None
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "bfd"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:bfd'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "interface_name") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.interface_name.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "bfd" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "interface-name"):
                                         return True
-
-                                    if self.interface_name is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-                            class TrackedInterfaces(object):
+                            class TrackedInterfaces(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -438,13 +664,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_interface = YList()
-                                    self.tracked_interface.parent = self
-                                    self.tracked_interface.name = 'tracked_interface'
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces, self).__init__()
+
+                                    self.yang_name = "tracked-interfaces"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_interface = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
 
 
-                                class TrackedInterface(object):
+                                class TrackedInterface(Entity):
                                     """
                                     Interface being tracked
                                     
@@ -472,63 +724,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "tracked-interface"
+                                        self.yang_parent_name = "tracked-interfaces"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_interface is not None:
-                                        for child_ref in self.tracked_interface:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-interfaces" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-interface"):
+                                        for c in self.tracked_interface:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_interface.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-interface"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -546,13 +889,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object being tracked
                                     
@@ -580,63 +949,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-hsrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Timers(object):
+                            class Timers(Entity):
                                 """
                                 Hello and hold timers
                                 
@@ -702,53 +1162,141 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.hello_msec = None
-                                    self.hello_msec_flag = None
-                                    self.hello_sec = None
-                                    self.hold_msec = None
-                                    self.hold_msec_flag = None
-                                    self.hold_sec = None
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timers"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:timers'
+                                    self.hello_msec = YLeaf(YType.uint32, "hello-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.hello_msec_flag = YLeaf(YType.boolean, "hello-msec-flag")
 
-                                def _has_data(self):
-                                    if self.hello_msec is not None:
+                                    self.hello_sec = YLeaf(YType.uint32, "hello-sec")
+
+                                    self.hold_msec = YLeaf(YType.uint32, "hold-msec")
+
+                                    self.hold_msec_flag = YLeaf(YType.boolean, "hold-msec-flag")
+
+                                    self.hold_sec = YLeaf(YType.uint32, "hold-sec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("hello_msec",
+                                                    "hello_msec_flag",
+                                                    "hello_sec",
+                                                    "hold_msec",
+                                                    "hold_msec_flag",
+                                                    "hold_sec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.hello_msec.is_set or
+                                        self.hello_msec_flag.is_set or
+                                        self.hello_sec.is_set or
+                                        self.hold_msec.is_set or
+                                        self.hold_msec_flag.is_set or
+                                        self.hold_sec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.hello_msec.yfilter != YFilter.not_set or
+                                        self.hello_msec_flag.yfilter != YFilter.not_set or
+                                        self.hello_sec.yfilter != YFilter.not_set or
+                                        self.hold_msec.yfilter != YFilter.not_set or
+                                        self.hold_msec_flag.yfilter != YFilter.not_set or
+                                        self.hold_sec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timers" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.hello_msec.is_set or self.hello_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec.get_name_leafdata())
+                                    if (self.hello_msec_flag.is_set or self.hello_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec_flag.get_name_leafdata())
+                                    if (self.hello_sec.is_set or self.hello_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_sec.get_name_leafdata())
+                                    if (self.hold_msec.is_set or self.hold_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec.get_name_leafdata())
+                                    if (self.hold_msec_flag.is_set or self.hold_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec_flag.get_name_leafdata())
+                                    if (self.hold_sec.is_set or self.hold_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_sec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "hello-msec" or name == "hello-msec-flag" or name == "hello-sec" or name == "hold-msec" or name == "hold-msec-flag" or name == "hold-sec"):
                                         return True
-
-                                    if self.hello_msec_flag is not None:
-                                        return True
-
-                                    if self.hello_sec is not None:
-                                        return True
-
-                                    if self.hold_msec is not None:
-                                        return True
-
-                                    if self.hold_msec_flag is not None:
-                                        return True
-
-                                    if self.hold_sec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "hello-msec"):
+                                        self.hello_msec = value
+                                        self.hello_msec.value_namespace = name_space
+                                        self.hello_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-msec-flag"):
+                                        self.hello_msec_flag = value
+                                        self.hello_msec_flag.value_namespace = name_space
+                                        self.hello_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-sec"):
+                                        self.hello_sec = value
+                                        self.hello_sec.value_namespace = name_space
+                                        self.hello_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec"):
+                                        self.hold_msec = value
+                                        self.hold_msec.value_namespace = name_space
+                                        self.hold_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec-flag"):
+                                        self.hold_msec_flag = value
+                                        self.hold_msec_flag.value_namespace = name_space
+                                        self.hold_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-sec"):
+                                        self.hold_sec = value
+                                        self.hold_sec.value_namespace = name_space
+                                        self.hold_sec.value_namespace_prefix = name_space_prefix
 
 
-                            class LinkLocalIpv6Address(object):
+                            class LinkLocalIpv6Address(Entity):
                                 """
                                 The HSRP IPv6 virtual linklocal address
                                 
@@ -762,7 +1310,7 @@ class Hsrp(object):
                                 .. attribute:: auto_configure
                                 
                                 	Linklocal Configuration Type
-                                	**type**\:   :py:class:`HsrpLinklocalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocalEnum>`
+                                	**type**\:   :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
                                 
                                 	**default value**\: manual
                                 
@@ -774,37 +1322,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.auto_configure = None
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "link-local-ipv6-address"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:link-local-ipv6-address'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.auto_configure = YLeaf(YType.enumeration, "auto-configure")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "auto_configure") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.auto_configure.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.auto_configure.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "link-local-ipv6-address" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.auto_configure.is_set or self.auto_configure.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.auto_configure.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "auto-configure"):
                                         return True
-
-                                    if self.auto_configure is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "auto-configure"):
+                                        self.auto_configure = value
+                                        self.auto_configure.value_namespace = name_space
+                                        self.auto_configure.value_namespace_prefix = name_space_prefix
 
 
-                            class GlobalIpv6Addresses(object):
+                            class GlobalIpv6Addresses(Entity):
                                 """
                                 The table of HSRP virtual global IPv6
                                 addresses
@@ -822,13 +1430,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.global_ipv6_address = YList()
-                                    self.global_ipv6_address.parent = self
-                                    self.global_ipv6_address.name = 'global_ipv6_address'
+                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses, self).__init__()
+
+                                    self.yang_name = "global-ipv6-addresses"
+                                    self.yang_parent_name = "group"
+
+                                    self.global_ipv6_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses, self).__setattr__(name, value)
 
 
-                                class GlobalIpv6Address(object):
+                                class GlobalIpv6Address(Entity):
                                     """
                                     A HSRP virtual global IPv6 IP address
                                     
@@ -847,159 +1481,380 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.address = None
+                                        super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.address is None:
-                                            raise YPYModelError('Key property address is None')
+                                        self.yang_name = "global-ipv6-address"
+                                        self.yang_parent_name = "global-ipv6-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:global-ipv6-address[Cisco-IOS-XR-ipv4-hsrp-cfg:address = ' + str(self.address) + ']'
+                                        self.address = YLeaf(YType.str, "address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.address is not None:
+                                    def has_data(self):
+                                        return self.address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "global-ipv6-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "address"):
+                                            self.address = value
+                                            self.address.value_namespace = name_space
+                                            self.address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:global-ipv6-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.global_ipv6_address is not None:
-                                        for child_ref in self.global_ipv6_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.global_ipv6_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.global_ipv6_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.group_number is None:
-                                    raise YPYModelError('Key property group_number is None')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "global-ipv6-addresses" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:group[Cisco-IOS-XR-ipv4-hsrp-cfg:group-number = ' + str(self.group_number) + ']'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.group_number is not None:
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "global-ipv6-address"):
+                                        for c in self.global_ipv6_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.global_ipv6_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "global-ipv6-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.group_number.is_set or
+                                    self.preempt.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    self.virtual_mac_address.is_set or
+                                    (self.bfd is not None and self.bfd.has_data()) or
+                                    (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_data()) or
+                                    (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_data()) or
+                                    (self.timers is not None and self.timers.has_data()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.group_number.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    self.virtual_mac_address.yfilter != YFilter.not_set or
+                                    (self.bfd is not None and self.bfd.has_operation()) or
+                                    (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_operation()) or
+                                    (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_operation()) or
+                                    (self.timers is not None and self.timers.has_operation()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "group" + "[group-number='" + self.group_number.get() + "']" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.group_number.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+                                if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "bfd"):
+                                    if (self.bfd is None):
+                                        self.bfd = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd()
+                                        self.bfd.parent = self
+                                        self._children_name_map["bfd"] = "bfd"
+                                    return self.bfd
+
+                                if (child_yang_name == "global-ipv6-addresses"):
+                                    if (self.global_ipv6_addresses is None):
+                                        self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses()
+                                        self.global_ipv6_addresses.parent = self
+                                        self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                    return self.global_ipv6_addresses
+
+                                if (child_yang_name == "link-local-ipv6-address"):
+                                    if (self.link_local_ipv6_address is None):
+                                        self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address()
+                                        self.link_local_ipv6_address.parent = self
+                                        self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                    return self.link_local_ipv6_address
+
+                                if (child_yang_name == "timers"):
+                                    if (self.timers is None):
+                                        self.timers = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers()
+                                        self.timers.parent = self
+                                        self._children_name_map["timers"] = "timers"
+                                    return self.timers
+
+                                if (child_yang_name == "tracked-interfaces"):
+                                    if (self.tracked_interfaces is None):
+                                        self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces()
+                                        self.tracked_interfaces.parent = self
+                                        self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                    return self.tracked_interfaces
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "bfd" or name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "timers" or name == "tracked-interfaces" or name == "tracked-objects" or name == "group-number" or name == "preempt" or name == "priority" or name == "session-name" or name == "virtual-mac-address"):
                                     return True
-
-                                if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.global_ipv6_addresses is not None and self.global_ipv6_addresses._has_data():
-                                    return True
-
-                                if self.link_local_ipv6_address is not None and self.link_local_ipv6_address._has_data():
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.timers is not None and self.timers._has_data():
-                                    return True
-
-                                if self.tracked_interfaces is not None and self.tracked_interfaces._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.virtual_mac_address is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "group-number"):
+                                    self.group_number = value
+                                    self.group_number.value_namespace = name_space
+                                    self.group_number.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "virtual-mac-address"):
+                                    self.virtual_mac_address = value
+                                    self.virtual_mac_address.value_namespace = name_space
+                                    self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:groups'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.group is not None:
-                                for child_ref in self.group:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.group:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                            return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2.Groups']['meta_info']
+                        def has_operation(self):
+                            for c in self.group:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "groups" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:version2'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.groups is not None and self.groups._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "group"):
+                                for c in self.group:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.group.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "group"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.groups is not None and self.groups.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.groups is not None and self.groups.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version2" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "groups"):
+                            if (self.groups is None):
+                                self.groups = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups()
+                                self.groups.parent = self
+                                self._children_name_map["groups"] = "groups"
+                            return self.groups
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "groups"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.Version2']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class SlaveGroups(object):
+                class SlaveGroups(Entity):
                     """
                     The HSRP slave group configuration table
                     
@@ -1016,13 +1871,39 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.slave_group = YList()
-                        self.slave_group.parent = self
-                        self.slave_group.name = 'slave_group'
+                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__init__()
+
+                        self.yang_name = "slave-groups"
+                        self.yang_parent_name = "ipv6"
+
+                        self.slave_group = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__setattr__(name, value)
 
 
-                    class SlaveGroup(object):
+                    class SlaveGroup(Entity):
                         """
                         The HSRP slave group being configured
                         
@@ -1063,17 +1944,55 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.slave_group_number = None
-                            self.follow = None
+                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__init__()
+
+                            self.yang_name = "slave-group"
+                            self.yang_parent_name = "slave-groups"
+
+                            self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+
+                            self.follow = YLeaf(YType.str, "follow")
+
+                            self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
                             self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses()
                             self.global_ipv6_addresses.parent = self
+                            self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                            self._children_yang_names.add("global-ipv6-addresses")
+
                             self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address()
                             self.link_local_ipv6_address.parent = self
-                            self.virtual_mac_address = None
+                            self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                            self._children_yang_names.add("link-local-ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("slave_group_number",
+                                            "follow",
+                                            "virtual_mac_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
 
 
-                        class LinkLocalIpv6Address(object):
+                        class LinkLocalIpv6Address(Entity):
                             """
                             The HSRP IPv6 virtual linklocal address
                             
@@ -1087,7 +2006,7 @@ class Hsrp(object):
                             .. attribute:: auto_configure
                             
                             	Linklocal Configuration Type
-                            	**type**\:   :py:class:`HsrpLinklocalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocalEnum>`
+                            	**type**\:   :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
                             
                             	**default value**\: manual
                             
@@ -1099,37 +2018,97 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.address = None
-                                self.auto_configure = None
+                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "link-local-ipv6-address"
+                                self.yang_parent_name = "slave-group"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:link-local-ipv6-address'
+                                self.address = YLeaf(YType.str, "address")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.auto_configure = YLeaf(YType.enumeration, "auto-configure")
 
-                            def _has_data(self):
-                                if self.address is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("address",
+                                                "auto_configure") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.address.is_set or
+                                    self.auto_configure.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.address.yfilter != YFilter.not_set or
+                                    self.auto_configure.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "link-local-ipv6-address" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.address.get_name_leafdata())
+                                if (self.auto_configure.is_set or self.auto_configure.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.auto_configure.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "address" or name == "auto-configure"):
                                     return True
-
-                                if self.auto_configure is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "address"):
+                                    self.address = value
+                                    self.address.value_namespace = name_space
+                                    self.address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "auto-configure"):
+                                    self.auto_configure = value
+                                    self.auto_configure.value_namespace = name_space
+                                    self.auto_configure.value_namespace_prefix = name_space_prefix
 
 
-                        class GlobalIpv6Addresses(object):
+                        class GlobalIpv6Addresses(Entity):
                             """
                             The table of HSRP virtual global IPv6
                             addresses
@@ -1147,13 +2126,39 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.global_ipv6_address = YList()
-                                self.global_ipv6_address.parent = self
-                                self.global_ipv6_address.name = 'global_ipv6_address'
+                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__init__()
+
+                                self.yang_name = "global-ipv6-addresses"
+                                self.yang_parent_name = "slave-group"
+
+                                self.global_ipv6_address = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
 
 
-                            class GlobalIpv6Address(object):
+                            class GlobalIpv6Address(Entity):
                                 """
                                 A HSRP virtual global IPv6 IP address
                                 
@@ -1172,144 +2177,338 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.address is None:
-                                        raise YPYModelError('Key property address is None')
+                                    self.yang_name = "global-ipv6-address"
+                                    self.yang_parent_name = "global-ipv6-addresses"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:global-ipv6-address[Cisco-IOS-XR-ipv4-hsrp-cfg:address = ' + str(self.address) + ']'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def has_data(self):
+                                    return self.address.is_set
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "global-ipv6-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:global-ipv6-addresses'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if self.global_ipv6_address is not None:
-                                    for child_ref in self.global_ipv6_address:
-                                        if child_ref._has_data():
-                                            return True
-
+                            def has_data(self):
+                                for c in self.global_ipv6_address:
+                                    if (c.has_data()):
+                                        return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses']['meta_info']
+                            def has_operation(self):
+                                for c in self.global_ipv6_address:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.slave_group_number is None:
-                                raise YPYModelError('Key property slave_group_number is None')
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "global-ipv6-addresses" + path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:slave-group[Cisco-IOS-XR-ipv4-hsrp-cfg:slave-group-number = ' + str(self.slave_group_number) + ']'
+                                return path_buffer
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def _has_data(self):
-                            if self.slave_group_number is not None:
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "global-ipv6-address"):
+                                    for c in self.global_ipv6_address:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.global_ipv6_address.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "global-ipv6-address"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
+
+                        def has_data(self):
+                            return (
+                                self.slave_group_number.is_set or
+                                self.follow.is_set or
+                                self.virtual_mac_address.is_set or
+                                (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_data()) or
+                                (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.slave_group_number.yfilter != YFilter.not_set or
+                                self.follow.yfilter != YFilter.not_set or
+                                self.virtual_mac_address.yfilter != YFilter.not_set or
+                                (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_operation()) or
+                                (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "slave-group" + "[slave-group-number='" + self.slave_group_number.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+                            if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.follow.get_name_leafdata())
+                            if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "global-ipv6-addresses"):
+                                if (self.global_ipv6_addresses is None):
+                                    self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses()
+                                    self.global_ipv6_addresses.parent = self
+                                    self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                return self.global_ipv6_addresses
+
+                            if (child_yang_name == "link-local-ipv6-address"):
+                                if (self.link_local_ipv6_address is None):
+                                    self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address()
+                                    self.link_local_ipv6_address.parent = self
+                                    self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                return self.link_local_ipv6_address
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "slave-group-number" or name == "follow" or name == "virtual-mac-address"):
                                 return True
-
-                            if self.follow is not None:
-                                return True
-
-                            if self.global_ipv6_addresses is not None and self.global_ipv6_addresses._has_data():
-                                return True
-
-                            if self.link_local_ipv6_address is not None and self.link_local_ipv6_address._has_data():
-                                return True
-
-                            if self.virtual_mac_address is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                            return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "slave-group-number"):
+                                self.slave_group_number = value
+                                self.slave_group_number.value_namespace = name_space
+                                self.slave_group_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "follow"):
+                                self.follow = value
+                                self.follow.value_namespace = name_space
+                                self.follow.value_namespace_prefix = name_space_prefix
+                            if(value_path == "virtual-mac-address"):
+                                self.virtual_mac_address = value
+                                self.virtual_mac_address.value_namespace = name_space
+                                self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:slave-groups'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.slave_group is not None:
-                            for child_ref in self.slave_group:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.slave_group:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6.SlaveGroups']['meta_info']
+                    def has_operation(self):
+                        for c in self.slave_group:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "slave-groups" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:ipv6'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.slave_groups is not None and self.slave_groups._has_data():
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "slave-group"):
+                            for c in self.slave_group:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.slave_group.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "slave-group"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        (self.slave_groups is not None and self.slave_groups.has_data()) or
+                        (self.version2 is not None and self.version2.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.slave_groups is not None and self.slave_groups.has_operation()) or
+                        (self.version2 is not None and self.version2.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv6" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "slave-groups"):
+                        if (self.slave_groups is None):
+                            self.slave_groups = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups()
+                            self.slave_groups.parent = self
+                            self._children_name_map["slave_groups"] = "slave-groups"
+                        return self.slave_groups
+
+                    if (child_yang_name == "version2"):
+                        if (self.version2 is None):
+                            self.version2 = Hsrp.Interfaces.Interface.Ipv6.Version2()
+                            self.version2.parent = self
+                            self._children_name_map["version2"] = "version2"
+                        return self.version2
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slave-groups" or name == "version2"):
                         return True
-
-                    if self.version2 is not None and self.version2._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv6']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Bfd(object):
+            class Bfd(Entity):
                 """
                 BFD configuration
                 
@@ -1337,37 +2536,97 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.detection_multiplier = None
-                    self.interval = None
+                    super(Hsrp.Interfaces.Interface.Bfd, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "bfd"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:bfd'
+                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.interval = YLeaf(YType.uint32, "interval")
 
-                def _has_data(self):
-                    if self.detection_multiplier is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("detection_multiplier",
+                                    "interval") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Interfaces.Interface.Bfd, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Interfaces.Interface.Bfd, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.detection_multiplier.is_set or
+                        self.interval.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.detection_multiplier.yfilter != YFilter.not_set or
+                        self.interval.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.detection_multiplier.is_set or self.detection_multiplier.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.detection_multiplier.get_name_leafdata())
+                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interval.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "detection-multiplier" or name == "interval"):
                         return True
-
-                    if self.interval is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                    return meta._meta_table['Hsrp.Interfaces.Interface.Bfd']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "detection-multiplier"):
+                        self.detection_multiplier = value
+                        self.detection_multiplier.value_namespace = name_space
+                        self.detection_multiplier.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interval"):
+                        self.interval = value
+                        self.interval.value_namespace = name_space
+                        self.interval.value_namespace_prefix = name_space_prefix
 
 
-            class Delay(object):
+            class Delay(Entity):
                 """
                 Minimum and Reload Delay
                 
@@ -1401,37 +2660,97 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.minimum_delay = None
-                    self.reload_delay = None
+                    super(Hsrp.Interfaces.Interface.Delay, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "delay"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:delay'
+                    self.minimum_delay = YLeaf(YType.uint32, "minimum-delay")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.reload_delay = YLeaf(YType.uint32, "reload-delay")
 
-                def _has_data(self):
-                    if self.minimum_delay is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("minimum_delay",
+                                    "reload_delay") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Interfaces.Interface.Delay, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Interfaces.Interface.Delay, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.minimum_delay.is_set or
+                        self.reload_delay.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.minimum_delay.yfilter != YFilter.not_set or
+                        self.reload_delay.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "delay" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.minimum_delay.is_set or self.minimum_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.minimum_delay.get_name_leafdata())
+                    if (self.reload_delay.is_set or self.reload_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reload_delay.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "minimum-delay" or name == "reload-delay"):
                         return True
-
-                    if self.reload_delay is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                    return meta._meta_table['Hsrp.Interfaces.Interface.Delay']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "minimum-delay"):
+                        self.minimum_delay = value
+                        self.minimum_delay.value_namespace = name_space
+                        self.minimum_delay.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reload-delay"):
+                        self.reload_delay = value
+                        self.reload_delay.value_namespace = name_space
+                        self.reload_delay.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv4(object):
+            class Ipv4(Entity):
                 """
                 IPv4 HSRP configuration
                 
@@ -1458,16 +2777,28 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Hsrp.Interfaces.Interface.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "interface"
+
                     self.slave_groups = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups()
                     self.slave_groups.parent = self
+                    self._children_name_map["slave_groups"] = "slave-groups"
+                    self._children_yang_names.add("slave-groups")
+
                     self.version1 = Hsrp.Interfaces.Interface.Ipv4.Version1()
                     self.version1.parent = self
+                    self._children_name_map["version1"] = "version1"
+                    self._children_yang_names.add("version1")
+
                     self.version2 = Hsrp.Interfaces.Interface.Ipv4.Version2()
                     self.version2.parent = self
+                    self._children_name_map["version2"] = "version2"
+                    self._children_yang_names.add("version2")
 
 
-                class SlaveGroups(object):
+                class SlaveGroups(Entity):
                     """
                     The HSRP slave group configuration table
                     
@@ -1484,13 +2815,39 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.slave_group = YList()
-                        self.slave_group.parent = self
-                        self.slave_group.name = 'slave_group'
+                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__init__()
+
+                        self.yang_name = "slave-groups"
+                        self.yang_parent_name = "ipv4"
+
+                        self.slave_group = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__setattr__(name, value)
 
 
-                    class SlaveGroup(object):
+                    class SlaveGroup(Entity):
                         """
                         The HSRP slave group being configured
                         
@@ -1533,16 +2890,53 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.slave_group_number = None
-                            self.follow = None
-                            self.primary_ipv4_address = None
+                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__init__()
+
+                            self.yang_name = "slave-group"
+                            self.yang_parent_name = "slave-groups"
+
+                            self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+
+                            self.follow = YLeaf(YType.str, "follow")
+
+                            self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
+
+                            self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
                             self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses()
                             self.secondary_ipv4_addresses.parent = self
-                            self.virtual_mac_address = None
+                            self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                            self._children_yang_names.add("secondary-ipv4-addresses")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("slave_group_number",
+                                            "follow",
+                                            "primary_ipv4_address",
+                                            "virtual_mac_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
 
 
-                        class SecondaryIpv4Addresses(object):
+                        class SecondaryIpv4Addresses(Entity):
                             """
                             Secondary HSRP IP address Table
                             
@@ -1559,13 +2953,39 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.secondary_ipv4_address = YList()
-                                self.secondary_ipv4_address.parent = self
-                                self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__init__()
+
+                                self.yang_name = "secondary-ipv4-addresses"
+                                self.yang_parent_name = "slave-group"
+
+                                self.secondary_ipv4_address = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                            class SecondaryIpv4Address(object):
+                            class SecondaryIpv4Address(Entity):
                                 """
                                 Secondary HSRP IP address
                                 
@@ -1584,119 +3004,279 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.address is None:
-                                        raise YPYModelError('Key property address is None')
+                                    self.yang_name = "secondary-ipv4-address"
+                                    self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-hsrp-cfg:address = ' + str(self.address) + ']'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def has_data(self):
+                                    return self.address.is_set
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-addresses'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if self.secondary_ipv4_address is not None:
-                                    for child_ref in self.secondary_ipv4_address:
-                                        if child_ref._has_data():
-                                            return True
-
+                            def has_data(self):
+                                for c in self.secondary_ipv4_address:
+                                    if (c.has_data()):
+                                        return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses']['meta_info']
+                            def has_operation(self):
+                                for c in self.secondary_ipv4_address:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.slave_group_number is None:
-                                raise YPYModelError('Key property slave_group_number is None')
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "secondary-ipv4-addresses" + path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:slave-group[Cisco-IOS-XR-ipv4-hsrp-cfg:slave-group-number = ' + str(self.slave_group_number) + ']'
+                                return path_buffer
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def _has_data(self):
-                            if self.slave_group_number is not None:
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "secondary-ipv4-address"):
+                                    for c in self.secondary_ipv4_address:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.secondary_ipv4_address.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "secondary-ipv4-address"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
+
+                        def has_data(self):
+                            return (
+                                self.slave_group_number.is_set or
+                                self.follow.is_set or
+                                self.primary_ipv4_address.is_set or
+                                self.virtual_mac_address.is_set or
+                                (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.slave_group_number.yfilter != YFilter.not_set or
+                                self.follow.yfilter != YFilter.not_set or
+                                self.primary_ipv4_address.yfilter != YFilter.not_set or
+                                self.virtual_mac_address.yfilter != YFilter.not_set or
+                                (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "slave-group" + "[slave-group-number='" + self.slave_group_number.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+                            if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.follow.get_name_leafdata())
+                            if (self.primary_ipv4_address.is_set or self.primary_ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.primary_ipv4_address.get_name_leafdata())
+                            if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "secondary-ipv4-addresses"):
+                                if (self.secondary_ipv4_addresses is None):
+                                    self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses()
+                                    self.secondary_ipv4_addresses.parent = self
+                                    self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                return self.secondary_ipv4_addresses
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "secondary-ipv4-addresses" or name == "slave-group-number" or name == "follow" or name == "primary-ipv4-address" or name == "virtual-mac-address"):
                                 return True
-
-                            if self.follow is not None:
-                                return True
-
-                            if self.primary_ipv4_address is not None:
-                                return True
-
-                            if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                return True
-
-                            if self.virtual_mac_address is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                            return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "slave-group-number"):
+                                self.slave_group_number = value
+                                self.slave_group_number.value_namespace = name_space
+                                self.slave_group_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "follow"):
+                                self.follow = value
+                                self.follow.value_namespace = name_space
+                                self.follow.value_namespace_prefix = name_space_prefix
+                            if(value_path == "primary-ipv4-address"):
+                                self.primary_ipv4_address = value
+                                self.primary_ipv4_address.value_namespace = name_space
+                                self.primary_ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "virtual-mac-address"):
+                                self.virtual_mac_address = value
+                                self.virtual_mac_address.value_namespace = name_space
+                                self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:slave-groups'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.slave_group is not None:
-                            for child_ref in self.slave_group:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.slave_group:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.SlaveGroups']['meta_info']
+                    def has_operation(self):
+                        for c in self.slave_group:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "slave-groups" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "slave-group"):
+                            for c in self.slave_group:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.slave_group.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "slave-group"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Version1(object):
+                class Version1(Entity):
                     """
                     Version 1 HSRP configuration
                     
@@ -1713,12 +3293,18 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Hsrp.Interfaces.Interface.Ipv4.Version1, self).__init__()
+
+                        self.yang_name = "version1"
+                        self.yang_parent_name = "ipv4"
+
                         self.groups = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups()
                         self.groups.parent = self
+                        self._children_name_map["groups"] = "groups"
+                        self._children_yang_names.add("groups")
 
 
-                    class Groups(object):
+                    class Groups(Entity):
                         """
                         The HSRP group configuration table
                         
@@ -1735,13 +3321,39 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.group = YList()
-                            self.group.parent = self
-                            self.group.name = 'group'
+                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups, self).__init__()
+
+                            self.yang_name = "groups"
+                            self.yang_parent_name = "version1"
+
+                            self.group = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups, self).__setattr__(name, value)
 
 
-                        class Group(object):
+                        class Group(Entity):
                             """
                             The HSRP group being configured
                             
@@ -1831,28 +3443,84 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.group_number = None
-                                self.authentication = None
+                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group, self).__init__()
+
+                                self.yang_name = "group"
+                                self.yang_parent_name = "groups"
+
+                                self.group_number = YLeaf(YType.uint32, "group-number")
+
+                                self.authentication = YLeaf(YType.str, "authentication")
+
+                                self.preempt = YLeaf(YType.int32, "preempt")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd()
                                 self.bfd.parent = self
-                                self.preempt = None
+                                self._children_name_map["bfd"] = "bfd"
+                                self._children_yang_names.add("bfd")
+
                                 self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address()
                                 self.primary_ipv4_address.parent = self
-                                self.priority = None
+                                self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
+                                self._children_yang_names.add("primary-ipv4-address")
+
                                 self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
-                                self.session_name = None
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
+
                                 self.timers = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers()
                                 self.timers.parent = self
+                                self._children_name_map["timers"] = "timers"
+                                self._children_yang_names.add("timers")
+
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
+                                self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                self._children_yang_names.add("tracked-interfaces")
+
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
-                                self.virtual_mac_address = None
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("group_number",
+                                                "authentication",
+                                                "preempt",
+                                                "priority",
+                                                "session_name",
+                                                "virtual_mac_address") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group, self).__setattr__(name, value)
 
 
-                            class TrackedInterfaces(object):
+                            class TrackedInterfaces(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -1870,13 +3538,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_interface = YList()
-                                    self.tracked_interface.parent = self
-                                    self.tracked_interface.name = 'tracked_interface'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces, self).__init__()
+
+                                    self.yang_name = "tracked-interfaces"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_interface = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
 
 
-                                class TrackedInterface(object):
+                                class TrackedInterface(Entity):
                                     """
                                     Interface being tracked
                                     
@@ -1904,63 +3598,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "tracked-interface"
+                                        self.yang_parent_name = "tracked-interfaces"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_interface is not None:
-                                        for child_ref in self.tracked_interface:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-interfaces" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-interface"):
+                                        for c in self.tracked_interface:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_interface.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-interface"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Bfd(object):
+                            class Bfd(Entity):
                                 """
                                 Enable use of Bidirectional Forwarding
                                 Detection
@@ -1987,37 +3772,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.interface_name = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "bfd"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:bfd'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "interface_name") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.interface_name.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "bfd" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "interface-name"):
                                         return True
-
-                                    if self.interface_name is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -2035,13 +3880,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object being tracked
                                     
@@ -2069,63 +3940,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-hsrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Timers(object):
+                            class Timers(Entity):
                                 """
                                 Hello and hold timers
                                 
@@ -2191,53 +4153,141 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.hello_msec = None
-                                    self.hello_msec_flag = None
-                                    self.hello_sec = None
-                                    self.hold_msec = None
-                                    self.hold_msec_flag = None
-                                    self.hold_sec = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timers"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:timers'
+                                    self.hello_msec = YLeaf(YType.uint32, "hello-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.hello_msec_flag = YLeaf(YType.boolean, "hello-msec-flag")
 
-                                def _has_data(self):
-                                    if self.hello_msec is not None:
+                                    self.hello_sec = YLeaf(YType.uint32, "hello-sec")
+
+                                    self.hold_msec = YLeaf(YType.uint32, "hold-msec")
+
+                                    self.hold_msec_flag = YLeaf(YType.boolean, "hold-msec-flag")
+
+                                    self.hold_sec = YLeaf(YType.uint32, "hold-sec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("hello_msec",
+                                                    "hello_msec_flag",
+                                                    "hello_sec",
+                                                    "hold_msec",
+                                                    "hold_msec_flag",
+                                                    "hold_sec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.hello_msec.is_set or
+                                        self.hello_msec_flag.is_set or
+                                        self.hello_sec.is_set or
+                                        self.hold_msec.is_set or
+                                        self.hold_msec_flag.is_set or
+                                        self.hold_sec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.hello_msec.yfilter != YFilter.not_set or
+                                        self.hello_msec_flag.yfilter != YFilter.not_set or
+                                        self.hello_sec.yfilter != YFilter.not_set or
+                                        self.hold_msec.yfilter != YFilter.not_set or
+                                        self.hold_msec_flag.yfilter != YFilter.not_set or
+                                        self.hold_sec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timers" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.hello_msec.is_set or self.hello_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec.get_name_leafdata())
+                                    if (self.hello_msec_flag.is_set or self.hello_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec_flag.get_name_leafdata())
+                                    if (self.hello_sec.is_set or self.hello_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_sec.get_name_leafdata())
+                                    if (self.hold_msec.is_set or self.hold_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec.get_name_leafdata())
+                                    if (self.hold_msec_flag.is_set or self.hold_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec_flag.get_name_leafdata())
+                                    if (self.hold_sec.is_set or self.hold_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_sec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "hello-msec" or name == "hello-msec-flag" or name == "hello-sec" or name == "hold-msec" or name == "hold-msec-flag" or name == "hold-sec"):
                                         return True
-
-                                    if self.hello_msec_flag is not None:
-                                        return True
-
-                                    if self.hello_sec is not None:
-                                        return True
-
-                                    if self.hold_msec is not None:
-                                        return True
-
-                                    if self.hold_msec_flag is not None:
-                                        return True
-
-                                    if self.hold_sec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "hello-msec"):
+                                        self.hello_msec = value
+                                        self.hello_msec.value_namespace = name_space
+                                        self.hello_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-msec-flag"):
+                                        self.hello_msec_flag = value
+                                        self.hello_msec_flag.value_namespace = name_space
+                                        self.hello_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-sec"):
+                                        self.hello_sec = value
+                                        self.hello_sec.value_namespace = name_space
+                                        self.hello_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec"):
+                                        self.hold_msec = value
+                                        self.hold_msec.value_namespace = name_space
+                                        self.hold_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec-flag"):
+                                        self.hold_msec_flag = value
+                                        self.hold_msec_flag.value_namespace = name_space
+                                        self.hold_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-sec"):
+                                        self.hold_sec = value
+                                        self.hold_sec.value_namespace = name_space
+                                        self.hold_sec.value_namespace_prefix = name_space_prefix
 
 
-                            class PrimaryIpv4Address(object):
+                            class PrimaryIpv4Address(Entity):
                                 """
                                 Primary HSRP IP address
                                 
@@ -2261,37 +4311,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.virtual_ip_learn = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "primary-ipv4-address"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:primary-ipv4-address'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.virtual_ip_learn = YLeaf(YType.boolean, "virtual-ip-learn")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "virtual_ip_learn") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.virtual_ip_learn.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.virtual_ip_learn.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "primary-ipv4-address" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.virtual_ip_learn.is_set or self.virtual_ip_learn.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.virtual_ip_learn.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "virtual-ip-learn"):
                                         return True
-
-                                    if self.virtual_ip_learn is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "virtual-ip-learn"):
+                                        self.virtual_ip_learn = value
+                                        self.virtual_ip_learn.value_namespace = name_space
+                                        self.virtual_ip_learn.value_namespace_prefix = name_space_prefix
 
 
-                            class SecondaryIpv4Addresses(object):
+                            class SecondaryIpv4Addresses(Entity):
                                 """
                                 Secondary HSRP IP address Table
                                 
@@ -2308,13 +4418,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.secondary_ipv4_address = YList()
-                                    self.secondary_ipv4_address.parent = self
-                                    self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses, self).__init__()
+
+                                    self.yang_name = "secondary-ipv4-addresses"
+                                    self.yang_parent_name = "group"
+
+                                    self.secondary_ipv4_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                                class SecondaryIpv4Address(object):
+                                class SecondaryIpv4Address(Entity):
                                     """
                                     Secondary HSRP IP address
                                     
@@ -2333,162 +4469,388 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.address = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.address is None:
-                                            raise YPYModelError('Key property address is None')
+                                        self.yang_name = "secondary-ipv4-address"
+                                        self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-hsrp-cfg:address = ' + str(self.address) + ']'
+                                        self.address = YLeaf(YType.str, "address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.address is not None:
+                                    def has_data(self):
+                                        return self.address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "secondary-ipv4-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "address"):
+                                            self.address = value
+                                            self.address.value_namespace = name_space
+                                            self.address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.secondary_ipv4_address is not None:
-                                        for child_ref in self.secondary_ipv4_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.group_number is None:
-                                    raise YPYModelError('Key property group_number is None')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-addresses" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:group[Cisco-IOS-XR-ipv4-hsrp-cfg:group-number = ' + str(self.group_number) + ']'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.group_number is not None:
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "secondary-ipv4-address"):
+                                        for c in self.secondary_ipv4_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.secondary_ipv4_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "secondary-ipv4-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.group_number.is_set or
+                                    self.authentication.is_set or
+                                    self.preempt.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    self.virtual_mac_address.is_set or
+                                    (self.bfd is not None and self.bfd.has_data()) or
+                                    (self.primary_ipv4_address is not None and self.primary_ipv4_address.has_data()) or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()) or
+                                    (self.timers is not None and self.timers.has_data()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.group_number.yfilter != YFilter.not_set or
+                                    self.authentication.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    self.virtual_mac_address.yfilter != YFilter.not_set or
+                                    (self.bfd is not None and self.bfd.has_operation()) or
+                                    (self.primary_ipv4_address is not None and self.primary_ipv4_address.has_operation()) or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()) or
+                                    (self.timers is not None and self.timers.has_operation()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "group" + "[group-number='" + self.group_number.get() + "']" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.group_number.get_name_leafdata())
+                                if (self.authentication.is_set or self.authentication.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.authentication.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+                                if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "bfd"):
+                                    if (self.bfd is None):
+                                        self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd()
+                                        self.bfd.parent = self
+                                        self._children_name_map["bfd"] = "bfd"
+                                    return self.bfd
+
+                                if (child_yang_name == "primary-ipv4-address"):
+                                    if (self.primary_ipv4_address is None):
+                                        self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address()
+                                        self.primary_ipv4_address.parent = self
+                                        self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
+                                    return self.primary_ipv4_address
+
+                                if (child_yang_name == "secondary-ipv4-addresses"):
+                                    if (self.secondary_ipv4_addresses is None):
+                                        self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses()
+                                        self.secondary_ipv4_addresses.parent = self
+                                        self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                    return self.secondary_ipv4_addresses
+
+                                if (child_yang_name == "timers"):
+                                    if (self.timers is None):
+                                        self.timers = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers()
+                                        self.timers.parent = self
+                                        self._children_name_map["timers"] = "timers"
+                                    return self.timers
+
+                                if (child_yang_name == "tracked-interfaces"):
+                                    if (self.tracked_interfaces is None):
+                                        self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces()
+                                        self.tracked_interfaces.parent = self
+                                        self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                    return self.tracked_interfaces
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "bfd" or name == "primary-ipv4-address" or name == "secondary-ipv4-addresses" or name == "timers" or name == "tracked-interfaces" or name == "tracked-objects" or name == "group-number" or name == "authentication" or name == "preempt" or name == "priority" or name == "session-name" or name == "virtual-mac-address"):
                                     return True
-
-                                if self.authentication is not None:
-                                    return True
-
-                                if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.primary_ipv4_address is not None and self.primary_ipv4_address._has_data():
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.timers is not None and self.timers._has_data():
-                                    return True
-
-                                if self.tracked_interfaces is not None and self.tracked_interfaces._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.virtual_mac_address is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "group-number"):
+                                    self.group_number = value
+                                    self.group_number.value_namespace = name_space
+                                    self.group_number.value_namespace_prefix = name_space_prefix
+                                if(value_path == "authentication"):
+                                    self.authentication = value
+                                    self.authentication.value_namespace = name_space
+                                    self.authentication.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "virtual-mac-address"):
+                                    self.virtual_mac_address = value
+                                    self.virtual_mac_address.value_namespace = name_space
+                                    self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:groups'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.group is not None:
-                                for child_ref in self.group:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.group:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                            return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1.Groups']['meta_info']
+                        def has_operation(self):
+                            for c in self.group:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "groups" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:version1'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.groups is not None and self.groups._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "group"):
+                                for c in self.group:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.group.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "group"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.groups is not None and self.groups.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.groups is not None and self.groups.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version1" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "groups"):
+                            if (self.groups is None):
+                                self.groups = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups()
+                                self.groups.parent = self
+                                self._children_name_map["groups"] = "groups"
+                            return self.groups
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "groups"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version1']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Version2(object):
+                class Version2(Entity):
                     """
                     Version 2 HSRP configuration
                     
@@ -2505,12 +4867,18 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Hsrp.Interfaces.Interface.Ipv4.Version2, self).__init__()
+
+                        self.yang_name = "version2"
+                        self.yang_parent_name = "ipv4"
+
                         self.groups = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups()
                         self.groups.parent = self
+                        self._children_name_map["groups"] = "groups"
+                        self._children_yang_names.add("groups")
 
 
-                    class Groups(object):
+                    class Groups(Entity):
                         """
                         The HSRP group configuration table
                         
@@ -2527,13 +4895,39 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.group = YList()
-                            self.group.parent = self
-                            self.group.name = 'group'
+                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups, self).__init__()
+
+                            self.yang_name = "groups"
+                            self.yang_parent_name = "version2"
+
+                            self.group = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups, self).__setattr__(name, value)
 
 
-                        class Group(object):
+                        class Group(Entity):
                             """
                             The HSRP group being configured
                             
@@ -2614,27 +5008,81 @@ class Hsrp(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.group_number = None
+                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group, self).__init__()
+
+                                self.yang_name = "group"
+                                self.yang_parent_name = "groups"
+
+                                self.group_number = YLeaf(YType.uint32, "group-number")
+
+                                self.preempt = YLeaf(YType.int32, "preempt")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd()
                                 self.bfd.parent = self
-                                self.preempt = None
+                                self._children_name_map["bfd"] = "bfd"
+                                self._children_yang_names.add("bfd")
+
                                 self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address()
                                 self.primary_ipv4_address.parent = self
-                                self.priority = None
+                                self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
+                                self._children_yang_names.add("primary-ipv4-address")
+
                                 self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
-                                self.session_name = None
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
+
                                 self.timers = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers()
                                 self.timers.parent = self
+                                self._children_name_map["timers"] = "timers"
+                                self._children_yang_names.add("timers")
+
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
+                                self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                self._children_yang_names.add("tracked-interfaces")
+
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
-                                self.virtual_mac_address = None
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("group_number",
+                                                "preempt",
+                                                "priority",
+                                                "session_name",
+                                                "virtual_mac_address") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group, self).__setattr__(name, value)
 
 
-                            class SecondaryIpv4Addresses(object):
+                            class SecondaryIpv4Addresses(Entity):
                                 """
                                 Secondary HSRP IP address Table
                                 
@@ -2651,13 +5099,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.secondary_ipv4_address = YList()
-                                    self.secondary_ipv4_address.parent = self
-                                    self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses, self).__init__()
+
+                                    self.yang_name = "secondary-ipv4-addresses"
+                                    self.yang_parent_name = "group"
+
+                                    self.secondary_ipv4_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                                class SecondaryIpv4Address(object):
+                                class SecondaryIpv4Address(Entity):
                                     """
                                     Secondary HSRP IP address
                                     
@@ -2676,59 +5150,142 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.address = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.address is None:
-                                            raise YPYModelError('Key property address is None')
+                                        self.yang_name = "secondary-ipv4-address"
+                                        self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-hsrp-cfg:address = ' + str(self.address) + ']'
+                                        self.address = YLeaf(YType.str, "address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.address is not None:
+                                    def has_data(self):
+                                        return self.address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "secondary-ipv4-address" + "[address='" + self.address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "address"):
+                                            self.address = value
+                                            self.address.value_namespace = name_space
+                                            self.address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:secondary-ipv4-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.secondary_ipv4_address is not None:
-                                        for child_ref in self.secondary_ipv4_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-addresses" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "secondary-ipv4-address"):
+                                        for c in self.secondary_ipv4_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.secondary_ipv4_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "secondary-ipv4-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Bfd(object):
+                            class Bfd(Entity):
                                 """
                                 Enable use of Bidirectional Forwarding
                                 Detection
@@ -2755,37 +5312,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.interface_name = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "bfd"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:bfd'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "interface_name") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.interface_name.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "bfd" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "interface-name"):
                                         return True
-
-                                    if self.interface_name is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-                            class PrimaryIpv4Address(object):
+                            class PrimaryIpv4Address(Entity):
                                 """
                                 Primary HSRP IP address
                                 
@@ -2809,37 +5426,97 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.address = None
-                                    self.virtual_ip_learn = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "primary-ipv4-address"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:primary-ipv4-address'
+                                    self.address = YLeaf(YType.str, "address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.virtual_ip_learn = YLeaf(YType.boolean, "virtual-ip-learn")
 
-                                def _has_data(self):
-                                    if self.address is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("address",
+                                                    "virtual_ip_learn") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.address.is_set or
+                                        self.virtual_ip_learn.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.address.yfilter != YFilter.not_set or
+                                        self.virtual_ip_learn.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "primary-ipv4-address" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.address.get_name_leafdata())
+                                    if (self.virtual_ip_learn.is_set or self.virtual_ip_learn.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.virtual_ip_learn.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "address" or name == "virtual-ip-learn"):
                                         return True
-
-                                    if self.virtual_ip_learn is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "address"):
+                                        self.address = value
+                                        self.address.value_namespace = name_space
+                                        self.address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "virtual-ip-learn"):
+                                        self.virtual_ip_learn = value
+                                        self.virtual_ip_learn.value_namespace = name_space
+                                        self.virtual_ip_learn.value_namespace_prefix = name_space_prefix
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -2857,13 +5534,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object being tracked
                                     
@@ -2891,63 +5594,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-hsrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class TrackedInterfaces(object):
+                            class TrackedInterfaces(Entity):
                                 """
                                 The HSRP tracked interface configuration
                                 table
@@ -2965,13 +5759,39 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_interface = YList()
-                                    self.tracked_interface.parent = self
-                                    self.tracked_interface.name = 'tracked_interface'
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces, self).__init__()
+
+                                    self.yang_name = "tracked-interfaces"
+                                    self.yang_parent_name = "group"
+
+                                    self.tracked_interface = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces, self).__setattr__(name, value)
 
 
-                                class TrackedInterface(object):
+                                class TrackedInterface(Entity):
                                     """
                                     Interface being tracked
                                     
@@ -2999,63 +5819,154 @@ class Hsrp(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority_decrement = None
+                                        super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "tracked-interface"
+                                        self.yang_parent_name = "tracked-interfaces"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:tracked-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_interface is not None:
-                                        for child_ref in self.tracked_interface:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_interface:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-interfaces" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-interface"):
+                                        for c in self.tracked_interface:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_interface.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-interface"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Timers(object):
+                            class Timers(Entity):
                                 """
                                 Hello and hold timers
                                 
@@ -3121,246 +6032,610 @@ class Hsrp(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.hello_msec = None
-                                    self.hello_msec_flag = None
-                                    self.hello_sec = None
-                                    self.hold_msec = None
-                                    self.hold_msec_flag = None
-                                    self.hold_sec = None
+                                    super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timers"
+                                    self.yang_parent_name = "group"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:timers'
+                                    self.hello_msec = YLeaf(YType.uint32, "hello-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.hello_msec_flag = YLeaf(YType.boolean, "hello-msec-flag")
 
-                                def _has_data(self):
-                                    if self.hello_msec is not None:
+                                    self.hello_sec = YLeaf(YType.uint32, "hello-sec")
+
+                                    self.hold_msec = YLeaf(YType.uint32, "hold-msec")
+
+                                    self.hold_msec_flag = YLeaf(YType.boolean, "hold-msec-flag")
+
+                                    self.hold_sec = YLeaf(YType.uint32, "hold-sec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("hello_msec",
+                                                    "hello_msec_flag",
+                                                    "hello_sec",
+                                                    "hold_msec",
+                                                    "hold_msec_flag",
+                                                    "hold_sec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.hello_msec.is_set or
+                                        self.hello_msec_flag.is_set or
+                                        self.hello_sec.is_set or
+                                        self.hold_msec.is_set or
+                                        self.hold_msec_flag.is_set or
+                                        self.hold_sec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.hello_msec.yfilter != YFilter.not_set or
+                                        self.hello_msec_flag.yfilter != YFilter.not_set or
+                                        self.hello_sec.yfilter != YFilter.not_set or
+                                        self.hold_msec.yfilter != YFilter.not_set or
+                                        self.hold_msec_flag.yfilter != YFilter.not_set or
+                                        self.hold_sec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timers" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.hello_msec.is_set or self.hello_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec.get_name_leafdata())
+                                    if (self.hello_msec_flag.is_set or self.hello_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_msec_flag.get_name_leafdata())
+                                    if (self.hello_sec.is_set or self.hello_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hello_sec.get_name_leafdata())
+                                    if (self.hold_msec.is_set or self.hold_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec.get_name_leafdata())
+                                    if (self.hold_msec_flag.is_set or self.hold_msec_flag.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_msec_flag.get_name_leafdata())
+                                    if (self.hold_sec.is_set or self.hold_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.hold_sec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "hello-msec" or name == "hello-msec-flag" or name == "hello-sec" or name == "hold-msec" or name == "hold-msec-flag" or name == "hold-sec"):
                                         return True
-
-                                    if self.hello_msec_flag is not None:
-                                        return True
-
-                                    if self.hello_sec is not None:
-                                        return True
-
-                                    if self.hold_msec is not None:
-                                        return True
-
-                                    if self.hold_msec_flag is not None:
-                                        return True
-
-                                    if self.hold_sec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "hello-msec"):
+                                        self.hello_msec = value
+                                        self.hello_msec.value_namespace = name_space
+                                        self.hello_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-msec-flag"):
+                                        self.hello_msec_flag = value
+                                        self.hello_msec_flag.value_namespace = name_space
+                                        self.hello_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hello-sec"):
+                                        self.hello_sec = value
+                                        self.hello_sec.value_namespace = name_space
+                                        self.hello_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec"):
+                                        self.hold_msec = value
+                                        self.hold_msec.value_namespace = name_space
+                                        self.hold_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-msec-flag"):
+                                        self.hold_msec_flag = value
+                                        self.hold_msec_flag.value_namespace = name_space
+                                        self.hold_msec_flag.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "hold-sec"):
+                                        self.hold_sec = value
+                                        self.hold_sec.value_namespace = name_space
+                                        self.hold_sec.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.group_number is None:
-                                    raise YPYModelError('Key property group_number is None')
+                            def has_data(self):
+                                return (
+                                    self.group_number.is_set or
+                                    self.preempt.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    self.virtual_mac_address.is_set or
+                                    (self.bfd is not None and self.bfd.has_data()) or
+                                    (self.primary_ipv4_address is not None and self.primary_ipv4_address.has_data()) or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()) or
+                                    (self.timers is not None and self.timers.has_data()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:group[Cisco-IOS-XR-ipv4-hsrp-cfg:group-number = ' + str(self.group_number) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.group_number.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    self.virtual_mac_address.yfilter != YFilter.not_set or
+                                    (self.bfd is not None and self.bfd.has_operation()) or
+                                    (self.primary_ipv4_address is not None and self.primary_ipv4_address.has_operation()) or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()) or
+                                    (self.timers is not None and self.timers.has_operation()) or
+                                    (self.tracked_interfaces is not None and self.tracked_interfaces.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "group" + "[group-number='" + self.group_number.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.group_number is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.group_number.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+                                if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "bfd"):
+                                    if (self.bfd is None):
+                                        self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd()
+                                        self.bfd.parent = self
+                                        self._children_name_map["bfd"] = "bfd"
+                                    return self.bfd
+
+                                if (child_yang_name == "primary-ipv4-address"):
+                                    if (self.primary_ipv4_address is None):
+                                        self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address()
+                                        self.primary_ipv4_address.parent = self
+                                        self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
+                                    return self.primary_ipv4_address
+
+                                if (child_yang_name == "secondary-ipv4-addresses"):
+                                    if (self.secondary_ipv4_addresses is None):
+                                        self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses()
+                                        self.secondary_ipv4_addresses.parent = self
+                                        self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                    return self.secondary_ipv4_addresses
+
+                                if (child_yang_name == "timers"):
+                                    if (self.timers is None):
+                                        self.timers = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers()
+                                        self.timers.parent = self
+                                        self._children_name_map["timers"] = "timers"
+                                    return self.timers
+
+                                if (child_yang_name == "tracked-interfaces"):
+                                    if (self.tracked_interfaces is None):
+                                        self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces()
+                                        self.tracked_interfaces.parent = self
+                                        self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                                    return self.tracked_interfaces
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "bfd" or name == "primary-ipv4-address" or name == "secondary-ipv4-addresses" or name == "timers" or name == "tracked-interfaces" or name == "tracked-objects" or name == "group-number" or name == "preempt" or name == "priority" or name == "session-name" or name == "virtual-mac-address"):
                                     return True
-
-                                if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.primary_ipv4_address is not None and self.primary_ipv4_address._has_data():
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.timers is not None and self.timers._has_data():
-                                    return True
-
-                                if self.tracked_interfaces is not None and self.tracked_interfaces._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.virtual_mac_address is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                                return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "group-number"):
+                                    self.group_number = value
+                                    self.group_number.value_namespace = name_space
+                                    self.group_number.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "virtual-mac-address"):
+                                    self.virtual_mac_address = value
+                                    self.virtual_mac_address.value_namespace = name_space
+                                    self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:groups'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.group is not None:
-                                for child_ref in self.group:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.group:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                            return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2.Groups']['meta_info']
+                        def has_operation(self):
+                            for c in self.group:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "groups" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:version2'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.groups is not None and self.groups._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "group"):
+                                for c in self.group:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.group.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "group"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.groups is not None and self.groups.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.groups is not None and self.groups.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version2" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "groups"):
+                            if (self.groups is None):
+                                self.groups = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups()
+                                self.groups.parent = self
+                                self._children_name_map["groups"] = "groups"
+                            return self.groups
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "groups"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                        return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4.Version2']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.slave_groups is not None and self.slave_groups.has_data()) or
+                        (self.version1 is not None and self.version1.has_data()) or
+                        (self.version2 is not None and self.version2.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-cfg:ipv4'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.slave_groups is not None and self.slave_groups.has_operation()) or
+                        (self.version1 is not None and self.version1.has_operation()) or
+                        (self.version2 is not None and self.version2.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv4" + path_buffer
 
-                def _has_data(self):
-                    if self.slave_groups is not None and self.slave_groups._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "slave-groups"):
+                        if (self.slave_groups is None):
+                            self.slave_groups = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups()
+                            self.slave_groups.parent = self
+                            self._children_name_map["slave_groups"] = "slave-groups"
+                        return self.slave_groups
+
+                    if (child_yang_name == "version1"):
+                        if (self.version1 is None):
+                            self.version1 = Hsrp.Interfaces.Interface.Ipv4.Version1()
+                            self.version1.parent = self
+                            self._children_name_map["version1"] = "version1"
+                        return self.version1
+
+                    if (child_yang_name == "version2"):
+                        if (self.version2 is None):
+                            self.version2 = Hsrp.Interfaces.Interface.Ipv4.Version2()
+                            self.version2.parent = self
+                            self._children_name_map["version2"] = "version2"
+                        return self.version2
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slave-groups" or name == "version1" or name == "version2"):
                         return True
-
-                    if self.version1 is not None and self.version1._has_data():
-                        return True
-
-                    if self.version2 is not None and self.version2._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                    return meta._meta_table['Hsrp.Interfaces.Interface.Ipv4']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.mac_refresh.is_set or
+                    self.redirects_disable.is_set or
+                    self.use_bia.is_set or
+                    (self.bfd is not None and self.bfd.has_data()) or
+                    (self.delay is not None and self.delay.has_data()) or
+                    (self.ipv4 is not None and self.ipv4.has_data()) or
+                    (self.ipv6 is not None and self.ipv6.has_data()))
 
-                return '/Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/Cisco-IOS-XR-ipv4-hsrp-cfg:interfaces/Cisco-IOS-XR-ipv4-hsrp-cfg:interface[Cisco-IOS-XR-ipv4-hsrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.mac_refresh.yfilter != YFilter.not_set or
+                    self.redirects_disable.yfilter != YFilter.not_set or
+                    self.use_bia.yfilter != YFilter.not_set or
+                    (self.bfd is not None and self.bfd.has_operation()) or
+                    (self.delay is not None and self.delay.has_operation()) or
+                    (self.ipv4 is not None and self.ipv4.has_operation()) or
+                    (self.ipv6 is not None and self.ipv6.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.interface_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.mac_refresh.is_set or self.mac_refresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mac_refresh.get_name_leafdata())
+                if (self.redirects_disable.is_set or self.redirects_disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.redirects_disable.get_name_leafdata())
+                if (self.use_bia.is_set or self.use_bia.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.use_bia.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "bfd"):
+                    if (self.bfd is None):
+                        self.bfd = Hsrp.Interfaces.Interface.Bfd()
+                        self.bfd.parent = self
+                        self._children_name_map["bfd"] = "bfd"
+                    return self.bfd
+
+                if (child_yang_name == "delay"):
+                    if (self.delay is None):
+                        self.delay = Hsrp.Interfaces.Interface.Delay()
+                        self.delay.parent = self
+                        self._children_name_map["delay"] = "delay"
+                    return self.delay
+
+                if (child_yang_name == "ipv4"):
+                    if (self.ipv4 is None):
+                        self.ipv4 = Hsrp.Interfaces.Interface.Ipv4()
+                        self.ipv4.parent = self
+                        self._children_name_map["ipv4"] = "ipv4"
+                    return self.ipv4
+
+                if (child_yang_name == "ipv6"):
+                    if (self.ipv6 is None):
+                        self.ipv6 = Hsrp.Interfaces.Interface.Ipv6()
+                        self.ipv6.parent = self
+                        self._children_name_map["ipv6"] = "ipv6"
+                    return self.ipv6
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "bfd" or name == "delay" or name == "ipv4" or name == "ipv6" or name == "interface-name" or name == "mac-refresh" or name == "redirects-disable" or name == "use-bia"):
                     return True
-
-                if self.bfd is not None and self.bfd._has_data():
-                    return True
-
-                if self.delay is not None and self.delay._has_data():
-                    return True
-
-                if self.ipv4 is not None and self.ipv4._has_data():
-                    return True
-
-                if self.ipv6 is not None and self.ipv6._has_data():
-                    return True
-
-                if self.mac_refresh is not None:
-                    return True
-
-                if self.redirects_disable is not None:
-                    return True
-
-                if self.use_bia is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-                return meta._meta_table['Hsrp.Interfaces.Interface']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "mac-refresh"):
+                    self.mac_refresh = value
+                    self.mac_refresh.value_namespace = name_space
+                    self.mac_refresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "redirects-disable"):
+                    self.redirects_disable = value
+                    self.redirects_disable.value_namespace = name_space
+                    self.redirects_disable.value_namespace_prefix = name_space_prefix
+                if(value_path == "use-bia"):
+                    self.use_bia = value
+                    self.use_bia.value_namespace = name_space
+                    self.use_bia.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/Cisco-IOS-XR-ipv4-hsrp-cfg:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-            return meta._meta_table['Hsrp.Interfaces']['meta_info']
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Hsrp.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Logging(object):
+    class Logging(Entity):
         """
         HSRP logging options
         
@@ -3377,50 +6652,141 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.state_change_disable = None
+            super(Hsrp.Logging, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "logging"
+            self.yang_parent_name = "hsrp"
 
-            return '/Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/Cisco-IOS-XR-ipv4-hsrp-cfg:logging'
+            self.state_change_disable = YLeaf(YType.empty, "state-change-disable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("state_change_disable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Hsrp.Logging, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Hsrp.Logging, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.state_change_disable is not None:
+        def has_data(self):
+            return self.state_change_disable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.state_change_disable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "logging" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.state_change_disable.is_set or self.state_change_disable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.state_change_disable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "state-change-disable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-            return meta._meta_table['Hsrp.Logging']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "state-change-disable"):
+                self.state_change_disable = value
+                self.state_change_disable.value_namespace = name_space
+                self.state_change_disable.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.interfaces is not None and self.interfaces.has_data()) or
+            (self.logging is not None and self.logging.has_data()))
 
-        return '/Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.interfaces is not None and self.interfaces.has_operation()) or
+            (self.logging is not None and self.logging.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp" + path_buffer
 
-    def _has_data(self):
-        if self.interfaces is not None and self.interfaces._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = Hsrp.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
+
+        if (child_yang_name == "logging"):
+            if (self.logging is None):
+                self.logging = Hsrp.Logging()
+                self.logging.parent = self
+                self._children_name_map["logging"] = "logging"
+            return self.logging
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "interfaces" or name == "logging"):
             return True
-
-        if self.logging is not None and self.logging._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_cfg as meta
-        return meta._meta_table['Hsrp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Hsrp()
+        return self._top_entity
 

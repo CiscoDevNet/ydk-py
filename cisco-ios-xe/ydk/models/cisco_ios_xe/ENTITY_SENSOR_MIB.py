@@ -8,22 +8,16 @@ of this MIB module is part of RFC 3433; see the RFC
 itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EntitysensordatascaleEnum(Enum):
+class Entitysensordatascale(Enum):
     """
-    EntitysensordatascaleEnum
+    Entitysensordatascale
 
     An object using this data type represents a data scaling
 
@@ -81,50 +75,44 @@ class EntitysensordatascaleEnum(Enum):
 
     """
 
-    yocto = 1
+    yocto = Enum.YLeaf(1, "yocto")
 
-    zepto = 2
+    zepto = Enum.YLeaf(2, "zepto")
 
-    atto = 3
+    atto = Enum.YLeaf(3, "atto")
 
-    femto = 4
+    femto = Enum.YLeaf(4, "femto")
 
-    pico = 5
+    pico = Enum.YLeaf(5, "pico")
 
-    nano = 6
+    nano = Enum.YLeaf(6, "nano")
 
-    micro = 7
+    micro = Enum.YLeaf(7, "micro")
 
-    milli = 8
+    milli = Enum.YLeaf(8, "milli")
 
-    units = 9
+    units = Enum.YLeaf(9, "units")
 
-    kilo = 10
+    kilo = Enum.YLeaf(10, "kilo")
 
-    mega = 11
+    mega = Enum.YLeaf(11, "mega")
 
-    giga = 12
+    giga = Enum.YLeaf(12, "giga")
 
-    tera = 13
+    tera = Enum.YLeaf(13, "tera")
 
-    exa = 14
+    exa = Enum.YLeaf(14, "exa")
 
-    peta = 15
+    peta = Enum.YLeaf(15, "peta")
 
-    zetta = 16
+    zetta = Enum.YLeaf(16, "zetta")
 
-    yotta = 17
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-        return meta._meta_table['EntitysensordatascaleEnum']
+    yotta = Enum.YLeaf(17, "yotta")
 
 
-class EntitysensordatatypeEnum(Enum):
+class Entitysensordatatype(Enum):
     """
-    EntitysensordatatypeEnum
+    Entitysensordatatype
 
     An object using this data type represents the Entity Sensor
 
@@ -200,40 +188,34 @@ class EntitysensordatatypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    unknown = 2
+    unknown = Enum.YLeaf(2, "unknown")
 
-    voltsAC = 3
+    voltsAC = Enum.YLeaf(3, "voltsAC")
 
-    voltsDC = 4
+    voltsDC = Enum.YLeaf(4, "voltsDC")
 
-    amperes = 5
+    amperes = Enum.YLeaf(5, "amperes")
 
-    watts = 6
+    watts = Enum.YLeaf(6, "watts")
 
-    hertz = 7
+    hertz = Enum.YLeaf(7, "hertz")
 
-    celsius = 8
+    celsius = Enum.YLeaf(8, "celsius")
 
-    percentRH = 9
+    percentRH = Enum.YLeaf(9, "percentRH")
 
-    rpm = 10
+    rpm = Enum.YLeaf(10, "rpm")
 
-    cmm = 11
+    cmm = Enum.YLeaf(11, "cmm")
 
-    truthvalue = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-        return meta._meta_table['EntitysensordatatypeEnum']
+    truthvalue = Enum.YLeaf(12, "truthvalue")
 
 
-class EntitysensorstatusEnum(Enum):
+class Entitysensorstatus(Enum):
     """
-    EntitysensorstatusEnum
+    Entitysensorstatus
 
     An object using this data type represents the operational
 
@@ -263,21 +245,15 @@ class EntitysensorstatusEnum(Enum):
 
     """
 
-    ok = 1
+    ok = Enum.YLeaf(1, "ok")
 
-    unavailable = 2
+    unavailable = Enum.YLeaf(2, "unavailable")
 
-    nonoperational = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-        return meta._meta_table['EntitysensorstatusEnum']
+    nonoperational = Enum.YLeaf(3, "nonoperational")
 
 
 
-class EntitySensorMib(object):
+class EntitySensorMib(Entity):
     """
     
     
@@ -294,11 +270,19 @@ class EntitySensorMib(object):
     _revision = '2002-12-16'
 
     def __init__(self):
+        super(EntitySensorMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ENTITY-SENSOR-MIB"
+        self.yang_parent_name = "ENTITY-SENSOR-MIB"
+
         self.entphysensortable = EntitySensorMib.Entphysensortable()
         self.entphysensortable.parent = self
+        self._children_name_map["entphysensortable"] = "entPhySensorTable"
+        self._children_yang_names.add("entPhySensorTable")
 
 
-    class Entphysensortable(object):
+    class Entphysensortable(Entity):
         """
         This table contains one row per physical sensor represented
         by an associated row in the entPhysicalTable.
@@ -316,13 +300,39 @@ class EntitySensorMib(object):
         _revision = '2002-12-16'
 
         def __init__(self):
-            self.parent = None
-            self.entphysensorentry = YList()
-            self.entphysensorentry.parent = self
-            self.entphysensorentry.name = 'entphysensorentry'
+            super(EntitySensorMib.Entphysensortable, self).__init__()
+
+            self.yang_name = "entPhySensorTable"
+            self.yang_parent_name = "ENTITY-SENSOR-MIB"
+
+            self.entphysensorentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntitySensorMib.Entphysensortable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntitySensorMib.Entphysensortable, self).__setattr__(name, value)
 
 
-        class Entphysensorentry(object):
+        class Entphysensorentry(Entity):
             """
             Information about a particular physical sensor.
             
@@ -347,7 +357,7 @@ class EntitySensorMib(object):
             .. attribute:: entphysensoroperstatus
             
             	The operational status of the sensor
-            	**type**\:   :py:class:`EntitysensorstatusEnum <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitysensorstatusEnum>`
+            	**type**\:   :py:class:`Entitysensorstatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.Entitysensorstatus>`
             
             .. attribute:: entphysensorprecision
             
@@ -359,12 +369,12 @@ class EntitySensorMib(object):
             .. attribute:: entphysensorscale
             
             	The exponent to apply to values returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitysensordatascaleEnum <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitysensordatascaleEnum>`
+            	**type**\:   :py:class:`Entitysensordatascale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.Entitysensordatascale>`
             
             .. attribute:: entphysensortype
             
             	The type of data returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitysensordatatypeEnum <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitysensordatatypeEnum>`
+            	**type**\:   :py:class:`Entitysensordatatype <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.Entitysensordatatype>`
             
             .. attribute:: entphysensorunitsdisplay
             
@@ -402,103 +412,277 @@ class EntitySensorMib(object):
             _revision = '2002-12-16'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.entphysensoroperstatus = None
-                self.entphysensorprecision = None
-                self.entphysensorscale = None
-                self.entphysensortype = None
-                self.entphysensorunitsdisplay = None
-                self.entphysensorvalue = None
-                self.entphysensorvaluetimestamp = None
-                self.entphysensorvalueupdaterate = None
+                super(EntitySensorMib.Entphysensortable.Entphysensorentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "entPhySensorEntry"
+                self.yang_parent_name = "entPhySensorTable"
 
-                return '/ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/ENTITY-SENSOR-MIB:entPhySensorTable/ENTITY-SENSOR-MIB:entPhySensorEntry[ENTITY-SENSOR-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.entphysensoroperstatus = YLeaf(YType.enumeration, "entPhySensorOperStatus")
+
+                self.entphysensorprecision = YLeaf(YType.int32, "entPhySensorPrecision")
+
+                self.entphysensorscale = YLeaf(YType.enumeration, "entPhySensorScale")
+
+                self.entphysensortype = YLeaf(YType.enumeration, "entPhySensorType")
+
+                self.entphysensorunitsdisplay = YLeaf(YType.str, "entPhySensorUnitsDisplay")
+
+                self.entphysensorvalue = YLeaf(YType.int32, "entPhySensorValue")
+
+                self.entphysensorvaluetimestamp = YLeaf(YType.uint32, "entPhySensorValueTimeStamp")
+
+                self.entphysensorvalueupdaterate = YLeaf(YType.uint32, "entPhySensorValueUpdateRate")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "entphysensoroperstatus",
+                                "entphysensorprecision",
+                                "entphysensorscale",
+                                "entphysensortype",
+                                "entphysensorunitsdisplay",
+                                "entphysensorvalue",
+                                "entphysensorvaluetimestamp",
+                                "entphysensorvalueupdaterate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntitySensorMib.Entphysensortable.Entphysensorentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntitySensorMib.Entphysensortable.Entphysensorentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.entphysensoroperstatus.is_set or
+                    self.entphysensorprecision.is_set or
+                    self.entphysensorscale.is_set or
+                    self.entphysensortype.is_set or
+                    self.entphysensorunitsdisplay.is_set or
+                    self.entphysensorvalue.is_set or
+                    self.entphysensorvaluetimestamp.is_set or
+                    self.entphysensorvalueupdaterate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.entphysensoroperstatus.yfilter != YFilter.not_set or
+                    self.entphysensorprecision.yfilter != YFilter.not_set or
+                    self.entphysensorscale.yfilter != YFilter.not_set or
+                    self.entphysensortype.yfilter != YFilter.not_set or
+                    self.entphysensorunitsdisplay.yfilter != YFilter.not_set or
+                    self.entphysensorvalue.yfilter != YFilter.not_set or
+                    self.entphysensorvaluetimestamp.yfilter != YFilter.not_set or
+                    self.entphysensorvalueupdaterate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entPhySensorEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/entPhySensorTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.entphysensoroperstatus.is_set or self.entphysensoroperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensoroperstatus.get_name_leafdata())
+                if (self.entphysensorprecision.is_set or self.entphysensorprecision.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorprecision.get_name_leafdata())
+                if (self.entphysensorscale.is_set or self.entphysensorscale.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorscale.get_name_leafdata())
+                if (self.entphysensortype.is_set or self.entphysensortype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensortype.get_name_leafdata())
+                if (self.entphysensorunitsdisplay.is_set or self.entphysensorunitsdisplay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorunitsdisplay.get_name_leafdata())
+                if (self.entphysensorvalue.is_set or self.entphysensorvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorvalue.get_name_leafdata())
+                if (self.entphysensorvaluetimestamp.is_set or self.entphysensorvaluetimestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorvaluetimestamp.get_name_leafdata())
+                if (self.entphysensorvalueupdaterate.is_set or self.entphysensorvalueupdaterate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysensorvalueupdaterate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "entPhySensorOperStatus" or name == "entPhySensorPrecision" or name == "entPhySensorScale" or name == "entPhySensorType" or name == "entPhySensorUnitsDisplay" or name == "entPhySensorValue" or name == "entPhySensorValueTimeStamp" or name == "entPhySensorValueUpdateRate"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorOperStatus"):
+                    self.entphysensoroperstatus = value
+                    self.entphysensoroperstatus.value_namespace = name_space
+                    self.entphysensoroperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorPrecision"):
+                    self.entphysensorprecision = value
+                    self.entphysensorprecision.value_namespace = name_space
+                    self.entphysensorprecision.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorScale"):
+                    self.entphysensorscale = value
+                    self.entphysensorscale.value_namespace = name_space
+                    self.entphysensorscale.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorType"):
+                    self.entphysensortype = value
+                    self.entphysensortype.value_namespace = name_space
+                    self.entphysensortype.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorUnitsDisplay"):
+                    self.entphysensorunitsdisplay = value
+                    self.entphysensorunitsdisplay.value_namespace = name_space
+                    self.entphysensorunitsdisplay.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorValue"):
+                    self.entphysensorvalue = value
+                    self.entphysensorvalue.value_namespace = name_space
+                    self.entphysensorvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorValueTimeStamp"):
+                    self.entphysensorvaluetimestamp = value
+                    self.entphysensorvaluetimestamp.value_namespace = name_space
+                    self.entphysensorvaluetimestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhySensorValueUpdateRate"):
+                    self.entphysensorvalueupdaterate = value
+                    self.entphysensorvalueupdaterate.value_namespace = name_space
+                    self.entphysensorvalueupdaterate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entphysensorentry:
+                if (c.has_data()):
                     return True
-
-                if self.entphysensoroperstatus is not None:
-                    return True
-
-                if self.entphysensorprecision is not None:
-                    return True
-
-                if self.entphysensorscale is not None:
-                    return True
-
-                if self.entphysensortype is not None:
-                    return True
-
-                if self.entphysensorunitsdisplay is not None:
-                    return True
-
-                if self.entphysensorvalue is not None:
-                    return True
-
-                if self.entphysensorvaluetimestamp is not None:
-                    return True
-
-                if self.entphysensorvalueupdaterate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-                return meta._meta_table['EntitySensorMib.Entphysensortable.Entphysensorentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/ENTITY-SENSOR-MIB:entPhySensorTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entphysensorentry is not None:
-                for child_ref in self.entphysensorentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entphysensorentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entPhySensorTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entPhySensorEntry"):
+                for c in self.entphysensorentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntitySensorMib.Entphysensortable.Entphysensorentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entphysensorentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entPhySensorEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-            return meta._meta_table['EntitySensorMib.Entphysensortable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.entphysensortable is not None and self.entphysensortable.has_data())
 
-        return '/ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.entphysensortable is not None and self.entphysensortable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB" + path_buffer
 
-    def _has_data(self):
-        if self.entphysensortable is not None and self.entphysensortable._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "entPhySensorTable"):
+            if (self.entphysensortable is None):
+                self.entphysensortable = EntitySensorMib.Entphysensortable()
+                self.entphysensortable.parent = self
+                self._children_name_map["entphysensortable"] = "entPhySensorTable"
+            return self.entphysensortable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "entPhySensorTable"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_SENSOR_MIB as meta
-        return meta._meta_table['EntitySensorMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntitySensorMib()
+        return self._top_entity
 

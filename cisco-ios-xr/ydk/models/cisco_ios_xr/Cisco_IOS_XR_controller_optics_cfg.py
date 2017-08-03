@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class OpticsDwdmCarrierGridEnum(Enum):
+class OpticsDwdmCarrierGrid(Enum):
     """
-    OpticsDwdmCarrierGridEnum
+    OpticsDwdmCarrierGrid
 
     Optics dwdm carrier grid
 
@@ -40,20 +34,14 @@ class OpticsDwdmCarrierGridEnum(Enum):
 
     """
 
-    Y_50g_hz_grid = 0
+    Y_50g_hz_grid = Enum.YLeaf(0, "50g-hz-grid")
 
-    Y_100mhz_grid = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsDwdmCarrierGridEnum']
+    Y_100mhz_grid = Enum.YLeaf(1, "100mhz-grid")
 
 
-class OpticsDwdmCarrierParamEnum(Enum):
+class OpticsDwdmCarrierParam(Enum):
     """
-    OpticsDwdmCarrierParamEnum
+    OpticsDwdmCarrierParam
 
     Optics dwdm carrier param
 
@@ -71,22 +59,16 @@ class OpticsDwdmCarrierParamEnum(Enum):
 
     """
 
-    itu_ch = 0
+    itu_ch = Enum.YLeaf(0, "itu-ch")
 
-    wavelength = 1
+    wavelength = Enum.YLeaf(1, "wavelength")
 
-    frequency = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsDwdmCarrierParamEnum']
+    frequency = Enum.YLeaf(2, "frequency")
 
 
-class OpticsFecEnum(Enum):
+class OpticsFec(Enum):
     """
-    OpticsFecEnum
+    OpticsFec
 
     Optics fec
 
@@ -112,26 +94,20 @@ class OpticsFecEnum(Enum):
 
     """
 
-    fec_none = 0
+    fec_none = Enum.YLeaf(0, "fec-none")
 
-    fec_h15 = 1
+    fec_h15 = Enum.YLeaf(1, "fec-h15")
 
-    fec_h25 = 2
+    fec_h25 = Enum.YLeaf(2, "fec-h25")
 
-    fec_h15_de = 4
+    fec_h15_de = Enum.YLeaf(4, "fec-h15-de")
 
-    fec_h25_de = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsFecEnum']
+    fec_h25_de = Enum.YLeaf(8, "fec-h25-de")
 
 
-class OpticsLoopbackEnum(Enum):
+class OpticsLoopback(Enum):
     """
-    OpticsLoopbackEnum
+    OpticsLoopback
 
     Optics loopback
 
@@ -149,22 +125,16 @@ class OpticsLoopbackEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    internal = 1
+    internal = Enum.YLeaf(1, "internal")
 
-    line = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsLoopbackEnum']
+    line = Enum.YLeaf(2, "line")
 
 
-class OpticsOtsAmpliControlModeEnum(Enum):
+class OpticsOtsAmpliControlMode(Enum):
     """
-    OpticsOtsAmpliControlModeEnum
+    OpticsOtsAmpliControlMode
 
     Optics ots ampli control mode
 
@@ -178,20 +148,14 @@ class OpticsOtsAmpliControlModeEnum(Enum):
 
     """
 
-    automatic = 1
+    automatic = Enum.YLeaf(1, "automatic")
 
-    manual = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsOtsAmpliControlModeEnum']
+    manual = Enum.YLeaf(2, "manual")
 
 
-class OpticsOtsAmpliGainRangeEnum(Enum):
+class OpticsOtsAmpliGainRange(Enum):
     """
-    OpticsOtsAmpliGainRangeEnum
+    OpticsOtsAmpliGainRange
 
     Optics ots ampli gain range
 
@@ -205,20 +169,14 @@ class OpticsOtsAmpliGainRangeEnum(Enum):
 
     """
 
-    normal = 1
+    normal = Enum.YLeaf(1, "normal")
 
-    extended = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsOtsAmpliGainRangeEnum']
+    extended = Enum.YLeaf(2, "extended")
 
 
-class OpticsOtsSafetyControlModeEnum(Enum):
+class OpticsOtsSafetyControlMode(Enum):
     """
-    OpticsOtsSafetyControlModeEnum
+    OpticsOtsSafetyControlMode
 
     Optics ots safety control mode
 
@@ -232,20 +190,14 @@ class OpticsOtsSafetyControlModeEnum(Enum):
 
     """
 
-    auto = 1
+    auto = Enum.YLeaf(1, "auto")
 
-    disabled = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsOtsSafetyControlModeEnum']
+    disabled = Enum.YLeaf(2, "disabled")
 
 
-class ThresholdEnum(Enum):
+class Threshold(Enum):
     """
-    ThresholdEnum
+    Threshold
 
     Threshold
 
@@ -259,15 +211,9 @@ class ThresholdEnum(Enum):
 
     """
 
-    low = 1
+    low = Enum.YLeaf(1, "low")
 
-    high = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['ThresholdEnum']
+    high = Enum.YLeaf(2, "high")
 
 
 

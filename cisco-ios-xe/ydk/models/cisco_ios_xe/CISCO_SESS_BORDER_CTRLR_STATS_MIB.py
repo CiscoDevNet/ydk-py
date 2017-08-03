@@ -81,22 +81,16 @@ REFERENCES
 http\://zed.cisco.com/confluence/display/SBC/SBC
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CiscosbcradiusclienttypeEnum(Enum):
+class Ciscosbcradiusclienttype(Enum):
     """
-    CiscosbcradiusclienttypeEnum
+    Ciscosbcradiusclienttype
 
     This textual convention represents the type of RADIUS client.
 
@@ -106,20 +100,14 @@ class CiscosbcradiusclienttypeEnum(Enum):
 
     """
 
-    authentication = 1
+    authentication = Enum.YLeaf(1, "authentication")
 
-    accounting = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-        return meta._meta_table['CiscosbcradiusclienttypeEnum']
+    accounting = Enum.YLeaf(2, "accounting")
 
 
-class CiscosbcsipmethodEnum(Enum):
+class Ciscosbcsipmethod(Enum):
     """
-    CiscosbcsipmethodEnum
+    Ciscosbcsipmethod
 
     This textual convention represents the various SIP Methods.
 
@@ -153,43 +141,37 @@ class CiscosbcsipmethodEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    ack = 2
+    ack = Enum.YLeaf(2, "ack")
 
-    bye = 3
+    bye = Enum.YLeaf(3, "bye")
 
-    cancel = 4
+    cancel = Enum.YLeaf(4, "cancel")
 
-    info = 5
+    info = Enum.YLeaf(5, "info")
 
-    invite = 6
+    invite = Enum.YLeaf(6, "invite")
 
-    message = 7
+    message = Enum.YLeaf(7, "message")
 
-    notify = 8
+    notify = Enum.YLeaf(8, "notify")
 
-    options = 9
+    options = Enum.YLeaf(9, "options")
 
-    prack = 10
+    prack = Enum.YLeaf(10, "prack")
 
-    refer = 11
+    refer = Enum.YLeaf(11, "refer")
 
-    register = 12
+    register = Enum.YLeaf(12, "register")
 
-    subscribe = 13
+    subscribe = Enum.YLeaf(13, "subscribe")
 
-    update = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-        return meta._meta_table['CiscosbcsipmethodEnum']
+    update = Enum.YLeaf(14, "update")
 
 
 
-class CiscoSessBorderCtrlrStatsMib(object):
+class CiscoSessBorderCtrlrStatsMib(Entity):
     """
     
     
@@ -231,21 +213,44 @@ class CiscoSessBorderCtrlrStatsMib(object):
     _revision = '2010-09-15'
 
     def __init__(self):
+        super(CiscoSessBorderCtrlrStatsMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+        self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
         self.csbradiusstatstable = CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable()
         self.csbradiusstatstable.parent = self
+        self._children_name_map["csbradiusstatstable"] = "csbRadiusStatsTable"
+        self._children_yang_names.add("csbRadiusStatsTable")
+
         self.csbrfbillrealmstatstable = CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable()
         self.csbrfbillrealmstatstable.parent = self
+        self._children_name_map["csbrfbillrealmstatstable"] = "csbRfBillRealmStatsTable"
+        self._children_yang_names.add("csbRfBillRealmStatsTable")
+
         self.csbsipmthdcurrentstatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable()
         self.csbsipmthdcurrentstatstable.parent = self
+        self._children_name_map["csbsipmthdcurrentstatstable"] = "csbSIPMthdCurrentStatsTable"
+        self._children_yang_names.add("csbSIPMthdCurrentStatsTable")
+
         self.csbsipmthdhistorystatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable()
         self.csbsipmthdhistorystatstable.parent = self
+        self._children_name_map["csbsipmthdhistorystatstable"] = "csbSIPMthdHistoryStatsTable"
+        self._children_yang_names.add("csbSIPMthdHistoryStatsTable")
+
         self.csbsipmthdrccurrentstatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable()
         self.csbsipmthdrccurrentstatstable.parent = self
+        self._children_name_map["csbsipmthdrccurrentstatstable"] = "csbSIPMthdRCCurrentStatsTable"
+        self._children_yang_names.add("csbSIPMthdRCCurrentStatsTable")
+
         self.csbsipmthdrchistorystatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable()
         self.csbsipmthdrchistorystatstable.parent = self
+        self._children_name_map["csbsipmthdrchistorystatstable"] = "csbSIPMthdRCHistoryStatsTable"
+        self._children_yang_names.add("csbSIPMthdRCHistoryStatsTable")
 
 
-    class Csbradiusstatstable(object):
+    class Csbradiusstatstable(Entity):
         """
         This table has the reporting statistics of various RADIUS
         messages for RADIUS servers with which the client (SBC) shares a
@@ -268,13 +273,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbradiusstatsentry = YList()
-            self.csbradiusstatsentry.parent = self
-            self.csbradiusstatsentry.name = 'csbradiusstatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable, self).__init__()
+
+            self.yang_name = "csbRadiusStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbradiusstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable, self).__setattr__(name, value)
 
 
-        class Csbradiusstatsentry(object):
+        class Csbradiusstatsentry(Entity):
             """
             A conceptual row in the csbRadiusStatsTable. There is an
             entry in this table for each RADIUS server, as identified by a 
@@ -395,7 +426,7 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbradiusstatsclienttype
             
             	This object indicates the type(authentication or accounting) of the RADIUS clients configured on SBC
-            	**type**\:   :py:class:`CiscosbcradiusclienttypeEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscosbcradiusclienttypeEnum>`
+            	**type**\:   :py:class:`Ciscosbcradiusclienttype <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.Ciscosbcradiusclienttype>`
             
             .. attribute:: csbradiusstatsdropped
             
@@ -455,135 +486,352 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbradiusstatsentindex = None
-                self.csbradiusstatsacsaccpts = None
-                self.csbradiusstatsacschalls = None
-                self.csbradiusstatsacsrejects = None
-                self.csbradiusstatsacsreqs = None
-                self.csbradiusstatsacsrtrns = None
-                self.csbradiusstatsactreqs = None
-                self.csbradiusstatsactretrans = None
-                self.csbradiusstatsactrsps = None
-                self.csbradiusstatsbadauths = None
-                self.csbradiusstatsclientname = None
-                self.csbradiusstatsclienttype = None
-                self.csbradiusstatsdropped = None
-                self.csbradiusstatsmalformedrsps = None
-                self.csbradiusstatspending = None
-                self.csbradiusstatssrvrname = None
-                self.csbradiusstatstimeouts = None
-                self.csbradiusstatsunknowntype = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable.Csbradiusstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbradiusstatsentindex is None:
-                    raise YPYModelError('Key property csbradiusstatsentindex is None')
+                self.yang_name = "csbRadiusStatsEntry"
+                self.yang_parent_name = "csbRadiusStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRadiusStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRadiusStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRadiusStatsEntIndex = ' + str(self.csbradiusstatsentindex) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbradiusstatsentindex = YLeaf(YType.uint32, "csbRadiusStatsEntIndex")
+
+                self.csbradiusstatsacsaccpts = YLeaf(YType.uint64, "csbRadiusStatsAcsAccpts")
+
+                self.csbradiusstatsacschalls = YLeaf(YType.uint64, "csbRadiusStatsAcsChalls")
+
+                self.csbradiusstatsacsrejects = YLeaf(YType.uint64, "csbRadiusStatsAcsRejects")
+
+                self.csbradiusstatsacsreqs = YLeaf(YType.uint64, "csbRadiusStatsAcsReqs")
+
+                self.csbradiusstatsacsrtrns = YLeaf(YType.uint64, "csbRadiusStatsAcsRtrns")
+
+                self.csbradiusstatsactreqs = YLeaf(YType.uint64, "csbRadiusStatsActReqs")
+
+                self.csbradiusstatsactretrans = YLeaf(YType.uint64, "csbRadiusStatsActRetrans")
+
+                self.csbradiusstatsactrsps = YLeaf(YType.uint64, "csbRadiusStatsActRsps")
+
+                self.csbradiusstatsbadauths = YLeaf(YType.uint64, "csbRadiusStatsBadAuths")
+
+                self.csbradiusstatsclientname = YLeaf(YType.str, "csbRadiusStatsClientName")
+
+                self.csbradiusstatsclienttype = YLeaf(YType.enumeration, "csbRadiusStatsClientType")
+
+                self.csbradiusstatsdropped = YLeaf(YType.uint64, "csbRadiusStatsDropped")
+
+                self.csbradiusstatsmalformedrsps = YLeaf(YType.uint64, "csbRadiusStatsMalformedRsps")
+
+                self.csbradiusstatspending = YLeaf(YType.uint32, "csbRadiusStatsPending")
+
+                self.csbradiusstatssrvrname = YLeaf(YType.str, "csbRadiusStatsSrvrName")
+
+                self.csbradiusstatstimeouts = YLeaf(YType.uint64, "csbRadiusStatsTimeouts")
+
+                self.csbradiusstatsunknowntype = YLeaf(YType.uint64, "csbRadiusStatsUnknownType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbradiusstatsentindex",
+                                "csbradiusstatsacsaccpts",
+                                "csbradiusstatsacschalls",
+                                "csbradiusstatsacsrejects",
+                                "csbradiusstatsacsreqs",
+                                "csbradiusstatsacsrtrns",
+                                "csbradiusstatsactreqs",
+                                "csbradiusstatsactretrans",
+                                "csbradiusstatsactrsps",
+                                "csbradiusstatsbadauths",
+                                "csbradiusstatsclientname",
+                                "csbradiusstatsclienttype",
+                                "csbradiusstatsdropped",
+                                "csbradiusstatsmalformedrsps",
+                                "csbradiusstatspending",
+                                "csbradiusstatssrvrname",
+                                "csbradiusstatstimeouts",
+                                "csbradiusstatsunknowntype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable.Csbradiusstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable.Csbradiusstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbradiusstatsentindex.is_set or
+                    self.csbradiusstatsacsaccpts.is_set or
+                    self.csbradiusstatsacschalls.is_set or
+                    self.csbradiusstatsacsrejects.is_set or
+                    self.csbradiusstatsacsreqs.is_set or
+                    self.csbradiusstatsacsrtrns.is_set or
+                    self.csbradiusstatsactreqs.is_set or
+                    self.csbradiusstatsactretrans.is_set or
+                    self.csbradiusstatsactrsps.is_set or
+                    self.csbradiusstatsbadauths.is_set or
+                    self.csbradiusstatsclientname.is_set or
+                    self.csbradiusstatsclienttype.is_set or
+                    self.csbradiusstatsdropped.is_set or
+                    self.csbradiusstatsmalformedrsps.is_set or
+                    self.csbradiusstatspending.is_set or
+                    self.csbradiusstatssrvrname.is_set or
+                    self.csbradiusstatstimeouts.is_set or
+                    self.csbradiusstatsunknowntype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbradiusstatsentindex.yfilter != YFilter.not_set or
+                    self.csbradiusstatsacsaccpts.yfilter != YFilter.not_set or
+                    self.csbradiusstatsacschalls.yfilter != YFilter.not_set or
+                    self.csbradiusstatsacsrejects.yfilter != YFilter.not_set or
+                    self.csbradiusstatsacsreqs.yfilter != YFilter.not_set or
+                    self.csbradiusstatsacsrtrns.yfilter != YFilter.not_set or
+                    self.csbradiusstatsactreqs.yfilter != YFilter.not_set or
+                    self.csbradiusstatsactretrans.yfilter != YFilter.not_set or
+                    self.csbradiusstatsactrsps.yfilter != YFilter.not_set or
+                    self.csbradiusstatsbadauths.yfilter != YFilter.not_set or
+                    self.csbradiusstatsclientname.yfilter != YFilter.not_set or
+                    self.csbradiusstatsclienttype.yfilter != YFilter.not_set or
+                    self.csbradiusstatsdropped.yfilter != YFilter.not_set or
+                    self.csbradiusstatsmalformedrsps.yfilter != YFilter.not_set or
+                    self.csbradiusstatspending.yfilter != YFilter.not_set or
+                    self.csbradiusstatssrvrname.yfilter != YFilter.not_set or
+                    self.csbradiusstatstimeouts.yfilter != YFilter.not_set or
+                    self.csbradiusstatsunknowntype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbRadiusStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbRadiusStatsEntIndex='" + self.csbradiusstatsentindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRadiusStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbradiusstatsentindex.is_set or self.csbradiusstatsentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsentindex.get_name_leafdata())
+                if (self.csbradiusstatsacsaccpts.is_set or self.csbradiusstatsacsaccpts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsacsaccpts.get_name_leafdata())
+                if (self.csbradiusstatsacschalls.is_set or self.csbradiusstatsacschalls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsacschalls.get_name_leafdata())
+                if (self.csbradiusstatsacsrejects.is_set or self.csbradiusstatsacsrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsacsrejects.get_name_leafdata())
+                if (self.csbradiusstatsacsreqs.is_set or self.csbradiusstatsacsreqs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsacsreqs.get_name_leafdata())
+                if (self.csbradiusstatsacsrtrns.is_set or self.csbradiusstatsacsrtrns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsacsrtrns.get_name_leafdata())
+                if (self.csbradiusstatsactreqs.is_set or self.csbradiusstatsactreqs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsactreqs.get_name_leafdata())
+                if (self.csbradiusstatsactretrans.is_set or self.csbradiusstatsactretrans.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsactretrans.get_name_leafdata())
+                if (self.csbradiusstatsactrsps.is_set or self.csbradiusstatsactrsps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsactrsps.get_name_leafdata())
+                if (self.csbradiusstatsbadauths.is_set or self.csbradiusstatsbadauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsbadauths.get_name_leafdata())
+                if (self.csbradiusstatsclientname.is_set or self.csbradiusstatsclientname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsclientname.get_name_leafdata())
+                if (self.csbradiusstatsclienttype.is_set or self.csbradiusstatsclienttype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsclienttype.get_name_leafdata())
+                if (self.csbradiusstatsdropped.is_set or self.csbradiusstatsdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsdropped.get_name_leafdata())
+                if (self.csbradiusstatsmalformedrsps.is_set or self.csbradiusstatsmalformedrsps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsmalformedrsps.get_name_leafdata())
+                if (self.csbradiusstatspending.is_set or self.csbradiusstatspending.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatspending.get_name_leafdata())
+                if (self.csbradiusstatssrvrname.is_set or self.csbradiusstatssrvrname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatssrvrname.get_name_leafdata())
+                if (self.csbradiusstatstimeouts.is_set or self.csbradiusstatstimeouts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatstimeouts.get_name_leafdata())
+                if (self.csbradiusstatsunknowntype.is_set or self.csbradiusstatsunknowntype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbradiusstatsunknowntype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbRadiusStatsEntIndex" or name == "csbRadiusStatsAcsAccpts" or name == "csbRadiusStatsAcsChalls" or name == "csbRadiusStatsAcsRejects" or name == "csbRadiusStatsAcsReqs" or name == "csbRadiusStatsAcsRtrns" or name == "csbRadiusStatsActReqs" or name == "csbRadiusStatsActRetrans" or name == "csbRadiusStatsActRsps" or name == "csbRadiusStatsBadAuths" or name == "csbRadiusStatsClientName" or name == "csbRadiusStatsClientType" or name == "csbRadiusStatsDropped" or name == "csbRadiusStatsMalformedRsps" or name == "csbRadiusStatsPending" or name == "csbRadiusStatsSrvrName" or name == "csbRadiusStatsTimeouts" or name == "csbRadiusStatsUnknownType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsEntIndex"):
+                    self.csbradiusstatsentindex = value
+                    self.csbradiusstatsentindex.value_namespace = name_space
+                    self.csbradiusstatsentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsAcsAccpts"):
+                    self.csbradiusstatsacsaccpts = value
+                    self.csbradiusstatsacsaccpts.value_namespace = name_space
+                    self.csbradiusstatsacsaccpts.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsAcsChalls"):
+                    self.csbradiusstatsacschalls = value
+                    self.csbradiusstatsacschalls.value_namespace = name_space
+                    self.csbradiusstatsacschalls.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsAcsRejects"):
+                    self.csbradiusstatsacsrejects = value
+                    self.csbradiusstatsacsrejects.value_namespace = name_space
+                    self.csbradiusstatsacsrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsAcsReqs"):
+                    self.csbradiusstatsacsreqs = value
+                    self.csbradiusstatsacsreqs.value_namespace = name_space
+                    self.csbradiusstatsacsreqs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsAcsRtrns"):
+                    self.csbradiusstatsacsrtrns = value
+                    self.csbradiusstatsacsrtrns.value_namespace = name_space
+                    self.csbradiusstatsacsrtrns.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsActReqs"):
+                    self.csbradiusstatsactreqs = value
+                    self.csbradiusstatsactreqs.value_namespace = name_space
+                    self.csbradiusstatsactreqs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsActRetrans"):
+                    self.csbradiusstatsactretrans = value
+                    self.csbradiusstatsactretrans.value_namespace = name_space
+                    self.csbradiusstatsactretrans.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsActRsps"):
+                    self.csbradiusstatsactrsps = value
+                    self.csbradiusstatsactrsps.value_namespace = name_space
+                    self.csbradiusstatsactrsps.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsBadAuths"):
+                    self.csbradiusstatsbadauths = value
+                    self.csbradiusstatsbadauths.value_namespace = name_space
+                    self.csbradiusstatsbadauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsClientName"):
+                    self.csbradiusstatsclientname = value
+                    self.csbradiusstatsclientname.value_namespace = name_space
+                    self.csbradiusstatsclientname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsClientType"):
+                    self.csbradiusstatsclienttype = value
+                    self.csbradiusstatsclienttype.value_namespace = name_space
+                    self.csbradiusstatsclienttype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsDropped"):
+                    self.csbradiusstatsdropped = value
+                    self.csbradiusstatsdropped.value_namespace = name_space
+                    self.csbradiusstatsdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsMalformedRsps"):
+                    self.csbradiusstatsmalformedrsps = value
+                    self.csbradiusstatsmalformedrsps.value_namespace = name_space
+                    self.csbradiusstatsmalformedrsps.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsPending"):
+                    self.csbradiusstatspending = value
+                    self.csbradiusstatspending.value_namespace = name_space
+                    self.csbradiusstatspending.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsSrvrName"):
+                    self.csbradiusstatssrvrname = value
+                    self.csbradiusstatssrvrname.value_namespace = name_space
+                    self.csbradiusstatssrvrname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsTimeouts"):
+                    self.csbradiusstatstimeouts = value
+                    self.csbradiusstatstimeouts.value_namespace = name_space
+                    self.csbradiusstatstimeouts.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRadiusStatsUnknownType"):
+                    self.csbradiusstatsunknowntype = value
+                    self.csbradiusstatsunknowntype.value_namespace = name_space
+                    self.csbradiusstatsunknowntype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbradiusstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbradiusstatsentindex is not None:
-                    return True
-
-                if self.csbradiusstatsacsaccpts is not None:
-                    return True
-
-                if self.csbradiusstatsacschalls is not None:
-                    return True
-
-                if self.csbradiusstatsacsrejects is not None:
-                    return True
-
-                if self.csbradiusstatsacsreqs is not None:
-                    return True
-
-                if self.csbradiusstatsacsrtrns is not None:
-                    return True
-
-                if self.csbradiusstatsactreqs is not None:
-                    return True
-
-                if self.csbradiusstatsactretrans is not None:
-                    return True
-
-                if self.csbradiusstatsactrsps is not None:
-                    return True
-
-                if self.csbradiusstatsbadauths is not None:
-                    return True
-
-                if self.csbradiusstatsclientname is not None:
-                    return True
-
-                if self.csbradiusstatsclienttype is not None:
-                    return True
-
-                if self.csbradiusstatsdropped is not None:
-                    return True
-
-                if self.csbradiusstatsmalformedrsps is not None:
-                    return True
-
-                if self.csbradiusstatspending is not None:
-                    return True
-
-                if self.csbradiusstatssrvrname is not None:
-                    return True
-
-                if self.csbradiusstatstimeouts is not None:
-                    return True
-
-                if self.csbradiusstatsunknowntype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable.Csbradiusstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRadiusStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbradiusstatsentry is not None:
-                for child_ref in self.csbradiusstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbradiusstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbRadiusStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbRadiusStatsEntry"):
+                for c in self.csbradiusstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable.Csbradiusstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbradiusstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbRadiusStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csbrfbillrealmstatstable(object):
+    class Csbrfbillrealmstatstable(Entity):
         """
         This table describes the Rf billing statistics information
         which monitors the messages sent per\-realm by Rf billing 
@@ -618,13 +866,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbrfbillrealmstatsentry = YList()
-            self.csbrfbillrealmstatsentry.parent = self
-            self.csbrfbillrealmstatsentry.name = 'csbrfbillrealmstatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable, self).__init__()
+
+            self.yang_name = "csbRfBillRealmStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbrfbillrealmstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable, self).__setattr__(name, value)
 
 
-        class Csbrfbillrealmstatsentry(object):
+        class Csbrfbillrealmstatsentry(Entity):
             """
             A conceptual row in the csbRfBillRealmStatsTable. There
             is an entry in this table for each realm, as identified by a 
@@ -780,121 +1054,308 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbrfbillrealmstatsindex = None
-                self.csbrfbillrealmstatsrealmname = None
-                self.csbrfbillrealmstatsfaileventacrs = None
-                self.csbrfbillrealmstatsfailinterimacrs = None
-                self.csbrfbillrealmstatsfailstartacrs = None
-                self.csbrfbillrealmstatsfailstopacrs = None
-                self.csbrfbillrealmstatssucceventacrs = None
-                self.csbrfbillrealmstatssuccinterimacrs = None
-                self.csbrfbillrealmstatssuccstartacrs = None
-                self.csbrfbillrealmstatssuccstopacrs = None
-                self.csbrfbillrealmstatstotaleventacrs = None
-                self.csbrfbillrealmstatstotalinterimacrs = None
-                self.csbrfbillrealmstatstotalstartacrs = None
-                self.csbrfbillrealmstatstotalstopacrs = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbrfbillrealmstatsindex is None:
-                    raise YPYModelError('Key property csbrfbillrealmstatsindex is None')
-                if self.csbrfbillrealmstatsrealmname is None:
-                    raise YPYModelError('Key property csbrfbillrealmstatsrealmname is None')
+                self.yang_name = "csbRfBillRealmStatsEntry"
+                self.yang_parent_name = "csbRfBillRealmStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRfBillRealmStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRfBillRealmStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRfBillRealmStatsIndex = ' + str(self.csbrfbillrealmstatsindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRfBillRealmStatsRealmName = ' + str(self.csbrfbillrealmstatsrealmname) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbrfbillrealmstatsindex = YLeaf(YType.uint32, "csbRfBillRealmStatsIndex")
+
+                self.csbrfbillrealmstatsrealmname = YLeaf(YType.str, "csbRfBillRealmStatsRealmName")
+
+                self.csbrfbillrealmstatsfaileventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailEventAcrs")
+
+                self.csbrfbillrealmstatsfailinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailInterimAcrs")
+
+                self.csbrfbillrealmstatsfailstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStartAcrs")
+
+                self.csbrfbillrealmstatsfailstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStopAcrs")
+
+                self.csbrfbillrealmstatssucceventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccEventAcrs")
+
+                self.csbrfbillrealmstatssuccinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccInterimAcrs")
+
+                self.csbrfbillrealmstatssuccstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStartAcrs")
+
+                self.csbrfbillrealmstatssuccstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStopAcrs")
+
+                self.csbrfbillrealmstatstotaleventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalEventAcrs")
+
+                self.csbrfbillrealmstatstotalinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalInterimAcrs")
+
+                self.csbrfbillrealmstatstotalstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalStartAcrs")
+
+                self.csbrfbillrealmstatstotalstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalStopAcrs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbrfbillrealmstatsindex",
+                                "csbrfbillrealmstatsrealmname",
+                                "csbrfbillrealmstatsfaileventacrs",
+                                "csbrfbillrealmstatsfailinterimacrs",
+                                "csbrfbillrealmstatsfailstartacrs",
+                                "csbrfbillrealmstatsfailstopacrs",
+                                "csbrfbillrealmstatssucceventacrs",
+                                "csbrfbillrealmstatssuccinterimacrs",
+                                "csbrfbillrealmstatssuccstartacrs",
+                                "csbrfbillrealmstatssuccstopacrs",
+                                "csbrfbillrealmstatstotaleventacrs",
+                                "csbrfbillrealmstatstotalinterimacrs",
+                                "csbrfbillrealmstatstotalstartacrs",
+                                "csbrfbillrealmstatstotalstopacrs") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbrfbillrealmstatsindex.is_set or
+                    self.csbrfbillrealmstatsrealmname.is_set or
+                    self.csbrfbillrealmstatsfaileventacrs.is_set or
+                    self.csbrfbillrealmstatsfailinterimacrs.is_set or
+                    self.csbrfbillrealmstatsfailstartacrs.is_set or
+                    self.csbrfbillrealmstatsfailstopacrs.is_set or
+                    self.csbrfbillrealmstatssucceventacrs.is_set or
+                    self.csbrfbillrealmstatssuccinterimacrs.is_set or
+                    self.csbrfbillrealmstatssuccstartacrs.is_set or
+                    self.csbrfbillrealmstatssuccstopacrs.is_set or
+                    self.csbrfbillrealmstatstotaleventacrs.is_set or
+                    self.csbrfbillrealmstatstotalinterimacrs.is_set or
+                    self.csbrfbillrealmstatstotalstartacrs.is_set or
+                    self.csbrfbillrealmstatstotalstopacrs.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsindex.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsrealmname.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsfaileventacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsfailinterimacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsfailstartacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatsfailstopacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatssucceventacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatssuccinterimacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatssuccstartacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatssuccstopacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatstotaleventacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatstotalinterimacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatstotalstartacrs.yfilter != YFilter.not_set or
+                    self.csbrfbillrealmstatstotalstopacrs.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbRfBillRealmStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbRfBillRealmStatsIndex='" + self.csbrfbillrealmstatsindex.get() + "']" + "[csbRfBillRealmStatsRealmName='" + self.csbrfbillrealmstatsrealmname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRfBillRealmStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbrfbillrealmstatsindex.is_set or self.csbrfbillrealmstatsindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsindex.get_name_leafdata())
+                if (self.csbrfbillrealmstatsrealmname.is_set or self.csbrfbillrealmstatsrealmname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsrealmname.get_name_leafdata())
+                if (self.csbrfbillrealmstatsfaileventacrs.is_set or self.csbrfbillrealmstatsfaileventacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsfaileventacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatsfailinterimacrs.is_set or self.csbrfbillrealmstatsfailinterimacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsfailinterimacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatsfailstartacrs.is_set or self.csbrfbillrealmstatsfailstartacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsfailstartacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatsfailstopacrs.is_set or self.csbrfbillrealmstatsfailstopacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatsfailstopacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatssucceventacrs.is_set or self.csbrfbillrealmstatssucceventacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatssucceventacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatssuccinterimacrs.is_set or self.csbrfbillrealmstatssuccinterimacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatssuccinterimacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatssuccstartacrs.is_set or self.csbrfbillrealmstatssuccstartacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatssuccstartacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatssuccstopacrs.is_set or self.csbrfbillrealmstatssuccstopacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatssuccstopacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatstotaleventacrs.is_set or self.csbrfbillrealmstatstotaleventacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatstotaleventacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatstotalinterimacrs.is_set or self.csbrfbillrealmstatstotalinterimacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatstotalinterimacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatstotalstartacrs.is_set or self.csbrfbillrealmstatstotalstartacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatstotalstartacrs.get_name_leafdata())
+                if (self.csbrfbillrealmstatstotalstopacrs.is_set or self.csbrfbillrealmstatstotalstopacrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbrfbillrealmstatstotalstopacrs.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbRfBillRealmStatsIndex" or name == "csbRfBillRealmStatsRealmName" or name == "csbRfBillRealmStatsFailEventAcrs" or name == "csbRfBillRealmStatsFailInterimAcrs" or name == "csbRfBillRealmStatsFailStartAcrs" or name == "csbRfBillRealmStatsFailStopAcrs" or name == "csbRfBillRealmStatsSuccEventAcrs" or name == "csbRfBillRealmStatsSuccInterimAcrs" or name == "csbRfBillRealmStatsSuccStartAcrs" or name == "csbRfBillRealmStatsSuccStopAcrs" or name == "csbRfBillRealmStatsTotalEventAcrs" or name == "csbRfBillRealmStatsTotalInterimAcrs" or name == "csbRfBillRealmStatsTotalStartAcrs" or name == "csbRfBillRealmStatsTotalStopAcrs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsIndex"):
+                    self.csbrfbillrealmstatsindex = value
+                    self.csbrfbillrealmstatsindex.value_namespace = name_space
+                    self.csbrfbillrealmstatsindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsRealmName"):
+                    self.csbrfbillrealmstatsrealmname = value
+                    self.csbrfbillrealmstatsrealmname.value_namespace = name_space
+                    self.csbrfbillrealmstatsrealmname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsFailEventAcrs"):
+                    self.csbrfbillrealmstatsfaileventacrs = value
+                    self.csbrfbillrealmstatsfaileventacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatsfaileventacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsFailInterimAcrs"):
+                    self.csbrfbillrealmstatsfailinterimacrs = value
+                    self.csbrfbillrealmstatsfailinterimacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatsfailinterimacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsFailStartAcrs"):
+                    self.csbrfbillrealmstatsfailstartacrs = value
+                    self.csbrfbillrealmstatsfailstartacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatsfailstartacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsFailStopAcrs"):
+                    self.csbrfbillrealmstatsfailstopacrs = value
+                    self.csbrfbillrealmstatsfailstopacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatsfailstopacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsSuccEventAcrs"):
+                    self.csbrfbillrealmstatssucceventacrs = value
+                    self.csbrfbillrealmstatssucceventacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatssucceventacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsSuccInterimAcrs"):
+                    self.csbrfbillrealmstatssuccinterimacrs = value
+                    self.csbrfbillrealmstatssuccinterimacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatssuccinterimacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsSuccStartAcrs"):
+                    self.csbrfbillrealmstatssuccstartacrs = value
+                    self.csbrfbillrealmstatssuccstartacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatssuccstartacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsSuccStopAcrs"):
+                    self.csbrfbillrealmstatssuccstopacrs = value
+                    self.csbrfbillrealmstatssuccstopacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatssuccstopacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsTotalEventAcrs"):
+                    self.csbrfbillrealmstatstotaleventacrs = value
+                    self.csbrfbillrealmstatstotaleventacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatstotaleventacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsTotalInterimAcrs"):
+                    self.csbrfbillrealmstatstotalinterimacrs = value
+                    self.csbrfbillrealmstatstotalinterimacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatstotalinterimacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsTotalStartAcrs"):
+                    self.csbrfbillrealmstatstotalstartacrs = value
+                    self.csbrfbillrealmstatstotalstartacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatstotalstartacrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbRfBillRealmStatsTotalStopAcrs"):
+                    self.csbrfbillrealmstatstotalstopacrs = value
+                    self.csbrfbillrealmstatstotalstopacrs.value_namespace = name_space
+                    self.csbrfbillrealmstatstotalstopacrs.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbrfbillrealmstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsindex is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsrealmname is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsfaileventacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsfailinterimacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsfailstartacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatsfailstopacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatssucceventacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatssuccinterimacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatssuccstartacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatssuccstopacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatstotaleventacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatstotalinterimacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatstotalstartacrs is not None:
-                    return True
-
-                if self.csbrfbillrealmstatstotalstopacrs is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbRfBillRealmStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbrfbillrealmstatsentry is not None:
-                for child_ref in self.csbrfbillrealmstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbrfbillrealmstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbRfBillRealmStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbRfBillRealmStatsEntry"):
+                for c in self.csbrfbillrealmstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbrfbillrealmstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbRfBillRealmStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csbsipmthdcurrentstatstable(object):
+    class Csbsipmthdcurrentstatstable(Entity):
         """
         This table reports count of SIP request and various SIP
         responses  for each SIP method on a SIP adjacency in a given
@@ -924,13 +1385,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbsipmthdcurrentstatsentry = YList()
-            self.csbsipmthdcurrentstatsentry.parent = self
-            self.csbsipmthdcurrentstatsentry.name = 'csbsipmthdcurrentstatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable, self).__init__()
+
+            self.yang_name = "csbSIPMthdCurrentStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbsipmthdcurrentstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable, self).__setattr__(name, value)
 
 
-        class Csbsipmthdcurrentstatsentry(object):
+        class Csbsipmthdcurrentstatsentry(Entity):
             """
             A conceptual row in the csbSIPMthdCurrentStatsTable. Each row
             describes a SIP method and various responses count for this
@@ -968,12 +1455,12 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdcurrentstatsmethod  <key>
             
             	This object indicates the SIP method Request. The object acts as an index of the table
-            	**type**\:   :py:class:`CiscosbcsipmethodEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscosbcsipmethodEnum>`
+            	**type**\:   :py:class:`Ciscosbcsipmethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.Ciscosbcsipmethod>`
             
             .. attribute:: csbsipmthdcurrentstatsinterval  <key>
             
             	This object indicates the interval for which the periodic statistics information is to be displayed. The interval values can be 5 minutes, 15 minutes, 1 hour , 1 Day. This  object acts as an index for the table
-            	**type**\:   :py:class:`CiscosbcperiodicstatsintervalEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscosbcperiodicstatsintervalEnum>`
+            	**type**\:   :py:class:`Ciscosbcperiodicstatsinterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.Ciscosbcperiodicstatsinterval>`
             
             .. attribute:: csbsipmthdcurrentstatsmethodname
             
@@ -1114,139 +1601,352 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbsipmthdcurrentstatsadjname = None
-                self.csbsipmthdcurrentstatsmethod = None
-                self.csbsipmthdcurrentstatsinterval = None
-                self.csbsipmthdcurrentstatsmethodname = None
-                self.csbsipmthdcurrentstatsreqin = None
-                self.csbsipmthdcurrentstatsreqout = None
-                self.csbsipmthdcurrentstatsresp1xxin = None
-                self.csbsipmthdcurrentstatsresp1xxout = None
-                self.csbsipmthdcurrentstatsresp2xxin = None
-                self.csbsipmthdcurrentstatsresp2xxout = None
-                self.csbsipmthdcurrentstatsresp3xxin = None
-                self.csbsipmthdcurrentstatsresp3xxout = None
-                self.csbsipmthdcurrentstatsresp4xxin = None
-                self.csbsipmthdcurrentstatsresp4xxout = None
-                self.csbsipmthdcurrentstatsresp5xxin = None
-                self.csbsipmthdcurrentstatsresp5xxout = None
-                self.csbsipmthdcurrentstatsresp6xxin = None
-                self.csbsipmthdcurrentstatsresp6xxout = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbsipmthdcurrentstatsadjname is None:
-                    raise YPYModelError('Key property csbsipmthdcurrentstatsadjname is None')
-                if self.csbsipmthdcurrentstatsmethod is None:
-                    raise YPYModelError('Key property csbsipmthdcurrentstatsmethod is None')
-                if self.csbsipmthdcurrentstatsinterval is None:
-                    raise YPYModelError('Key property csbsipmthdcurrentstatsinterval is None')
+                self.yang_name = "csbSIPMthdCurrentStatsEntry"
+                self.yang_parent_name = "csbSIPMthdCurrentStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsAdjName = ' + str(self.csbsipmthdcurrentstatsadjname) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsMethod = ' + str(self.csbsipmthdcurrentstatsmethod) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsInterval = ' + str(self.csbsipmthdcurrentstatsinterval) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbsipmthdcurrentstatsadjname = YLeaf(YType.str, "csbSIPMthdCurrentStatsAdjName")
+
+                self.csbsipmthdcurrentstatsmethod = YLeaf(YType.enumeration, "csbSIPMthdCurrentStatsMethod")
+
+                self.csbsipmthdcurrentstatsinterval = YLeaf(YType.enumeration, "csbSIPMthdCurrentStatsInterval")
+
+                self.csbsipmthdcurrentstatsmethodname = YLeaf(YType.str, "csbSIPMthdCurrentStatsMethodName")
+
+                self.csbsipmthdcurrentstatsreqin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsReqIn")
+
+                self.csbsipmthdcurrentstatsreqout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsReqOut")
+
+                self.csbsipmthdcurrentstatsresp1xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp1xxIn")
+
+                self.csbsipmthdcurrentstatsresp1xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp1xxOut")
+
+                self.csbsipmthdcurrentstatsresp2xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp2xxIn")
+
+                self.csbsipmthdcurrentstatsresp2xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp2xxOut")
+
+                self.csbsipmthdcurrentstatsresp3xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp3xxIn")
+
+                self.csbsipmthdcurrentstatsresp3xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp3xxOut")
+
+                self.csbsipmthdcurrentstatsresp4xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp4xxIn")
+
+                self.csbsipmthdcurrentstatsresp4xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp4xxOut")
+
+                self.csbsipmthdcurrentstatsresp5xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp5xxIn")
+
+                self.csbsipmthdcurrentstatsresp5xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp5xxOut")
+
+                self.csbsipmthdcurrentstatsresp6xxin = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp6xxIn")
+
+                self.csbsipmthdcurrentstatsresp6xxout = YLeaf(YType.uint32, "csbSIPMthdCurrentStatsResp6xxOut")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbsipmthdcurrentstatsadjname",
+                                "csbsipmthdcurrentstatsmethod",
+                                "csbsipmthdcurrentstatsinterval",
+                                "csbsipmthdcurrentstatsmethodname",
+                                "csbsipmthdcurrentstatsreqin",
+                                "csbsipmthdcurrentstatsreqout",
+                                "csbsipmthdcurrentstatsresp1xxin",
+                                "csbsipmthdcurrentstatsresp1xxout",
+                                "csbsipmthdcurrentstatsresp2xxin",
+                                "csbsipmthdcurrentstatsresp2xxout",
+                                "csbsipmthdcurrentstatsresp3xxin",
+                                "csbsipmthdcurrentstatsresp3xxout",
+                                "csbsipmthdcurrentstatsresp4xxin",
+                                "csbsipmthdcurrentstatsresp4xxout",
+                                "csbsipmthdcurrentstatsresp5xxin",
+                                "csbsipmthdcurrentstatsresp5xxout",
+                                "csbsipmthdcurrentstatsresp6xxin",
+                                "csbsipmthdcurrentstatsresp6xxout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbsipmthdcurrentstatsadjname.is_set or
+                    self.csbsipmthdcurrentstatsmethod.is_set or
+                    self.csbsipmthdcurrentstatsinterval.is_set or
+                    self.csbsipmthdcurrentstatsmethodname.is_set or
+                    self.csbsipmthdcurrentstatsreqin.is_set or
+                    self.csbsipmthdcurrentstatsreqout.is_set or
+                    self.csbsipmthdcurrentstatsresp1xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp1xxout.is_set or
+                    self.csbsipmthdcurrentstatsresp2xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp2xxout.is_set or
+                    self.csbsipmthdcurrentstatsresp3xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp3xxout.is_set or
+                    self.csbsipmthdcurrentstatsresp4xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp4xxout.is_set or
+                    self.csbsipmthdcurrentstatsresp5xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp5xxout.is_set or
+                    self.csbsipmthdcurrentstatsresp6xxin.is_set or
+                    self.csbsipmthdcurrentstatsresp6xxout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsadjname.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsmethod.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsinterval.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsmethodname.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsreqin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsreqout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp1xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp1xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp2xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp2xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp3xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp3xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp4xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp4xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp5xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp5xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp6xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdcurrentstatsresp6xxout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbSIPMthdCurrentStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbSIPMthdCurrentStatsAdjName='" + self.csbsipmthdcurrentstatsadjname.get() + "']" + "[csbSIPMthdCurrentStatsMethod='" + self.csbsipmthdcurrentstatsmethod.get() + "']" + "[csbSIPMthdCurrentStatsInterval='" + self.csbsipmthdcurrentstatsinterval.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdCurrentStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsadjname.is_set or self.csbsipmthdcurrentstatsadjname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsadjname.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsmethod.is_set or self.csbsipmthdcurrentstatsmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsmethod.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsinterval.is_set or self.csbsipmthdcurrentstatsinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsinterval.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsmethodname.is_set or self.csbsipmthdcurrentstatsmethodname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsmethodname.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsreqin.is_set or self.csbsipmthdcurrentstatsreqin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsreqin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsreqout.is_set or self.csbsipmthdcurrentstatsreqout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsreqout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp1xxin.is_set or self.csbsipmthdcurrentstatsresp1xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp1xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp1xxout.is_set or self.csbsipmthdcurrentstatsresp1xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp1xxout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp2xxin.is_set or self.csbsipmthdcurrentstatsresp2xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp2xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp2xxout.is_set or self.csbsipmthdcurrentstatsresp2xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp2xxout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp3xxin.is_set or self.csbsipmthdcurrentstatsresp3xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp3xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp3xxout.is_set or self.csbsipmthdcurrentstatsresp3xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp3xxout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp4xxin.is_set or self.csbsipmthdcurrentstatsresp4xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp4xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp4xxout.is_set or self.csbsipmthdcurrentstatsresp4xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp4xxout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp5xxin.is_set or self.csbsipmthdcurrentstatsresp5xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp5xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp5xxout.is_set or self.csbsipmthdcurrentstatsresp5xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp5xxout.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp6xxin.is_set or self.csbsipmthdcurrentstatsresp6xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp6xxin.get_name_leafdata())
+                if (self.csbsipmthdcurrentstatsresp6xxout.is_set or self.csbsipmthdcurrentstatsresp6xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdcurrentstatsresp6xxout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbSIPMthdCurrentStatsAdjName" or name == "csbSIPMthdCurrentStatsMethod" or name == "csbSIPMthdCurrentStatsInterval" or name == "csbSIPMthdCurrentStatsMethodName" or name == "csbSIPMthdCurrentStatsReqIn" or name == "csbSIPMthdCurrentStatsReqOut" or name == "csbSIPMthdCurrentStatsResp1xxIn" or name == "csbSIPMthdCurrentStatsResp1xxOut" or name == "csbSIPMthdCurrentStatsResp2xxIn" or name == "csbSIPMthdCurrentStatsResp2xxOut" or name == "csbSIPMthdCurrentStatsResp3xxIn" or name == "csbSIPMthdCurrentStatsResp3xxOut" or name == "csbSIPMthdCurrentStatsResp4xxIn" or name == "csbSIPMthdCurrentStatsResp4xxOut" or name == "csbSIPMthdCurrentStatsResp5xxIn" or name == "csbSIPMthdCurrentStatsResp5xxOut" or name == "csbSIPMthdCurrentStatsResp6xxIn" or name == "csbSIPMthdCurrentStatsResp6xxOut"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsAdjName"):
+                    self.csbsipmthdcurrentstatsadjname = value
+                    self.csbsipmthdcurrentstatsadjname.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsadjname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsMethod"):
+                    self.csbsipmthdcurrentstatsmethod = value
+                    self.csbsipmthdcurrentstatsmethod.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsInterval"):
+                    self.csbsipmthdcurrentstatsinterval = value
+                    self.csbsipmthdcurrentstatsinterval.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsMethodName"):
+                    self.csbsipmthdcurrentstatsmethodname = value
+                    self.csbsipmthdcurrentstatsmethodname.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsmethodname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsReqIn"):
+                    self.csbsipmthdcurrentstatsreqin = value
+                    self.csbsipmthdcurrentstatsreqin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsreqin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsReqOut"):
+                    self.csbsipmthdcurrentstatsreqout = value
+                    self.csbsipmthdcurrentstatsreqout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsreqout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp1xxIn"):
+                    self.csbsipmthdcurrentstatsresp1xxin = value
+                    self.csbsipmthdcurrentstatsresp1xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp1xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp1xxOut"):
+                    self.csbsipmthdcurrentstatsresp1xxout = value
+                    self.csbsipmthdcurrentstatsresp1xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp1xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp2xxIn"):
+                    self.csbsipmthdcurrentstatsresp2xxin = value
+                    self.csbsipmthdcurrentstatsresp2xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp2xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp2xxOut"):
+                    self.csbsipmthdcurrentstatsresp2xxout = value
+                    self.csbsipmthdcurrentstatsresp2xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp2xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp3xxIn"):
+                    self.csbsipmthdcurrentstatsresp3xxin = value
+                    self.csbsipmthdcurrentstatsresp3xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp3xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp3xxOut"):
+                    self.csbsipmthdcurrentstatsresp3xxout = value
+                    self.csbsipmthdcurrentstatsresp3xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp3xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp4xxIn"):
+                    self.csbsipmthdcurrentstatsresp4xxin = value
+                    self.csbsipmthdcurrentstatsresp4xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp4xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp4xxOut"):
+                    self.csbsipmthdcurrentstatsresp4xxout = value
+                    self.csbsipmthdcurrentstatsresp4xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp4xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp5xxIn"):
+                    self.csbsipmthdcurrentstatsresp5xxin = value
+                    self.csbsipmthdcurrentstatsresp5xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp5xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp5xxOut"):
+                    self.csbsipmthdcurrentstatsresp5xxout = value
+                    self.csbsipmthdcurrentstatsresp5xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp5xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp6xxIn"):
+                    self.csbsipmthdcurrentstatsresp6xxin = value
+                    self.csbsipmthdcurrentstatsresp6xxin.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp6xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdCurrentStatsResp6xxOut"):
+                    self.csbsipmthdcurrentstatsresp6xxout = value
+                    self.csbsipmthdcurrentstatsresp6xxout.value_namespace = name_space
+                    self.csbsipmthdcurrentstatsresp6xxout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbsipmthdcurrentstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsadjname is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsmethod is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsinterval is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsmethodname is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsreqin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsreqout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp1xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp1xxout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp2xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp2xxout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp3xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp3xxout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp4xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp4xxout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp5xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp5xxout is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp6xxin is not None:
-                    return True
-
-                if self.csbsipmthdcurrentstatsresp6xxout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdCurrentStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbsipmthdcurrentstatsentry is not None:
-                for child_ref in self.csbsipmthdcurrentstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbsipmthdcurrentstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbSIPMthdCurrentStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbSIPMthdCurrentStatsEntry"):
+                for c in self.csbsipmthdcurrentstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbsipmthdcurrentstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbSIPMthdCurrentStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csbsipmthdhistorystatstable(object):
+    class Csbsipmthdhistorystatstable(Entity):
         """
         This table provide historical count of SIP request and various
         SIP responses for each SIP method on a SIP adjacency in various
@@ -1278,13 +1978,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbsipmthdhistorystatsentry = YList()
-            self.csbsipmthdhistorystatsentry.parent = self
-            self.csbsipmthdhistorystatsentry.name = 'csbsipmthdhistorystatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable, self).__init__()
+
+            self.yang_name = "csbSIPMthdHistoryStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbsipmthdhistorystatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable, self).__setattr__(name, value)
 
 
-        class Csbsipmthdhistorystatsentry(object):
+        class Csbsipmthdhistorystatsentry(Entity):
             """
             A conceptual row in the csbSIPMthdHistoryStatsTable. The
             entries in this table are updated as interval completes in
@@ -1323,12 +2049,12 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdhistorystatsmethod  <key>
             
             	This object indicates the SIP method Request. The object acts as an index of the table
-            	**type**\:   :py:class:`CiscosbcsipmethodEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscosbcsipmethodEnum>`
+            	**type**\:   :py:class:`Ciscosbcsipmethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.Ciscosbcsipmethod>`
             
             .. attribute:: csbsipmthdhistorystatsinterval  <key>
             
             	This object indicates the interval for which the historical statistics information is to be displayed. The interval values can be previous 5 minutes, previous 15 minutes,  previous 1 hour and previous 1 Day. This object acts as an  index for the table
-            	**type**\:   :py:class:`CiscosbcperiodicstatsintervalEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscosbcperiodicstatsintervalEnum>`
+            	**type**\:   :py:class:`Ciscosbcperiodicstatsinterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.Ciscosbcperiodicstatsinterval>`
             
             .. attribute:: csbsipmthdhistorystatsmethodname
             
@@ -1469,139 +2195,352 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbsipmthdhistorystatsadjname = None
-                self.csbsipmthdhistorystatsmethod = None
-                self.csbsipmthdhistorystatsinterval = None
-                self.csbsipmthdhistorystatsmethodname = None
-                self.csbsipmthdhistorystatsreqin = None
-                self.csbsipmthdhistorystatsreqout = None
-                self.csbsipmthdhistorystatsresp1xxin = None
-                self.csbsipmthdhistorystatsresp1xxout = None
-                self.csbsipmthdhistorystatsresp2xxin = None
-                self.csbsipmthdhistorystatsresp2xxout = None
-                self.csbsipmthdhistorystatsresp3xxin = None
-                self.csbsipmthdhistorystatsresp3xxout = None
-                self.csbsipmthdhistorystatsresp4xxin = None
-                self.csbsipmthdhistorystatsresp4xxout = None
-                self.csbsipmthdhistorystatsresp5xxin = None
-                self.csbsipmthdhistorystatsresp5xxout = None
-                self.csbsipmthdhistorystatsresp6xxin = None
-                self.csbsipmthdhistorystatsresp6xxout = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbsipmthdhistorystatsadjname is None:
-                    raise YPYModelError('Key property csbsipmthdhistorystatsadjname is None')
-                if self.csbsipmthdhistorystatsmethod is None:
-                    raise YPYModelError('Key property csbsipmthdhistorystatsmethod is None')
-                if self.csbsipmthdhistorystatsinterval is None:
-                    raise YPYModelError('Key property csbsipmthdhistorystatsinterval is None')
+                self.yang_name = "csbSIPMthdHistoryStatsEntry"
+                self.yang_parent_name = "csbSIPMthdHistoryStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsAdjName = ' + str(self.csbsipmthdhistorystatsadjname) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsMethod = ' + str(self.csbsipmthdhistorystatsmethod) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsInterval = ' + str(self.csbsipmthdhistorystatsinterval) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbsipmthdhistorystatsadjname = YLeaf(YType.str, "csbSIPMthdHistoryStatsAdjName")
+
+                self.csbsipmthdhistorystatsmethod = YLeaf(YType.enumeration, "csbSIPMthdHistoryStatsMethod")
+
+                self.csbsipmthdhistorystatsinterval = YLeaf(YType.enumeration, "csbSIPMthdHistoryStatsInterval")
+
+                self.csbsipmthdhistorystatsmethodname = YLeaf(YType.str, "csbSIPMthdHistoryStatsMethodName")
+
+                self.csbsipmthdhistorystatsreqin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsReqIn")
+
+                self.csbsipmthdhistorystatsreqout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsReqOut")
+
+                self.csbsipmthdhistorystatsresp1xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp1xxIn")
+
+                self.csbsipmthdhistorystatsresp1xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp1xxOut")
+
+                self.csbsipmthdhistorystatsresp2xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp2xxIn")
+
+                self.csbsipmthdhistorystatsresp2xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp2xxOut")
+
+                self.csbsipmthdhistorystatsresp3xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp3xxIn")
+
+                self.csbsipmthdhistorystatsresp3xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp3xxOut")
+
+                self.csbsipmthdhistorystatsresp4xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp4xxIn")
+
+                self.csbsipmthdhistorystatsresp4xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp4xxOut")
+
+                self.csbsipmthdhistorystatsresp5xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp5xxIn")
+
+                self.csbsipmthdhistorystatsresp5xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp5xxOut")
+
+                self.csbsipmthdhistorystatsresp6xxin = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp6xxIn")
+
+                self.csbsipmthdhistorystatsresp6xxout = YLeaf(YType.uint32, "csbSIPMthdHistoryStatsResp6xxOut")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbsipmthdhistorystatsadjname",
+                                "csbsipmthdhistorystatsmethod",
+                                "csbsipmthdhistorystatsinterval",
+                                "csbsipmthdhistorystatsmethodname",
+                                "csbsipmthdhistorystatsreqin",
+                                "csbsipmthdhistorystatsreqout",
+                                "csbsipmthdhistorystatsresp1xxin",
+                                "csbsipmthdhistorystatsresp1xxout",
+                                "csbsipmthdhistorystatsresp2xxin",
+                                "csbsipmthdhistorystatsresp2xxout",
+                                "csbsipmthdhistorystatsresp3xxin",
+                                "csbsipmthdhistorystatsresp3xxout",
+                                "csbsipmthdhistorystatsresp4xxin",
+                                "csbsipmthdhistorystatsresp4xxout",
+                                "csbsipmthdhistorystatsresp5xxin",
+                                "csbsipmthdhistorystatsresp5xxout",
+                                "csbsipmthdhistorystatsresp6xxin",
+                                "csbsipmthdhistorystatsresp6xxout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbsipmthdhistorystatsadjname.is_set or
+                    self.csbsipmthdhistorystatsmethod.is_set or
+                    self.csbsipmthdhistorystatsinterval.is_set or
+                    self.csbsipmthdhistorystatsmethodname.is_set or
+                    self.csbsipmthdhistorystatsreqin.is_set or
+                    self.csbsipmthdhistorystatsreqout.is_set or
+                    self.csbsipmthdhistorystatsresp1xxin.is_set or
+                    self.csbsipmthdhistorystatsresp1xxout.is_set or
+                    self.csbsipmthdhistorystatsresp2xxin.is_set or
+                    self.csbsipmthdhistorystatsresp2xxout.is_set or
+                    self.csbsipmthdhistorystatsresp3xxin.is_set or
+                    self.csbsipmthdhistorystatsresp3xxout.is_set or
+                    self.csbsipmthdhistorystatsresp4xxin.is_set or
+                    self.csbsipmthdhistorystatsresp4xxout.is_set or
+                    self.csbsipmthdhistorystatsresp5xxin.is_set or
+                    self.csbsipmthdhistorystatsresp5xxout.is_set or
+                    self.csbsipmthdhistorystatsresp6xxin.is_set or
+                    self.csbsipmthdhistorystatsresp6xxout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsadjname.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsmethod.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsinterval.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsmethodname.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsreqin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsreqout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp1xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp1xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp2xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp2xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp3xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp3xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp4xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp4xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp5xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp5xxout.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp6xxin.yfilter != YFilter.not_set or
+                    self.csbsipmthdhistorystatsresp6xxout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbSIPMthdHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbSIPMthdHistoryStatsAdjName='" + self.csbsipmthdhistorystatsadjname.get() + "']" + "[csbSIPMthdHistoryStatsMethod='" + self.csbsipmthdhistorystatsmethod.get() + "']" + "[csbSIPMthdHistoryStatsInterval='" + self.csbsipmthdhistorystatsinterval.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdHistoryStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsadjname.is_set or self.csbsipmthdhistorystatsadjname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsadjname.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsmethod.is_set or self.csbsipmthdhistorystatsmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsmethod.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsinterval.is_set or self.csbsipmthdhistorystatsinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsinterval.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsmethodname.is_set or self.csbsipmthdhistorystatsmethodname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsmethodname.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsreqin.is_set or self.csbsipmthdhistorystatsreqin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsreqin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsreqout.is_set or self.csbsipmthdhistorystatsreqout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsreqout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp1xxin.is_set or self.csbsipmthdhistorystatsresp1xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp1xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp1xxout.is_set or self.csbsipmthdhistorystatsresp1xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp1xxout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp2xxin.is_set or self.csbsipmthdhistorystatsresp2xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp2xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp2xxout.is_set or self.csbsipmthdhistorystatsresp2xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp2xxout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp3xxin.is_set or self.csbsipmthdhistorystatsresp3xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp3xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp3xxout.is_set or self.csbsipmthdhistorystatsresp3xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp3xxout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp4xxin.is_set or self.csbsipmthdhistorystatsresp4xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp4xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp4xxout.is_set or self.csbsipmthdhistorystatsresp4xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp4xxout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp5xxin.is_set or self.csbsipmthdhistorystatsresp5xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp5xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp5xxout.is_set or self.csbsipmthdhistorystatsresp5xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp5xxout.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp6xxin.is_set or self.csbsipmthdhistorystatsresp6xxin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp6xxin.get_name_leafdata())
+                if (self.csbsipmthdhistorystatsresp6xxout.is_set or self.csbsipmthdhistorystatsresp6xxout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdhistorystatsresp6xxout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbSIPMthdHistoryStatsAdjName" or name == "csbSIPMthdHistoryStatsMethod" or name == "csbSIPMthdHistoryStatsInterval" or name == "csbSIPMthdHistoryStatsMethodName" or name == "csbSIPMthdHistoryStatsReqIn" or name == "csbSIPMthdHistoryStatsReqOut" or name == "csbSIPMthdHistoryStatsResp1xxIn" or name == "csbSIPMthdHistoryStatsResp1xxOut" or name == "csbSIPMthdHistoryStatsResp2xxIn" or name == "csbSIPMthdHistoryStatsResp2xxOut" or name == "csbSIPMthdHistoryStatsResp3xxIn" or name == "csbSIPMthdHistoryStatsResp3xxOut" or name == "csbSIPMthdHistoryStatsResp4xxIn" or name == "csbSIPMthdHistoryStatsResp4xxOut" or name == "csbSIPMthdHistoryStatsResp5xxIn" or name == "csbSIPMthdHistoryStatsResp5xxOut" or name == "csbSIPMthdHistoryStatsResp6xxIn" or name == "csbSIPMthdHistoryStatsResp6xxOut"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsAdjName"):
+                    self.csbsipmthdhistorystatsadjname = value
+                    self.csbsipmthdhistorystatsadjname.value_namespace = name_space
+                    self.csbsipmthdhistorystatsadjname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsMethod"):
+                    self.csbsipmthdhistorystatsmethod = value
+                    self.csbsipmthdhistorystatsmethod.value_namespace = name_space
+                    self.csbsipmthdhistorystatsmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsInterval"):
+                    self.csbsipmthdhistorystatsinterval = value
+                    self.csbsipmthdhistorystatsinterval.value_namespace = name_space
+                    self.csbsipmthdhistorystatsinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsMethodName"):
+                    self.csbsipmthdhistorystatsmethodname = value
+                    self.csbsipmthdhistorystatsmethodname.value_namespace = name_space
+                    self.csbsipmthdhistorystatsmethodname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsReqIn"):
+                    self.csbsipmthdhistorystatsreqin = value
+                    self.csbsipmthdhistorystatsreqin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsreqin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsReqOut"):
+                    self.csbsipmthdhistorystatsreqout = value
+                    self.csbsipmthdhistorystatsreqout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsreqout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp1xxIn"):
+                    self.csbsipmthdhistorystatsresp1xxin = value
+                    self.csbsipmthdhistorystatsresp1xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp1xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp1xxOut"):
+                    self.csbsipmthdhistorystatsresp1xxout = value
+                    self.csbsipmthdhistorystatsresp1xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp1xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp2xxIn"):
+                    self.csbsipmthdhistorystatsresp2xxin = value
+                    self.csbsipmthdhistorystatsresp2xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp2xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp2xxOut"):
+                    self.csbsipmthdhistorystatsresp2xxout = value
+                    self.csbsipmthdhistorystatsresp2xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp2xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp3xxIn"):
+                    self.csbsipmthdhistorystatsresp3xxin = value
+                    self.csbsipmthdhistorystatsresp3xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp3xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp3xxOut"):
+                    self.csbsipmthdhistorystatsresp3xxout = value
+                    self.csbsipmthdhistorystatsresp3xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp3xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp4xxIn"):
+                    self.csbsipmthdhistorystatsresp4xxin = value
+                    self.csbsipmthdhistorystatsresp4xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp4xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp4xxOut"):
+                    self.csbsipmthdhistorystatsresp4xxout = value
+                    self.csbsipmthdhistorystatsresp4xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp4xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp5xxIn"):
+                    self.csbsipmthdhistorystatsresp5xxin = value
+                    self.csbsipmthdhistorystatsresp5xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp5xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp5xxOut"):
+                    self.csbsipmthdhistorystatsresp5xxout = value
+                    self.csbsipmthdhistorystatsresp5xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp5xxout.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp6xxIn"):
+                    self.csbsipmthdhistorystatsresp6xxin = value
+                    self.csbsipmthdhistorystatsresp6xxin.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp6xxin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdHistoryStatsResp6xxOut"):
+                    self.csbsipmthdhistorystatsresp6xxout = value
+                    self.csbsipmthdhistorystatsresp6xxout.value_namespace = name_space
+                    self.csbsipmthdhistorystatsresp6xxout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbsipmthdhistorystatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsadjname is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsmethod is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsinterval is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsmethodname is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsreqin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsreqout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp1xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp1xxout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp2xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp2xxout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp3xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp3xxout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp4xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp4xxout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp5xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp5xxout is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp6xxin is not None:
-                    return True
-
-                if self.csbsipmthdhistorystatsresp6xxout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdHistoryStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbsipmthdhistorystatsentry is not None:
-                for child_ref in self.csbsipmthdhistorystatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbsipmthdhistorystatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbSIPMthdHistoryStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbSIPMthdHistoryStatsEntry"):
+                for c in self.csbsipmthdhistorystatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbsipmthdhistorystatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbSIPMthdHistoryStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csbsipmthdrccurrentstatstable(object):
+    class Csbsipmthdrccurrentstatstable(Entity):
         """
         This table reports SIP method request and response code
         statistics for each method and response code combination on
@@ -1629,13 +2568,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbsipmthdrccurrentstatsentry = YList()
-            self.csbsipmthdrccurrentstatsentry.parent = self
-            self.csbsipmthdrccurrentstatsentry.name = 'csbsipmthdrccurrentstatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable, self).__init__()
+
+            self.yang_name = "csbSIPMthdRCCurrentStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbsipmthdrccurrentstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable, self).__setattr__(name, value)
 
 
-        class Csbsipmthdrccurrentstatsentry(object):
+        class Csbsipmthdrccurrentstatsentry(Entity):
             """
             A conceptual row in the csbSIPMthdRCCurrentStatsTable. Each
             entry in this table represents a method and response code
@@ -1674,7 +2639,7 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdrccurrentstatsmethod  <key>
             
             	This object indicates the SIP method request. This object acts as an index for the table
-            	**type**\:   :py:class:`CiscosbcsipmethodEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscosbcsipmethodEnum>`
+            	**type**\:   :py:class:`Ciscosbcsipmethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.Ciscosbcsipmethod>`
             
             .. attribute:: csbsipmthdrccurrentstatsrespcode  <key>
             
@@ -1686,7 +2651,7 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdrccurrentstatsinterval  <key>
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 Day. This object acts as an index for the table
-            	**type**\:   :py:class:`CiscosbcperiodicstatsintervalEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscosbcperiodicstatsintervalEnum>`
+            	**type**\:   :py:class:`Ciscosbcperiodicstatsinterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.Ciscosbcperiodicstatsinterval>`
             
             .. attribute:: csbsipmthdrccurrentstatsmethodname
             
@@ -1719,97 +2684,231 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbsipmthdrccurrentstatsadjname = None
-                self.csbsipmthdrccurrentstatsmethod = None
-                self.csbsipmthdrccurrentstatsrespcode = None
-                self.csbsipmthdrccurrentstatsinterval = None
-                self.csbsipmthdrccurrentstatsmethodname = None
-                self.csbsipmthdrccurrentstatsrespin = None
-                self.csbsipmthdrccurrentstatsrespout = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbsipmthdrccurrentstatsadjname is None:
-                    raise YPYModelError('Key property csbsipmthdrccurrentstatsadjname is None')
-                if self.csbsipmthdrccurrentstatsmethod is None:
-                    raise YPYModelError('Key property csbsipmthdrccurrentstatsmethod is None')
-                if self.csbsipmthdrccurrentstatsrespcode is None:
-                    raise YPYModelError('Key property csbsipmthdrccurrentstatsrespcode is None')
-                if self.csbsipmthdrccurrentstatsinterval is None:
-                    raise YPYModelError('Key property csbsipmthdrccurrentstatsinterval is None')
+                self.yang_name = "csbSIPMthdRCCurrentStatsEntry"
+                self.yang_parent_name = "csbSIPMthdRCCurrentStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsAdjName = ' + str(self.csbsipmthdrccurrentstatsadjname) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsMethod = ' + str(self.csbsipmthdrccurrentstatsmethod) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsRespCode = ' + str(self.csbsipmthdrccurrentstatsrespcode) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsInterval = ' + str(self.csbsipmthdrccurrentstatsinterval) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbsipmthdrccurrentstatsadjname = YLeaf(YType.str, "csbSIPMthdRCCurrentStatsAdjName")
+
+                self.csbsipmthdrccurrentstatsmethod = YLeaf(YType.enumeration, "csbSIPMthdRCCurrentStatsMethod")
+
+                self.csbsipmthdrccurrentstatsrespcode = YLeaf(YType.uint32, "csbSIPMthdRCCurrentStatsRespCode")
+
+                self.csbsipmthdrccurrentstatsinterval = YLeaf(YType.enumeration, "csbSIPMthdRCCurrentStatsInterval")
+
+                self.csbsipmthdrccurrentstatsmethodname = YLeaf(YType.str, "csbSIPMthdRCCurrentStatsMethodName")
+
+                self.csbsipmthdrccurrentstatsrespin = YLeaf(YType.uint32, "csbSIPMthdRCCurrentStatsRespIn")
+
+                self.csbsipmthdrccurrentstatsrespout = YLeaf(YType.uint32, "csbSIPMthdRCCurrentStatsRespOut")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbsipmthdrccurrentstatsadjname",
+                                "csbsipmthdrccurrentstatsmethod",
+                                "csbsipmthdrccurrentstatsrespcode",
+                                "csbsipmthdrccurrentstatsinterval",
+                                "csbsipmthdrccurrentstatsmethodname",
+                                "csbsipmthdrccurrentstatsrespin",
+                                "csbsipmthdrccurrentstatsrespout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbsipmthdrccurrentstatsadjname.is_set or
+                    self.csbsipmthdrccurrentstatsmethod.is_set or
+                    self.csbsipmthdrccurrentstatsrespcode.is_set or
+                    self.csbsipmthdrccurrentstatsinterval.is_set or
+                    self.csbsipmthdrccurrentstatsmethodname.is_set or
+                    self.csbsipmthdrccurrentstatsrespin.is_set or
+                    self.csbsipmthdrccurrentstatsrespout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsadjname.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsmethod.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsrespcode.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsinterval.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsmethodname.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsrespin.yfilter != YFilter.not_set or
+                    self.csbsipmthdrccurrentstatsrespout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbSIPMthdRCCurrentStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbSIPMthdRCCurrentStatsAdjName='" + self.csbsipmthdrccurrentstatsadjname.get() + "']" + "[csbSIPMthdRCCurrentStatsMethod='" + self.csbsipmthdrccurrentstatsmethod.get() + "']" + "[csbSIPMthdRCCurrentStatsRespCode='" + self.csbsipmthdrccurrentstatsrespcode.get() + "']" + "[csbSIPMthdRCCurrentStatsInterval='" + self.csbsipmthdrccurrentstatsinterval.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCCurrentStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsadjname.is_set or self.csbsipmthdrccurrentstatsadjname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsadjname.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsmethod.is_set or self.csbsipmthdrccurrentstatsmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsmethod.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsrespcode.is_set or self.csbsipmthdrccurrentstatsrespcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsrespcode.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsinterval.is_set or self.csbsipmthdrccurrentstatsinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsinterval.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsmethodname.is_set or self.csbsipmthdrccurrentstatsmethodname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsmethodname.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsrespin.is_set or self.csbsipmthdrccurrentstatsrespin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsrespin.get_name_leafdata())
+                if (self.csbsipmthdrccurrentstatsrespout.is_set or self.csbsipmthdrccurrentstatsrespout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrccurrentstatsrespout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbSIPMthdRCCurrentStatsAdjName" or name == "csbSIPMthdRCCurrentStatsMethod" or name == "csbSIPMthdRCCurrentStatsRespCode" or name == "csbSIPMthdRCCurrentStatsInterval" or name == "csbSIPMthdRCCurrentStatsMethodName" or name == "csbSIPMthdRCCurrentStatsRespIn" or name == "csbSIPMthdRCCurrentStatsRespOut"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsAdjName"):
+                    self.csbsipmthdrccurrentstatsadjname = value
+                    self.csbsipmthdrccurrentstatsadjname.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsadjname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsMethod"):
+                    self.csbsipmthdrccurrentstatsmethod = value
+                    self.csbsipmthdrccurrentstatsmethod.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsRespCode"):
+                    self.csbsipmthdrccurrentstatsrespcode = value
+                    self.csbsipmthdrccurrentstatsrespcode.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsrespcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsInterval"):
+                    self.csbsipmthdrccurrentstatsinterval = value
+                    self.csbsipmthdrccurrentstatsinterval.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsMethodName"):
+                    self.csbsipmthdrccurrentstatsmethodname = value
+                    self.csbsipmthdrccurrentstatsmethodname.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsmethodname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsRespIn"):
+                    self.csbsipmthdrccurrentstatsrespin = value
+                    self.csbsipmthdrccurrentstatsrespin.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsrespin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCCurrentStatsRespOut"):
+                    self.csbsipmthdrccurrentstatsrespout = value
+                    self.csbsipmthdrccurrentstatsrespout.value_namespace = name_space
+                    self.csbsipmthdrccurrentstatsrespout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbsipmthdrccurrentstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsadjname is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsmethod is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsrespcode is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsinterval is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsmethodname is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsrespin is not None:
-                    return True
-
-                if self.csbsipmthdrccurrentstatsrespout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCCurrentStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbsipmthdrccurrentstatsentry is not None:
-                for child_ref in self.csbsipmthdrccurrentstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbsipmthdrccurrentstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbSIPMthdRCCurrentStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbSIPMthdRCCurrentStatsEntry"):
+                for c in self.csbsipmthdrccurrentstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbsipmthdrccurrentstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbSIPMthdRCCurrentStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csbsipmthdrchistorystatstable(object):
+    class Csbsipmthdrchistorystatstable(Entity):
         """
         This table reports historical data for SIP method request and
         response code statistics for each method and response code 
@@ -1839,13 +2938,39 @@ class CiscoSessBorderCtrlrStatsMib(object):
         _revision = '2010-09-15'
 
         def __init__(self):
-            self.parent = None
-            self.csbsipmthdrchistorystatsentry = YList()
-            self.csbsipmthdrchistorystatsentry.parent = self
-            self.csbsipmthdrchistorystatsentry.name = 'csbsipmthdrchistorystatsentry'
+            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable, self).__init__()
+
+            self.yang_name = "csbSIPMthdRCHistoryStatsTable"
+            self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+
+            self.csbsipmthdrchistorystatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable, self).__setattr__(name, value)
 
 
-        class Csbsipmthdrchistorystatsentry(object):
+        class Csbsipmthdrchistorystatsentry(Entity):
             """
             A conceptual row in the csbSIPMthdRCHistoryStatsTable. The
             entries in this table are updated as interval completes in
@@ -1885,7 +3010,7 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdrchistorystatsmethod  <key>
             
             	This object indicates the SIP method request. This object acts as an index for the table
-            	**type**\:   :py:class:`CiscosbcsipmethodEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscosbcsipmethodEnum>`
+            	**type**\:   :py:class:`Ciscosbcsipmethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.Ciscosbcsipmethod>`
             
             .. attribute:: csbsipmthdrchistorystatsrespcode  <key>
             
@@ -1897,7 +3022,7 @@ class CiscoSessBorderCtrlrStatsMib(object):
             .. attribute:: csbsipmthdrchistorystatsinterval  <key>
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be previous 5 min, previous 15 mins, previous 1  hour , previous 1 Day. This object acts as an index for the table
-            	**type**\:   :py:class:`CiscosbcperiodicstatsintervalEnum <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscosbcperiodicstatsintervalEnum>`
+            	**type**\:   :py:class:`Ciscosbcperiodicstatsinterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.Ciscosbcperiodicstatsinterval>`
             
             .. attribute:: csbsipmthdrchistorystatsmethodname
             
@@ -1930,128 +3055,323 @@ class CiscoSessBorderCtrlrStatsMib(object):
             _revision = '2010-09-15'
 
             def __init__(self):
-                self.parent = None
-                self.csbcallstatsinstanceindex = None
-                self.csbcallstatsserviceindex = None
-                self.csbsipmthdrchistorystatsadjname = None
-                self.csbsipmthdrchistorystatsmethod = None
-                self.csbsipmthdrchistorystatsrespcode = None
-                self.csbsipmthdrchistorystatsinterval = None
-                self.csbsipmthdrchistorystatsmethodname = None
-                self.csbsipmthdrchistorystatsrespin = None
-                self.csbsipmthdrchistorystatsrespout = None
+                super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csbcallstatsinstanceindex is None:
-                    raise YPYModelError('Key property csbcallstatsinstanceindex is None')
-                if self.csbcallstatsserviceindex is None:
-                    raise YPYModelError('Key property csbcallstatsserviceindex is None')
-                if self.csbsipmthdrchistorystatsadjname is None:
-                    raise YPYModelError('Key property csbsipmthdrchistorystatsadjname is None')
-                if self.csbsipmthdrchistorystatsmethod is None:
-                    raise YPYModelError('Key property csbsipmthdrchistorystatsmethod is None')
-                if self.csbsipmthdrchistorystatsrespcode is None:
-                    raise YPYModelError('Key property csbsipmthdrchistorystatsrespcode is None')
-                if self.csbsipmthdrchistorystatsinterval is None:
-                    raise YPYModelError('Key property csbsipmthdrchistorystatsinterval is None')
+                self.yang_name = "csbSIPMthdRCHistoryStatsEntry"
+                self.yang_parent_name = "csbSIPMthdRCHistoryStatsTable"
 
-                return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsTable/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsEntry[CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsInstanceIndex = ' + str(self.csbcallstatsinstanceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbCallStatsServiceIndex = ' + str(self.csbcallstatsserviceindex) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsAdjName = ' + str(self.csbsipmthdrchistorystatsadjname) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsMethod = ' + str(self.csbsipmthdrchistorystatsmethod) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsRespCode = ' + str(self.csbsipmthdrchistorystatsrespcode) + '][CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsInterval = ' + str(self.csbsipmthdrchistorystatsinterval) + ']'
+                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
+
+                self.csbsipmthdrchistorystatsadjname = YLeaf(YType.str, "csbSIPMthdRCHistoryStatsAdjName")
+
+                self.csbsipmthdrchistorystatsmethod = YLeaf(YType.enumeration, "csbSIPMthdRCHistoryStatsMethod")
+
+                self.csbsipmthdrchistorystatsrespcode = YLeaf(YType.uint32, "csbSIPMthdRCHistoryStatsRespCode")
+
+                self.csbsipmthdrchistorystatsinterval = YLeaf(YType.enumeration, "csbSIPMthdRCHistoryStatsInterval")
+
+                self.csbsipmthdrchistorystatsmethodname = YLeaf(YType.str, "csbSIPMthdRCHistoryStatsMethodName")
+
+                self.csbsipmthdrchistorystatsrespin = YLeaf(YType.uint32, "csbSIPMthdRCHistoryStatsRespIn")
+
+                self.csbsipmthdrchistorystatsrespout = YLeaf(YType.uint32, "csbSIPMthdRCHistoryStatsRespOut")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csbcallstatsinstanceindex",
+                                "csbcallstatsserviceindex",
+                                "csbsipmthdrchistorystatsadjname",
+                                "csbsipmthdrchistorystatsmethod",
+                                "csbsipmthdrchistorystatsrespcode",
+                                "csbsipmthdrchistorystatsinterval",
+                                "csbsipmthdrchistorystatsmethodname",
+                                "csbsipmthdrchistorystatsrespin",
+                                "csbsipmthdrchistorystatsrespout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csbcallstatsinstanceindex.is_set or
+                    self.csbcallstatsserviceindex.is_set or
+                    self.csbsipmthdrchistorystatsadjname.is_set or
+                    self.csbsipmthdrchistorystatsmethod.is_set or
+                    self.csbsipmthdrchistorystatsrespcode.is_set or
+                    self.csbsipmthdrchistorystatsinterval.is_set or
+                    self.csbsipmthdrchistorystatsmethodname.is_set or
+                    self.csbsipmthdrchistorystatsrespin.is_set or
+                    self.csbsipmthdrchistorystatsrespout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csbcallstatsinstanceindex.yfilter != YFilter.not_set or
+                    self.csbcallstatsserviceindex.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsadjname.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsmethod.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsrespcode.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsinterval.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsmethodname.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsrespin.yfilter != YFilter.not_set or
+                    self.csbsipmthdrchistorystatsrespout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csbSIPMthdRCHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbSIPMthdRCHistoryStatsAdjName='" + self.csbsipmthdrchistorystatsadjname.get() + "']" + "[csbSIPMthdRCHistoryStatsMethod='" + self.csbsipmthdrchistorystatsmethod.get() + "']" + "[csbSIPMthdRCHistoryStatsRespCode='" + self.csbsipmthdrchistorystatsrespcode.get() + "']" + "[csbSIPMthdRCHistoryStatsInterval='" + self.csbsipmthdrchistorystatsinterval.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCHistoryStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csbcallstatsinstanceindex.is_set or self.csbcallstatsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsinstanceindex.get_name_leafdata())
+                if (self.csbcallstatsserviceindex.is_set or self.csbcallstatsserviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbcallstatsserviceindex.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsadjname.is_set or self.csbsipmthdrchistorystatsadjname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsadjname.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsmethod.is_set or self.csbsipmthdrchistorystatsmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsmethod.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsrespcode.is_set or self.csbsipmthdrchistorystatsrespcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsrespcode.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsinterval.is_set or self.csbsipmthdrchistorystatsinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsinterval.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsmethodname.is_set or self.csbsipmthdrchistorystatsmethodname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsmethodname.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsrespin.is_set or self.csbsipmthdrchistorystatsrespin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsrespin.get_name_leafdata())
+                if (self.csbsipmthdrchistorystatsrespout.is_set or self.csbsipmthdrchistorystatsrespout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csbsipmthdrchistorystatsrespout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csbCallStatsInstanceIndex" or name == "csbCallStatsServiceIndex" or name == "csbSIPMthdRCHistoryStatsAdjName" or name == "csbSIPMthdRCHistoryStatsMethod" or name == "csbSIPMthdRCHistoryStatsRespCode" or name == "csbSIPMthdRCHistoryStatsInterval" or name == "csbSIPMthdRCHistoryStatsMethodName" or name == "csbSIPMthdRCHistoryStatsRespIn" or name == "csbSIPMthdRCHistoryStatsRespOut"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csbcallstatsinstanceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csbCallStatsInstanceIndex"):
+                    self.csbcallstatsinstanceindex = value
+                    self.csbcallstatsinstanceindex.value_namespace = name_space
+                    self.csbcallstatsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbCallStatsServiceIndex"):
+                    self.csbcallstatsserviceindex = value
+                    self.csbcallstatsserviceindex.value_namespace = name_space
+                    self.csbcallstatsserviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsAdjName"):
+                    self.csbsipmthdrchistorystatsadjname = value
+                    self.csbsipmthdrchistorystatsadjname.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsadjname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsMethod"):
+                    self.csbsipmthdrchistorystatsmethod = value
+                    self.csbsipmthdrchistorystatsmethod.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsRespCode"):
+                    self.csbsipmthdrchistorystatsrespcode = value
+                    self.csbsipmthdrchistorystatsrespcode.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsrespcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsInterval"):
+                    self.csbsipmthdrchistorystatsinterval = value
+                    self.csbsipmthdrchistorystatsinterval.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsMethodName"):
+                    self.csbsipmthdrchistorystatsmethodname = value
+                    self.csbsipmthdrchistorystatsmethodname.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsmethodname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsRespIn"):
+                    self.csbsipmthdrchistorystatsrespin = value
+                    self.csbsipmthdrchistorystatsrespin.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsrespin.value_namespace_prefix = name_space_prefix
+                if(value_path == "csbSIPMthdRCHistoryStatsRespOut"):
+                    self.csbsipmthdrchistorystatsrespout = value
+                    self.csbsipmthdrchistorystatsrespout.value_namespace = name_space
+                    self.csbsipmthdrchistorystatsrespout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csbsipmthdrchistorystatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csbcallstatsserviceindex is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsadjname is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsmethod is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsrespcode is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsinterval is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsmethodname is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsrespin is not None:
-                    return True
-
-                if self.csbsipmthdrchistorystatsrespout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-                return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/CISCO-SESS-BORDER-CTRLR-STATS-MIB:csbSIPMthdRCHistoryStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csbsipmthdrchistorystatsentry is not None:
-                for child_ref in self.csbsipmthdrchistorystatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csbsipmthdrchistorystatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csbSIPMthdRCHistoryStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csbSIPMthdRCHistoryStatsEntry"):
+                for c in self.csbsipmthdrchistorystatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csbsipmthdrchistorystatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csbSIPMthdRCHistoryStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-            return meta._meta_table['CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.csbradiusstatstable is not None and self.csbradiusstatstable.has_data()) or
+            (self.csbrfbillrealmstatstable is not None and self.csbrfbillrealmstatstable.has_data()) or
+            (self.csbsipmthdcurrentstatstable is not None and self.csbsipmthdcurrentstatstable.has_data()) or
+            (self.csbsipmthdhistorystatstable is not None and self.csbsipmthdhistorystatstable.has_data()) or
+            (self.csbsipmthdrccurrentstatstable is not None and self.csbsipmthdrccurrentstatstable.has_data()) or
+            (self.csbsipmthdrchistorystatstable is not None and self.csbsipmthdrchistorystatstable.has_data()))
 
-        return '/CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.csbradiusstatstable is not None and self.csbradiusstatstable.has_operation()) or
+            (self.csbrfbillrealmstatstable is not None and self.csbrfbillrealmstatstable.has_operation()) or
+            (self.csbsipmthdcurrentstatstable is not None and self.csbsipmthdcurrentstatstable.has_operation()) or
+            (self.csbsipmthdhistorystatstable is not None and self.csbsipmthdhistorystatstable.has_operation()) or
+            (self.csbsipmthdrccurrentstatstable is not None and self.csbsipmthdrccurrentstatstable.has_operation()) or
+            (self.csbsipmthdrchistorystatstable is not None and self.csbsipmthdrchistorystatstable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "csbRadiusStatsTable"):
+            if (self.csbradiusstatstable is None):
+                self.csbradiusstatstable = CiscoSessBorderCtrlrStatsMib.Csbradiusstatstable()
+                self.csbradiusstatstable.parent = self
+                self._children_name_map["csbradiusstatstable"] = "csbRadiusStatsTable"
+            return self.csbradiusstatstable
+
+        if (child_yang_name == "csbRfBillRealmStatsTable"):
+            if (self.csbrfbillrealmstatstable is None):
+                self.csbrfbillrealmstatstable = CiscoSessBorderCtrlrStatsMib.Csbrfbillrealmstatstable()
+                self.csbrfbillrealmstatstable.parent = self
+                self._children_name_map["csbrfbillrealmstatstable"] = "csbRfBillRealmStatsTable"
+            return self.csbrfbillrealmstatstable
+
+        if (child_yang_name == "csbSIPMthdCurrentStatsTable"):
+            if (self.csbsipmthdcurrentstatstable is None):
+                self.csbsipmthdcurrentstatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdcurrentstatstable()
+                self.csbsipmthdcurrentstatstable.parent = self
+                self._children_name_map["csbsipmthdcurrentstatstable"] = "csbSIPMthdCurrentStatsTable"
+            return self.csbsipmthdcurrentstatstable
+
+        if (child_yang_name == "csbSIPMthdHistoryStatsTable"):
+            if (self.csbsipmthdhistorystatstable is None):
+                self.csbsipmthdhistorystatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdhistorystatstable()
+                self.csbsipmthdhistorystatstable.parent = self
+                self._children_name_map["csbsipmthdhistorystatstable"] = "csbSIPMthdHistoryStatsTable"
+            return self.csbsipmthdhistorystatstable
+
+        if (child_yang_name == "csbSIPMthdRCCurrentStatsTable"):
+            if (self.csbsipmthdrccurrentstatstable is None):
+                self.csbsipmthdrccurrentstatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrccurrentstatstable()
+                self.csbsipmthdrccurrentstatstable.parent = self
+                self._children_name_map["csbsipmthdrccurrentstatstable"] = "csbSIPMthdRCCurrentStatsTable"
+            return self.csbsipmthdrccurrentstatstable
+
+        if (child_yang_name == "csbSIPMthdRCHistoryStatsTable"):
+            if (self.csbsipmthdrchistorystatstable is None):
+                self.csbsipmthdrchistorystatstable = CiscoSessBorderCtrlrStatsMib.Csbsipmthdrchistorystatstable()
+                self.csbsipmthdrchistorystatstable.parent = self
+                self._children_name_map["csbsipmthdrchistorystatstable"] = "csbSIPMthdRCHistoryStatsTable"
+            return self.csbsipmthdrchistorystatstable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "csbRadiusStatsTable" or name == "csbRfBillRealmStatsTable" or name == "csbSIPMthdCurrentStatsTable" or name == "csbSIPMthdHistoryStatsTable" or name == "csbSIPMthdRCCurrentStatsTable" or name == "csbSIPMthdRCHistoryStatsTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.csbradiusstatstable is not None and self.csbradiusstatstable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.csbrfbillrealmstatstable is not None and self.csbrfbillrealmstatstable._has_data():
-            return True
-
-        if self.csbsipmthdcurrentstatstable is not None and self.csbsipmthdcurrentstatstable._has_data():
-            return True
-
-        if self.csbsipmthdhistorystatstable is not None and self.csbsipmthdhistorystatstable._has_data():
-            return True
-
-        if self.csbsipmthdrccurrentstatstable is not None and self.csbsipmthdrccurrentstatstable._has_data():
-            return True
-
-        if self.csbsipmthdrchistorystatstable is not None and self.csbsipmthdrchistorystatstable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SESS_BORDER_CTRLR_STATS_MIB as meta
-        return meta._meta_table['CiscoSessBorderCtrlrStatsMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoSessBorderCtrlrStatsMib()
+        return self._top_entity
 

@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EthertypeMatchEnum(Enum):
+class EthertypeMatch(Enum):
     """
-    EthertypeMatchEnum
+    EthertypeMatch
 
     Ethertype match
 
@@ -32,18 +26,12 @@ class EthertypeMatchEnum(Enum):
 
     """
 
-    ppp_over_ethernet = 34915
+    ppp_over_ethernet = Enum.YLeaf(34915, "ppp-over-ethernet")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['EthertypeMatchEnum']
-
-
-class MatchEnum(Enum):
+class Match(Enum):
     """
-    MatchEnum
+    Match
 
     Match
 
@@ -73,28 +61,22 @@ class MatchEnum(Enum):
 
     """
 
-    match_default = 1
+    match_default = Enum.YLeaf(1, "match-default")
 
-    match_untagged = 2
+    match_untagged = Enum.YLeaf(2, "match-untagged")
 
-    match_dot1q = 3
+    match_dot1q = Enum.YLeaf(3, "match-dot1q")
 
-    match_dot1ad = 4
+    match_dot1ad = Enum.YLeaf(4, "match-dot1ad")
 
-    match_dot1q_priority = 5
+    match_dot1q_priority = Enum.YLeaf(5, "match-dot1q-priority")
 
-    match_dot1ad_priority = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['MatchEnum']
+    match_dot1ad_priority = Enum.YLeaf(6, "match-dot1ad-priority")
 
 
-class RewriteEnum(Enum):
+class Rewrite(Enum):
     """
-    RewriteEnum
+    Rewrite
 
     Rewrite
 
@@ -132,32 +114,26 @@ class RewriteEnum(Enum):
 
     """
 
-    pop1 = 1
+    pop1 = Enum.YLeaf(1, "pop1")
 
-    pop2 = 2
+    pop2 = Enum.YLeaf(2, "pop2")
 
-    push1 = 3
+    push1 = Enum.YLeaf(3, "push1")
 
-    push2 = 4
+    push2 = Enum.YLeaf(4, "push2")
 
-    translate1to1 = 5
+    translate1to1 = Enum.YLeaf(5, "translate1to1")
 
-    translate1to2 = 6
+    translate1to2 = Enum.YLeaf(6, "translate1to2")
 
-    translate2to1 = 7
+    translate2to1 = Enum.YLeaf(7, "translate2to1")
 
-    translate2to2 = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['RewriteEnum']
+    translate2to2 = Enum.YLeaf(8, "translate2to2")
 
 
-class VlanEnum(Enum):
+class Vlan(Enum):
     """
-    VlanEnum
+    Vlan
 
     Vlan
 
@@ -171,20 +147,14 @@ class VlanEnum(Enum):
 
     """
 
-    vlan_type_dot1ad = 1
+    vlan_type_dot1ad = Enum.YLeaf(1, "vlan-type-dot1ad")
 
-    vlan_type_dot1q = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanEnum']
+    vlan_type_dot1q = Enum.YLeaf(2, "vlan-type-dot1q")
 
 
-class VlanTagOrAnyEnum(Enum):
+class VlanTagOrAny(Enum):
     """
-    VlanTagOrAnyEnum
+    VlanTagOrAny
 
     Vlan tag or any
 
@@ -194,18 +164,12 @@ class VlanTagOrAnyEnum(Enum):
 
     """
 
-    any = 4096
+    any = Enum.YLeaf(4096, "any")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrAnyEnum']
-
-
-class VlanTagOrCvpEnum(Enum):
+class VlanTagOrCvp(Enum):
     """
-    VlanTagOrCvpEnum
+    VlanTagOrCvp
 
     Vlan tag or cvp
 
@@ -217,18 +181,12 @@ class VlanTagOrCvpEnum(Enum):
 
     """
 
-    native_with_cvlan_preservation = 65534
+    native_with_cvlan_preservation = Enum.YLeaf(65534, "native-with-cvlan-preservation")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrCvpEnum']
-
-
-class VlanTagOrNativeEnum(Enum):
+class VlanTagOrNative(Enum):
     """
-    VlanTagOrNativeEnum
+    VlanTagOrNative
 
     Vlan tag or native
 
@@ -244,20 +202,14 @@ class VlanTagOrNativeEnum(Enum):
 
     """
 
-    native = 65535
+    native = Enum.YLeaf(65535, "native")
 
-    native_with_cvlan_preservation = 65534
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrNativeEnum']
+    native_with_cvlan_preservation = Enum.YLeaf(65534, "native-with-cvlan-preservation")
 
 
-class VlanTagOrNullEnum(Enum):
+class VlanTagOrNull(Enum):
     """
-    VlanTagOrNullEnum
+    VlanTagOrNull
 
     Vlan tag or null
 
@@ -267,13 +219,7 @@ class VlanTagOrNullEnum(Enum):
 
     """
 
-    any = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrNullEnum']
+    any = Enum.YLeaf(0, "any")
 
 
 

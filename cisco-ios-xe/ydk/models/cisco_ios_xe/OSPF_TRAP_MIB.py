@@ -9,21 +9,15 @@ RFC 4750;  see the RFC itself for full legal
 notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class OspfTrapMib(object):
+class OspfTrapMib(Entity):
     """
     
     
@@ -40,18 +34,26 @@ class OspfTrapMib(object):
     _revision = '2006-11-10'
 
     def __init__(self):
+        super(OspfTrapMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "OSPF-TRAP-MIB"
+        self.yang_parent_name = "OSPF-TRAP-MIB"
+
         self.ospftrapcontrol = OspfTrapMib.Ospftrapcontrol()
         self.ospftrapcontrol.parent = self
+        self._children_name_map["ospftrapcontrol"] = "ospfTrapControl"
+        self._children_yang_names.add("ospfTrapControl")
 
 
-    class Ospftrapcontrol(object):
+    class Ospftrapcontrol(Entity):
         """
         
         
         .. attribute:: ospfconfigerrortype
         
         	Potential types of configuration conflicts. Used by the ospfConfigError and ospfConfigVirtError traps.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
-        	**type**\:   :py:class:`OspfconfigerrortypeEnum <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OspfTrapMib.Ospftrapcontrol.OspfconfigerrortypeEnum>`
+        	**type**\:   :py:class:`Ospfconfigerrortype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OspfTrapMib.Ospftrapcontrol.Ospfconfigerrortype>`
         
         .. attribute:: ospfpacketsrc
         
@@ -63,7 +65,7 @@ class OspfTrapMib(object):
         .. attribute:: ospfpackettype
         
         	OSPF packet types.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
-        	**type**\:   :py:class:`OspfpackettypeEnum <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OspfTrapMib.Ospftrapcontrol.OspfpackettypeEnum>`
+        	**type**\:   :py:class:`Ospfpackettype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OspfTrapMib.Ospftrapcontrol.Ospfpackettype>`
         
         .. attribute:: ospfsettrap
         
@@ -80,15 +82,49 @@ class OspfTrapMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfconfigerrortype = None
-            self.ospfpacketsrc = None
-            self.ospfpackettype = None
-            self.ospfsettrap = None
+            super(OspfTrapMib.Ospftrapcontrol, self).__init__()
 
-        class OspfconfigerrortypeEnum(Enum):
+            self.yang_name = "ospfTrapControl"
+            self.yang_parent_name = "OSPF-TRAP-MIB"
+
+            self.ospfconfigerrortype = YLeaf(YType.enumeration, "ospfConfigErrorType")
+
+            self.ospfpacketsrc = YLeaf(YType.str, "ospfPacketSrc")
+
+            self.ospfpackettype = YLeaf(YType.enumeration, "ospfPacketType")
+
+            self.ospfsettrap = YLeaf(YType.str, "ospfSetTrap")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ospfconfigerrortype",
+                            "ospfpacketsrc",
+                            "ospfpackettype",
+                            "ospfsettrap") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfTrapMib.Ospftrapcontrol, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfTrapMib.Ospftrapcontrol, self).__setattr__(name, value)
+
+        class Ospfconfigerrortype(Enum):
             """
-            OspfconfigerrortypeEnum
+            Ospfconfigerrortype
 
             Potential types of configuration conflicts.
 
@@ -132,42 +168,36 @@ class OspfTrapMib(object):
 
             """
 
-            badVersion = 1
+            badVersion = Enum.YLeaf(1, "badVersion")
 
-            areaMismatch = 2
+            areaMismatch = Enum.YLeaf(2, "areaMismatch")
 
-            unknownNbmaNbr = 3
+            unknownNbmaNbr = Enum.YLeaf(3, "unknownNbmaNbr")
 
-            unknownVirtualNbr = 4
+            unknownVirtualNbr = Enum.YLeaf(4, "unknownVirtualNbr")
 
-            authTypeMismatch = 5
+            authTypeMismatch = Enum.YLeaf(5, "authTypeMismatch")
 
-            authFailure = 6
+            authFailure = Enum.YLeaf(6, "authFailure")
 
-            netMaskMismatch = 7
+            netMaskMismatch = Enum.YLeaf(7, "netMaskMismatch")
 
-            helloIntervalMismatch = 8
+            helloIntervalMismatch = Enum.YLeaf(8, "helloIntervalMismatch")
 
-            deadIntervalMismatch = 9
+            deadIntervalMismatch = Enum.YLeaf(9, "deadIntervalMismatch")
 
-            optionMismatch = 10
+            optionMismatch = Enum.YLeaf(10, "optionMismatch")
 
-            mtuMismatch = 11
+            mtuMismatch = Enum.YLeaf(11, "mtuMismatch")
 
-            duplicateRouterId = 12
+            duplicateRouterId = Enum.YLeaf(12, "duplicateRouterId")
 
-            noError = 13
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_TRAP_MIB as meta
-                return meta._meta_table['OspfTrapMib.Ospftrapcontrol.OspfconfigerrortypeEnum']
+            noError = Enum.YLeaf(13, "noError")
 
 
-        class OspfpackettypeEnum(Enum):
+        class Ospfpackettype(Enum):
             """
-            OspfpackettypeEnum
+            Ospfpackettype
 
             OSPF packet types.  When the last value of a trap
 
@@ -191,72 +221,138 @@ class OspfTrapMib(object):
 
             """
 
-            hello = 1
+            hello = Enum.YLeaf(1, "hello")
 
-            dbDescript = 2
+            dbDescript = Enum.YLeaf(2, "dbDescript")
 
-            lsReq = 3
+            lsReq = Enum.YLeaf(3, "lsReq")
 
-            lsUpdate = 4
+            lsUpdate = Enum.YLeaf(4, "lsUpdate")
 
-            lsAck = 5
+            lsAck = Enum.YLeaf(5, "lsAck")
 
-            nullPacket = 6
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_TRAP_MIB as meta
-                return meta._meta_table['OspfTrapMib.Ospftrapcontrol.OspfpackettypeEnum']
+            nullPacket = Enum.YLeaf(6, "nullPacket")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.ospfconfigerrortype.is_set or
+                self.ospfpacketsrc.is_set or
+                self.ospfpackettype.is_set or
+                self.ospfsettrap.is_set)
 
-            return '/OSPF-TRAP-MIB:OSPF-TRAP-MIB/OSPF-TRAP-MIB:ospfTrapControl'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ospfconfigerrortype.yfilter != YFilter.not_set or
+                self.ospfpacketsrc.yfilter != YFilter.not_set or
+                self.ospfpackettype.yfilter != YFilter.not_set or
+                self.ospfsettrap.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfTrapControl" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-TRAP-MIB:OSPF-TRAP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ospfconfigerrortype.is_set or self.ospfconfigerrortype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfconfigerrortype.get_name_leafdata())
+            if (self.ospfpacketsrc.is_set or self.ospfpacketsrc.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfpacketsrc.get_name_leafdata())
+            if (self.ospfpackettype.is_set or self.ospfpackettype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfpackettype.get_name_leafdata())
+            if (self.ospfsettrap.is_set or self.ospfsettrap.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfsettrap.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfConfigErrorType" or name == "ospfPacketSrc" or name == "ospfPacketType" or name == "ospfSetTrap"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ospfconfigerrortype is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ospfConfigErrorType"):
+                self.ospfconfigerrortype = value
+                self.ospfconfigerrortype.value_namespace = name_space
+                self.ospfconfigerrortype.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfPacketSrc"):
+                self.ospfpacketsrc = value
+                self.ospfpacketsrc.value_namespace = name_space
+                self.ospfpacketsrc.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfPacketType"):
+                self.ospfpackettype = value
+                self.ospfpackettype.value_namespace = name_space
+                self.ospfpackettype.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfSetTrap"):
+                self.ospfsettrap = value
+                self.ospfsettrap.value_namespace = name_space
+                self.ospfsettrap.value_namespace_prefix = name_space_prefix
 
-            if self.ospfpacketsrc is not None:
-                return True
+    def has_data(self):
+        return (self.ospftrapcontrol is not None and self.ospftrapcontrol.has_data())
 
-            if self.ospfpackettype is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ospftrapcontrol is not None and self.ospftrapcontrol.has_operation()))
 
-            if self.ospfsettrap is not None:
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "OSPF-TRAP-MIB:OSPF-TRAP-MIB" + path_buffer
 
-            return False
+        return path_buffer
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_TRAP_MIB as meta
-            return meta._meta_table['OspfTrapMib.Ospftrapcontrol']['meta_info']
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    @property
-    def _common_path(self):
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-        return '/OSPF-TRAP-MIB:OSPF-TRAP-MIB'
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-    def _has_data(self):
-        if self.ospftrapcontrol is not None and self.ospftrapcontrol._has_data():
+        if (child_yang_name == "ospfTrapControl"):
+            if (self.ospftrapcontrol is None):
+                self.ospftrapcontrol = OspfTrapMib.Ospftrapcontrol()
+                self.ospftrapcontrol.parent = self
+                self._children_name_map["ospftrapcontrol"] = "ospfTrapControl"
+            return self.ospftrapcontrol
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ospfTrapControl"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _OSPF_TRAP_MIB as meta
-        return meta._meta_table['OspfTrapMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = OspfTrapMib()
+        return self._top_entity
 

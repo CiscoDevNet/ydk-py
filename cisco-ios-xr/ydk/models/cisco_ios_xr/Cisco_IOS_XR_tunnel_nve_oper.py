@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Nve(object):
+class Nve(Entity):
     """
     NVE operational data
     
@@ -47,13 +41,24 @@ class Nve(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Nve, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "nve"
+        self.yang_parent_name = "Cisco-IOS-XR-tunnel-nve-oper"
+
         self.interfaces = Nve.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.vnis = Nve.Vnis()
         self.vnis.parent = self
+        self._children_name_map["vnis"] = "vnis"
+        self._children_yang_names.add("vnis")
 
 
-    class Vnis(object):
+    class Vnis(Entity):
         """
         Table for VNIs
         
@@ -70,13 +75,39 @@ class Nve(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.vni = YList()
-            self.vni.parent = self
-            self.vni.name = 'vni'
+            super(Nve.Vnis, self).__init__()
+
+            self.yang_name = "vnis"
+            self.yang_parent_name = "nve"
+
+            self.vni = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Nve.Vnis, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Nve.Vnis, self).__setattr__(name, value)
 
 
-        class Vni(object):
+        class Vni(Entity):
             """
             The attributes for a particular VNI
             
@@ -229,135 +260,363 @@ class Nve(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.vni = None
-                self.bvi_ifh = None
-                self.bvi_mac = None
-                self.bvi_state = None
-                self.flags = None
-                self.interface_name = None
-                self.ipv4_tbl_id = None
-                self.ipv6_tbl_id = None
-                self.mcast_flags = None
-                self.mcast_ipv4_address = None
-                self.state = None
-                self.topo_id = None
-                self.topo_name = None
-                self.topo_valid = None
-                self.udp_port = None
-                self.vni_max = None
-                self.vni_min = None
-                self.vni_xr = None
-                self.vrf_id = None
-                self.vrf_name = None
-                self.vrf_vni = None
+                super(Nve.Vnis.Vni, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.vni is None:
-                    raise YPYModelError('Key property vni is None')
+                self.yang_name = "vni"
+                self.yang_parent_name = "vnis"
 
-                return '/Cisco-IOS-XR-tunnel-nve-oper:nve/Cisco-IOS-XR-tunnel-nve-oper:vnis/Cisco-IOS-XR-tunnel-nve-oper:vni[Cisco-IOS-XR-tunnel-nve-oper:vni = ' + str(self.vni) + ']'
+                self.vni = YLeaf(YType.str, "vni")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.bvi_ifh = YLeaf(YType.uint32, "bvi-ifh")
+
+                self.bvi_mac = YLeaf(YType.str, "bvi-mac")
+
+                self.bvi_state = YLeaf(YType.uint8, "bvi-state")
+
+                self.flags = YLeaf(YType.uint32, "flags")
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.ipv4_tbl_id = YLeaf(YType.uint32, "ipv4-tbl-id")
+
+                self.ipv6_tbl_id = YLeaf(YType.uint32, "ipv6-tbl-id")
+
+                self.mcast_flags = YLeaf(YType.uint32, "mcast-flags")
+
+                self.mcast_ipv4_address = YLeaf(YType.str, "mcast-ipv4-address")
+
+                self.state = YLeaf(YType.int8, "state")
+
+                self.topo_id = YLeaf(YType.uint32, "topo-id")
+
+                self.topo_name = YLeaf(YType.str, "topo-name")
+
+                self.topo_valid = YLeaf(YType.boolean, "topo-valid")
+
+                self.udp_port = YLeaf(YType.uint32, "udp-port")
+
+                self.vni_max = YLeaf(YType.uint32, "vni-max")
+
+                self.vni_min = YLeaf(YType.uint32, "vni-min")
+
+                self.vni_xr = YLeaf(YType.uint32, "vni-xr")
+
+                self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.vrf_vni = YLeaf(YType.uint32, "vrf-vni")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vni",
+                                "bvi_ifh",
+                                "bvi_mac",
+                                "bvi_state",
+                                "flags",
+                                "interface_name",
+                                "ipv4_tbl_id",
+                                "ipv6_tbl_id",
+                                "mcast_flags",
+                                "mcast_ipv4_address",
+                                "state",
+                                "topo_id",
+                                "topo_name",
+                                "topo_valid",
+                                "udp_port",
+                                "vni_max",
+                                "vni_min",
+                                "vni_xr",
+                                "vrf_id",
+                                "vrf_name",
+                                "vrf_vni") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Nve.Vnis.Vni, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Nve.Vnis.Vni, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.vni.is_set or
+                    self.bvi_ifh.is_set or
+                    self.bvi_mac.is_set or
+                    self.bvi_state.is_set or
+                    self.flags.is_set or
+                    self.interface_name.is_set or
+                    self.ipv4_tbl_id.is_set or
+                    self.ipv6_tbl_id.is_set or
+                    self.mcast_flags.is_set or
+                    self.mcast_ipv4_address.is_set or
+                    self.state.is_set or
+                    self.topo_id.is_set or
+                    self.topo_name.is_set or
+                    self.topo_valid.is_set or
+                    self.udp_port.is_set or
+                    self.vni_max.is_set or
+                    self.vni_min.is_set or
+                    self.vni_xr.is_set or
+                    self.vrf_id.is_set or
+                    self.vrf_name.is_set or
+                    self.vrf_vni.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vni.yfilter != YFilter.not_set or
+                    self.bvi_ifh.yfilter != YFilter.not_set or
+                    self.bvi_mac.yfilter != YFilter.not_set or
+                    self.bvi_state.yfilter != YFilter.not_set or
+                    self.flags.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.ipv4_tbl_id.yfilter != YFilter.not_set or
+                    self.ipv6_tbl_id.yfilter != YFilter.not_set or
+                    self.mcast_flags.yfilter != YFilter.not_set or
+                    self.mcast_ipv4_address.yfilter != YFilter.not_set or
+                    self.state.yfilter != YFilter.not_set or
+                    self.topo_id.yfilter != YFilter.not_set or
+                    self.topo_name.yfilter != YFilter.not_set or
+                    self.topo_valid.yfilter != YFilter.not_set or
+                    self.udp_port.yfilter != YFilter.not_set or
+                    self.vni_max.yfilter != YFilter.not_set or
+                    self.vni_min.yfilter != YFilter.not_set or
+                    self.vni_xr.yfilter != YFilter.not_set or
+                    self.vrf_id.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    self.vrf_vni.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vni" + "[vni='" + self.vni.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-tunnel-nve-oper:nve/vnis/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vni.is_set or self.vni.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vni.get_name_leafdata())
+                if (self.bvi_ifh.is_set or self.bvi_ifh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bvi_ifh.get_name_leafdata())
+                if (self.bvi_mac.is_set or self.bvi_mac.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bvi_mac.get_name_leafdata())
+                if (self.bvi_state.is_set or self.bvi_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bvi_state.get_name_leafdata())
+                if (self.flags.is_set or self.flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flags.get_name_leafdata())
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.ipv4_tbl_id.is_set or self.ipv4_tbl_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv4_tbl_id.get_name_leafdata())
+                if (self.ipv6_tbl_id.is_set or self.ipv6_tbl_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv6_tbl_id.get_name_leafdata())
+                if (self.mcast_flags.is_set or self.mcast_flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mcast_flags.get_name_leafdata())
+                if (self.mcast_ipv4_address.is_set or self.mcast_ipv4_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mcast_ipv4_address.get_name_leafdata())
+                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.state.get_name_leafdata())
+                if (self.topo_id.is_set or self.topo_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.topo_id.get_name_leafdata())
+                if (self.topo_name.is_set or self.topo_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.topo_name.get_name_leafdata())
+                if (self.topo_valid.is_set or self.topo_valid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.topo_valid.get_name_leafdata())
+                if (self.udp_port.is_set or self.udp_port.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udp_port.get_name_leafdata())
+                if (self.vni_max.is_set or self.vni_max.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vni_max.get_name_leafdata())
+                if (self.vni_min.is_set or self.vni_min.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vni_min.get_name_leafdata())
+                if (self.vni_xr.is_set or self.vni_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vni_xr.get_name_leafdata())
+                if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_id.get_name_leafdata())
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                if (self.vrf_vni.is_set or self.vrf_vni.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_vni.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "vni" or name == "bvi-ifh" or name == "bvi-mac" or name == "bvi-state" or name == "flags" or name == "interface-name" or name == "ipv4-tbl-id" or name == "ipv6-tbl-id" or name == "mcast-flags" or name == "mcast-ipv4-address" or name == "state" or name == "topo-id" or name == "topo-name" or name == "topo-valid" or name == "udp-port" or name == "vni-max" or name == "vni-min" or name == "vni-xr" or name == "vrf-id" or name == "vrf-name" or name == "vrf-vni"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.vni is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vni"):
+                    self.vni = value
+                    self.vni.value_namespace = name_space
+                    self.vni.value_namespace_prefix = name_space_prefix
+                if(value_path == "bvi-ifh"):
+                    self.bvi_ifh = value
+                    self.bvi_ifh.value_namespace = name_space
+                    self.bvi_ifh.value_namespace_prefix = name_space_prefix
+                if(value_path == "bvi-mac"):
+                    self.bvi_mac = value
+                    self.bvi_mac.value_namespace = name_space
+                    self.bvi_mac.value_namespace_prefix = name_space_prefix
+                if(value_path == "bvi-state"):
+                    self.bvi_state = value
+                    self.bvi_state.value_namespace = name_space
+                    self.bvi_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "flags"):
+                    self.flags = value
+                    self.flags.value_namespace = name_space
+                    self.flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv4-tbl-id"):
+                    self.ipv4_tbl_id = value
+                    self.ipv4_tbl_id.value_namespace = name_space
+                    self.ipv4_tbl_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv6-tbl-id"):
+                    self.ipv6_tbl_id = value
+                    self.ipv6_tbl_id.value_namespace = name_space
+                    self.ipv6_tbl_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "mcast-flags"):
+                    self.mcast_flags = value
+                    self.mcast_flags.value_namespace = name_space
+                    self.mcast_flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "mcast-ipv4-address"):
+                    self.mcast_ipv4_address = value
+                    self.mcast_ipv4_address.value_namespace = name_space
+                    self.mcast_ipv4_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "state"):
+                    self.state = value
+                    self.state.value_namespace = name_space
+                    self.state.value_namespace_prefix = name_space_prefix
+                if(value_path == "topo-id"):
+                    self.topo_id = value
+                    self.topo_id.value_namespace = name_space
+                    self.topo_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "topo-name"):
+                    self.topo_name = value
+                    self.topo_name.value_namespace = name_space
+                    self.topo_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "topo-valid"):
+                    self.topo_valid = value
+                    self.topo_valid.value_namespace = name_space
+                    self.topo_valid.value_namespace_prefix = name_space_prefix
+                if(value_path == "udp-port"):
+                    self.udp_port = value
+                    self.udp_port.value_namespace = name_space
+                    self.udp_port.value_namespace_prefix = name_space_prefix
+                if(value_path == "vni-max"):
+                    self.vni_max = value
+                    self.vni_max.value_namespace = name_space
+                    self.vni_max.value_namespace_prefix = name_space_prefix
+                if(value_path == "vni-min"):
+                    self.vni_min = value
+                    self.vni_min.value_namespace = name_space
+                    self.vni_min.value_namespace_prefix = name_space_prefix
+                if(value_path == "vni-xr"):
+                    self.vni_xr = value
+                    self.vni_xr.value_namespace = name_space
+                    self.vni_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-id"):
+                    self.vrf_id = value
+                    self.vrf_id.value_namespace = name_space
+                    self.vrf_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-vni"):
+                    self.vrf_vni = value
+                    self.vrf_vni.value_namespace = name_space
+                    self.vrf_vni.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vni:
+                if (c.has_data()):
                     return True
-
-                if self.bvi_ifh is not None:
-                    return True
-
-                if self.bvi_mac is not None:
-                    return True
-
-                if self.bvi_state is not None:
-                    return True
-
-                if self.flags is not None:
-                    return True
-
-                if self.interface_name is not None:
-                    return True
-
-                if self.ipv4_tbl_id is not None:
-                    return True
-
-                if self.ipv6_tbl_id is not None:
-                    return True
-
-                if self.mcast_flags is not None:
-                    return True
-
-                if self.mcast_ipv4_address is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                if self.topo_id is not None:
-                    return True
-
-                if self.topo_name is not None:
-                    return True
-
-                if self.topo_valid is not None:
-                    return True
-
-                if self.udp_port is not None:
-                    return True
-
-                if self.vni_max is not None:
-                    return True
-
-                if self.vni_min is not None:
-                    return True
-
-                if self.vni_xr is not None:
-                    return True
-
-                if self.vrf_id is not None:
-                    return True
-
-                if self.vrf_name is not None:
-                    return True
-
-                if self.vrf_vni is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
-                return meta._meta_table['Nve.Vnis.Vni']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-tunnel-nve-oper:nve/Cisco-IOS-XR-tunnel-nve-oper:vnis'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vni is not None:
-                for child_ref in self.vni:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vni:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vnis" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-tunnel-nve-oper:nve/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vni"):
+                for c in self.vni:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Nve.Vnis.Vni()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vni.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vni"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
-            return meta._meta_table['Nve.Vnis']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         Table for NVE interface attributes
         
@@ -374,13 +633,39 @@ class Nve(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(Nve.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "nve"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Nve.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Nve.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             The attributes for a particular interface
             
@@ -498,134 +783,364 @@ class Nve(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.admin_state = None
-                self.any_cast_source_interface_name = None
-                self.any_cast_source_ipv4_address = None
-                self.any_cast_source_state = None
-                self.encap = None
-                self.flags = None
-                self.if_handle = None
-                self.interface_name_xr = None
-                self.source_interface_name = None
-                self.source_ipv4_address = None
-                self.source_state = None
-                self.state = None
-                self.sync_mcast_flags = None
-                self.sync_mcast_ipv4_address = None
-                self.udp_port = None
+                super(Nve.Interfaces.Interface, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
 
-                return '/Cisco-IOS-XR-tunnel-nve-oper:nve/Cisco-IOS-XR-tunnel-nve-oper:interfaces/Cisco-IOS-XR-tunnel-nve-oper:interface[Cisco-IOS-XR-tunnel-nve-oper:interface-name = ' + str(self.interface_name) + ']'
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.admin_state = YLeaf(YType.int8, "admin-state")
+
+                self.any_cast_source_interface_name = YLeaf(YType.str, "any-cast-source-interface-name")
+
+                self.any_cast_source_ipv4_address = YLeaf(YType.str, "any-cast-source-ipv4-address")
+
+                self.any_cast_source_state = YLeaf(YType.int8, "any-cast-source-state")
+
+                self.encap = YLeaf(YType.int8, "encap")
+
+                self.flags = YLeaf(YType.uint32, "flags")
+
+                self.if_handle = YLeaf(YType.uint64, "if-handle")
+
+                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                self.source_interface_name = YLeaf(YType.str, "source-interface-name")
+
+                self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
+
+                self.source_state = YLeaf(YType.int8, "source-state")
+
+                self.state = YLeaf(YType.int8, "state")
+
+                self.sync_mcast_flags = YLeaf(YType.uint32, "sync-mcast-flags")
+
+                self.sync_mcast_ipv4_address = YLeaf(YType.str, "sync-mcast-ipv4-address")
+
+                self.udp_port = YLeaf(YType.uint32, "udp-port")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "admin_state",
+                                "any_cast_source_interface_name",
+                                "any_cast_source_ipv4_address",
+                                "any_cast_source_state",
+                                "encap",
+                                "flags",
+                                "if_handle",
+                                "interface_name_xr",
+                                "source_interface_name",
+                                "source_ipv4_address",
+                                "source_state",
+                                "state",
+                                "sync_mcast_flags",
+                                "sync_mcast_ipv4_address",
+                                "udp_port") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Nve.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Nve.Interfaces.Interface, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.admin_state.is_set or
+                    self.any_cast_source_interface_name.is_set or
+                    self.any_cast_source_ipv4_address.is_set or
+                    self.any_cast_source_state.is_set or
+                    self.encap.is_set or
+                    self.flags.is_set or
+                    self.if_handle.is_set or
+                    self.interface_name_xr.is_set or
+                    self.source_interface_name.is_set or
+                    self.source_ipv4_address.is_set or
+                    self.source_state.is_set or
+                    self.state.is_set or
+                    self.sync_mcast_flags.is_set or
+                    self.sync_mcast_ipv4_address.is_set or
+                    self.udp_port.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.admin_state.yfilter != YFilter.not_set or
+                    self.any_cast_source_interface_name.yfilter != YFilter.not_set or
+                    self.any_cast_source_ipv4_address.yfilter != YFilter.not_set or
+                    self.any_cast_source_state.yfilter != YFilter.not_set or
+                    self.encap.yfilter != YFilter.not_set or
+                    self.flags.yfilter != YFilter.not_set or
+                    self.if_handle.yfilter != YFilter.not_set or
+                    self.interface_name_xr.yfilter != YFilter.not_set or
+                    self.source_interface_name.yfilter != YFilter.not_set or
+                    self.source_ipv4_address.yfilter != YFilter.not_set or
+                    self.source_state.yfilter != YFilter.not_set or
+                    self.state.yfilter != YFilter.not_set or
+                    self.sync_mcast_flags.yfilter != YFilter.not_set or
+                    self.sync_mcast_ipv4_address.yfilter != YFilter.not_set or
+                    self.udp_port.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-tunnel-nve-oper:nve/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.admin_state.is_set or self.admin_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.admin_state.get_name_leafdata())
+                if (self.any_cast_source_interface_name.is_set or self.any_cast_source_interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.any_cast_source_interface_name.get_name_leafdata())
+                if (self.any_cast_source_ipv4_address.is_set or self.any_cast_source_ipv4_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.any_cast_source_ipv4_address.get_name_leafdata())
+                if (self.any_cast_source_state.is_set or self.any_cast_source_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.any_cast_source_state.get_name_leafdata())
+                if (self.encap.is_set or self.encap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.encap.get_name_leafdata())
+                if (self.flags.is_set or self.flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flags.get_name_leafdata())
+                if (self.if_handle.is_set or self.if_handle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.if_handle.get_name_leafdata())
+                if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                if (self.source_interface_name.is_set or self.source_interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_interface_name.get_name_leafdata())
+                if (self.source_ipv4_address.is_set or self.source_ipv4_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_ipv4_address.get_name_leafdata())
+                if (self.source_state.is_set or self.source_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_state.get_name_leafdata())
+                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.state.get_name_leafdata())
+                if (self.sync_mcast_flags.is_set or self.sync_mcast_flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sync_mcast_flags.get_name_leafdata())
+                if (self.sync_mcast_ipv4_address.is_set or self.sync_mcast_ipv4_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sync_mcast_ipv4_address.get_name_leafdata())
+                if (self.udp_port.is_set or self.udp_port.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udp_port.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-name" or name == "admin-state" or name == "any-cast-source-interface-name" or name == "any-cast-source-ipv4-address" or name == "any-cast-source-state" or name == "encap" or name == "flags" or name == "if-handle" or name == "interface-name-xr" or name == "source-interface-name" or name == "source-ipv4-address" or name == "source-state" or name == "state" or name == "sync-mcast-flags" or name == "sync-mcast-ipv4-address" or name == "udp-port"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "admin-state"):
+                    self.admin_state = value
+                    self.admin_state.value_namespace = name_space
+                    self.admin_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "any-cast-source-interface-name"):
+                    self.any_cast_source_interface_name = value
+                    self.any_cast_source_interface_name.value_namespace = name_space
+                    self.any_cast_source_interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "any-cast-source-ipv4-address"):
+                    self.any_cast_source_ipv4_address = value
+                    self.any_cast_source_ipv4_address.value_namespace = name_space
+                    self.any_cast_source_ipv4_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "any-cast-source-state"):
+                    self.any_cast_source_state = value
+                    self.any_cast_source_state.value_namespace = name_space
+                    self.any_cast_source_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "encap"):
+                    self.encap = value
+                    self.encap.value_namespace = name_space
+                    self.encap.value_namespace_prefix = name_space_prefix
+                if(value_path == "flags"):
+                    self.flags = value
+                    self.flags.value_namespace = name_space
+                    self.flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "if-handle"):
+                    self.if_handle = value
+                    self.if_handle.value_namespace = name_space
+                    self.if_handle.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name-xr"):
+                    self.interface_name_xr = value
+                    self.interface_name_xr.value_namespace = name_space
+                    self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-interface-name"):
+                    self.source_interface_name = value
+                    self.source_interface_name.value_namespace = name_space
+                    self.source_interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-ipv4-address"):
+                    self.source_ipv4_address = value
+                    self.source_ipv4_address.value_namespace = name_space
+                    self.source_ipv4_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-state"):
+                    self.source_state = value
+                    self.source_state.value_namespace = name_space
+                    self.source_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "state"):
+                    self.state = value
+                    self.state.value_namespace = name_space
+                    self.state.value_namespace_prefix = name_space_prefix
+                if(value_path == "sync-mcast-flags"):
+                    self.sync_mcast_flags = value
+                    self.sync_mcast_flags.value_namespace = name_space
+                    self.sync_mcast_flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "sync-mcast-ipv4-address"):
+                    self.sync_mcast_ipv4_address = value
+                    self.sync_mcast_ipv4_address.value_namespace = name_space
+                    self.sync_mcast_ipv4_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "udp-port"):
+                    self.udp_port = value
+                    self.udp_port.value_namespace = name_space
+                    self.udp_port.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
                     return True
-
-                if self.admin_state is not None:
-                    return True
-
-                if self.any_cast_source_interface_name is not None:
-                    return True
-
-                if self.any_cast_source_ipv4_address is not None:
-                    return True
-
-                if self.any_cast_source_state is not None:
-                    return True
-
-                if self.encap is not None:
-                    return True
-
-                if self.flags is not None:
-                    return True
-
-                if self.if_handle is not None:
-                    return True
-
-                if self.interface_name_xr is not None:
-                    return True
-
-                if self.source_interface_name is not None:
-                    return True
-
-                if self.source_ipv4_address is not None:
-                    return True
-
-                if self.source_state is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                if self.sync_mcast_flags is not None:
-                    return True
-
-                if self.sync_mcast_ipv4_address is not None:
-                    return True
-
-                if self.udp_port is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
-                return meta._meta_table['Nve.Interfaces.Interface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-tunnel-nve-oper:nve/Cisco-IOS-XR-tunnel-nve-oper:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-tunnel-nve-oper:nve/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Nve.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
-            return meta._meta_table['Nve.Interfaces']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.interfaces is not None and self.interfaces.has_data()) or
+            (self.vnis is not None and self.vnis.has_data()))
 
-        return '/Cisco-IOS-XR-tunnel-nve-oper:nve'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.interfaces is not None and self.interfaces.has_operation()) or
+            (self.vnis is not None and self.vnis.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-tunnel-nve-oper:nve" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = Nve.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
+
+        if (child_yang_name == "vnis"):
+            if (self.vnis is None):
+                self.vnis = Nve.Vnis()
+                self.vnis.parent = self
+                self._children_name_map["vnis"] = "vnis"
+            return self.vnis
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "interfaces" or name == "vnis"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.interfaces is not None and self.interfaces._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.vnis is not None and self.vnis._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
-        return meta._meta_table['Nve']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Nve()
+        return self._top_entity
 

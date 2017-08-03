@@ -7,21 +7,15 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class SnmpColdStartRpc(object):
+class SnmpColdStart(Entity):
     """
     Generate SNMPv2\-MIB\:\:coldStart
     
@@ -33,28 +27,53 @@ class SnmpColdStartRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(SnmpColdStart, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "snmp-cold-start"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['SnmpColdStartRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start" + path_buffer
 
-class SnmpWarmStartRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = SnmpColdStart()
+        return self._top_entity
+
+class SnmpWarmStart(Entity):
     """
     Generate SNMPv2\-MIB\:\:warmStart
     
@@ -66,35 +85,60 @@ class SnmpWarmStartRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(SnmpWarmStart, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "snmp-warm-start"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['SnmpWarmStartRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start" + path_buffer
 
-class InterfaceLinkUpRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = SnmpWarmStart()
+        return self._top_entity
+
+class InterfaceLinkUp(Entity):
     """
     Generate IF\-MIB\:\:linkUp
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUpRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUp.Input>`
     
     
 
@@ -104,13 +148,19 @@ class InterfaceLinkUpRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = InterfaceLinkUpRpc.Input()
+        super(InterfaceLinkUp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "interface-link-up"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = InterfaceLinkUp.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -129,60 +179,142 @@ class InterfaceLinkUpRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.ifindex = None
+            super(InterfaceLinkUp.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "interface-link-up"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(InterfaceLinkUp.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(InterfaceLinkUp.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ifindex is not None:
+        def has_data(self):
+            return self.ifindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ifindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['InterfaceLinkUpRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:interface-link-up'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = InterfaceLinkUp.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InterfaceLinkUpRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = InterfaceLinkUp()
+        return self._top_entity
 
-class InterfaceLinkDownRpc(object):
+class InterfaceLinkDown(Entity):
     """
     Generate IF\-MIB\:\:linkDown
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDownRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDown.Input>`
     
     
 
@@ -192,13 +324,19 @@ class InterfaceLinkDownRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = InterfaceLinkDownRpc.Input()
+        super(InterfaceLinkDown, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "interface-link-down"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = InterfaceLinkDown.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -217,60 +355,142 @@ class InterfaceLinkDownRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.ifindex = None
+            super(InterfaceLinkDown.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "interface-link-down"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(InterfaceLinkDown.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(InterfaceLinkDown.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ifindex is not None:
+        def has_data(self):
+            return self.ifindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ifindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['InterfaceLinkDownRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:interface-link-down'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = InterfaceLinkDown.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InterfaceLinkDownRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = InterfaceLinkDown()
+        return self._top_entity
 
-class SonetSectionStatusRpc(object):
+class SonetSectionStatus(Entity):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetSectionStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatusRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatus.Input>`
     
     
 
@@ -280,13 +500,19 @@ class SonetSectionStatusRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = SonetSectionStatusRpc.Input()
+        super(SonetSectionStatus, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sonet-section-status"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = SonetSectionStatus.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -305,60 +531,142 @@ class SonetSectionStatusRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.ifindex = None
+            super(SonetSectionStatus.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "sonet-section-status"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetSectionStatus.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetSectionStatus.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ifindex is not None:
+        def has_data(self):
+            return self.ifindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ifindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['SonetSectionStatusRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = SonetSectionStatus.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['SonetSectionStatusRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SonetSectionStatus()
+        return self._top_entity
 
-class SonetLineStatusRpc(object):
+class SonetLineStatus(Entity):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetLineStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatusRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatus.Input>`
     
     
 
@@ -368,13 +676,19 @@ class SonetLineStatusRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = SonetLineStatusRpc.Input()
+        super(SonetLineStatus, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sonet-line-status"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = SonetLineStatus.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -393,60 +707,142 @@ class SonetLineStatusRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.ifindex = None
+            super(SonetLineStatus.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "sonet-line-status"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetLineStatus.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetLineStatus.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ifindex is not None:
+        def has_data(self):
+            return self.ifindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ifindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['SonetLineStatusRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = SonetLineStatus.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['SonetLineStatusRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SonetLineStatus()
+        return self._top_entity
 
-class SonetPathStatusRpc(object):
+class SonetPathStatus(Entity):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetPathStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatusRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatus.Input>`
     
     
 
@@ -456,13 +852,19 @@ class SonetPathStatusRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = SonetPathStatusRpc.Input()
+        super(SonetPathStatus, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sonet-path-status"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = SonetPathStatus.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -481,53 +883,135 @@ class SonetPathStatusRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.ifindex = None
+            super(SonetPathStatus.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "sonet-path-status"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetPathStatus.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetPathStatus.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ifindex is not None:
+        def has_data(self):
+            return self.ifindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ifindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['SonetPathStatusRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = SonetPathStatus.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['SonetPathStatusRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SonetPathStatus()
+        return self._top_entity
 
-class InfraSyslogMessageGeneratedRpc(object):
+class InfraSyslogMessageGenerated(Entity):
     """
     Generate CISCO\-SYSLOG\-MIB\:\:clogMessageGenerated
     
@@ -539,28 +1023,53 @@ class InfraSyslogMessageGeneratedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraSyslogMessageGenerated, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-syslog-message-generated"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraSyslogMessageGeneratedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated" + path_buffer
 
-class InfraFlashDeviceInsertedRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraSyslogMessageGenerated()
+        return self._top_entity
+
+class InfraFlashDeviceInserted(Entity):
     """
     Generate CISCO\-FLASH\-MIB\:\:ciscoFlashDeviceInsertedNotif
     
@@ -572,28 +1081,53 @@ class InfraFlashDeviceInsertedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraFlashDeviceInserted, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-flash-device-inserted"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-inserted'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraFlashDeviceInsertedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-inserted" + path_buffer
 
-class InfraFlashDeviceRemovedRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraFlashDeviceInserted()
+        return self._top_entity
+
+class InfraFlashDeviceRemoved(Entity):
     """
     Generate CISCO\-FLASH\-MIB\:\:ciscoFlashDeviceRemovedNotif
     
@@ -605,28 +1139,53 @@ class InfraFlashDeviceRemovedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraFlashDeviceRemoved, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-flash-device-removed"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-removed'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraFlashDeviceRemovedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-removed" + path_buffer
 
-class InfraRedundancyProgressionRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraFlashDeviceRemoved()
+        return self._top_entity
+
+class InfraRedundancyProgression(Entity):
     """
     Generate CISCO\-RF\-MIB\:\:ciscoRFProgressionNotif
     
@@ -638,28 +1197,53 @@ class InfraRedundancyProgressionRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraRedundancyProgression, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-redundancy-progression"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-progression'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraRedundancyProgressionRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-progression" + path_buffer
 
-class InfraRedundancySwitchRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraRedundancyProgression()
+        return self._top_entity
+
+class InfraRedundancySwitch(Entity):
     """
     Generate CISCO\-RF\-MIB\:\:ciscoRFSwactNotif
     
@@ -671,28 +1255,53 @@ class InfraRedundancySwitchRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraRedundancySwitch, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-redundancy-switch"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-switch'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraRedundancySwitchRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-switch" + path_buffer
 
-class InfraBridgeNewRootRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraRedundancySwitch()
+        return self._top_entity
+
+class InfraBridgeNewRoot(Entity):
     """
     Generate BRIDGE\-MIB\:\:newRoot
     
@@ -704,28 +1313,53 @@ class InfraBridgeNewRootRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraBridgeNewRoot, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-bridge-new-root"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraBridgeNewRootRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root" + path_buffer
 
-class InfraBridgeTopologyChangeRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraBridgeNewRoot()
+        return self._top_entity
+
+class InfraBridgeTopologyChange(Entity):
     """
     Generate BRIDGE\-MIB\:\:topologyChange
     
@@ -737,28 +1371,53 @@ class InfraBridgeTopologyChangeRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraBridgeTopologyChange, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-bridge-topology-change"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraBridgeTopologyChangeRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change" + path_buffer
 
-class InfraConfigEventRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraBridgeTopologyChange()
+        return self._top_entity
+
+class InfraConfigEvent(Entity):
     """
     Generate CISCO\-CONFIG\-MAN\-MIB\:\:ciscoConfigManEvent
     
@@ -770,35 +1429,60 @@ class InfraConfigEventRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(InfraConfigEvent, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "infra-config-event"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:infra-config-event'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['InfraConfigEventRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:infra-config-event" + path_buffer
 
-class EntitySensorThresholdNotificationRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = InfraConfigEvent()
+        return self._top_entity
+
+class EntitySensorThresholdNotification(Entity):
     """
     Generate CISCO\-ENTITY\-SENSOR\-MIB\:\:entSensorThresholdNotification
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotificationRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotification.Input>`
     
     
 
@@ -808,13 +1492,19 @@ class EntitySensorThresholdNotificationRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntitySensorThresholdNotificationRpc.Input()
+        super(EntitySensorThresholdNotification, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-sensor-threshold-notification"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntitySensorThresholdNotification.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -833,60 +1523,142 @@ class EntitySensorThresholdNotificationRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntitySensorThresholdNotification.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-sensor-threshold-notification"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntitySensorThresholdNotification.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntitySensorThresholdNotification.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntitySensorThresholdNotificationRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntitySensorThresholdNotification.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntitySensorThresholdNotificationRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntitySensorThresholdNotification()
+        return self._top_entity
 
-class EntityFruPowerStatusChangeFailedRpc(object):
+class EntityFruPowerStatusChangeFailed(Entity):
     """
     oper status changed to failed
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailedRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailed.Input>`
     
     
 
@@ -896,13 +1668,19 @@ class EntityFruPowerStatusChangeFailedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruPowerStatusChangeFailedRpc.Input()
+        super(EntityFruPowerStatusChangeFailed, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-power-status-change-failed"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruPowerStatusChangeFailed.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -921,60 +1699,142 @@ class EntityFruPowerStatusChangeFailedRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruPowerStatusChangeFailed.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-power-status-change-failed"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruPowerStatusChangeFailed.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruPowerStatusChangeFailed.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruPowerStatusChangeFailedRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruPowerStatusChangeFailed.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruPowerStatusChangeFailedRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruPowerStatusChangeFailed()
+        return self._top_entity
 
-class EntityFruModuleStatusChangeUpRpc(object):
+class EntityFruModuleStatusChangeUp(Entity):
     """
     fu trap module status changed as ok
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUpRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUp.Input>`
     
     
 
@@ -984,13 +1844,19 @@ class EntityFruModuleStatusChangeUpRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruModuleStatusChangeUpRpc.Input()
+        super(EntityFruModuleStatusChangeUp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-module-status-change-up"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruModuleStatusChangeUp.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1009,60 +1875,142 @@ class EntityFruModuleStatusChangeUpRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruModuleStatusChangeUp.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-module-status-change-up"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruModuleStatusChangeUp.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruModuleStatusChangeUp.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruModuleStatusChangeUpRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruModuleStatusChangeUp.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruModuleStatusChangeUpRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruModuleStatusChangeUp()
+        return self._top_entity
 
-class EntityFruModuleStatusChangeDownRpc(object):
+class EntityFruModuleStatusChangeDown(Entity):
     """
     fu trap module status changed as failed
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDownRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDown.Input>`
     
     
 
@@ -1072,13 +2020,19 @@ class EntityFruModuleStatusChangeDownRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruModuleStatusChangeDownRpc.Input()
+        super(EntityFruModuleStatusChangeDown, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-module-status-change-down"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruModuleStatusChangeDown.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1097,60 +2051,142 @@ class EntityFruModuleStatusChangeDownRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruModuleStatusChangeDown.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-module-status-change-down"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruModuleStatusChangeDown.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruModuleStatusChangeDown.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruModuleStatusChangeDownRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruModuleStatusChangeDown.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruModuleStatusChangeDownRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruModuleStatusChangeDown()
+        return self._top_entity
 
-class EntityFruFanTrayOperStatusUpRpc(object):
+class EntityFruFanTrayOperStatusUp(Entity):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFanTrayStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUpRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUp.Input>`
     
     
 
@@ -1160,13 +2196,19 @@ class EntityFruFanTrayOperStatusUpRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruFanTrayOperStatusUpRpc.Input()
+        super(EntityFruFanTrayOperStatusUp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-oper-status-up"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruFanTrayOperStatusUp.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1185,60 +2227,142 @@ class EntityFruFanTrayOperStatusUpRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruFanTrayOperStatusUp.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-oper-status-up"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruFanTrayOperStatusUp.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruFanTrayOperStatusUp.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruFanTrayOperStatusUpRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruFanTrayOperStatusUp.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruFanTrayOperStatusUpRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayOperStatusUp()
+        return self._top_entity
 
-class EntityFruFanTrayInsertedRpc(object):
+class EntityFruFanTrayInserted(Entity):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRUInserted
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInsertedRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInserted.Input>`
     
     
 
@@ -1248,13 +2372,19 @@ class EntityFruFanTrayInsertedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruFanTrayInsertedRpc.Input()
+        super(EntityFruFanTrayInserted, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-inserted"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruFanTrayInserted.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1273,60 +2403,142 @@ class EntityFruFanTrayInsertedRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruFanTrayInserted.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-inserted"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruFanTrayInserted.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruFanTrayInserted.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruFanTrayInsertedRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruFanTrayInserted.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruFanTrayInsertedRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayInserted()
+        return self._top_entity
 
-class EntityFruFanTrayRemovedRpc(object):
+class EntityFruFanTrayRemoved(Entity):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRURemoved
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemovedRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemoved.Input>`
     
     
 
@@ -1336,13 +2548,19 @@ class EntityFruFanTrayRemovedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = EntityFruFanTrayRemovedRpc.Input()
+        super(EntityFruFanTrayRemoved, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-removed"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = EntityFruFanTrayRemoved.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1361,60 +2579,142 @@ class EntityFruFanTrayRemovedRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entindex = None
+            super(EntityFruFanTrayRemoved.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-removed"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entindex = YLeaf(YType.uint32, "entindex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityFruFanTrayRemoved.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityFruFanTrayRemoved.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entindex is not None:
+        def has_data(self):
+            return self.entindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entindex.is_set or self.entindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entindex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['EntityFruFanTrayRemovedRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entindex"):
+                self.entindex = value
+                self.entindex.value_namespace = name_space
+                self.entindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = EntityFruFanTrayRemoved.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['EntityFruFanTrayRemovedRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayRemoved()
+        return self._top_entity
 
-class PlatformHfrBundleDownedLinkRpc(object):
+class PlatformHfrBundleDownedLink(Entity):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhBundleDownedLinkNotification
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleDownedLinkRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleDownedLink.Input>`
     
     
 
@@ -1424,13 +2724,19 @@ class PlatformHfrBundleDownedLinkRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = PlatformHfrBundleDownedLinkRpc.Input()
+        super(PlatformHfrBundleDownedLink, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "platform-hfr-bundle-downed-link"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = PlatformHfrBundleDownedLink.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1447,60 +2753,142 @@ class PlatformHfrBundleDownedLinkRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.bundle_name = None
+            super(PlatformHfrBundleDownedLink.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "platform-hfr-bundle-downed-link"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.bundle_name = YLeaf(YType.str, "bundle-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("bundle_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(PlatformHfrBundleDownedLink.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(PlatformHfrBundleDownedLink.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.bundle_name is not None:
+        def has_data(self):
+            return self.bundle_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.bundle_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.bundle_name.is_set or self.bundle_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.bundle_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "bundle-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['PlatformHfrBundleDownedLinkRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "bundle-name"):
+                self.bundle_name = value
+                self.bundle_name.value_namespace = name_space
+                self.bundle_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = PlatformHfrBundleDownedLink.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['PlatformHfrBundleDownedLinkRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = PlatformHfrBundleDownedLink()
+        return self._top_entity
 
-class PlatformHfrBundleStateRpc(object):
+class PlatformHfrBundleState(Entity):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhBundleStateNotification
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleStateRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleState.Input>`
     
     
 
@@ -1510,13 +2898,19 @@ class PlatformHfrBundleStateRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = PlatformHfrBundleStateRpc.Input()
+        super(PlatformHfrBundleState, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "platform-hfr-bundle-state"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = PlatformHfrBundleState.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1533,60 +2927,142 @@ class PlatformHfrBundleStateRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.bundle_name = None
+            super(PlatformHfrBundleState.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "platform-hfr-bundle-state"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.bundle_name = YLeaf(YType.str, "bundle-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("bundle_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(PlatformHfrBundleState.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(PlatformHfrBundleState.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.bundle_name is not None:
+        def has_data(self):
+            return self.bundle_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.bundle_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.bundle_name.is_set or self.bundle_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.bundle_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "bundle-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['PlatformHfrBundleStateRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "bundle-name"):
+                self.bundle_name = value
+                self.bundle_name.value_namespace = name_space
+                self.bundle_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = PlatformHfrBundleState.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['PlatformHfrBundleStateRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = PlatformHfrBundleState()
+        return self._top_entity
 
-class PlatformHfrPlaneStateRpc(object):
+class PlatformHfrPlaneState(Entity):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhPlaneStateNotification
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrPlaneStateRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrPlaneState.Input>`
     
     
 
@@ -1596,13 +3072,19 @@ class PlatformHfrPlaneStateRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = PlatformHfrPlaneStateRpc.Input()
+        super(PlatformHfrPlaneState, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "platform-hfr-plane-state"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = PlatformHfrPlaneState.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1621,53 +3103,135 @@ class PlatformHfrPlaneStateRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.plane_id = None
+            super(PlatformHfrPlaneState.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "platform-hfr-plane-state"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.plane_id = YLeaf(YType.uint32, "plane-id")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("plane_id") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(PlatformHfrPlaneState.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(PlatformHfrPlaneState.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.plane_id is not None:
+        def has_data(self):
+            return self.plane_id.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.plane_id.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.plane_id.is_set or self.plane_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.plane_id.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "plane-id"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['PlatformHfrPlaneStateRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "plane-id"):
+                self.plane_id = value
+                self.plane_id.value_namespace = name_space
+                self.plane_id.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = PlatformHfrPlaneState.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['PlatformHfrPlaneStateRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = PlatformHfrPlaneState()
+        return self._top_entity
 
-class RoutingBgpEstablishedRpc(object):
+class RoutingBgpEstablished(Entity):
     """
     Generate BGP4\-MIB\:\:bglEstablishedNotification
     
@@ -1679,35 +3243,60 @@ class RoutingBgpEstablishedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingBgpEstablished, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-bgp-established"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingBgpEstablishedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established" + path_buffer
 
-class RoutingBgpEstablishedRemotePeerRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingBgpEstablished()
+        return self._top_entity
+
+class RoutingBgpEstablishedRemotePeer(Entity):
     """
     Generate BGP4\-MIB\:\:bglEstablishedNotification remote peer
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpEstablishedRemotePeerRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpEstablishedRemotePeer.Input>`
     
     
 
@@ -1717,13 +3306,19 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingBgpEstablishedRemotePeerRpc.Input()
+        super(RoutingBgpEstablishedRemotePeer, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-bgp-established-remote-peer"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingBgpEstablishedRemotePeer.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1744,53 +3339,135 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.address = None
+            super(RoutingBgpEstablishedRemotePeer.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-bgp-established-remote-peer"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.address = YLeaf(YType.str, "address")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("address") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingBgpEstablishedRemotePeer.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingBgpEstablishedRemotePeer.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.address is not None:
+        def has_data(self):
+            return self.address.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.address.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.address.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "address"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingBgpEstablishedRemotePeerRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "address"):
+                self.address = value
+                self.address.value_namespace = name_space
+                self.address.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingBgpEstablishedRemotePeer.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingBgpEstablishedRemotePeerRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingBgpEstablishedRemotePeer()
+        return self._top_entity
 
-class RoutingBgpStateChangeRpc(object):
+class RoutingBgpStateChange(Entity):
     """
     Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition
     
@@ -1802,35 +3479,60 @@ class RoutingBgpStateChangeRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingBgpStateChange, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-bgp-state-change"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingBgpStateChangeRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change" + path_buffer
 
-class RoutingBgpStateChangeRemotePeerRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingBgpStateChange()
+        return self._top_entity
+
+class RoutingBgpStateChangeRemotePeer(Entity):
     """
     Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition remote peer
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpStateChangeRemotePeerRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpStateChangeRemotePeer.Input>`
     
     
 
@@ -1840,13 +3542,19 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingBgpStateChangeRemotePeerRpc.Input()
+        super(RoutingBgpStateChangeRemotePeer, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-bgp-state-change-remote-peer"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingBgpStateChangeRemotePeer.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1867,53 +3575,135 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.address = None
+            super(RoutingBgpStateChangeRemotePeer.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-bgp-state-change-remote-peer"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.address = YLeaf(YType.str, "address")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("address") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingBgpStateChangeRemotePeer.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingBgpStateChangeRemotePeer.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.address is not None:
+        def has_data(self):
+            return self.address.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.address.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.address.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "address"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingBgpStateChangeRemotePeerRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "address"):
+                self.address = value
+                self.address.value_namespace = name_space
+                self.address.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingBgpStateChangeRemotePeer.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingBgpStateChangeRemotePeerRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingBgpStateChangeRemotePeer()
+        return self._top_entity
 
-class RoutingOspfNeighborStateChangeRpc(object):
+class RoutingOspfNeighborStateChange(Entity):
     """
     Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange
     
@@ -1925,35 +3715,60 @@ class RoutingOspfNeighborStateChangeRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingOspfNeighborStateChange, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-ospf-neighbor-state-change"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingOspfNeighborStateChangeRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change" + path_buffer
 
-class RoutingOspfNeighborStateChangeAddressRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingOspfNeighborStateChange()
+        return self._top_entity
+
+class RoutingOspfNeighborStateChangeAddress(Entity):
     """
     Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange address
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddressRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddress.Input>`
     
     
 
@@ -1963,13 +3778,19 @@ class RoutingOspfNeighborStateChangeAddressRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingOspfNeighborStateChangeAddressRpc.Input()
+        super(RoutingOspfNeighborStateChangeAddress, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-ospf-neighbor-state-change-address"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingOspfNeighborStateChangeAddress.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1999,57 +3820,147 @@ class RoutingOspfNeighborStateChangeAddressRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.address = None
-            self.ifindex = None
+            super(RoutingOspfNeighborStateChangeAddress.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-ospf-neighbor-state-change-address"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.address = YLeaf(YType.str, "address")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
 
-        def _has_data(self):
-            if self.address is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("address",
+                            "ifindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingOspfNeighborStateChangeAddress.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingOspfNeighborStateChangeAddress.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.address.is_set or
+                self.ifindex.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.address.yfilter != YFilter.not_set or
+                self.ifindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.address.get_name_leafdata())
+            if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ifindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "address" or name == "ifindex"):
                 return True
-
-            if self.ifindex is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingOspfNeighborStateChangeAddressRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "address"):
+                self.address = value
+                self.address.value_namespace = name_space
+                self.address.value_namespace_prefix = name_space_prefix
+            if(value_path == "ifindex"):
+                self.ifindex = value
+                self.ifindex.value_namespace = name_space
+                self.ifindex.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingOspfNeighborStateChangeAddress.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingOspfNeighborStateChangeAddressRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingOspfNeighborStateChangeAddress()
+        return self._top_entity
 
-class RoutingMplsLdpSessionDownRpc(object):
+class RoutingMplsLdpSessionDown(Entity):
     """
     Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown
     
@@ -2061,35 +3972,60 @@ class RoutingMplsLdpSessionDownRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingMplsLdpSessionDown, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-mpls-ldp-session-down"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsLdpSessionDownRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down" + path_buffer
 
-class RoutingMplsLdpSessionDownEntityIdRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsLdpSessionDown()
+        return self._top_entity
+
+class RoutingMplsLdpSessionDownEntityId(Entity):
     """
     Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown entity\-id
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownEntityIdRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownEntityId.Input>`
     
     
 
@@ -2099,13 +4035,19 @@ class RoutingMplsLdpSessionDownEntityIdRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsLdpSessionDownEntityIdRpc.Input()
+        super(RoutingMplsLdpSessionDownEntityId, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-mpls-ldp-session-down-entity-id"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingMplsLdpSessionDownEntityId.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -2144,61 +4086,158 @@ class RoutingMplsLdpSessionDownEntityIdRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.entity_id = None
-            self.entity_index = None
-            self.peer_id = None
+            super(RoutingMplsLdpSessionDownEntityId.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-mpls-ldp-session-down-entity-id"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.entity_id = YLeaf(YType.str, "entity-id")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.entity_index = YLeaf(YType.uint32, "entity-index")
 
-        def _has_data(self):
-            if self.entity_id is not None:
+            self.peer_id = YLeaf(YType.str, "peer-id")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entity_id",
+                            "entity_index",
+                            "peer_id") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingMplsLdpSessionDownEntityId.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingMplsLdpSessionDownEntityId.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.entity_id.is_set or
+                self.entity_index.is_set or
+                self.peer_id.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entity_id.yfilter != YFilter.not_set or
+                self.entity_index.yfilter != YFilter.not_set or
+                self.peer_id.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entity_id.is_set or self.entity_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entity_id.get_name_leafdata())
+            if (self.entity_index.is_set or self.entity_index.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entity_index.get_name_leafdata())
+            if (self.peer_id.is_set or self.peer_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.peer_id.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entity-id" or name == "entity-index" or name == "peer-id"):
                 return True
-
-            if self.entity_index is not None:
-                return True
-
-            if self.peer_id is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsLdpSessionDownEntityIdRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entity-id"):
+                self.entity_id = value
+                self.entity_id.value_namespace = name_space
+                self.entity_id.value_namespace_prefix = name_space_prefix
+            if(value_path == "entity-index"):
+                self.entity_index = value
+                self.entity_index.value_namespace = name_space
+                self.entity_index.value_namespace_prefix = name_space_prefix
+            if(value_path == "peer-id"):
+                self.peer_id = value
+                self.peer_id.value_namespace = name_space
+                self.peer_id.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingMplsLdpSessionDownEntityId.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsLdpSessionDownEntityIdRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsLdpSessionDownEntityId()
+        return self._top_entity
 
-class RoutingMplsTunnelReRoutedRpc(object):
+class RoutingMplsTunnelReRouted(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted
     
@@ -2210,35 +4249,60 @@ class RoutingMplsTunnelReRoutedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingMplsTunnelReRouted, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-mpls-tunnel-re-routed"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelReRoutedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed" + path_buffer
 
-class RoutingMplsTunnelReRoutedIndexRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelReRouted()
+        return self._top_entity
+
+class RoutingMplsTunnelReRoutedIndex(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndexRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndex.Input>`
     
     
 
@@ -2248,13 +4312,19 @@ class RoutingMplsTunnelReRoutedIndexRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelReRoutedIndexRpc.Input()
+        super(RoutingMplsTunnelReRoutedIndex, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-mpls-tunnel-re-routed-index"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingMplsTunnelReRoutedIndex.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -2302,65 +4372,169 @@ class RoutingMplsTunnelReRoutedIndexRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.destination = None
-            self.index = None
-            self.instance = None
-            self.source = None
+            super(RoutingMplsTunnelReRoutedIndex.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-mpls-tunnel-re-routed-index"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.destination = YLeaf(YType.str, "destination")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.index = YLeaf(YType.uint32, "index")
 
-        def _has_data(self):
-            if self.destination is not None:
+            self.instance = YLeaf(YType.uint32, "instance")
+
+            self.source = YLeaf(YType.str, "source")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("destination",
+                            "index",
+                            "instance",
+                            "source") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingMplsTunnelReRoutedIndex.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingMplsTunnelReRoutedIndex.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.destination.is_set or
+                self.index.is_set or
+                self.instance.is_set or
+                self.source.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.destination.yfilter != YFilter.not_set or
+                self.index.yfilter != YFilter.not_set or
+                self.instance.yfilter != YFilter.not_set or
+                self.source.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.destination.get_name_leafdata())
+            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.index.get_name_leafdata())
+            if (self.instance.is_set or self.instance.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.instance.get_name_leafdata())
+            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "destination" or name == "index" or name == "instance" or name == "source"):
                 return True
-
-            if self.index is not None:
-                return True
-
-            if self.instance is not None:
-                return True
-
-            if self.source is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelReRoutedIndexRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "destination"):
+                self.destination = value
+                self.destination.value_namespace = name_space
+                self.destination.value_namespace_prefix = name_space_prefix
+            if(value_path == "index"):
+                self.index = value
+                self.index.value_namespace = name_space
+                self.index.value_namespace_prefix = name_space_prefix
+            if(value_path == "instance"):
+                self.instance = value
+                self.instance.value_namespace = name_space
+                self.instance.value_namespace_prefix = name_space_prefix
+            if(value_path == "source"):
+                self.source = value
+                self.source.value_namespace = name_space
+                self.source.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingMplsTunnelReRoutedIndex.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelReRoutedIndexRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelReRoutedIndex()
+        return self._top_entity
 
-class RoutingMplsTunnelReOptimizedRpc(object):
+class RoutingMplsTunnelReOptimized(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized
     
@@ -2372,35 +4546,60 @@ class RoutingMplsTunnelReOptimizedRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingMplsTunnelReOptimized, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-mpls-tunnel-re-optimized"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelReOptimizedRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized" + path_buffer
 
-class RoutingMplsTunnelReOptimizedIndexRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelReOptimized()
+        return self._top_entity
+
+class RoutingMplsTunnelReOptimizedIndex(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedIndexRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedIndex.Input>`
     
     
 
@@ -2410,13 +4609,19 @@ class RoutingMplsTunnelReOptimizedIndexRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelReOptimizedIndexRpc.Input()
+        super(RoutingMplsTunnelReOptimizedIndex, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-mpls-tunnel-re-optimized-index"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingMplsTunnelReOptimizedIndex.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -2464,65 +4669,169 @@ class RoutingMplsTunnelReOptimizedIndexRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.destination = None
-            self.index = None
-            self.instance = None
-            self.source = None
+            super(RoutingMplsTunnelReOptimizedIndex.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-mpls-tunnel-re-optimized-index"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.destination = YLeaf(YType.str, "destination")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.index = YLeaf(YType.uint32, "index")
 
-        def _has_data(self):
-            if self.destination is not None:
+            self.instance = YLeaf(YType.uint32, "instance")
+
+            self.source = YLeaf(YType.str, "source")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("destination",
+                            "index",
+                            "instance",
+                            "source") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingMplsTunnelReOptimizedIndex.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingMplsTunnelReOptimizedIndex.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.destination.is_set or
+                self.index.is_set or
+                self.instance.is_set or
+                self.source.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.destination.yfilter != YFilter.not_set or
+                self.index.yfilter != YFilter.not_set or
+                self.instance.yfilter != YFilter.not_set or
+                self.source.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.destination.get_name_leafdata())
+            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.index.get_name_leafdata())
+            if (self.instance.is_set or self.instance.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.instance.get_name_leafdata())
+            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "destination" or name == "index" or name == "instance" or name == "source"):
                 return True
-
-            if self.index is not None:
-                return True
-
-            if self.instance is not None:
-                return True
-
-            if self.source is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelReOptimizedIndexRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "destination"):
+                self.destination = value
+                self.destination.value_namespace = name_space
+                self.destination.value_namespace_prefix = name_space_prefix
+            if(value_path == "index"):
+                self.index = value
+                self.index.value_namespace = name_space
+                self.index.value_namespace_prefix = name_space_prefix
+            if(value_path == "instance"):
+                self.instance = value
+                self.instance.value_namespace = name_space
+                self.instance.value_namespace_prefix = name_space_prefix
+            if(value_path == "source"):
+                self.source = value
+                self.source.value_namespace = name_space
+                self.source.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingMplsTunnelReOptimizedIndex.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelReOptimizedIndexRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelReOptimizedIndex()
+        return self._top_entity
 
-class RoutingMplsTunnelDownRpc(object):
+class RoutingMplsTunnelDown(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
     
@@ -2534,35 +4843,60 @@ class RoutingMplsTunnelDownRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(RoutingMplsTunnelDown, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "routing-mpls-tunnel-down"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelDownRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down" + path_buffer
 
-class RoutingMplsTunnelDownIndexRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelDown()
+        return self._top_entity
+
+class RoutingMplsTunnelDownIndex(Entity):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndexRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndex.Input>`
     
     
 
@@ -2572,13 +4906,19 @@ class RoutingMplsTunnelDownIndexRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelDownIndexRpc.Input()
+        super(RoutingMplsTunnelDownIndex, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-mpls-tunnel-down-index"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+
+        self.input = RoutingMplsTunnelDownIndex.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -2626,65 +4966,169 @@ class RoutingMplsTunnelDownIndexRpc(object):
         _revision = '2016-10-25'
 
         def __init__(self):
-            self.parent = None
-            self.destination = None
-            self.index = None
-            self.instance = None
-            self.source = None
+            super(RoutingMplsTunnelDownIndex.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-mpls-tunnel-down-index"
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/Cisco-IOS-XR-snmp-test-trap-act:input'
+            self.destination = YLeaf(YType.str, "destination")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.index = YLeaf(YType.uint32, "index")
 
-        def _has_data(self):
-            if self.destination is not None:
+            self.instance = YLeaf(YType.uint32, "instance")
+
+            self.source = YLeaf(YType.str, "source")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("destination",
+                            "index",
+                            "instance",
+                            "source") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingMplsTunnelDownIndex.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingMplsTunnelDownIndex.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.destination.is_set or
+                self.index.is_set or
+                self.instance.is_set or
+                self.source.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.destination.yfilter != YFilter.not_set or
+                self.index.yfilter != YFilter.not_set or
+                self.instance.yfilter != YFilter.not_set or
+                self.source.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.destination.is_set or self.destination.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.destination.get_name_leafdata())
+            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.index.get_name_leafdata())
+            if (self.instance.is_set or self.instance.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.instance.get_name_leafdata())
+            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "destination" or name == "index" or name == "instance" or name == "source"):
                 return True
-
-            if self.index is not None:
-                return True
-
-            if self.instance is not None:
-                return True
-
-            if self.source is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelDownIndexRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "destination"):
+                self.destination = value
+                self.destination.value_namespace = name_space
+                self.destination.value_namespace_prefix = name_space_prefix
+            if(value_path == "index"):
+                self.index = value
+                self.index.value_namespace = name_space
+                self.index.value_namespace_prefix = name_space_prefix
+            if(value_path == "instance"):
+                self.instance = value
+                self.instance.value_namespace = name_space
+                self.instance.value_namespace_prefix = name_space_prefix
+            if(value_path == "source"):
+                self.source = value
+                self.source.value_namespace = name_space
+                self.source.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RoutingMplsTunnelDownIndex.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsTunnelDownIndexRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RoutingMplsTunnelDownIndex()
+        return self._top_entity
 
-class AllRpc(object):
+class All(Entity):
     """
     generate all the supported traps
     
@@ -2696,24 +5140,49 @@ class AllRpc(object):
     _revision = '2016-10-25'
 
     def __init__(self):
+        super(All, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "all"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-snmp-test-trap-act:all'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['AllRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-snmp-test-trap-act:all" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = All()
+        return self._top_entity
 

@@ -18,22 +18,16 @@ Terms and Acronyms
 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EthTrafficClassEnum(Enum):
+class EthTrafficClass(Enum):
     """
-    EthTrafficClassEnum
+    EthTrafficClass
 
     Traffic class for layer 2 ethernet transport
 
@@ -59,22 +53,16 @@ class EthTrafficClassEnum(Enum):
 
     """
 
-    broadcast = 0
+    broadcast = Enum.YLeaf(0, "broadcast")
 
-    multicast = 1
+    multicast = Enum.YLeaf(1, "multicast")
 
-    unknown_unicast = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['EthTrafficClassEnum']
+    unknown_unicast = Enum.YLeaf(2, "unknown-unicast")
 
 
-class MacAgingTypeEnum(Enum):
+class MacAgingType(Enum):
     """
-    MacAgingTypeEnum
+    MacAgingType
 
     MAC aging mechanism.
 
@@ -94,20 +82,14 @@ class MacAgingTypeEnum(Enum):
 
     """
 
-    inactivity = 0
+    inactivity = Enum.YLeaf(0, "inactivity")
 
-    absolute = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['MacAgingTypeEnum']
+    absolute = Enum.YLeaf(1, "absolute")
 
 
-class MacLimitActionEnum(Enum):
+class MacLimitAction(Enum):
     """
-    MacLimitActionEnum
+    MacLimitAction
 
     Actions to be taken once mac limit threshold is exceeded.
 
@@ -129,24 +111,18 @@ class MacLimitActionEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    flood = 1
+    flood = Enum.YLeaf(1, "flood")
 
-    drop = 2
+    drop = Enum.YLeaf(2, "drop")
 
-    shutdown = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['MacLimitActionEnum']
+    shutdown = Enum.YLeaf(3, "shutdown")
 
 
-class MacSecureActionEnum(Enum):
+class MacSecureAction(Enum):
     """
-    MacSecureActionEnum
+    MacSecureAction
 
     Actions to be taken upon mac secure violation.
 
@@ -166,21 +142,15 @@ class MacSecureActionEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    restrict = 1
+    restrict = Enum.YLeaf(1, "restrict")
 
-    shutdown = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['MacSecureActionEnum']
+    shutdown = Enum.YLeaf(2, "shutdown")
 
 
 
-class MacLimitNotificationTypeIdentity(object):
+class MacLimitNotificationType(Identity):
     """
     Notification mechanism to use when mac limit threshold is
     exceeded.
@@ -193,15 +163,10 @@ class MacLimitNotificationTypeIdentity(object):
     _revision = '2016-12-14'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['MacLimitNotificationTypeIdentity']['meta_info']
+        super(MacLimitNotificationType, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:mac-limit-notification-type")
 
 
-class NotifSyslogIdentity(MacLimitNotificationTypeIdentity):
+class NotifSyslog(Identity):
     """
     Generate syslog
     
@@ -213,35 +178,10 @@ class NotifSyslogIdentity(MacLimitNotificationTypeIdentity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        MacLimitNotificationTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['NotifSyslogIdentity']['meta_info']
+        super(NotifSyslog, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog")
 
 
-class NotifSyslogAndSnmpTrapIdentity(MacLimitNotificationTypeIdentity):
-    """
-    Generate both syslog and SNMP trap
-    
-    
-
-    """
-
-    _prefix = 'cbridge'
-    _revision = '2016-12-14'
-
-    def __init__(self):
-        MacLimitNotificationTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['NotifSyslogAndSnmpTrapIdentity']['meta_info']
-
-
-class NotifNoneIdentity(MacLimitNotificationTypeIdentity):
+class NotifNone(Identity):
     """
     Disable notification
     
@@ -253,15 +193,10 @@ class NotifNoneIdentity(MacLimitNotificationTypeIdentity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        MacLimitNotificationTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['NotifNoneIdentity']['meta_info']
+        super(NotifNone, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-none")
 
 
-class NotifSnmpTrapIdentity(MacLimitNotificationTypeIdentity):
+class NotifSnmpTrap(Identity):
     """
     Generate SNMP trap
     
@@ -273,11 +208,21 @@ class NotifSnmpTrapIdentity(MacLimitNotificationTypeIdentity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        MacLimitNotificationTypeIdentity.__init__(self)
+        super(NotifSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-snmp-trap")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_bridge_common as meta
-        return meta._meta_table['NotifSnmpTrapIdentity']['meta_info']
+
+class NotifSyslogAndSnmpTrap(Identity):
+    """
+    Generate both syslog and SNMP trap
+    
+    
+
+    """
+
+    _prefix = 'cbridge'
+    _revision = '2016-12-14'
+
+    def __init__(self):
+        super(NotifSyslogAndSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog-and-snmp-trap")
 
 

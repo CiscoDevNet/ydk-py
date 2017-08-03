@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BgpAddressFamilyEnum(Enum):
+class BgpAddressFamily(Enum):
     """
-    BgpAddressFamilyEnum
+    BgpAddressFamily
 
     Bgp address family
 
@@ -132,68 +126,62 @@ class BgpAddressFamilyEnum(Enum):
 
     """
 
-    ipv4_unicast = 0
+    ipv4_unicast = Enum.YLeaf(0, "ipv4-unicast")
 
-    ipv4_multicast = 1
+    ipv4_multicast = Enum.YLeaf(1, "ipv4-multicast")
 
-    ipv4_labeled_unicast = 2
+    ipv4_labeled_unicast = Enum.YLeaf(2, "ipv4-labeled-unicast")
 
-    ipv4_tunnel = 3
+    ipv4_tunnel = Enum.YLeaf(3, "ipv4-tunnel")
 
-    vp_nv4_unicast = 4
+    vp_nv4_unicast = Enum.YLeaf(4, "vp-nv4-unicast")
 
-    ipv6_unicast = 5
+    ipv6_unicast = Enum.YLeaf(5, "ipv6-unicast")
 
-    ipv6_multicast = 6
+    ipv6_multicast = Enum.YLeaf(6, "ipv6-multicast")
 
-    ipv6_labeled_unicast = 7
+    ipv6_labeled_unicast = Enum.YLeaf(7, "ipv6-labeled-unicast")
 
-    vp_nv6_unicast = 8
+    vp_nv6_unicast = Enum.YLeaf(8, "vp-nv6-unicast")
 
-    ipv4mdt = 9
+    ipv4mdt = Enum.YLeaf(9, "ipv4mdt")
 
-    l2vpnvpls = 10
+    l2vpnvpls = Enum.YLeaf(10, "l2vpnvpls")
 
-    ipv4rt_constraint = 11
+    ipv4rt_constraint = Enum.YLeaf(11, "ipv4rt-constraint")
 
-    ipv4mvpn = 12
+    ipv4mvpn = Enum.YLeaf(12, "ipv4mvpn")
 
-    ipv6mvpn = 13
+    ipv6mvpn = Enum.YLeaf(13, "ipv6mvpn")
 
-    l2vpnevpn = 14
+    l2vpnevpn = Enum.YLeaf(14, "l2vpnevpn")
 
-    lsls = 15
+    lsls = Enum.YLeaf(15, "lsls")
 
-    vp_nv4_multicast = 16
+    vp_nv4_multicast = Enum.YLeaf(16, "vp-nv4-multicast")
 
-    vp_nv6_multicast = 17
+    vp_nv6_multicast = Enum.YLeaf(17, "vp-nv6-multicast")
 
-    ipv4_flowspec = 18
+    ipv4_flowspec = Enum.YLeaf(18, "ipv4-flowspec")
 
-    ipv6_flowspec = 19
+    ipv6_flowspec = Enum.YLeaf(19, "ipv6-flowspec")
 
-    vp_nv4_flowspec = 20
+    vp_nv4_flowspec = Enum.YLeaf(20, "vp-nv4-flowspec")
 
-    vp_nv6_flowspec = 21
+    vp_nv6_flowspec = Enum.YLeaf(21, "vp-nv6-flowspec")
 
-    l2vpnmspw = 22
+    l2vpnmspw = Enum.YLeaf(22, "l2vpnmspw")
 
-    ipv4sr_policy = 23
+    ipv4sr_policy = Enum.YLeaf(23, "ipv4sr-policy")
 
-    ipv6sr_policy = 24
+    ipv6sr_policy = Enum.YLeaf(24, "ipv6sr-policy")
 
-    all_address_family = 25
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpAddressFamilyEnum']
+    all_address_family = Enum.YLeaf(25, "all-address-family")
 
 
-class BgpAdvertiseLocalLabeledRouteCfgEnum(Enum):
+class BgpAdvertiseLocalLabeledRouteCfg(Enum):
     """
-    BgpAdvertiseLocalLabeledRouteCfgEnum
+    BgpAdvertiseLocalLabeledRouteCfg
 
     Bgp advertise local labeled route cfg
 
@@ -207,20 +195,14 @@ class BgpAdvertiseLocalLabeledRouteCfgEnum(Enum):
 
     """
 
-    enable = 1
+    enable = Enum.YLeaf(1, "enable")
 
-    disable = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpAdvertiseLocalLabeledRouteCfgEnum']
+    disable = Enum.YLeaf(2, "disable")
 
 
-class BgpNbrCapAdditionalPathsCfgEnum(Enum):
+class BgpNbrCapAdditionalPathsCfg(Enum):
     """
-    BgpNbrCapAdditionalPathsCfgEnum
+    BgpNbrCapAdditionalPathsCfg
 
     Bgp nbr cap additional paths cfg
 
@@ -234,20 +216,14 @@ class BgpNbrCapAdditionalPathsCfgEnum(Enum):
 
     """
 
-    enable = 1
+    enable = Enum.YLeaf(1, "enable")
 
-    disable = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpNbrCapAdditionalPathsCfgEnum']
+    disable = Enum.YLeaf(2, "disable")
 
 
-class BgpOfficialAddressFamilyEnum(Enum):
+class BgpOfficialAddressFamily(Enum):
     """
-    BgpOfficialAddressFamilyEnum
+    BgpOfficialAddressFamily
 
     Bgp official address family
 
@@ -273,26 +249,20 @@ class BgpOfficialAddressFamilyEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
-    l2vpn = 25
+    l2vpn = Enum.YLeaf(25, "l2vpn")
 
-    ls = 16388
+    ls = Enum.YLeaf(16388, "ls")
 
-    all = 65534
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpOfficialAddressFamilyEnum']
+    all = Enum.YLeaf(65534, "all")
 
 
-class BgpPrecedenceDscpEnum(Enum):
+class BgpPrecedenceDscp(Enum):
     """
-    BgpPrecedenceDscpEnum
+    BgpPrecedenceDscp
 
     Bgp precedence dscp
 
@@ -410,72 +380,66 @@ class BgpPrecedenceDscpEnum(Enum):
 
     """
 
-    af11 = 10
+    af11 = Enum.YLeaf(10, "af11")
 
-    af12 = 12
+    af12 = Enum.YLeaf(12, "af12")
 
-    af13 = 14
+    af13 = Enum.YLeaf(14, "af13")
 
-    af21 = 18
+    af21 = Enum.YLeaf(18, "af21")
 
-    af22 = 20
+    af22 = Enum.YLeaf(20, "af22")
 
-    af23 = 22
+    af23 = Enum.YLeaf(22, "af23")
 
-    af31 = 26
+    af31 = Enum.YLeaf(26, "af31")
 
-    af32 = 28
+    af32 = Enum.YLeaf(28, "af32")
 
-    af33 = 30
+    af33 = Enum.YLeaf(30, "af33")
 
-    af41 = 34
+    af41 = Enum.YLeaf(34, "af41")
 
-    af42 = 36
+    af42 = Enum.YLeaf(36, "af42")
 
-    af43 = 38
+    af43 = Enum.YLeaf(38, "af43")
 
-    cs1 = 8
+    cs1 = Enum.YLeaf(8, "cs1")
 
-    cs2 = 16
+    cs2 = Enum.YLeaf(16, "cs2")
 
-    cs3 = 24
+    cs3 = Enum.YLeaf(24, "cs3")
 
-    cs4 = 32
+    cs4 = Enum.YLeaf(32, "cs4")
 
-    cs5 = 40
+    cs5 = Enum.YLeaf(40, "cs5")
 
-    cs6 = 48
+    cs6 = Enum.YLeaf(48, "cs6")
 
-    cs7 = 56
+    cs7 = Enum.YLeaf(56, "cs7")
 
-    ef = 46
+    ef = Enum.YLeaf(46, "ef")
 
-    critical = 5
+    critical = Enum.YLeaf(5, "critical")
 
-    flash = 3
+    flash = Enum.YLeaf(3, "flash")
 
-    flash_override = 4
+    flash_override = Enum.YLeaf(4, "flash-override")
 
-    immediate = 2
+    immediate = Enum.YLeaf(2, "immediate")
 
-    internet = 6
+    internet = Enum.YLeaf(6, "internet")
 
-    network = 7
+    network = Enum.YLeaf(7, "network")
 
-    priority = 1
+    priority = Enum.YLeaf(1, "priority")
 
-    default_or_routine = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpPrecedenceDscpEnum']
+    default_or_routine = Enum.YLeaf(0, "default-or-routine")
 
 
-class BgpSubsequentAddressFamilyEnum(Enum):
+class BgpSubsequentAddressFamily(Enum):
     """
-    BgpSubsequentAddressFamilyEnum
+    BgpSubsequentAddressFamily
 
     Bgp subsequent address family
 
@@ -553,52 +517,46 @@ class BgpSubsequentAddressFamilyEnum(Enum):
 
     """
 
-    unicast = 1
+    unicast = Enum.YLeaf(1, "unicast")
 
-    multicast = 2
+    multicast = Enum.YLeaf(2, "multicast")
 
-    labeled_unicast = 4
+    labeled_unicast = Enum.YLeaf(4, "labeled-unicast")
 
-    mvpn = 5
+    mvpn = Enum.YLeaf(5, "mvpn")
 
-    mspw = 6
+    mspw = Enum.YLeaf(6, "mspw")
 
-    tunnel = 64
+    tunnel = Enum.YLeaf(64, "tunnel")
 
-    vpls = 65
+    vpls = Enum.YLeaf(65, "vpls")
 
-    mdt = 66
+    mdt = Enum.YLeaf(66, "mdt")
 
-    vpws = 68
+    vpws = Enum.YLeaf(68, "vpws")
 
-    evpn = 70
+    evpn = Enum.YLeaf(70, "evpn")
 
-    ls = 71
+    ls = Enum.YLeaf(71, "ls")
 
-    sr_policy = 73
+    sr_policy = Enum.YLeaf(73, "sr-policy")
 
-    vpn = 128
+    vpn = Enum.YLeaf(128, "vpn")
 
-    vpn_mcast = 129
+    vpn_mcast = Enum.YLeaf(129, "vpn-mcast")
 
-    rt_filter = 132
+    rt_filter = Enum.YLeaf(132, "rt-filter")
 
-    flowspec = 133
+    flowspec = Enum.YLeaf(133, "flowspec")
 
-    vpn_flowspec = 134
+    vpn_flowspec = Enum.YLeaf(134, "vpn-flowspec")
 
-    all = 254
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpSubsequentAddressFamilyEnum']
+    all = Enum.YLeaf(254, "all")
 
 
-class BgpTosEnum(Enum):
+class BgpTos(Enum):
     """
-    BgpTosEnum
+    BgpTos
 
     Bgp tos
 
@@ -612,20 +570,14 @@ class BgpTosEnum(Enum):
 
     """
 
-    precedence = 0
+    precedence = Enum.YLeaf(0, "precedence")
 
-    dscp = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpTosEnum']
+    dscp = Enum.YLeaf(1, "dscp")
 
 
-class BgpUpdateFilterActionEnum(Enum):
+class BgpUpdateFilterAction(Enum):
     """
-    BgpUpdateFilterActionEnum
+    BgpUpdateFilterAction
 
     Bgp update filter action
 
@@ -639,20 +591,14 @@ class BgpUpdateFilterActionEnum(Enum):
 
     """
 
-    treat_as_withdraw = 1
+    treat_as_withdraw = Enum.YLeaf(1, "treat-as-withdraw")
 
-    discard_attibute = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpUpdateFilterActionEnum']
+    discard_attibute = Enum.YLeaf(2, "discard-attibute")
 
 
-class BgpafAdditionalPathsCfgEnum(Enum):
+class BgpafAdditionalPathsCfg(Enum):
     """
-    BgpafAdditionalPathsCfgEnum
+    BgpafAdditionalPathsCfg
 
     Bgpaf additional paths cfg
 
@@ -666,15 +612,9 @@ class BgpafAdditionalPathsCfgEnum(Enum):
 
     """
 
-    enable = 1
+    enable = Enum.YLeaf(1, "enable")
 
-    disable = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
-        return meta._meta_table['BgpafAdditionalPathsCfgEnum']
+    disable = Enum.YLeaf(2, "disable")
 
 
 

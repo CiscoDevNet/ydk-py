@@ -37,22 +37,16 @@ o Processing Load \- The percentage of time over some interval
                     forwarding packets and being idle.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CiscoqfpmemoryresourceEnum(Enum):
+class Ciscoqfpmemoryresource(Enum):
     """
-    CiscoqfpmemoryresourceEnum
+    Ciscoqfpmemoryresource
 
     An enumerated integer\-value describing various memory resources
 
@@ -64,18 +58,12 @@ class CiscoqfpmemoryresourceEnum(Enum):
 
     """
 
-    dram = 1
+    dram = Enum.YLeaf(1, "dram")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-        return meta._meta_table['CiscoqfpmemoryresourceEnum']
-
-
-class CiscoqfptimeintervalEnum(Enum):
+class Ciscoqfptimeinterval(Enum):
     """
-    CiscoqfptimeintervalEnum
+    Ciscoqfptimeinterval
 
     An enumerated integer\-value describing the available interval
 
@@ -107,23 +95,17 @@ class CiscoqfptimeintervalEnum(Enum):
 
     """
 
-    fiveSeconds = 1
+    fiveSeconds = Enum.YLeaf(1, "fiveSeconds")
 
-    oneMinute = 2
+    oneMinute = Enum.YLeaf(2, "oneMinute")
 
-    fiveMinutes = 3
+    fiveMinutes = Enum.YLeaf(3, "fiveMinutes")
 
-    sixtyMinutes = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-        return meta._meta_table['CiscoqfptimeintervalEnum']
+    sixtyMinutes = Enum.YLeaf(4, "sixtyMinutes")
 
 
 
-class CiscoEntityQfpMib(object):
+class CiscoEntityQfpMib(Entity):
     """
     
     
@@ -165,43 +147,66 @@ class CiscoEntityQfpMib(object):
     _revision = '2014-06-18'
 
     def __init__(self):
+        super(CiscoEntityQfpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-ENTITY-QFP-MIB"
+        self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
         self.ceqfpmemoryresourcetable = CiscoEntityQfpMib.Ceqfpmemoryresourcetable()
         self.ceqfpmemoryresourcetable.parent = self
+        self._children_name_map["ceqfpmemoryresourcetable"] = "ceqfpMemoryResourceTable"
+        self._children_yang_names.add("ceqfpMemoryResourceTable")
+
         self.ceqfpsystemtable = CiscoEntityQfpMib.Ceqfpsystemtable()
         self.ceqfpsystemtable.parent = self
+        self._children_name_map["ceqfpsystemtable"] = "ceqfpSystemTable"
+        self._children_yang_names.add("ceqfpSystemTable")
+
         self.ceqfpthroughputtable = CiscoEntityQfpMib.Ceqfpthroughputtable()
         self.ceqfpthroughputtable.parent = self
+        self._children_name_map["ceqfpthroughputtable"] = "ceqfpThroughputTable"
+        self._children_yang_names.add("ceqfpThroughputTable")
+
         self.ceqfputilizationtable = CiscoEntityQfpMib.Ceqfputilizationtable()
         self.ceqfputilizationtable.parent = self
+        self._children_name_map["ceqfputilizationtable"] = "ceqfpUtilizationTable"
+        self._children_yang_names.add("ceqfpUtilizationTable")
+
         self.ciscoentityqfp = CiscoEntityQfpMib.Ciscoentityqfp()
         self.ciscoentityqfp.parent = self
+        self._children_name_map["ciscoentityqfp"] = "ciscoEntityQfp"
+        self._children_yang_names.add("ciscoEntityQfp")
+
         self.ciscoentityqfpnotif = CiscoEntityQfpMib.Ciscoentityqfpnotif()
         self.ciscoentityqfpnotif.parent = self
+        self._children_name_map["ciscoentityqfpnotif"] = "ciscoEntityQfpNotif"
+        self._children_yang_names.add("ciscoEntityQfpNotif")
 
 
-    class Ciscoentityqfp(object):
+    class Ciscoentityqfp(Entity):
         """
         
         
         .. attribute:: ceqfpfiveminutesutilalgo
         
         	This objects represents the method used to calculate 5 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 60 five seconds utilization                  data
-        	**type**\:   :py:class:`CeqfpfiveminutesutilalgoEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.CeqfpfiveminutesutilalgoEnum>`
+        	**type**\:   :py:class:`Ceqfpfiveminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.Ceqfpfiveminutesutilalgo>`
         
         .. attribute:: ceqfpfivesecondutilalgo
         
         	This objects represents the method used to calculate 5 Second interval utilization data. The enumerated values are described below.  unknown       (1) \- The calculation method is unknown fiveSecSample (2) \- The value is calculated based on the last                     5 second sampling period of utilization                     data
-        	**type**\:   :py:class:`CeqfpfivesecondutilalgoEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.CeqfpfivesecondutilalgoEnum>`
+        	**type**\:   :py:class:`Ceqfpfivesecondutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.Ceqfpfivesecondutilalgo>`
         
         .. attribute:: ceqfponeminuteutilalgo
         
         	This objects represents the method used to calculate 1 Minute interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 12 five seconds utilization                  data
-        	**type**\:   :py:class:`CeqfponeminuteutilalgoEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.CeqfponeminuteutilalgoEnum>`
+        	**type**\:   :py:class:`Ceqfponeminuteutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.Ceqfponeminuteutilalgo>`
         
         .. attribute:: ceqfpsixtyminutesutilalgo
         
         	This objects represents the method used to calculate 60 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (1) \- The value is calculated using Simple Moving                    Average of last 720 five seconds utilization                  data
-        	**type**\:   :py:class:`CeqfpsixtyminutesutilalgoEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.CeqfpsixtyminutesutilalgoEnum>`
+        	**type**\:   :py:class:`Ceqfpsixtyminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ciscoentityqfp.Ceqfpsixtyminutesutilalgo>`
         
         
 
@@ -211,15 +216,49 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfpfiveminutesutilalgo = None
-            self.ceqfpfivesecondutilalgo = None
-            self.ceqfponeminuteutilalgo = None
-            self.ceqfpsixtyminutesutilalgo = None
+            super(CiscoEntityQfpMib.Ciscoentityqfp, self).__init__()
 
-        class CeqfpfiveminutesutilalgoEnum(Enum):
+            self.yang_name = "ciscoEntityQfp"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
+            self.ceqfpfiveminutesutilalgo = YLeaf(YType.enumeration, "ceqfpFiveMinutesUtilAlgo")
+
+            self.ceqfpfivesecondutilalgo = YLeaf(YType.enumeration, "ceqfpFiveSecondUtilAlgo")
+
+            self.ceqfponeminuteutilalgo = YLeaf(YType.enumeration, "ceqfpOneMinuteUtilAlgo")
+
+            self.ceqfpsixtyminutesutilalgo = YLeaf(YType.enumeration, "ceqfpSixtyMinutesUtilAlgo")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ceqfpfiveminutesutilalgo",
+                            "ceqfpfivesecondutilalgo",
+                            "ceqfponeminuteutilalgo",
+                            "ceqfpsixtyminutesutilalgo") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ciscoentityqfp, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ciscoentityqfp, self).__setattr__(name, value)
+
+        class Ceqfpfiveminutesutilalgo(Enum):
             """
-            CeqfpfiveminutesutilalgoEnum
+            Ceqfpfiveminutesutilalgo
 
             This objects represents the method used to calculate 5 Minutes
 
@@ -241,20 +280,14 @@ class CiscoEntityQfpMib(object):
 
             """
 
-            unknown = 1
+            unknown = Enum.YLeaf(1, "unknown")
 
-            fiveSecSMA = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfp.CeqfpfiveminutesutilalgoEnum']
+            fiveSecSMA = Enum.YLeaf(2, "fiveSecSMA")
 
 
-        class CeqfpfivesecondutilalgoEnum(Enum):
+        class Ceqfpfivesecondutilalgo(Enum):
             """
-            CeqfpfivesecondutilalgoEnum
+            Ceqfpfivesecondutilalgo
 
             This objects represents the method used to calculate 5 Second
 
@@ -276,20 +309,14 @@ class CiscoEntityQfpMib(object):
 
             """
 
-            unknown = 1
+            unknown = Enum.YLeaf(1, "unknown")
 
-            fiveSecSample = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfp.CeqfpfivesecondutilalgoEnum']
+            fiveSecSample = Enum.YLeaf(2, "fiveSecSample")
 
 
-        class CeqfponeminuteutilalgoEnum(Enum):
+        class Ceqfponeminuteutilalgo(Enum):
             """
-            CeqfponeminuteutilalgoEnum
+            Ceqfponeminuteutilalgo
 
             This objects represents the method used to calculate 1 Minute
 
@@ -311,20 +338,14 @@ class CiscoEntityQfpMib(object):
 
             """
 
-            unknown = 1
+            unknown = Enum.YLeaf(1, "unknown")
 
-            fiveSecSMA = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfp.CeqfponeminuteutilalgoEnum']
+            fiveSecSMA = Enum.YLeaf(2, "fiveSecSMA")
 
 
-        class CeqfpsixtyminutesutilalgoEnum(Enum):
+        class Ceqfpsixtyminutesutilalgo(Enum):
             """
-            CeqfpsixtyminutesutilalgoEnum
+            Ceqfpsixtyminutesutilalgo
 
             This objects represents the method used to calculate 60 Minutes
 
@@ -346,48 +367,84 @@ class CiscoEntityQfpMib(object):
 
             """
 
-            unknown = 1
+            unknown = Enum.YLeaf(1, "unknown")
 
-            fiveSecSMA = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfp.CeqfpsixtyminutesutilalgoEnum']
+            fiveSecSMA = Enum.YLeaf(2, "fiveSecSMA")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.ceqfpfiveminutesutilalgo.is_set or
+                self.ceqfpfivesecondutilalgo.is_set or
+                self.ceqfponeminuteutilalgo.is_set or
+                self.ceqfpsixtyminutesutilalgo.is_set)
 
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ciscoEntityQfp'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ceqfpfiveminutesutilalgo.yfilter != YFilter.not_set or
+                self.ceqfpfivesecondutilalgo.yfilter != YFilter.not_set or
+                self.ceqfponeminuteutilalgo.yfilter != YFilter.not_set or
+                self.ceqfpsixtyminutesutilalgo.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoEntityQfp" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ceqfpfiveminutesutilalgo.is_set or self.ceqfpfiveminutesutilalgo.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfpfiveminutesutilalgo.get_name_leafdata())
+            if (self.ceqfpfivesecondutilalgo.is_set or self.ceqfpfivesecondutilalgo.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfpfivesecondutilalgo.get_name_leafdata())
+            if (self.ceqfponeminuteutilalgo.is_set or self.ceqfponeminuteutilalgo.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfponeminuteutilalgo.get_name_leafdata())
+            if (self.ceqfpsixtyminutesutilalgo.is_set or self.ceqfpsixtyminutesutilalgo.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfpsixtyminutesutilalgo.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpFiveMinutesUtilAlgo" or name == "ceqfpFiveSecondUtilAlgo" or name == "ceqfpOneMinuteUtilAlgo" or name == "ceqfpSixtyMinutesUtilAlgo"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ceqfpfiveminutesutilalgo is not None:
-                return True
-
-            if self.ceqfpfivesecondutilalgo is not None:
-                return True
-
-            if self.ceqfponeminuteutilalgo is not None:
-                return True
-
-            if self.ceqfpsixtyminutesutilalgo is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfp']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceqfpFiveMinutesUtilAlgo"):
+                self.ceqfpfiveminutesutilalgo = value
+                self.ceqfpfiveminutesutilalgo.value_namespace = name_space
+                self.ceqfpfiveminutesutilalgo.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceqfpFiveSecondUtilAlgo"):
+                self.ceqfpfivesecondutilalgo = value
+                self.ceqfpfivesecondutilalgo.value_namespace = name_space
+                self.ceqfpfivesecondutilalgo.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceqfpOneMinuteUtilAlgo"):
+                self.ceqfponeminuteutilalgo = value
+                self.ceqfponeminuteutilalgo.value_namespace = name_space
+                self.ceqfponeminuteutilalgo.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceqfpSixtyMinutesUtilAlgo"):
+                self.ceqfpsixtyminutesutilalgo = value
+                self.ceqfpsixtyminutesutilalgo.value_namespace = name_space
+                self.ceqfpsixtyminutesutilalgo.value_namespace_prefix = name_space_prefix
 
 
-    class Ciscoentityqfpnotif(object):
+    class Ciscoentityqfpnotif(Entity):
         """
         
         
@@ -411,35 +468,97 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfpmemoryresthreshnotifenabled = None
-            self.ceqfpthroughputnotifenabled = None
+            super(CiscoEntityQfpMib.Ciscoentityqfpnotif, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciscoEntityQfpNotif"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
 
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ciscoEntityQfpNotif'
+            self.ceqfpmemoryresthreshnotifenabled = YLeaf(YType.boolean, "ceqfpMemoryResThreshNotifEnabled")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ceqfpthroughputnotifenabled = YLeaf(YType.uint32, "ceqfpThroughputNotifEnabled")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ceqfpmemoryresthreshnotifenabled",
+                            "ceqfpthroughputnotifenabled") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ciscoentityqfpnotif, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ciscoentityqfpnotif, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ceqfpmemoryresthreshnotifenabled.is_set or
+                self.ceqfpthroughputnotifenabled.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ceqfpmemoryresthreshnotifenabled.yfilter != YFilter.not_set or
+                self.ceqfpthroughputnotifenabled.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoEntityQfpNotif" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ceqfpmemoryresthreshnotifenabled.is_set or self.ceqfpmemoryresthreshnotifenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfpmemoryresthreshnotifenabled.get_name_leafdata())
+            if (self.ceqfpthroughputnotifenabled.is_set or self.ceqfpthroughputnotifenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceqfpthroughputnotifenabled.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpMemoryResThreshNotifEnabled" or name == "ceqfpThroughputNotifEnabled"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ceqfpmemoryresthreshnotifenabled is not None:
-                return True
-
-            if self.ceqfpthroughputnotifenabled is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ciscoentityqfpnotif']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceqfpMemoryResThreshNotifEnabled"):
+                self.ceqfpmemoryresthreshnotifenabled = value
+                self.ceqfpmemoryresthreshnotifenabled.value_namespace = name_space
+                self.ceqfpmemoryresthreshnotifenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceqfpThroughputNotifEnabled"):
+                self.ceqfpthroughputnotifenabled = value
+                self.ceqfpthroughputnotifenabled.value_namespace = name_space
+                self.ceqfpthroughputnotifenabled.value_namespace_prefix = name_space_prefix
 
 
-    class Ceqfpsystemtable(object):
+    class Ceqfpsystemtable(Entity):
         """
         This table maintains the QFP system information for each QFP
         physical entity.
@@ -465,13 +584,39 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfpsystementry = YList()
-            self.ceqfpsystementry.parent = self
-            self.ceqfpsystementry.name = 'ceqfpsystementry'
+            super(CiscoEntityQfpMib.Ceqfpsystemtable, self).__init__()
+
+            self.yang_name = "ceqfpSystemTable"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
+            self.ceqfpsystementry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ceqfpsystemtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ceqfpsystemtable, self).__setattr__(name, value)
 
 
-        class Ceqfpsystementry(object):
+        class Ceqfpsystementry(Entity):
             """
             A conceptual row in the ceqfpSystemTable. There is an entry
             in this table for each QFP entity, as defined by a value of
@@ -501,12 +646,12 @@ class CiscoEntityQfpMib(object):
             .. attribute:: ceqfpsystemstate
             
             	This object represents the current QFP state. The enumerated values are described below.  unknown (1)    \- The state of the QFP is unknown reset (2)      \- The QFP is reset init (3)       \- The QFP is being initialized active (4)     \- The QFP is active in a system with redundant                  QFP activeSolo (5) \- The QFP is active and there is no redundant                  QFP in the system standby (6)    \- The QFP is standby in a redundant system. hotStandby (7) \- The QFP is standby and synchronized with                  active, so that a switchover in this state                  will preserve state of the active. Stateful                   datapath features are synchronized between the                  active QFP and standby QFP
-            	**type**\:   :py:class:`CeqfpsystemstateEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.CeqfpsystemstateEnum>`
+            	**type**\:   :py:class:`Ceqfpsystemstate <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemstate>`
             
             .. attribute:: ceqfpsystemtrafficdirection
             
             	This object represents the traffic direction that this QFP is assigned to process. The enumerated values are described below.  none (1)    \- The QFP is not assigned to processes any traffic               yet ingress (2) \- The QFP processes inbound traffic egress (3)  \- The QFP processes outbound traffic both (4)    \- The QFP processes both inbound and outbound               traffic
-            	**type**\:   :py:class:`CeqfpsystemtrafficdirectionEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.CeqfpsystemtrafficdirectionEnum>`
+            	**type**\:   :py:class:`Ceqfpsystemtrafficdirection <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemtrafficdirection>`
             
             
 
@@ -516,16 +661,52 @@ class CiscoEntityQfpMib(object):
             _revision = '2014-06-18'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.ceqfpnumbersystemloads = None
-                self.ceqfpsystemlastloadtime = None
-                self.ceqfpsystemstate = None
-                self.ceqfpsystemtrafficdirection = None
+                super(CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry, self).__init__()
 
-            class CeqfpsystemstateEnum(Enum):
+                self.yang_name = "ceqfpSystemEntry"
+                self.yang_parent_name = "ceqfpSystemTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.ceqfpnumbersystemloads = YLeaf(YType.uint32, "ceqfpNumberSystemLoads")
+
+                self.ceqfpsystemlastloadtime = YLeaf(YType.str, "ceqfpSystemLastLoadTime")
+
+                self.ceqfpsystemstate = YLeaf(YType.enumeration, "ceqfpSystemState")
+
+                self.ceqfpsystemtrafficdirection = YLeaf(YType.enumeration, "ceqfpSystemTrafficDirection")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "ceqfpnumbersystemloads",
+                                "ceqfpsystemlastloadtime",
+                                "ceqfpsystemstate",
+                                "ceqfpsystemtrafficdirection") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry, self).__setattr__(name, value)
+
+            class Ceqfpsystemstate(Enum):
                 """
-                CeqfpsystemstateEnum
+                Ceqfpsystemstate
 
                 This object represents the current QFP state. The enumerated
 
@@ -573,30 +754,24 @@ class CiscoEntityQfpMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                reset = 2
+                reset = Enum.YLeaf(2, "reset")
 
-                init = 3
+                init = Enum.YLeaf(3, "init")
 
-                active = 4
+                active = Enum.YLeaf(4, "active")
 
-                activeSolo = 5
+                activeSolo = Enum.YLeaf(5, "activeSolo")
 
-                standby = 6
+                standby = Enum.YLeaf(6, "standby")
 
-                hotStandby = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                    return meta._meta_table['CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.CeqfpsystemstateEnum']
+                hotStandby = Enum.YLeaf(7, "hotStandby")
 
 
-            class CeqfpsystemtrafficdirectionEnum(Enum):
+            class Ceqfpsystemtrafficdirection(Enum):
                 """
-                CeqfpsystemtrafficdirectionEnum
+                Ceqfpsystemtrafficdirection
 
                 This object represents the traffic direction that this QFP is
 
@@ -624,79 +799,153 @@ class CiscoEntityQfpMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                ingress = 2
+                ingress = Enum.YLeaf(2, "ingress")
 
-                egress = 3
+                egress = Enum.YLeaf(3, "egress")
 
-                both = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                    return meta._meta_table['CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry.CeqfpsystemtrafficdirectionEnum']
+                both = Enum.YLeaf(4, "both")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.ceqfpnumbersystemloads.is_set or
+                    self.ceqfpsystemlastloadtime.is_set or
+                    self.ceqfpsystemstate.is_set or
+                    self.ceqfpsystemtrafficdirection.is_set)
 
-                return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpSystemTable/CISCO-ENTITY-QFP-MIB:ceqfpSystemEntry[CISCO-ENTITY-QFP-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.ceqfpnumbersystemloads.yfilter != YFilter.not_set or
+                    self.ceqfpsystemlastloadtime.yfilter != YFilter.not_set or
+                    self.ceqfpsystemstate.yfilter != YFilter.not_set or
+                    self.ceqfpsystemtrafficdirection.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceqfpSystemEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpSystemTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.ceqfpnumbersystemloads.is_set or self.ceqfpnumbersystemloads.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpnumbersystemloads.get_name_leafdata())
+                if (self.ceqfpsystemlastloadtime.is_set or self.ceqfpsystemlastloadtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpsystemlastloadtime.get_name_leafdata())
+                if (self.ceqfpsystemstate.is_set or self.ceqfpsystemstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpsystemstate.get_name_leafdata())
+                if (self.ceqfpsystemtrafficdirection.is_set or self.ceqfpsystemtrafficdirection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpsystemtrafficdirection.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceqfpNumberSystemLoads" or name == "ceqfpSystemLastLoadTime" or name == "ceqfpSystemState" or name == "ceqfpSystemTrafficDirection"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpNumberSystemLoads"):
+                    self.ceqfpnumbersystemloads = value
+                    self.ceqfpnumbersystemloads.value_namespace = name_space
+                    self.ceqfpnumbersystemloads.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpSystemLastLoadTime"):
+                    self.ceqfpsystemlastloadtime = value
+                    self.ceqfpsystemlastloadtime.value_namespace = name_space
+                    self.ceqfpsystemlastloadtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpSystemState"):
+                    self.ceqfpsystemstate = value
+                    self.ceqfpsystemstate.value_namespace = name_space
+                    self.ceqfpsystemstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpSystemTrafficDirection"):
+                    self.ceqfpsystemtrafficdirection = value
+                    self.ceqfpsystemtrafficdirection.value_namespace = name_space
+                    self.ceqfpsystemtrafficdirection.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceqfpsystementry:
+                if (c.has_data()):
                     return True
-
-                if self.ceqfpnumbersystemloads is not None:
-                    return True
-
-                if self.ceqfpsystemlastloadtime is not None:
-                    return True
-
-                if self.ceqfpsystemstate is not None:
-                    return True
-
-                if self.ceqfpsystemtrafficdirection is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpSystemTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceqfpsystementry is not None:
-                for child_ref in self.ceqfpsystementry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceqfpsystementry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceqfpSystemTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceqfpSystemEntry"):
+                for c in self.ceqfpsystementry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityQfpMib.Ceqfpsystemtable.Ceqfpsystementry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceqfpsystementry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpSystemEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ceqfpsystemtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceqfputilizationtable(object):
+    class Ceqfputilizationtable(Entity):
         """
         This table maintains the utilization statistics collected
         by each QFP physical entity at various time interval such as
@@ -727,13 +976,39 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfputilizationentry = YList()
-            self.ceqfputilizationentry.parent = self
-            self.ceqfputilizationentry.name = 'ceqfputilizationentry'
+            super(CiscoEntityQfpMib.Ceqfputilizationtable, self).__init__()
+
+            self.yang_name = "ceqfpUtilizationTable"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
+            self.ceqfputilizationentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ceqfputilizationtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ceqfputilizationtable, self).__setattr__(name, value)
 
 
-        class Ceqfputilizationentry(object):
+        class Ceqfputilizationentry(Entity):
             """
             A conceptual row in the ceqfpUtilizationTable. There is
             an entry in this table for each QFP entity by a value of
@@ -758,7 +1033,7 @@ class CiscoEntityQfpMib(object):
             .. attribute:: ceqfputiltimeinterval  <key>
             
             	This object identifies the time interval for which the utilization statistics being collected. The interval  values can be 5 second, 1 minute, etc. as specified in  the CiscoQfpTimeInterval
-            	**type**\:   :py:class:`CiscoqfptimeintervalEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoqfptimeintervalEnum>`
+            	**type**\:   :py:class:`Ciscoqfptimeinterval <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.Ciscoqfptimeinterval>`
             
             .. attribute:: ceqfputilinputnonprioritybitrate
             
@@ -885,113 +1160,297 @@ class CiscoEntityQfpMib(object):
             _revision = '2014-06-18'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.ceqfputiltimeinterval = None
-                self.ceqfputilinputnonprioritybitrate = None
-                self.ceqfputilinputnonprioritypktrate = None
-                self.ceqfputilinputprioritybitrate = None
-                self.ceqfputilinputprioritypktrate = None
-                self.ceqfputilinputtotalbitrate = None
-                self.ceqfputilinputtotalpktrate = None
-                self.ceqfputiloutputnonprioritybitrate = None
-                self.ceqfputiloutputnonprioritypktrate = None
-                self.ceqfputiloutputprioritybitrate = None
-                self.ceqfputiloutputprioritypktrate = None
-                self.ceqfputiloutputtotalbitrate = None
-                self.ceqfputiloutputtotalpktrate = None
-                self.ceqfputilprocessingload = None
+                super(CiscoEntityQfpMib.Ceqfputilizationtable.Ceqfputilizationentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.ceqfputiltimeinterval is None:
-                    raise YPYModelError('Key property ceqfputiltimeinterval is None')
+                self.yang_name = "ceqfpUtilizationEntry"
+                self.yang_parent_name = "ceqfpUtilizationTable"
 
-                return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpUtilizationTable/CISCO-ENTITY-QFP-MIB:ceqfpUtilizationEntry[CISCO-ENTITY-QFP-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][CISCO-ENTITY-QFP-MIB:ceqfpUtilTimeInterval = ' + str(self.ceqfputiltimeinterval) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceqfputiltimeinterval = YLeaf(YType.enumeration, "ceqfpUtilTimeInterval")
+
+                self.ceqfputilinputnonprioritybitrate = YLeaf(YType.uint64, "ceqfpUtilInputNonPriorityBitRate")
+
+                self.ceqfputilinputnonprioritypktrate = YLeaf(YType.uint64, "ceqfpUtilInputNonPriorityPktRate")
+
+                self.ceqfputilinputprioritybitrate = YLeaf(YType.uint64, "ceqfpUtilInputPriorityBitRate")
+
+                self.ceqfputilinputprioritypktrate = YLeaf(YType.uint64, "ceqfpUtilInputPriorityPktRate")
+
+                self.ceqfputilinputtotalbitrate = YLeaf(YType.uint64, "ceqfpUtilInputTotalBitRate")
+
+                self.ceqfputilinputtotalpktrate = YLeaf(YType.uint64, "ceqfpUtilInputTotalPktRate")
+
+                self.ceqfputiloutputnonprioritybitrate = YLeaf(YType.uint64, "ceqfpUtilOutputNonPriorityBitRate")
+
+                self.ceqfputiloutputnonprioritypktrate = YLeaf(YType.uint64, "ceqfpUtilOutputNonPriorityPktRate")
+
+                self.ceqfputiloutputprioritybitrate = YLeaf(YType.uint64, "ceqfpUtilOutputPriorityBitRate")
+
+                self.ceqfputiloutputprioritypktrate = YLeaf(YType.uint64, "ceqfpUtilOutputPriorityPktRate")
+
+                self.ceqfputiloutputtotalbitrate = YLeaf(YType.uint64, "ceqfpUtilOutputTotalBitRate")
+
+                self.ceqfputiloutputtotalpktrate = YLeaf(YType.uint64, "ceqfpUtilOutputTotalPktRate")
+
+                self.ceqfputilprocessingload = YLeaf(YType.uint32, "ceqfpUtilProcessingLoad")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "ceqfputiltimeinterval",
+                                "ceqfputilinputnonprioritybitrate",
+                                "ceqfputilinputnonprioritypktrate",
+                                "ceqfputilinputprioritybitrate",
+                                "ceqfputilinputprioritypktrate",
+                                "ceqfputilinputtotalbitrate",
+                                "ceqfputilinputtotalpktrate",
+                                "ceqfputiloutputnonprioritybitrate",
+                                "ceqfputiloutputnonprioritypktrate",
+                                "ceqfputiloutputprioritybitrate",
+                                "ceqfputiloutputprioritypktrate",
+                                "ceqfputiloutputtotalbitrate",
+                                "ceqfputiloutputtotalpktrate",
+                                "ceqfputilprocessingload") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityQfpMib.Ceqfputilizationtable.Ceqfputilizationentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityQfpMib.Ceqfputilizationtable.Ceqfputilizationentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.ceqfputiltimeinterval.is_set or
+                    self.ceqfputilinputnonprioritybitrate.is_set or
+                    self.ceqfputilinputnonprioritypktrate.is_set or
+                    self.ceqfputilinputprioritybitrate.is_set or
+                    self.ceqfputilinputprioritypktrate.is_set or
+                    self.ceqfputilinputtotalbitrate.is_set or
+                    self.ceqfputilinputtotalpktrate.is_set or
+                    self.ceqfputiloutputnonprioritybitrate.is_set or
+                    self.ceqfputiloutputnonprioritypktrate.is_set or
+                    self.ceqfputiloutputprioritybitrate.is_set or
+                    self.ceqfputiloutputprioritypktrate.is_set or
+                    self.ceqfputiloutputtotalbitrate.is_set or
+                    self.ceqfputiloutputtotalpktrate.is_set or
+                    self.ceqfputilprocessingload.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.ceqfputiltimeinterval.yfilter != YFilter.not_set or
+                    self.ceqfputilinputnonprioritybitrate.yfilter != YFilter.not_set or
+                    self.ceqfputilinputnonprioritypktrate.yfilter != YFilter.not_set or
+                    self.ceqfputilinputprioritybitrate.yfilter != YFilter.not_set or
+                    self.ceqfputilinputprioritypktrate.yfilter != YFilter.not_set or
+                    self.ceqfputilinputtotalbitrate.yfilter != YFilter.not_set or
+                    self.ceqfputilinputtotalpktrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputnonprioritybitrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputnonprioritypktrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputprioritybitrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputprioritypktrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputtotalbitrate.yfilter != YFilter.not_set or
+                    self.ceqfputiloutputtotalpktrate.yfilter != YFilter.not_set or
+                    self.ceqfputilprocessingload.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceqfpUtilizationEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[ceqfpUtilTimeInterval='" + self.ceqfputiltimeinterval.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpUtilizationTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.ceqfputiltimeinterval.is_set or self.ceqfputiltimeinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiltimeinterval.get_name_leafdata())
+                if (self.ceqfputilinputnonprioritybitrate.is_set or self.ceqfputilinputnonprioritybitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputnonprioritybitrate.get_name_leafdata())
+                if (self.ceqfputilinputnonprioritypktrate.is_set or self.ceqfputilinputnonprioritypktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputnonprioritypktrate.get_name_leafdata())
+                if (self.ceqfputilinputprioritybitrate.is_set or self.ceqfputilinputprioritybitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputprioritybitrate.get_name_leafdata())
+                if (self.ceqfputilinputprioritypktrate.is_set or self.ceqfputilinputprioritypktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputprioritypktrate.get_name_leafdata())
+                if (self.ceqfputilinputtotalbitrate.is_set or self.ceqfputilinputtotalbitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputtotalbitrate.get_name_leafdata())
+                if (self.ceqfputilinputtotalpktrate.is_set or self.ceqfputilinputtotalpktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilinputtotalpktrate.get_name_leafdata())
+                if (self.ceqfputiloutputnonprioritybitrate.is_set or self.ceqfputiloutputnonprioritybitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputnonprioritybitrate.get_name_leafdata())
+                if (self.ceqfputiloutputnonprioritypktrate.is_set or self.ceqfputiloutputnonprioritypktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputnonprioritypktrate.get_name_leafdata())
+                if (self.ceqfputiloutputprioritybitrate.is_set or self.ceqfputiloutputprioritybitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputprioritybitrate.get_name_leafdata())
+                if (self.ceqfputiloutputprioritypktrate.is_set or self.ceqfputiloutputprioritypktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputprioritypktrate.get_name_leafdata())
+                if (self.ceqfputiloutputtotalbitrate.is_set or self.ceqfputiloutputtotalbitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputtotalbitrate.get_name_leafdata())
+                if (self.ceqfputiloutputtotalpktrate.is_set or self.ceqfputiloutputtotalpktrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputiloutputtotalpktrate.get_name_leafdata())
+                if (self.ceqfputilprocessingload.is_set or self.ceqfputilprocessingload.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfputilprocessingload.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceqfpUtilTimeInterval" or name == "ceqfpUtilInputNonPriorityBitRate" or name == "ceqfpUtilInputNonPriorityPktRate" or name == "ceqfpUtilInputPriorityBitRate" or name == "ceqfpUtilInputPriorityPktRate" or name == "ceqfpUtilInputTotalBitRate" or name == "ceqfpUtilInputTotalPktRate" or name == "ceqfpUtilOutputNonPriorityBitRate" or name == "ceqfpUtilOutputNonPriorityPktRate" or name == "ceqfpUtilOutputPriorityBitRate" or name == "ceqfpUtilOutputPriorityPktRate" or name == "ceqfpUtilOutputTotalBitRate" or name == "ceqfpUtilOutputTotalPktRate" or name == "ceqfpUtilProcessingLoad"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilTimeInterval"):
+                    self.ceqfputiltimeinterval = value
+                    self.ceqfputiltimeinterval.value_namespace = name_space
+                    self.ceqfputiltimeinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputNonPriorityBitRate"):
+                    self.ceqfputilinputnonprioritybitrate = value
+                    self.ceqfputilinputnonprioritybitrate.value_namespace = name_space
+                    self.ceqfputilinputnonprioritybitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputNonPriorityPktRate"):
+                    self.ceqfputilinputnonprioritypktrate = value
+                    self.ceqfputilinputnonprioritypktrate.value_namespace = name_space
+                    self.ceqfputilinputnonprioritypktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputPriorityBitRate"):
+                    self.ceqfputilinputprioritybitrate = value
+                    self.ceqfputilinputprioritybitrate.value_namespace = name_space
+                    self.ceqfputilinputprioritybitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputPriorityPktRate"):
+                    self.ceqfputilinputprioritypktrate = value
+                    self.ceqfputilinputprioritypktrate.value_namespace = name_space
+                    self.ceqfputilinputprioritypktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputTotalBitRate"):
+                    self.ceqfputilinputtotalbitrate = value
+                    self.ceqfputilinputtotalbitrate.value_namespace = name_space
+                    self.ceqfputilinputtotalbitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilInputTotalPktRate"):
+                    self.ceqfputilinputtotalpktrate = value
+                    self.ceqfputilinputtotalpktrate.value_namespace = name_space
+                    self.ceqfputilinputtotalpktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputNonPriorityBitRate"):
+                    self.ceqfputiloutputnonprioritybitrate = value
+                    self.ceqfputiloutputnonprioritybitrate.value_namespace = name_space
+                    self.ceqfputiloutputnonprioritybitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputNonPriorityPktRate"):
+                    self.ceqfputiloutputnonprioritypktrate = value
+                    self.ceqfputiloutputnonprioritypktrate.value_namespace = name_space
+                    self.ceqfputiloutputnonprioritypktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputPriorityBitRate"):
+                    self.ceqfputiloutputprioritybitrate = value
+                    self.ceqfputiloutputprioritybitrate.value_namespace = name_space
+                    self.ceqfputiloutputprioritybitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputPriorityPktRate"):
+                    self.ceqfputiloutputprioritypktrate = value
+                    self.ceqfputiloutputprioritypktrate.value_namespace = name_space
+                    self.ceqfputiloutputprioritypktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputTotalBitRate"):
+                    self.ceqfputiloutputtotalbitrate = value
+                    self.ceqfputiloutputtotalbitrate.value_namespace = name_space
+                    self.ceqfputiloutputtotalbitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilOutputTotalPktRate"):
+                    self.ceqfputiloutputtotalpktrate = value
+                    self.ceqfputiloutputtotalpktrate.value_namespace = name_space
+                    self.ceqfputiloutputtotalpktrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpUtilProcessingLoad"):
+                    self.ceqfputilprocessingload = value
+                    self.ceqfputilprocessingload.value_namespace = name_space
+                    self.ceqfputilprocessingload.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceqfputilizationentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceqfputiltimeinterval is not None:
-                    return True
-
-                if self.ceqfputilinputnonprioritybitrate is not None:
-                    return True
-
-                if self.ceqfputilinputnonprioritypktrate is not None:
-                    return True
-
-                if self.ceqfputilinputprioritybitrate is not None:
-                    return True
-
-                if self.ceqfputilinputprioritypktrate is not None:
-                    return True
-
-                if self.ceqfputilinputtotalbitrate is not None:
-                    return True
-
-                if self.ceqfputilinputtotalpktrate is not None:
-                    return True
-
-                if self.ceqfputiloutputnonprioritybitrate is not None:
-                    return True
-
-                if self.ceqfputiloutputnonprioritypktrate is not None:
-                    return True
-
-                if self.ceqfputiloutputprioritybitrate is not None:
-                    return True
-
-                if self.ceqfputiloutputprioritypktrate is not None:
-                    return True
-
-                if self.ceqfputiloutputtotalbitrate is not None:
-                    return True
-
-                if self.ceqfputiloutputtotalpktrate is not None:
-                    return True
-
-                if self.ceqfputilprocessingload is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ceqfputilizationtable.Ceqfputilizationentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpUtilizationTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceqfputilizationentry is not None:
-                for child_ref in self.ceqfputilizationentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceqfputilizationentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceqfpUtilizationTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceqfpUtilizationEntry"):
+                for c in self.ceqfputilizationentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityQfpMib.Ceqfputilizationtable.Ceqfputilizationentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceqfputilizationentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpUtilizationEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ceqfputilizationtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceqfpmemoryresourcetable(object):
+    class Ceqfpmemoryresourcetable(Entity):
         """
         This table maintains the memory resources statistics for
         each QFP physical entity.
@@ -1022,13 +1481,39 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfpmemoryresourceentry = YList()
-            self.ceqfpmemoryresourceentry.parent = self
-            self.ceqfpmemoryresourceentry.name = 'ceqfpmemoryresourceentry'
+            super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable, self).__init__()
+
+            self.yang_name = "ceqfpMemoryResourceTable"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
+            self.ceqfpmemoryresourceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable, self).__setattr__(name, value)
 
 
-        class Ceqfpmemoryresourceentry(object):
+        class Ceqfpmemoryresourceentry(Entity):
             """
             A conceptual row in the ceqfpMemoryResourceTable. There
             is an entry in this table for each QFP entity by a value 
@@ -1047,7 +1532,7 @@ class CiscoEntityQfpMib(object):
             .. attribute:: ceqfpmemoryrestype  <key>
             
             	This object indicates the type of the memory resource used by the QFP. This object is one of the indices to uniquely identify the QFP memory resource type
-            	**type**\:   :py:class:`CiscoqfpmemoryresourceEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoqfpmemoryresourceEnum>`
+            	**type**\:   :py:class:`Ciscoqfpmemoryresource <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.Ciscoqfpmemoryresource>`
             
             .. attribute:: ceqfpmemoryhcresfree
             
@@ -1183,117 +1668,308 @@ class CiscoEntityQfpMib(object):
             _revision = '2014-06-18'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.ceqfpmemoryrestype = None
-                self.ceqfpmemoryhcresfree = None
-                self.ceqfpmemoryhcresinuse = None
-                self.ceqfpmemoryhcreslowfreewatermark = None
-                self.ceqfpmemoryhcrestotal = None
-                self.ceqfpmemoryresfallingthreshold = None
-                self.ceqfpmemoryresfree = None
-                self.ceqfpmemoryresfreeovrflw = None
-                self.ceqfpmemoryresinuse = None
-                self.ceqfpmemoryresinuseovrflw = None
-                self.ceqfpmemoryreslowfreewatermark = None
-                self.ceqfpmemoryreslowfreewatermarkovrflw = None
-                self.ceqfpmemoryresrisingthreshold = None
-                self.ceqfpmemoryrestotal = None
-                self.ceqfpmemoryrestotalovrflw = None
+                super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.ceqfpmemoryrestype is None:
-                    raise YPYModelError('Key property ceqfpmemoryrestype is None')
+                self.yang_name = "ceqfpMemoryResourceEntry"
+                self.yang_parent_name = "ceqfpMemoryResourceTable"
 
-                return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpMemoryResourceTable/CISCO-ENTITY-QFP-MIB:ceqfpMemoryResourceEntry[CISCO-ENTITY-QFP-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][CISCO-ENTITY-QFP-MIB:ceqfpMemoryResType = ' + str(self.ceqfpmemoryrestype) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceqfpmemoryrestype = YLeaf(YType.enumeration, "ceqfpMemoryResType")
+
+                self.ceqfpmemoryhcresfree = YLeaf(YType.uint64, "ceqfpMemoryHCResFree")
+
+                self.ceqfpmemoryhcresinuse = YLeaf(YType.uint64, "ceqfpMemoryHCResInUse")
+
+                self.ceqfpmemoryhcreslowfreewatermark = YLeaf(YType.uint64, "ceqfpMemoryHCResLowFreeWatermark")
+
+                self.ceqfpmemoryhcrestotal = YLeaf(YType.uint64, "ceqfpMemoryHCResTotal")
+
+                self.ceqfpmemoryresfallingthreshold = YLeaf(YType.uint32, "ceqfpMemoryResFallingThreshold")
+
+                self.ceqfpmemoryresfree = YLeaf(YType.uint32, "ceqfpMemoryResFree")
+
+                self.ceqfpmemoryresfreeovrflw = YLeaf(YType.uint32, "ceqfpMemoryResFreeOvrflw")
+
+                self.ceqfpmemoryresinuse = YLeaf(YType.uint32, "ceqfpMemoryResInUse")
+
+                self.ceqfpmemoryresinuseovrflw = YLeaf(YType.uint32, "ceqfpMemoryResInUseOvrflw")
+
+                self.ceqfpmemoryreslowfreewatermark = YLeaf(YType.uint32, "ceqfpMemoryResLowFreeWatermark")
+
+                self.ceqfpmemoryreslowfreewatermarkovrflw = YLeaf(YType.uint32, "ceqfpMemoryResLowFreeWatermarkOvrflw")
+
+                self.ceqfpmemoryresrisingthreshold = YLeaf(YType.uint32, "ceqfpMemoryResRisingThreshold")
+
+                self.ceqfpmemoryrestotal = YLeaf(YType.uint32, "ceqfpMemoryResTotal")
+
+                self.ceqfpmemoryrestotalovrflw = YLeaf(YType.uint32, "ceqfpMemoryResTotalOvrflw")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "ceqfpmemoryrestype",
+                                "ceqfpmemoryhcresfree",
+                                "ceqfpmemoryhcresinuse",
+                                "ceqfpmemoryhcreslowfreewatermark",
+                                "ceqfpmemoryhcrestotal",
+                                "ceqfpmemoryresfallingthreshold",
+                                "ceqfpmemoryresfree",
+                                "ceqfpmemoryresfreeovrflw",
+                                "ceqfpmemoryresinuse",
+                                "ceqfpmemoryresinuseovrflw",
+                                "ceqfpmemoryreslowfreewatermark",
+                                "ceqfpmemoryreslowfreewatermarkovrflw",
+                                "ceqfpmemoryresrisingthreshold",
+                                "ceqfpmemoryrestotal",
+                                "ceqfpmemoryrestotalovrflw") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityQfpMib.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.ceqfpmemoryrestype.is_set or
+                    self.ceqfpmemoryhcresfree.is_set or
+                    self.ceqfpmemoryhcresinuse.is_set or
+                    self.ceqfpmemoryhcreslowfreewatermark.is_set or
+                    self.ceqfpmemoryhcrestotal.is_set or
+                    self.ceqfpmemoryresfallingthreshold.is_set or
+                    self.ceqfpmemoryresfree.is_set or
+                    self.ceqfpmemoryresfreeovrflw.is_set or
+                    self.ceqfpmemoryresinuse.is_set or
+                    self.ceqfpmemoryresinuseovrflw.is_set or
+                    self.ceqfpmemoryreslowfreewatermark.is_set or
+                    self.ceqfpmemoryreslowfreewatermarkovrflw.is_set or
+                    self.ceqfpmemoryresrisingthreshold.is_set or
+                    self.ceqfpmemoryrestotal.is_set or
+                    self.ceqfpmemoryrestotalovrflw.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryrestype.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryhcresfree.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryhcresinuse.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryhcreslowfreewatermark.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryhcrestotal.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresfallingthreshold.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresfree.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresfreeovrflw.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresinuse.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresinuseovrflw.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryreslowfreewatermark.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryreslowfreewatermarkovrflw.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryresrisingthreshold.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryrestotal.yfilter != YFilter.not_set or
+                    self.ceqfpmemoryrestotalovrflw.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceqfpMemoryResourceEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[ceqfpMemoryResType='" + self.ceqfpmemoryrestype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpMemoryResourceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.ceqfpmemoryrestype.is_set or self.ceqfpmemoryrestype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryrestype.get_name_leafdata())
+                if (self.ceqfpmemoryhcresfree.is_set or self.ceqfpmemoryhcresfree.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryhcresfree.get_name_leafdata())
+                if (self.ceqfpmemoryhcresinuse.is_set or self.ceqfpmemoryhcresinuse.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryhcresinuse.get_name_leafdata())
+                if (self.ceqfpmemoryhcreslowfreewatermark.is_set or self.ceqfpmemoryhcreslowfreewatermark.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryhcreslowfreewatermark.get_name_leafdata())
+                if (self.ceqfpmemoryhcrestotal.is_set or self.ceqfpmemoryhcrestotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryhcrestotal.get_name_leafdata())
+                if (self.ceqfpmemoryresfallingthreshold.is_set or self.ceqfpmemoryresfallingthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresfallingthreshold.get_name_leafdata())
+                if (self.ceqfpmemoryresfree.is_set or self.ceqfpmemoryresfree.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresfree.get_name_leafdata())
+                if (self.ceqfpmemoryresfreeovrflw.is_set or self.ceqfpmemoryresfreeovrflw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresfreeovrflw.get_name_leafdata())
+                if (self.ceqfpmemoryresinuse.is_set or self.ceqfpmemoryresinuse.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresinuse.get_name_leafdata())
+                if (self.ceqfpmemoryresinuseovrflw.is_set or self.ceqfpmemoryresinuseovrflw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresinuseovrflw.get_name_leafdata())
+                if (self.ceqfpmemoryreslowfreewatermark.is_set or self.ceqfpmemoryreslowfreewatermark.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryreslowfreewatermark.get_name_leafdata())
+                if (self.ceqfpmemoryreslowfreewatermarkovrflw.is_set or self.ceqfpmemoryreslowfreewatermarkovrflw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryreslowfreewatermarkovrflw.get_name_leafdata())
+                if (self.ceqfpmemoryresrisingthreshold.is_set or self.ceqfpmemoryresrisingthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryresrisingthreshold.get_name_leafdata())
+                if (self.ceqfpmemoryrestotal.is_set or self.ceqfpmemoryrestotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryrestotal.get_name_leafdata())
+                if (self.ceqfpmemoryrestotalovrflw.is_set or self.ceqfpmemoryrestotalovrflw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpmemoryrestotalovrflw.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceqfpMemoryResType" or name == "ceqfpMemoryHCResFree" or name == "ceqfpMemoryHCResInUse" or name == "ceqfpMemoryHCResLowFreeWatermark" or name == "ceqfpMemoryHCResTotal" or name == "ceqfpMemoryResFallingThreshold" or name == "ceqfpMemoryResFree" or name == "ceqfpMemoryResFreeOvrflw" or name == "ceqfpMemoryResInUse" or name == "ceqfpMemoryResInUseOvrflw" or name == "ceqfpMemoryResLowFreeWatermark" or name == "ceqfpMemoryResLowFreeWatermarkOvrflw" or name == "ceqfpMemoryResRisingThreshold" or name == "ceqfpMemoryResTotal" or name == "ceqfpMemoryResTotalOvrflw"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResType"):
+                    self.ceqfpmemoryrestype = value
+                    self.ceqfpmemoryrestype.value_namespace = name_space
+                    self.ceqfpmemoryrestype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryHCResFree"):
+                    self.ceqfpmemoryhcresfree = value
+                    self.ceqfpmemoryhcresfree.value_namespace = name_space
+                    self.ceqfpmemoryhcresfree.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryHCResInUse"):
+                    self.ceqfpmemoryhcresinuse = value
+                    self.ceqfpmemoryhcresinuse.value_namespace = name_space
+                    self.ceqfpmemoryhcresinuse.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryHCResLowFreeWatermark"):
+                    self.ceqfpmemoryhcreslowfreewatermark = value
+                    self.ceqfpmemoryhcreslowfreewatermark.value_namespace = name_space
+                    self.ceqfpmemoryhcreslowfreewatermark.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryHCResTotal"):
+                    self.ceqfpmemoryhcrestotal = value
+                    self.ceqfpmemoryhcrestotal.value_namespace = name_space
+                    self.ceqfpmemoryhcrestotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResFallingThreshold"):
+                    self.ceqfpmemoryresfallingthreshold = value
+                    self.ceqfpmemoryresfallingthreshold.value_namespace = name_space
+                    self.ceqfpmemoryresfallingthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResFree"):
+                    self.ceqfpmemoryresfree = value
+                    self.ceqfpmemoryresfree.value_namespace = name_space
+                    self.ceqfpmemoryresfree.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResFreeOvrflw"):
+                    self.ceqfpmemoryresfreeovrflw = value
+                    self.ceqfpmemoryresfreeovrflw.value_namespace = name_space
+                    self.ceqfpmemoryresfreeovrflw.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResInUse"):
+                    self.ceqfpmemoryresinuse = value
+                    self.ceqfpmemoryresinuse.value_namespace = name_space
+                    self.ceqfpmemoryresinuse.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResInUseOvrflw"):
+                    self.ceqfpmemoryresinuseovrflw = value
+                    self.ceqfpmemoryresinuseovrflw.value_namespace = name_space
+                    self.ceqfpmemoryresinuseovrflw.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResLowFreeWatermark"):
+                    self.ceqfpmemoryreslowfreewatermark = value
+                    self.ceqfpmemoryreslowfreewatermark.value_namespace = name_space
+                    self.ceqfpmemoryreslowfreewatermark.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResLowFreeWatermarkOvrflw"):
+                    self.ceqfpmemoryreslowfreewatermarkovrflw = value
+                    self.ceqfpmemoryreslowfreewatermarkovrflw.value_namespace = name_space
+                    self.ceqfpmemoryreslowfreewatermarkovrflw.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResRisingThreshold"):
+                    self.ceqfpmemoryresrisingthreshold = value
+                    self.ceqfpmemoryresrisingthreshold.value_namespace = name_space
+                    self.ceqfpmemoryresrisingthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResTotal"):
+                    self.ceqfpmemoryrestotal = value
+                    self.ceqfpmemoryrestotal.value_namespace = name_space
+                    self.ceqfpmemoryrestotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpMemoryResTotalOvrflw"):
+                    self.ceqfpmemoryrestotalovrflw = value
+                    self.ceqfpmemoryrestotalovrflw.value_namespace = name_space
+                    self.ceqfpmemoryrestotalovrflw.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceqfpmemoryresourceentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceqfpmemoryrestype is not None:
-                    return True
-
-                if self.ceqfpmemoryhcresfree is not None:
-                    return True
-
-                if self.ceqfpmemoryhcresinuse is not None:
-                    return True
-
-                if self.ceqfpmemoryhcreslowfreewatermark is not None:
-                    return True
-
-                if self.ceqfpmemoryhcrestotal is not None:
-                    return True
-
-                if self.ceqfpmemoryresfallingthreshold is not None:
-                    return True
-
-                if self.ceqfpmemoryresfree is not None:
-                    return True
-
-                if self.ceqfpmemoryresfreeovrflw is not None:
-                    return True
-
-                if self.ceqfpmemoryresinuse is not None:
-                    return True
-
-                if self.ceqfpmemoryresinuseovrflw is not None:
-                    return True
-
-                if self.ceqfpmemoryreslowfreewatermark is not None:
-                    return True
-
-                if self.ceqfpmemoryreslowfreewatermarkovrflw is not None:
-                    return True
-
-                if self.ceqfpmemoryresrisingthreshold is not None:
-                    return True
-
-                if self.ceqfpmemoryrestotal is not None:
-                    return True
-
-                if self.ceqfpmemoryrestotalovrflw is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpMemoryResourceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceqfpmemoryresourceentry is not None:
-                for child_ref in self.ceqfpmemoryresourceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceqfpmemoryresourceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceqfpMemoryResourceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceqfpMemoryResourceEntry"):
+                for c in self.ceqfpmemoryresourceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityQfpMib.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceqfpmemoryresourceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpMemoryResourceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ceqfpmemoryresourcetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceqfpthroughputtable(object):
+    class Ceqfpthroughputtable(Entity):
         """
         This table maintains the throughput information for each
         QFP physical entity.
@@ -1320,13 +1996,39 @@ class CiscoEntityQfpMib(object):
         _revision = '2014-06-18'
 
         def __init__(self):
-            self.parent = None
-            self.ceqfpthroughputentry = YList()
-            self.ceqfpthroughputentry.parent = self
-            self.ceqfpthroughputentry.name = 'ceqfpthroughputentry'
+            super(CiscoEntityQfpMib.Ceqfpthroughputtable, self).__init__()
+
+            self.yang_name = "ceqfpThroughputTable"
+            self.yang_parent_name = "CISCO-ENTITY-QFP-MIB"
+
+            self.ceqfpthroughputentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityQfpMib.Ceqfpthroughputtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityQfpMib.Ceqfpthroughputtable, self).__setattr__(name, value)
 
 
-        class Ceqfpthroughputentry(object):
+        class Ceqfpthroughputentry(Entity):
             """
             A conceptual row in the ceqfpThroughputTable. There is an entry
             in this table for each QFP entity, as defined by a value of
@@ -1362,7 +2064,7 @@ class CiscoEntityQfpMib(object):
             .. attribute:: ceqfpthroughputlevel
             
             	This object represents the current throughput level for installed throughput license.                  normal  (1) \- Throughput usage is normal                 warning (2) \- Throughput usage has crossed the                               configured threshold limit                 exceed  (3) \- Throughput usage has exceeded the                               total licensed bandwidth
-            	**type**\:   :py:class:`CeqfpthroughputlevelEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry.CeqfpthroughputlevelEnum>`
+            	**type**\:   :py:class:`Ceqfpthroughputlevel <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry.Ceqfpthroughputlevel>`
             
             .. attribute:: ceqfpthroughputlicensedbw
             
@@ -1390,17 +2092,55 @@ class CiscoEntityQfpMib(object):
             _revision = '2014-06-18'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.ceqfpthroughputavgrate = None
-                self.ceqfpthroughputinterval = None
-                self.ceqfpthroughputlevel = None
-                self.ceqfpthroughputlicensedbw = None
-                self.ceqfpthroughputthreshold = None
+                super(CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry, self).__init__()
 
-            class CeqfpthroughputlevelEnum(Enum):
+                self.yang_name = "ceqfpThroughputEntry"
+                self.yang_parent_name = "ceqfpThroughputTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.ceqfpthroughputavgrate = YLeaf(YType.uint64, "ceqfpThroughputAvgRate")
+
+                self.ceqfpthroughputinterval = YLeaf(YType.int32, "ceqfpThroughputInterval")
+
+                self.ceqfpthroughputlevel = YLeaf(YType.enumeration, "ceqfpThroughputLevel")
+
+                self.ceqfpthroughputlicensedbw = YLeaf(YType.uint64, "ceqfpThroughputLicensedBW")
+
+                self.ceqfpthroughputthreshold = YLeaf(YType.int32, "ceqfpThroughputThreshold")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "ceqfpthroughputavgrate",
+                                "ceqfpthroughputinterval",
+                                "ceqfpthroughputlevel",
+                                "ceqfpthroughputlicensedbw",
+                                "ceqfpthroughputthreshold") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry, self).__setattr__(name, value)
+
+            class Ceqfpthroughputlevel(Enum):
                 """
-                CeqfpthroughputlevelEnum
+                Ceqfpthroughputlevel
 
                 This object represents the current throughput level for
 
@@ -1424,111 +2164,251 @@ class CiscoEntityQfpMib(object):
 
                 """
 
-                normal = 1
+                normal = Enum.YLeaf(1, "normal")
 
-                warning = 2
+                warning = Enum.YLeaf(2, "warning")
 
-                exceed = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                    return meta._meta_table['CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry.CeqfpthroughputlevelEnum']
+                exceed = Enum.YLeaf(3, "exceed")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.ceqfpthroughputavgrate.is_set or
+                    self.ceqfpthroughputinterval.is_set or
+                    self.ceqfpthroughputlevel.is_set or
+                    self.ceqfpthroughputlicensedbw.is_set or
+                    self.ceqfpthroughputthreshold.is_set)
 
-                return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpThroughputTable/CISCO-ENTITY-QFP-MIB:ceqfpThroughputEntry[CISCO-ENTITY-QFP-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.ceqfpthroughputavgrate.yfilter != YFilter.not_set or
+                    self.ceqfpthroughputinterval.yfilter != YFilter.not_set or
+                    self.ceqfpthroughputlevel.yfilter != YFilter.not_set or
+                    self.ceqfpthroughputlicensedbw.yfilter != YFilter.not_set or
+                    self.ceqfpthroughputthreshold.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceqfpThroughputEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpThroughputTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.ceqfpthroughputavgrate.is_set or self.ceqfpthroughputavgrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpthroughputavgrate.get_name_leafdata())
+                if (self.ceqfpthroughputinterval.is_set or self.ceqfpthroughputinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpthroughputinterval.get_name_leafdata())
+                if (self.ceqfpthroughputlevel.is_set or self.ceqfpthroughputlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpthroughputlevel.get_name_leafdata())
+                if (self.ceqfpthroughputlicensedbw.is_set or self.ceqfpthroughputlicensedbw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpthroughputlicensedbw.get_name_leafdata())
+                if (self.ceqfpthroughputthreshold.is_set or self.ceqfpthroughputthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceqfpthroughputthreshold.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceqfpThroughputAvgRate" or name == "ceqfpThroughputInterval" or name == "ceqfpThroughputLevel" or name == "ceqfpThroughputLicensedBW" or name == "ceqfpThroughputThreshold"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpThroughputAvgRate"):
+                    self.ceqfpthroughputavgrate = value
+                    self.ceqfpthroughputavgrate.value_namespace = name_space
+                    self.ceqfpthroughputavgrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpThroughputInterval"):
+                    self.ceqfpthroughputinterval = value
+                    self.ceqfpthroughputinterval.value_namespace = name_space
+                    self.ceqfpthroughputinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpThroughputLevel"):
+                    self.ceqfpthroughputlevel = value
+                    self.ceqfpthroughputlevel.value_namespace = name_space
+                    self.ceqfpthroughputlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpThroughputLicensedBW"):
+                    self.ceqfpthroughputlicensedbw = value
+                    self.ceqfpthroughputlicensedbw.value_namespace = name_space
+                    self.ceqfpthroughputlicensedbw.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceqfpThroughputThreshold"):
+                    self.ceqfpthroughputthreshold = value
+                    self.ceqfpthroughputthreshold.value_namespace = name_space
+                    self.ceqfpthroughputthreshold.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceqfpthroughputentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceqfpthroughputavgrate is not None:
-                    return True
-
-                if self.ceqfpthroughputinterval is not None:
-                    return True
-
-                if self.ceqfpthroughputlevel is not None:
-                    return True
-
-                if self.ceqfpthroughputlicensedbw is not None:
-                    return True
-
-                if self.ceqfpthroughputthreshold is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-                return meta._meta_table['CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/CISCO-ENTITY-QFP-MIB:ceqfpThroughputTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceqfpthroughputentry is not None:
-                for child_ref in self.ceqfpthroughputentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceqfpthroughputentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceqfpThroughputTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceqfpThroughputEntry"):
+                for c in self.ceqfpthroughputentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityQfpMib.Ceqfpthroughputtable.Ceqfpthroughputentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceqfpthroughputentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceqfpThroughputEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-            return meta._meta_table['CiscoEntityQfpMib.Ceqfpthroughputtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ceqfpmemoryresourcetable is not None and self.ceqfpmemoryresourcetable.has_data()) or
+            (self.ceqfpsystemtable is not None and self.ceqfpsystemtable.has_data()) or
+            (self.ceqfpthroughputtable is not None and self.ceqfpthroughputtable.has_data()) or
+            (self.ceqfputilizationtable is not None and self.ceqfputilizationtable.has_data()) or
+            (self.ciscoentityqfp is not None and self.ciscoentityqfp.has_data()) or
+            (self.ciscoentityqfpnotif is not None and self.ciscoentityqfpnotif.has_data()))
 
-        return '/CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ceqfpmemoryresourcetable is not None and self.ceqfpmemoryresourcetable.has_operation()) or
+            (self.ceqfpsystemtable is not None and self.ceqfpsystemtable.has_operation()) or
+            (self.ceqfpthroughputtable is not None and self.ceqfpthroughputtable.has_operation()) or
+            (self.ceqfputilizationtable is not None and self.ceqfputilizationtable.has_operation()) or
+            (self.ciscoentityqfp is not None and self.ciscoentityqfp.has_operation()) or
+            (self.ciscoentityqfpnotif is not None and self.ciscoentityqfpnotif.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ceqfpMemoryResourceTable"):
+            if (self.ceqfpmemoryresourcetable is None):
+                self.ceqfpmemoryresourcetable = CiscoEntityQfpMib.Ceqfpmemoryresourcetable()
+                self.ceqfpmemoryresourcetable.parent = self
+                self._children_name_map["ceqfpmemoryresourcetable"] = "ceqfpMemoryResourceTable"
+            return self.ceqfpmemoryresourcetable
+
+        if (child_yang_name == "ceqfpSystemTable"):
+            if (self.ceqfpsystemtable is None):
+                self.ceqfpsystemtable = CiscoEntityQfpMib.Ceqfpsystemtable()
+                self.ceqfpsystemtable.parent = self
+                self._children_name_map["ceqfpsystemtable"] = "ceqfpSystemTable"
+            return self.ceqfpsystemtable
+
+        if (child_yang_name == "ceqfpThroughputTable"):
+            if (self.ceqfpthroughputtable is None):
+                self.ceqfpthroughputtable = CiscoEntityQfpMib.Ceqfpthroughputtable()
+                self.ceqfpthroughputtable.parent = self
+                self._children_name_map["ceqfpthroughputtable"] = "ceqfpThroughputTable"
+            return self.ceqfpthroughputtable
+
+        if (child_yang_name == "ceqfpUtilizationTable"):
+            if (self.ceqfputilizationtable is None):
+                self.ceqfputilizationtable = CiscoEntityQfpMib.Ceqfputilizationtable()
+                self.ceqfputilizationtable.parent = self
+                self._children_name_map["ceqfputilizationtable"] = "ceqfpUtilizationTable"
+            return self.ceqfputilizationtable
+
+        if (child_yang_name == "ciscoEntityQfp"):
+            if (self.ciscoentityqfp is None):
+                self.ciscoentityqfp = CiscoEntityQfpMib.Ciscoentityqfp()
+                self.ciscoentityqfp.parent = self
+                self._children_name_map["ciscoentityqfp"] = "ciscoEntityQfp"
+            return self.ciscoentityqfp
+
+        if (child_yang_name == "ciscoEntityQfpNotif"):
+            if (self.ciscoentityqfpnotif is None):
+                self.ciscoentityqfpnotif = CiscoEntityQfpMib.Ciscoentityqfpnotif()
+                self.ciscoentityqfpnotif.parent = self
+                self._children_name_map["ciscoentityqfpnotif"] = "ciscoEntityQfpNotif"
+            return self.ciscoentityqfpnotif
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ceqfpMemoryResourceTable" or name == "ceqfpSystemTable" or name == "ceqfpThroughputTable" or name == "ceqfpUtilizationTable" or name == "ciscoEntityQfp" or name == "ciscoEntityQfpNotif"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ceqfpmemoryresourcetable is not None and self.ceqfpmemoryresourcetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ceqfpsystemtable is not None and self.ceqfpsystemtable._has_data():
-            return True
-
-        if self.ceqfpthroughputtable is not None and self.ceqfpthroughputtable._has_data():
-            return True
-
-        if self.ceqfputilizationtable is not None and self.ceqfputilizationtable._has_data():
-            return True
-
-        if self.ciscoentityqfp is not None and self.ciscoentityqfp._has_data():
-            return True
-
-        if self.ciscoentityqfpnotif is not None and self.ciscoentityqfpnotif._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_QFP_MIB as meta
-        return meta._meta_table['CiscoEntityQfpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoEntityQfpMib()
+        return self._top_entity
 

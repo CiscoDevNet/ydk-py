@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class RoutingPolicy(object):
+class RoutingPolicy(Entity):
     """
     Routing policy configuration
     
@@ -57,16 +51,55 @@ class RoutingPolicy(object):
     _revision = '2015-08-27'
 
     def __init__(self):
-        self.editor = None
+        super(RoutingPolicy, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-policy"
+        self.yang_parent_name = "Cisco-IOS-XR-policy-repository-cfg"
+
+        self.editor = YLeaf(YType.str, "editor")
+
         self.limits = RoutingPolicy.Limits()
         self.limits.parent = self
+        self._children_name_map["limits"] = "limits"
+        self._children_yang_names.add("limits")
+
         self.route_policies = RoutingPolicy.RoutePolicies()
         self.route_policies.parent = self
+        self._children_name_map["route_policies"] = "route-policies"
+        self._children_yang_names.add("route-policies")
+
         self.sets = RoutingPolicy.Sets()
         self.sets.parent = self
+        self._children_name_map["sets"] = "sets"
+        self._children_yang_names.add("sets")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("editor") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(RoutingPolicy, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(RoutingPolicy, self).__setattr__(name, value)
 
 
-    class RoutePolicies(object):
+    class RoutePolicies(Entity):
         """
         All configured policies
         
@@ -83,13 +116,39 @@ class RoutingPolicy(object):
         _revision = '2015-08-27'
 
         def __init__(self):
-            self.parent = None
-            self.route_policy = YList()
-            self.route_policy.parent = self
-            self.route_policy.name = 'route_policy'
+            super(RoutingPolicy.RoutePolicies, self).__init__()
+
+            self.yang_name = "route-policies"
+            self.yang_parent_name = "routing-policy"
+
+            self.route_policy = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingPolicy.RoutePolicies, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingPolicy.RoutePolicies, self).__setattr__(name, value)
 
 
-        class RoutePolicy(object):
+        class RoutePolicy(Entity):
             """
             Information about an individual policy
             
@@ -115,59 +174,154 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.route_policy_name = None
-                self.rpl_route_policy = None
+                super(RoutingPolicy.RoutePolicies.RoutePolicy, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.route_policy_name is None:
-                    raise YPYModelError('Key property route_policy_name is None')
+                self.yang_name = "route-policy"
+                self.yang_parent_name = "route-policies"
 
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:route-policies/Cisco-IOS-XR-policy-repository-cfg:route-policy[Cisco-IOS-XR-policy-repository-cfg:route-policy-name = ' + str(self.route_policy_name) + ']'
+                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.rpl_route_policy = YLeaf(YType.str, "rpl-route-policy")
 
-            def _has_data(self):
-                if self.route_policy_name is not None:
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("route_policy_name",
+                                "rpl_route_policy") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.RoutePolicies.RoutePolicy, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.RoutePolicies.RoutePolicy, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.route_policy_name.is_set or
+                    self.rpl_route_policy.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.route_policy_name.yfilter != YFilter.not_set or
+                    self.rpl_route_policy.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "route-policy" + "[route-policy-name='" + self.route_policy_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/route-policies/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.route_policy_name.is_set or self.route_policy_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_policy_name.get_name_leafdata())
+                if (self.rpl_route_policy.is_set or self.rpl_route_policy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rpl_route_policy.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "route-policy-name" or name == "rpl-route-policy"):
                     return True
-
-                if self.rpl_route_policy is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.RoutePolicies.RoutePolicy']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "route-policy-name"):
+                    self.route_policy_name = value
+                    self.route_policy_name.value_namespace = name_space
+                    self.route_policy_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "rpl-route-policy"):
+                    self.rpl_route_policy = value
+                    self.rpl_route_policy.value_namespace = name_space
+                    self.rpl_route_policy.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:route-policies'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.route_policy is not None:
-                for child_ref in self.route_policy:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.route_policy:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-            return meta._meta_table['RoutingPolicy.RoutePolicies']['meta_info']
+        def has_operation(self):
+            for c in self.route_policy:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "route-policies" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "route-policy"):
+                for c in self.route_policy:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RoutingPolicy.RoutePolicies.RoutePolicy()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.route_policy.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "route-policy"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sets(object):
+    class Sets(Entity):
         """
         All configured sets
         
@@ -304,60 +458,138 @@ class RoutingPolicy(object):
         _revision = '2015-08-27'
 
         def __init__(self):
-            self.parent = None
+            super(RoutingPolicy.Sets, self).__init__()
+
+            self.yang_name = "sets"
+            self.yang_parent_name = "routing-policy"
+
             self.append_esi_sets = RoutingPolicy.Sets.AppendEsiSets()
             self.append_esi_sets.parent = self
+            self._children_name_map["append_esi_sets"] = "append-esi-sets"
+            self._children_yang_names.add("append-esi-sets")
+
             self.append_etag_sets = RoutingPolicy.Sets.AppendEtagSets()
             self.append_etag_sets.parent = self
+            self._children_name_map["append_etag_sets"] = "append-etag-sets"
+            self._children_yang_names.add("append-etag-sets")
+
             self.append_mac_sets = RoutingPolicy.Sets.AppendMacSets()
             self.append_mac_sets.parent = self
+            self._children_name_map["append_mac_sets"] = "append-mac-sets"
+            self._children_yang_names.add("append-mac-sets")
+
             self.as_path_sets = RoutingPolicy.Sets.AsPathSets()
             self.as_path_sets.parent = self
+            self._children_name_map["as_path_sets"] = "as-path-sets"
+            self._children_yang_names.add("as-path-sets")
+
             self.community_sets = RoutingPolicy.Sets.CommunitySets()
             self.community_sets.parent = self
+            self._children_name_map["community_sets"] = "community-sets"
+            self._children_yang_names.add("community-sets")
+
             self.esi_sets = RoutingPolicy.Sets.EsiSets()
             self.esi_sets.parent = self
+            self._children_name_map["esi_sets"] = "esi-sets"
+            self._children_yang_names.add("esi-sets")
+
             self.etag_sets = RoutingPolicy.Sets.EtagSets()
             self.etag_sets.parent = self
+            self._children_name_map["etag_sets"] = "etag-sets"
+            self._children_yang_names.add("etag-sets")
+
             self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
             self.extended_community_bandwidth_sets.parent = self
+            self._children_name_map["extended_community_bandwidth_sets"] = "extended-community-bandwidth-sets"
+            self._children_yang_names.add("extended-community-bandwidth-sets")
+
             self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
             self.extended_community_cost_sets.parent = self
+            self._children_name_map["extended_community_cost_sets"] = "extended-community-cost-sets"
+            self._children_yang_names.add("extended-community-cost-sets")
+
             self.extended_community_opaque_sets = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets()
             self.extended_community_opaque_sets.parent = self
+            self._children_name_map["extended_community_opaque_sets"] = "extended-community-opaque-sets"
+            self._children_yang_names.add("extended-community-opaque-sets")
+
             self.extended_community_rt_sets = RoutingPolicy.Sets.ExtendedCommunityRtSets()
             self.extended_community_rt_sets.parent = self
+            self._children_name_map["extended_community_rt_sets"] = "extended-community-rt-sets"
+            self._children_yang_names.add("extended-community-rt-sets")
+
             self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
             self.extended_community_seg_nh_sets.parent = self
+            self._children_name_map["extended_community_seg_nh_sets"] = "extended-community-seg-nh-sets"
+            self._children_yang_names.add("extended-community-seg-nh-sets")
+
             self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
             self.extended_community_soo_sets.parent = self
+            self._children_name_map["extended_community_soo_sets"] = "extended-community-soo-sets"
+            self._children_yang_names.add("extended-community-soo-sets")
+
             self.mac_sets = RoutingPolicy.Sets.MacSets()
             self.mac_sets.parent = self
+            self._children_name_map["mac_sets"] = "mac-sets"
+            self._children_yang_names.add("mac-sets")
+
             self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
             self.ospf_area_sets.parent = self
+            self._children_name_map["ospf_area_sets"] = "ospf-area-sets"
+            self._children_yang_names.add("ospf-area-sets")
+
             self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
             self.policy_global_set_table.parent = self
+            self._children_name_map["policy_global_set_table"] = "policy-global-set-table"
+            self._children_yang_names.add("policy-global-set-table")
+
             self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
             self.prefix_sets.parent = self
+            self._children_name_map["prefix_sets"] = "prefix-sets"
+            self._children_yang_names.add("prefix-sets")
+
             self.prepend_esi_sets = RoutingPolicy.Sets.PrependEsiSets()
             self.prepend_esi_sets.parent = self
+            self._children_name_map["prepend_esi_sets"] = "prepend-esi-sets"
+            self._children_yang_names.add("prepend-esi-sets")
+
             self.prepend_etag_sets = RoutingPolicy.Sets.PrependEtagSets()
             self.prepend_etag_sets.parent = self
+            self._children_name_map["prepend_etag_sets"] = "prepend-etag-sets"
+            self._children_yang_names.add("prepend-etag-sets")
+
             self.prepend_mac_sets = RoutingPolicy.Sets.PrependMacSets()
             self.prepend_mac_sets.parent = self
+            self._children_name_map["prepend_mac_sets"] = "prepend-mac-sets"
+            self._children_yang_names.add("prepend-mac-sets")
+
             self.rd_sets = RoutingPolicy.Sets.RdSets()
             self.rd_sets.parent = self
+            self._children_name_map["rd_sets"] = "rd-sets"
+            self._children_yang_names.add("rd-sets")
+
             self.remove_esi_sets = RoutingPolicy.Sets.RemoveEsiSets()
             self.remove_esi_sets.parent = self
+            self._children_name_map["remove_esi_sets"] = "remove-esi-sets"
+            self._children_yang_names.add("remove-esi-sets")
+
             self.remove_etag_sets = RoutingPolicy.Sets.RemoveEtagSets()
             self.remove_etag_sets.parent = self
+            self._children_name_map["remove_etag_sets"] = "remove-etag-sets"
+            self._children_yang_names.add("remove-etag-sets")
+
             self.remove_mac_sets = RoutingPolicy.Sets.RemoveMacSets()
             self.remove_mac_sets.parent = self
+            self._children_name_map["remove_mac_sets"] = "remove-mac-sets"
+            self._children_yang_names.add("remove-mac-sets")
+
             self.tag_sets = RoutingPolicy.Sets.TagSets()
             self.tag_sets.parent = self
+            self._children_name_map["tag_sets"] = "tag-sets"
+            self._children_yang_names.add("tag-sets")
 
 
-        class PrependEtagSets(object):
+        class PrependEtagSets(Entity):
             """
             Information about Etag sets
             
@@ -374,13 +606,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.prepend_etag_set = YList()
-                self.prepend_etag_set.parent = self
-                self.prepend_etag_set.name = 'prepend_etag_set'
+                super(RoutingPolicy.Sets.PrependEtagSets, self).__init__()
+
+                self.yang_name = "prepend-etag-sets"
+                self.yang_parent_name = "sets"
+
+                self.prepend_etag_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.PrependEtagSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.PrependEtagSets, self).__setattr__(name, value)
 
 
-            class PrependEtagSet(object):
+            class PrependEtagSet(Entity):
                 """
                 Prepend the entries to the existing set
                 
@@ -406,59 +664,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.etag_set_as_text = None
+                    super(RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "prepend-etag-set"
+                    self.yang_parent_name = "prepend-etag-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "etag_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.etag_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.etag_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "prepend-etag-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-etag-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.etag_set_as_text.is_set or self.etag_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.etag_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "etag-set-as-text"):
                         return True
-
-                    if self.etag_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "etag-set-as-text"):
+                        self.etag_set_as_text = value
+                        self.etag_set_as_text.value_namespace = name_space
+                        self.etag_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.prepend_etag_set is not None:
-                    for child_ref in self.prepend_etag_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.prepend_etag_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.PrependEtagSets']['meta_info']
+            def has_operation(self):
+                for c in self.prepend_etag_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prepend-etag-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "prepend-etag-set"):
+                    for c in self.prepend_etag_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.prepend_etag_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "prepend-etag-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class PrefixSets(object):
+        class PrefixSets(Entity):
             """
             Information about Prefix sets
             
@@ -475,13 +828,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.prefix_set = YList()
-                self.prefix_set.parent = self
-                self.prefix_set.name = 'prefix_set'
+                super(RoutingPolicy.Sets.PrefixSets, self).__init__()
+
+                self.yang_name = "prefix-sets"
+                self.yang_parent_name = "sets"
+
+                self.prefix_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.PrefixSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.PrefixSets, self).__setattr__(name, value)
 
 
-            class PrefixSet(object):
+            class PrefixSet(Entity):
                 """
                 Information about an individual set
                 
@@ -507,59 +886,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_prefix_set = None
+                    super(RoutingPolicy.Sets.PrefixSets.PrefixSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "prefix-set"
+                    self.yang_parent_name = "prefix-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prefix-sets/Cisco-IOS-XR-policy-repository-cfg:prefix-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_prefix_set = YLeaf(YType.str, "rpl-prefix-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_prefix_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.PrefixSets.PrefixSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.PrefixSets.PrefixSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_prefix_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_prefix_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "prefix-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prefix-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_prefix_set.is_set or self.rpl_prefix_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_prefix_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-prefix-set"):
                         return True
-
-                    if self.rpl_prefix_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.PrefixSets.PrefixSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-prefix-set"):
+                        self.rpl_prefix_set = value
+                        self.rpl_prefix_set.value_namespace = name_space
+                        self.rpl_prefix_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prefix-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.prefix_set is not None:
-                    for child_ref in self.prefix_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.prefix_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.PrefixSets']['meta_info']
+            def has_operation(self):
+                for c in self.prefix_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prefix-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "prefix-set"):
+                    for c in self.prefix_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.PrefixSets.PrefixSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.prefix_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "prefix-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AppendEtagSets(object):
+        class AppendEtagSets(Entity):
             """
             Information about Etag sets
             
@@ -576,13 +1050,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.append_etag_set = YList()
-                self.append_etag_set.parent = self
-                self.append_etag_set.name = 'append_etag_set'
+                super(RoutingPolicy.Sets.AppendEtagSets, self).__init__()
+
+                self.yang_name = "append-etag-sets"
+                self.yang_parent_name = "sets"
+
+                self.append_etag_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.AppendEtagSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.AppendEtagSets, self).__setattr__(name, value)
 
 
-            class AppendEtagSet(object):
+            class AppendEtagSet(Entity):
                 """
                 Append the entries to the existing set
                 
@@ -608,59 +1108,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.etag_set_as_text = None
+                    super(RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "append-etag-set"
+                    self.yang_parent_name = "append-etag-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "etag_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.etag_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.etag_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "append-etag-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-etag-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.etag_set_as_text.is_set or self.etag_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.etag_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "etag-set-as-text"):
                         return True
-
-                    if self.etag_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "etag-set-as-text"):
+                        self.etag_set_as_text = value
+                        self.etag_set_as_text.value_namespace = name_space
+                        self.etag_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.append_etag_set is not None:
-                    for child_ref in self.append_etag_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.append_etag_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.AppendEtagSets']['meta_info']
+            def has_operation(self):
+                for c in self.append_etag_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "append-etag-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "append-etag-set"):
+                    for c in self.append_etag_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.append_etag_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "append-etag-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class RemoveEtagSets(object):
+        class RemoveEtagSets(Entity):
             """
             Information about Etag sets
             
@@ -677,13 +1272,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.remove_etag_set = YList()
-                self.remove_etag_set.parent = self
-                self.remove_etag_set.name = 'remove_etag_set'
+                super(RoutingPolicy.Sets.RemoveEtagSets, self).__init__()
+
+                self.yang_name = "remove-etag-sets"
+                self.yang_parent_name = "sets"
+
+                self.remove_etag_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.RemoveEtagSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.RemoveEtagSets, self).__setattr__(name, value)
 
 
-            class RemoveEtagSet(object):
+            class RemoveEtagSet(Entity):
                 """
                 Remove the entries from the existing set
                 
@@ -709,59 +1330,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.etag_set_as_text = None
+                    super(RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "remove-etag-set"
+                    self.yang_parent_name = "remove-etag-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "etag_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.etag_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.etag_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "remove-etag-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-etag-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.etag_set_as_text.is_set or self.etag_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.etag_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "etag-set-as-text"):
                         return True
-
-                    if self.etag_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "etag-set-as-text"):
+                        self.etag_set_as_text = value
+                        self.etag_set_as_text.value_namespace = name_space
+                        self.etag_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.remove_etag_set is not None:
-                    for child_ref in self.remove_etag_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.remove_etag_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.RemoveEtagSets']['meta_info']
+            def has_operation(self):
+                for c in self.remove_etag_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "remove-etag-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "remove-etag-set"):
+                    for c in self.remove_etag_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.remove_etag_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "remove-etag-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class MacSets(object):
+        class MacSets(Entity):
             """
             Information about Mac sets
             
@@ -778,13 +1494,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.mac_set = YList()
-                self.mac_set.parent = self
-                self.mac_set.name = 'mac_set'
+                super(RoutingPolicy.Sets.MacSets, self).__init__()
+
+                self.yang_name = "mac-sets"
+                self.yang_parent_name = "sets"
+
+                self.mac_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.MacSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.MacSets, self).__setattr__(name, value)
 
 
-            class MacSet(object):
+            class MacSet(Entity):
                 """
                 Information about an individual set
                 
@@ -810,59 +1552,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.mac_set_as_text = None
+                    super(RoutingPolicy.Sets.MacSets.MacSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "mac-set"
+                    self.yang_parent_name = "mac-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:mac-sets/Cisco-IOS-XR-policy-repository-cfg:mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "mac_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.MacSets.MacSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.MacSets.MacSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.mac_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.mac_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "mac-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/mac-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.mac_set_as_text.is_set or self.mac_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "mac-set-as-text"):
                         return True
-
-                    if self.mac_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.MacSets.MacSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mac-set-as-text"):
+                        self.mac_set_as_text = value
+                        self.mac_set_as_text.value_namespace = name_space
+                        self.mac_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:mac-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.mac_set is not None:
-                    for child_ref in self.mac_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.mac_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.MacSets']['meta_info']
+            def has_operation(self):
+                for c in self.mac_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mac-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "mac-set"):
+                    for c in self.mac_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.MacSets.MacSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.mac_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mac-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class ExtendedCommunityOpaqueSets(object):
+        class ExtendedCommunityOpaqueSets(Entity):
             """
             Information about Opaque sets
             
@@ -879,13 +1716,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_opaque_set = YList()
-                self.extended_community_opaque_set.parent = self
-                self.extended_community_opaque_set.name = 'extended_community_opaque_set'
+                super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets, self).__init__()
+
+                self.yang_name = "extended-community-opaque-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_opaque_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunityOpaqueSet(object):
+            class ExtendedCommunityOpaqueSet(Entity):
                 """
                 Information about an individual set
                 
@@ -911,59 +1774,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_opaque_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-opaque-set"
+                    self.yang_parent_name = "extended-community-opaque-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-opaque-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-opaque-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_opaque_set = YLeaf(YType.str, "rpl-extended-community-opaque-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_opaque_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_opaque_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_opaque_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-opaque-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-opaque-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_opaque_set.is_set or self.rpl_extended_community_opaque_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_opaque_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-opaque-set"):
                         return True
-
-                    if self.rpl_extended_community_opaque_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-opaque-set"):
+                        self.rpl_extended_community_opaque_set = value
+                        self.rpl_extended_community_opaque_set.value_namespace = name_space
+                        self.rpl_extended_community_opaque_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-opaque-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_opaque_set is not None:
-                    for child_ref in self.extended_community_opaque_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_opaque_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_opaque_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-opaque-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-opaque-set"):
+                    for c in self.extended_community_opaque_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_opaque_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-opaque-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class PrependMacSets(object):
+        class PrependMacSets(Entity):
             """
             Information about Mac sets
             
@@ -980,13 +1938,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.prepend_mac_set = YList()
-                self.prepend_mac_set.parent = self
-                self.prepend_mac_set.name = 'prepend_mac_set'
+                super(RoutingPolicy.Sets.PrependMacSets, self).__init__()
+
+                self.yang_name = "prepend-mac-sets"
+                self.yang_parent_name = "sets"
+
+                self.prepend_mac_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.PrependMacSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.PrependMacSets, self).__setattr__(name, value)
 
 
-            class PrependMacSet(object):
+            class PrependMacSet(Entity):
                 """
                 Prepend the entries to the existing set
                 
@@ -1012,59 +1996,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.mac_set_as_text = None
+                    super(RoutingPolicy.Sets.PrependMacSets.PrependMacSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "prepend-mac-set"
+                    self.yang_parent_name = "prepend-mac-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "mac_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.PrependMacSets.PrependMacSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.PrependMacSets.PrependMacSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.mac_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.mac_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "prepend-mac-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-mac-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.mac_set_as_text.is_set or self.mac_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "mac-set-as-text"):
                         return True
-
-                    if self.mac_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.PrependMacSets.PrependMacSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mac-set-as-text"):
+                        self.mac_set_as_text = value
+                        self.mac_set_as_text.value_namespace = name_space
+                        self.mac_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.prepend_mac_set is not None:
-                    for child_ref in self.prepend_mac_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.prepend_mac_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.PrependMacSets']['meta_info']
+            def has_operation(self):
+                for c in self.prepend_mac_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prepend-mac-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "prepend-mac-set"):
+                    for c in self.prepend_mac_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.PrependMacSets.PrependMacSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.prepend_mac_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "prepend-mac-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class OspfAreaSets(object):
+        class OspfAreaSets(Entity):
             """
             Information about OSPF Area sets
             
@@ -1081,13 +2160,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.ospf_area_set = YList()
-                self.ospf_area_set.parent = self
-                self.ospf_area_set.name = 'ospf_area_set'
+                super(RoutingPolicy.Sets.OspfAreaSets, self).__init__()
+
+                self.yang_name = "ospf-area-sets"
+                self.yang_parent_name = "sets"
+
+                self.ospf_area_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.OspfAreaSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.OspfAreaSets, self).__setattr__(name, value)
 
 
-            class OspfAreaSet(object):
+            class OspfAreaSet(Entity):
                 """
                 Information about an individual OSPF area set.
                 Usage\: OSPF area set allows to define named
@@ -1128,59 +2233,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rplospf_area_set = None
+                    super(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "ospf-area-set"
+                    self.yang_parent_name = "ospf-area-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:ospf-area-sets/Cisco-IOS-XR-policy-repository-cfg:ospf-area-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rplospf_area_set = YLeaf(YType.str, "rplospf-area-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rplospf_area_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rplospf_area_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rplospf_area_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ospf-area-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/ospf-area-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rplospf_area_set.is_set or self.rplospf_area_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rplospf_area_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rplospf-area-set"):
                         return True
-
-                    if self.rplospf_area_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rplospf-area-set"):
+                        self.rplospf_area_set = value
+                        self.rplospf_area_set.value_namespace = name_space
+                        self.rplospf_area_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:ospf-area-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.ospf_area_set is not None:
-                    for child_ref in self.ospf_area_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.ospf_area_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.OspfAreaSets']['meta_info']
+            def has_operation(self):
+                for c in self.ospf_area_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospf-area-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "ospf-area-set"):
+                    for c in self.ospf_area_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.ospf_area_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospf-area-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AppendMacSets(object):
+        class AppendMacSets(Entity):
             """
             Information about Mac sets
             
@@ -1197,13 +2397,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.append_mac_set = YList()
-                self.append_mac_set.parent = self
-                self.append_mac_set.name = 'append_mac_set'
+                super(RoutingPolicy.Sets.AppendMacSets, self).__init__()
+
+                self.yang_name = "append-mac-sets"
+                self.yang_parent_name = "sets"
+
+                self.append_mac_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.AppendMacSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.AppendMacSets, self).__setattr__(name, value)
 
 
-            class AppendMacSet(object):
+            class AppendMacSet(Entity):
                 """
                 Append the entries to the existing set
                 
@@ -1229,59 +2455,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.mac_set_as_text = None
+                    super(RoutingPolicy.Sets.AppendMacSets.AppendMacSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "append-mac-set"
+                    self.yang_parent_name = "append-mac-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "mac_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.AppendMacSets.AppendMacSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.AppendMacSets.AppendMacSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.mac_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.mac_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "append-mac-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-mac-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.mac_set_as_text.is_set or self.mac_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "mac-set-as-text"):
                         return True
-
-                    if self.mac_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.AppendMacSets.AppendMacSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mac-set-as-text"):
+                        self.mac_set_as_text = value
+                        self.mac_set_as_text.value_namespace = name_space
+                        self.mac_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.append_mac_set is not None:
-                    for child_ref in self.append_mac_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.append_mac_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.AppendMacSets']['meta_info']
+            def has_operation(self):
+                for c in self.append_mac_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "append-mac-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "append-mac-set"):
+                    for c in self.append_mac_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.AppendMacSets.AppendMacSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.append_mac_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "append-mac-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class ExtendedCommunityCostSets(object):
+        class ExtendedCommunityCostSets(Entity):
             """
             Information about Cost sets
             
@@ -1298,13 +2619,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_cost_set = YList()
-                self.extended_community_cost_set.parent = self
-                self.extended_community_cost_set.name = 'extended_community_cost_set'
+                super(RoutingPolicy.Sets.ExtendedCommunityCostSets, self).__init__()
+
+                self.yang_name = "extended-community-cost-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_cost_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunityCostSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunityCostSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunityCostSet(object):
+            class ExtendedCommunityCostSet(Entity):
                 """
                 Information about an individual set
                 
@@ -1330,59 +2677,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_cost_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-cost-set"
+                    self.yang_parent_name = "extended-community-cost-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-cost-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-cost-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_cost_set = YLeaf(YType.str, "rpl-extended-community-cost-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_cost_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_cost_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_cost_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-cost-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-cost-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_cost_set.is_set or self.rpl_extended_community_cost_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_cost_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-cost-set"):
                         return True
-
-                    if self.rpl_extended_community_cost_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-cost-set"):
+                        self.rpl_extended_community_cost_set = value
+                        self.rpl_extended_community_cost_set.value_namespace = name_space
+                        self.rpl_extended_community_cost_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-cost-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_cost_set is not None:
-                    for child_ref in self.extended_community_cost_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_cost_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_cost_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-cost-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-cost-set"):
+                    for c in self.extended_community_cost_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_cost_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-cost-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class RemoveMacSets(object):
+        class RemoveMacSets(Entity):
             """
             Information about Mac sets
             
@@ -1399,13 +2841,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.remove_mac_set = YList()
-                self.remove_mac_set.parent = self
-                self.remove_mac_set.name = 'remove_mac_set'
+                super(RoutingPolicy.Sets.RemoveMacSets, self).__init__()
+
+                self.yang_name = "remove-mac-sets"
+                self.yang_parent_name = "sets"
+
+                self.remove_mac_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.RemoveMacSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.RemoveMacSets, self).__setattr__(name, value)
 
 
-            class RemoveMacSet(object):
+            class RemoveMacSet(Entity):
                 """
                 Remove the entries from the existing set
                 
@@ -1431,59 +2899,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.mac_set_as_text = None
+                    super(RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "remove-mac-set"
+                    self.yang_parent_name = "remove-mac-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "mac_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.mac_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.mac_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "remove-mac-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-mac-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.mac_set_as_text.is_set or self.mac_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "mac-set-as-text"):
                         return True
-
-                    if self.mac_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mac-set-as-text"):
+                        self.mac_set_as_text = value
+                        self.mac_set_as_text.value_namespace = name_space
+                        self.mac_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.remove_mac_set is not None:
-                    for child_ref in self.remove_mac_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.remove_mac_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.RemoveMacSets']['meta_info']
+            def has_operation(self):
+                for c in self.remove_mac_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "remove-mac-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "remove-mac-set"):
+                    for c in self.remove_mac_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.remove_mac_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "remove-mac-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class ExtendedCommunitySooSets(object):
+        class ExtendedCommunitySooSets(Entity):
             """
             Information about SOO sets
             
@@ -1500,13 +3063,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_soo_set = YList()
-                self.extended_community_soo_set.parent = self
-                self.extended_community_soo_set.name = 'extended_community_soo_set'
+                super(RoutingPolicy.Sets.ExtendedCommunitySooSets, self).__init__()
+
+                self.yang_name = "extended-community-soo-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_soo_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunitySooSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunitySooSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunitySooSet(object):
+            class ExtendedCommunitySooSet(Entity):
                 """
                 Information about an individual set
                 
@@ -1532,59 +3121,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_soo_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-soo-set"
+                    self.yang_parent_name = "extended-community-soo-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-soo-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-soo-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_soo_set = YLeaf(YType.str, "rpl-extended-community-soo-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_soo_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_soo_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_soo_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-soo-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-soo-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_soo_set.is_set or self.rpl_extended_community_soo_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_soo_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-soo-set"):
                         return True
-
-                    if self.rpl_extended_community_soo_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-soo-set"):
+                        self.rpl_extended_community_soo_set = value
+                        self.rpl_extended_community_soo_set.value_namespace = name_space
+                        self.rpl_extended_community_soo_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-soo-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_soo_set is not None:
-                    for child_ref in self.extended_community_soo_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_soo_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_soo_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-soo-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-soo-set"):
+                    for c in self.extended_community_soo_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_soo_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-soo-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class EsiSets(object):
+        class EsiSets(Entity):
             """
             Information about Esi sets
             
@@ -1601,13 +3285,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.esi_set = YList()
-                self.esi_set.parent = self
-                self.esi_set.name = 'esi_set'
+                super(RoutingPolicy.Sets.EsiSets, self).__init__()
+
+                self.yang_name = "esi-sets"
+                self.yang_parent_name = "sets"
+
+                self.esi_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.EsiSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.EsiSets, self).__setattr__(name, value)
 
 
-            class EsiSet(object):
+            class EsiSet(Entity):
                 """
                 Information about an individual set
                 
@@ -1633,59 +3343,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.esi_set_as_text = None
+                    super(RoutingPolicy.Sets.EsiSets.EsiSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "esi-set"
+                    self.yang_parent_name = "esi-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:esi-sets/Cisco-IOS-XR-policy-repository-cfg:esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "esi_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.EsiSets.EsiSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.EsiSets.EsiSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.esi_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.esi_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "esi-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/esi-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.esi_set_as_text.is_set or self.esi_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.esi_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "esi-set-as-text"):
                         return True
-
-                    if self.esi_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.EsiSets.EsiSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "esi-set-as-text"):
+                        self.esi_set_as_text = value
+                        self.esi_set_as_text.value_namespace = name_space
+                        self.esi_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:esi-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.esi_set is not None:
-                    for child_ref in self.esi_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.esi_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.EsiSets']['meta_info']
+            def has_operation(self):
+                for c in self.esi_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "esi-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "esi-set"):
+                    for c in self.esi_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.EsiSets.EsiSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.esi_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "esi-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class PrependEsiSets(object):
+        class PrependEsiSets(Entity):
             """
             Information about Esi sets
             
@@ -1702,13 +3507,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.prepend_esi_set = YList()
-                self.prepend_esi_set.parent = self
-                self.prepend_esi_set.name = 'prepend_esi_set'
+                super(RoutingPolicy.Sets.PrependEsiSets, self).__init__()
+
+                self.yang_name = "prepend-esi-sets"
+                self.yang_parent_name = "sets"
+
+                self.prepend_esi_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.PrependEsiSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.PrependEsiSets, self).__setattr__(name, value)
 
 
-            class PrependEsiSet(object):
+            class PrependEsiSet(Entity):
                 """
                 Prepend the entries to the existing set
                 
@@ -1734,59 +3565,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.esi_set_as_text = None
+                    super(RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "prepend-esi-set"
+                    self.yang_parent_name = "prepend-esi-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "esi_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.esi_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.esi_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "prepend-esi-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-esi-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.esi_set_as_text.is_set or self.esi_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.esi_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "esi-set-as-text"):
                         return True
-
-                    if self.esi_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "esi-set-as-text"):
+                        self.esi_set_as_text = value
+                        self.esi_set_as_text.value_namespace = name_space
+                        self.esi_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.prepend_esi_set is not None:
-                    for child_ref in self.prepend_esi_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.prepend_esi_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.PrependEsiSets']['meta_info']
+            def has_operation(self):
+                for c in self.prepend_esi_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prepend-esi-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "prepend-esi-set"):
+                    for c in self.prepend_esi_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.prepend_esi_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "prepend-esi-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AppendEsiSets(object):
+        class AppendEsiSets(Entity):
             """
             Information about Esi sets
             
@@ -1803,13 +3729,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.append_esi_set = YList()
-                self.append_esi_set.parent = self
-                self.append_esi_set.name = 'append_esi_set'
+                super(RoutingPolicy.Sets.AppendEsiSets, self).__init__()
+
+                self.yang_name = "append-esi-sets"
+                self.yang_parent_name = "sets"
+
+                self.append_esi_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.AppendEsiSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.AppendEsiSets, self).__setattr__(name, value)
 
 
-            class AppendEsiSet(object):
+            class AppendEsiSet(Entity):
                 """
                 Append the entries to the existing set
                 
@@ -1835,59 +3787,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.esi_set_as_text = None
+                    super(RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "append-esi-set"
+                    self.yang_parent_name = "append-esi-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "esi_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.esi_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.esi_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "append-esi-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-esi-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.esi_set_as_text.is_set or self.esi_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.esi_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "esi-set-as-text"):
                         return True
-
-                    if self.esi_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "esi-set-as-text"):
+                        self.esi_set_as_text = value
+                        self.esi_set_as_text.value_namespace = name_space
+                        self.esi_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.append_esi_set is not None:
-                    for child_ref in self.append_esi_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.append_esi_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.AppendEsiSets']['meta_info']
+            def has_operation(self):
+                for c in self.append_esi_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "append-esi-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "append-esi-set"):
+                    for c in self.append_esi_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.append_esi_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "append-esi-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class RemoveEsiSets(object):
+        class RemoveEsiSets(Entity):
             """
             Information about Esi sets
             
@@ -1904,13 +3951,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.remove_esi_set = YList()
-                self.remove_esi_set.parent = self
-                self.remove_esi_set.name = 'remove_esi_set'
+                super(RoutingPolicy.Sets.RemoveEsiSets, self).__init__()
+
+                self.yang_name = "remove-esi-sets"
+                self.yang_parent_name = "sets"
+
+                self.remove_esi_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.RemoveEsiSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.RemoveEsiSets, self).__setattr__(name, value)
 
 
-            class RemoveEsiSet(object):
+            class RemoveEsiSet(Entity):
                 """
                 Remove the entries from the existing set
                 
@@ -1936,59 +4009,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.esi_set_as_text = None
+                    super(RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "remove-esi-set"
+                    self.yang_parent_name = "remove-esi-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "esi_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.esi_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.esi_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "remove-esi-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-esi-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.esi_set_as_text.is_set or self.esi_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.esi_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "esi-set-as-text"):
                         return True
-
-                    if self.esi_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "esi-set-as-text"):
+                        self.esi_set_as_text = value
+                        self.esi_set_as_text.value_namespace = name_space
+                        self.esi_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.remove_esi_set is not None:
-                    for child_ref in self.remove_esi_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.remove_esi_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.RemoveEsiSets']['meta_info']
+            def has_operation(self):
+                for c in self.remove_esi_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "remove-esi-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "remove-esi-set"):
+                    for c in self.remove_esi_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.remove_esi_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "remove-esi-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class ExtendedCommunitySegNhSets(object):
+        class ExtendedCommunitySegNhSets(Entity):
             """
             Information about SegNH sets
             
@@ -2005,13 +4173,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_seg_nh_set = YList()
-                self.extended_community_seg_nh_set.parent = self
-                self.extended_community_seg_nh_set.name = 'extended_community_seg_nh_set'
+                super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets, self).__init__()
+
+                self.yang_name = "extended-community-seg-nh-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_seg_nh_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunitySegNhSet(object):
+            class ExtendedCommunitySegNhSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2037,59 +4231,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_seg_nh_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-seg-nh-set"
+                    self.yang_parent_name = "extended-community-seg-nh-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-seg-nh-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-seg-nh-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_seg_nh_set = YLeaf(YType.str, "rpl-extended-community-seg-nh-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_seg_nh_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_seg_nh_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_seg_nh_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-seg-nh-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-seg-nh-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_seg_nh_set.is_set or self.rpl_extended_community_seg_nh_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_seg_nh_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-seg-nh-set"):
                         return True
-
-                    if self.rpl_extended_community_seg_nh_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-seg-nh-set"):
+                        self.rpl_extended_community_seg_nh_set = value
+                        self.rpl_extended_community_seg_nh_set.value_namespace = name_space
+                        self.rpl_extended_community_seg_nh_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-seg-nh-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_seg_nh_set is not None:
-                    for child_ref in self.extended_community_seg_nh_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_seg_nh_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNhSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_seg_nh_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-seg-nh-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-seg-nh-set"):
+                    for c in self.extended_community_seg_nh_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_seg_nh_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-seg-nh-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class RdSets(object):
+        class RdSets(Entity):
             """
             Information about RD sets
             
@@ -2106,13 +4395,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.rd_set = YList()
-                self.rd_set.parent = self
-                self.rd_set.name = 'rd_set'
+                super(RoutingPolicy.Sets.RdSets, self).__init__()
+
+                self.yang_name = "rd-sets"
+                self.yang_parent_name = "sets"
+
+                self.rd_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.RdSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.RdSets, self).__setattr__(name, value)
 
 
-            class RdSet(object):
+            class RdSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2138,59 +4453,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rplrd_set = None
+                    super(RoutingPolicy.Sets.RdSets.RdSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "rd-set"
+                    self.yang_parent_name = "rd-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:rd-sets/Cisco-IOS-XR-policy-repository-cfg:rd-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rplrd_set = YLeaf(YType.str, "rplrd-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rplrd_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.RdSets.RdSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.RdSets.RdSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rplrd_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rplrd_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rd-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/rd-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rplrd_set.is_set or self.rplrd_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rplrd_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rplrd-set"):
                         return True
-
-                    if self.rplrd_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.RdSets.RdSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rplrd-set"):
+                        self.rplrd_set = value
+                        self.rplrd_set.value_namespace = name_space
+                        self.rplrd_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:rd-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.rd_set is not None:
-                    for child_ref in self.rd_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.rd_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.RdSets']['meta_info']
+            def has_operation(self):
+                for c in self.rd_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rd-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "rd-set"):
+                    for c in self.rd_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.RdSets.RdSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.rd_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rd-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class PolicyGlobalSetTable(object):
+        class PolicyGlobalSetTable(Entity):
             """
             Information about PolicyGlobal sets
             
@@ -2207,31 +4617,85 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.policy_global_set = None
+                super(RoutingPolicy.Sets.PolicyGlobalSetTable, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "policy-global-set-table"
+                self.yang_parent_name = "sets"
 
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:policy-global-set-table'
+                self.policy_global_set = YLeaf(YType.str, "policy-global-set")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("policy_global_set") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.PolicyGlobalSetTable, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.PolicyGlobalSetTable, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.policy_global_set is not None:
+            def has_data(self):
+                return self.policy_global_set.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.policy_global_set.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "policy-global-set-table" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.policy_global_set.is_set or self.policy_global_set.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.policy_global_set.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "policy-global-set"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.PolicyGlobalSetTable']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "policy-global-set"):
+                    self.policy_global_set = value
+                    self.policy_global_set.value_namespace = name_space
+                    self.policy_global_set.value_namespace_prefix = name_space_prefix
 
 
-        class ExtendedCommunityBandwidthSets(object):
+        class ExtendedCommunityBandwidthSets(Entity):
             """
             Information about Bandwidth sets
             
@@ -2248,13 +4712,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_bandwidth_set = YList()
-                self.extended_community_bandwidth_set.parent = self
-                self.extended_community_bandwidth_set.name = 'extended_community_bandwidth_set'
+                super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets, self).__init__()
+
+                self.yang_name = "extended-community-bandwidth-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_bandwidth_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunityBandwidthSet(object):
+            class ExtendedCommunityBandwidthSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2280,59 +4770,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_bandwidth_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-bandwidth-set"
+                    self.yang_parent_name = "extended-community-bandwidth-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-bandwidth-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-bandwidth-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_bandwidth_set = YLeaf(YType.str, "rpl-extended-community-bandwidth-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_bandwidth_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_bandwidth_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_bandwidth_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-bandwidth-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-bandwidth-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_bandwidth_set.is_set or self.rpl_extended_community_bandwidth_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_bandwidth_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-bandwidth-set"):
                         return True
-
-                    if self.rpl_extended_community_bandwidth_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-bandwidth-set"):
+                        self.rpl_extended_community_bandwidth_set = value
+                        self.rpl_extended_community_bandwidth_set.value_namespace = name_space
+                        self.rpl_extended_community_bandwidth_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-bandwidth-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_bandwidth_set is not None:
-                    for child_ref in self.extended_community_bandwidth_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_bandwidth_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidthSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_bandwidth_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-bandwidth-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-bandwidth-set"):
+                    for c in self.extended_community_bandwidth_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_bandwidth_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-bandwidth-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class CommunitySets(object):
+        class CommunitySets(Entity):
             """
             Information about Community sets
             
@@ -2349,13 +4934,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.community_set = YList()
-                self.community_set.parent = self
-                self.community_set.name = 'community_set'
+                super(RoutingPolicy.Sets.CommunitySets, self).__init__()
+
+                self.yang_name = "community-sets"
+                self.yang_parent_name = "sets"
+
+                self.community_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.CommunitySets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.CommunitySets, self).__setattr__(name, value)
 
 
-            class CommunitySet(object):
+            class CommunitySet(Entity):
                 """
                 Information about an individual set
                 
@@ -2381,59 +4992,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_community_set = None
+                    super(RoutingPolicy.Sets.CommunitySets.CommunitySet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "community-set"
+                    self.yang_parent_name = "community-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:community-sets/Cisco-IOS-XR-policy-repository-cfg:community-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_community_set = YLeaf(YType.str, "rpl-community-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_community_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.CommunitySets.CommunitySet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.CommunitySets.CommunitySet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_community_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_community_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "community-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/community-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_community_set.is_set or self.rpl_community_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_community_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-community-set"):
                         return True
-
-                    if self.rpl_community_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.CommunitySets.CommunitySet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-community-set"):
+                        self.rpl_community_set = value
+                        self.rpl_community_set.value_namespace = name_space
+                        self.rpl_community_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:community-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.community_set is not None:
-                    for child_ref in self.community_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.community_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.CommunitySets']['meta_info']
+            def has_operation(self):
+                for c in self.community_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "community-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "community-set"):
+                    for c in self.community_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.CommunitySets.CommunitySet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.community_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "community-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AsPathSets(object):
+        class AsPathSets(Entity):
             """
             Information about AS Path sets
             
@@ -2450,13 +5156,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.as_path_set = YList()
-                self.as_path_set.parent = self
-                self.as_path_set.name = 'as_path_set'
+                super(RoutingPolicy.Sets.AsPathSets, self).__init__()
+
+                self.yang_name = "as-path-sets"
+                self.yang_parent_name = "sets"
+
+                self.as_path_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.AsPathSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.AsPathSets, self).__setattr__(name, value)
 
 
-            class AsPathSet(object):
+            class AsPathSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2482,59 +5214,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rplas_path_set = None
+                    super(RoutingPolicy.Sets.AsPathSets.AsPathSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "as-path-set"
+                    self.yang_parent_name = "as-path-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:as-path-sets/Cisco-IOS-XR-policy-repository-cfg:as-path-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rplas_path_set = YLeaf(YType.str, "rplas-path-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rplas_path_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.AsPathSets.AsPathSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.AsPathSets.AsPathSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rplas_path_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rplas_path_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "as-path-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/as-path-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rplas_path_set.is_set or self.rplas_path_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rplas_path_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rplas-path-set"):
                         return True
-
-                    if self.rplas_path_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.AsPathSets.AsPathSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rplas-path-set"):
+                        self.rplas_path_set = value
+                        self.rplas_path_set.value_namespace = name_space
+                        self.rplas_path_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:as-path-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.as_path_set is not None:
-                    for child_ref in self.as_path_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.as_path_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.AsPathSets']['meta_info']
+            def has_operation(self):
+                for c in self.as_path_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "as-path-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "as-path-set"):
+                    for c in self.as_path_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.AsPathSets.AsPathSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.as_path_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "as-path-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class TagSets(object):
+        class TagSets(Entity):
             """
             Information about Tag sets
             
@@ -2551,13 +5378,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.tag_set = YList()
-                self.tag_set.parent = self
-                self.tag_set.name = 'tag_set'
+                super(RoutingPolicy.Sets.TagSets, self).__init__()
+
+                self.yang_name = "tag-sets"
+                self.yang_parent_name = "sets"
+
+                self.tag_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.TagSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.TagSets, self).__setattr__(name, value)
 
 
-            class TagSet(object):
+            class TagSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2583,59 +5436,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_tag_set = None
+                    super(RoutingPolicy.Sets.TagSets.TagSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "tag-set"
+                    self.yang_parent_name = "tag-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:tag-sets/Cisco-IOS-XR-policy-repository-cfg:tag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_tag_set = YLeaf(YType.str, "rpl-tag-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_tag_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.TagSets.TagSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.TagSets.TagSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_tag_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_tag_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "tag-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/tag-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_tag_set.is_set or self.rpl_tag_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_tag_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-tag-set"):
                         return True
-
-                    if self.rpl_tag_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.TagSets.TagSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-tag-set"):
+                        self.rpl_tag_set = value
+                        self.rpl_tag_set.value_namespace = name_space
+                        self.rpl_tag_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:tag-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.tag_set is not None:
-                    for child_ref in self.tag_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.tag_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.TagSets']['meta_info']
+            def has_operation(self):
+                for c in self.tag_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tag-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "tag-set"):
+                    for c in self.tag_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.TagSets.TagSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.tag_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "tag-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class EtagSets(object):
+        class EtagSets(Entity):
             """
             Information about Etag sets
             
@@ -2652,13 +5600,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.etag_set = YList()
-                self.etag_set.parent = self
-                self.etag_set.name = 'etag_set'
+                super(RoutingPolicy.Sets.EtagSets, self).__init__()
+
+                self.yang_name = "etag-sets"
+                self.yang_parent_name = "sets"
+
+                self.etag_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.EtagSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.EtagSets, self).__setattr__(name, value)
 
 
-            class EtagSet(object):
+            class EtagSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2684,59 +5658,154 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.etag_set_as_text = None
+                    super(RoutingPolicy.Sets.EtagSets.EtagSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "etag-set"
+                    self.yang_parent_name = "etag-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:etag-sets/Cisco-IOS-XR-policy-repository-cfg:etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "etag_set_as_text") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.EtagSets.EtagSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.EtagSets.EtagSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.etag_set_as_text.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.etag_set_as_text.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "etag-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/etag-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.etag_set_as_text.is_set or self.etag_set_as_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.etag_set_as_text.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "etag-set-as-text"):
                         return True
-
-                    if self.etag_set_as_text is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.EtagSets.EtagSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "etag-set-as-text"):
+                        self.etag_set_as_text = value
+                        self.etag_set_as_text.value_namespace = name_space
+                        self.etag_set_as_text.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:etag-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.etag_set is not None:
-                    for child_ref in self.etag_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.etag_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.EtagSets']['meta_info']
+            def has_operation(self):
+                for c in self.etag_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "etag-sets" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "etag-set"):
+                    for c in self.etag_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.EtagSets.EtagSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.etag_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "etag-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class ExtendedCommunityRtSets(object):
+        class ExtendedCommunityRtSets(Entity):
             """
             Information about RT sets
             
@@ -2753,13 +5822,39 @@ class RoutingPolicy(object):
             _revision = '2015-08-27'
 
             def __init__(self):
-                self.parent = None
-                self.extended_community_rt_set = YList()
-                self.extended_community_rt_set.parent = self
-                self.extended_community_rt_set.name = 'extended_community_rt_set'
+                super(RoutingPolicy.Sets.ExtendedCommunityRtSets, self).__init__()
+
+                self.yang_name = "extended-community-rt-sets"
+                self.yang_parent_name = "sets"
+
+                self.extended_community_rt_set = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RoutingPolicy.Sets.ExtendedCommunityRtSets, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RoutingPolicy.Sets.ExtendedCommunityRtSets, self).__setattr__(name, value)
 
 
-            class ExtendedCommunityRtSet(object):
+            class ExtendedCommunityRtSet(Entity):
                 """
                 Information about an individual set
                 
@@ -2785,151 +5880,419 @@ class RoutingPolicy(object):
                 _revision = '2015-08-27'
 
                 def __init__(self):
-                    self.parent = None
-                    self.set_name = None
-                    self.rpl_extended_community_rt_set = None
+                    super(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.set_name is None:
-                        raise YPYModelError('Key property set_name is None')
+                    self.yang_name = "extended-community-rt-set"
+                    self.yang_parent_name = "extended-community-rt-sets"
 
-                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-rt-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-rt-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+                    self.set_name = YLeaf(YType.str, "set-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpl_extended_community_rt_set = YLeaf(YType.str, "rpl-extended-community-rt-set")
 
-                def _has_data(self):
-                    if self.set_name is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("set_name",
+                                    "rpl_extended_community_rt_set") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.set_name.is_set or
+                        self.rpl_extended_community_rt_set.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.set_name.yfilter != YFilter.not_set or
+                        self.rpl_extended_community_rt_set.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "extended-community-rt-set" + "[set-name='" + self.set_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-rt-sets/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.set_name.is_set or self.set_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.set_name.get_name_leafdata())
+                    if (self.rpl_extended_community_rt_set.is_set or self.rpl_extended_community_rt_set.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpl_extended_community_rt_set.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "set-name" or name == "rpl-extended-community-rt-set"):
                         return True
-
-                    if self.rpl_extended_community_rt_set is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "set-name"):
+                        self.set_name = value
+                        self.set_name.value_namespace = name_space
+                        self.set_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpl-extended-community-rt-set"):
+                        self.rpl_extended_community_rt_set = value
+                        self.rpl_extended_community_rt_set.value_namespace = name_space
+                        self.rpl_extended_community_rt_set.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-rt-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.extended_community_rt_set is not None:
-                    for child_ref in self.extended_community_rt_set:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.extended_community_rt_set:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRtSets']['meta_info']
+            def has_operation(self):
+                for c in self.extended_community_rt_set:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "extended-community-rt-sets" + path_buffer
 
-            return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.append_esi_sets is not None and self.append_esi_sets._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "extended-community-rt-set"):
+                    for c in self.extended_community_rt_set:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.extended_community_rt_set.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "extended-community-rt-set"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (
+                (self.append_esi_sets is not None and self.append_esi_sets.has_data()) or
+                (self.append_etag_sets is not None and self.append_etag_sets.has_data()) or
+                (self.append_mac_sets is not None and self.append_mac_sets.has_data()) or
+                (self.as_path_sets is not None and self.as_path_sets.has_data()) or
+                (self.community_sets is not None and self.community_sets.has_data()) or
+                (self.esi_sets is not None and self.esi_sets.has_data()) or
+                (self.etag_sets is not None and self.etag_sets.has_data()) or
+                (self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets.has_data()) or
+                (self.extended_community_cost_sets is not None and self.extended_community_cost_sets.has_data()) or
+                (self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets.has_data()) or
+                (self.extended_community_rt_sets is not None and self.extended_community_rt_sets.has_data()) or
+                (self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets.has_data()) or
+                (self.extended_community_soo_sets is not None and self.extended_community_soo_sets.has_data()) or
+                (self.mac_sets is not None and self.mac_sets.has_data()) or
+                (self.ospf_area_sets is not None and self.ospf_area_sets.has_data()) or
+                (self.policy_global_set_table is not None and self.policy_global_set_table.has_data()) or
+                (self.prefix_sets is not None and self.prefix_sets.has_data()) or
+                (self.prepend_esi_sets is not None and self.prepend_esi_sets.has_data()) or
+                (self.prepend_etag_sets is not None and self.prepend_etag_sets.has_data()) or
+                (self.prepend_mac_sets is not None and self.prepend_mac_sets.has_data()) or
+                (self.rd_sets is not None and self.rd_sets.has_data()) or
+                (self.remove_esi_sets is not None and self.remove_esi_sets.has_data()) or
+                (self.remove_etag_sets is not None and self.remove_etag_sets.has_data()) or
+                (self.remove_mac_sets is not None and self.remove_mac_sets.has_data()) or
+                (self.tag_sets is not None and self.tag_sets.has_data()))
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.append_esi_sets is not None and self.append_esi_sets.has_operation()) or
+                (self.append_etag_sets is not None and self.append_etag_sets.has_operation()) or
+                (self.append_mac_sets is not None and self.append_mac_sets.has_operation()) or
+                (self.as_path_sets is not None and self.as_path_sets.has_operation()) or
+                (self.community_sets is not None and self.community_sets.has_operation()) or
+                (self.esi_sets is not None and self.esi_sets.has_operation()) or
+                (self.etag_sets is not None and self.etag_sets.has_operation()) or
+                (self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets.has_operation()) or
+                (self.extended_community_cost_sets is not None and self.extended_community_cost_sets.has_operation()) or
+                (self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets.has_operation()) or
+                (self.extended_community_rt_sets is not None and self.extended_community_rt_sets.has_operation()) or
+                (self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets.has_operation()) or
+                (self.extended_community_soo_sets is not None and self.extended_community_soo_sets.has_operation()) or
+                (self.mac_sets is not None and self.mac_sets.has_operation()) or
+                (self.ospf_area_sets is not None and self.ospf_area_sets.has_operation()) or
+                (self.policy_global_set_table is not None and self.policy_global_set_table.has_operation()) or
+                (self.prefix_sets is not None and self.prefix_sets.has_operation()) or
+                (self.prepend_esi_sets is not None and self.prepend_esi_sets.has_operation()) or
+                (self.prepend_etag_sets is not None and self.prepend_etag_sets.has_operation()) or
+                (self.prepend_mac_sets is not None and self.prepend_mac_sets.has_operation()) or
+                (self.rd_sets is not None and self.rd_sets.has_operation()) or
+                (self.remove_esi_sets is not None and self.remove_esi_sets.has_operation()) or
+                (self.remove_etag_sets is not None and self.remove_etag_sets.has_operation()) or
+                (self.remove_mac_sets is not None and self.remove_mac_sets.has_operation()) or
+                (self.tag_sets is not None and self.tag_sets.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sets" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "append-esi-sets"):
+                if (self.append_esi_sets is None):
+                    self.append_esi_sets = RoutingPolicy.Sets.AppendEsiSets()
+                    self.append_esi_sets.parent = self
+                    self._children_name_map["append_esi_sets"] = "append-esi-sets"
+                return self.append_esi_sets
+
+            if (child_yang_name == "append-etag-sets"):
+                if (self.append_etag_sets is None):
+                    self.append_etag_sets = RoutingPolicy.Sets.AppendEtagSets()
+                    self.append_etag_sets.parent = self
+                    self._children_name_map["append_etag_sets"] = "append-etag-sets"
+                return self.append_etag_sets
+
+            if (child_yang_name == "append-mac-sets"):
+                if (self.append_mac_sets is None):
+                    self.append_mac_sets = RoutingPolicy.Sets.AppendMacSets()
+                    self.append_mac_sets.parent = self
+                    self._children_name_map["append_mac_sets"] = "append-mac-sets"
+                return self.append_mac_sets
+
+            if (child_yang_name == "as-path-sets"):
+                if (self.as_path_sets is None):
+                    self.as_path_sets = RoutingPolicy.Sets.AsPathSets()
+                    self.as_path_sets.parent = self
+                    self._children_name_map["as_path_sets"] = "as-path-sets"
+                return self.as_path_sets
+
+            if (child_yang_name == "community-sets"):
+                if (self.community_sets is None):
+                    self.community_sets = RoutingPolicy.Sets.CommunitySets()
+                    self.community_sets.parent = self
+                    self._children_name_map["community_sets"] = "community-sets"
+                return self.community_sets
+
+            if (child_yang_name == "esi-sets"):
+                if (self.esi_sets is None):
+                    self.esi_sets = RoutingPolicy.Sets.EsiSets()
+                    self.esi_sets.parent = self
+                    self._children_name_map["esi_sets"] = "esi-sets"
+                return self.esi_sets
+
+            if (child_yang_name == "etag-sets"):
+                if (self.etag_sets is None):
+                    self.etag_sets = RoutingPolicy.Sets.EtagSets()
+                    self.etag_sets.parent = self
+                    self._children_name_map["etag_sets"] = "etag-sets"
+                return self.etag_sets
+
+            if (child_yang_name == "extended-community-bandwidth-sets"):
+                if (self.extended_community_bandwidth_sets is None):
+                    self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
+                    self.extended_community_bandwidth_sets.parent = self
+                    self._children_name_map["extended_community_bandwidth_sets"] = "extended-community-bandwidth-sets"
+                return self.extended_community_bandwidth_sets
+
+            if (child_yang_name == "extended-community-cost-sets"):
+                if (self.extended_community_cost_sets is None):
+                    self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
+                    self.extended_community_cost_sets.parent = self
+                    self._children_name_map["extended_community_cost_sets"] = "extended-community-cost-sets"
+                return self.extended_community_cost_sets
+
+            if (child_yang_name == "extended-community-opaque-sets"):
+                if (self.extended_community_opaque_sets is None):
+                    self.extended_community_opaque_sets = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets()
+                    self.extended_community_opaque_sets.parent = self
+                    self._children_name_map["extended_community_opaque_sets"] = "extended-community-opaque-sets"
+                return self.extended_community_opaque_sets
+
+            if (child_yang_name == "extended-community-rt-sets"):
+                if (self.extended_community_rt_sets is None):
+                    self.extended_community_rt_sets = RoutingPolicy.Sets.ExtendedCommunityRtSets()
+                    self.extended_community_rt_sets.parent = self
+                    self._children_name_map["extended_community_rt_sets"] = "extended-community-rt-sets"
+                return self.extended_community_rt_sets
+
+            if (child_yang_name == "extended-community-seg-nh-sets"):
+                if (self.extended_community_seg_nh_sets is None):
+                    self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
+                    self.extended_community_seg_nh_sets.parent = self
+                    self._children_name_map["extended_community_seg_nh_sets"] = "extended-community-seg-nh-sets"
+                return self.extended_community_seg_nh_sets
+
+            if (child_yang_name == "extended-community-soo-sets"):
+                if (self.extended_community_soo_sets is None):
+                    self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
+                    self.extended_community_soo_sets.parent = self
+                    self._children_name_map["extended_community_soo_sets"] = "extended-community-soo-sets"
+                return self.extended_community_soo_sets
+
+            if (child_yang_name == "mac-sets"):
+                if (self.mac_sets is None):
+                    self.mac_sets = RoutingPolicy.Sets.MacSets()
+                    self.mac_sets.parent = self
+                    self._children_name_map["mac_sets"] = "mac-sets"
+                return self.mac_sets
+
+            if (child_yang_name == "ospf-area-sets"):
+                if (self.ospf_area_sets is None):
+                    self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
+                    self.ospf_area_sets.parent = self
+                    self._children_name_map["ospf_area_sets"] = "ospf-area-sets"
+                return self.ospf_area_sets
+
+            if (child_yang_name == "policy-global-set-table"):
+                if (self.policy_global_set_table is None):
+                    self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
+                    self.policy_global_set_table.parent = self
+                    self._children_name_map["policy_global_set_table"] = "policy-global-set-table"
+                return self.policy_global_set_table
+
+            if (child_yang_name == "prefix-sets"):
+                if (self.prefix_sets is None):
+                    self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
+                    self.prefix_sets.parent = self
+                    self._children_name_map["prefix_sets"] = "prefix-sets"
+                return self.prefix_sets
+
+            if (child_yang_name == "prepend-esi-sets"):
+                if (self.prepend_esi_sets is None):
+                    self.prepend_esi_sets = RoutingPolicy.Sets.PrependEsiSets()
+                    self.prepend_esi_sets.parent = self
+                    self._children_name_map["prepend_esi_sets"] = "prepend-esi-sets"
+                return self.prepend_esi_sets
+
+            if (child_yang_name == "prepend-etag-sets"):
+                if (self.prepend_etag_sets is None):
+                    self.prepend_etag_sets = RoutingPolicy.Sets.PrependEtagSets()
+                    self.prepend_etag_sets.parent = self
+                    self._children_name_map["prepend_etag_sets"] = "prepend-etag-sets"
+                return self.prepend_etag_sets
+
+            if (child_yang_name == "prepend-mac-sets"):
+                if (self.prepend_mac_sets is None):
+                    self.prepend_mac_sets = RoutingPolicy.Sets.PrependMacSets()
+                    self.prepend_mac_sets.parent = self
+                    self._children_name_map["prepend_mac_sets"] = "prepend-mac-sets"
+                return self.prepend_mac_sets
+
+            if (child_yang_name == "rd-sets"):
+                if (self.rd_sets is None):
+                    self.rd_sets = RoutingPolicy.Sets.RdSets()
+                    self.rd_sets.parent = self
+                    self._children_name_map["rd_sets"] = "rd-sets"
+                return self.rd_sets
+
+            if (child_yang_name == "remove-esi-sets"):
+                if (self.remove_esi_sets is None):
+                    self.remove_esi_sets = RoutingPolicy.Sets.RemoveEsiSets()
+                    self.remove_esi_sets.parent = self
+                    self._children_name_map["remove_esi_sets"] = "remove-esi-sets"
+                return self.remove_esi_sets
+
+            if (child_yang_name == "remove-etag-sets"):
+                if (self.remove_etag_sets is None):
+                    self.remove_etag_sets = RoutingPolicy.Sets.RemoveEtagSets()
+                    self.remove_etag_sets.parent = self
+                    self._children_name_map["remove_etag_sets"] = "remove-etag-sets"
+                return self.remove_etag_sets
+
+            if (child_yang_name == "remove-mac-sets"):
+                if (self.remove_mac_sets is None):
+                    self.remove_mac_sets = RoutingPolicy.Sets.RemoveMacSets()
+                    self.remove_mac_sets.parent = self
+                    self._children_name_map["remove_mac_sets"] = "remove-mac-sets"
+                return self.remove_mac_sets
+
+            if (child_yang_name == "tag-sets"):
+                if (self.tag_sets is None):
+                    self.tag_sets = RoutingPolicy.Sets.TagSets()
+                    self.tag_sets.parent = self
+                    self._children_name_map["tag_sets"] = "tag-sets"
+                return self.tag_sets
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "append-esi-sets" or name == "append-etag-sets" or name == "append-mac-sets" or name == "as-path-sets" or name == "community-sets" or name == "esi-sets" or name == "etag-sets" or name == "extended-community-bandwidth-sets" or name == "extended-community-cost-sets" or name == "extended-community-opaque-sets" or name == "extended-community-rt-sets" or name == "extended-community-seg-nh-sets" or name == "extended-community-soo-sets" or name == "mac-sets" or name == "ospf-area-sets" or name == "policy-global-set-table" or name == "prefix-sets" or name == "prepend-esi-sets" or name == "prepend-etag-sets" or name == "prepend-mac-sets" or name == "rd-sets" or name == "remove-esi-sets" or name == "remove-etag-sets" or name == "remove-mac-sets" or name == "tag-sets"):
                 return True
-
-            if self.append_etag_sets is not None and self.append_etag_sets._has_data():
-                return True
-
-            if self.append_mac_sets is not None and self.append_mac_sets._has_data():
-                return True
-
-            if self.as_path_sets is not None and self.as_path_sets._has_data():
-                return True
-
-            if self.community_sets is not None and self.community_sets._has_data():
-                return True
-
-            if self.esi_sets is not None and self.esi_sets._has_data():
-                return True
-
-            if self.etag_sets is not None and self.etag_sets._has_data():
-                return True
-
-            if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets._has_data():
-                return True
-
-            if self.extended_community_cost_sets is not None and self.extended_community_cost_sets._has_data():
-                return True
-
-            if self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets._has_data():
-                return True
-
-            if self.extended_community_rt_sets is not None and self.extended_community_rt_sets._has_data():
-                return True
-
-            if self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets._has_data():
-                return True
-
-            if self.extended_community_soo_sets is not None and self.extended_community_soo_sets._has_data():
-                return True
-
-            if self.mac_sets is not None and self.mac_sets._has_data():
-                return True
-
-            if self.ospf_area_sets is not None and self.ospf_area_sets._has_data():
-                return True
-
-            if self.policy_global_set_table is not None and self.policy_global_set_table._has_data():
-                return True
-
-            if self.prefix_sets is not None and self.prefix_sets._has_data():
-                return True
-
-            if self.prepend_esi_sets is not None and self.prepend_esi_sets._has_data():
-                return True
-
-            if self.prepend_etag_sets is not None and self.prepend_etag_sets._has_data():
-                return True
-
-            if self.prepend_mac_sets is not None and self.prepend_mac_sets._has_data():
-                return True
-
-            if self.rd_sets is not None and self.rd_sets._has_data():
-                return True
-
-            if self.remove_esi_sets is not None and self.remove_esi_sets._has_data():
-                return True
-
-            if self.remove_etag_sets is not None and self.remove_etag_sets._has_data():
-                return True
-
-            if self.remove_mac_sets is not None and self.remove_mac_sets._has_data():
-                return True
-
-            if self.tag_sets is not None and self.tag_sets._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-            return meta._meta_table['RoutingPolicy.Sets']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Limits(object):
+    class Limits(Entity):
         """
         Limits for Routing Policy
         
@@ -2959,60 +6322,169 @@ class RoutingPolicy(object):
         _revision = '2015-08-27'
 
         def __init__(self):
-            self.parent = None
-            self.maximum_lines_of_policy = None
-            self.maximum_number_of_policies = None
+            super(RoutingPolicy.Limits, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "limits"
+            self.yang_parent_name = "routing-policy"
 
-            return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:limits'
+            self.maximum_lines_of_policy = YLeaf(YType.int32, "maximum-lines-of-policy")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.maximum_number_of_policies = YLeaf(YType.int32, "maximum-number-of-policies")
 
-        def _has_data(self):
-            if self.maximum_lines_of_policy is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("maximum_lines_of_policy",
+                            "maximum_number_of_policies") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RoutingPolicy.Limits, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RoutingPolicy.Limits, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.maximum_lines_of_policy.is_set or
+                self.maximum_number_of_policies.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.maximum_lines_of_policy.yfilter != YFilter.not_set or
+                self.maximum_number_of_policies.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "limits" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.maximum_lines_of_policy.is_set or self.maximum_lines_of_policy.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.maximum_lines_of_policy.get_name_leafdata())
+            if (self.maximum_number_of_policies.is_set or self.maximum_number_of_policies.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.maximum_number_of_policies.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "maximum-lines-of-policy" or name == "maximum-number-of-policies"):
                 return True
-
-            if self.maximum_number_of_policies is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-            return meta._meta_table['RoutingPolicy.Limits']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "maximum-lines-of-policy"):
+                self.maximum_lines_of_policy = value
+                self.maximum_lines_of_policy.value_namespace = name_space
+                self.maximum_lines_of_policy.value_namespace_prefix = name_space_prefix
+            if(value_path == "maximum-number-of-policies"):
+                self.maximum_number_of_policies = value
+                self.maximum_number_of_policies.value_namespace = name_space
+                self.maximum_number_of_policies.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.editor.is_set or
+            (self.limits is not None and self.limits.has_data()) or
+            (self.route_policies is not None and self.route_policies.has_data()) or
+            (self.sets is not None and self.sets.has_data()))
 
-        return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.editor.yfilter != YFilter.not_set or
+            (self.limits is not None and self.limits.has_operation()) or
+            (self.route_policies is not None and self.route_policies.has_operation()) or
+            (self.sets is not None and self.sets.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-policy-repository-cfg:routing-policy" + path_buffer
 
-    def _has_data(self):
-        if self.editor is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.editor.is_set or self.editor.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.editor.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "limits"):
+            if (self.limits is None):
+                self.limits = RoutingPolicy.Limits()
+                self.limits.parent = self
+                self._children_name_map["limits"] = "limits"
+            return self.limits
+
+        if (child_yang_name == "route-policies"):
+            if (self.route_policies is None):
+                self.route_policies = RoutingPolicy.RoutePolicies()
+                self.route_policies.parent = self
+                self._children_name_map["route_policies"] = "route-policies"
+            return self.route_policies
+
+        if (child_yang_name == "sets"):
+            if (self.sets is None):
+                self.sets = RoutingPolicy.Sets()
+                self.sets.parent = self
+                self._children_name_map["sets"] = "sets"
+            return self.sets
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "limits" or name == "route-policies" or name == "sets" or name == "editor"):
             return True
-
-        if self.limits is not None and self.limits._has_data():
-            return True
-
-        if self.route_policies is not None and self.route_policies._has_data():
-            return True
-
-        if self.sets is not None and self.sets._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
-        return meta._meta_table['RoutingPolicy']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "editor"):
+            self.editor = value
+            self.editor.value_namespace = name_space
+            self.editor.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = RoutingPolicy()
+        return self._top_entity
 

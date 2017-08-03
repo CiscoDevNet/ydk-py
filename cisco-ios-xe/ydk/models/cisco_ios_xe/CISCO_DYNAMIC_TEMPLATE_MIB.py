@@ -24,21 +24,15 @@ the configuration attribute from the dynamic template with the
 highest precedence.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoDynamicTemplateMib(object):
+class CiscoDynamicTemplateMib(Entity):
     """
     
     
@@ -100,29 +94,64 @@ class CiscoDynamicTemplateMib(object):
     _revision = '2007-09-06'
 
     def __init__(self):
+        super(CiscoDynamicTemplateMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+        self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
         self.cdtethernettemplatetable = CiscoDynamicTemplateMib.Cdtethernettemplatetable()
         self.cdtethernettemplatetable.parent = self
+        self._children_name_map["cdtethernettemplatetable"] = "cdtEthernetTemplateTable"
+        self._children_yang_names.add("cdtEthernetTemplateTable")
+
         self.cdtiftemplatetable = CiscoDynamicTemplateMib.Cdtiftemplatetable()
         self.cdtiftemplatetable.parent = self
+        self._children_name_map["cdtiftemplatetable"] = "cdtIfTemplateTable"
+        self._children_yang_names.add("cdtIfTemplateTable")
+
         self.cdtppppeeripaddrpooltable = CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable()
         self.cdtppppeeripaddrpooltable.parent = self
+        self._children_name_map["cdtppppeeripaddrpooltable"] = "cdtPppPeerIpAddrPoolTable"
+        self._children_yang_names.add("cdtPppPeerIpAddrPoolTable")
+
         self.cdtppptemplatetable = CiscoDynamicTemplateMib.Cdtppptemplatetable()
         self.cdtppptemplatetable.parent = self
+        self._children_name_map["cdtppptemplatetable"] = "cdtPppTemplateTable"
+        self._children_yang_names.add("cdtPppTemplateTable")
+
         self.cdtsrvtemplatetable = CiscoDynamicTemplateMib.Cdtsrvtemplatetable()
         self.cdtsrvtemplatetable.parent = self
+        self._children_name_map["cdtsrvtemplatetable"] = "cdtSrvTemplateTable"
+        self._children_yang_names.add("cdtSrvTemplateTable")
+
         self.cdttemplateassociationtable = CiscoDynamicTemplateMib.Cdttemplateassociationtable()
         self.cdttemplateassociationtable.parent = self
+        self._children_name_map["cdttemplateassociationtable"] = "cdtTemplateAssociationTable"
+        self._children_yang_names.add("cdtTemplateAssociationTable")
+
         self.cdttemplatecommontable = CiscoDynamicTemplateMib.Cdttemplatecommontable()
         self.cdttemplatecommontable.parent = self
+        self._children_name_map["cdttemplatecommontable"] = "cdtTemplateCommonTable"
+        self._children_yang_names.add("cdtTemplateCommonTable")
+
         self.cdttemplatetable = CiscoDynamicTemplateMib.Cdttemplatetable()
         self.cdttemplatetable.parent = self
+        self._children_name_map["cdttemplatetable"] = "cdtTemplateTable"
+        self._children_yang_names.add("cdtTemplateTable")
+
         self.cdttemplatetargettable = CiscoDynamicTemplateMib.Cdttemplatetargettable()
         self.cdttemplatetargettable.parent = self
+        self._children_name_map["cdttemplatetargettable"] = "cdtTemplateTargetTable"
+        self._children_yang_names.add("cdtTemplateTargetTable")
+
         self.cdttemplateusagetable = CiscoDynamicTemplateMib.Cdttemplateusagetable()
         self.cdttemplateusagetable.parent = self
+        self._children_name_map["cdttemplateusagetable"] = "cdtTemplateUsageTable"
+        self._children_yang_names.add("cdtTemplateUsageTable")
 
 
-    class Cdttemplatetable(object):
+    class Cdttemplatetable(Entity):
         """
         This table lists the dynamic templates maintained by the
         system, including those that have been locally\-configured on the
@@ -142,13 +171,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdttemplateentry = YList()
-            self.cdttemplateentry.parent = self
-            self.cdttemplateentry.name = 'cdttemplateentry'
+            super(CiscoDynamicTemplateMib.Cdttemplatetable, self).__init__()
+
+            self.yang_name = "cdtTemplateTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdttemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdttemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdttemplatetable, self).__setattr__(name, value)
 
 
-        class Cdttemplateentry(object):
+        class Cdttemplateentry(Entity):
             """
             An entry describes a dynamic template, which serves as a
             container for configuration attributes.  The configuration
@@ -177,22 +232,22 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdttemplatesrc
             
             	This object specifies the source of the dynamic template\:  'other'     The implementation of the MIB module does not recognize the     source of the dynamic template.  'derived'     The system created the set of attributes from one or     more dynamic templates.  'local'     The dynamic template was locally configured through a     management entity, such as the local console or a SNMP     entity.  'aaaUserProfile'     The dynamic template originated from a user profile     pushed from an external policy server.  'aaaServiceProfile'     The dynamic template originated from a service profile     pushed from an external policy server
-            	**type**\:   :py:class:`CdttemplatesrcEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry.CdttemplatesrcEnum>`
+            	**type**\:   :py:class:`Cdttemplatesrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry.Cdttemplatesrc>`
             
             .. attribute:: cdttemplatestatus
             
             	This object specifies the status of the dynamic template.  The following columns must be valid before activating a dynamic template\:      \- cdtTemplateStorage     \- cdtTemplateType  However, these objects specify a default value.  Thus, it is possible to use create\-and\-go semantics without setting any additional columns.  An implementation must allow the EMS/NMS to modify any column when this column is 'active', including columns defined in tables that have a one\-to\-one or sparse dependent relationship on this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdttemplatestorage
             
             	This object specifies what happens to the dynamic template upon restart.  If the corresponding instance of cdtTemplateSrc is not 'local', then this column must be 'volatile'
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cdttemplatetype
             
             	This object indicates the types of dynamic template
-            	**type**\:   :py:class:`DynamictemplatetypeEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.DynamictemplatetypeEnum>`
+            	**type**\:   :py:class:`Dynamictemplatetype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.Dynamictemplatetype>`
             
             .. attribute:: cdttemplateusagecount
             
@@ -209,17 +264,55 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdttemplatesrc = None
-                self.cdttemplatestatus = None
-                self.cdttemplatestorage = None
-                self.cdttemplatetype = None
-                self.cdttemplateusagecount = None
+                super(CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry, self).__init__()
 
-            class CdttemplatesrcEnum(Enum):
+                self.yang_name = "cdtTemplateEntry"
+                self.yang_parent_name = "cdtTemplateTable"
+
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
+
+                self.cdttemplatesrc = YLeaf(YType.enumeration, "cdtTemplateSrc")
+
+                self.cdttemplatestatus = YLeaf(YType.enumeration, "cdtTemplateStatus")
+
+                self.cdttemplatestorage = YLeaf(YType.enumeration, "cdtTemplateStorage")
+
+                self.cdttemplatetype = YLeaf(YType.enumeration, "cdtTemplateType")
+
+                self.cdttemplateusagecount = YLeaf(YType.uint32, "cdtTemplateUsageCount")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdttemplatesrc",
+                                "cdttemplatestatus",
+                                "cdttemplatestorage",
+                                "cdttemplatetype",
+                                "cdttemplateusagecount") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry, self).__setattr__(name, value)
+
+            class Cdttemplatesrc(Enum):
                 """
-                CdttemplatesrcEnum
+                Cdttemplatesrc
 
                 This object specifies the source of the dynamic template\:
 
@@ -267,84 +360,163 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                derived = 2
+                derived = Enum.YLeaf(2, "derived")
 
-                local = 3
+                local = Enum.YLeaf(3, "local")
 
-                aaaUserProfile = 4
+                aaaUserProfile = Enum.YLeaf(4, "aaaUserProfile")
 
-                aaaServiceProfile = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry.CdttemplatesrcEnum']
+                aaaServiceProfile = Enum.YLeaf(5, "aaaServiceProfile")
 
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdttemplatesrc.is_set or
+                    self.cdttemplatestatus.is_set or
+                    self.cdttemplatestorage.is_set or
+                    self.cdttemplatetype.is_set or
+                    self.cdttemplateusagecount.is_set)
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdttemplatesrc.yfilter != YFilter.not_set or
+                    self.cdttemplatestatus.yfilter != YFilter.not_set or
+                    self.cdttemplatestorage.yfilter != YFilter.not_set or
+                    self.cdttemplatetype.yfilter != YFilter.not_set or
+                    self.cdttemplateusagecount.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtTemplateEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdttemplatesrc.is_set or self.cdttemplatesrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatesrc.get_name_leafdata())
+                if (self.cdttemplatestatus.is_set or self.cdttemplatestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatestatus.get_name_leafdata())
+                if (self.cdttemplatestorage.is_set or self.cdttemplatestorage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatestorage.get_name_leafdata())
+                if (self.cdttemplatetype.is_set or self.cdttemplatetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetype.get_name_leafdata())
+                if (self.cdttemplateusagecount.is_set or self.cdttemplateusagecount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplateusagecount.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtTemplateSrc" or name == "cdtTemplateStatus" or name == "cdtTemplateStorage" or name == "cdtTemplateType" or name == "cdtTemplateUsageCount"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateSrc"):
+                    self.cdttemplatesrc = value
+                    self.cdttemplatesrc.value_namespace = name_space
+                    self.cdttemplatesrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateStatus"):
+                    self.cdttemplatestatus = value
+                    self.cdttemplatestatus.value_namespace = name_space
+                    self.cdttemplatestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateStorage"):
+                    self.cdttemplatestorage = value
+                    self.cdttemplatestorage.value_namespace = name_space
+                    self.cdttemplatestorage.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateType"):
+                    self.cdttemplatetype = value
+                    self.cdttemplatetype.value_namespace = name_space
+                    self.cdttemplatetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateUsageCount"):
+                    self.cdttemplateusagecount = value
+                    self.cdttemplateusagecount.value_namespace = name_space
+                    self.cdttemplateusagecount.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdttemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdttemplatesrc is not None:
-                    return True
-
-                if self.cdttemplatestatus is not None:
-                    return True
-
-                if self.cdttemplatestorage is not None:
-                    return True
-
-                if self.cdttemplatetype is not None:
-                    return True
-
-                if self.cdttemplateusagecount is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdttemplateentry is not None:
-                for child_ref in self.cdttemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdttemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtTemplateEntry"):
+                for c in self.cdttemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdttemplatetable.Cdttemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdttemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdttemplatetargettable(object):
+    class Cdttemplatetargettable(Entity):
         """
         This table contains a list of targets associated with
         one or more dynamic templates.
@@ -362,13 +534,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdttemplatetargetentry = YList()
-            self.cdttemplatetargetentry.parent = self
-            self.cdttemplatetargetentry.name = 'cdttemplatetargetentry'
+            super(CiscoDynamicTemplateMib.Cdttemplatetargettable, self).__init__()
+
+            self.yang_name = "cdtTemplateTargetTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdttemplatetargetentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdttemplatetargettable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdttemplatetargettable, self).__setattr__(name, value)
 
 
-        class Cdttemplatetargetentry(object):
+        class Cdttemplatetargetentry(Entity):
             """
             An entry describes a target associated with one or more
             dynamic templates.
@@ -381,7 +579,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdttemplatetargettype  <key>
             
             	This object indicates the type of target
-            	**type**\:   :py:class:`DynamictemplatetargettypeEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.DynamictemplatetargettypeEnum>`
+            	**type**\:   :py:class:`Dynamictemplatetargettype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.Dynamictemplatetargettype>`
             
             .. attribute:: cdttemplatetargetid  <key>
             
@@ -393,12 +591,12 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdttemplatetargetstatus
             
             	This object specifies the status of the dynamic template target.  The following columns must be valid before activating a subscriber access profile\:      \- cdtTemplateTargetStorage  However, these objects specify a default value.  Thus, it is possible to use create\-and\-go semantics without setting any additional columns.  An implementation must allow the EMS/NMS to modify any column when this column is 'active', including columns defined in tables that have a one\-to\-one or sparse dependent relationship on this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdttemplatetargetstorage
             
             	This object specifies what happens to the dynamic template target upon restart
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -408,69 +606,176 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatetargettype = None
-                self.cdttemplatetargetid = None
-                self.cdttemplatetargetstatus = None
-                self.cdttemplatetargetstorage = None
+                super(CiscoDynamicTemplateMib.Cdttemplatetargettable.Cdttemplatetargetentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatetargettype is None:
-                    raise YPYModelError('Key property cdttemplatetargettype is None')
-                if self.cdttemplatetargetid is None:
-                    raise YPYModelError('Key property cdttemplatetargetid is None')
+                self.yang_name = "cdtTemplateTargetEntry"
+                self.yang_parent_name = "cdtTemplateTargetTable"
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetType = ' + str(self.cdttemplatetargettype) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetId = ' + str(self.cdttemplatetargetid) + ']'
+                self.cdttemplatetargettype = YLeaf(YType.enumeration, "cdtTemplateTargetType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdttemplatetargetid = YLeaf(YType.str, "cdtTemplateTargetId")
+
+                self.cdttemplatetargetstatus = YLeaf(YType.enumeration, "cdtTemplateTargetStatus")
+
+                self.cdttemplatetargetstorage = YLeaf(YType.enumeration, "cdtTemplateTargetStorage")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatetargettype",
+                                "cdttemplatetargetid",
+                                "cdttemplatetargetstatus",
+                                "cdttemplatetargetstorage") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdttemplatetargettable.Cdttemplatetargetentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdttemplatetargettable.Cdttemplatetargetentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatetargettype.is_set or
+                    self.cdttemplatetargetid.is_set or
+                    self.cdttemplatetargetstatus.is_set or
+                    self.cdttemplatetargetstorage.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatetargettype.yfilter != YFilter.not_set or
+                    self.cdttemplatetargetid.yfilter != YFilter.not_set or
+                    self.cdttemplatetargetstatus.yfilter != YFilter.not_set or
+                    self.cdttemplatetargetstorage.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtTemplateTargetEntry" + "[cdtTemplateTargetType='" + self.cdttemplatetargettype.get() + "']" + "[cdtTemplateTargetId='" + self.cdttemplatetargetid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTargetTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatetargettype.is_set or self.cdttemplatetargettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargettype.get_name_leafdata())
+                if (self.cdttemplatetargetid.is_set or self.cdttemplatetargetid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargetid.get_name_leafdata())
+                if (self.cdttemplatetargetstatus.is_set or self.cdttemplatetargetstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargetstatus.get_name_leafdata())
+                if (self.cdttemplatetargetstorage.is_set or self.cdttemplatetargetstorage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargetstorage.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateTargetType" or name == "cdtTemplateTargetId" or name == "cdtTemplateTargetStatus" or name == "cdtTemplateTargetStorage"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatetargettype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateTargetType"):
+                    self.cdttemplatetargettype = value
+                    self.cdttemplatetargettype.value_namespace = name_space
+                    self.cdttemplatetargettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateTargetId"):
+                    self.cdttemplatetargetid = value
+                    self.cdttemplatetargetid.value_namespace = name_space
+                    self.cdttemplatetargetid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateTargetStatus"):
+                    self.cdttemplatetargetstatus = value
+                    self.cdttemplatetargetstatus.value_namespace = name_space
+                    self.cdttemplatetargetstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateTargetStorage"):
+                    self.cdttemplatetargetstorage = value
+                    self.cdttemplatetargetstorage.value_namespace = name_space
+                    self.cdttemplatetargetstorage.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdttemplatetargetentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdttemplatetargetid is not None:
-                    return True
-
-                if self.cdttemplatetargetstatus is not None:
-                    return True
-
-                if self.cdttemplatetargetstorage is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatetargettable.Cdttemplatetargetentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdttemplatetargetentry is not None:
-                for child_ref in self.cdttemplatetargetentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdttemplatetargetentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtTemplateTargetTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtTemplateTargetEntry"):
+                for c in self.cdttemplatetargetentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdttemplatetargettable.Cdttemplatetargetentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdttemplatetargetentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtTemplateTargetEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatetargettable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdttemplateassociationtable(object):
+    class Cdttemplateassociationtable(Entity):
         """
         This table contains a list of templates associated with each
         target.
@@ -492,13 +797,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdttemplateassociationentry = YList()
-            self.cdttemplateassociationentry.parent = self
-            self.cdttemplateassociationentry.name = 'cdttemplateassociationentry'
+            super(CiscoDynamicTemplateMib.Cdttemplateassociationtable, self).__init__()
+
+            self.yang_name = "cdtTemplateAssociationTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdttemplateassociationentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdttemplateassociationtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdttemplateassociationtable, self).__setattr__(name, value)
 
 
-        class Cdttemplateassociationentry(object):
+        class Cdttemplateassociationentry(Entity):
             """
             An entry indicates an association of a dynamic template with a
             target.
@@ -520,7 +851,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdttemplatetargettype  <key>
             
             	
-            	**type**\:   :py:class:`DynamictemplatetargettypeEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.DynamictemplatetargettypeEnum>`
+            	**type**\:   :py:class:`Dynamictemplatetargettype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.Dynamictemplatetargettype>`
             
             .. attribute:: cdttemplatetargetid  <key>
             
@@ -553,71 +884,176 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatetargettype = None
-                self.cdttemplatetargetid = None
-                self.cdttemplateassociationname = None
-                self.cdttemplateassociationprecedence = None
+                super(CiscoDynamicTemplateMib.Cdttemplateassociationtable.Cdttemplateassociationentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatetargettype is None:
-                    raise YPYModelError('Key property cdttemplatetargettype is None')
-                if self.cdttemplatetargetid is None:
-                    raise YPYModelError('Key property cdttemplatetargetid is None')
-                if self.cdttemplateassociationname is None:
-                    raise YPYModelError('Key property cdttemplateassociationname is None')
+                self.yang_name = "cdtTemplateAssociationEntry"
+                self.yang_parent_name = "cdtTemplateAssociationTable"
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateAssociationTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateAssociationEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetType = ' + str(self.cdttemplatetargettype) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateTargetId = ' + str(self.cdttemplatetargetid) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateAssociationName = ' + str(self.cdttemplateassociationname) + ']'
+                self.cdttemplatetargettype = YLeaf(YType.enumeration, "cdtTemplateTargetType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdttemplatetargetid = YLeaf(YType.str, "cdtTemplateTargetId")
+
+                self.cdttemplateassociationname = YLeaf(YType.str, "cdtTemplateAssociationName")
+
+                self.cdttemplateassociationprecedence = YLeaf(YType.uint32, "cdtTemplateAssociationPrecedence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatetargettype",
+                                "cdttemplatetargetid",
+                                "cdttemplateassociationname",
+                                "cdttemplateassociationprecedence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdttemplateassociationtable.Cdttemplateassociationentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdttemplateassociationtable.Cdttemplateassociationentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatetargettype.is_set or
+                    self.cdttemplatetargetid.is_set or
+                    self.cdttemplateassociationname.is_set or
+                    self.cdttemplateassociationprecedence.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatetargettype.yfilter != YFilter.not_set or
+                    self.cdttemplatetargetid.yfilter != YFilter.not_set or
+                    self.cdttemplateassociationname.yfilter != YFilter.not_set or
+                    self.cdttemplateassociationprecedence.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtTemplateAssociationEntry" + "[cdtTemplateTargetType='" + self.cdttemplatetargettype.get() + "']" + "[cdtTemplateTargetId='" + self.cdttemplatetargetid.get() + "']" + "[cdtTemplateAssociationName='" + self.cdttemplateassociationname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateAssociationTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatetargettype.is_set or self.cdttemplatetargettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargettype.get_name_leafdata())
+                if (self.cdttemplatetargetid.is_set or self.cdttemplatetargetid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatetargetid.get_name_leafdata())
+                if (self.cdttemplateassociationname.is_set or self.cdttemplateassociationname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplateassociationname.get_name_leafdata())
+                if (self.cdttemplateassociationprecedence.is_set or self.cdttemplateassociationprecedence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplateassociationprecedence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateTargetType" or name == "cdtTemplateTargetId" or name == "cdtTemplateAssociationName" or name == "cdtTemplateAssociationPrecedence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatetargettype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateTargetType"):
+                    self.cdttemplatetargettype = value
+                    self.cdttemplatetargettype.value_namespace = name_space
+                    self.cdttemplatetargettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateTargetId"):
+                    self.cdttemplatetargetid = value
+                    self.cdttemplatetargetid.value_namespace = name_space
+                    self.cdttemplatetargetid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateAssociationName"):
+                    self.cdttemplateassociationname = value
+                    self.cdttemplateassociationname.value_namespace = name_space
+                    self.cdttemplateassociationname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateAssociationPrecedence"):
+                    self.cdttemplateassociationprecedence = value
+                    self.cdttemplateassociationprecedence.value_namespace = name_space
+                    self.cdttemplateassociationprecedence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdttemplateassociationentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdttemplatetargetid is not None:
-                    return True
-
-                if self.cdttemplateassociationname is not None:
-                    return True
-
-                if self.cdttemplateassociationprecedence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplateassociationtable.Cdttemplateassociationentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateAssociationTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdttemplateassociationentry is not None:
-                for child_ref in self.cdttemplateassociationentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdttemplateassociationentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtTemplateAssociationTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtTemplateAssociationEntry"):
+                for c in self.cdttemplateassociationentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdttemplateassociationtable.Cdttemplateassociationentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdttemplateassociationentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtTemplateAssociationEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplateassociationtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdttemplateusagetable(object):
+    class Cdttemplateusagetable(Entity):
         """
         This table contains a list of targets using each dynamic
         template.
@@ -639,13 +1075,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdttemplateusageentry = YList()
-            self.cdttemplateusageentry.parent = self
-            self.cdttemplateusageentry.name = 'cdttemplateusageentry'
+            super(CiscoDynamicTemplateMib.Cdttemplateusagetable, self).__init__()
+
+            self.yang_name = "cdtTemplateUsageTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdttemplateusageentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdttemplateusagetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdttemplateusagetable, self).__setattr__(name, value)
 
 
-        class Cdttemplateusageentry(object):
+        class Cdttemplateusageentry(Entity):
             """
             An entry indicates a target using the dynamic template.
             
@@ -675,7 +1137,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdttemplateusagetargettype  <key>
             
             	This object indicates the type of target using the dynamic template
-            	**type**\:   :py:class:`DynamictemplatetargettypeEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.DynamictemplatetargettypeEnum>`
+            	**type**\:   :py:class:`Dynamictemplatetargettype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB.Dynamictemplatetargettype>`
             
             .. attribute:: cdttemplateusagetargetid  <key>
             
@@ -692,67 +1154,165 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdttemplateusagetargettype = None
-                self.cdttemplateusagetargetid = None
+                super(CiscoDynamicTemplateMib.Cdttemplateusagetable.Cdttemplateusageentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
-                if self.cdttemplateusagetargettype is None:
-                    raise YPYModelError('Key property cdttemplateusagetargettype is None')
-                if self.cdttemplateusagetargetid is None:
-                    raise YPYModelError('Key property cdttemplateusagetargetid is None')
+                self.yang_name = "cdtTemplateUsageEntry"
+                self.yang_parent_name = "cdtTemplateUsageTable"
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateUsageTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateUsageEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateUsageTargetType = ' + str(self.cdttemplateusagetargettype) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateUsageTargetId = ' + str(self.cdttemplateusagetargetid) + ']'
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdttemplateusagetargettype = YLeaf(YType.enumeration, "cdtTemplateUsageTargetType")
+
+                self.cdttemplateusagetargetid = YLeaf(YType.str, "cdtTemplateUsageTargetId")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdttemplateusagetargettype",
+                                "cdttemplateusagetargetid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdttemplateusagetable.Cdttemplateusageentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdttemplateusagetable.Cdttemplateusageentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdttemplateusagetargettype.is_set or
+                    self.cdttemplateusagetargetid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdttemplateusagetargettype.yfilter != YFilter.not_set or
+                    self.cdttemplateusagetargetid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtTemplateUsageEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + "[cdtTemplateUsageTargetType='" + self.cdttemplateusagetargettype.get() + "']" + "[cdtTemplateUsageTargetId='" + self.cdttemplateusagetargetid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateUsageTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdttemplateusagetargettype.is_set or self.cdttemplateusagetargettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplateusagetargettype.get_name_leafdata())
+                if (self.cdttemplateusagetargetid.is_set or self.cdttemplateusagetargetid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplateusagetargetid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtTemplateUsageTargetType" or name == "cdtTemplateUsageTargetId"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateUsageTargetType"):
+                    self.cdttemplateusagetargettype = value
+                    self.cdttemplateusagetargettype.value_namespace = name_space
+                    self.cdttemplateusagetargettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtTemplateUsageTargetId"):
+                    self.cdttemplateusagetargetid = value
+                    self.cdttemplateusagetargetid.value_namespace = name_space
+                    self.cdttemplateusagetargetid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdttemplateusageentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdttemplateusagetargettype is not None:
-                    return True
-
-                if self.cdttemplateusagetargetid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplateusagetable.Cdttemplateusageentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateUsageTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdttemplateusageentry is not None:
-                for child_ref in self.cdttemplateusageentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdttemplateusageentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtTemplateUsageTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtTemplateUsageEntry"):
+                for c in self.cdttemplateusageentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdttemplateusagetable.Cdttemplateusageentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdttemplateusageentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtTemplateUsageEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplateusagetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdttemplatecommontable(object):
+    class Cdttemplatecommontable(Entity):
         """
         This table contains attributes relating to all dynamic
         templates.  Observe that the type of dynamic templates
@@ -782,13 +1342,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdttemplatecommonentry = YList()
-            self.cdttemplatecommonentry.parent = self
-            self.cdttemplatecommonentry.name = 'cdttemplatecommonentry'
+            super(CiscoDynamicTemplateMib.Cdttemplatecommontable, self).__init__()
+
+            self.yang_name = "cdtTemplateCommonTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdttemplatecommonentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdttemplatecommontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdttemplatecommontable, self).__setattr__(name, value)
 
 
-        class Cdttemplatecommonentry(object):
+        class Cdttemplatecommonentry(Entity):
             """
             An entry containing attributes relating to any target.
             
@@ -916,181 +1502,306 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtcommonaddrpool = None
-                self.cdtcommondescr = None
-                self.cdtcommonipv4accessgroup = None
-                self.cdtcommonipv4unreachables = None
-                self.cdtcommonipv6accessgroup = None
-                self.cdtcommonipv6unreachables = None
-                self.cdtcommonkeepaliveint = None
-                self.cdtcommonkeepaliveretries = None
-                self.cdtcommonsrvacct = None
-                self.cdtcommonsrvnetflow = None
-                self.cdtcommonsrvqos = None
-                self.cdtcommonsrvredirect = None
-                self.cdtcommonsrvsubcontrol = None
-                self.cdtcommonvalid = CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry.Cdtcommonvalid()
-                self.cdtcommonvrf = None
+                super(CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry, self).__init__()
 
-            class Cdtcommonvalid(FixedBitsDict):
-                """
-                Cdtcommonvalid
+                self.yang_name = "cdtTemplateCommonEntry"
+                self.yang_parent_name = "cdtTemplateCommonTable"
 
-                This object specifies which attributes in the dynamic template
-                have been configured to valid values.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is not valid.  If the bit is '1', then the value of the
-                corresponding column has been configured to a valid value.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    'descr'             => cdtCommonDescr
-                    'keepaliveInt'      => cdtCommonKeepaliveInt
-                    'keepaliveRetries'  => cdtCommonKeepaliveRetries
-                    'vrf'               => cdtCommonVrf
-                    'addrPool'          => cdtCommonAddrPool
-                    'ipv4AccessGroup'   => cdtCommonIpv4AccessGroup
-                    'ipv4Unreachables'  => cdtCommonIpv4Unreachables
-                    'ipv6AccessGroup'   => cdtCommonIpv6AccessGroup
-                    'ipv6Unreachables'  => cdtCommonIpv6Unreachables
-                    'srvSubControl'     => cdtCommonSrvSubControl
-                    'srvRedirect'       => cdtCommonSrvRedirect
-                    'srvAcct'           => cdtCommonSrvAcct
-                    'srvQos'            => cdtCommonSrvQos
-                    'srvNetflow'        => cdtCommonSrvNetflow
-                Keys are:- srvQos , srvAcct , ipv4AccessGroup , srvNetflow , ipv4Unreachables , addrPool , ipv6Unreachables , vrf , srvRedirect , descr , srvSubControl , keepalive , ipv6AccessGroup
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
 
-                """
+                self.cdtcommonaddrpool = YLeaf(YType.str, "cdtCommonAddrPool")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'srvQos':False,
-                        'srvAcct':False,
-                        'ipv4AccessGroup':False,
-                        'srvNetflow':False,
-                        'ipv4Unreachables':False,
-                        'addrPool':False,
-                        'ipv6Unreachables':False,
-                        'vrf':False,
-                        'srvRedirect':False,
-                        'descr':False,
-                        'srvSubControl':False,
-                        'keepalive':False,
-                        'ipv6AccessGroup':False,
-                    }
-                    self._pos_map = { 
-                        'srvQos':11,
-                        'srvAcct':10,
-                        'ipv4AccessGroup':4,
-                        'srvNetflow':12,
-                        'ipv4Unreachables':5,
-                        'addrPool':3,
-                        'ipv6Unreachables':7,
-                        'vrf':2,
-                        'srvRedirect':9,
-                        'descr':0,
-                        'srvSubControl':8,
-                        'keepalive':1,
-                        'ipv6AccessGroup':6,
-                    }
+                self.cdtcommondescr = YLeaf(YType.str, "cdtCommonDescr")
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
+                self.cdtcommonipv4accessgroup = YLeaf(YType.str, "cdtCommonIpv4AccessGroup")
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateCommonTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateCommonEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
+                self.cdtcommonipv4unreachables = YLeaf(YType.boolean, "cdtCommonIpv4Unreachables")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdtcommonipv6accessgroup = YLeaf(YType.str, "cdtCommonIpv6AccessGroup")
+
+                self.cdtcommonipv6unreachables = YLeaf(YType.boolean, "cdtCommonIpv6Unreachables")
+
+                self.cdtcommonkeepaliveint = YLeaf(YType.uint32, "cdtCommonKeepaliveInt")
+
+                self.cdtcommonkeepaliveretries = YLeaf(YType.uint32, "cdtCommonKeepaliveRetries")
+
+                self.cdtcommonsrvacct = YLeaf(YType.str, "cdtCommonSrvAcct")
+
+                self.cdtcommonsrvnetflow = YLeaf(YType.str, "cdtCommonSrvNetflow")
+
+                self.cdtcommonsrvqos = YLeaf(YType.str, "cdtCommonSrvQos")
+
+                self.cdtcommonsrvredirect = YLeaf(YType.str, "cdtCommonSrvRedirect")
+
+                self.cdtcommonsrvsubcontrol = YLeaf(YType.str, "cdtCommonSrvSubControl")
+
+                self.cdtcommonvalid = YLeaf(YType.bits, "cdtCommonValid")
+
+                self.cdtcommonvrf = YLeaf(YType.str, "cdtCommonVrf")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtcommonaddrpool",
+                                "cdtcommondescr",
+                                "cdtcommonipv4accessgroup",
+                                "cdtcommonipv4unreachables",
+                                "cdtcommonipv6accessgroup",
+                                "cdtcommonipv6unreachables",
+                                "cdtcommonkeepaliveint",
+                                "cdtcommonkeepaliveretries",
+                                "cdtcommonsrvacct",
+                                "cdtcommonsrvnetflow",
+                                "cdtcommonsrvqos",
+                                "cdtcommonsrvredirect",
+                                "cdtcommonsrvsubcontrol",
+                                "cdtcommonvalid",
+                                "cdtcommonvrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtcommonaddrpool.is_set or
+                    self.cdtcommondescr.is_set or
+                    self.cdtcommonipv4accessgroup.is_set or
+                    self.cdtcommonipv4unreachables.is_set or
+                    self.cdtcommonipv6accessgroup.is_set or
+                    self.cdtcommonipv6unreachables.is_set or
+                    self.cdtcommonkeepaliveint.is_set or
+                    self.cdtcommonkeepaliveretries.is_set or
+                    self.cdtcommonsrvacct.is_set or
+                    self.cdtcommonsrvnetflow.is_set or
+                    self.cdtcommonsrvqos.is_set or
+                    self.cdtcommonsrvredirect.is_set or
+                    self.cdtcommonsrvsubcontrol.is_set or
+                    self.cdtcommonvalid.is_set or
+                    self.cdtcommonvrf.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtcommonaddrpool.yfilter != YFilter.not_set or
+                    self.cdtcommondescr.yfilter != YFilter.not_set or
+                    self.cdtcommonipv4accessgroup.yfilter != YFilter.not_set or
+                    self.cdtcommonipv4unreachables.yfilter != YFilter.not_set or
+                    self.cdtcommonipv6accessgroup.yfilter != YFilter.not_set or
+                    self.cdtcommonipv6unreachables.yfilter != YFilter.not_set or
+                    self.cdtcommonkeepaliveint.yfilter != YFilter.not_set or
+                    self.cdtcommonkeepaliveretries.yfilter != YFilter.not_set or
+                    self.cdtcommonsrvacct.yfilter != YFilter.not_set or
+                    self.cdtcommonsrvnetflow.yfilter != YFilter.not_set or
+                    self.cdtcommonsrvqos.yfilter != YFilter.not_set or
+                    self.cdtcommonsrvredirect.yfilter != YFilter.not_set or
+                    self.cdtcommonsrvsubcontrol.yfilter != YFilter.not_set or
+                    self.cdtcommonvalid.yfilter != YFilter.not_set or
+                    self.cdtcommonvrf.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtTemplateCommonEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateCommonTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtcommonaddrpool.is_set or self.cdtcommonaddrpool.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonaddrpool.get_name_leafdata())
+                if (self.cdtcommondescr.is_set or self.cdtcommondescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommondescr.get_name_leafdata())
+                if (self.cdtcommonipv4accessgroup.is_set or self.cdtcommonipv4accessgroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonipv4accessgroup.get_name_leafdata())
+                if (self.cdtcommonipv4unreachables.is_set or self.cdtcommonipv4unreachables.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonipv4unreachables.get_name_leafdata())
+                if (self.cdtcommonipv6accessgroup.is_set or self.cdtcommonipv6accessgroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonipv6accessgroup.get_name_leafdata())
+                if (self.cdtcommonipv6unreachables.is_set or self.cdtcommonipv6unreachables.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonipv6unreachables.get_name_leafdata())
+                if (self.cdtcommonkeepaliveint.is_set or self.cdtcommonkeepaliveint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonkeepaliveint.get_name_leafdata())
+                if (self.cdtcommonkeepaliveretries.is_set or self.cdtcommonkeepaliveretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonkeepaliveretries.get_name_leafdata())
+                if (self.cdtcommonsrvacct.is_set or self.cdtcommonsrvacct.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonsrvacct.get_name_leafdata())
+                if (self.cdtcommonsrvnetflow.is_set or self.cdtcommonsrvnetflow.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonsrvnetflow.get_name_leafdata())
+                if (self.cdtcommonsrvqos.is_set or self.cdtcommonsrvqos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonsrvqos.get_name_leafdata())
+                if (self.cdtcommonsrvredirect.is_set or self.cdtcommonsrvredirect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonsrvredirect.get_name_leafdata())
+                if (self.cdtcommonsrvsubcontrol.is_set or self.cdtcommonsrvsubcontrol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonsrvsubcontrol.get_name_leafdata())
+                if (self.cdtcommonvalid.is_set or self.cdtcommonvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonvalid.get_name_leafdata())
+                if (self.cdtcommonvrf.is_set or self.cdtcommonvrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtcommonvrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtCommonAddrPool" or name == "cdtCommonDescr" or name == "cdtCommonIpv4AccessGroup" or name == "cdtCommonIpv4Unreachables" or name == "cdtCommonIpv6AccessGroup" or name == "cdtCommonIpv6Unreachables" or name == "cdtCommonKeepaliveInt" or name == "cdtCommonKeepaliveRetries" or name == "cdtCommonSrvAcct" or name == "cdtCommonSrvNetflow" or name == "cdtCommonSrvQos" or name == "cdtCommonSrvRedirect" or name == "cdtCommonSrvSubControl" or name == "cdtCommonValid" or name == "cdtCommonVrf"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonAddrPool"):
+                    self.cdtcommonaddrpool = value
+                    self.cdtcommonaddrpool.value_namespace = name_space
+                    self.cdtcommonaddrpool.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonDescr"):
+                    self.cdtcommondescr = value
+                    self.cdtcommondescr.value_namespace = name_space
+                    self.cdtcommondescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonIpv4AccessGroup"):
+                    self.cdtcommonipv4accessgroup = value
+                    self.cdtcommonipv4accessgroup.value_namespace = name_space
+                    self.cdtcommonipv4accessgroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonIpv4Unreachables"):
+                    self.cdtcommonipv4unreachables = value
+                    self.cdtcommonipv4unreachables.value_namespace = name_space
+                    self.cdtcommonipv4unreachables.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonIpv6AccessGroup"):
+                    self.cdtcommonipv6accessgroup = value
+                    self.cdtcommonipv6accessgroup.value_namespace = name_space
+                    self.cdtcommonipv6accessgroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonIpv6Unreachables"):
+                    self.cdtcommonipv6unreachables = value
+                    self.cdtcommonipv6unreachables.value_namespace = name_space
+                    self.cdtcommonipv6unreachables.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonKeepaliveInt"):
+                    self.cdtcommonkeepaliveint = value
+                    self.cdtcommonkeepaliveint.value_namespace = name_space
+                    self.cdtcommonkeepaliveint.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonKeepaliveRetries"):
+                    self.cdtcommonkeepaliveretries = value
+                    self.cdtcommonkeepaliveretries.value_namespace = name_space
+                    self.cdtcommonkeepaliveretries.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonSrvAcct"):
+                    self.cdtcommonsrvacct = value
+                    self.cdtcommonsrvacct.value_namespace = name_space
+                    self.cdtcommonsrvacct.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonSrvNetflow"):
+                    self.cdtcommonsrvnetflow = value
+                    self.cdtcommonsrvnetflow.value_namespace = name_space
+                    self.cdtcommonsrvnetflow.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonSrvQos"):
+                    self.cdtcommonsrvqos = value
+                    self.cdtcommonsrvqos.value_namespace = name_space
+                    self.cdtcommonsrvqos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonSrvRedirect"):
+                    self.cdtcommonsrvredirect = value
+                    self.cdtcommonsrvredirect.value_namespace = name_space
+                    self.cdtcommonsrvredirect.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonSrvSubControl"):
+                    self.cdtcommonsrvsubcontrol = value
+                    self.cdtcommonsrvsubcontrol.value_namespace = name_space
+                    self.cdtcommonsrvsubcontrol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtCommonValid"):
+                    self.cdtcommonvalid[value] = True
+                if(value_path == "cdtCommonVrf"):
+                    self.cdtcommonvrf = value
+                    self.cdtcommonvrf.value_namespace = name_space
+                    self.cdtcommonvrf.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdttemplatecommonentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtcommonaddrpool is not None:
-                    return True
-
-                if self.cdtcommondescr is not None:
-                    return True
-
-                if self.cdtcommonipv4accessgroup is not None:
-                    return True
-
-                if self.cdtcommonipv4unreachables is not None:
-                    return True
-
-                if self.cdtcommonipv6accessgroup is not None:
-                    return True
-
-                if self.cdtcommonipv6unreachables is not None:
-                    return True
-
-                if self.cdtcommonkeepaliveint is not None:
-                    return True
-
-                if self.cdtcommonkeepaliveretries is not None:
-                    return True
-
-                if self.cdtcommonsrvacct is not None:
-                    return True
-
-                if self.cdtcommonsrvnetflow is not None:
-                    return True
-
-                if self.cdtcommonsrvqos is not None:
-                    return True
-
-                if self.cdtcommonsrvredirect is not None:
-                    return True
-
-                if self.cdtcommonsrvsubcontrol is not None:
-                    return True
-
-                if self.cdtcommonvalid is not None:
-                    if self.cdtcommonvalid._has_data():
-                        return True
-
-                if self.cdtcommonvrf is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateCommonTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdttemplatecommonentry is not None:
-                for child_ref in self.cdttemplatecommonentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdttemplatecommonentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtTemplateCommonTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtTemplateCommonEntry"):
+                for c in self.cdttemplatecommonentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdttemplatecommontable.Cdttemplatecommonentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdttemplatecommonentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtTemplateCommonEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdttemplatecommontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdtiftemplatetable(object):
+    class Cdtiftemplatetable(Entity):
         """
         This table contains attributes relating to interface
         configuration.
@@ -1117,13 +1828,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdtiftemplateentry = YList()
-            self.cdtiftemplateentry.parent = self
-            self.cdtiftemplateentry.name = 'cdtiftemplateentry'
+            super(CiscoDynamicTemplateMib.Cdtiftemplatetable, self).__init__()
+
+            self.yang_name = "cdtIfTemplateTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdtiftemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdtiftemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdtiftemplatetable, self).__setattr__(name, value)
 
 
-        class Cdtiftemplateentry(object):
+        class Cdtiftemplateentry(Entity):
             """
             An entry containing attributes relating to interface
             configuration.
@@ -1195,7 +1932,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtifipv4verifyunirpf
             
             	This object specifies whether the type of unicast RPF the system performs on IPv4 packets received by the target interface.  This column is valid only if the 'ipv4VerifyUniRpf' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:   :py:class:`UnicastrpftypeEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.UnicastrpftypeEnum>`
+            	**type**\:   :py:class:`Unicastrpftype <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.Unicastrpftype>`
             
             .. attribute:: cdtifipv4verifyunirpfacl
             
@@ -1273,7 +2010,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtifipv6ndraintervalunits
             
             	This object specifies the units of time for the corresponding instances of cdtIfIpv6NdRaIntervalMin and cdtIfIpv6NdRaIntervalMax.  This column is valid only if the 'ipv6NdRaInterval' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:   :py:class:`Cdtifipv6NdraintervalunitsEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6NdraintervalunitsEnum>`
+            	**type**\:   :py:class:`Cdtifipv6Ndraintervalunits <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndraintervalunits>`
             
             .. attribute:: cdtifipv6ndralife
             
@@ -1296,7 +2033,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtifipv6ndrouterpreference
             
             	This object specifies the Default Router Preference (DRP) for the router on the target interface.  This column is valid only if the 'ipv6NdRouterPreference' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:   :py:class:`Cdtifipv6NdrouterpreferenceEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6NdrouterpreferenceEnum>`
+            	**type**\:   :py:class:`Cdtifipv6Ndrouterpreference <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndrouterpreference>`
             
             .. attribute:: cdtifipv6ndvalidlife
             
@@ -1324,7 +2061,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtifipv6verifyunirpf
             
             	This object specifies whether the type of unicast RPF the system performs on IPv6 packets received by the target interface.  This column is valid only if the 'ipv6VerifyUniRpf' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:   :py:class:`UnicastrpftypeEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.UnicastrpftypeEnum>`
+            	**type**\:   :py:class:`Unicastrpftype <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.Unicastrpftype>`
             
             .. attribute:: cdtifipv6verifyunirpfacl
             
@@ -1360,42 +2097,130 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtifcdpenable = None
-                self.cdtifflowmonitor = None
-                self.cdtifipv4mtu = None
-                self.cdtifipv4subenable = None
-                self.cdtifipv4tcpmssadjust = None
-                self.cdtifipv4unnumbered = None
-                self.cdtifipv4verifyunirpf = None
-                self.cdtifipv4verifyunirpfacl = None
-                self.cdtifipv4verifyunirpfopts = Unicastrpfoptions()
-                self.cdtifipv6enable = None
-                self.cdtifipv6nddadattempts = None
-                self.cdtifipv6ndnsinterval = None
-                self.cdtifipv6ndopts = CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndopts()
-                self.cdtifipv6ndpreferredlife = None
-                self.cdtifipv6ndprefix = None
-                self.cdtifipv6ndprefixlength = None
-                self.cdtifipv6ndraintervalmax = None
-                self.cdtifipv6ndraintervalmin = None
-                self.cdtifipv6ndraintervalunits = None
-                self.cdtifipv6ndralife = None
-                self.cdtifipv6ndreachabletime = None
-                self.cdtifipv6ndrouterpreference = None
-                self.cdtifipv6ndvalidlife = None
-                self.cdtifipv6subenable = None
-                self.cdtifipv6tcpmssadjust = None
-                self.cdtifipv6verifyunirpf = None
-                self.cdtifipv6verifyunirpfacl = None
-                self.cdtifipv6verifyunirpfopts = Unicastrpfoptions()
-                self.cdtifmtu = None
-                self.cdtifvalid = CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifvalid()
+                super(CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry, self).__init__()
 
-            class Cdtifipv6NdraintervalunitsEnum(Enum):
+                self.yang_name = "cdtIfTemplateEntry"
+                self.yang_parent_name = "cdtIfTemplateTable"
+
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
+
+                self.cdtifcdpenable = YLeaf(YType.boolean, "cdtIfCdpEnable")
+
+                self.cdtifflowmonitor = YLeaf(YType.str, "cdtIfFlowMonitor")
+
+                self.cdtifipv4mtu = YLeaf(YType.uint32, "cdtIfIpv4Mtu")
+
+                self.cdtifipv4subenable = YLeaf(YType.boolean, "cdtIfIpv4SubEnable")
+
+                self.cdtifipv4tcpmssadjust = YLeaf(YType.uint32, "cdtIfIpv4TcpMssAdjust")
+
+                self.cdtifipv4unnumbered = YLeaf(YType.int32, "cdtIfIpv4Unnumbered")
+
+                self.cdtifipv4verifyunirpf = YLeaf(YType.enumeration, "cdtIfIpv4VerifyUniRpf")
+
+                self.cdtifipv4verifyunirpfacl = YLeaf(YType.str, "cdtIfIpv4VerifyUniRpfAcl")
+
+                self.cdtifipv4verifyunirpfopts = YLeaf(YType.bits, "cdtIfIpv4VerifyUniRpfOpts")
+
+                self.cdtifipv6enable = YLeaf(YType.boolean, "cdtIfIpv6Enable")
+
+                self.cdtifipv6nddadattempts = YLeaf(YType.uint32, "cdtIfIpv6NdDadAttempts")
+
+                self.cdtifipv6ndnsinterval = YLeaf(YType.uint32, "cdtIfIpv6NdNsInterval")
+
+                self.cdtifipv6ndopts = YLeaf(YType.bits, "cdtIfIpv6NdOpts")
+
+                self.cdtifipv6ndpreferredlife = YLeaf(YType.uint32, "cdtIfIpv6NdPreferredLife")
+
+                self.cdtifipv6ndprefix = YLeaf(YType.str, "cdtIfIpv6NdPrefix")
+
+                self.cdtifipv6ndprefixlength = YLeaf(YType.uint32, "cdtIfIpv6NdPrefixLength")
+
+                self.cdtifipv6ndraintervalmax = YLeaf(YType.uint32, "cdtIfIpv6NdRaIntervalMax")
+
+                self.cdtifipv6ndraintervalmin = YLeaf(YType.uint32, "cdtIfIpv6NdRaIntervalMin")
+
+                self.cdtifipv6ndraintervalunits = YLeaf(YType.enumeration, "cdtIfIpv6NdRaIntervalUnits")
+
+                self.cdtifipv6ndralife = YLeaf(YType.uint32, "cdtIfIpv6NdRaLife")
+
+                self.cdtifipv6ndreachabletime = YLeaf(YType.uint32, "cdtIfIpv6NdReachableTime")
+
+                self.cdtifipv6ndrouterpreference = YLeaf(YType.enumeration, "cdtIfIpv6NdRouterPreference")
+
+                self.cdtifipv6ndvalidlife = YLeaf(YType.uint32, "cdtIfIpv6NdValidLife")
+
+                self.cdtifipv6subenable = YLeaf(YType.boolean, "cdtIfIpv6SubEnable")
+
+                self.cdtifipv6tcpmssadjust = YLeaf(YType.uint32, "cdtIfIpv6TcpMssAdjust")
+
+                self.cdtifipv6verifyunirpf = YLeaf(YType.enumeration, "cdtIfIpv6VerifyUniRpf")
+
+                self.cdtifipv6verifyunirpfacl = YLeaf(YType.str, "cdtIfIpv6VerifyUniRpfAcl")
+
+                self.cdtifipv6verifyunirpfopts = YLeaf(YType.bits, "cdtIfIpv6VerifyUniRpfOpts")
+
+                self.cdtifmtu = YLeaf(YType.uint32, "cdtIfMtu")
+
+                self.cdtifvalid = YLeaf(YType.bits, "cdtIfValid")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtifcdpenable",
+                                "cdtifflowmonitor",
+                                "cdtifipv4mtu",
+                                "cdtifipv4subenable",
+                                "cdtifipv4tcpmssadjust",
+                                "cdtifipv4unnumbered",
+                                "cdtifipv4verifyunirpf",
+                                "cdtifipv4verifyunirpfacl",
+                                "cdtifipv4verifyunirpfopts",
+                                "cdtifipv6enable",
+                                "cdtifipv6nddadattempts",
+                                "cdtifipv6ndnsinterval",
+                                "cdtifipv6ndopts",
+                                "cdtifipv6ndpreferredlife",
+                                "cdtifipv6ndprefix",
+                                "cdtifipv6ndprefixlength",
+                                "cdtifipv6ndraintervalmax",
+                                "cdtifipv6ndraintervalmin",
+                                "cdtifipv6ndraintervalunits",
+                                "cdtifipv6ndralife",
+                                "cdtifipv6ndreachabletime",
+                                "cdtifipv6ndrouterpreference",
+                                "cdtifipv6ndvalidlife",
+                                "cdtifipv6subenable",
+                                "cdtifipv6tcpmssadjust",
+                                "cdtifipv6verifyunirpf",
+                                "cdtifipv6verifyunirpfacl",
+                                "cdtifipv6verifyunirpfopts",
+                                "cdtifmtu",
+                                "cdtifvalid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry, self).__setattr__(name, value)
+
+            class Cdtifipv6Ndraintervalunits(Enum):
                 """
-                Cdtifipv6NdraintervalunitsEnum
+                Cdtifipv6Ndraintervalunits
 
                 This object specifies the units of time for the corresponding
 
@@ -1413,20 +2238,14 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                seconds = 1
+                seconds = Enum.YLeaf(1, "seconds")
 
-                milliseconds = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6NdraintervalunitsEnum']
+                milliseconds = Enum.YLeaf(2, "milliseconds")
 
 
-            class Cdtifipv6NdrouterpreferenceEnum(Enum):
+            class Cdtifipv6Ndrouterpreference(Enum):
                 """
-                Cdtifipv6NdrouterpreferenceEnum
+                Cdtifipv6Ndrouterpreference
 
                 This object specifies the Default Router Preference (DRP) for
 
@@ -1444,348 +2263,351 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                high = 1
+                high = Enum.YLeaf(1, "high")
 
-                medium = 2
+                medium = Enum.YLeaf(2, "medium")
 
-                low = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6NdrouterpreferenceEnum']
+                low = Enum.YLeaf(3, "low")
 
 
-            class Cdtifipv6Ndopts(FixedBitsDict):
-                """
-                Cdtifipv6Ndopts
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtifcdpenable.is_set or
+                    self.cdtifflowmonitor.is_set or
+                    self.cdtifipv4mtu.is_set or
+                    self.cdtifipv4subenable.is_set or
+                    self.cdtifipv4tcpmssadjust.is_set or
+                    self.cdtifipv4unnumbered.is_set or
+                    self.cdtifipv4verifyunirpf.is_set or
+                    self.cdtifipv4verifyunirpfacl.is_set or
+                    self.cdtifipv4verifyunirpfopts.is_set or
+                    self.cdtifipv6enable.is_set or
+                    self.cdtifipv6nddadattempts.is_set or
+                    self.cdtifipv6ndnsinterval.is_set or
+                    self.cdtifipv6ndopts.is_set or
+                    self.cdtifipv6ndpreferredlife.is_set or
+                    self.cdtifipv6ndprefix.is_set or
+                    self.cdtifipv6ndprefixlength.is_set or
+                    self.cdtifipv6ndraintervalmax.is_set or
+                    self.cdtifipv6ndraintervalmin.is_set or
+                    self.cdtifipv6ndraintervalunits.is_set or
+                    self.cdtifipv6ndralife.is_set or
+                    self.cdtifipv6ndreachabletime.is_set or
+                    self.cdtifipv6ndrouterpreference.is_set or
+                    self.cdtifipv6ndvalidlife.is_set or
+                    self.cdtifipv6subenable.is_set or
+                    self.cdtifipv6tcpmssadjust.is_set or
+                    self.cdtifipv6verifyunirpf.is_set or
+                    self.cdtifipv6verifyunirpfacl.is_set or
+                    self.cdtifipv6verifyunirpfopts.is_set or
+                    self.cdtifmtu.is_set or
+                    self.cdtifvalid.is_set)
 
-                This object specifies options that affect advertisements sent
-                on the target interface\:
-                
-                    'advertise'
-                        This option specifies that the system should advertise
-                        the IPv6 prefix (i.e., the corresponding instance of
-                        cdtIfIpv6NdPrefix).
-                
-                    'onlink'
-                        This option specifies that the IPv6 prefix has been
-                        assigned to a link.  If set to '0', the system
-                        advertises the IPv6 prefix as 'offlink'.
-                
-                    'router'
-                        This option indicates that the router will send the full
-                        router address and not set the 'R' bit in prefix
-                        advertisements.
-                
-                    'autoConfig'
-                        This option indicates to hosts on the local link that
-                        the specified prefix supports IPv6 auto\-configuration.
-                
-                    'advertisementInterval'
-                        This option specifies the advertisement interval option
-                        in router advertisements sent on the target interface.
-                
-                    'managedConfigFlag'
-                        This option causes the system to set the 'managed
-                        address configuration flag' in router advertisements
-                        sent on the target interface.
-                
-                    'otherConfigFlag'
-                        This option causes the system to set the 'other stateful
-                        configuration' flag in router advertisements sent on the
-                        target interface.
-                
-                    'frameIpv6Prefix'
-                        This option causes the system to add the prefix in a
-                        received RADIUS framed IPv6 prefix attribute to the
-                        target interface's neighbor discovery prefix queue and
-                        includes it in router advertisements sent on the target
-                        interface.
-                
-                    'raSupress'
-                        This option suppresses the transmission of router
-                        advertisements on the target interface.
-                
-                This column is valid only if the 'ipv6NdOpts' bit of the
-                corresponding instance of cdtIfValid is '1'.
-                Keys are:- router , framedIpv6Prefix , otherConfigFlag , advertisementInterval , advertise , onlink , raSuppress , autoConfig , managedConfigFlag
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtifcdpenable.yfilter != YFilter.not_set or
+                    self.cdtifflowmonitor.yfilter != YFilter.not_set or
+                    self.cdtifipv4mtu.yfilter != YFilter.not_set or
+                    self.cdtifipv4subenable.yfilter != YFilter.not_set or
+                    self.cdtifipv4tcpmssadjust.yfilter != YFilter.not_set or
+                    self.cdtifipv4unnumbered.yfilter != YFilter.not_set or
+                    self.cdtifipv4verifyunirpf.yfilter != YFilter.not_set or
+                    self.cdtifipv4verifyunirpfacl.yfilter != YFilter.not_set or
+                    self.cdtifipv4verifyunirpfopts.yfilter != YFilter.not_set or
+                    self.cdtifipv6enable.yfilter != YFilter.not_set or
+                    self.cdtifipv6nddadattempts.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndnsinterval.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndopts.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndpreferredlife.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndprefix.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndprefixlength.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndraintervalmax.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndraintervalmin.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndraintervalunits.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndralife.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndreachabletime.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndrouterpreference.yfilter != YFilter.not_set or
+                    self.cdtifipv6ndvalidlife.yfilter != YFilter.not_set or
+                    self.cdtifipv6subenable.yfilter != YFilter.not_set or
+                    self.cdtifipv6tcpmssadjust.yfilter != YFilter.not_set or
+                    self.cdtifipv6verifyunirpf.yfilter != YFilter.not_set or
+                    self.cdtifipv6verifyunirpfacl.yfilter != YFilter.not_set or
+                    self.cdtifipv6verifyunirpfopts.yfilter != YFilter.not_set or
+                    self.cdtifmtu.yfilter != YFilter.not_set or
+                    self.cdtifvalid.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtIfTemplateEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'router':False,
-                        'framedIpv6Prefix':False,
-                        'otherConfigFlag':False,
-                        'advertisementInterval':False,
-                        'advertise':False,
-                        'onlink':False,
-                        'raSuppress':False,
-                        'autoConfig':False,
-                        'managedConfigFlag':False,
-                    }
-                    self._pos_map = { 
-                        'router':2,
-                        'framedIpv6Prefix':7,
-                        'otherConfigFlag':6,
-                        'advertisementInterval':4,
-                        'advertise':0,
-                        'onlink':1,
-                        'raSuppress':8,
-                        'autoConfig':3,
-                        'managedConfigFlag':5,
-                    }
+                return path_buffer
 
-            class Cdtifvalid(FixedBitsDict):
-                """
-                Cdtifvalid
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtIfTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                This object specifies which attributes in the dynamic template
-                have been configured to valid values.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is not valid.  If the bit is '1', then the value of the
-                corresponding column has been configured to a valid value.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    'mtu'                     => cdtIfMtu
-                    'cdpEnable'               => cdtIfCdpEnable
-                    'flowMonitor'             => cdtIfFlowMonitor
-                    'ipv4Unnumbered'          => cdtIfIpv4Unnumbered
-                    'ipv4SubEnable'           => cdtIfIpv4SubEnable
-                    'ipv4Mtu'                 => cdtIfIpv4Mtu
-                    'ipv4TcpMssAdjust'        => cdtIfIpv4TcpMssAdjust
-                    'ipv4VerifyUniRpf'        => cdtIfIpv4VerifyUniRpf
-                    'ipv4VerifyUniRpfAcl'     => cdtIfIpv4VerifyUniRpfAcl
-                    'ipv4VerifyUniRpfOpts'    => cdtIfIpv4VerifyUniRpfOpts
-                    'ipv6Enable'              => cdtIfIpv6Enable
-                    'ipv6SubEnable'           => cdtIfIpv6SubEnable
-                    'ipv6TcpMssAdjust'        => cdtIfIpv6TcpMssAdjust
-                    'ipv6VerifyUniRpf'        => cdtIfIpv6VerifyUniRpf
-                    'ipv6VerifyUniRpfAcl'     => cdtIfIpv6VerifyUniRpfAcl
-                    'ipv6VerifyUniRpfOpts'    => cdtIfIpv6VerifyUniRpfOpts
-                    'ipv6NdPrefix'            => cdtIfIpv6NdPrefix,
-                                                 cdtIfIpv6NdPrefixLength
-                    'ipv6NdValidLife'         => cdtIfIpv6NdValidLife
-                    'ipv6NdPreferredLife'     => cdtIfIpv6NdPreferredLife
-                    'ipv6NdOpts'              => cdtIfIpv6NdOpts
-                    'ipv6NdDadAttempts'       => cdtIfIpv6NdDadAttempts
-                    'ipv6NdNsInterval'        => cdtIfIpv6NdNsInterval
-                    'ipv6NdReacableTime'      => cdtIfIpv6NdReacableTime
-                    'ipv6NdRaIntervalMax'     => cdtIfIpv6NdRaIntervalUnits,
-                                                 cdtIfIpv6NdRaIntervalMax
-                    'ipv6NdRaIntervalMin'     => cdtIfIpv6NdRaIntervalMin
-                    'ipv6NdRaLife'            => cdtIfIpv6NdRaLife
-                    'ipv6NdRouterPreference'' => cdtIfIpv6NdRouterPreference
-                Keys are:- ipv4VerifyUniRpf , ipv6NdReachableTime , ipv6NdPreferredLife , mtu , ipv6NdRaIntervalMax , flowMonitor , ipv6VerifyUniRpf , ipv6NdValidLife , ipv6TcpMssAdjust , ipv6NdNsInterval , ipv6NdDadAttempts , ipv6NdRaIntervalMin , ipv4SubEnable , ipv4Unnumbered , ipv6NdRaLife , ipv6SubEnable , ipv4VerifyUniRpfAcl , ipv4Mtu , ipv6Enable , ipv4VerifyUniRpfOpts , ipv6NdOpts , ipv6VerifyUniRpfAcl , cdpEnable , ipv6VerifyUniRpfOpts , ipv6NdRaRouterPreference , ipv4TcpMssAdjust , ipv6NdPrefix
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtifcdpenable.is_set or self.cdtifcdpenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifcdpenable.get_name_leafdata())
+                if (self.cdtifflowmonitor.is_set or self.cdtifflowmonitor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifflowmonitor.get_name_leafdata())
+                if (self.cdtifipv4mtu.is_set or self.cdtifipv4mtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4mtu.get_name_leafdata())
+                if (self.cdtifipv4subenable.is_set or self.cdtifipv4subenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4subenable.get_name_leafdata())
+                if (self.cdtifipv4tcpmssadjust.is_set or self.cdtifipv4tcpmssadjust.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4tcpmssadjust.get_name_leafdata())
+                if (self.cdtifipv4unnumbered.is_set or self.cdtifipv4unnumbered.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4unnumbered.get_name_leafdata())
+                if (self.cdtifipv4verifyunirpf.is_set or self.cdtifipv4verifyunirpf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4verifyunirpf.get_name_leafdata())
+                if (self.cdtifipv4verifyunirpfacl.is_set or self.cdtifipv4verifyunirpfacl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4verifyunirpfacl.get_name_leafdata())
+                if (self.cdtifipv4verifyunirpfopts.is_set or self.cdtifipv4verifyunirpfopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv4verifyunirpfopts.get_name_leafdata())
+                if (self.cdtifipv6enable.is_set or self.cdtifipv6enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6enable.get_name_leafdata())
+                if (self.cdtifipv6nddadattempts.is_set or self.cdtifipv6nddadattempts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6nddadattempts.get_name_leafdata())
+                if (self.cdtifipv6ndnsinterval.is_set or self.cdtifipv6ndnsinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndnsinterval.get_name_leafdata())
+                if (self.cdtifipv6ndopts.is_set or self.cdtifipv6ndopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndopts.get_name_leafdata())
+                if (self.cdtifipv6ndpreferredlife.is_set or self.cdtifipv6ndpreferredlife.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndpreferredlife.get_name_leafdata())
+                if (self.cdtifipv6ndprefix.is_set or self.cdtifipv6ndprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndprefix.get_name_leafdata())
+                if (self.cdtifipv6ndprefixlength.is_set or self.cdtifipv6ndprefixlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndprefixlength.get_name_leafdata())
+                if (self.cdtifipv6ndraintervalmax.is_set or self.cdtifipv6ndraintervalmax.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndraintervalmax.get_name_leafdata())
+                if (self.cdtifipv6ndraintervalmin.is_set or self.cdtifipv6ndraintervalmin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndraintervalmin.get_name_leafdata())
+                if (self.cdtifipv6ndraintervalunits.is_set or self.cdtifipv6ndraintervalunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndraintervalunits.get_name_leafdata())
+                if (self.cdtifipv6ndralife.is_set or self.cdtifipv6ndralife.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndralife.get_name_leafdata())
+                if (self.cdtifipv6ndreachabletime.is_set or self.cdtifipv6ndreachabletime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndreachabletime.get_name_leafdata())
+                if (self.cdtifipv6ndrouterpreference.is_set or self.cdtifipv6ndrouterpreference.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndrouterpreference.get_name_leafdata())
+                if (self.cdtifipv6ndvalidlife.is_set or self.cdtifipv6ndvalidlife.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6ndvalidlife.get_name_leafdata())
+                if (self.cdtifipv6subenable.is_set or self.cdtifipv6subenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6subenable.get_name_leafdata())
+                if (self.cdtifipv6tcpmssadjust.is_set or self.cdtifipv6tcpmssadjust.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6tcpmssadjust.get_name_leafdata())
+                if (self.cdtifipv6verifyunirpf.is_set or self.cdtifipv6verifyunirpf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6verifyunirpf.get_name_leafdata())
+                if (self.cdtifipv6verifyunirpfacl.is_set or self.cdtifipv6verifyunirpfacl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6verifyunirpfacl.get_name_leafdata())
+                if (self.cdtifipv6verifyunirpfopts.is_set or self.cdtifipv6verifyunirpfopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifipv6verifyunirpfopts.get_name_leafdata())
+                if (self.cdtifmtu.is_set or self.cdtifmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifmtu.get_name_leafdata())
+                if (self.cdtifvalid.is_set or self.cdtifvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtifvalid.get_name_leafdata())
 
-                """
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'ipv4VerifyUniRpf':False,
-                        'ipv6NdReachableTime':False,
-                        'ipv6NdPreferredLife':False,
-                        'mtu':False,
-                        'ipv6NdRaIntervalMax':False,
-                        'flowMonitor':False,
-                        'ipv6VerifyUniRpf':False,
-                        'ipv6NdValidLife':False,
-                        'ipv6TcpMssAdjust':False,
-                        'ipv6NdNsInterval':False,
-                        'ipv6NdDadAttempts':False,
-                        'ipv6NdRaIntervalMin':False,
-                        'ipv4SubEnable':False,
-                        'ipv4Unnumbered':False,
-                        'ipv6NdRaLife':False,
-                        'ipv6SubEnable':False,
-                        'ipv4VerifyUniRpfAcl':False,
-                        'ipv4Mtu':False,
-                        'ipv6Enable':False,
-                        'ipv4VerifyUniRpfOpts':False,
-                        'ipv6NdOpts':False,
-                        'ipv6VerifyUniRpfAcl':False,
-                        'cdpEnable':False,
-                        'ipv6VerifyUniRpfOpts':False,
-                        'ipv6NdRaRouterPreference':False,
-                        'ipv4TcpMssAdjust':False,
-                        'ipv6NdPrefix':False,
-                    }
-                    self._pos_map = { 
-                        'ipv4VerifyUniRpf':7,
-                        'ipv6NdReachableTime':22,
-                        'ipv6NdPreferredLife':18,
-                        'mtu':0,
-                        'ipv6NdRaIntervalMax':23,
-                        'flowMonitor':2,
-                        'ipv6VerifyUniRpf':13,
-                        'ipv6NdValidLife':17,
-                        'ipv6TcpMssAdjust':12,
-                        'ipv6NdNsInterval':21,
-                        'ipv6NdDadAttempts':20,
-                        'ipv6NdRaIntervalMin':24,
-                        'ipv4SubEnable':4,
-                        'ipv4Unnumbered':3,
-                        'ipv6NdRaLife':25,
-                        'ipv6SubEnable':11,
-                        'ipv4VerifyUniRpfAcl':8,
-                        'ipv4Mtu':5,
-                        'ipv6Enable':10,
-                        'ipv4VerifyUniRpfOpts':9,
-                        'ipv6NdOpts':19,
-                        'ipv6VerifyUniRpfAcl':14,
-                        'cdpEnable':1,
-                        'ipv6VerifyUniRpfOpts':15,
-                        'ipv6NdRaRouterPreference':26,
-                        'ipv4TcpMssAdjust':6,
-                        'ipv6NdPrefix':16,
-                    }
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
+                return None
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtIfTemplateTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtIfTemplateEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtIfCdpEnable" or name == "cdtIfFlowMonitor" or name == "cdtIfIpv4Mtu" or name == "cdtIfIpv4SubEnable" or name == "cdtIfIpv4TcpMssAdjust" or name == "cdtIfIpv4Unnumbered" or name == "cdtIfIpv4VerifyUniRpf" or name == "cdtIfIpv4VerifyUniRpfAcl" or name == "cdtIfIpv4VerifyUniRpfOpts" or name == "cdtIfIpv6Enable" or name == "cdtIfIpv6NdDadAttempts" or name == "cdtIfIpv6NdNsInterval" or name == "cdtIfIpv6NdOpts" or name == "cdtIfIpv6NdPreferredLife" or name == "cdtIfIpv6NdPrefix" or name == "cdtIfIpv6NdPrefixLength" or name == "cdtIfIpv6NdRaIntervalMax" or name == "cdtIfIpv6NdRaIntervalMin" or name == "cdtIfIpv6NdRaIntervalUnits" or name == "cdtIfIpv6NdRaLife" or name == "cdtIfIpv6NdReachableTime" or name == "cdtIfIpv6NdRouterPreference" or name == "cdtIfIpv6NdValidLife" or name == "cdtIfIpv6SubEnable" or name == "cdtIfIpv6TcpMssAdjust" or name == "cdtIfIpv6VerifyUniRpf" or name == "cdtIfIpv6VerifyUniRpfAcl" or name == "cdtIfIpv6VerifyUniRpfOpts" or name == "cdtIfMtu" or name == "cdtIfValid"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfCdpEnable"):
+                    self.cdtifcdpenable = value
+                    self.cdtifcdpenable.value_namespace = name_space
+                    self.cdtifcdpenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfFlowMonitor"):
+                    self.cdtifflowmonitor = value
+                    self.cdtifflowmonitor.value_namespace = name_space
+                    self.cdtifflowmonitor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4Mtu"):
+                    self.cdtifipv4mtu = value
+                    self.cdtifipv4mtu.value_namespace = name_space
+                    self.cdtifipv4mtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4SubEnable"):
+                    self.cdtifipv4subenable = value
+                    self.cdtifipv4subenable.value_namespace = name_space
+                    self.cdtifipv4subenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4TcpMssAdjust"):
+                    self.cdtifipv4tcpmssadjust = value
+                    self.cdtifipv4tcpmssadjust.value_namespace = name_space
+                    self.cdtifipv4tcpmssadjust.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4Unnumbered"):
+                    self.cdtifipv4unnumbered = value
+                    self.cdtifipv4unnumbered.value_namespace = name_space
+                    self.cdtifipv4unnumbered.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4VerifyUniRpf"):
+                    self.cdtifipv4verifyunirpf = value
+                    self.cdtifipv4verifyunirpf.value_namespace = name_space
+                    self.cdtifipv4verifyunirpf.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4VerifyUniRpfAcl"):
+                    self.cdtifipv4verifyunirpfacl = value
+                    self.cdtifipv4verifyunirpfacl.value_namespace = name_space
+                    self.cdtifipv4verifyunirpfacl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv4VerifyUniRpfOpts"):
+                    self.cdtifipv4verifyunirpfopts[value] = True
+                if(value_path == "cdtIfIpv6Enable"):
+                    self.cdtifipv6enable = value
+                    self.cdtifipv6enable.value_namespace = name_space
+                    self.cdtifipv6enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdDadAttempts"):
+                    self.cdtifipv6nddadattempts = value
+                    self.cdtifipv6nddadattempts.value_namespace = name_space
+                    self.cdtifipv6nddadattempts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdNsInterval"):
+                    self.cdtifipv6ndnsinterval = value
+                    self.cdtifipv6ndnsinterval.value_namespace = name_space
+                    self.cdtifipv6ndnsinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdOpts"):
+                    self.cdtifipv6ndopts[value] = True
+                if(value_path == "cdtIfIpv6NdPreferredLife"):
+                    self.cdtifipv6ndpreferredlife = value
+                    self.cdtifipv6ndpreferredlife.value_namespace = name_space
+                    self.cdtifipv6ndpreferredlife.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdPrefix"):
+                    self.cdtifipv6ndprefix = value
+                    self.cdtifipv6ndprefix.value_namespace = name_space
+                    self.cdtifipv6ndprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdPrefixLength"):
+                    self.cdtifipv6ndprefixlength = value
+                    self.cdtifipv6ndprefixlength.value_namespace = name_space
+                    self.cdtifipv6ndprefixlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdRaIntervalMax"):
+                    self.cdtifipv6ndraintervalmax = value
+                    self.cdtifipv6ndraintervalmax.value_namespace = name_space
+                    self.cdtifipv6ndraintervalmax.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdRaIntervalMin"):
+                    self.cdtifipv6ndraintervalmin = value
+                    self.cdtifipv6ndraintervalmin.value_namespace = name_space
+                    self.cdtifipv6ndraintervalmin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdRaIntervalUnits"):
+                    self.cdtifipv6ndraintervalunits = value
+                    self.cdtifipv6ndraintervalunits.value_namespace = name_space
+                    self.cdtifipv6ndraintervalunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdRaLife"):
+                    self.cdtifipv6ndralife = value
+                    self.cdtifipv6ndralife.value_namespace = name_space
+                    self.cdtifipv6ndralife.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdReachableTime"):
+                    self.cdtifipv6ndreachabletime = value
+                    self.cdtifipv6ndreachabletime.value_namespace = name_space
+                    self.cdtifipv6ndreachabletime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdRouterPreference"):
+                    self.cdtifipv6ndrouterpreference = value
+                    self.cdtifipv6ndrouterpreference.value_namespace = name_space
+                    self.cdtifipv6ndrouterpreference.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6NdValidLife"):
+                    self.cdtifipv6ndvalidlife = value
+                    self.cdtifipv6ndvalidlife.value_namespace = name_space
+                    self.cdtifipv6ndvalidlife.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6SubEnable"):
+                    self.cdtifipv6subenable = value
+                    self.cdtifipv6subenable.value_namespace = name_space
+                    self.cdtifipv6subenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6TcpMssAdjust"):
+                    self.cdtifipv6tcpmssadjust = value
+                    self.cdtifipv6tcpmssadjust.value_namespace = name_space
+                    self.cdtifipv6tcpmssadjust.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6VerifyUniRpf"):
+                    self.cdtifipv6verifyunirpf = value
+                    self.cdtifipv6verifyunirpf.value_namespace = name_space
+                    self.cdtifipv6verifyunirpf.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6VerifyUniRpfAcl"):
+                    self.cdtifipv6verifyunirpfacl = value
+                    self.cdtifipv6verifyunirpfacl.value_namespace = name_space
+                    self.cdtifipv6verifyunirpfacl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfIpv6VerifyUniRpfOpts"):
+                    self.cdtifipv6verifyunirpfopts[value] = True
+                if(value_path == "cdtIfMtu"):
+                    self.cdtifmtu = value
+                    self.cdtifmtu.value_namespace = name_space
+                    self.cdtifmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtIfValid"):
+                    self.cdtifvalid[value] = True
+
+        def has_data(self):
+            for c in self.cdtiftemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtifcdpenable is not None:
-                    return True
-
-                if self.cdtifflowmonitor is not None:
-                    return True
-
-                if self.cdtifipv4mtu is not None:
-                    return True
-
-                if self.cdtifipv4subenable is not None:
-                    return True
-
-                if self.cdtifipv4tcpmssadjust is not None:
-                    return True
-
-                if self.cdtifipv4unnumbered is not None:
-                    return True
-
-                if self.cdtifipv4verifyunirpf is not None:
-                    return True
-
-                if self.cdtifipv4verifyunirpfacl is not None:
-                    return True
-
-                if self.cdtifipv4verifyunirpfopts is not None:
-                    if self.cdtifipv4verifyunirpfopts._has_data():
-                        return True
-
-                if self.cdtifipv6enable is not None:
-                    return True
-
-                if self.cdtifipv6nddadattempts is not None:
-                    return True
-
-                if self.cdtifipv6ndnsinterval is not None:
-                    return True
-
-                if self.cdtifipv6ndopts is not None:
-                    if self.cdtifipv6ndopts._has_data():
-                        return True
-
-                if self.cdtifipv6ndpreferredlife is not None:
-                    return True
-
-                if self.cdtifipv6ndprefix is not None:
-                    return True
-
-                if self.cdtifipv6ndprefixlength is not None:
-                    return True
-
-                if self.cdtifipv6ndraintervalmax is not None:
-                    return True
-
-                if self.cdtifipv6ndraintervalmin is not None:
-                    return True
-
-                if self.cdtifipv6ndraintervalunits is not None:
-                    return True
-
-                if self.cdtifipv6ndralife is not None:
-                    return True
-
-                if self.cdtifipv6ndreachabletime is not None:
-                    return True
-
-                if self.cdtifipv6ndrouterpreference is not None:
-                    return True
-
-                if self.cdtifipv6ndvalidlife is not None:
-                    return True
-
-                if self.cdtifipv6subenable is not None:
-                    return True
-
-                if self.cdtifipv6tcpmssadjust is not None:
-                    return True
-
-                if self.cdtifipv6verifyunirpf is not None:
-                    return True
-
-                if self.cdtifipv6verifyunirpfacl is not None:
-                    return True
-
-                if self.cdtifipv6verifyunirpfopts is not None:
-                    if self.cdtifipv6verifyunirpfopts._has_data():
-                        return True
-
-                if self.cdtifmtu is not None:
-                    return True
-
-                if self.cdtifvalid is not None:
-                    if self.cdtifvalid._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtIfTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdtiftemplateentry is not None:
-                for child_ref in self.cdtiftemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdtiftemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtIfTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtIfTemplateEntry"):
+                for c in self.cdtiftemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdtiftemplatetable.Cdtiftemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdtiftemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtIfTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdtiftemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdtppptemplatetable(object):
+    class Cdtppptemplatetable(Entity):
         """
         This table contains attributes relating to PPP connection
         configuration.
@@ -1810,13 +2632,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdtppptemplateentry = YList()
-            self.cdtppptemplateentry.parent = self
-            self.cdtppptemplateentry.name = 'cdtppptemplateentry'
+            super(CiscoDynamicTemplateMib.Cdtppptemplatetable, self).__init__()
+
+            self.yang_name = "cdtPppTemplateTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdtppptemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdtppptemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdtppptemplatetable, self).__setattr__(name, value)
 
 
-        class Cdtppptemplateentry(object):
+        class Cdtppptemplateentry(Entity):
             """
             An entry containing attributes relating to PPP connection
             configuration.
@@ -1904,12 +2752,12 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtpppipcpaddroption
             
             	This object specifies the IPCP address option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured IPCP address option.      'accept'         The system accepts any non\-zero IP address from the peer         of a target PPP connection.      'required'         The system disconnects the peer of a target PPP         connection if it could not negotiate an IP address.      'unique'         The system disconnects the peer of a target PPP         connection if the IP address is already in use.  This column is valid only if the 'ipcpAddrOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:   :py:class:`CdtpppipcpaddroptionEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpaddroptionEnum>`
+            	**type**\:   :py:class:`Cdtpppipcpaddroption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpaddroption>`
             
             .. attribute:: cdtpppipcpdnsoption
             
             	This object specifies the IPCP DNS option for the dynamic interface\:      'other'         The implementation of this MIB module does not recognize         the configured DNS option.      'accept'         The system accepts any non\-zero DNS address form the         peer of a target PPP connection.      'request'         The system requests the DNS address from the peer of a         target PPP connection.      'reject'         The system rejects the DNS option from the peer of a         target PPP connection.  This column is valid only if the 'ipcpDnsOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:   :py:class:`CdtpppipcpdnsoptionEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpdnsoptionEnum>`
+            	**type**\:   :py:class:`Cdtpppipcpdnsoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpdnsoption>`
             
             .. attribute:: cdtpppipcpdnsprimary
             
@@ -1929,12 +2777,12 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtpppipcpmaskoption
             
             	This object specifies the IPCP IP subnet mask option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured IP subnet mask option.      'request'         The system requests the IP subnet mask from the peer of         a target PPP connection.      'reject'         The system rejects the IP subnet mask option from the         peer of a target PPP connection.  This column is valid only if the 'ipcpMaskOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:   :py:class:`CdtpppipcpmaskoptionEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpmaskoptionEnum>`
+            	**type**\:   :py:class:`Cdtpppipcpmaskoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpmaskoption>`
             
             .. attribute:: cdtpppipcpwinsoption
             
             	This object specifies the IPCP WINS option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured WINS option.      'accept'         The system accepts any non\-zero WINS address from the         peer of a target PPP connection.      'request'         The system requests the WINS address from the peer of         a target PPP connection.      'reject'         The system rejects the WINS option from the peer of a         target PPP connection.  This column is valid only if the 'ipcpWinsOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:   :py:class:`CdtpppipcpwinsoptionEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpwinsoptionEnum>`
+            	**type**\:   :py:class:`Cdtpppipcpwinsoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpwinsoption>`
             
             .. attribute:: cdtpppipcpwinsprimary
             
@@ -2049,7 +2897,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtppppeerdefipaddrsrc
             
             	This object specifies how the system assigns an IP address to the peer of a target PPP connection\:      'static'         The system assigns the IP address specified by the         corresponding instance of cdtPppPeerDefIpAddr.      'pool'         The system allocates the first available IP address from         the corresponding list of named pools contained by the         cdtPppPeerIpAddrPoolTable.      'dhcp'         The system acts as a DHCP proxy\-client to obtain an IP         address.  This column is valid only if the 'peerDefIpAddrSrc' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:   :py:class:`CdtppppeerdefipaddrsrcEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtppppeerdefipaddrsrcEnum>`
+            	**type**\:   :py:class:`Cdtppppeerdefipaddrsrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppeerdefipaddrsrc>`
             
             .. attribute:: cdtppptimeoutauthentication
             
@@ -2082,51 +2930,157 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtpppaccounting = None
-                self.cdtpppauthentication = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppauthentication()
-                self.cdtpppauthenticationmethods = None
-                self.cdtpppauthorization = None
-                self.cdtpppchaphostname = None
-                self.cdtpppchapopts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppchapopts()
-                self.cdtpppchappassword = None
-                self.cdtpppeapidentity = None
-                self.cdtpppeapopts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppeapopts()
-                self.cdtpppeappassword = None
-                self.cdtpppipcpaddroption = None
-                self.cdtpppipcpdnsoption = None
-                self.cdtpppipcpdnsprimary = None
-                self.cdtpppipcpdnssecondary = None
-                self.cdtpppipcpmask = None
-                self.cdtpppipcpmaskoption = None
-                self.cdtpppipcpwinsoption = None
-                self.cdtpppipcpwinsprimary = None
-                self.cdtpppipcpwinssecondary = None
-                self.cdtppploopbackignore = None
-                self.cdtpppmaxbadauth = None
-                self.cdtpppmaxconfigure = None
-                self.cdtpppmaxfailure = None
-                self.cdtpppmaxterminate = None
-                self.cdtpppmschapv1hostname = None
-                self.cdtpppmschapv1opts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppmschapv1Opts()
-                self.cdtpppmschapv1password = None
-                self.cdtpppmschapv2hostname = None
-                self.cdtpppmschapv2opts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppmschapv2Opts()
-                self.cdtpppmschapv2password = None
-                self.cdtppppapopts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppapopts()
-                self.cdtppppappassword = None
-                self.cdtppppapusername = None
-                self.cdtppppeerdefipaddr = None
-                self.cdtppppeerdefipaddropts = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppeerdefipaddropts()
-                self.cdtppppeerdefipaddrsrc = None
-                self.cdtppptimeoutauthentication = None
-                self.cdtppptimeoutretry = None
-                self.cdtpppvalid = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppvalid()
+                super(CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry, self).__init__()
 
-            class CdtpppipcpaddroptionEnum(Enum):
+                self.yang_name = "cdtPppTemplateEntry"
+                self.yang_parent_name = "cdtPppTemplateTable"
+
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
+
+                self.cdtpppaccounting = YLeaf(YType.boolean, "cdtPppAccounting")
+
+                self.cdtpppauthentication = YLeaf(YType.bits, "cdtPppAuthentication")
+
+                self.cdtpppauthenticationmethods = YLeaf(YType.str, "cdtPppAuthenticationMethods")
+
+                self.cdtpppauthorization = YLeaf(YType.boolean, "cdtPppAuthorization")
+
+                self.cdtpppchaphostname = YLeaf(YType.str, "cdtPppChapHostname")
+
+                self.cdtpppchapopts = YLeaf(YType.bits, "cdtPppChapOpts")
+
+                self.cdtpppchappassword = YLeaf(YType.str, "cdtPppChapPassword")
+
+                self.cdtpppeapidentity = YLeaf(YType.str, "cdtPppEapIdentity")
+
+                self.cdtpppeapopts = YLeaf(YType.bits, "cdtPppEapOpts")
+
+                self.cdtpppeappassword = YLeaf(YType.str, "cdtPppEapPassword")
+
+                self.cdtpppipcpaddroption = YLeaf(YType.enumeration, "cdtPppIpcpAddrOption")
+
+                self.cdtpppipcpdnsoption = YLeaf(YType.enumeration, "cdtPppIpcpDnsOption")
+
+                self.cdtpppipcpdnsprimary = YLeaf(YType.str, "cdtPppIpcpDnsPrimary")
+
+                self.cdtpppipcpdnssecondary = YLeaf(YType.str, "cdtPppIpcpDnsSecondary")
+
+                self.cdtpppipcpmask = YLeaf(YType.str, "cdtPppIpcpMask")
+
+                self.cdtpppipcpmaskoption = YLeaf(YType.enumeration, "cdtPppIpcpMaskOption")
+
+                self.cdtpppipcpwinsoption = YLeaf(YType.enumeration, "cdtPppIpcpWinsOption")
+
+                self.cdtpppipcpwinsprimary = YLeaf(YType.str, "cdtPppIpcpWinsPrimary")
+
+                self.cdtpppipcpwinssecondary = YLeaf(YType.str, "cdtPppIpcpWinsSecondary")
+
+                self.cdtppploopbackignore = YLeaf(YType.boolean, "cdtPppLoopbackIgnore")
+
+                self.cdtpppmaxbadauth = YLeaf(YType.uint32, "cdtPppMaxBadAuth")
+
+                self.cdtpppmaxconfigure = YLeaf(YType.uint32, "cdtPppMaxConfigure")
+
+                self.cdtpppmaxfailure = YLeaf(YType.uint32, "cdtPppMaxFailure")
+
+                self.cdtpppmaxterminate = YLeaf(YType.uint32, "cdtPppMaxTerminate")
+
+                self.cdtpppmschapv1hostname = YLeaf(YType.str, "cdtPppMsChapV1Hostname")
+
+                self.cdtpppmschapv1opts = YLeaf(YType.bits, "cdtPppMsChapV1Opts")
+
+                self.cdtpppmschapv1password = YLeaf(YType.str, "cdtPppMsChapV1Password")
+
+                self.cdtpppmschapv2hostname = YLeaf(YType.str, "cdtPppMsChapV2Hostname")
+
+                self.cdtpppmschapv2opts = YLeaf(YType.bits, "cdtPppMsChapV2Opts")
+
+                self.cdtpppmschapv2password = YLeaf(YType.str, "cdtPppMsChapV2Password")
+
+                self.cdtppppapopts = YLeaf(YType.bits, "cdtPppPapOpts")
+
+                self.cdtppppappassword = YLeaf(YType.str, "cdtPppPapPassword")
+
+                self.cdtppppapusername = YLeaf(YType.str, "cdtPppPapUsername")
+
+                self.cdtppppeerdefipaddr = YLeaf(YType.str, "cdtPppPeerDefIpAddr")
+
+                self.cdtppppeerdefipaddropts = YLeaf(YType.bits, "cdtPppPeerDefIpAddrOpts")
+
+                self.cdtppppeerdefipaddrsrc = YLeaf(YType.enumeration, "cdtPppPeerDefIpAddrSrc")
+
+                self.cdtppptimeoutauthentication = YLeaf(YType.uint32, "cdtPppTimeoutAuthentication")
+
+                self.cdtppptimeoutretry = YLeaf(YType.uint32, "cdtPppTimeoutRetry")
+
+                self.cdtpppvalid = YLeaf(YType.bits, "cdtPppValid")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtpppaccounting",
+                                "cdtpppauthentication",
+                                "cdtpppauthenticationmethods",
+                                "cdtpppauthorization",
+                                "cdtpppchaphostname",
+                                "cdtpppchapopts",
+                                "cdtpppchappassword",
+                                "cdtpppeapidentity",
+                                "cdtpppeapopts",
+                                "cdtpppeappassword",
+                                "cdtpppipcpaddroption",
+                                "cdtpppipcpdnsoption",
+                                "cdtpppipcpdnsprimary",
+                                "cdtpppipcpdnssecondary",
+                                "cdtpppipcpmask",
+                                "cdtpppipcpmaskoption",
+                                "cdtpppipcpwinsoption",
+                                "cdtpppipcpwinsprimary",
+                                "cdtpppipcpwinssecondary",
+                                "cdtppploopbackignore",
+                                "cdtpppmaxbadauth",
+                                "cdtpppmaxconfigure",
+                                "cdtpppmaxfailure",
+                                "cdtpppmaxterminate",
+                                "cdtpppmschapv1hostname",
+                                "cdtpppmschapv1opts",
+                                "cdtpppmschapv1password",
+                                "cdtpppmschapv2hostname",
+                                "cdtpppmschapv2opts",
+                                "cdtpppmschapv2password",
+                                "cdtppppapopts",
+                                "cdtppppappassword",
+                                "cdtppppapusername",
+                                "cdtppppeerdefipaddr",
+                                "cdtppppeerdefipaddropts",
+                                "cdtppppeerdefipaddrsrc",
+                                "cdtppptimeoutauthentication",
+                                "cdtppptimeoutretry",
+                                "cdtpppvalid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry, self).__setattr__(name, value)
+
+            class Cdtpppipcpaddroption(Enum):
                 """
-                CdtpppipcpaddroptionEnum
+                Cdtpppipcpaddroption
 
                 This object specifies the IPCP address option for a target PPP
 
@@ -2170,24 +3124,18 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                accept = 2
+                accept = Enum.YLeaf(2, "accept")
 
-                required = 3
+                required = Enum.YLeaf(3, "required")
 
-                unique = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpaddroptionEnum']
+                unique = Enum.YLeaf(4, "unique")
 
 
-            class CdtpppipcpdnsoptionEnum(Enum):
+            class Cdtpppipcpdnsoption(Enum):
                 """
-                CdtpppipcpdnsoptionEnum
+                Cdtpppipcpdnsoption
 
                 This object specifies the IPCP DNS option for the dynamic
 
@@ -2231,24 +3179,18 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                accept = 2
+                accept = Enum.YLeaf(2, "accept")
 
-                request = 3
+                request = Enum.YLeaf(3, "request")
 
-                reject = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpdnsoptionEnum']
+                reject = Enum.YLeaf(4, "reject")
 
 
-            class CdtpppipcpmaskoptionEnum(Enum):
+            class Cdtpppipcpmaskoption(Enum):
                 """
-                CdtpppipcpmaskoptionEnum
+                Cdtpppipcpmaskoption
 
                 This object specifies the IPCP IP subnet mask option for a
 
@@ -2284,22 +3226,16 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                request = 2
+                request = Enum.YLeaf(2, "request")
 
-                reject = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpmaskoptionEnum']
+                reject = Enum.YLeaf(3, "reject")
 
 
-            class CdtpppipcpwinsoptionEnum(Enum):
+            class Cdtpppipcpwinsoption(Enum):
                 """
-                CdtpppipcpwinsoptionEnum
+                Cdtpppipcpwinsoption
 
                 This object specifies the IPCP WINS option for a target PPP
 
@@ -2343,24 +3279,18 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                accept = 2
+                accept = Enum.YLeaf(2, "accept")
 
-                request = 3
+                request = Enum.YLeaf(3, "request")
 
-                reject = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtpppipcpwinsoptionEnum']
+                reject = Enum.YLeaf(4, "reject")
 
 
-            class CdtppppeerdefipaddrsrcEnum(Enum):
+            class Cdtppppeerdefipaddrsrc(Enum):
                 """
-                CdtppppeerdefipaddrsrcEnum
+                Cdtppppeerdefipaddrsrc
 
                 This object specifies how the system assigns an IP address to
 
@@ -2398,673 +3328,415 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                static = 1
+                static = Enum.YLeaf(1, "static")
 
-                pool = 2
+                pool = Enum.YLeaf(2, "pool")
 
-                dhcp = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry.CdtppppeerdefipaddrsrcEnum']
+                dhcp = Enum.YLeaf(3, "dhcp")
 
 
-            class Cdtpppauthentication(FixedBitsDict):
-                """
-                Cdtpppauthentication
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtpppaccounting.is_set or
+                    self.cdtpppauthentication.is_set or
+                    self.cdtpppauthenticationmethods.is_set or
+                    self.cdtpppauthorization.is_set or
+                    self.cdtpppchaphostname.is_set or
+                    self.cdtpppchapopts.is_set or
+                    self.cdtpppchappassword.is_set or
+                    self.cdtpppeapidentity.is_set or
+                    self.cdtpppeapopts.is_set or
+                    self.cdtpppeappassword.is_set or
+                    self.cdtpppipcpaddroption.is_set or
+                    self.cdtpppipcpdnsoption.is_set or
+                    self.cdtpppipcpdnsprimary.is_set or
+                    self.cdtpppipcpdnssecondary.is_set or
+                    self.cdtpppipcpmask.is_set or
+                    self.cdtpppipcpmaskoption.is_set or
+                    self.cdtpppipcpwinsoption.is_set or
+                    self.cdtpppipcpwinsprimary.is_set or
+                    self.cdtpppipcpwinssecondary.is_set or
+                    self.cdtppploopbackignore.is_set or
+                    self.cdtpppmaxbadauth.is_set or
+                    self.cdtpppmaxconfigure.is_set or
+                    self.cdtpppmaxfailure.is_set or
+                    self.cdtpppmaxterminate.is_set or
+                    self.cdtpppmschapv1hostname.is_set or
+                    self.cdtpppmschapv1opts.is_set or
+                    self.cdtpppmschapv1password.is_set or
+                    self.cdtpppmschapv2hostname.is_set or
+                    self.cdtpppmschapv2opts.is_set or
+                    self.cdtpppmschapv2password.is_set or
+                    self.cdtppppapopts.is_set or
+                    self.cdtppppappassword.is_set or
+                    self.cdtppppapusername.is_set or
+                    self.cdtppppeerdefipaddr.is_set or
+                    self.cdtppppeerdefipaddropts.is_set or
+                    self.cdtppppeerdefipaddrsrc.is_set or
+                    self.cdtppptimeoutauthentication.is_set or
+                    self.cdtppptimeoutretry.is_set or
+                    self.cdtpppvalid.is_set)
 
-                This object specifies authentication services applied to a
-                target PPP connection and other options affecting authentication
-                services\:
-                
-                    'chap'
-                        This option enables the Challenge Handshake Protocol (CHAP)
-                        on a target PPP connection.
-                
-                    'msChap'
-                        This option enables Microsoft's CHAP on a target PPP
-                        connection.
-                
-                    'msChapV2'
-                        This option enables version 2 of Microsoft's CHAP on a
-                        target PPP connection.
-                
-                    'pap'
-                        This option enables Password Authentication Protocol (PAP)
-                        on a target PPP connection.
-                
-                    'eap'
-                        This option enables Extensible Authentication Protocol (EAP)
-                        on a target PPP connection.
-                
-                    'optional'
-                        This option specifies that the system accepts the connection
-                        even if the peer of a target PPP connection refuses to
-                        accept the authentication methods the system has
-                        requested.
-                
-                    'callin'
-                        This option specifies that authentication should only happen
-                        for incoming calls.
-                
-                    'oneTime'
-                        This option specifies that the system accepts the username
-                        and password in the username field of authentication
-                        responses received on a target PPP connection.
-                
-                This column is valid only if the 'authentication' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- msChapV2 , pap , oneTime , chap , eap , msChap , optional , callin
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtpppaccounting.yfilter != YFilter.not_set or
+                    self.cdtpppauthentication.yfilter != YFilter.not_set or
+                    self.cdtpppauthenticationmethods.yfilter != YFilter.not_set or
+                    self.cdtpppauthorization.yfilter != YFilter.not_set or
+                    self.cdtpppchaphostname.yfilter != YFilter.not_set or
+                    self.cdtpppchapopts.yfilter != YFilter.not_set or
+                    self.cdtpppchappassword.yfilter != YFilter.not_set or
+                    self.cdtpppeapidentity.yfilter != YFilter.not_set or
+                    self.cdtpppeapopts.yfilter != YFilter.not_set or
+                    self.cdtpppeappassword.yfilter != YFilter.not_set or
+                    self.cdtpppipcpaddroption.yfilter != YFilter.not_set or
+                    self.cdtpppipcpdnsoption.yfilter != YFilter.not_set or
+                    self.cdtpppipcpdnsprimary.yfilter != YFilter.not_set or
+                    self.cdtpppipcpdnssecondary.yfilter != YFilter.not_set or
+                    self.cdtpppipcpmask.yfilter != YFilter.not_set or
+                    self.cdtpppipcpmaskoption.yfilter != YFilter.not_set or
+                    self.cdtpppipcpwinsoption.yfilter != YFilter.not_set or
+                    self.cdtpppipcpwinsprimary.yfilter != YFilter.not_set or
+                    self.cdtpppipcpwinssecondary.yfilter != YFilter.not_set or
+                    self.cdtppploopbackignore.yfilter != YFilter.not_set or
+                    self.cdtpppmaxbadauth.yfilter != YFilter.not_set or
+                    self.cdtpppmaxconfigure.yfilter != YFilter.not_set or
+                    self.cdtpppmaxfailure.yfilter != YFilter.not_set or
+                    self.cdtpppmaxterminate.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv1hostname.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv1opts.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv1password.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv2hostname.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv2opts.yfilter != YFilter.not_set or
+                    self.cdtpppmschapv2password.yfilter != YFilter.not_set or
+                    self.cdtppppapopts.yfilter != YFilter.not_set or
+                    self.cdtppppappassword.yfilter != YFilter.not_set or
+                    self.cdtppppapusername.yfilter != YFilter.not_set or
+                    self.cdtppppeerdefipaddr.yfilter != YFilter.not_set or
+                    self.cdtppppeerdefipaddropts.yfilter != YFilter.not_set or
+                    self.cdtppppeerdefipaddrsrc.yfilter != YFilter.not_set or
+                    self.cdtppptimeoutauthentication.yfilter != YFilter.not_set or
+                    self.cdtppptimeoutretry.yfilter != YFilter.not_set or
+                    self.cdtpppvalid.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtPppTemplateEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'msChapV2':False,
-                        'pap':False,
-                        'oneTime':False,
-                        'chap':False,
-                        'eap':False,
-                        'msChap':False,
-                        'optional':False,
-                        'callin':False,
-                    }
-                    self._pos_map = { 
-                        'msChapV2':2,
-                        'pap':3,
-                        'oneTime':7,
-                        'chap':0,
-                        'eap':4,
-                        'msChap':1,
-                        'optional':5,
-                        'callin':6,
-                    }
+                return path_buffer
 
-            class Cdtpppchapopts(FixedBitsDict):
-                """
-                Cdtpppchapopts
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                This object specifies how the system processes the CHAP on a
-                target PPP connection\:
-                
-                    'refuse'
-                        This option specifies that the system should refuse CHAP
-                        requests from peers of a target PPP connection.
-                
-                    'callin'
-                        This option specifies that the system should only refuse
-                        CHAP requests for incoming calls on a target PPP
-                        connection.  This option is only relevant if the
-                        'refuse' option is set to '1'.
-                
-                    'wait'
-                        This option delays CHAP authentication until after the
-                        peer of a target PPP connection has authenticated itself
-                        to the system.
-                
-                    'encrypted'
-                        This option specifies that the value specified by the
-                        corresponding instance of cdtPppChapPassword is already
-                        encrypted.
-                
-                This column is valid only if the 'chapOpts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- encrypted , refuse , callin , wait
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtpppaccounting.is_set or self.cdtpppaccounting.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppaccounting.get_name_leafdata())
+                if (self.cdtpppauthentication.is_set or self.cdtpppauthentication.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppauthentication.get_name_leafdata())
+                if (self.cdtpppauthenticationmethods.is_set or self.cdtpppauthenticationmethods.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppauthenticationmethods.get_name_leafdata())
+                if (self.cdtpppauthorization.is_set or self.cdtpppauthorization.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppauthorization.get_name_leafdata())
+                if (self.cdtpppchaphostname.is_set or self.cdtpppchaphostname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppchaphostname.get_name_leafdata())
+                if (self.cdtpppchapopts.is_set or self.cdtpppchapopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppchapopts.get_name_leafdata())
+                if (self.cdtpppchappassword.is_set or self.cdtpppchappassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppchappassword.get_name_leafdata())
+                if (self.cdtpppeapidentity.is_set or self.cdtpppeapidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppeapidentity.get_name_leafdata())
+                if (self.cdtpppeapopts.is_set or self.cdtpppeapopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppeapopts.get_name_leafdata())
+                if (self.cdtpppeappassword.is_set or self.cdtpppeappassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppeappassword.get_name_leafdata())
+                if (self.cdtpppipcpaddroption.is_set or self.cdtpppipcpaddroption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpaddroption.get_name_leafdata())
+                if (self.cdtpppipcpdnsoption.is_set or self.cdtpppipcpdnsoption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpdnsoption.get_name_leafdata())
+                if (self.cdtpppipcpdnsprimary.is_set or self.cdtpppipcpdnsprimary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpdnsprimary.get_name_leafdata())
+                if (self.cdtpppipcpdnssecondary.is_set or self.cdtpppipcpdnssecondary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpdnssecondary.get_name_leafdata())
+                if (self.cdtpppipcpmask.is_set or self.cdtpppipcpmask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpmask.get_name_leafdata())
+                if (self.cdtpppipcpmaskoption.is_set or self.cdtpppipcpmaskoption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpmaskoption.get_name_leafdata())
+                if (self.cdtpppipcpwinsoption.is_set or self.cdtpppipcpwinsoption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpwinsoption.get_name_leafdata())
+                if (self.cdtpppipcpwinsprimary.is_set or self.cdtpppipcpwinsprimary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpwinsprimary.get_name_leafdata())
+                if (self.cdtpppipcpwinssecondary.is_set or self.cdtpppipcpwinssecondary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppipcpwinssecondary.get_name_leafdata())
+                if (self.cdtppploopbackignore.is_set or self.cdtppploopbackignore.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppploopbackignore.get_name_leafdata())
+                if (self.cdtpppmaxbadauth.is_set or self.cdtpppmaxbadauth.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmaxbadauth.get_name_leafdata())
+                if (self.cdtpppmaxconfigure.is_set or self.cdtpppmaxconfigure.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmaxconfigure.get_name_leafdata())
+                if (self.cdtpppmaxfailure.is_set or self.cdtpppmaxfailure.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmaxfailure.get_name_leafdata())
+                if (self.cdtpppmaxterminate.is_set or self.cdtpppmaxterminate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmaxterminate.get_name_leafdata())
+                if (self.cdtpppmschapv1hostname.is_set or self.cdtpppmschapv1hostname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv1hostname.get_name_leafdata())
+                if (self.cdtpppmschapv1opts.is_set or self.cdtpppmschapv1opts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv1opts.get_name_leafdata())
+                if (self.cdtpppmschapv1password.is_set or self.cdtpppmschapv1password.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv1password.get_name_leafdata())
+                if (self.cdtpppmschapv2hostname.is_set or self.cdtpppmschapv2hostname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv2hostname.get_name_leafdata())
+                if (self.cdtpppmschapv2opts.is_set or self.cdtpppmschapv2opts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv2opts.get_name_leafdata())
+                if (self.cdtpppmschapv2password.is_set or self.cdtpppmschapv2password.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppmschapv2password.get_name_leafdata())
+                if (self.cdtppppapopts.is_set or self.cdtppppapopts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppapopts.get_name_leafdata())
+                if (self.cdtppppappassword.is_set or self.cdtppppappassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppappassword.get_name_leafdata())
+                if (self.cdtppppapusername.is_set or self.cdtppppapusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppapusername.get_name_leafdata())
+                if (self.cdtppppeerdefipaddr.is_set or self.cdtppppeerdefipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeerdefipaddr.get_name_leafdata())
+                if (self.cdtppppeerdefipaddropts.is_set or self.cdtppppeerdefipaddropts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeerdefipaddropts.get_name_leafdata())
+                if (self.cdtppppeerdefipaddrsrc.is_set or self.cdtppppeerdefipaddrsrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeerdefipaddrsrc.get_name_leafdata())
+                if (self.cdtppptimeoutauthentication.is_set or self.cdtppptimeoutauthentication.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppptimeoutauthentication.get_name_leafdata())
+                if (self.cdtppptimeoutretry.is_set or self.cdtppptimeoutretry.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppptimeoutretry.get_name_leafdata())
+                if (self.cdtpppvalid.is_set or self.cdtpppvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtpppvalid.get_name_leafdata())
 
-                """
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'encrypted':False,
-                        'refuse':False,
-                        'callin':False,
-                        'wait':False,
-                    }
-                    self._pos_map = { 
-                        'encrypted':3,
-                        'refuse':0,
-                        'callin':1,
-                        'wait':2,
-                    }
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            class Cdtpppeapopts(FixedBitsDict):
-                """
-                Cdtpppeapopts
+                return None
 
-                This object specifies how the system processes the EAP on a
-                target PPP connection\:
-                
-                    'refuse'
-                        This option specifies that the system should refuse EAP
-                        requests from peers of a target PPP connection.
-                
-                    'callin'
-                        This option specifies that the system should only refuse EAP
-                        requests for incoming calls on a target PPP connection.
-                        This option is only relevant if the 'refuse' option is
-                        set to '1'.
-                
-                    'wait'
-                        This option delays EAP authentication until after the
-                        peer of a target PPP connection has authenticated itself
-                        to the system.
-                
-                    'local'
-                        This option specifies that the system should locally
-                        authenticate the peer of a target PPP connection,
-                        rather than acting as a proxy to an external AAA server.
-                
-                This column is valid only if the 'eapOpts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- refuse , callin , local , wait
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'refuse':False,
-                        'callin':False,
-                        'local':False,
-                        'wait':False,
-                    }
-                    self._pos_map = { 
-                        'refuse':0,
-                        'callin':1,
-                        'local':3,
-                        'wait':2,
-                    }
-
-            class Cdtpppmschapv1Opts(FixedBitsDict):
-                """
-                Cdtpppmschapv1Opts
-
-                This object specifies how the system processes version 1 of
-                Microsoft CHAP on a target PPP connection\:
-                
-                    'refuse'
-                        This option specifies that the system should refuse
-                        Microsoft CHAP (v1) requests from peers of a target PPP
-                        connection.
-                
-                    'callin'
-                        This option specifies that the system should only refuse
-                        Microsoft CHAP (v1) requests for incoming calls on a
-                        target PPP connection.  This option is only relevant if
-                        the 'refuse' option is set to '1'.
-                
-                    'wait'
-                        This option delays Microsoft CHAP (v1) authentication
-                        until after the peer of a target PPP connection has
-                        authenticated itself to the system.
-                
-                    'encrypted'
-                        This option specifies that the value specified by the
-                        corresponding instance of cdtPppMsChapV1Password is
-                        already encrypted.
-                
-                This column is valid only if the 'msChapV1Opts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- encrypted , refuse , callin , wait
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'encrypted':False,
-                        'refuse':False,
-                        'callin':False,
-                        'wait':False,
-                    }
-                    self._pos_map = { 
-                        'encrypted':3,
-                        'refuse':0,
-                        'callin':1,
-                        'wait':2,
-                    }
-
-            class Cdtpppmschapv2Opts(FixedBitsDict):
-                """
-                Cdtpppmschapv2Opts
-
-                This object specifies how the system processes version 2 of
-                Microsoft CHAP on a target PPP connection\:
-                
-                    'refuse'
-                        This option specifies that the system should refuse
-                        Microsoft CHAP (v2) requests from peers of a target PPP
-                        connection.
-                
-                    'callin'
-                        This option specifies that the system should only refuse
-                        Microsoft CHAP (v2) requests for incoming calls on a
-                        target PPP connection.  This option is only relevant if
-                        the 'refuse' option is set to '1'.
-                
-                    'wait'
-                        This option delays Microsoft CHAP (v2) authentication
-                        until after the peer of a target PPP connection has
-                        authenticated itself to the system.
-                
-                    'encrypted'
-                        This option specifies that the value specified by the
-                        corresponding instance of cdtPppMsChapV2Password is
-                        already encrypted.
-                
-                This column is valid only if the 'msChapV2Opts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- encrypted , refuse , callin , wait
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'encrypted':False,
-                        'refuse':False,
-                        'callin':False,
-                        'wait':False,
-                    }
-                    self._pos_map = { 
-                        'encrypted':3,
-                        'refuse':0,
-                        'callin':1,
-                        'wait':2,
-                    }
-
-            class Cdtppppapopts(FixedBitsDict):
-                """
-                Cdtppppapopts
-
-                This object specifies how the system processes the PAP on a
-                target PPP connection\:
-                
-                    'refuse'
-                        This option specifies that the system should refuse PAP
-                        requests from peers of a target PPP connection.
-                
-                    'encrypted'
-                        This option specifies that the value specified by the
-                        corresponding instance of cdtPppPapSentPassword is
-                        already encrypted.
-                
-                This column is valid only if the 'papOpts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- encrypted , refuse
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'encrypted':False,
-                        'refuse':False,
-                    }
-                    self._pos_map = { 
-                        'encrypted':1,
-                        'refuse':0,
-                    }
-
-            class Cdtppppeerdefipaddropts(FixedBitsDict):
-                """
-                Cdtppppeerdefipaddropts
-
-                This object specifies options that affect how the system
-                assigns an IP address to the peer of a target PPP connection\:
-                
-                    'ipAddrForced'
-                        This option forces the system to assign the next
-                        available IP address in the pool to the peer of a
-                        target PPP connection.  When disabled, the peer may
-                        negotiate a specific IP address or the system can assign
-                        the peer its previously assigned IP address.
-                
-                    'matchAaaPools'
-                        This option specifies that the names of the IP address
-                        pools provided by an external AAA server must appear in
-                        the corresponding list of IP address pool specified by
-                        the cdtPppPeerIpAddrPoolTable.
-                
-                    'backupPools'
-                        This option specifies that the corresponding names of
-                        the IP address pools specified by the
-                        cditPppPeerIpAddrPoolTable serve as backup pools to
-                        those provided by an external AAA server.
-                
-                    'staticPools'
-                        This option suppresses an attempt to load pools from an
-                        external AAA server when the system encounters a missing
-                        pool name.
-                
-                This column is valid only if the 'peerIpAddrOpts' bit of the
-                corresponding instance of cdtPppValid is '1'.
-                Keys are:- staticPool , ipAddrForced , matchAaaPools
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'staticPool':False,
-                        'ipAddrForced':False,
-                        'matchAaaPools':False,
-                    }
-                    self._pos_map = { 
-                        'staticPool':2,
-                        'ipAddrForced':0,
-                        'matchAaaPools':1,
-                    }
-
-            class Cdtpppvalid(FixedBitsDict):
-                """
-                Cdtpppvalid
-
-                This object specifies which attributes in the dynamic template
-                have been configured to valid values.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is not valid.  If the bit is '1', then the value of the
-                corresponding column has been configured to a valid value.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    accounting              => cdtPppAccounting
-                    authentication          => cdtPppAuthentication
-                    authenticationMethods   => cdtPppAuthenticationMethods
-                    authorization           => cdtPppAuthorization
-                    loopbackIgnore          => cdtPppLoopbackIgnore
-                    maxBadAuth              => cdtPppMaxBadAuth
-                    maxConfigure            => cdtPppMaxConfigure
-                    maxFailure              => cdtPppMaxFailure
-                    maxTerminate            => cdtPppMaxTerminate
-                    timeoutAuthentication   => cdtPppTimeoutAuthentication
-                    timeoutRetry            => cdtPppTimeoutRetry
-                    chapOpts                => cdtPppChapOpts
-                    chapHostname            => cdtPppChapHostname
-                    chapPassword            => cdtPppChapPassword
-                    msChapV1Opts            => cdtPppMsChapV1Opts
-                    msChapV1Hostname        => cdtPppMsChapV1Hostname
-                    msChapV1Password        => cdtPppMsChapV1Password
-                    msChapV2Opts            => cdtPppMsChapV2Opts
-                    msChapV2Hostname        => cdtPppMsChapV2Hostname
-                    msChapV2Password        => cdtPppMsChapV2Password
-                    papOpts                 => cdtPppPapOpts
-                    papSentUsername         => cdtPppPapUsername
-                    papSentPassword         => cdtPppPapPassword
-                    eapOpts                 => cdtPppEapOpts
-                    eapIdentity             => cdtPppEapIdentity
-                    eapPassword             => cdtPppEapPassword
-                    ipcpAddrOption          => cdtPppIpcpAddrOption
-                    ipcpDnsOption           => cdtPppIpcpDnsOption
-                    ipcpDnsPrimary          => cdtPppIpcpDnsPrimary
-                    ipcpDnsSecondary        => cdtPppIpcpDnsSecondary
-                    ipcpWinsOption          => cdtPppIpcpWinsOption
-                    ipcpWinsPrimary         => cdtPppIpcpWinsPrimary
-                    ipcpWinsSecondary       => cdtPppIpcpWinsSecondary
-                    ipcpMaskOption          => cdtPppIpcpMaskOption
-                    ipcpMask                => cdtPppIpcpMask
-                    peerDefIpAddrOpts       => cdtPppPeerOpts
-                    peerDefIpAddrSrc        => cdtPppPeerDefIpAddrSrc
-                    peerDefIpAddr           => cdtPppPeerDefIpAddr
-                Keys are:- ipcpWinsOption , ipcpAddrOption , maxConfigure , loopbackIgnore , papOpts , authorization , accounting , authentication , valid , maxTerminate , timeoutRetry , chapPassword , chapOpts , maxFailure , maxBadAuth , ipcpMask , msChapV2Opts , eapIdentity , autthenticationMethods , msChapV1Opts , chapHostname , eapPassword , peerDefIpAddr , peerDefIpAddrSrc , ipcpMaskOption , ipcpWinsSecondary , ipcpDnsPrimary , msChapV1Hostname , peerDefIpAddrOpts , msChapV1Password , eapOpts , papPassword , ipcpDnsOption , timeoutAuthentication , ipcpDnsSecondary , ipcpWinsPrimary , papUsername , msChapV2Hostname , msChapV2Password
-
-                """
-
-                def __init__(self):
-                    self._dictionary = { 
-                        'ipcpWinsOption':False,
-                        'ipcpAddrOption':False,
-                        'maxConfigure':False,
-                        'loopbackIgnore':False,
-                        'papOpts':False,
-                        'authorization':False,
-                        'accounting':False,
-                        'authentication':False,
-                        'valid':False,
-                        'maxTerminate':False,
-                        'timeoutRetry':False,
-                        'chapPassword':False,
-                        'chapOpts':False,
-                        'maxFailure':False,
-                        'maxBadAuth':False,
-                        'ipcpMask':False,
-                        'msChapV2Opts':False,
-                        'eapIdentity':False,
-                        'autthenticationMethods':False,
-                        'msChapV1Opts':False,
-                        'chapHostname':False,
-                        'eapPassword':False,
-                        'peerDefIpAddr':False,
-                        'peerDefIpAddrSrc':False,
-                        'ipcpMaskOption':False,
-                        'ipcpWinsSecondary':False,
-                        'ipcpDnsPrimary':False,
-                        'msChapV1Hostname':False,
-                        'peerDefIpAddrOpts':False,
-                        'msChapV1Password':False,
-                        'eapOpts':False,
-                        'papPassword':False,
-                        'ipcpDnsOption':False,
-                        'timeoutAuthentication':False,
-                        'ipcpDnsSecondary':False,
-                        'ipcpWinsPrimary':False,
-                        'papUsername':False,
-                        'msChapV2Hostname':False,
-                        'msChapV2Password':False,
-                    }
-                    self._pos_map = { 
-                        'ipcpWinsOption':31,
-                        'ipcpAddrOption':27,
-                        'maxConfigure':7,
-                        'loopbackIgnore':5,
-                        'papOpts':21,
-                        'authorization':4,
-                        'accounting':1,
-                        'authentication':2,
-                        'valid':0,
-                        'maxTerminate':9,
-                        'timeoutRetry':11,
-                        'chapPassword':14,
-                        'chapOpts':12,
-                        'maxFailure':8,
-                        'maxBadAuth':6,
-                        'ipcpMask':35,
-                        'msChapV2Opts':18,
-                        'eapIdentity':25,
-                        'autthenticationMethods':3,
-                        'msChapV1Opts':15,
-                        'chapHostname':13,
-                        'eapPassword':26,
-                        'peerDefIpAddr':38,
-                        'peerDefIpAddrSrc':37,
-                        'ipcpMaskOption':34,
-                        'ipcpWinsSecondary':33,
-                        'ipcpDnsPrimary':29,
-                        'msChapV1Hostname':16,
-                        'peerDefIpAddrOpts':36,
-                        'msChapV1Password':17,
-                        'eapOpts':24,
-                        'papPassword':23,
-                        'ipcpDnsOption':28,
-                        'timeoutAuthentication':10,
-                        'ipcpDnsSecondary':30,
-                        'ipcpWinsPrimary':32,
-                        'papUsername':22,
-                        'msChapV2Hostname':19,
-                        'msChapV2Password':20,
-                    }
-
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
-
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppTemplateTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppTemplateEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtPppAccounting" or name == "cdtPppAuthentication" or name == "cdtPppAuthenticationMethods" or name == "cdtPppAuthorization" or name == "cdtPppChapHostname" or name == "cdtPppChapOpts" or name == "cdtPppChapPassword" or name == "cdtPppEapIdentity" or name == "cdtPppEapOpts" or name == "cdtPppEapPassword" or name == "cdtPppIpcpAddrOption" or name == "cdtPppIpcpDnsOption" or name == "cdtPppIpcpDnsPrimary" or name == "cdtPppIpcpDnsSecondary" or name == "cdtPppIpcpMask" or name == "cdtPppIpcpMaskOption" or name == "cdtPppIpcpWinsOption" or name == "cdtPppIpcpWinsPrimary" or name == "cdtPppIpcpWinsSecondary" or name == "cdtPppLoopbackIgnore" or name == "cdtPppMaxBadAuth" or name == "cdtPppMaxConfigure" or name == "cdtPppMaxFailure" or name == "cdtPppMaxTerminate" or name == "cdtPppMsChapV1Hostname" or name == "cdtPppMsChapV1Opts" or name == "cdtPppMsChapV1Password" or name == "cdtPppMsChapV2Hostname" or name == "cdtPppMsChapV2Opts" or name == "cdtPppMsChapV2Password" or name == "cdtPppPapOpts" or name == "cdtPppPapPassword" or name == "cdtPppPapUsername" or name == "cdtPppPeerDefIpAddr" or name == "cdtPppPeerDefIpAddrOpts" or name == "cdtPppPeerDefIpAddrSrc" or name == "cdtPppTimeoutAuthentication" or name == "cdtPppTimeoutRetry" or name == "cdtPppValid"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppAccounting"):
+                    self.cdtpppaccounting = value
+                    self.cdtpppaccounting.value_namespace = name_space
+                    self.cdtpppaccounting.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppAuthentication"):
+                    self.cdtpppauthentication[value] = True
+                if(value_path == "cdtPppAuthenticationMethods"):
+                    self.cdtpppauthenticationmethods = value
+                    self.cdtpppauthenticationmethods.value_namespace = name_space
+                    self.cdtpppauthenticationmethods.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppAuthorization"):
+                    self.cdtpppauthorization = value
+                    self.cdtpppauthorization.value_namespace = name_space
+                    self.cdtpppauthorization.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppChapHostname"):
+                    self.cdtpppchaphostname = value
+                    self.cdtpppchaphostname.value_namespace = name_space
+                    self.cdtpppchaphostname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppChapOpts"):
+                    self.cdtpppchapopts[value] = True
+                if(value_path == "cdtPppChapPassword"):
+                    self.cdtpppchappassword = value
+                    self.cdtpppchappassword.value_namespace = name_space
+                    self.cdtpppchappassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppEapIdentity"):
+                    self.cdtpppeapidentity = value
+                    self.cdtpppeapidentity.value_namespace = name_space
+                    self.cdtpppeapidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppEapOpts"):
+                    self.cdtpppeapopts[value] = True
+                if(value_path == "cdtPppEapPassword"):
+                    self.cdtpppeappassword = value
+                    self.cdtpppeappassword.value_namespace = name_space
+                    self.cdtpppeappassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpAddrOption"):
+                    self.cdtpppipcpaddroption = value
+                    self.cdtpppipcpaddroption.value_namespace = name_space
+                    self.cdtpppipcpaddroption.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpDnsOption"):
+                    self.cdtpppipcpdnsoption = value
+                    self.cdtpppipcpdnsoption.value_namespace = name_space
+                    self.cdtpppipcpdnsoption.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpDnsPrimary"):
+                    self.cdtpppipcpdnsprimary = value
+                    self.cdtpppipcpdnsprimary.value_namespace = name_space
+                    self.cdtpppipcpdnsprimary.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpDnsSecondary"):
+                    self.cdtpppipcpdnssecondary = value
+                    self.cdtpppipcpdnssecondary.value_namespace = name_space
+                    self.cdtpppipcpdnssecondary.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpMask"):
+                    self.cdtpppipcpmask = value
+                    self.cdtpppipcpmask.value_namespace = name_space
+                    self.cdtpppipcpmask.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpMaskOption"):
+                    self.cdtpppipcpmaskoption = value
+                    self.cdtpppipcpmaskoption.value_namespace = name_space
+                    self.cdtpppipcpmaskoption.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpWinsOption"):
+                    self.cdtpppipcpwinsoption = value
+                    self.cdtpppipcpwinsoption.value_namespace = name_space
+                    self.cdtpppipcpwinsoption.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpWinsPrimary"):
+                    self.cdtpppipcpwinsprimary = value
+                    self.cdtpppipcpwinsprimary.value_namespace = name_space
+                    self.cdtpppipcpwinsprimary.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppIpcpWinsSecondary"):
+                    self.cdtpppipcpwinssecondary = value
+                    self.cdtpppipcpwinssecondary.value_namespace = name_space
+                    self.cdtpppipcpwinssecondary.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppLoopbackIgnore"):
+                    self.cdtppploopbackignore = value
+                    self.cdtppploopbackignore.value_namespace = name_space
+                    self.cdtppploopbackignore.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMaxBadAuth"):
+                    self.cdtpppmaxbadauth = value
+                    self.cdtpppmaxbadauth.value_namespace = name_space
+                    self.cdtpppmaxbadauth.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMaxConfigure"):
+                    self.cdtpppmaxconfigure = value
+                    self.cdtpppmaxconfigure.value_namespace = name_space
+                    self.cdtpppmaxconfigure.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMaxFailure"):
+                    self.cdtpppmaxfailure = value
+                    self.cdtpppmaxfailure.value_namespace = name_space
+                    self.cdtpppmaxfailure.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMaxTerminate"):
+                    self.cdtpppmaxterminate = value
+                    self.cdtpppmaxterminate.value_namespace = name_space
+                    self.cdtpppmaxterminate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMsChapV1Hostname"):
+                    self.cdtpppmschapv1hostname = value
+                    self.cdtpppmschapv1hostname.value_namespace = name_space
+                    self.cdtpppmschapv1hostname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMsChapV1Opts"):
+                    self.cdtpppmschapv1opts[value] = True
+                if(value_path == "cdtPppMsChapV1Password"):
+                    self.cdtpppmschapv1password = value
+                    self.cdtpppmschapv1password.value_namespace = name_space
+                    self.cdtpppmschapv1password.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMsChapV2Hostname"):
+                    self.cdtpppmschapv2hostname = value
+                    self.cdtpppmschapv2hostname.value_namespace = name_space
+                    self.cdtpppmschapv2hostname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppMsChapV2Opts"):
+                    self.cdtpppmschapv2opts[value] = True
+                if(value_path == "cdtPppMsChapV2Password"):
+                    self.cdtpppmschapv2password = value
+                    self.cdtpppmschapv2password.value_namespace = name_space
+                    self.cdtpppmschapv2password.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPapOpts"):
+                    self.cdtppppapopts[value] = True
+                if(value_path == "cdtPppPapPassword"):
+                    self.cdtppppappassword = value
+                    self.cdtppppappassword.value_namespace = name_space
+                    self.cdtppppappassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPapUsername"):
+                    self.cdtppppapusername = value
+                    self.cdtppppapusername.value_namespace = name_space
+                    self.cdtppppapusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerDefIpAddr"):
+                    self.cdtppppeerdefipaddr = value
+                    self.cdtppppeerdefipaddr.value_namespace = name_space
+                    self.cdtppppeerdefipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerDefIpAddrOpts"):
+                    self.cdtppppeerdefipaddropts[value] = True
+                if(value_path == "cdtPppPeerDefIpAddrSrc"):
+                    self.cdtppppeerdefipaddrsrc = value
+                    self.cdtppppeerdefipaddrsrc.value_namespace = name_space
+                    self.cdtppppeerdefipaddrsrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppTimeoutAuthentication"):
+                    self.cdtppptimeoutauthentication = value
+                    self.cdtppptimeoutauthentication.value_namespace = name_space
+                    self.cdtppptimeoutauthentication.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppTimeoutRetry"):
+                    self.cdtppptimeoutretry = value
+                    self.cdtppptimeoutretry.value_namespace = name_space
+                    self.cdtppptimeoutretry.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppValid"):
+                    self.cdtpppvalid[value] = True
+
+        def has_data(self):
+            for c in self.cdtppptemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtpppaccounting is not None:
-                    return True
-
-                if self.cdtpppauthentication is not None:
-                    if self.cdtpppauthentication._has_data():
-                        return True
-
-                if self.cdtpppauthenticationmethods is not None:
-                    return True
-
-                if self.cdtpppauthorization is not None:
-                    return True
-
-                if self.cdtpppchaphostname is not None:
-                    return True
-
-                if self.cdtpppchapopts is not None:
-                    if self.cdtpppchapopts._has_data():
-                        return True
-
-                if self.cdtpppchappassword is not None:
-                    return True
-
-                if self.cdtpppeapidentity is not None:
-                    return True
-
-                if self.cdtpppeapopts is not None:
-                    if self.cdtpppeapopts._has_data():
-                        return True
-
-                if self.cdtpppeappassword is not None:
-                    return True
-
-                if self.cdtpppipcpaddroption is not None:
-                    return True
-
-                if self.cdtpppipcpdnsoption is not None:
-                    return True
-
-                if self.cdtpppipcpdnsprimary is not None:
-                    return True
-
-                if self.cdtpppipcpdnssecondary is not None:
-                    return True
-
-                if self.cdtpppipcpmask is not None:
-                    return True
-
-                if self.cdtpppipcpmaskoption is not None:
-                    return True
-
-                if self.cdtpppipcpwinsoption is not None:
-                    return True
-
-                if self.cdtpppipcpwinsprimary is not None:
-                    return True
-
-                if self.cdtpppipcpwinssecondary is not None:
-                    return True
-
-                if self.cdtppploopbackignore is not None:
-                    return True
-
-                if self.cdtpppmaxbadauth is not None:
-                    return True
-
-                if self.cdtpppmaxconfigure is not None:
-                    return True
-
-                if self.cdtpppmaxfailure is not None:
-                    return True
-
-                if self.cdtpppmaxterminate is not None:
-                    return True
-
-                if self.cdtpppmschapv1hostname is not None:
-                    return True
-
-                if self.cdtpppmschapv1opts is not None:
-                    if self.cdtpppmschapv1opts._has_data():
-                        return True
-
-                if self.cdtpppmschapv1password is not None:
-                    return True
-
-                if self.cdtpppmschapv2hostname is not None:
-                    return True
-
-                if self.cdtpppmschapv2opts is not None:
-                    if self.cdtpppmschapv2opts._has_data():
-                        return True
-
-                if self.cdtpppmschapv2password is not None:
-                    return True
-
-                if self.cdtppppapopts is not None:
-                    if self.cdtppppapopts._has_data():
-                        return True
-
-                if self.cdtppppappassword is not None:
-                    return True
-
-                if self.cdtppppapusername is not None:
-                    return True
-
-                if self.cdtppppeerdefipaddr is not None:
-                    return True
-
-                if self.cdtppppeerdefipaddropts is not None:
-                    if self.cdtppppeerdefipaddropts._has_data():
-                        return True
-
-                if self.cdtppppeerdefipaddrsrc is not None:
-                    return True
-
-                if self.cdtppptimeoutauthentication is not None:
-                    return True
-
-                if self.cdtppptimeoutretry is not None:
-                    return True
-
-                if self.cdtpppvalid is not None:
-                    if self.cdtpppvalid._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdtppptemplateentry is not None:
-                for child_ref in self.cdtppptemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdtppptemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtPppTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtPppTemplateEntry"):
+                for c in self.cdtppptemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdtppptemplatetable.Cdtppptemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdtppptemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtPppTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdtppptemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdtppppeeripaddrpooltable(object):
+    class Cdtppppeeripaddrpooltable(Entity):
         """
         This table contains a prioritized list of named pools for each
         PPP template.  A list corresponding to a PPP template
@@ -3089,13 +3761,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdtppppeeripaddrpoolentry = YList()
-            self.cdtppppeeripaddrpoolentry.parent = self
-            self.cdtppppeeripaddrpoolentry.name = 'cdtppppeeripaddrpoolentry'
+            super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable, self).__init__()
+
+            self.yang_name = "cdtPppPeerIpAddrPoolTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdtppppeeripaddrpoolentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable, self).__setattr__(name, value)
 
 
-        class Cdtppppeeripaddrpoolentry(object):
+        class Cdtppppeeripaddrpoolentry(Entity):
             """
             An entry specifies a named pool in a list of pools associated
             with a PPP template.  A PPP template can only have named
@@ -3145,12 +3843,12 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtppppeeripaddrpoolstatus
             
             	This object specifies the status of the entry.  The following columns must be valid before activating a subscriber access profile\:      \- cdtPppPeerIpAddrPoolStorage     \- cdtPppPeerIpAddrPoolName  However, these objects specify a default value.  Thus, it is possible to use create\-and\-go semantics without setting any additional columns.  An implementation must not allow the EMS/NMS to create an entry if the corresponding instance of cdtPppPeerIpAddrSrc is not 'pool'.  An implementation must allow the EMS/NMS to modify any column when this column is 'active'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdtppppeeripaddrpoolstorage
             
             	This object specifies what happens to the name pool entry upon restart.  If the corresponding instance of cdtTemplateSrc is not 'local', then this column must be 'volatile'
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -3160,73 +3858,187 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtppppeeripaddrpoolpriority = None
-                self.cdtppppeeripaddrpoolname = None
-                self.cdtppppeeripaddrpoolstatus = None
-                self.cdtppppeeripaddrpoolstorage = None
+                super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
-                if self.cdtppppeeripaddrpoolpriority is None:
-                    raise YPYModelError('Key property cdtppppeeripaddrpoolpriority is None')
+                self.yang_name = "cdtPppPeerIpAddrPoolEntry"
+                self.yang_parent_name = "cdtPppPeerIpAddrPoolTable"
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppPeerIpAddrPoolTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppPeerIpAddrPoolEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + '][CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppPeerIpAddrPoolPriority = ' + str(self.cdtppppeeripaddrpoolpriority) + ']'
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdtppppeeripaddrpoolpriority = YLeaf(YType.uint32, "cdtPppPeerIpAddrPoolPriority")
+
+                self.cdtppppeeripaddrpoolname = YLeaf(YType.str, "cdtPppPeerIpAddrPoolName")
+
+                self.cdtppppeeripaddrpoolstatus = YLeaf(YType.enumeration, "cdtPppPeerIpAddrPoolStatus")
+
+                self.cdtppppeeripaddrpoolstorage = YLeaf(YType.enumeration, "cdtPppPeerIpAddrPoolStorage")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtppppeeripaddrpoolpriority",
+                                "cdtppppeeripaddrpoolname",
+                                "cdtppppeeripaddrpoolstatus",
+                                "cdtppppeeripaddrpoolstorage") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtppppeeripaddrpoolpriority.is_set or
+                    self.cdtppppeeripaddrpoolname.is_set or
+                    self.cdtppppeeripaddrpoolstatus.is_set or
+                    self.cdtppppeeripaddrpoolstorage.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtppppeeripaddrpoolpriority.yfilter != YFilter.not_set or
+                    self.cdtppppeeripaddrpoolname.yfilter != YFilter.not_set or
+                    self.cdtppppeeripaddrpoolstatus.yfilter != YFilter.not_set or
+                    self.cdtppppeeripaddrpoolstorage.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtPppPeerIpAddrPoolEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + "[cdtPppPeerIpAddrPoolPriority='" + self.cdtppppeeripaddrpoolpriority.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppPeerIpAddrPoolTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtppppeeripaddrpoolpriority.is_set or self.cdtppppeeripaddrpoolpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeeripaddrpoolpriority.get_name_leafdata())
+                if (self.cdtppppeeripaddrpoolname.is_set or self.cdtppppeeripaddrpoolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeeripaddrpoolname.get_name_leafdata())
+                if (self.cdtppppeeripaddrpoolstatus.is_set or self.cdtppppeeripaddrpoolstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeeripaddrpoolstatus.get_name_leafdata())
+                if (self.cdtppppeeripaddrpoolstorage.is_set or self.cdtppppeeripaddrpoolstorage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtppppeeripaddrpoolstorage.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtPppPeerIpAddrPoolPriority" or name == "cdtPppPeerIpAddrPoolName" or name == "cdtPppPeerIpAddrPoolStatus" or name == "cdtPppPeerIpAddrPoolStorage"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerIpAddrPoolPriority"):
+                    self.cdtppppeeripaddrpoolpriority = value
+                    self.cdtppppeeripaddrpoolpriority.value_namespace = name_space
+                    self.cdtppppeeripaddrpoolpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerIpAddrPoolName"):
+                    self.cdtppppeeripaddrpoolname = value
+                    self.cdtppppeeripaddrpoolname.value_namespace = name_space
+                    self.cdtppppeeripaddrpoolname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerIpAddrPoolStatus"):
+                    self.cdtppppeeripaddrpoolstatus = value
+                    self.cdtppppeeripaddrpoolstatus.value_namespace = name_space
+                    self.cdtppppeeripaddrpoolstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtPppPeerIpAddrPoolStorage"):
+                    self.cdtppppeeripaddrpoolstorage = value
+                    self.cdtppppeeripaddrpoolstorage.value_namespace = name_space
+                    self.cdtppppeeripaddrpoolstorage.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdtppppeeripaddrpoolentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtppppeeripaddrpoolpriority is not None:
-                    return True
-
-                if self.cdtppppeeripaddrpoolname is not None:
-                    return True
-
-                if self.cdtppppeeripaddrpoolstatus is not None:
-                    return True
-
-                if self.cdtppppeeripaddrpoolstorage is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtPppPeerIpAddrPoolTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdtppppeeripaddrpoolentry is not None:
-                for child_ref in self.cdtppppeeripaddrpoolentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdtppppeeripaddrpoolentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtPppPeerIpAddrPoolTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtPppPeerIpAddrPoolEntry"):
+                for c in self.cdtppppeeripaddrpoolentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdtppppeeripaddrpoolentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtPppPeerIpAddrPoolEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdtethernettemplatetable(object):
+    class Cdtethernettemplatetable(Entity):
         """
         This table contains attributes relating to dynamic interfaces
         initiated on Ethernet virtual interfaces (e.g., EoMPLS) or
@@ -3252,13 +4064,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdtethernettemplateentry = YList()
-            self.cdtethernettemplateentry.parent = self
-            self.cdtethernettemplateentry.name = 'cdtethernettemplateentry'
+            super(CiscoDynamicTemplateMib.Cdtethernettemplatetable, self).__init__()
+
+            self.yang_name = "cdtEthernetTemplateTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdtethernettemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdtethernettemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdtethernettemplatetable, self).__setattr__(name, value)
 
 
-        class Cdtethernettemplateentry(object):
+        class Cdtethernettemplateentry(Entity):
             """
             An entry containing attributes relating to dynamic interfaces
             initiated on Ethernet virtual interfaces (e.g., EoMPLS) or
@@ -3321,113 +4159,196 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtethernetbridgedomain = None
-                self.cdtethernetipv4pointtopoint = None
-                self.cdtethernetmacaddr = None
-                self.cdtethernetpppoeenable = None
-                self.cdtethernetvalid = CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry.Cdtethernetvalid()
+                super(CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry, self).__init__()
 
-            class Cdtethernetvalid(FixedBitsDict):
-                """
-                Cdtethernetvalid
+                self.yang_name = "cdtEthernetTemplateEntry"
+                self.yang_parent_name = "cdtEthernetTemplateTable"
 
-                This object specifies which attributes in the dynamic template
-                have been configured to valid values.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is not valid.  If the bit is '1', then the value of the
-                corresponding column has been configured to a valid value.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    bridgeDomain     => cdtEthernetBridgeDomain
-                    pppoeEnable      => cdtEthernetPppoeEnable
-                    ipv4PointToPoint => cdtEthernetIpv4PointToPoint
-                    macAddr          => cdtEthernetMacAddr
-                Keys are:- macAddr , bridgeDomain , pppoeEnable , ipv4PointToPoint
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
 
-                """
+                self.cdtethernetbridgedomain = YLeaf(YType.str, "cdtEthernetBridgeDomain")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'macAddr':False,
-                        'bridgeDomain':False,
-                        'pppoeEnable':False,
-                        'ipv4PointToPoint':False,
-                    }
-                    self._pos_map = { 
-                        'macAddr':3,
-                        'bridgeDomain':0,
-                        'pppoeEnable':1,
-                        'ipv4PointToPoint':2,
-                    }
+                self.cdtethernetipv4pointtopoint = YLeaf(YType.boolean, "cdtEthernetIpv4PointToPoint")
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
+                self.cdtethernetmacaddr = YLeaf(YType.str, "cdtEthernetMacAddr")
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtEthernetTemplateTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtEthernetTemplateEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
+                self.cdtethernetpppoeenable = YLeaf(YType.boolean, "cdtEthernetPppoeEnable")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdtethernetvalid = YLeaf(YType.bits, "cdtEthernetValid")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtethernetbridgedomain",
+                                "cdtethernetipv4pointtopoint",
+                                "cdtethernetmacaddr",
+                                "cdtethernetpppoeenable",
+                                "cdtethernetvalid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtethernetbridgedomain.is_set or
+                    self.cdtethernetipv4pointtopoint.is_set or
+                    self.cdtethernetmacaddr.is_set or
+                    self.cdtethernetpppoeenable.is_set or
+                    self.cdtethernetvalid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtethernetbridgedomain.yfilter != YFilter.not_set or
+                    self.cdtethernetipv4pointtopoint.yfilter != YFilter.not_set or
+                    self.cdtethernetmacaddr.yfilter != YFilter.not_set or
+                    self.cdtethernetpppoeenable.yfilter != YFilter.not_set or
+                    self.cdtethernetvalid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtEthernetTemplateEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtEthernetTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtethernetbridgedomain.is_set or self.cdtethernetbridgedomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtethernetbridgedomain.get_name_leafdata())
+                if (self.cdtethernetipv4pointtopoint.is_set or self.cdtethernetipv4pointtopoint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtethernetipv4pointtopoint.get_name_leafdata())
+                if (self.cdtethernetmacaddr.is_set or self.cdtethernetmacaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtethernetmacaddr.get_name_leafdata())
+                if (self.cdtethernetpppoeenable.is_set or self.cdtethernetpppoeenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtethernetpppoeenable.get_name_leafdata())
+                if (self.cdtethernetvalid.is_set or self.cdtethernetvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtethernetvalid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtEthernetBridgeDomain" or name == "cdtEthernetIpv4PointToPoint" or name == "cdtEthernetMacAddr" or name == "cdtEthernetPppoeEnable" or name == "cdtEthernetValid"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtEthernetBridgeDomain"):
+                    self.cdtethernetbridgedomain = value
+                    self.cdtethernetbridgedomain.value_namespace = name_space
+                    self.cdtethernetbridgedomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtEthernetIpv4PointToPoint"):
+                    self.cdtethernetipv4pointtopoint = value
+                    self.cdtethernetipv4pointtopoint.value_namespace = name_space
+                    self.cdtethernetipv4pointtopoint.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtEthernetMacAddr"):
+                    self.cdtethernetmacaddr = value
+                    self.cdtethernetmacaddr.value_namespace = name_space
+                    self.cdtethernetmacaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtEthernetPppoeEnable"):
+                    self.cdtethernetpppoeenable = value
+                    self.cdtethernetpppoeenable.value_namespace = name_space
+                    self.cdtethernetpppoeenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtEthernetValid"):
+                    self.cdtethernetvalid[value] = True
+
+        def has_data(self):
+            for c in self.cdtethernettemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtethernetbridgedomain is not None:
-                    return True
-
-                if self.cdtethernetipv4pointtopoint is not None:
-                    return True
-
-                if self.cdtethernetmacaddr is not None:
-                    return True
-
-                if self.cdtethernetpppoeenable is not None:
-                    return True
-
-                if self.cdtethernetvalid is not None:
-                    if self.cdtethernetvalid._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtEthernetTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdtethernettemplateentry is not None:
-                for child_ref in self.cdtethernettemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdtethernettemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtEthernetTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtEthernetTemplateEntry"):
+                for c in self.cdtethernettemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdtethernettemplatetable.Cdtethernettemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdtethernettemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtEthernetTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdtethernettemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdtsrvtemplatetable(object):
+    class Cdtsrvtemplatetable(Entity):
         """
         This table contains attributes relating to a service.
         
@@ -3451,13 +4372,39 @@ class CiscoDynamicTemplateMib(object):
         _revision = '2007-09-06'
 
         def __init__(self):
-            self.parent = None
-            self.cdtsrvtemplateentry = YList()
-            self.cdtsrvtemplateentry.parent = self
-            self.cdtsrvtemplateentry.name = 'cdtsrvtemplateentry'
+            super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable, self).__init__()
+
+            self.yang_name = "cdtSrvTemplateTable"
+            self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
+
+            self.cdtsrvtemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable, self).__setattr__(name, value)
 
 
-        class Cdtsrvtemplateentry(object):
+        class Cdtsrvtemplateentry(Entity):
             """
             An entry containing attributes relating to a service.
             
@@ -3489,7 +4436,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtsrvnetworksrv
             
             	This object specifies the type of network service provided by the target service\:      'other'         The implementation of this MIB module does not recognize         the configured network service.      'none'         The target subscriber service does not provide a network         service to subscribers sessions.      'local'         The target subscriber service provides local termination         for subscriber sessions.      'vpdn'         The target subscriber service provides a Virtual Private         Dialup Network service for subscriber sessions.  This column is valid only if the 'networkSrv' bit of the corresponding instance of cdtSrvValid is '1'
-            	**type**\:   :py:class:`CdtsrvnetworksrvEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.CdtsrvnetworksrvEnum>`
+            	**type**\:   :py:class:`Cdtsrvnetworksrv <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvnetworksrv>`
             
             .. attribute:: cdtsrvsgsrvgroup
             
@@ -3501,7 +4448,7 @@ class CiscoDynamicTemplateMib(object):
             .. attribute:: cdtsrvsgsrvtype
             
             	This object specifies whether the target service specifies a network\-forwarding policy\:      'primary'         The target service specifies a network\-forwarding         policy.  Primary services are mutually exclusive; that         is, only one primary service can be activated for any         given subscriber session.      'secondary'         The target service has a dependence on the primary         service in the group specified by the corresponding         instance of cdtSuBSrvSgSrvGroup.  After the system         activates the primary service, it activates secondary         services.  When the system deactivates the primary         service, then it deactivates all the secondary services         in the service group.  This column is valid only if the 'sgSrvType' bit of the corresponding instance of cdtSrvValid is '1'
-            	**type**\:   :py:class:`CdtsrvsgsrvtypeEnum <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.CdtsrvsgsrvtypeEnum>`
+            	**type**\:   :py:class:`Cdtsrvsgsrvtype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvsgsrvtype>`
             
             .. attribute:: cdtsrvvalid
             
@@ -3523,18 +4470,58 @@ class CiscoDynamicTemplateMib(object):
             _revision = '2007-09-06'
 
             def __init__(self):
-                self.parent = None
-                self.cdttemplatename = None
-                self.cdtsrvmulticast = None
-                self.cdtsrvnetworksrv = None
-                self.cdtsrvsgsrvgroup = None
-                self.cdtsrvsgsrvtype = None
-                self.cdtsrvvalid = CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvvalid()
-                self.cdtsrvvpdngroup = None
+                super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry, self).__init__()
 
-            class CdtsrvnetworksrvEnum(Enum):
+                self.yang_name = "cdtSrvTemplateEntry"
+                self.yang_parent_name = "cdtSrvTemplateTable"
+
+                self.cdttemplatename = YLeaf(YType.str, "cdtTemplateName")
+
+                self.cdtsrvmulticast = YLeaf(YType.boolean, "cdtSrvMulticast")
+
+                self.cdtsrvnetworksrv = YLeaf(YType.enumeration, "cdtSrvNetworkSrv")
+
+                self.cdtsrvsgsrvgroup = YLeaf(YType.str, "cdtSrvSgSrvGroup")
+
+                self.cdtsrvsgsrvtype = YLeaf(YType.enumeration, "cdtSrvSgSrvType")
+
+                self.cdtsrvvalid = YLeaf(YType.bits, "cdtSrvValid")
+
+                self.cdtsrvvpdngroup = YLeaf(YType.str, "cdtSrvVpdnGroup")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdttemplatename",
+                                "cdtsrvmulticast",
+                                "cdtsrvnetworksrv",
+                                "cdtsrvsgsrvgroup",
+                                "cdtsrvsgsrvtype",
+                                "cdtsrvvalid",
+                                "cdtsrvvpdngroup") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry, self).__setattr__(name, value)
+
+            class Cdtsrvnetworksrv(Enum):
                 """
-                CdtsrvnetworksrvEnum
+                Cdtsrvnetworksrv
 
                 This object specifies the type of network service provided by
 
@@ -3578,24 +4565,18 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                none = 2
+                none = Enum.YLeaf(2, "none")
 
-                local = 3
+                local = Enum.YLeaf(3, "local")
 
-                vpdn = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.CdtsrvnetworksrvEnum']
+                vpdn = Enum.YLeaf(4, "vpdn")
 
 
-            class CdtsrvsgsrvtypeEnum(Enum):
+            class Cdtsrvsgsrvtype(Enum):
                 """
-                CdtsrvsgsrvtypeEnum
+                Cdtsrvsgsrvtype
 
                 This object specifies whether the target service specifies a
 
@@ -3637,165 +4618,291 @@ class CiscoDynamicTemplateMib(object):
 
                 """
 
-                primary = 1
+                primary = Enum.YLeaf(1, "primary")
 
-                secondary = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                    return meta._meta_table['CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry.CdtsrvsgsrvtypeEnum']
+                secondary = Enum.YLeaf(2, "secondary")
 
 
-            class Cdtsrvvalid(FixedBitsDict):
-                """
-                Cdtsrvvalid
+            def has_data(self):
+                return (
+                    self.cdttemplatename.is_set or
+                    self.cdtsrvmulticast.is_set or
+                    self.cdtsrvnetworksrv.is_set or
+                    self.cdtsrvsgsrvgroup.is_set or
+                    self.cdtsrvsgsrvtype.is_set or
+                    self.cdtsrvvalid.is_set or
+                    self.cdtsrvvpdngroup.is_set)
 
-                This object specifies which attributes in the dynamic template
-                have been configured to valid values.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is not valid.  If the bit is '1', then the value of the
-                corresponding column has been configured to a valid value.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    networkSrv     => cdtSrvNetworkSrv
-                    vpdnGroup      => cdtSrvVpdnGroup
-                    sgSrvGroup     => cdtSrvGroup
-                    sgSrvType      => cdtSrvSgSrvType
-                    multicast      => cdtSrvMulticast
-                Keys are:- sgSrvType , multicast , vpdnGroup , sgSrvGroup , networkSrv
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdttemplatename.yfilter != YFilter.not_set or
+                    self.cdtsrvmulticast.yfilter != YFilter.not_set or
+                    self.cdtsrvnetworksrv.yfilter != YFilter.not_set or
+                    self.cdtsrvsgsrvgroup.yfilter != YFilter.not_set or
+                    self.cdtsrvsgsrvtype.yfilter != YFilter.not_set or
+                    self.cdtsrvvalid.yfilter != YFilter.not_set or
+                    self.cdtsrvvpdngroup.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdtSrvTemplateEntry" + "[cdtTemplateName='" + self.cdttemplatename.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'sgSrvType':False,
-                        'multicast':False,
-                        'vpdnGroup':False,
-                        'sgSrvGroup':False,
-                        'networkSrv':False,
-                    }
-                    self._pos_map = { 
-                        'sgSrvType':3,
-                        'multicast':4,
-                        'vpdnGroup':1,
-                        'sgSrvGroup':2,
-                        'networkSrv':0,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.cdttemplatename is None:
-                    raise YPYModelError('Key property cdttemplatename is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtSrvTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtSrvTemplateTable/CISCO-DYNAMIC-TEMPLATE-MIB:cdtSrvTemplateEntry[CISCO-DYNAMIC-TEMPLATE-MIB:cdtTemplateName = ' + str(self.cdttemplatename) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.cdttemplatename.is_set or self.cdttemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdttemplatename.get_name_leafdata())
+                if (self.cdtsrvmulticast.is_set or self.cdtsrvmulticast.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvmulticast.get_name_leafdata())
+                if (self.cdtsrvnetworksrv.is_set or self.cdtsrvnetworksrv.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvnetworksrv.get_name_leafdata())
+                if (self.cdtsrvsgsrvgroup.is_set or self.cdtsrvsgsrvgroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvsgsrvgroup.get_name_leafdata())
+                if (self.cdtsrvsgsrvtype.is_set or self.cdtsrvsgsrvtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvsgsrvtype.get_name_leafdata())
+                if (self.cdtsrvvalid.is_set or self.cdtsrvvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvvalid.get_name_leafdata())
+                if (self.cdtsrvvpdngroup.is_set or self.cdtsrvvpdngroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdtsrvvpdngroup.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdtTemplateName" or name == "cdtSrvMulticast" or name == "cdtSrvNetworkSrv" or name == "cdtSrvSgSrvGroup" or name == "cdtSrvSgSrvType" or name == "cdtSrvValid" or name == "cdtSrvVpdnGroup"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdttemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdtTemplateName"):
+                    self.cdttemplatename = value
+                    self.cdttemplatename.value_namespace = name_space
+                    self.cdttemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtSrvMulticast"):
+                    self.cdtsrvmulticast = value
+                    self.cdtsrvmulticast.value_namespace = name_space
+                    self.cdtsrvmulticast.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtSrvNetworkSrv"):
+                    self.cdtsrvnetworksrv = value
+                    self.cdtsrvnetworksrv.value_namespace = name_space
+                    self.cdtsrvnetworksrv.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtSrvSgSrvGroup"):
+                    self.cdtsrvsgsrvgroup = value
+                    self.cdtsrvsgsrvgroup.value_namespace = name_space
+                    self.cdtsrvsgsrvgroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtSrvSgSrvType"):
+                    self.cdtsrvsgsrvtype = value
+                    self.cdtsrvsgsrvtype.value_namespace = name_space
+                    self.cdtsrvsgsrvtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdtSrvValid"):
+                    self.cdtsrvvalid[value] = True
+                if(value_path == "cdtSrvVpdnGroup"):
+                    self.cdtsrvvpdngroup = value
+                    self.cdtsrvvpdngroup.value_namespace = name_space
+                    self.cdtsrvvpdngroup.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdtsrvtemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdtsrvmulticast is not None:
-                    return True
-
-                if self.cdtsrvnetworksrv is not None:
-                    return True
-
-                if self.cdtsrvsgsrvgroup is not None:
-                    return True
-
-                if self.cdtsrvsgsrvtype is not None:
-                    return True
-
-                if self.cdtsrvvalid is not None:
-                    if self.cdtsrvvalid._has_data():
-                        return True
-
-                if self.cdtsrvvpdngroup is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-                return meta._meta_table['CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/CISCO-DYNAMIC-TEMPLATE-MIB:cdtSrvTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdtsrvtemplateentry is not None:
-                for child_ref in self.cdtsrvtemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdtsrvtemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdtSrvTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdtSrvTemplateEntry"):
+                for c in self.cdtsrvtemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDynamicTemplateMib.Cdtsrvtemplatetable.Cdtsrvtemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdtsrvtemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdtSrvTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-            return meta._meta_table['CiscoDynamicTemplateMib.Cdtsrvtemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cdtethernettemplatetable is not None and self.cdtethernettemplatetable.has_data()) or
+            (self.cdtiftemplatetable is not None and self.cdtiftemplatetable.has_data()) or
+            (self.cdtppppeeripaddrpooltable is not None and self.cdtppppeeripaddrpooltable.has_data()) or
+            (self.cdtppptemplatetable is not None and self.cdtppptemplatetable.has_data()) or
+            (self.cdtsrvtemplatetable is not None and self.cdtsrvtemplatetable.has_data()) or
+            (self.cdttemplateassociationtable is not None and self.cdttemplateassociationtable.has_data()) or
+            (self.cdttemplatecommontable is not None and self.cdttemplatecommontable.has_data()) or
+            (self.cdttemplatetable is not None and self.cdttemplatetable.has_data()) or
+            (self.cdttemplatetargettable is not None and self.cdttemplatetargettable.has_data()) or
+            (self.cdttemplateusagetable is not None and self.cdttemplateusagetable.has_data()))
 
-        return '/CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cdtethernettemplatetable is not None and self.cdtethernettemplatetable.has_operation()) or
+            (self.cdtiftemplatetable is not None and self.cdtiftemplatetable.has_operation()) or
+            (self.cdtppppeeripaddrpooltable is not None and self.cdtppppeeripaddrpooltable.has_operation()) or
+            (self.cdtppptemplatetable is not None and self.cdtppptemplatetable.has_operation()) or
+            (self.cdtsrvtemplatetable is not None and self.cdtsrvtemplatetable.has_operation()) or
+            (self.cdttemplateassociationtable is not None and self.cdttemplateassociationtable.has_operation()) or
+            (self.cdttemplatecommontable is not None and self.cdttemplatecommontable.has_operation()) or
+            (self.cdttemplatetable is not None and self.cdttemplatetable.has_operation()) or
+            (self.cdttemplatetargettable is not None and self.cdttemplatetargettable.has_operation()) or
+            (self.cdttemplateusagetable is not None and self.cdttemplateusagetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cdtEthernetTemplateTable"):
+            if (self.cdtethernettemplatetable is None):
+                self.cdtethernettemplatetable = CiscoDynamicTemplateMib.Cdtethernettemplatetable()
+                self.cdtethernettemplatetable.parent = self
+                self._children_name_map["cdtethernettemplatetable"] = "cdtEthernetTemplateTable"
+            return self.cdtethernettemplatetable
+
+        if (child_yang_name == "cdtIfTemplateTable"):
+            if (self.cdtiftemplatetable is None):
+                self.cdtiftemplatetable = CiscoDynamicTemplateMib.Cdtiftemplatetable()
+                self.cdtiftemplatetable.parent = self
+                self._children_name_map["cdtiftemplatetable"] = "cdtIfTemplateTable"
+            return self.cdtiftemplatetable
+
+        if (child_yang_name == "cdtPppPeerIpAddrPoolTable"):
+            if (self.cdtppppeeripaddrpooltable is None):
+                self.cdtppppeeripaddrpooltable = CiscoDynamicTemplateMib.Cdtppppeeripaddrpooltable()
+                self.cdtppppeeripaddrpooltable.parent = self
+                self._children_name_map["cdtppppeeripaddrpooltable"] = "cdtPppPeerIpAddrPoolTable"
+            return self.cdtppppeeripaddrpooltable
+
+        if (child_yang_name == "cdtPppTemplateTable"):
+            if (self.cdtppptemplatetable is None):
+                self.cdtppptemplatetable = CiscoDynamicTemplateMib.Cdtppptemplatetable()
+                self.cdtppptemplatetable.parent = self
+                self._children_name_map["cdtppptemplatetable"] = "cdtPppTemplateTable"
+            return self.cdtppptemplatetable
+
+        if (child_yang_name == "cdtSrvTemplateTable"):
+            if (self.cdtsrvtemplatetable is None):
+                self.cdtsrvtemplatetable = CiscoDynamicTemplateMib.Cdtsrvtemplatetable()
+                self.cdtsrvtemplatetable.parent = self
+                self._children_name_map["cdtsrvtemplatetable"] = "cdtSrvTemplateTable"
+            return self.cdtsrvtemplatetable
+
+        if (child_yang_name == "cdtTemplateAssociationTable"):
+            if (self.cdttemplateassociationtable is None):
+                self.cdttemplateassociationtable = CiscoDynamicTemplateMib.Cdttemplateassociationtable()
+                self.cdttemplateassociationtable.parent = self
+                self._children_name_map["cdttemplateassociationtable"] = "cdtTemplateAssociationTable"
+            return self.cdttemplateassociationtable
+
+        if (child_yang_name == "cdtTemplateCommonTable"):
+            if (self.cdttemplatecommontable is None):
+                self.cdttemplatecommontable = CiscoDynamicTemplateMib.Cdttemplatecommontable()
+                self.cdttemplatecommontable.parent = self
+                self._children_name_map["cdttemplatecommontable"] = "cdtTemplateCommonTable"
+            return self.cdttemplatecommontable
+
+        if (child_yang_name == "cdtTemplateTable"):
+            if (self.cdttemplatetable is None):
+                self.cdttemplatetable = CiscoDynamicTemplateMib.Cdttemplatetable()
+                self.cdttemplatetable.parent = self
+                self._children_name_map["cdttemplatetable"] = "cdtTemplateTable"
+            return self.cdttemplatetable
+
+        if (child_yang_name == "cdtTemplateTargetTable"):
+            if (self.cdttemplatetargettable is None):
+                self.cdttemplatetargettable = CiscoDynamicTemplateMib.Cdttemplatetargettable()
+                self.cdttemplatetargettable.parent = self
+                self._children_name_map["cdttemplatetargettable"] = "cdtTemplateTargetTable"
+            return self.cdttemplatetargettable
+
+        if (child_yang_name == "cdtTemplateUsageTable"):
+            if (self.cdttemplateusagetable is None):
+                self.cdttemplateusagetable = CiscoDynamicTemplateMib.Cdttemplateusagetable()
+                self.cdttemplateusagetable.parent = self
+                self._children_name_map["cdttemplateusagetable"] = "cdtTemplateUsageTable"
+            return self.cdttemplateusagetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cdtEthernetTemplateTable" or name == "cdtIfTemplateTable" or name == "cdtPppPeerIpAddrPoolTable" or name == "cdtPppTemplateTable" or name == "cdtSrvTemplateTable" or name == "cdtTemplateAssociationTable" or name == "cdtTemplateCommonTable" or name == "cdtTemplateTable" or name == "cdtTemplateTargetTable" or name == "cdtTemplateUsageTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cdtethernettemplatetable is not None and self.cdtethernettemplatetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cdtiftemplatetable is not None and self.cdtiftemplatetable._has_data():
-            return True
-
-        if self.cdtppppeeripaddrpooltable is not None and self.cdtppppeeripaddrpooltable._has_data():
-            return True
-
-        if self.cdtppptemplatetable is not None and self.cdtppptemplatetable._has_data():
-            return True
-
-        if self.cdtsrvtemplatetable is not None and self.cdtsrvtemplatetable._has_data():
-            return True
-
-        if self.cdttemplateassociationtable is not None and self.cdttemplateassociationtable._has_data():
-            return True
-
-        if self.cdttemplatecommontable is not None and self.cdttemplatecommontable._has_data():
-            return True
-
-        if self.cdttemplatetable is not None and self.cdttemplatetable._has_data():
-            return True
-
-        if self.cdttemplatetargettable is not None and self.cdttemplatetargettable._has_data():
-            return True
-
-        if self.cdttemplateusagetable is not None and self.cdttemplateusagetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DYNAMIC_TEMPLATE_MIB as meta
-        return meta._meta_table['CiscoDynamicTemplateMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoDynamicTemplateMib()
+        return self._top_entity
 

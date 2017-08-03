@@ -17,22 +17,16 @@ This MIB allows detection of
 spoofingevents.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class UnicastrpftypeEnum(Enum):
+class Unicastrpftype(Enum):
     """
-    UnicastrpftypeEnum
+    Unicastrpftype
 
     An enumerated integer\-value describing the type of
 
@@ -68,20 +62,14 @@ class UnicastrpftypeEnum(Enum):
 
     """
 
-    strict = 1
+    strict = Enum.YLeaf(1, "strict")
 
-    loose = 2
+    loose = Enum.YLeaf(2, "loose")
 
-    disabled = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-        return meta._meta_table['UnicastrpftypeEnum']
+    disabled = Enum.YLeaf(3, "disabled")
 
 
-class Unicastrpfoptions(FixedBitsDict):
+class Unicastrpfoptions(Bits):
     """
     Unicastrpfoptions
 
@@ -98,17 +86,10 @@ class Unicastrpfoptions(FixedBitsDict):
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'allowDefault':False,
-            'allowSelfPing':False,
-        }
-        self._pos_map = { 
-            'allowDefault':0,
-            'allowSelfPing':1,
-        }
+        super(Unicastrpfoptions, self).__init__()
 
 
-class CiscoIpUrpfMib(object):
+class CiscoIpUrpfMib(Entity):
     """
     
     
@@ -145,19 +126,39 @@ class CiscoIpUrpfMib(object):
     _revision = '2011-12-29'
 
     def __init__(self):
+        super(CiscoIpUrpfMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IP-URPF-MIB"
+        self.yang_parent_name = "CISCO-IP-URPF-MIB"
+
         self.cipurpfifmontable = CiscoIpUrpfMib.Cipurpfifmontable()
         self.cipurpfifmontable.parent = self
+        self._children_name_map["cipurpfifmontable"] = "cipUrpfIfMonTable"
+        self._children_yang_names.add("cipUrpfIfMonTable")
+
         self.cipurpfscalar = CiscoIpUrpfMib.Cipurpfscalar()
         self.cipurpfscalar.parent = self
+        self._children_name_map["cipurpfscalar"] = "cipUrpfScalar"
+        self._children_yang_names.add("cipUrpfScalar")
+
         self.cipurpftable = CiscoIpUrpfMib.Cipurpftable()
         self.cipurpftable.parent = self
+        self._children_name_map["cipurpftable"] = "cipUrpfTable"
+        self._children_yang_names.add("cipUrpfTable")
+
         self.cipurpfvrfiftable = CiscoIpUrpfMib.Cipurpfvrfiftable()
         self.cipurpfvrfiftable.parent = self
+        self._children_name_map["cipurpfvrfiftable"] = "cipUrpfVrfIfTable"
+        self._children_yang_names.add("cipUrpfVrfIfTable")
+
         self.cipurpfvrftable = CiscoIpUrpfMib.Cipurpfvrftable()
         self.cipurpfvrftable.parent = self
+        self._children_name_map["cipurpfvrftable"] = "cipUrpfVrfTable"
+        self._children_yang_names.add("cipUrpfVrfTable")
 
 
-    class Cipurpfscalar(object):
+    class Cipurpfscalar(Entity):
         """
         
         
@@ -196,39 +197,108 @@ class CiscoIpUrpfMib(object):
         _revision = '2011-12-29'
 
         def __init__(self):
-            self.parent = None
-            self.cipurpfcomputeinterval = None
-            self.cipurpfdropnotifyholddowntime = None
-            self.cipurpfdropratewindow = None
+            super(CiscoIpUrpfMib.Cipurpfscalar, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cipUrpfScalar"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
 
-            return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfScalar'
+            self.cipurpfcomputeinterval = YLeaf(YType.int32, "cipUrpfComputeInterval")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cipurpfdropnotifyholddowntime = YLeaf(YType.int32, "cipUrpfDropNotifyHoldDownTime")
+
+            self.cipurpfdropratewindow = YLeaf(YType.int32, "cipUrpfDropRateWindow")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipurpfcomputeinterval",
+                            "cipurpfdropnotifyholddowntime",
+                            "cipurpfdropratewindow") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpUrpfMib.Cipurpfscalar, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpUrpfMib.Cipurpfscalar, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cipurpfcomputeinterval.is_set or
+                self.cipurpfdropnotifyholddowntime.is_set or
+                self.cipurpfdropratewindow.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipurpfcomputeinterval.yfilter != YFilter.not_set or
+                self.cipurpfdropnotifyholddowntime.yfilter != YFilter.not_set or
+                self.cipurpfdropratewindow.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipUrpfScalar" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipurpfcomputeinterval.is_set or self.cipurpfcomputeinterval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipurpfcomputeinterval.get_name_leafdata())
+            if (self.cipurpfdropnotifyholddowntime.is_set or self.cipurpfdropnotifyholddowntime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipurpfdropnotifyholddowntime.get_name_leafdata())
+            if (self.cipurpfdropratewindow.is_set or self.cipurpfdropratewindow.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipurpfdropratewindow.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipUrpfComputeInterval" or name == "cipUrpfDropNotifyHoldDownTime" or name == "cipUrpfDropRateWindow"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cipurpfcomputeinterval is not None:
-                return True
-
-            if self.cipurpfdropnotifyholddowntime is not None:
-                return True
-
-            if self.cipurpfdropratewindow is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-            return meta._meta_table['CiscoIpUrpfMib.Cipurpfscalar']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipUrpfComputeInterval"):
+                self.cipurpfcomputeinterval = value
+                self.cipurpfcomputeinterval.value_namespace = name_space
+                self.cipurpfcomputeinterval.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipUrpfDropNotifyHoldDownTime"):
+                self.cipurpfdropnotifyholddowntime = value
+                self.cipurpfdropnotifyholddowntime.value_namespace = name_space
+                self.cipurpfdropnotifyholddowntime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipUrpfDropRateWindow"):
+                self.cipurpfdropratewindow = value
+                self.cipurpfdropratewindow.value_namespace = name_space
+                self.cipurpfdropratewindow.value_namespace_prefix = name_space_prefix
 
 
-    class Cipurpftable(object):
+    class Cipurpftable(Entity):
         """
         This table contains summary information for the
         managed device on URPF dropping.
@@ -246,13 +316,39 @@ class CiscoIpUrpfMib(object):
         _revision = '2011-12-29'
 
         def __init__(self):
-            self.parent = None
-            self.cipurpfentry = YList()
-            self.cipurpfentry.parent = self
-            self.cipurpfentry.name = 'cipurpfentry'
+            super(CiscoIpUrpfMib.Cipurpftable, self).__init__()
+
+            self.yang_name = "cipUrpfTable"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+
+            self.cipurpfentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpUrpfMib.Cipurpftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpUrpfMib.Cipurpftable, self).__setattr__(name, value)
 
 
-        class Cipurpfentry(object):
+        class Cipurpfentry(Entity):
             """
             If the managed device supports URPF dropping,
             a row exists for each IP version type (v4 and v6).
@@ -262,7 +358,7 @@ class CiscoIpUrpfMib(object):
             .. attribute:: cipurpfipversion  <key>
             
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and configuration apply
-            	**type**\:   :py:class:`CipurpfipversionEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpftable.Cipurpfentry.CipurpfipversionEnum>`
+            	**type**\:   :py:class:`Cipurpfipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpftable.Cipurpfentry.Cipurpfipversion>`
             
             .. attribute:: cipurpfdroprate
             
@@ -290,14 +386,46 @@ class CiscoIpUrpfMib(object):
             _revision = '2011-12-29'
 
             def __init__(self):
-                self.parent = None
-                self.cipurpfipversion = None
-                self.cipurpfdroprate = None
-                self.cipurpfdrops = None
+                super(CiscoIpUrpfMib.Cipurpftable.Cipurpfentry, self).__init__()
 
-            class CipurpfipversionEnum(Enum):
+                self.yang_name = "cipUrpfEntry"
+                self.yang_parent_name = "cipUrpfTable"
+
+                self.cipurpfipversion = YLeaf(YType.enumeration, "cipUrpfIpVersion")
+
+                self.cipurpfdroprate = YLeaf(YType.uint32, "cipUrpfDropRate")
+
+                self.cipurpfdrops = YLeaf(YType.uint32, "cipUrpfDrops")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipurpfipversion",
+                                "cipurpfdroprate",
+                                "cipurpfdrops") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpUrpfMib.Cipurpftable.Cipurpfentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpUrpfMib.Cipurpftable.Cipurpfentry, self).__setattr__(name, value)
+
+            class Cipurpfipversion(Enum):
                 """
-                CipurpfipversionEnum
+                Cipurpfipversion
 
                 Specifies the version of IP forwarding on an interface
 
@@ -311,69 +439,133 @@ class CiscoIpUrpfMib(object):
 
                 """
 
-                ipv4 = 1
+                ipv4 = Enum.YLeaf(1, "ipv4")
 
-                ipv6 = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                    return meta._meta_table['CiscoIpUrpfMib.Cipurpftable.Cipurpfentry.CipurpfipversionEnum']
+                ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-            @property
-            def _common_path(self):
-                if self.cipurpfipversion is None:
-                    raise YPYModelError('Key property cipurpfipversion is None')
+            def has_data(self):
+                return (
+                    self.cipurpfipversion.is_set or
+                    self.cipurpfdroprate.is_set or
+                    self.cipurpfdrops.is_set)
 
-                return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfTable/CISCO-IP-URPF-MIB:cipUrpfEntry[CISCO-IP-URPF-MIB:cipUrpfIpVersion = ' + str(self.cipurpfipversion) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipurpfipversion.yfilter != YFilter.not_set or
+                    self.cipurpfdroprate.yfilter != YFilter.not_set or
+                    self.cipurpfdrops.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipUrpfEntry" + "[cipUrpfIpVersion='" + self.cipurpfipversion.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipurpfipversion.is_set or self.cipurpfipversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfipversion.get_name_leafdata())
+                if (self.cipurpfdroprate.is_set or self.cipurpfdroprate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfdroprate.get_name_leafdata())
+                if (self.cipurpfdrops.is_set or self.cipurpfdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfdrops.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipUrpfIpVersion" or name == "cipUrpfDropRate" or name == "cipUrpfDrops"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipurpfipversion is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipUrpfIpVersion"):
+                    self.cipurpfipversion = value
+                    self.cipurpfipversion.value_namespace = name_space
+                    self.cipurpfipversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfDropRate"):
+                    self.cipurpfdroprate = value
+                    self.cipurpfdroprate.value_namespace = name_space
+                    self.cipurpfdroprate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfDrops"):
+                    self.cipurpfdrops = value
+                    self.cipurpfdrops.value_namespace = name_space
+                    self.cipurpfdrops.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipurpfentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipurpfdroprate is not None:
-                    return True
-
-                if self.cipurpfdrops is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                return meta._meta_table['CiscoIpUrpfMib.Cipurpftable.Cipurpfentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipurpfentry is not None:
-                for child_ref in self.cipurpfentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipurpfentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipUrpfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipUrpfEntry"):
+                for c in self.cipurpfentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpUrpfMib.Cipurpftable.Cipurpfentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipurpfentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipUrpfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-            return meta._meta_table['CiscoIpUrpfMib.Cipurpftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipurpfifmontable(object):
+    class Cipurpfifmontable(Entity):
         """
         This table contains information on URPF dropping on
         an interface.
@@ -391,13 +583,39 @@ class CiscoIpUrpfMib(object):
         _revision = '2011-12-29'
 
         def __init__(self):
-            self.parent = None
-            self.cipurpfifmonentry = YList()
-            self.cipurpfifmonentry.parent = self
-            self.cipurpfifmonentry.name = 'cipurpfifmonentry'
+            super(CiscoIpUrpfMib.Cipurpfifmontable, self).__init__()
+
+            self.yang_name = "cipUrpfIfMonTable"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+
+            self.cipurpfifmonentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpUrpfMib.Cipurpfifmontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpUrpfMib.Cipurpfifmontable, self).__setattr__(name, value)
 
 
-        class Cipurpfifmonentry(object):
+        class Cipurpfifmonentry(Entity):
             """
             If IPv4 packet forwarding is configured on an interface,
             and is configured to perform URPF checking, a row appears
@@ -423,12 +641,12 @@ class CiscoIpUrpfMib(object):
             .. attribute:: cipurpfifipversion  <key>
             
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and  configuration apply
-            	**type**\:   :py:class:`CipurpfifipversionEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifipversionEnum>`
+            	**type**\:   :py:class:`Cipurpfifipversion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifipversion>`
             
             .. attribute:: cipurpfifcheckstrict
             
             	Interface configuration indicating the strictness of the reachability check performed  on the interface. \- strict\: check that source addr is reachable via            the interface it came in on. \- loose \: check that source addr is reachable via            some interface on the device
-            	**type**\:   :py:class:`CipurpfifcheckstrictEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifcheckstrictEnum>`
+            	**type**\:   :py:class:`Cipurpfifcheckstrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifcheckstrict>`
             
             .. attribute:: cipurpfifdiscontinuitytime
             
@@ -493,7 +711,7 @@ class CiscoIpUrpfMib(object):
             .. attribute:: cipurpfifwhichroutetableid
             
             	Interface configuration indicating the routing table consulted for the reachability check\: \- default\: the non\-private routing table for of the             managed system. \- vrf   \: a particular VPN routing table
-            	**type**\:   :py:class:`CipurpfifwhichroutetableidEnum <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifwhichroutetableidEnum>`
+            	**type**\:   :py:class:`Cipurpfifwhichroutetableid <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.Cipurpfifwhichroutetableid>`
             
             
 
@@ -503,23 +721,73 @@ class CiscoIpUrpfMib(object):
             _revision = '2011-12-29'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cipurpfifipversion = None
-                self.cipurpfifcheckstrict = None
-                self.cipurpfifdiscontinuitytime = None
-                self.cipurpfifdroprate = None
-                self.cipurpfifdropratenotifyenable = None
-                self.cipurpfifdrops = None
-                self.cipurpfifnotifydrholddownreset = None
-                self.cipurpfifnotifydropratethreshold = None
-                self.cipurpfifsuppresseddrops = None
-                self.cipurpfifvrfname = None
-                self.cipurpfifwhichroutetableid = None
+                super(CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry, self).__init__()
 
-            class CipurpfifcheckstrictEnum(Enum):
+                self.yang_name = "cipUrpfIfMonEntry"
+                self.yang_parent_name = "cipUrpfIfMonTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cipurpfifipversion = YLeaf(YType.enumeration, "cipUrpfIfIpVersion")
+
+                self.cipurpfifcheckstrict = YLeaf(YType.enumeration, "cipUrpfIfCheckStrict")
+
+                self.cipurpfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfIfDiscontinuityTime")
+
+                self.cipurpfifdroprate = YLeaf(YType.uint32, "cipUrpfIfDropRate")
+
+                self.cipurpfifdropratenotifyenable = YLeaf(YType.boolean, "cipUrpfIfDropRateNotifyEnable")
+
+                self.cipurpfifdrops = YLeaf(YType.uint32, "cipUrpfIfDrops")
+
+                self.cipurpfifnotifydrholddownreset = YLeaf(YType.boolean, "cipUrpfIfNotifyDrHoldDownReset")
+
+                self.cipurpfifnotifydropratethreshold = YLeaf(YType.uint32, "cipUrpfIfNotifyDropRateThreshold")
+
+                self.cipurpfifsuppresseddrops = YLeaf(YType.uint32, "cipUrpfIfSuppressedDrops")
+
+                self.cipurpfifvrfname = YLeaf(YType.str, "cipUrpfIfVrfName")
+
+                self.cipurpfifwhichroutetableid = YLeaf(YType.enumeration, "cipUrpfIfWhichRouteTableID")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cipurpfifipversion",
+                                "cipurpfifcheckstrict",
+                                "cipurpfifdiscontinuitytime",
+                                "cipurpfifdroprate",
+                                "cipurpfifdropratenotifyenable",
+                                "cipurpfifdrops",
+                                "cipurpfifnotifydrholddownreset",
+                                "cipurpfifnotifydropratethreshold",
+                                "cipurpfifsuppresseddrops",
+                                "cipurpfifvrfname",
+                                "cipurpfifwhichroutetableid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry, self).__setattr__(name, value)
+
+            class Cipurpfifcheckstrict(Enum):
                 """
-                CipurpfifcheckstrictEnum
+                Cipurpfifcheckstrict
 
                 Interface configuration indicating the strictness of
 
@@ -541,20 +809,14 @@ class CiscoIpUrpfMib(object):
 
                 """
 
-                strict = 1
+                strict = Enum.YLeaf(1, "strict")
 
-                loose = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                    return meta._meta_table['CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifcheckstrictEnum']
+                loose = Enum.YLeaf(2, "loose")
 
 
-            class CipurpfifipversionEnum(Enum):
+            class Cipurpfifipversion(Enum):
                 """
-                CipurpfifipversionEnum
+                Cipurpfifipversion
 
                 Specifies the version of IP forwarding on an interface
 
@@ -568,20 +830,14 @@ class CiscoIpUrpfMib(object):
 
                 """
 
-                ipv4 = 1
+                ipv4 = Enum.YLeaf(1, "ipv4")
 
-                ipv6 = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                    return meta._meta_table['CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifipversionEnum']
+                ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-            class CipurpfifwhichroutetableidEnum(Enum):
+            class Cipurpfifwhichroutetableid(Enum):
                 """
-                CipurpfifwhichroutetableidEnum
+                Cipurpfifwhichroutetableid
 
                 Interface configuration indicating the routing table
 
@@ -599,98 +855,205 @@ class CiscoIpUrpfMib(object):
 
                 """
 
-                default = 1
+                default = Enum.YLeaf(1, "default")
 
-                vrf = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                    return meta._meta_table['CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry.CipurpfifwhichroutetableidEnum']
+                vrf = Enum.YLeaf(2, "vrf")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.cipurpfifipversion is None:
-                    raise YPYModelError('Key property cipurpfifipversion is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cipurpfifipversion.is_set or
+                    self.cipurpfifcheckstrict.is_set or
+                    self.cipurpfifdiscontinuitytime.is_set or
+                    self.cipurpfifdroprate.is_set or
+                    self.cipurpfifdropratenotifyenable.is_set or
+                    self.cipurpfifdrops.is_set or
+                    self.cipurpfifnotifydrholddownreset.is_set or
+                    self.cipurpfifnotifydropratethreshold.is_set or
+                    self.cipurpfifsuppresseddrops.is_set or
+                    self.cipurpfifvrfname.is_set or
+                    self.cipurpfifwhichroutetableid.is_set)
 
-                return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfIfMonTable/CISCO-IP-URPF-MIB:cipUrpfIfMonEntry[CISCO-IP-URPF-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-IP-URPF-MIB:cipUrpfIfIpVersion = ' + str(self.cipurpfifipversion) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cipurpfifipversion.yfilter != YFilter.not_set or
+                    self.cipurpfifcheckstrict.yfilter != YFilter.not_set or
+                    self.cipurpfifdiscontinuitytime.yfilter != YFilter.not_set or
+                    self.cipurpfifdroprate.yfilter != YFilter.not_set or
+                    self.cipurpfifdropratenotifyenable.yfilter != YFilter.not_set or
+                    self.cipurpfifdrops.yfilter != YFilter.not_set or
+                    self.cipurpfifnotifydrholddownreset.yfilter != YFilter.not_set or
+                    self.cipurpfifnotifydropratethreshold.yfilter != YFilter.not_set or
+                    self.cipurpfifsuppresseddrops.yfilter != YFilter.not_set or
+                    self.cipurpfifvrfname.yfilter != YFilter.not_set or
+                    self.cipurpfifwhichroutetableid.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipUrpfIfMonEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cipUrpfIfIpVersion='" + self.cipurpfifipversion.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfIfMonTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cipurpfifipversion.is_set or self.cipurpfifipversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifipversion.get_name_leafdata())
+                if (self.cipurpfifcheckstrict.is_set or self.cipurpfifcheckstrict.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifcheckstrict.get_name_leafdata())
+                if (self.cipurpfifdiscontinuitytime.is_set or self.cipurpfifdiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifdiscontinuitytime.get_name_leafdata())
+                if (self.cipurpfifdroprate.is_set or self.cipurpfifdroprate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifdroprate.get_name_leafdata())
+                if (self.cipurpfifdropratenotifyenable.is_set or self.cipurpfifdropratenotifyenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifdropratenotifyenable.get_name_leafdata())
+                if (self.cipurpfifdrops.is_set or self.cipurpfifdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifdrops.get_name_leafdata())
+                if (self.cipurpfifnotifydrholddownreset.is_set or self.cipurpfifnotifydrholddownreset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifnotifydrholddownreset.get_name_leafdata())
+                if (self.cipurpfifnotifydropratethreshold.is_set or self.cipurpfifnotifydropratethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifnotifydropratethreshold.get_name_leafdata())
+                if (self.cipurpfifsuppresseddrops.is_set or self.cipurpfifsuppresseddrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifsuppresseddrops.get_name_leafdata())
+                if (self.cipurpfifvrfname.is_set or self.cipurpfifvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifvrfname.get_name_leafdata())
+                if (self.cipurpfifwhichroutetableid.is_set or self.cipurpfifwhichroutetableid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfifwhichroutetableid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cipUrpfIfIpVersion" or name == "cipUrpfIfCheckStrict" or name == "cipUrpfIfDiscontinuityTime" or name == "cipUrpfIfDropRate" or name == "cipUrpfIfDropRateNotifyEnable" or name == "cipUrpfIfDrops" or name == "cipUrpfIfNotifyDrHoldDownReset" or name == "cipUrpfIfNotifyDropRateThreshold" or name == "cipUrpfIfSuppressedDrops" or name == "cipUrpfIfVrfName" or name == "cipUrpfIfWhichRouteTableID"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfIpVersion"):
+                    self.cipurpfifipversion = value
+                    self.cipurpfifipversion.value_namespace = name_space
+                    self.cipurpfifipversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfCheckStrict"):
+                    self.cipurpfifcheckstrict = value
+                    self.cipurpfifcheckstrict.value_namespace = name_space
+                    self.cipurpfifcheckstrict.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfDiscontinuityTime"):
+                    self.cipurpfifdiscontinuitytime = value
+                    self.cipurpfifdiscontinuitytime.value_namespace = name_space
+                    self.cipurpfifdiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfDropRate"):
+                    self.cipurpfifdroprate = value
+                    self.cipurpfifdroprate.value_namespace = name_space
+                    self.cipurpfifdroprate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfDropRateNotifyEnable"):
+                    self.cipurpfifdropratenotifyenable = value
+                    self.cipurpfifdropratenotifyenable.value_namespace = name_space
+                    self.cipurpfifdropratenotifyenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfDrops"):
+                    self.cipurpfifdrops = value
+                    self.cipurpfifdrops.value_namespace = name_space
+                    self.cipurpfifdrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfNotifyDrHoldDownReset"):
+                    self.cipurpfifnotifydrholddownreset = value
+                    self.cipurpfifnotifydrholddownreset.value_namespace = name_space
+                    self.cipurpfifnotifydrholddownreset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfNotifyDropRateThreshold"):
+                    self.cipurpfifnotifydropratethreshold = value
+                    self.cipurpfifnotifydropratethreshold.value_namespace = name_space
+                    self.cipurpfifnotifydropratethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfSuppressedDrops"):
+                    self.cipurpfifsuppresseddrops = value
+                    self.cipurpfifsuppresseddrops.value_namespace = name_space
+                    self.cipurpfifsuppresseddrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfVrfName"):
+                    self.cipurpfifvrfname = value
+                    self.cipurpfifvrfname.value_namespace = name_space
+                    self.cipurpfifvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfIfWhichRouteTableID"):
+                    self.cipurpfifwhichroutetableid = value
+                    self.cipurpfifwhichroutetableid.value_namespace = name_space
+                    self.cipurpfifwhichroutetableid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipurpfifmonentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipurpfifipversion is not None:
-                    return True
-
-                if self.cipurpfifcheckstrict is not None:
-                    return True
-
-                if self.cipurpfifdiscontinuitytime is not None:
-                    return True
-
-                if self.cipurpfifdroprate is not None:
-                    return True
-
-                if self.cipurpfifdropratenotifyenable is not None:
-                    return True
-
-                if self.cipurpfifdrops is not None:
-                    return True
-
-                if self.cipurpfifnotifydrholddownreset is not None:
-                    return True
-
-                if self.cipurpfifnotifydropratethreshold is not None:
-                    return True
-
-                if self.cipurpfifsuppresseddrops is not None:
-                    return True
-
-                if self.cipurpfifvrfname is not None:
-                    return True
-
-                if self.cipurpfifwhichroutetableid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                return meta._meta_table['CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfIfMonTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipurpfifmonentry is not None:
-                for child_ref in self.cipurpfifmonentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipurpfifmonentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipUrpfIfMonTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipUrpfIfMonEntry"):
+                for c in self.cipurpfifmonentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpUrpfMib.Cipurpfifmontable.Cipurpfifmonentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipurpfifmonentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipUrpfIfMonEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-            return meta._meta_table['CiscoIpUrpfMib.Cipurpfifmontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipurpfvrfiftable(object):
+    class Cipurpfvrfiftable(Entity):
         """
         This table contains statistics information for interfaces
         performing URPF using VRF table to determine reachability.
@@ -708,13 +1071,39 @@ class CiscoIpUrpfMib(object):
         _revision = '2011-12-29'
 
         def __init__(self):
-            self.parent = None
-            self.cipurpfvrfifentry = YList()
-            self.cipurpfvrfifentry.parent = self
-            self.cipurpfvrfifentry.name = 'cipurpfvrfifentry'
+            super(CiscoIpUrpfMib.Cipurpfvrfiftable, self).__init__()
+
+            self.yang_name = "cipUrpfVrfIfTable"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+
+            self.cipurpfvrfifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpUrpfMib.Cipurpfvrfiftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpUrpfMib.Cipurpfvrfiftable, self).__setattr__(name, value)
 
 
-        class Cipurpfvrfifentry(object):
+        class Cipurpfvrfifentry(Entity):
             """
             An entry exists for a VRF and interface if and only
             if the VRF associated with the interface is configured 
@@ -763,69 +1152,176 @@ class CiscoIpUrpfMib(object):
             _revision = '2011-12-29'
 
             def __init__(self):
-                self.parent = None
-                self.cipurpfvrfname = None
-                self.ifindex = None
-                self.cipurpfvrfifdiscontinuitytime = None
-                self.cipurpfvrfifdrops = None
+                super(CiscoIpUrpfMib.Cipurpfvrfiftable.Cipurpfvrfifentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipurpfvrfname is None:
-                    raise YPYModelError('Key property cipurpfvrfname is None')
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cipUrpfVrfIfEntry"
+                self.yang_parent_name = "cipUrpfVrfIfTable"
 
-                return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfVrfIfTable/CISCO-IP-URPF-MIB:cipUrpfVrfIfEntry[CISCO-IP-URPF-MIB:cipUrpfVrfName = ' + str(self.cipurpfvrfname) + '][CISCO-IP-URPF-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.cipurpfvrfname = YLeaf(YType.str, "cipUrpfVrfName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cipurpfvrfifdiscontinuitytime = YLeaf(YType.uint32, "cipUrpfVrfIfDiscontinuityTime")
+
+                self.cipurpfvrfifdrops = YLeaf(YType.uint32, "cipUrpfVrfIfDrops")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipurpfvrfname",
+                                "ifindex",
+                                "cipurpfvrfifdiscontinuitytime",
+                                "cipurpfvrfifdrops") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpUrpfMib.Cipurpfvrfiftable.Cipurpfvrfifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpUrpfMib.Cipurpfvrfiftable.Cipurpfvrfifentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cipurpfvrfname.is_set or
+                    self.ifindex.is_set or
+                    self.cipurpfvrfifdiscontinuitytime.is_set or
+                    self.cipurpfvrfifdrops.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipurpfvrfname.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cipurpfvrfifdiscontinuitytime.yfilter != YFilter.not_set or
+                    self.cipurpfvrfifdrops.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipUrpfVrfIfEntry" + "[cipUrpfVrfName='" + self.cipurpfvrfname.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipurpfvrfname.is_set or self.cipurpfvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfvrfname.get_name_leafdata())
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cipurpfvrfifdiscontinuitytime.is_set or self.cipurpfvrfifdiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfvrfifdiscontinuitytime.get_name_leafdata())
+                if (self.cipurpfvrfifdrops.is_set or self.cipurpfvrfifdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfvrfifdrops.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipUrpfVrfName" or name == "ifIndex" or name == "cipUrpfVrfIfDiscontinuityTime" or name == "cipUrpfVrfIfDrops"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipurpfvrfname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipUrpfVrfName"):
+                    self.cipurpfvrfname = value
+                    self.cipurpfvrfname.value_namespace = name_space
+                    self.cipurpfvrfname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfVrfIfDiscontinuityTime"):
+                    self.cipurpfvrfifdiscontinuitytime = value
+                    self.cipurpfvrfifdiscontinuitytime.value_namespace = name_space
+                    self.cipurpfvrfifdiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipUrpfVrfIfDrops"):
+                    self.cipurpfvrfifdrops = value
+                    self.cipurpfvrfifdrops.value_namespace = name_space
+                    self.cipurpfvrfifdrops.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipurpfvrfifentry:
+                if (c.has_data()):
                     return True
-
-                if self.ifindex is not None:
-                    return True
-
-                if self.cipurpfvrfifdiscontinuitytime is not None:
-                    return True
-
-                if self.cipurpfvrfifdrops is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                return meta._meta_table['CiscoIpUrpfMib.Cipurpfvrfiftable.Cipurpfvrfifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfVrfIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipurpfvrfifentry is not None:
-                for child_ref in self.cipurpfvrfifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipurpfvrfifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipUrpfVrfIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipUrpfVrfIfEntry"):
+                for c in self.cipurpfvrfifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpUrpfMib.Cipurpfvrfiftable.Cipurpfvrfifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipurpfvrfifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipUrpfVrfIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-            return meta._meta_table['CiscoIpUrpfMib.Cipurpfvrfiftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipurpfvrftable(object):
+    class Cipurpfvrftable(Entity):
         """
         This table enables indexing URPF drop statistics
         by Virtual Routing and Forwarding instances.
@@ -843,13 +1339,39 @@ class CiscoIpUrpfMib(object):
         _revision = '2011-12-29'
 
         def __init__(self):
-            self.parent = None
-            self.cipurpfvrfentry = YList()
-            self.cipurpfvrfentry.parent = self
-            self.cipurpfvrfentry.name = 'cipurpfvrfentry'
+            super(CiscoIpUrpfMib.Cipurpfvrftable, self).__init__()
+
+            self.yang_name = "cipUrpfVrfTable"
+            self.yang_parent_name = "CISCO-IP-URPF-MIB"
+
+            self.cipurpfvrfentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpUrpfMib.Cipurpfvrftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpUrpfMib.Cipurpfvrftable, self).__setattr__(name, value)
 
 
-        class Cipurpfvrfentry(object):
+        class Cipurpfvrfentry(Entity):
             """
             An entry exists for a VRF if and only if the VRF
             is associated with an interface that is configured
@@ -871,83 +1393,225 @@ class CiscoIpUrpfMib(object):
             _revision = '2011-12-29'
 
             def __init__(self):
-                self.parent = None
-                self.cipurpfvrfname = None
+                super(CiscoIpUrpfMib.Cipurpfvrftable.Cipurpfvrfentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipurpfvrfname is None:
-                    raise YPYModelError('Key property cipurpfvrfname is None')
+                self.yang_name = "cipUrpfVrfEntry"
+                self.yang_parent_name = "cipUrpfVrfTable"
 
-                return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfVrfTable/CISCO-IP-URPF-MIB:cipUrpfVrfEntry[CISCO-IP-URPF-MIB:cipUrpfVrfName = ' + str(self.cipurpfvrfname) + ']'
+                self.cipurpfvrfname = YLeaf(YType.str, "cipUrpfVrfName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipurpfvrfname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpUrpfMib.Cipurpfvrftable.Cipurpfvrfentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpUrpfMib.Cipurpfvrftable.Cipurpfvrfentry, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.cipurpfvrfname is not None:
+            def has_data(self):
+                return self.cipurpfvrfname.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipurpfvrfname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipUrpfVrfEntry" + "[cipUrpfVrfName='" + self.cipurpfvrfname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipurpfvrfname.is_set or self.cipurpfvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipurpfvrfname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipUrpfVrfName"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-                return meta._meta_table['CiscoIpUrpfMib.Cipurpfvrftable.Cipurpfvrfentry']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipUrpfVrfName"):
+                    self.cipurpfvrfname = value
+                    self.cipurpfvrfname.value_namespace = name_space
+                    self.cipurpfvrfname.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/CISCO-IP-URPF-MIB:cipUrpfVrfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.cipurpfvrfentry:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.cipurpfvrfentry is not None:
-                for child_ref in self.cipurpfvrfentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipurpfvrfentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipUrpfVrfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipUrpfVrfEntry"):
+                for c in self.cipurpfvrfentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpUrpfMib.Cipurpfvrftable.Cipurpfvrfentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipurpfvrfentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipUrpfVrfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-            return meta._meta_table['CiscoIpUrpfMib.Cipurpfvrftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cipurpfifmontable is not None and self.cipurpfifmontable.has_data()) or
+            (self.cipurpfscalar is not None and self.cipurpfscalar.has_data()) or
+            (self.cipurpftable is not None and self.cipurpftable.has_data()) or
+            (self.cipurpfvrfiftable is not None and self.cipurpfvrfiftable.has_data()) or
+            (self.cipurpfvrftable is not None and self.cipurpfvrftable.has_data()))
 
-        return '/CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cipurpfifmontable is not None and self.cipurpfifmontable.has_operation()) or
+            (self.cipurpfscalar is not None and self.cipurpfscalar.has_operation()) or
+            (self.cipurpftable is not None and self.cipurpftable.has_operation()) or
+            (self.cipurpfvrfiftable is not None and self.cipurpfvrfiftable.has_operation()) or
+            (self.cipurpfvrftable is not None and self.cipurpfvrftable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cipUrpfIfMonTable"):
+            if (self.cipurpfifmontable is None):
+                self.cipurpfifmontable = CiscoIpUrpfMib.Cipurpfifmontable()
+                self.cipurpfifmontable.parent = self
+                self._children_name_map["cipurpfifmontable"] = "cipUrpfIfMonTable"
+            return self.cipurpfifmontable
+
+        if (child_yang_name == "cipUrpfScalar"):
+            if (self.cipurpfscalar is None):
+                self.cipurpfscalar = CiscoIpUrpfMib.Cipurpfscalar()
+                self.cipurpfscalar.parent = self
+                self._children_name_map["cipurpfscalar"] = "cipUrpfScalar"
+            return self.cipurpfscalar
+
+        if (child_yang_name == "cipUrpfTable"):
+            if (self.cipurpftable is None):
+                self.cipurpftable = CiscoIpUrpfMib.Cipurpftable()
+                self.cipurpftable.parent = self
+                self._children_name_map["cipurpftable"] = "cipUrpfTable"
+            return self.cipurpftable
+
+        if (child_yang_name == "cipUrpfVrfIfTable"):
+            if (self.cipurpfvrfiftable is None):
+                self.cipurpfvrfiftable = CiscoIpUrpfMib.Cipurpfvrfiftable()
+                self.cipurpfvrfiftable.parent = self
+                self._children_name_map["cipurpfvrfiftable"] = "cipUrpfVrfIfTable"
+            return self.cipurpfvrfiftable
+
+        if (child_yang_name == "cipUrpfVrfTable"):
+            if (self.cipurpfvrftable is None):
+                self.cipurpfvrftable = CiscoIpUrpfMib.Cipurpfvrftable()
+                self.cipurpfvrftable.parent = self
+                self._children_name_map["cipurpfvrftable"] = "cipUrpfVrfTable"
+            return self.cipurpfvrftable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cipUrpfIfMonTable" or name == "cipUrpfScalar" or name == "cipUrpfTable" or name == "cipUrpfVrfIfTable" or name == "cipUrpfVrfTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cipurpfifmontable is not None and self.cipurpfifmontable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cipurpfscalar is not None and self.cipurpfscalar._has_data():
-            return True
-
-        if self.cipurpftable is not None and self.cipurpftable._has_data():
-            return True
-
-        if self.cipurpfvrfiftable is not None and self.cipurpfvrfiftable._has_data():
-            return True
-
-        if self.cipurpfvrftable is not None and self.cipurpfvrftable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IP_URPF_MIB as meta
-        return meta._meta_table['CiscoIpUrpfMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIpUrpfMib()
+        return self._top_entity
 

@@ -5,22 +5,16 @@ Convention, and thus the enumerated values of
 the ifType object defined in MIB\-II's ifTable.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IanaiftypeEnum(Enum):
+class Ianaiftype(Enum):
     """
-    IanaiftypeEnum
+    Ianaiftype
 
     This data type is used as the syntax of the ifType
 
@@ -636,584 +630,578 @@ class IanaiftypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    regular1822 = 2
+    regular1822 = Enum.YLeaf(2, "regular1822")
 
-    hdh1822 = 3
+    hdh1822 = Enum.YLeaf(3, "hdh1822")
 
-    ddnX25 = 4
+    ddnX25 = Enum.YLeaf(4, "ddnX25")
 
-    rfc877x25 = 5
+    rfc877x25 = Enum.YLeaf(5, "rfc877x25")
 
-    ethernetCsmacd = 6
+    ethernetCsmacd = Enum.YLeaf(6, "ethernetCsmacd")
 
-    iso88023Csmacd = 7
+    iso88023Csmacd = Enum.YLeaf(7, "iso88023Csmacd")
 
-    iso88024TokenBus = 8
+    iso88024TokenBus = Enum.YLeaf(8, "iso88024TokenBus")
 
-    iso88025TokenRing = 9
+    iso88025TokenRing = Enum.YLeaf(9, "iso88025TokenRing")
 
-    iso88026Man = 10
+    iso88026Man = Enum.YLeaf(10, "iso88026Man")
 
-    starLan = 11
+    starLan = Enum.YLeaf(11, "starLan")
 
-    proteon10Mbit = 12
+    proteon10Mbit = Enum.YLeaf(12, "proteon10Mbit")
 
-    proteon80Mbit = 13
+    proteon80Mbit = Enum.YLeaf(13, "proteon80Mbit")
 
-    hyperchannel = 14
+    hyperchannel = Enum.YLeaf(14, "hyperchannel")
 
-    fddi = 15
+    fddi = Enum.YLeaf(15, "fddi")
 
-    lapb = 16
+    lapb = Enum.YLeaf(16, "lapb")
 
-    sdlc = 17
+    sdlc = Enum.YLeaf(17, "sdlc")
 
-    ds1 = 18
+    ds1 = Enum.YLeaf(18, "ds1")
 
-    e1 = 19
+    e1 = Enum.YLeaf(19, "e1")
 
-    basicISDN = 20
+    basicISDN = Enum.YLeaf(20, "basicISDN")
 
-    primaryISDN = 21
+    primaryISDN = Enum.YLeaf(21, "primaryISDN")
 
-    propPointToPointSerial = 22
+    propPointToPointSerial = Enum.YLeaf(22, "propPointToPointSerial")
 
-    ppp = 23
+    ppp = Enum.YLeaf(23, "ppp")
 
-    softwareLoopback = 24
+    softwareLoopback = Enum.YLeaf(24, "softwareLoopback")
 
-    eon = 25
+    eon = Enum.YLeaf(25, "eon")
 
-    ethernet3Mbit = 26
+    ethernet3Mbit = Enum.YLeaf(26, "ethernet3Mbit")
 
-    nsip = 27
+    nsip = Enum.YLeaf(27, "nsip")
 
-    slip = 28
+    slip = Enum.YLeaf(28, "slip")
 
-    ultra = 29
+    ultra = Enum.YLeaf(29, "ultra")
 
-    ds3 = 30
+    ds3 = Enum.YLeaf(30, "ds3")
 
-    sip = 31
+    sip = Enum.YLeaf(31, "sip")
 
-    frameRelay = 32
+    frameRelay = Enum.YLeaf(32, "frameRelay")
 
-    rs232 = 33
+    rs232 = Enum.YLeaf(33, "rs232")
 
-    para = 34
+    para = Enum.YLeaf(34, "para")
 
-    arcnet = 35
+    arcnet = Enum.YLeaf(35, "arcnet")
 
-    arcnetPlus = 36
+    arcnetPlus = Enum.YLeaf(36, "arcnetPlus")
 
-    atm = 37
+    atm = Enum.YLeaf(37, "atm")
 
-    miox25 = 38
+    miox25 = Enum.YLeaf(38, "miox25")
 
-    sonet = 39
+    sonet = Enum.YLeaf(39, "sonet")
 
-    x25ple = 40
+    x25ple = Enum.YLeaf(40, "x25ple")
 
-    iso88022llc = 41
+    iso88022llc = Enum.YLeaf(41, "iso88022llc")
 
-    localTalk = 42
+    localTalk = Enum.YLeaf(42, "localTalk")
 
-    smdsDxi = 43
+    smdsDxi = Enum.YLeaf(43, "smdsDxi")
 
-    frameRelayService = 44
+    frameRelayService = Enum.YLeaf(44, "frameRelayService")
 
-    v35 = 45
+    v35 = Enum.YLeaf(45, "v35")
 
-    hssi = 46
+    hssi = Enum.YLeaf(46, "hssi")
 
-    hippi = 47
+    hippi = Enum.YLeaf(47, "hippi")
 
-    modem = 48
+    modem = Enum.YLeaf(48, "modem")
 
-    aal5 = 49
+    aal5 = Enum.YLeaf(49, "aal5")
 
-    sonetPath = 50
+    sonetPath = Enum.YLeaf(50, "sonetPath")
 
-    sonetVT = 51
+    sonetVT = Enum.YLeaf(51, "sonetVT")
 
-    smdsIcip = 52
+    smdsIcip = Enum.YLeaf(52, "smdsIcip")
 
-    propVirtual = 53
+    propVirtual = Enum.YLeaf(53, "propVirtual")
 
-    propMultiplexor = 54
+    propMultiplexor = Enum.YLeaf(54, "propMultiplexor")
 
-    ieee80212 = 55
+    ieee80212 = Enum.YLeaf(55, "ieee80212")
 
-    fibreChannel = 56
+    fibreChannel = Enum.YLeaf(56, "fibreChannel")
 
-    hippiInterface = 57
+    hippiInterface = Enum.YLeaf(57, "hippiInterface")
 
-    frameRelayInterconnect = 58
+    frameRelayInterconnect = Enum.YLeaf(58, "frameRelayInterconnect")
 
-    aflane8023 = 59
+    aflane8023 = Enum.YLeaf(59, "aflane8023")
 
-    aflane8025 = 60
+    aflane8025 = Enum.YLeaf(60, "aflane8025")
 
-    cctEmul = 61
+    cctEmul = Enum.YLeaf(61, "cctEmul")
 
-    fastEther = 62
+    fastEther = Enum.YLeaf(62, "fastEther")
 
-    isdn = 63
+    isdn = Enum.YLeaf(63, "isdn")
 
-    v11 = 64
+    v11 = Enum.YLeaf(64, "v11")
 
-    v36 = 65
+    v36 = Enum.YLeaf(65, "v36")
 
-    g703at64k = 66
+    g703at64k = Enum.YLeaf(66, "g703at64k")
 
-    g703at2mb = 67
+    g703at2mb = Enum.YLeaf(67, "g703at2mb")
 
-    qllc = 68
+    qllc = Enum.YLeaf(68, "qllc")
 
-    fastEtherFX = 69
+    fastEtherFX = Enum.YLeaf(69, "fastEtherFX")
 
-    channel = 70
+    channel = Enum.YLeaf(70, "channel")
 
-    ieee80211 = 71
+    ieee80211 = Enum.YLeaf(71, "ieee80211")
 
-    ibm370parChan = 72
+    ibm370parChan = Enum.YLeaf(72, "ibm370parChan")
 
-    escon = 73
+    escon = Enum.YLeaf(73, "escon")
 
-    dlsw = 74
+    dlsw = Enum.YLeaf(74, "dlsw")
 
-    isdns = 75
+    isdns = Enum.YLeaf(75, "isdns")
 
-    isdnu = 76
+    isdnu = Enum.YLeaf(76, "isdnu")
 
-    lapd = 77
+    lapd = Enum.YLeaf(77, "lapd")
 
-    ipSwitch = 78
+    ipSwitch = Enum.YLeaf(78, "ipSwitch")
 
-    rsrb = 79
+    rsrb = Enum.YLeaf(79, "rsrb")
 
-    atmLogical = 80
+    atmLogical = Enum.YLeaf(80, "atmLogical")
 
-    ds0 = 81
+    ds0 = Enum.YLeaf(81, "ds0")
 
-    ds0Bundle = 82
+    ds0Bundle = Enum.YLeaf(82, "ds0Bundle")
 
-    bsc = 83
+    bsc = Enum.YLeaf(83, "bsc")
 
-    async = 84
+    async = Enum.YLeaf(84, "async")
 
-    cnr = 85
+    cnr = Enum.YLeaf(85, "cnr")
 
-    iso88025Dtr = 86
+    iso88025Dtr = Enum.YLeaf(86, "iso88025Dtr")
 
-    eplrs = 87
+    eplrs = Enum.YLeaf(87, "eplrs")
 
-    arap = 88
+    arap = Enum.YLeaf(88, "arap")
 
-    propCnls = 89
+    propCnls = Enum.YLeaf(89, "propCnls")
 
-    hostPad = 90
+    hostPad = Enum.YLeaf(90, "hostPad")
 
-    termPad = 91
+    termPad = Enum.YLeaf(91, "termPad")
 
-    frameRelayMPI = 92
+    frameRelayMPI = Enum.YLeaf(92, "frameRelayMPI")
 
-    x213 = 93
+    x213 = Enum.YLeaf(93, "x213")
 
-    adsl = 94
+    adsl = Enum.YLeaf(94, "adsl")
 
-    radsl = 95
+    radsl = Enum.YLeaf(95, "radsl")
 
-    sdsl = 96
+    sdsl = Enum.YLeaf(96, "sdsl")
 
-    vdsl = 97
+    vdsl = Enum.YLeaf(97, "vdsl")
 
-    iso88025CRFPInt = 98
+    iso88025CRFPInt = Enum.YLeaf(98, "iso88025CRFPInt")
 
-    myrinet = 99
+    myrinet = Enum.YLeaf(99, "myrinet")
 
-    voiceEM = 100
+    voiceEM = Enum.YLeaf(100, "voiceEM")
 
-    voiceFXO = 101
+    voiceFXO = Enum.YLeaf(101, "voiceFXO")
 
-    voiceFXS = 102
+    voiceFXS = Enum.YLeaf(102, "voiceFXS")
 
-    voiceEncap = 103
+    voiceEncap = Enum.YLeaf(103, "voiceEncap")
 
-    voiceOverIp = 104
+    voiceOverIp = Enum.YLeaf(104, "voiceOverIp")
 
-    atmDxi = 105
+    atmDxi = Enum.YLeaf(105, "atmDxi")
 
-    atmFuni = 106
+    atmFuni = Enum.YLeaf(106, "atmFuni")
 
-    atmIma = 107
+    atmIma = Enum.YLeaf(107, "atmIma")
 
-    pppMultilinkBundle = 108
+    pppMultilinkBundle = Enum.YLeaf(108, "pppMultilinkBundle")
 
-    ipOverCdlc = 109
+    ipOverCdlc = Enum.YLeaf(109, "ipOverCdlc")
 
-    ipOverClaw = 110
+    ipOverClaw = Enum.YLeaf(110, "ipOverClaw")
 
-    stackToStack = 111
+    stackToStack = Enum.YLeaf(111, "stackToStack")
 
-    virtualIpAddress = 112
+    virtualIpAddress = Enum.YLeaf(112, "virtualIpAddress")
 
-    mpc = 113
+    mpc = Enum.YLeaf(113, "mpc")
 
-    ipOverAtm = 114
+    ipOverAtm = Enum.YLeaf(114, "ipOverAtm")
 
-    iso88025Fiber = 115
+    iso88025Fiber = Enum.YLeaf(115, "iso88025Fiber")
 
-    tdlc = 116
+    tdlc = Enum.YLeaf(116, "tdlc")
 
-    gigabitEthernet = 117
+    gigabitEthernet = Enum.YLeaf(117, "gigabitEthernet")
 
-    hdlc = 118
+    hdlc = Enum.YLeaf(118, "hdlc")
 
-    lapf = 119
+    lapf = Enum.YLeaf(119, "lapf")
 
-    v37 = 120
+    v37 = Enum.YLeaf(120, "v37")
 
-    x25mlp = 121
+    x25mlp = Enum.YLeaf(121, "x25mlp")
 
-    x25huntGroup = 122
+    x25huntGroup = Enum.YLeaf(122, "x25huntGroup")
 
-    trasnpHdlc = 123
+    trasnpHdlc = Enum.YLeaf(123, "trasnpHdlc")
 
-    interleave = 124
+    interleave = Enum.YLeaf(124, "interleave")
 
-    fast = 125
+    fast = Enum.YLeaf(125, "fast")
 
-    ip = 126
+    ip = Enum.YLeaf(126, "ip")
 
-    docsCableMaclayer = 127
+    docsCableMaclayer = Enum.YLeaf(127, "docsCableMaclayer")
 
-    docsCableDownstream = 128
+    docsCableDownstream = Enum.YLeaf(128, "docsCableDownstream")
 
-    docsCableUpstream = 129
+    docsCableUpstream = Enum.YLeaf(129, "docsCableUpstream")
 
-    a12MppSwitch = 130
+    a12MppSwitch = Enum.YLeaf(130, "a12MppSwitch")
 
-    tunnel = 131
+    tunnel = Enum.YLeaf(131, "tunnel")
 
-    coffee = 132
+    coffee = Enum.YLeaf(132, "coffee")
 
-    ces = 133
+    ces = Enum.YLeaf(133, "ces")
 
-    atmSubInterface = 134
+    atmSubInterface = Enum.YLeaf(134, "atmSubInterface")
 
-    l2vlan = 135
+    l2vlan = Enum.YLeaf(135, "l2vlan")
 
-    l3ipvlan = 136
+    l3ipvlan = Enum.YLeaf(136, "l3ipvlan")
 
-    l3ipxvlan = 137
+    l3ipxvlan = Enum.YLeaf(137, "l3ipxvlan")
 
-    digitalPowerline = 138
+    digitalPowerline = Enum.YLeaf(138, "digitalPowerline")
 
-    mediaMailOverIp = 139
+    mediaMailOverIp = Enum.YLeaf(139, "mediaMailOverIp")
 
-    dtm = 140
+    dtm = Enum.YLeaf(140, "dtm")
 
-    dcn = 141
+    dcn = Enum.YLeaf(141, "dcn")
 
-    ipForward = 142
+    ipForward = Enum.YLeaf(142, "ipForward")
 
-    msdsl = 143
+    msdsl = Enum.YLeaf(143, "msdsl")
 
-    ieee1394 = 144
+    ieee1394 = Enum.YLeaf(144, "ieee1394")
 
-    if_gsn = 145
+    if_gsn = Enum.YLeaf(145, "if-gsn")
 
-    dvbRccMacLayer = 146
+    dvbRccMacLayer = Enum.YLeaf(146, "dvbRccMacLayer")
 
-    dvbRccDownstream = 147
+    dvbRccDownstream = Enum.YLeaf(147, "dvbRccDownstream")
 
-    dvbRccUpstream = 148
+    dvbRccUpstream = Enum.YLeaf(148, "dvbRccUpstream")
 
-    atmVirtual = 149
+    atmVirtual = Enum.YLeaf(149, "atmVirtual")
 
-    mplsTunnel = 150
+    mplsTunnel = Enum.YLeaf(150, "mplsTunnel")
 
-    srp = 151
+    srp = Enum.YLeaf(151, "srp")
 
-    voiceOverAtm = 152
+    voiceOverAtm = Enum.YLeaf(152, "voiceOverAtm")
 
-    voiceOverFrameRelay = 153
+    voiceOverFrameRelay = Enum.YLeaf(153, "voiceOverFrameRelay")
 
-    idsl = 154
+    idsl = Enum.YLeaf(154, "idsl")
 
-    compositeLink = 155
+    compositeLink = Enum.YLeaf(155, "compositeLink")
 
-    ss7SigLink = 156
+    ss7SigLink = Enum.YLeaf(156, "ss7SigLink")
 
-    propWirelessP2P = 157
+    propWirelessP2P = Enum.YLeaf(157, "propWirelessP2P")
 
-    frForward = 158
+    frForward = Enum.YLeaf(158, "frForward")
 
-    rfc1483 = 159
+    rfc1483 = Enum.YLeaf(159, "rfc1483")
 
-    usb = 160
+    usb = Enum.YLeaf(160, "usb")
 
-    ieee8023adLag = 161
+    ieee8023adLag = Enum.YLeaf(161, "ieee8023adLag")
 
-    bgppolicyaccounting = 162
+    bgppolicyaccounting = Enum.YLeaf(162, "bgppolicyaccounting")
 
-    frf16MfrBundle = 163
+    frf16MfrBundle = Enum.YLeaf(163, "frf16MfrBundle")
 
-    h323Gatekeeper = 164
+    h323Gatekeeper = Enum.YLeaf(164, "h323Gatekeeper")
 
-    h323Proxy = 165
+    h323Proxy = Enum.YLeaf(165, "h323Proxy")
 
-    mpls = 166
+    mpls = Enum.YLeaf(166, "mpls")
 
-    mfSigLink = 167
+    mfSigLink = Enum.YLeaf(167, "mfSigLink")
 
-    hdsl2 = 168
+    hdsl2 = Enum.YLeaf(168, "hdsl2")
 
-    shdsl = 169
+    shdsl = Enum.YLeaf(169, "shdsl")
 
-    ds1FDL = 170
+    ds1FDL = Enum.YLeaf(170, "ds1FDL")
 
-    pos = 171
+    pos = Enum.YLeaf(171, "pos")
 
-    dvbAsiIn = 172
+    dvbAsiIn = Enum.YLeaf(172, "dvbAsiIn")
 
-    dvbAsiOut = 173
+    dvbAsiOut = Enum.YLeaf(173, "dvbAsiOut")
 
-    plc = 174
+    plc = Enum.YLeaf(174, "plc")
 
-    nfas = 175
+    nfas = Enum.YLeaf(175, "nfas")
 
-    tr008 = 176
+    tr008 = Enum.YLeaf(176, "tr008")
 
-    gr303RDT = 177
+    gr303RDT = Enum.YLeaf(177, "gr303RDT")
 
-    gr303IDT = 178
+    gr303IDT = Enum.YLeaf(178, "gr303IDT")
 
-    isup = 179
+    isup = Enum.YLeaf(179, "isup")
 
-    propDocsWirelessMaclayer = 180
+    propDocsWirelessMaclayer = Enum.YLeaf(180, "propDocsWirelessMaclayer")
 
-    propDocsWirelessDownstream = 181
+    propDocsWirelessDownstream = Enum.YLeaf(181, "propDocsWirelessDownstream")
 
-    propDocsWirelessUpstream = 182
+    propDocsWirelessUpstream = Enum.YLeaf(182, "propDocsWirelessUpstream")
 
-    hiperlan2 = 183
+    hiperlan2 = Enum.YLeaf(183, "hiperlan2")
 
-    propBWAp2Mp = 184
+    propBWAp2Mp = Enum.YLeaf(184, "propBWAp2Mp")
 
-    sonetOverheadChannel = 185
+    sonetOverheadChannel = Enum.YLeaf(185, "sonetOverheadChannel")
 
-    digitalWrapperOverheadChannel = 186
+    digitalWrapperOverheadChannel = Enum.YLeaf(186, "digitalWrapperOverheadChannel")
 
-    aal2 = 187
+    aal2 = Enum.YLeaf(187, "aal2")
 
-    radioMAC = 188
+    radioMAC = Enum.YLeaf(188, "radioMAC")
 
-    atmRadio = 189
+    atmRadio = Enum.YLeaf(189, "atmRadio")
 
-    imt = 190
+    imt = Enum.YLeaf(190, "imt")
 
-    mvl = 191
+    mvl = Enum.YLeaf(191, "mvl")
 
-    reachDSL = 192
+    reachDSL = Enum.YLeaf(192, "reachDSL")
 
-    frDlciEndPt = 193
+    frDlciEndPt = Enum.YLeaf(193, "frDlciEndPt")
 
-    atmVciEndPt = 194
+    atmVciEndPt = Enum.YLeaf(194, "atmVciEndPt")
 
-    opticalChannel = 195
+    opticalChannel = Enum.YLeaf(195, "opticalChannel")
 
-    opticalTransport = 196
+    opticalTransport = Enum.YLeaf(196, "opticalTransport")
 
-    propAtm = 197
+    propAtm = Enum.YLeaf(197, "propAtm")
 
-    voiceOverCable = 198
+    voiceOverCable = Enum.YLeaf(198, "voiceOverCable")
 
-    infiniband = 199
+    infiniband = Enum.YLeaf(199, "infiniband")
 
-    teLink = 200
+    teLink = Enum.YLeaf(200, "teLink")
 
-    q2931 = 201
+    q2931 = Enum.YLeaf(201, "q2931")
 
-    virtualTg = 202
+    virtualTg = Enum.YLeaf(202, "virtualTg")
 
-    sipTg = 203
+    sipTg = Enum.YLeaf(203, "sipTg")
 
-    sipSig = 204
+    sipSig = Enum.YLeaf(204, "sipSig")
 
-    docsCableUpstreamChannel = 205
+    docsCableUpstreamChannel = Enum.YLeaf(205, "docsCableUpstreamChannel")
 
-    econet = 206
+    econet = Enum.YLeaf(206, "econet")
 
-    pon155 = 207
+    pon155 = Enum.YLeaf(207, "pon155")
 
-    pon622 = 208
+    pon622 = Enum.YLeaf(208, "pon622")
 
-    bridge = 209
+    bridge = Enum.YLeaf(209, "bridge")
 
-    linegroup = 210
+    linegroup = Enum.YLeaf(210, "linegroup")
 
-    voiceEMFGD = 211
+    voiceEMFGD = Enum.YLeaf(211, "voiceEMFGD")
 
-    voiceFGDEANA = 212
+    voiceFGDEANA = Enum.YLeaf(212, "voiceFGDEANA")
 
-    voiceDID = 213
+    voiceDID = Enum.YLeaf(213, "voiceDID")
 
-    mpegTransport = 214
+    mpegTransport = Enum.YLeaf(214, "mpegTransport")
 
-    sixToFour = 215
+    sixToFour = Enum.YLeaf(215, "sixToFour")
 
-    gtp = 216
+    gtp = Enum.YLeaf(216, "gtp")
 
-    pdnEtherLoop1 = 217
+    pdnEtherLoop1 = Enum.YLeaf(217, "pdnEtherLoop1")
 
-    pdnEtherLoop2 = 218
+    pdnEtherLoop2 = Enum.YLeaf(218, "pdnEtherLoop2")
 
-    opticalChannelGroup = 219
+    opticalChannelGroup = Enum.YLeaf(219, "opticalChannelGroup")
 
-    homepna = 220
+    homepna = Enum.YLeaf(220, "homepna")
 
-    gfp = 221
+    gfp = Enum.YLeaf(221, "gfp")
 
-    ciscoISLvlan = 222
+    ciscoISLvlan = Enum.YLeaf(222, "ciscoISLvlan")
 
-    actelisMetaLOOP = 223
+    actelisMetaLOOP = Enum.YLeaf(223, "actelisMetaLOOP")
 
-    fcipLink = 224
+    fcipLink = Enum.YLeaf(224, "fcipLink")
 
-    rpr = 225
+    rpr = Enum.YLeaf(225, "rpr")
 
-    qam = 226
+    qam = Enum.YLeaf(226, "qam")
 
-    lmp = 227
+    lmp = Enum.YLeaf(227, "lmp")
 
-    cblVectaStar = 228
+    cblVectaStar = Enum.YLeaf(228, "cblVectaStar")
 
-    docsCableMCmtsDownstream = 229
+    docsCableMCmtsDownstream = Enum.YLeaf(229, "docsCableMCmtsDownstream")
 
-    adsl2 = 230
+    adsl2 = Enum.YLeaf(230, "adsl2")
 
-    macSecControlledIF = 231
+    macSecControlledIF = Enum.YLeaf(231, "macSecControlledIF")
 
-    macSecUncontrolledIF = 232
+    macSecUncontrolledIF = Enum.YLeaf(232, "macSecUncontrolledIF")
 
-    aviciOpticalEther = 233
+    aviciOpticalEther = Enum.YLeaf(233, "aviciOpticalEther")
 
-    atmbond = 234
+    atmbond = Enum.YLeaf(234, "atmbond")
 
-    voiceFGDOS = 235
+    voiceFGDOS = Enum.YLeaf(235, "voiceFGDOS")
 
-    mocaVersion1 = 236
+    mocaVersion1 = Enum.YLeaf(236, "mocaVersion1")
 
-    ieee80216WMAN = 237
+    ieee80216WMAN = Enum.YLeaf(237, "ieee80216WMAN")
 
-    adsl2plus = 238
+    adsl2plus = Enum.YLeaf(238, "adsl2plus")
 
-    dvbRcsMacLayer = 239
+    dvbRcsMacLayer = Enum.YLeaf(239, "dvbRcsMacLayer")
 
-    dvbTdm = 240
+    dvbTdm = Enum.YLeaf(240, "dvbTdm")
 
-    dvbRcsTdma = 241
+    dvbRcsTdma = Enum.YLeaf(241, "dvbRcsTdma")
 
-    x86Laps = 242
+    x86Laps = Enum.YLeaf(242, "x86Laps")
 
-    wwanPP = 243
+    wwanPP = Enum.YLeaf(243, "wwanPP")
 
-    wwanPP2 = 244
+    wwanPP2 = Enum.YLeaf(244, "wwanPP2")
 
-    voiceEBS = 245
+    voiceEBS = Enum.YLeaf(245, "voiceEBS")
 
-    ifPwType = 246
+    ifPwType = Enum.YLeaf(246, "ifPwType")
 
-    ilan = 247
+    ilan = Enum.YLeaf(247, "ilan")
 
-    pip = 248
+    pip = Enum.YLeaf(248, "pip")
 
-    aluELP = 249
+    aluELP = Enum.YLeaf(249, "aluELP")
 
-    gpon = 250
+    gpon = Enum.YLeaf(250, "gpon")
 
-    vdsl2 = 251
+    vdsl2 = Enum.YLeaf(251, "vdsl2")
 
-    capwapDot11Profile = 252
+    capwapDot11Profile = Enum.YLeaf(252, "capwapDot11Profile")
 
-    capwapDot11Bss = 253
+    capwapDot11Bss = Enum.YLeaf(253, "capwapDot11Bss")
 
-    capwapWtpVirtualRadio = 254
+    capwapWtpVirtualRadio = Enum.YLeaf(254, "capwapWtpVirtualRadio")
 
-    bits = 255
+    bits = Enum.YLeaf(255, "bits")
 
-    docsCableUpstreamRfPort = 256
+    docsCableUpstreamRfPort = Enum.YLeaf(256, "docsCableUpstreamRfPort")
 
-    cableDownstreamRfPort = 257
+    cableDownstreamRfPort = Enum.YLeaf(257, "cableDownstreamRfPort")
 
-    vmwareVirtualNic = 258
+    vmwareVirtualNic = Enum.YLeaf(258, "vmwareVirtualNic")
 
-    ieee802154 = 259
+    ieee802154 = Enum.YLeaf(259, "ieee802154")
 
-    otnOdu = 260
+    otnOdu = Enum.YLeaf(260, "otnOdu")
 
-    otnOtu = 261
+    otnOtu = Enum.YLeaf(261, "otnOtu")
 
-    ifVfiType = 262
+    ifVfiType = Enum.YLeaf(262, "ifVfiType")
 
-    g9981 = 263
+    g9981 = Enum.YLeaf(263, "g9981")
 
-    g9982 = 264
+    g9982 = Enum.YLeaf(264, "g9982")
 
-    g9983 = 265
+    g9983 = Enum.YLeaf(265, "g9983")
 
-    aluEpon = 266
+    aluEpon = Enum.YLeaf(266, "aluEpon")
 
-    aluEponOnu = 267
+    aluEponOnu = Enum.YLeaf(267, "aluEponOnu")
 
-    aluEponPhysicalUni = 268
+    aluEponPhysicalUni = Enum.YLeaf(268, "aluEponPhysicalUni")
 
-    aluEponLogicalLink = 269
+    aluEponLogicalLink = Enum.YLeaf(269, "aluEponLogicalLink")
 
-    aluGponOnu = 270
+    aluGponOnu = Enum.YLeaf(270, "aluGponOnu")
 
-    aluGponPhysicalUni = 271
+    aluGponPhysicalUni = Enum.YLeaf(271, "aluGponPhysicalUni")
 
-    vmwareNicTeam = 272
+    vmwareNicTeam = Enum.YLeaf(272, "vmwareNicTeam")
 
-    docsOfdmDownstream = 277
+    docsOfdmDownstream = Enum.YLeaf(277, "docsOfdmDownstream")
 
-    docsOfdmaUpstream = 278
+    docsOfdmaUpstream = Enum.YLeaf(278, "docsOfdmaUpstream")
 
-    gfast = 279
+    gfast = Enum.YLeaf(279, "gfast")
 
-    sdci = 280
+    sdci = Enum.YLeaf(280, "sdci")
 
-    xboxWireless = 281
+    xboxWireless = Enum.YLeaf(281, "xboxWireless")
 
-    fastdsl = 282
+    fastdsl = Enum.YLeaf(282, "fastdsl")
 
-    docsCableScte55d1FwdOob = 283
+    docsCableScte55d1FwdOob = Enum.YLeaf(283, "docsCableScte55d1FwdOob")
 
-    docsCableScte55d1RetOob = 284
+    docsCableScte55d1RetOob = Enum.YLeaf(284, "docsCableScte55d1RetOob")
 
-    docsCableScte55d2DsOob = 285
+    docsCableScte55d2DsOob = Enum.YLeaf(285, "docsCableScte55d2DsOob")
 
-    docsCableScte55d2UsOob = 286
+    docsCableScte55d2UsOob = Enum.YLeaf(286, "docsCableScte55d2UsOob")
 
-    docsCableNdf = 287
+    docsCableNdf = Enum.YLeaf(287, "docsCableNdf")
 
-    docsCableNdr = 288
+    docsCableNdr = Enum.YLeaf(288, "docsCableNdr")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IANAifType_MIB as meta
-        return meta._meta_table['IanaiftypeEnum']
-
-
-class IanatunneltypeEnum(Enum):
+class Ianatunneltype(Enum):
     """
-    IanatunneltypeEnum
+    Ianatunneltype
 
     The encapsulation method used by a tunnel. The value
 
@@ -1289,39 +1277,33 @@ class IanatunneltypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    direct = 2
+    direct = Enum.YLeaf(2, "direct")
 
-    gre = 3
+    gre = Enum.YLeaf(3, "gre")
 
-    minimal = 4
+    minimal = Enum.YLeaf(4, "minimal")
 
-    l2tp = 5
+    l2tp = Enum.YLeaf(5, "l2tp")
 
-    pptp = 6
+    pptp = Enum.YLeaf(6, "pptp")
 
-    l2f = 7
+    l2f = Enum.YLeaf(7, "l2f")
 
-    udp = 8
+    udp = Enum.YLeaf(8, "udp")
 
-    atmp = 9
+    atmp = Enum.YLeaf(9, "atmp")
 
-    msdp = 10
+    msdp = Enum.YLeaf(10, "msdp")
 
-    sixToFour = 11
+    sixToFour = Enum.YLeaf(11, "sixToFour")
 
-    sixOverFour = 12
+    sixOverFour = Enum.YLeaf(12, "sixOverFour")
 
-    isatap = 13
+    isatap = Enum.YLeaf(13, "isatap")
 
-    teredo = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IANAifType_MIB as meta
-        return meta._meta_table['IanatunneltypeEnum']
+    teredo = Enum.YLeaf(14, "teredo")
 
 
 

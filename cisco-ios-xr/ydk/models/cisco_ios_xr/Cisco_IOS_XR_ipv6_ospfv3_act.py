@@ -7,28 +7,22 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class ActOspfv3RoutesRpc(object):
+class ActOspfv3Routes(Entity):
     """
     Clear OSPFv3 Routes Table
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3RoutesRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Routes.Input>`
     
     
 
@@ -38,20 +32,26 @@ class ActOspfv3RoutesRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3RoutesRpc.Input()
+        super(ActOspfv3Routes, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-routes"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3Routes.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3RoutesRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Routes.Input.Instance>`
         
         .. attribute:: route
         
@@ -68,13 +68,44 @@ class ActOspfv3RoutesRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3RoutesRpc.Input.Instance()
+            super(ActOspfv3Routes.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-routes"
+
+            self.route = YLeaf(YType.empty, "route")
+
+            self.instance = ActOspfv3Routes.Input.Instance()
             self.instance.parent = self
-            self.route = None
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("route") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(ActOspfv3Routes.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(ActOspfv3Routes.Input, self).__setattr__(name, value)
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             Clear data from OSPFv3 instance
             
@@ -91,85 +122,198 @@ class ActOspfv3RoutesRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.instance_identifier = None
+                super(ActOspfv3Routes.Input.Instance, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3Routes.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3Routes.Input.Instance, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.instance_identifier is not None:
+            def has_data(self):
+                return self.instance_identifier.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "instance-identifier"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3RoutesRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.route.is_set or
+                (self.instance is not None and self.instance.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.route.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.route.is_set or self.route.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.route.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3Routes.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance" or name == "route"):
                 return True
-
-            if self.route is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3RoutesRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "route"):
+                self.route = value
+                self.route.value_namespace = name_space
+                self.route.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-routes" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3Routes.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3RoutesRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3Routes()
+        return self._top_entity
 
-class ActOspfv3RedistributionRpc(object):
+class ActOspfv3Redistribution(Entity):
     """
     Clear OSPFv3 Route Redistribution
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3RedistributionRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Redistribution.Input>`
     
     
 
@@ -179,20 +323,26 @@ class ActOspfv3RedistributionRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3RedistributionRpc.Input()
+        super(ActOspfv3Redistribution, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-redistribution"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3Redistribution.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3RedistributionRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Redistribution.Input.Instance>`
         
         .. attribute:: redistribution
         
@@ -209,13 +359,44 @@ class ActOspfv3RedistributionRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3RedistributionRpc.Input.Instance()
+            super(ActOspfv3Redistribution.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-redistribution"
+
+            self.redistribution = YLeaf(YType.empty, "redistribution")
+
+            self.instance = ActOspfv3Redistribution.Input.Instance()
             self.instance.parent = self
-            self.redistribution = None
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("redistribution") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(ActOspfv3Redistribution.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(ActOspfv3Redistribution.Input, self).__setattr__(name, value)
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             Clear data from OSPFv3 instance
             
@@ -232,85 +413,198 @@ class ActOspfv3RedistributionRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.instance_identifier = None
+                super(ActOspfv3Redistribution.Input.Instance, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3Redistribution.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3Redistribution.Input.Instance, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.instance_identifier is not None:
+            def has_data(self):
+                return self.instance_identifier.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "instance-identifier"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3RedistributionRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.redistribution.is_set or
+                (self.instance is not None and self.instance.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.redistribution.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.redistribution.is_set or self.redistribution.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.redistribution.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3Redistribution.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance" or name == "redistribution"):
                 return True
-
-            if self.redistribution is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3RedistributionRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "redistribution"):
+                self.redistribution = value
+                self.redistribution.value_namespace = name_space
+                self.redistribution.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-redistribution" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3Redistribution.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3RedistributionRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3Redistribution()
+        return self._top_entity
 
-class ActOspfv3ProcessRpc(object):
+class ActOspfv3Process(Entity):
     """
     Reset OSPFv3 Process
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3ProcessRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Process.Input>`
     
     
 
@@ -320,20 +614,26 @@ class ActOspfv3ProcessRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3ProcessRpc.Input()
+        super(ActOspfv3Process, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-process"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3Process.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3ProcessRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Process.Input.Instance>`
         
         .. attribute:: process
         
@@ -350,13 +650,44 @@ class ActOspfv3ProcessRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3ProcessRpc.Input.Instance()
+            super(ActOspfv3Process.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-process"
+
+            self.process = YLeaf(YType.empty, "process")
+
+            self.instance = ActOspfv3Process.Input.Instance()
             self.instance.parent = self
-            self.process = None
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("process") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(ActOspfv3Process.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(ActOspfv3Process.Input, self).__setattr__(name, value)
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             Clear data from OSPFv3 instance
             
@@ -373,85 +704,198 @@ class ActOspfv3ProcessRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.instance_identifier = None
+                super(ActOspfv3Process.Input.Instance, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3Process.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3Process.Input.Instance, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.instance_identifier is not None:
+            def has_data(self):
+                return self.instance_identifier.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "instance-identifier"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3ProcessRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.process.is_set or
+                (self.instance is not None and self.instance.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.process.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.process.is_set or self.process.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.process.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3Process.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance" or name == "process"):
                 return True
-
-            if self.process is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3ProcessRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "process"):
+                self.process = value
+                self.process.value_namespace = name_space
+                self.process.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-process" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3Process.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3ProcessRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3Process()
+        return self._top_entity
 
-class ActOspfv3StatisticsNeighborRpc(object):
+class ActOspfv3StatisticsNeighbor(Entity):
     """
     Neighbor statistics per neighbor id
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighborRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighbor.Input>`
     
     
 
@@ -461,25 +905,31 @@ class ActOspfv3StatisticsNeighborRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3StatisticsNeighborRpc.Input()
+        super(ActOspfv3StatisticsNeighbor, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-statistics-neighbor"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3StatisticsNeighbor.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighborRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighbor.Input.Instance>`
         
         .. attribute:: neighbor
         
         	
-        	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighborRpc.Input.Neighbor>`
+        	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsNeighbor.Input.Neighbor>`
         
         
 
@@ -489,14 +939,23 @@ class ActOspfv3StatisticsNeighborRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3StatisticsNeighborRpc.Input.Instance()
+            super(ActOspfv3StatisticsNeighbor.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-statistics-neighbor"
+
+            self.instance = ActOspfv3StatisticsNeighbor.Input.Instance()
             self.instance.parent = self
-            self.neighbor = ActOspfv3StatisticsNeighborRpc.Input.Neighbor()
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+
+            self.neighbor = ActOspfv3StatisticsNeighbor.Input.Neighbor()
             self.neighbor.parent = self
+            self._children_name_map["neighbor"] = "neighbor"
+            self._children_yang_names.add("neighbor")
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             Clear data from OSPFv3 instance
             
@@ -513,33 +972,85 @@ class ActOspfv3StatisticsNeighborRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.instance_identifier = None
+                super(ActOspfv3StatisticsNeighbor.Input.Instance, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3StatisticsNeighbor.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3StatisticsNeighbor.Input.Instance, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.instance_identifier is not None:
+            def has_data(self):
+                return self.instance_identifier.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "instance-identifier"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3StatisticsNeighborRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
 
-        class Neighbor(object):
+        class Neighbor(Entity):
             """
             
             
@@ -565,89 +1076,212 @@ class ActOspfv3StatisticsNeighborRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.neighbor_id = None
+                super(ActOspfv3StatisticsNeighbor.Input.Neighbor, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "neighbor"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor'
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+                self.neighbor_id = YLeaf(YType.str, "neighbor-id")
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "neighbor_id") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3StatisticsNeighbor.Input.Neighbor, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3StatisticsNeighbor.Input.Neighbor, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.neighbor_id.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.neighbor_id.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "neighbor" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.neighbor_id.is_set or self.neighbor_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.neighbor_id.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-name" or name == "neighbor-id"):
                     return True
-
-                if self.neighbor_id is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3StatisticsNeighborRpc.Input.Neighbor']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "neighbor-id"):
+                    self.neighbor_id = value
+                    self.neighbor_id.value_namespace = name_space
+                    self.neighbor_id.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.instance is not None and self.instance.has_data()) or
+                (self.neighbor is not None and self.neighbor.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()) or
+                (self.neighbor is not None and self.neighbor.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3StatisticsNeighbor.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            if (child_yang_name == "neighbor"):
+                if (self.neighbor is None):
+                    self.neighbor = ActOspfv3StatisticsNeighbor.Input.Neighbor()
+                    self.neighbor.parent = self
+                    self._children_name_map["neighbor"] = "neighbor"
+                return self.neighbor
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance" or name == "neighbor"):
                 return True
-
-            if self.neighbor is not None and self.neighbor._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3StatisticsNeighborRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics-neighbor" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3StatisticsNeighbor.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3StatisticsNeighborRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3StatisticsNeighbor()
+        return self._top_entity
 
-class ActOspfv3StatisticsRpc(object):
+class ActOspfv3Statistics(Entity):
     """
     Clear OSPFv3 Counters And Statistics
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Statistics.Input>`
     
     
 
@@ -657,20 +1291,26 @@ class ActOspfv3StatisticsRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3StatisticsRpc.Input()
+        super(ActOspfv3Statistics, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-statistics"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3Statistics.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	Clear data from OSPFv3 instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3StatisticsRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3Statistics.Input.Instance>`
         
         .. attribute:: neighbor
         
@@ -695,15 +1335,50 @@ class ActOspfv3StatisticsRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3StatisticsRpc.Input.Instance()
+            super(ActOspfv3Statistics.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-statistics"
+
+            self.neighbor = YLeaf(YType.empty, "neighbor")
+
+            self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+            self.spf = YLeaf(YType.empty, "spf")
+
+            self.instance = ActOspfv3Statistics.Input.Instance()
             self.instance.parent = self
-            self.neighbor = None
-            self.prefix_priority = None
-            self.spf = None
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("neighbor",
+                            "prefix_priority",
+                            "spf") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(ActOspfv3Statistics.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(ActOspfv3Statistics.Input, self).__setattr__(name, value)
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             Clear data from OSPFv3 instance
             
@@ -720,91 +1395,214 @@ class ActOspfv3StatisticsRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.instance_identifier = None
+                super(ActOspfv3Statistics.Input.Instance, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3Statistics.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3Statistics.Input.Instance, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.instance_identifier is not None:
+            def has_data(self):
+                return self.instance_identifier.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "instance-identifier"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3StatisticsRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.neighbor.is_set or
+                self.prefix_priority.is_set or
+                self.spf.is_set or
+                (self.instance is not None and self.instance.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.neighbor.yfilter != YFilter.not_set or
+                self.prefix_priority.yfilter != YFilter.not_set or
+                self.spf.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.neighbor.is_set or self.neighbor.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.neighbor.get_name_leafdata())
+            if (self.prefix_priority.is_set or self.prefix_priority.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.prefix_priority.get_name_leafdata())
+            if (self.spf.is_set or self.spf.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.spf.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3Statistics.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance" or name == "neighbor" or name == "prefix-priority" or name == "spf"):
                 return True
-
-            if self.neighbor is not None:
-                return True
-
-            if self.prefix_priority is not None:
-                return True
-
-            if self.spf is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3StatisticsRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "neighbor"):
+                self.neighbor = value
+                self.neighbor.value_namespace = name_space
+                self.neighbor.value_namespace_prefix = name_space_prefix
+            if(value_path == "prefix-priority"):
+                self.prefix_priority = value
+                self.prefix_priority.value_namespace = name_space
+                self.prefix_priority.value_namespace_prefix = name_space_prefix
+            if(value_path == "spf"):
+                self.spf = value
+                self.spf.value_namespace = name_space
+                self.spf.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-statistics" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3Statistics.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3StatisticsRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3Statistics()
+        return self._top_entity
 
-class ActOspfv3InstanceVrfRpc(object):
+class ActOspfv3InstanceVrf(Entity):
     """
     Clear one or more non\-default OSPFv3 VRFs in process
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input>`
     
     
 
@@ -814,20 +1612,26 @@ class ActOspfv3InstanceVrfRpc(object):
     _revision = '2016-09-14'
 
     def __init__(self):
-        self.input = ActOspfv3InstanceVrfRpc.Input()
+        super(ActOspfv3InstanceVrf, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "act-ospfv3-instance-vrf"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-act"
+
+        self.input = ActOspfv3InstanceVrf.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: instance
         
         	OSPFv3 instance name
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance>`
+        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance>`
         
         
 
@@ -837,24 +1641,30 @@ class ActOspfv3InstanceVrfRpc(object):
         _revision = '2016-09-14'
 
         def __init__(self):
-            self.parent = None
-            self.instance = ActOspfv3InstanceVrfRpc.Input.Instance()
+            super(ActOspfv3InstanceVrf.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "act-ospfv3-instance-vrf"
+
+            self.instance = ActOspfv3InstanceVrf.Input.Instance()
             self.instance.parent = self
+            self._children_name_map["instance"] = "instance"
+            self._children_yang_names.add("instance")
 
 
-        class Instance(object):
+        class Instance(Entity):
             """
             OSPFv3 instance name
             
             .. attribute:: all
             
             	Clear all non\-default OSPFv3 VRFs
-            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.All>`
+            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.All>`
             
             .. attribute:: all_inclusive
             
             	Clear all non\-default and default OSPFv3 VRFs
-            	**type**\:   :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive>`
+            	**type**\:   :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.AllInclusive>`
             
             .. attribute:: instance_identifier
             
@@ -866,7 +1676,7 @@ class ActOspfv3InstanceVrfRpc(object):
             .. attribute:: vrf
             
             	Clear one or more non\-default OSPFv3 VRFs in process
-            	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.Vrf>`
+            	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.Vrf>`
             
             
 
@@ -876,17 +1686,54 @@ class ActOspfv3InstanceVrfRpc(object):
             _revision = '2016-09-14'
 
             def __init__(self):
-                self.parent = None
-                self.all = ActOspfv3InstanceVrfRpc.Input.Instance.All()
+                super(ActOspfv3InstanceVrf.Input.Instance, self).__init__()
+
+                self.yang_name = "instance"
+                self.yang_parent_name = "input"
+
+                self.instance_identifier = YLeaf(YType.str, "instance-identifier")
+
+                self.all = ActOspfv3InstanceVrf.Input.Instance.All()
                 self.all.parent = self
-                self.all_inclusive = ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive()
+                self._children_name_map["all"] = "all"
+                self._children_yang_names.add("all")
+
+                self.all_inclusive = ActOspfv3InstanceVrf.Input.Instance.AllInclusive()
                 self.all_inclusive.parent = self
-                self.instance_identifier = None
-                self.vrf = ActOspfv3InstanceVrfRpc.Input.Instance.Vrf()
+                self._children_name_map["all_inclusive"] = "all-inclusive"
+                self._children_yang_names.add("all-inclusive")
+
+                self.vrf = ActOspfv3InstanceVrf.Input.Instance.Vrf()
                 self.vrf.parent = self
+                self._children_name_map["vrf"] = "vrf"
+                self._children_yang_names.add("vrf")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("instance_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ActOspfv3InstanceVrf.Input.Instance, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ActOspfv3InstanceVrf.Input.Instance, self).__setattr__(name, value)
 
 
-            class Vrf(object):
+            class Vrf(Entity):
                 """
                 Clear one or more non\-default OSPFv3 VRFs in process
                 
@@ -908,7 +1755,7 @@ class ActOspfv3InstanceVrfRpc(object):
                 .. attribute:: stats
                 
                 	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats>`
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats>`
                 
                 .. attribute:: vrf_name
                 
@@ -925,23 +1772,60 @@ class ActOspfv3InstanceVrfRpc(object):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    self.parent = None
-                    self.process = None
-                    self.redistribution = None
-                    self.route = None
-                    self.stats = ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats()
+                    super(ActOspfv3InstanceVrf.Input.Instance.Vrf, self).__init__()
+
+                    self.yang_name = "vrf"
+                    self.yang_parent_name = "instance"
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.stats = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats()
                     self.stats.parent = self
-                    self.vrf_name = None
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("process",
+                                    "redistribution",
+                                    "route",
+                                    "vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(ActOspfv3InstanceVrf.Input.Instance.Vrf, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(ActOspfv3InstanceVrf.Input.Instance.Vrf, self).__setattr__(name, value)
 
 
-                class Stats(object):
+                class Stats(Entity):
                     """
                     OSPFv3 counters and statistics
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor>`
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor>`
                     
                     .. attribute:: prefix_priority
                     
@@ -961,21 +1845,54 @@ class ActOspfv3InstanceVrfRpc(object):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        self.parent = None
-                        self.neighbor = ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor()
+                        super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "vrf"
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.neighbor = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor()
                         self.neighbor.parent = self
-                        self.prefix_priority = None
-                        self.spf = None
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix_priority",
+                                        "spf") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats, self).__setattr__(name, value)
 
 
-                    class Neighbor(object):
+                    class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor.Interface>`
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface>`
                         
                         .. attribute:: neighbor_id
                         
@@ -992,13 +1909,44 @@ class ActOspfv3InstanceVrfRpc(object):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface = ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor.Interface()
+                            super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface()
                             self.interface.parent = self
-                            self.neighbor_id = None
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("neighbor_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__setattr__(name, value)
 
 
-                        class Interface(object):
+                        class Interface(Entity):
                             """
                             
                             
@@ -1017,120 +1965,285 @@ class ActOspfv3InstanceVrfRpc(object):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface_name = None
+                                super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
 
-                                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:vrf/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:interface'
+                                self.interface_name = YLeaf(YType.str, "interface-name")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                if self.parent is None:
-                                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                                return self.parent.is_config()
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("interface_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__setattr__(name, value)
 
-                            def _has_data(self):
-                                if self.interface_name is not None:
+                            def has_data(self):
+                                return self.interface_name.is_set
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.interface_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/vrf/stats/neighbor/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface-name"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                                return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor.Interface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "interface-name"):
+                                    self.interface_name = value
+                                    self.interface_name.value_namespace = name_space
+                                    self.interface_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
+                        def has_data(self):
+                            return (
+                                self.neighbor_id.is_set or
+                                (self.interface is not None and self.interface.has_data()))
 
-                            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:vrf/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.neighbor_id.yfilter != YFilter.not_set or
+                                (self.interface is not None and self.interface.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            if self.parent is None:
-                                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                            return self.parent.is_config()
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "neighbor" + path_buffer
 
-                        def _has_data(self):
-                            if self.interface is not None and self.interface._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/vrf/stats/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.neighbor_id.is_set or self.neighbor_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.neighbor_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "interface"):
+                                if (self.interface is None):
+                                    self.interface = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface()
+                                    self.interface.parent = self
+                                    self._children_name_map["interface"] = "interface"
+                                return self.interface
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface" or name == "neighbor-id"):
                                 return True
-
-                            if self.neighbor_id is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                            return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats.Neighbor']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "neighbor-id"):
+                                self.neighbor_id = value
+                                self.neighbor_id.value_namespace = name_space
+                                self.neighbor_id.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
+                    def has_data(self):
+                        return (
+                            self.prefix_priority.is_set or
+                            self.spf.is_set or
+                            (self.neighbor is not None and self.neighbor.has_data()))
 
-                        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:vrf/Cisco-IOS-XR-ipv6-ospfv3-act:stats'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix_priority.yfilter != YFilter.not_set or
+                            self.spf.yfilter != YFilter.not_set or
+                            (self.neighbor is not None and self.neighbor.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        if self.parent is None:
-                            raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                        return self.parent.is_config()
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "stats" + path_buffer
 
-                    def _has_data(self):
-                        if self.neighbor is not None and self.neighbor._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/vrf/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix_priority.is_set or self.prefix_priority.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_priority.get_name_leafdata())
+                        if (self.spf.is_set or self.spf.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.spf.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "neighbor"):
+                            if (self.neighbor is None):
+                                self.neighbor = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor()
+                                self.neighbor.parent = self
+                                self._children_name_map["neighbor"] = "neighbor"
+                            return self.neighbor
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "neighbor" or name == "prefix-priority" or name == "spf"):
                             return True
-
-                        if self.prefix_priority is not None:
-                            return True
-
-                        if self.spf is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                        return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.Vrf.Stats']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix-priority"):
+                            self.prefix_priority = value
+                            self.prefix_priority.value_namespace = name_space
+                            self.prefix_priority.value_namespace_prefix = name_space_prefix
+                        if(value_path == "spf"):
+                            self.spf = value
+                            self.spf.value_namespace = name_space
+                            self.spf.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (
+                        self.process.is_set or
+                        self.redistribution.is_set or
+                        self.route.is_set or
+                        self.vrf_name.is_set or
+                        (self.stats is not None and self.stats.has_data()))
 
-                    return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:vrf'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.process.yfilter != YFilter.not_set or
+                        self.redistribution.yfilter != YFilter.not_set or
+                        self.route.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set or
+                        (self.stats is not None and self.stats.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    if self.parent is None:
-                        raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                    return self.parent.is_config()
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrf" + path_buffer
 
-                def _has_data(self):
-                    if self.process is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.process.is_set or self.process.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process.get_name_leafdata())
+                    if (self.redistribution.is_set or self.redistribution.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redistribution.get_name_leafdata())
+                    if (self.route.is_set or self.route.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route.get_name_leafdata())
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "stats"):
+                        if (self.stats is None):
+                            self.stats = ActOspfv3InstanceVrf.Input.Instance.Vrf.Stats()
+                            self.stats.parent = self
+                            self._children_name_map["stats"] = "stats"
+                        return self.stats
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "stats" or name == "process" or name == "redistribution" or name == "route" or name == "vrf-name"):
                         return True
-
-                    if self.redistribution is not None:
-                        return True
-
-                    if self.route is not None:
-                        return True
-
-                    if self.stats is not None and self.stats._has_data():
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                    return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.Vrf']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "process"):
+                        self.process = value
+                        self.process.value_namespace = name_space
+                        self.process.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redistribution"):
+                        self.redistribution = value
+                        self.redistribution.value_namespace = name_space
+                        self.redistribution.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route"):
+                        self.route = value
+                        self.route.value_namespace = name_space
+                        self.route.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-            class All(object):
+            class All(Entity):
                 """
                 Clear all non\-default OSPFv3 VRFs
                 
@@ -1152,7 +2265,7 @@ class ActOspfv3InstanceVrfRpc(object):
                 .. attribute:: stats
                 
                 	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats>`
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.All.Stats>`
                 
                 
 
@@ -1162,22 +2275,57 @@ class ActOspfv3InstanceVrfRpc(object):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    self.parent = None
-                    self.process = None
-                    self.redistribution = None
-                    self.route = None
-                    self.stats = ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats()
+                    super(ActOspfv3InstanceVrf.Input.Instance.All, self).__init__()
+
+                    self.yang_name = "all"
+                    self.yang_parent_name = "instance"
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.stats = ActOspfv3InstanceVrf.Input.Instance.All.Stats()
                     self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("process",
+                                    "redistribution",
+                                    "route") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(ActOspfv3InstanceVrf.Input.Instance.All, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(ActOspfv3InstanceVrf.Input.Instance.All, self).__setattr__(name, value)
 
 
-                class Stats(object):
+                class Stats(Entity):
                     """
                     OSPFv3 counters and statistics
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor>`
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor>`
                     
                     .. attribute:: prefix_priority
                     
@@ -1197,21 +2345,54 @@ class ActOspfv3InstanceVrfRpc(object):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        self.parent = None
-                        self.neighbor = ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor()
+                        super(ActOspfv3InstanceVrf.Input.Instance.All.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "all"
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.neighbor = ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor()
                         self.neighbor.parent = self
-                        self.prefix_priority = None
-                        self.spf = None
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix_priority",
+                                        "spf") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(ActOspfv3InstanceVrf.Input.Instance.All.Stats, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(ActOspfv3InstanceVrf.Input.Instance.All.Stats, self).__setattr__(name, value)
 
 
-                    class Neighbor(object):
+                    class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor.Interface>`
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface>`
                         
                         .. attribute:: neighbor_id
                         
@@ -1228,13 +2409,44 @@ class ActOspfv3InstanceVrfRpc(object):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface = ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor.Interface()
+                            super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface()
                             self.interface.parent = self
-                            self.neighbor_id = None
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("neighbor_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor, self).__setattr__(name, value)
 
 
-                        class Interface(object):
+                        class Interface(Entity):
                             """
                             
                             
@@ -1253,117 +2465,277 @@ class ActOspfv3InstanceVrfRpc(object):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface_name = None
+                                super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
 
-                                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:interface'
+                                self.interface_name = YLeaf(YType.str, "interface-name")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                if self.parent is None:
-                                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                                return self.parent.is_config()
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("interface_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__setattr__(name, value)
 
-                            def _has_data(self):
-                                if self.interface_name is not None:
+                            def has_data(self):
+                                return self.interface_name.is_set
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.interface_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all/stats/neighbor/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface-name"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                                return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor.Interface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "interface-name"):
+                                    self.interface_name = value
+                                    self.interface_name.value_namespace = name_space
+                                    self.interface_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
+                        def has_data(self):
+                            return (
+                                self.neighbor_id.is_set or
+                                (self.interface is not None and self.interface.has_data()))
 
-                            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.neighbor_id.yfilter != YFilter.not_set or
+                                (self.interface is not None and self.interface.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            if self.parent is None:
-                                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                            return self.parent.is_config()
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "neighbor" + path_buffer
 
-                        def _has_data(self):
-                            if self.interface is not None and self.interface._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all/stats/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.neighbor_id.is_set or self.neighbor_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.neighbor_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "interface"):
+                                if (self.interface is None):
+                                    self.interface = ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface()
+                                    self.interface.parent = self
+                                    self._children_name_map["interface"] = "interface"
+                                return self.interface
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface" or name == "neighbor-id"):
                                 return True
-
-                            if self.neighbor_id is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                            return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats.Neighbor']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "neighbor-id"):
+                                self.neighbor_id = value
+                                self.neighbor_id.value_namespace = name_space
+                                self.neighbor_id.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
+                    def has_data(self):
+                        return (
+                            self.prefix_priority.is_set or
+                            self.spf.is_set or
+                            (self.neighbor is not None and self.neighbor.has_data()))
 
-                        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all/Cisco-IOS-XR-ipv6-ospfv3-act:stats'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix_priority.yfilter != YFilter.not_set or
+                            self.spf.yfilter != YFilter.not_set or
+                            (self.neighbor is not None and self.neighbor.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        if self.parent is None:
-                            raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                        return self.parent.is_config()
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "stats" + path_buffer
 
-                    def _has_data(self):
-                        if self.neighbor is not None and self.neighbor._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix_priority.is_set or self.prefix_priority.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_priority.get_name_leafdata())
+                        if (self.spf.is_set or self.spf.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.spf.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "neighbor"):
+                            if (self.neighbor is None):
+                                self.neighbor = ActOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor()
+                                self.neighbor.parent = self
+                                self._children_name_map["neighbor"] = "neighbor"
+                            return self.neighbor
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "neighbor" or name == "prefix-priority" or name == "spf"):
                             return True
-
-                        if self.prefix_priority is not None:
-                            return True
-
-                        if self.spf is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                        return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.All.Stats']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix-priority"):
+                            self.prefix_priority = value
+                            self.prefix_priority.value_namespace = name_space
+                            self.prefix_priority.value_namespace_prefix = name_space_prefix
+                        if(value_path == "spf"):
+                            self.spf = value
+                            self.spf.value_namespace = name_space
+                            self.spf.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (
+                        self.process.is_set or
+                        self.redistribution.is_set or
+                        self.route.is_set or
+                        (self.stats is not None and self.stats.has_data()))
 
-                    return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.process.yfilter != YFilter.not_set or
+                        self.redistribution.yfilter != YFilter.not_set or
+                        self.route.yfilter != YFilter.not_set or
+                        (self.stats is not None and self.stats.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    if self.parent is None:
-                        raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                    return self.parent.is_config()
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "all" + path_buffer
 
-                def _has_data(self):
-                    if self.process is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.process.is_set or self.process.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process.get_name_leafdata())
+                    if (self.redistribution.is_set or self.redistribution.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redistribution.get_name_leafdata())
+                    if (self.route.is_set or self.route.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "stats"):
+                        if (self.stats is None):
+                            self.stats = ActOspfv3InstanceVrf.Input.Instance.All.Stats()
+                            self.stats.parent = self
+                            self._children_name_map["stats"] = "stats"
+                        return self.stats
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "stats" or name == "process" or name == "redistribution" or name == "route"):
                         return True
-
-                    if self.redistribution is not None:
-                        return True
-
-                    if self.route is not None:
-                        return True
-
-                    if self.stats is not None and self.stats._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                    return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.All']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "process"):
+                        self.process = value
+                        self.process.value_namespace = name_space
+                        self.process.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redistribution"):
+                        self.redistribution = value
+                        self.redistribution.value_namespace = name_space
+                        self.redistribution.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route"):
+                        self.route = value
+                        self.route.value_namespace = name_space
+                        self.route.value_namespace_prefix = name_space_prefix
 
 
-            class AllInclusive(object):
+            class AllInclusive(Entity):
                 """
                 Clear all non\-default and default OSPFv3 VRFs
                 
@@ -1385,7 +2757,7 @@ class ActOspfv3InstanceVrfRpc(object):
                 .. attribute:: stats
                 
                 	OSPFv3 counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats>`
+                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats>`
                 
                 
 
@@ -1395,22 +2767,57 @@ class ActOspfv3InstanceVrfRpc(object):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    self.parent = None
-                    self.process = None
-                    self.redistribution = None
-                    self.route = None
-                    self.stats = ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats()
+                    super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive, self).__init__()
+
+                    self.yang_name = "all-inclusive"
+                    self.yang_parent_name = "instance"
+
+                    self.process = YLeaf(YType.empty, "process")
+
+                    self.redistribution = YLeaf(YType.empty, "redistribution")
+
+                    self.route = YLeaf(YType.empty, "route")
+
+                    self.stats = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats()
                     self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("process",
+                                    "redistribution",
+                                    "route") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive, self).__setattr__(name, value)
 
 
-                class Stats(object):
+                class Stats(Entity):
                     """
                     OSPFv3 counters and statistics
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor>`
+                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor>`
                     
                     .. attribute:: prefix_priority
                     
@@ -1430,21 +2837,54 @@ class ActOspfv3InstanceVrfRpc(object):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        self.parent = None
-                        self.neighbor = ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor()
+                        super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "all-inclusive"
+
+                        self.prefix_priority = YLeaf(YType.empty, "prefix-priority")
+
+                        self.spf = YLeaf(YType.empty, "spf")
+
+                        self.neighbor = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor()
                         self.neighbor.parent = self
-                        self.prefix_priority = None
-                        self.spf = None
+                        self._children_name_map["neighbor"] = "neighbor"
+                        self._children_yang_names.add("neighbor")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix_priority",
+                                        "spf") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats, self).__setattr__(name, value)
 
 
-                    class Neighbor(object):
+                    class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
+                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act.ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
                         
                         .. attribute:: neighbor_id
                         
@@ -1461,13 +2901,44 @@ class ActOspfv3InstanceVrfRpc(object):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface = ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
+                            super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__init__()
+
+                            self.yang_name = "neighbor"
+                            self.yang_parent_name = "stats"
+
+                            self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                            self.interface = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
                             self.interface.parent = self
-                            self.neighbor_id = None
+                            self._children_name_map["interface"] = "interface"
+                            self._children_yang_names.add("interface")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("neighbor_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__setattr__(name, value)
 
 
-                        class Interface(object):
+                        class Interface(Entity):
                             """
                             
                             
@@ -1486,186 +2957,445 @@ class ActOspfv3InstanceVrfRpc(object):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface_name = None
+                                super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "neighbor"
 
-                                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all-inclusive/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor/Cisco-IOS-XR-ipv6-ospfv3-act:interface'
+                                self.interface_name = YLeaf(YType.str, "interface-name")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                if self.parent is None:
-                                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                                return self.parent.is_config()
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("interface_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__setattr__(name, value)
 
-                            def _has_data(self):
-                                if self.interface_name is not None:
+                            def has_data(self):
+                                return self.interface_name.is_set
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.interface_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all-inclusive/stats/neighbor/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface-name"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                                return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor.Interface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "interface-name"):
+                                    self.interface_name = value
+                                    self.interface_name.value_namespace = name_space
+                                    self.interface_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
+                        def has_data(self):
+                            return (
+                                self.neighbor_id.is_set or
+                                (self.interface is not None and self.interface.has_data()))
 
-                            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all-inclusive/Cisco-IOS-XR-ipv6-ospfv3-act:stats/Cisco-IOS-XR-ipv6-ospfv3-act:neighbor'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.neighbor_id.yfilter != YFilter.not_set or
+                                (self.interface is not None and self.interface.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            if self.parent is None:
-                                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                            return self.parent.is_config()
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "neighbor" + path_buffer
 
-                        def _has_data(self):
-                            if self.interface is not None and self.interface._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all-inclusive/stats/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.neighbor_id.is_set or self.neighbor_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.neighbor_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "interface"):
+                                if (self.interface is None):
+                                    self.interface = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
+                                    self.interface.parent = self
+                                    self._children_name_map["interface"] = "interface"
+                                return self.interface
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface" or name == "neighbor-id"):
                                 return True
-
-                            if self.neighbor_id is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                            return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats.Neighbor']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "neighbor-id"):
+                                self.neighbor_id = value
+                                self.neighbor_id.value_namespace = name_space
+                                self.neighbor_id.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
+                    def has_data(self):
+                        return (
+                            self.prefix_priority.is_set or
+                            self.spf.is_set or
+                            (self.neighbor is not None and self.neighbor.has_data()))
 
-                        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all-inclusive/Cisco-IOS-XR-ipv6-ospfv3-act:stats'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix_priority.yfilter != YFilter.not_set or
+                            self.spf.yfilter != YFilter.not_set or
+                            (self.neighbor is not None and self.neighbor.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        if self.parent is None:
-                            raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                        return self.parent.is_config()
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "stats" + path_buffer
 
-                    def _has_data(self):
-                        if self.neighbor is not None and self.neighbor._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/all-inclusive/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix_priority.is_set or self.prefix_priority.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_priority.get_name_leafdata())
+                        if (self.spf.is_set or self.spf.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.spf.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "neighbor"):
+                            if (self.neighbor is None):
+                                self.neighbor = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor()
+                                self.neighbor.parent = self
+                                self._children_name_map["neighbor"] = "neighbor"
+                            return self.neighbor
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "neighbor" or name == "prefix-priority" or name == "spf"):
                             return True
-
-                        if self.prefix_priority is not None:
-                            return True
-
-                        if self.spf is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                        return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive.Stats']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix-priority"):
+                            self.prefix_priority = value
+                            self.prefix_priority.value_namespace = name_space
+                            self.prefix_priority.value_namespace_prefix = name_space_prefix
+                        if(value_path == "spf"):
+                            self.spf = value
+                            self.spf.value_namespace = name_space
+                            self.spf.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (
+                        self.process.is_set or
+                        self.redistribution.is_set or
+                        self.route.is_set or
+                        (self.stats is not None and self.stats.has_data()))
 
-                    return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance/Cisco-IOS-XR-ipv6-ospfv3-act:all-inclusive'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.process.yfilter != YFilter.not_set or
+                        self.redistribution.yfilter != YFilter.not_set or
+                        self.route.yfilter != YFilter.not_set or
+                        (self.stats is not None and self.stats.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    if self.parent is None:
-                        raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                    return self.parent.is_config()
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "all-inclusive" + path_buffer
 
-                def _has_data(self):
-                    if self.process is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/instance/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.process.is_set or self.process.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process.get_name_leafdata())
+                    if (self.redistribution.is_set or self.redistribution.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redistribution.get_name_leafdata())
+                    if (self.route.is_set or self.route.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "stats"):
+                        if (self.stats is None):
+                            self.stats = ActOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats()
+                            self.stats.parent = self
+                            self._children_name_map["stats"] = "stats"
+                        return self.stats
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "stats" or name == "process" or name == "redistribution" or name == "route"):
                         return True
-
-                    if self.redistribution is not None:
-                        return True
-
-                    if self.route is not None:
-                        return True
-
-                    if self.stats is not None and self.stats._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                    return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance.AllInclusive']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "process"):
+                        self.process = value
+                        self.process.value_namespace = name_space
+                        self.process.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redistribution"):
+                        self.redistribution = value
+                        self.redistribution.value_namespace = name_space
+                        self.redistribution.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route"):
+                        self.route = value
+                        self.route.value_namespace = name_space
+                        self.route.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    self.instance_identifier.is_set or
+                    (self.all is not None and self.all.has_data()) or
+                    (self.all_inclusive is not None and self.all_inclusive.has_data()) or
+                    (self.vrf is not None and self.vrf.has_data()))
 
-                return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input/Cisco-IOS-XR-ipv6-ospfv3-act:instance'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.instance_identifier.yfilter != YFilter.not_set or
+                    (self.all is not None and self.all.has_operation()) or
+                    (self.all_inclusive is not None and self.all_inclusive.has_operation()) or
+                    (self.vrf is not None and self.vrf.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "instance" + path_buffer
 
-            def _has_data(self):
-                if self.all is not None and self.all._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/input/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.instance_identifier.is_set or self.instance_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.instance_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "all"):
+                    if (self.all is None):
+                        self.all = ActOspfv3InstanceVrf.Input.Instance.All()
+                        self.all.parent = self
+                        self._children_name_map["all"] = "all"
+                    return self.all
+
+                if (child_yang_name == "all-inclusive"):
+                    if (self.all_inclusive is None):
+                        self.all_inclusive = ActOspfv3InstanceVrf.Input.Instance.AllInclusive()
+                        self.all_inclusive.parent = self
+                        self._children_name_map["all_inclusive"] = "all-inclusive"
+                    return self.all_inclusive
+
+                if (child_yang_name == "vrf"):
+                    if (self.vrf is None):
+                        self.vrf = ActOspfv3InstanceVrf.Input.Instance.Vrf()
+                        self.vrf.parent = self
+                        self._children_name_map["vrf"] = "vrf"
+                    return self.vrf
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "all" or name == "all-inclusive" or name == "vrf" or name == "instance-identifier"):
                     return True
-
-                if self.all_inclusive is not None and self.all_inclusive._has_data():
-                    return True
-
-                if self.instance_identifier is not None:
-                    return True
-
-                if self.vrf is not None and self.vrf._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-                return meta._meta_table['ActOspfv3InstanceVrfRpc.Input.Instance']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "instance-identifier"):
+                    self.instance_identifier = value
+                    self.instance_identifier.value_namespace = name_space
+                    self.instance_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.instance is not None and self.instance.has_data())
 
-            return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/Cisco-IOS-XR-ipv6-ospfv3-act:input'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.instance is not None and self.instance.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
 
-        def _has_data(self):
-            if self.instance is not None and self.instance._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "instance"):
+                if (self.instance is None):
+                    self.instance = ActOspfv3InstanceVrf.Input.Instance()
+                    self.instance.parent = self
+                    self._children_name_map["instance"] = "instance"
+                return self.instance
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "instance"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-            return meta._meta_table['ActOspfv3InstanceVrfRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-ospfv3-act:act-ospfv3-instance-vrf" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = ActOspfv3InstanceVrf.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_act as meta
-        return meta._meta_table['ActOspfv3InstanceVrfRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = ActOspfv3InstanceVrf()
+        return self._top_entity
 

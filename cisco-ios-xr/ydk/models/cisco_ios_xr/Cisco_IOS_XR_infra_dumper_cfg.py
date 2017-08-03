@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Exception(object):
+class Exception(Entity):
     """
     Core dump configuration commands
     
@@ -80,16 +74,61 @@ class Exception(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Exception, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "exception"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-dumper-cfg"
+
+        self.kernel_debugger = YLeaf(YType.empty, "kernel-debugger")
+
+        self.packet_memory = YLeaf(YType.boolean, "packet-memory")
+
+        self.sparse = YLeaf(YType.boolean, "sparse")
+
+        self.sparse_size = YLeaf(YType.uint32, "sparse-size")
+
         self.choice1 = None
+        self._children_name_map["choice1"] = "choice1"
+        self._children_yang_names.add("choice1")
+
         self.choice2 = None
+        self._children_name_map["choice2"] = "choice2"
+        self._children_yang_names.add("choice2")
+
         self.choice3 = None
-        self.kernel_debugger = None
-        self.packet_memory = None
-        self.sparse = None
-        self.sparse_size = None
+        self._children_name_map["choice3"] = "choice3"
+        self._children_yang_names.add("choice3")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("kernel_debugger",
+                        "packet_memory",
+                        "sparse",
+                        "sparse_size") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Exception, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Exception, self).__setattr__(name, value)
 
 
-    class Choice1(object):
+    class Choice1(Entity):
         """
         Preference of the dump location
         
@@ -122,11 +161,6 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -137,50 +171,131 @@ class Exception(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.compress = None
-            self.file_path = None
-            self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
+            super(Exception.Choice1, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "choice1"
+            self.yang_parent_name = "exception"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice1'
+            self.compress = YLeaf(YType.boolean, "compress")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.file_path = YLeaf(YType.str, "file-path")
 
-        def _has_data(self):
-            if self._is_presence:
+            self.filename = YLeaf(YType.str, "filename")
+
+            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
+
+            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("compress",
+                            "file_path",
+                            "filename",
+                            "higher_limit",
+                            "lower_limit") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Exception.Choice1, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Exception.Choice1, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.compress.is_set or
+                self.file_path.is_set or
+                self.filename.is_set or
+                self.higher_limit.is_set or
+                self.lower_limit.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.compress.yfilter != YFilter.not_set or
+                self.file_path.yfilter != YFilter.not_set or
+                self.filename.yfilter != YFilter.not_set or
+                self.higher_limit.yfilter != YFilter.not_set or
+                self.lower_limit.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "choice1" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.compress.is_set or self.compress.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.compress.get_name_leafdata())
+            if (self.file_path.is_set or self.file_path.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.file_path.get_name_leafdata())
+            if (self.filename.is_set or self.filename.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.filename.get_name_leafdata())
+            if (self.higher_limit.is_set or self.higher_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.higher_limit.get_name_leafdata())
+            if (self.lower_limit.is_set or self.lower_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.lower_limit.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "compress" or name == "file-path" or name == "filename" or name == "higher-limit" or name == "lower-limit"):
                 return True
-            if self.compress is not None:
-                return True
-
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
-                return True
-
-            if self.higher_limit is not None:
-                return True
-
-            if self.lower_limit is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-            return meta._meta_table['Exception.Choice1']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "compress"):
+                self.compress = value
+                self.compress.value_namespace = name_space
+                self.compress.value_namespace_prefix = name_space_prefix
+            if(value_path == "file-path"):
+                self.file_path = value
+                self.file_path.value_namespace = name_space
+                self.file_path.value_namespace_prefix = name_space_prefix
+            if(value_path == "filename"):
+                self.filename = value
+                self.filename.value_namespace = name_space
+                self.filename.value_namespace_prefix = name_space_prefix
+            if(value_path == "higher-limit"):
+                self.higher_limit = value
+                self.higher_limit.value_namespace = name_space
+                self.higher_limit.value_namespace_prefix = name_space_prefix
+            if(value_path == "lower-limit"):
+                self.lower_limit = value
+                self.lower_limit.value_namespace = name_space
+                self.lower_limit.value_namespace_prefix = name_space_prefix
 
 
-    class Choice3(object):
+    class Choice3(Entity):
         """
         Preference of the dump location
         
@@ -213,11 +328,6 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -228,50 +338,131 @@ class Exception(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.compress = None
-            self.file_path = None
-            self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
+            super(Exception.Choice3, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "choice3"
+            self.yang_parent_name = "exception"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice3'
+            self.compress = YLeaf(YType.boolean, "compress")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.file_path = YLeaf(YType.str, "file-path")
 
-        def _has_data(self):
-            if self._is_presence:
+            self.filename = YLeaf(YType.str, "filename")
+
+            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
+
+            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("compress",
+                            "file_path",
+                            "filename",
+                            "higher_limit",
+                            "lower_limit") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Exception.Choice3, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Exception.Choice3, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.compress.is_set or
+                self.file_path.is_set or
+                self.filename.is_set or
+                self.higher_limit.is_set or
+                self.lower_limit.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.compress.yfilter != YFilter.not_set or
+                self.file_path.yfilter != YFilter.not_set or
+                self.filename.yfilter != YFilter.not_set or
+                self.higher_limit.yfilter != YFilter.not_set or
+                self.lower_limit.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "choice3" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.compress.is_set or self.compress.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.compress.get_name_leafdata())
+            if (self.file_path.is_set or self.file_path.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.file_path.get_name_leafdata())
+            if (self.filename.is_set or self.filename.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.filename.get_name_leafdata())
+            if (self.higher_limit.is_set or self.higher_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.higher_limit.get_name_leafdata())
+            if (self.lower_limit.is_set or self.lower_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.lower_limit.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "compress" or name == "file-path" or name == "filename" or name == "higher-limit" or name == "lower-limit"):
                 return True
-            if self.compress is not None:
-                return True
-
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
-                return True
-
-            if self.higher_limit is not None:
-                return True
-
-            if self.lower_limit is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-            return meta._meta_table['Exception.Choice3']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "compress"):
+                self.compress = value
+                self.compress.value_namespace = name_space
+                self.compress.value_namespace_prefix = name_space_prefix
+            if(value_path == "file-path"):
+                self.file_path = value
+                self.file_path.value_namespace = name_space
+                self.file_path.value_namespace_prefix = name_space_prefix
+            if(value_path == "filename"):
+                self.filename = value
+                self.filename.value_namespace = name_space
+                self.filename.value_namespace_prefix = name_space_prefix
+            if(value_path == "higher-limit"):
+                self.higher_limit = value
+                self.higher_limit.value_namespace = name_space
+                self.higher_limit.value_namespace_prefix = name_space_prefix
+            if(value_path == "lower-limit"):
+                self.lower_limit = value
+                self.lower_limit.value_namespace = name_space
+                self.lower_limit.value_namespace_prefix = name_space_prefix
 
 
-    class Choice2(object):
+    class Choice2(Entity):
         """
         Preference of the dump location
         
@@ -304,11 +495,6 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -319,84 +505,227 @@ class Exception(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.compress = None
-            self.file_path = None
-            self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
+            super(Exception.Choice2, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "choice2"
+            self.yang_parent_name = "exception"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice2'
+            self.compress = YLeaf(YType.boolean, "compress")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.file_path = YLeaf(YType.str, "file-path")
 
-        def _has_data(self):
-            if self._is_presence:
+            self.filename = YLeaf(YType.str, "filename")
+
+            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
+
+            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("compress",
+                            "file_path",
+                            "filename",
+                            "higher_limit",
+                            "lower_limit") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Exception.Choice2, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Exception.Choice2, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.compress.is_set or
+                self.file_path.is_set or
+                self.filename.is_set or
+                self.higher_limit.is_set or
+                self.lower_limit.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.compress.yfilter != YFilter.not_set or
+                self.file_path.yfilter != YFilter.not_set or
+                self.filename.yfilter != YFilter.not_set or
+                self.higher_limit.yfilter != YFilter.not_set or
+                self.lower_limit.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "choice2" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.compress.is_set or self.compress.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.compress.get_name_leafdata())
+            if (self.file_path.is_set or self.file_path.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.file_path.get_name_leafdata())
+            if (self.filename.is_set or self.filename.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.filename.get_name_leafdata())
+            if (self.higher_limit.is_set or self.higher_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.higher_limit.get_name_leafdata())
+            if (self.lower_limit.is_set or self.lower_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.lower_limit.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "compress" or name == "file-path" or name == "filename" or name == "higher-limit" or name == "lower-limit"):
                 return True
-            if self.compress is not None:
-                return True
-
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
-                return True
-
-            if self.higher_limit is not None:
-                return True
-
-            if self.lower_limit is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-            return meta._meta_table['Exception.Choice2']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "compress"):
+                self.compress = value
+                self.compress.value_namespace = name_space
+                self.compress.value_namespace_prefix = name_space_prefix
+            if(value_path == "file-path"):
+                self.file_path = value
+                self.file_path.value_namespace = name_space
+                self.file_path.value_namespace_prefix = name_space_prefix
+            if(value_path == "filename"):
+                self.filename = value
+                self.filename.value_namespace = name_space
+                self.filename.value_namespace_prefix = name_space_prefix
+            if(value_path == "higher-limit"):
+                self.higher_limit = value
+                self.higher_limit.value_namespace = name_space
+                self.higher_limit.value_namespace_prefix = name_space_prefix
+            if(value_path == "lower-limit"):
+                self.lower_limit = value
+                self.lower_limit.value_namespace = name_space
+                self.lower_limit.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.kernel_debugger.is_set or
+            self.packet_memory.is_set or
+            self.sparse.is_set or
+            self.sparse_size.is_set or
+            (self.choice1 is not None) or
+            (self.choice2 is not None) or
+            (self.choice3 is not None))
 
-        return '/Cisco-IOS-XR-infra-dumper-cfg:exception'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.kernel_debugger.yfilter != YFilter.not_set or
+            self.packet_memory.yfilter != YFilter.not_set or
+            self.sparse.yfilter != YFilter.not_set or
+            self.sparse_size.yfilter != YFilter.not_set or
+            (self.choice1 is not None and self.choice1.has_operation()) or
+            (self.choice2 is not None and self.choice2.has_operation()) or
+            (self.choice3 is not None and self.choice3.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-dumper-cfg:exception" + path_buffer
 
-    def _has_data(self):
-        if self.choice1 is not None and self.choice1._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.kernel_debugger.is_set or self.kernel_debugger.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.kernel_debugger.get_name_leafdata())
+        if (self.packet_memory.is_set or self.packet_memory.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.packet_memory.get_name_leafdata())
+        if (self.sparse.is_set or self.sparse.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.sparse.get_name_leafdata())
+        if (self.sparse_size.is_set or self.sparse_size.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.sparse_size.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "choice1"):
+            if (self.choice1 is None):
+                self.choice1 = Exception.Choice1()
+                self.choice1.parent = self
+                self._children_name_map["choice1"] = "choice1"
+            return self.choice1
+
+        if (child_yang_name == "choice2"):
+            if (self.choice2 is None):
+                self.choice2 = Exception.Choice2()
+                self.choice2.parent = self
+                self._children_name_map["choice2"] = "choice2"
+            return self.choice2
+
+        if (child_yang_name == "choice3"):
+            if (self.choice3 is None):
+                self.choice3 = Exception.Choice3()
+                self.choice3.parent = self
+                self._children_name_map["choice3"] = "choice3"
+            return self.choice3
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "choice1" or name == "choice2" or name == "choice3" or name == "kernel-debugger" or name == "packet-memory" or name == "sparse" or name == "sparse-size"):
             return True
-
-        if self.choice2 is not None and self.choice2._has_data():
-            return True
-
-        if self.choice3 is not None and self.choice3._has_data():
-            return True
-
-        if self.kernel_debugger is not None:
-            return True
-
-        if self.packet_memory is not None:
-            return True
-
-        if self.sparse is not None:
-            return True
-
-        if self.sparse_size is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-        return meta._meta_table['Exception']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "kernel-debugger"):
+            self.kernel_debugger = value
+            self.kernel_debugger.value_namespace = name_space
+            self.kernel_debugger.value_namespace_prefix = name_space_prefix
+        if(value_path == "packet-memory"):
+            self.packet_memory = value
+            self.packet_memory.value_namespace = name_space
+            self.packet_memory.value_namespace_prefix = name_space_prefix
+        if(value_path == "sparse"):
+            self.sparse = value
+            self.sparse.value_namespace = name_space
+            self.sparse.value_namespace_prefix = name_space_prefix
+        if(value_path == "sparse-size"):
+            self.sparse_size = value
+            self.sparse_size.value_namespace = name_space
+            self.sparse_size.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Exception()
+        return self._top_entity
 

@@ -6,21 +6,15 @@ version of this MIB module is part of RFC 4113;
 see the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class UdpMib(object):
+class UdpMib(Entity):
     """
     
     
@@ -49,15 +43,29 @@ class UdpMib(object):
     _revision = '2005-05-20'
 
     def __init__(self):
+        super(UdpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "UDP-MIB"
+        self.yang_parent_name = "UDP-MIB"
+
         self.udp = UdpMib.Udp()
         self.udp.parent = self
+        self._children_name_map["udp"] = "udp"
+        self._children_yang_names.add("udp")
+
         self.udpendpointtable = UdpMib.Udpendpointtable()
         self.udpendpointtable.parent = self
+        self._children_name_map["udpendpointtable"] = "udpEndpointTable"
+        self._children_yang_names.add("udpEndpointTable")
+
         self.udptable = UdpMib.Udptable()
         self.udptable.parent = self
+        self._children_name_map["udptable"] = "udpTable"
+        self._children_yang_names.add("udpTable")
 
 
-    class Udp(object):
+    class Udp(Entity):
         """
         
         
@@ -111,51 +119,141 @@ class UdpMib(object):
         _revision = '2005-05-20'
 
         def __init__(self):
-            self.parent = None
-            self.udphcindatagrams = None
-            self.udphcoutdatagrams = None
-            self.udpindatagrams = None
-            self.udpinerrors = None
-            self.udpnoports = None
-            self.udpoutdatagrams = None
+            super(UdpMib.Udp, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "udp"
+            self.yang_parent_name = "UDP-MIB"
 
-            return '/UDP-MIB:UDP-MIB/UDP-MIB:udp'
+            self.udphcindatagrams = YLeaf(YType.uint64, "udpHCInDatagrams")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.udphcoutdatagrams = YLeaf(YType.uint64, "udpHCOutDatagrams")
+
+            self.udpindatagrams = YLeaf(YType.uint32, "udpInDatagrams")
+
+            self.udpinerrors = YLeaf(YType.uint32, "udpInErrors")
+
+            self.udpnoports = YLeaf(YType.uint32, "udpNoPorts")
+
+            self.udpoutdatagrams = YLeaf(YType.uint32, "udpOutDatagrams")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("udphcindatagrams",
+                            "udphcoutdatagrams",
+                            "udpindatagrams",
+                            "udpinerrors",
+                            "udpnoports",
+                            "udpoutdatagrams") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(UdpMib.Udp, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(UdpMib.Udp, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.udphcindatagrams.is_set or
+                self.udphcoutdatagrams.is_set or
+                self.udpindatagrams.is_set or
+                self.udpinerrors.is_set or
+                self.udpnoports.is_set or
+                self.udpoutdatagrams.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.udphcindatagrams.yfilter != YFilter.not_set or
+                self.udphcoutdatagrams.yfilter != YFilter.not_set or
+                self.udpindatagrams.yfilter != YFilter.not_set or
+                self.udpinerrors.yfilter != YFilter.not_set or
+                self.udpnoports.yfilter != YFilter.not_set or
+                self.udpoutdatagrams.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "udp" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "UDP-MIB:UDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.udphcindatagrams.is_set or self.udphcindatagrams.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udphcindatagrams.get_name_leafdata())
+            if (self.udphcoutdatagrams.is_set or self.udphcoutdatagrams.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udphcoutdatagrams.get_name_leafdata())
+            if (self.udpindatagrams.is_set or self.udpindatagrams.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udpindatagrams.get_name_leafdata())
+            if (self.udpinerrors.is_set or self.udpinerrors.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udpinerrors.get_name_leafdata())
+            if (self.udpnoports.is_set or self.udpnoports.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udpnoports.get_name_leafdata())
+            if (self.udpoutdatagrams.is_set or self.udpoutdatagrams.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.udpoutdatagrams.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "udpHCInDatagrams" or name == "udpHCOutDatagrams" or name == "udpInDatagrams" or name == "udpInErrors" or name == "udpNoPorts" or name == "udpOutDatagrams"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.udphcindatagrams is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "udpHCInDatagrams"):
+                self.udphcindatagrams = value
+                self.udphcindatagrams.value_namespace = name_space
+                self.udphcindatagrams.value_namespace_prefix = name_space_prefix
+            if(value_path == "udpHCOutDatagrams"):
+                self.udphcoutdatagrams = value
+                self.udphcoutdatagrams.value_namespace = name_space
+                self.udphcoutdatagrams.value_namespace_prefix = name_space_prefix
+            if(value_path == "udpInDatagrams"):
+                self.udpindatagrams = value
+                self.udpindatagrams.value_namespace = name_space
+                self.udpindatagrams.value_namespace_prefix = name_space_prefix
+            if(value_path == "udpInErrors"):
+                self.udpinerrors = value
+                self.udpinerrors.value_namespace = name_space
+                self.udpinerrors.value_namespace_prefix = name_space_prefix
+            if(value_path == "udpNoPorts"):
+                self.udpnoports = value
+                self.udpnoports.value_namespace = name_space
+                self.udpnoports.value_namespace_prefix = name_space_prefix
+            if(value_path == "udpOutDatagrams"):
+                self.udpoutdatagrams = value
+                self.udpoutdatagrams.value_namespace = name_space
+                self.udpoutdatagrams.value_namespace_prefix = name_space_prefix
 
-            if self.udphcoutdatagrams is not None:
-                return True
 
-            if self.udpindatagrams is not None:
-                return True
-
-            if self.udpinerrors is not None:
-                return True
-
-            if self.udpnoports is not None:
-                return True
-
-            if self.udpoutdatagrams is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-            return meta._meta_table['UdpMib.Udp']['meta_info']
-
-
-    class Udptable(object):
+    class Udptable(Entity):
         """
         A table containing IPv4\-specific UDP listener
         information.  It contains information about all local
@@ -179,13 +277,39 @@ class UdpMib(object):
         _revision = '2005-05-20'
 
         def __init__(self):
-            self.parent = None
-            self.udpentry = YList()
-            self.udpentry.parent = self
-            self.udpentry.name = 'udpentry'
+            super(UdpMib.Udptable, self).__init__()
+
+            self.yang_name = "udpTable"
+            self.yang_parent_name = "UDP-MIB"
+
+            self.udpentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(UdpMib.Udptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(UdpMib.Udptable, self).__setattr__(name, value)
 
 
-        class Udpentry(object):
+        class Udpentry(Entity):
             """
             Information about a particular current UDP listener.
             
@@ -215,61 +339,154 @@ class UdpMib(object):
             _revision = '2005-05-20'
 
             def __init__(self):
-                self.parent = None
-                self.udplocaladdress = None
-                self.udplocalport = None
+                super(UdpMib.Udptable.Udpentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.udplocaladdress is None:
-                    raise YPYModelError('Key property udplocaladdress is None')
-                if self.udplocalport is None:
-                    raise YPYModelError('Key property udplocalport is None')
+                self.yang_name = "udpEntry"
+                self.yang_parent_name = "udpTable"
 
-                return '/UDP-MIB:UDP-MIB/UDP-MIB:udpTable/UDP-MIB:udpEntry[UDP-MIB:udpLocalAddress = ' + str(self.udplocaladdress) + '][UDP-MIB:udpLocalPort = ' + str(self.udplocalport) + ']'
+                self.udplocaladdress = YLeaf(YType.str, "udpLocalAddress")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.udplocalport = YLeaf(YType.int32, "udpLocalPort")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("udplocaladdress",
+                                "udplocalport") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(UdpMib.Udptable.Udpentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(UdpMib.Udptable.Udpentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.udplocaladdress.is_set or
+                    self.udplocalport.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.udplocaladdress.yfilter != YFilter.not_set or
+                    self.udplocalport.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "udpEntry" + "[udpLocalAddress='" + self.udplocaladdress.get() + "']" + "[udpLocalPort='" + self.udplocalport.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "UDP-MIB:UDP-MIB/udpTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.udplocaladdress.is_set or self.udplocaladdress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udplocaladdress.get_name_leafdata())
+                if (self.udplocalport.is_set or self.udplocalport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udplocalport.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "udpLocalAddress" or name == "udpLocalPort"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.udplocaladdress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "udpLocalAddress"):
+                    self.udplocaladdress = value
+                    self.udplocaladdress.value_namespace = name_space
+                    self.udplocaladdress.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpLocalPort"):
+                    self.udplocalport = value
+                    self.udplocalport.value_namespace = name_space
+                    self.udplocalport.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.udpentry:
+                if (c.has_data()):
                     return True
-
-                if self.udplocalport is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-                return meta._meta_table['UdpMib.Udptable.Udpentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/UDP-MIB:UDP-MIB/UDP-MIB:udpTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.udpentry is not None:
-                for child_ref in self.udpentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.udpentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "udpTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "UDP-MIB:UDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "udpEntry"):
+                for c in self.udpentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = UdpMib.Udptable.Udpentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.udpentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "udpEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-            return meta._meta_table['UdpMib.Udptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Udpendpointtable(object):
+    class Udpendpointtable(Entity):
         """
         A table containing information about this entity's UDP
         endpoints on which a local application is currently
@@ -331,13 +548,39 @@ class UdpMib(object):
         _revision = '2005-05-20'
 
         def __init__(self):
-            self.parent = None
-            self.udpendpointentry = YList()
-            self.udpendpointentry.parent = self
-            self.udpendpointentry.name = 'udpendpointentry'
+            super(UdpMib.Udpendpointtable, self).__init__()
+
+            self.yang_name = "udpEndpointTable"
+            self.yang_parent_name = "UDP-MIB"
+
+            self.udpendpointentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(UdpMib.Udpendpointtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(UdpMib.Udpendpointtable, self).__setattr__(name, value)
 
 
-        class Udpendpointentry(object):
+        class Udpendpointentry(Entity):
             """
             Information about a particular current UDP endpoint.
             
@@ -351,7 +594,7 @@ class UdpMib(object):
             .. attribute:: udpendpointlocaladdresstype  <key>
             
             	The address type of udpEndpointLocalAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all local IP addresses are accepted
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: udpendpointlocaladdress  <key>
             
@@ -370,7 +613,7 @@ class UdpMib(object):
             .. attribute:: udpendpointremoteaddresstype  <key>
             
             	The address type of udpEndpointRemoteAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all remote IP addresses are accepted.  Also, note that some combinations of  udpEndpointLocalAdressType and udpEndpointRemoteAddressType are not supported.  In particular, if the value of this object is not unknown(0), it is expected to always refer to the same IP version as udpEndpointLocalAddressType
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: udpendpointremoteaddress  <key>
             
@@ -408,117 +651,285 @@ class UdpMib(object):
             _revision = '2005-05-20'
 
             def __init__(self):
-                self.parent = None
-                self.udpendpointlocaladdresstype = None
-                self.udpendpointlocaladdress = None
-                self.udpendpointlocalport = None
-                self.udpendpointremoteaddresstype = None
-                self.udpendpointremoteaddress = None
-                self.udpendpointremoteport = None
-                self.udpendpointinstance = None
-                self.udpendpointprocess = None
+                super(UdpMib.Udpendpointtable.Udpendpointentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.udpendpointlocaladdresstype is None:
-                    raise YPYModelError('Key property udpendpointlocaladdresstype is None')
-                if self.udpendpointlocaladdress is None:
-                    raise YPYModelError('Key property udpendpointlocaladdress is None')
-                if self.udpendpointlocalport is None:
-                    raise YPYModelError('Key property udpendpointlocalport is None')
-                if self.udpendpointremoteaddresstype is None:
-                    raise YPYModelError('Key property udpendpointremoteaddresstype is None')
-                if self.udpendpointremoteaddress is None:
-                    raise YPYModelError('Key property udpendpointremoteaddress is None')
-                if self.udpendpointremoteport is None:
-                    raise YPYModelError('Key property udpendpointremoteport is None')
-                if self.udpendpointinstance is None:
-                    raise YPYModelError('Key property udpendpointinstance is None')
+                self.yang_name = "udpEndpointEntry"
+                self.yang_parent_name = "udpEndpointTable"
 
-                return '/UDP-MIB:UDP-MIB/UDP-MIB:udpEndpointTable/UDP-MIB:udpEndpointEntry[UDP-MIB:udpEndpointLocalAddressType = ' + str(self.udpendpointlocaladdresstype) + '][UDP-MIB:udpEndpointLocalAddress = ' + str(self.udpendpointlocaladdress) + '][UDP-MIB:udpEndpointLocalPort = ' + str(self.udpendpointlocalport) + '][UDP-MIB:udpEndpointRemoteAddressType = ' + str(self.udpendpointremoteaddresstype) + '][UDP-MIB:udpEndpointRemoteAddress = ' + str(self.udpendpointremoteaddress) + '][UDP-MIB:udpEndpointRemotePort = ' + str(self.udpendpointremoteport) + '][UDP-MIB:udpEndpointInstance = ' + str(self.udpendpointinstance) + ']'
+                self.udpendpointlocaladdresstype = YLeaf(YType.enumeration, "udpEndpointLocalAddressType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.udpendpointlocaladdress = YLeaf(YType.str, "udpEndpointLocalAddress")
+
+                self.udpendpointlocalport = YLeaf(YType.uint16, "udpEndpointLocalPort")
+
+                self.udpendpointremoteaddresstype = YLeaf(YType.enumeration, "udpEndpointRemoteAddressType")
+
+                self.udpendpointremoteaddress = YLeaf(YType.str, "udpEndpointRemoteAddress")
+
+                self.udpendpointremoteport = YLeaf(YType.uint16, "udpEndpointRemotePort")
+
+                self.udpendpointinstance = YLeaf(YType.uint32, "udpEndpointInstance")
+
+                self.udpendpointprocess = YLeaf(YType.uint32, "udpEndpointProcess")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("udpendpointlocaladdresstype",
+                                "udpendpointlocaladdress",
+                                "udpendpointlocalport",
+                                "udpendpointremoteaddresstype",
+                                "udpendpointremoteaddress",
+                                "udpendpointremoteport",
+                                "udpendpointinstance",
+                                "udpendpointprocess") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(UdpMib.Udpendpointtable.Udpendpointentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(UdpMib.Udpendpointtable.Udpendpointentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.udpendpointlocaladdresstype.is_set or
+                    self.udpendpointlocaladdress.is_set or
+                    self.udpendpointlocalport.is_set or
+                    self.udpendpointremoteaddresstype.is_set or
+                    self.udpendpointremoteaddress.is_set or
+                    self.udpendpointremoteport.is_set or
+                    self.udpendpointinstance.is_set or
+                    self.udpendpointprocess.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.udpendpointlocaladdresstype.yfilter != YFilter.not_set or
+                    self.udpendpointlocaladdress.yfilter != YFilter.not_set or
+                    self.udpendpointlocalport.yfilter != YFilter.not_set or
+                    self.udpendpointremoteaddresstype.yfilter != YFilter.not_set or
+                    self.udpendpointremoteaddress.yfilter != YFilter.not_set or
+                    self.udpendpointremoteport.yfilter != YFilter.not_set or
+                    self.udpendpointinstance.yfilter != YFilter.not_set or
+                    self.udpendpointprocess.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + self.udpendpointlocaladdresstype.get() + "']" + "[udpEndpointLocalAddress='" + self.udpendpointlocaladdress.get() + "']" + "[udpEndpointLocalPort='" + self.udpendpointlocalport.get() + "']" + "[udpEndpointRemoteAddressType='" + self.udpendpointremoteaddresstype.get() + "']" + "[udpEndpointRemoteAddress='" + self.udpendpointremoteaddress.get() + "']" + "[udpEndpointRemotePort='" + self.udpendpointremoteport.get() + "']" + "[udpEndpointInstance='" + self.udpendpointinstance.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "UDP-MIB:UDP-MIB/udpEndpointTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.udpendpointlocaladdresstype.is_set or self.udpendpointlocaladdresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointlocaladdresstype.get_name_leafdata())
+                if (self.udpendpointlocaladdress.is_set or self.udpendpointlocaladdress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointlocaladdress.get_name_leafdata())
+                if (self.udpendpointlocalport.is_set or self.udpendpointlocalport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointlocalport.get_name_leafdata())
+                if (self.udpendpointremoteaddresstype.is_set or self.udpendpointremoteaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointremoteaddresstype.get_name_leafdata())
+                if (self.udpendpointremoteaddress.is_set or self.udpendpointremoteaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointremoteaddress.get_name_leafdata())
+                if (self.udpendpointremoteport.is_set or self.udpendpointremoteport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointremoteport.get_name_leafdata())
+                if (self.udpendpointinstance.is_set or self.udpendpointinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointinstance.get_name_leafdata())
+                if (self.udpendpointprocess.is_set or self.udpendpointprocess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.udpendpointprocess.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "udpEndpointLocalAddressType" or name == "udpEndpointLocalAddress" or name == "udpEndpointLocalPort" or name == "udpEndpointRemoteAddressType" or name == "udpEndpointRemoteAddress" or name == "udpEndpointRemotePort" or name == "udpEndpointInstance" or name == "udpEndpointProcess"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.udpendpointlocaladdresstype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "udpEndpointLocalAddressType"):
+                    self.udpendpointlocaladdresstype = value
+                    self.udpendpointlocaladdresstype.value_namespace = name_space
+                    self.udpendpointlocaladdresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointLocalAddress"):
+                    self.udpendpointlocaladdress = value
+                    self.udpendpointlocaladdress.value_namespace = name_space
+                    self.udpendpointlocaladdress.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointLocalPort"):
+                    self.udpendpointlocalport = value
+                    self.udpendpointlocalport.value_namespace = name_space
+                    self.udpendpointlocalport.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointRemoteAddressType"):
+                    self.udpendpointremoteaddresstype = value
+                    self.udpendpointremoteaddresstype.value_namespace = name_space
+                    self.udpendpointremoteaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointRemoteAddress"):
+                    self.udpendpointremoteaddress = value
+                    self.udpendpointremoteaddress.value_namespace = name_space
+                    self.udpendpointremoteaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointRemotePort"):
+                    self.udpendpointremoteport = value
+                    self.udpendpointremoteport.value_namespace = name_space
+                    self.udpendpointremoteport.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointInstance"):
+                    self.udpendpointinstance = value
+                    self.udpendpointinstance.value_namespace = name_space
+                    self.udpendpointinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "udpEndpointProcess"):
+                    self.udpendpointprocess = value
+                    self.udpendpointprocess.value_namespace = name_space
+                    self.udpendpointprocess.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.udpendpointentry:
+                if (c.has_data()):
                     return True
-
-                if self.udpendpointlocaladdress is not None:
-                    return True
-
-                if self.udpendpointlocalport is not None:
-                    return True
-
-                if self.udpendpointremoteaddresstype is not None:
-                    return True
-
-                if self.udpendpointremoteaddress is not None:
-                    return True
-
-                if self.udpendpointremoteport is not None:
-                    return True
-
-                if self.udpendpointinstance is not None:
-                    return True
-
-                if self.udpendpointprocess is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-                return meta._meta_table['UdpMib.Udpendpointtable.Udpendpointentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/UDP-MIB:UDP-MIB/UDP-MIB:udpEndpointTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.udpendpointentry is not None:
-                for child_ref in self.udpendpointentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.udpendpointentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "udpEndpointTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "UDP-MIB:UDP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "udpEndpointEntry"):
+                for c in self.udpendpointentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = UdpMib.Udpendpointtable.Udpendpointentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.udpendpointentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "udpEndpointEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-            return meta._meta_table['UdpMib.Udpendpointtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.udp is not None and self.udp.has_data()) or
+            (self.udpendpointtable is not None and self.udpendpointtable.has_data()) or
+            (self.udptable is not None and self.udptable.has_data()))
 
-        return '/UDP-MIB:UDP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.udp is not None and self.udp.has_operation()) or
+            (self.udpendpointtable is not None and self.udpendpointtable.has_operation()) or
+            (self.udptable is not None and self.udptable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "UDP-MIB:UDP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "udp"):
+            if (self.udp is None):
+                self.udp = UdpMib.Udp()
+                self.udp.parent = self
+                self._children_name_map["udp"] = "udp"
+            return self.udp
+
+        if (child_yang_name == "udpEndpointTable"):
+            if (self.udpendpointtable is None):
+                self.udpendpointtable = UdpMib.Udpendpointtable()
+                self.udpendpointtable.parent = self
+                self._children_name_map["udpendpointtable"] = "udpEndpointTable"
+            return self.udpendpointtable
+
+        if (child_yang_name == "udpTable"):
+            if (self.udptable is None):
+                self.udptable = UdpMib.Udptable()
+                self.udptable.parent = self
+                self._children_name_map["udptable"] = "udpTable"
+            return self.udptable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "udp" or name == "udpEndpointTable" or name == "udpTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.udp is not None and self.udp._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.udpendpointtable is not None and self.udpendpointtable._has_data():
-            return True
-
-        if self.udptable is not None and self.udptable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _UDP_MIB as meta
-        return meta._meta_table['UdpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = UdpMib()
+        return self._top_entity
 

@@ -12,21 +12,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class IpTcp(object):
+class IpTcp(Entity):
     """
     Global IP TCP configuration
     
@@ -121,20 +115,73 @@ class IpTcp(object):
     _revision = '2016-02-26'
 
     def __init__(self):
-        self.accept_rate = None
+        super(IpTcp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ip-tcp"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-cfg"
+
+        self.accept_rate = YLeaf(YType.uint32, "accept-rate")
+
+        self.maximum_segment_size = YLeaf(YType.uint32, "maximum-segment-size")
+
+        self.path_mtu_discovery = YLeaf(YType.int32, "path-mtu-discovery")
+
+        self.receive_q = YLeaf(YType.uint32, "receive-q")
+
+        self.selective_ack = YLeaf(YType.empty, "selective-ack")
+
+        self.syn_wait_time = YLeaf(YType.uint32, "syn-wait-time")
+
+        self.timestamp = YLeaf(YType.empty, "timestamp")
+
+        self.window_size = YLeaf(YType.uint32, "window-size")
+
         self.directory = None
-        self.maximum_segment_size = None
+        self._children_name_map["directory"] = "directory"
+        self._children_yang_names.add("directory")
+
         self.num_thread = None
-        self.path_mtu_discovery = None
-        self.receive_q = None
-        self.selective_ack = None
-        self.syn_wait_time = None
+        self._children_name_map["num_thread"] = "num-thread"
+        self._children_yang_names.add("num-thread")
+
         self.throttle = None
-        self.timestamp = None
-        self.window_size = None
+        self._children_name_map["throttle"] = "throttle"
+        self._children_yang_names.add("throttle")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("accept_rate",
+                        "maximum_segment_size",
+                        "path_mtu_discovery",
+                        "receive_q",
+                        "selective_ack",
+                        "syn_wait_time",
+                        "timestamp",
+                        "window_size") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(IpTcp, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(IpTcp, self).__setattr__(name, value)
 
 
-    class Directory(object):
+    class Directory(Entity):
         """
         TCP directory details
         
@@ -165,11 +212,6 @@ class IpTcp(object):
         
         	**units**\: byte
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -180,42 +222,109 @@ class IpTcp(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.directoryname = None
-            self.max_debug_files = None
-            self.max_file_size_files = None
+            super(IpTcp.Directory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "directory"
+            self.yang_parent_name = "ip-tcp"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:directory'
+            self.directoryname = YLeaf(YType.str, "directoryname")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.max_debug_files = YLeaf(YType.uint32, "max-debug-files")
 
-        def _has_data(self):
-            if self._is_presence:
+            self.max_file_size_files = YLeaf(YType.uint32, "max-file-size-files")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("directoryname",
+                            "max_debug_files",
+                            "max_file_size_files") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IpTcp.Directory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IpTcp.Directory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.directoryname.is_set or
+                self.max_debug_files.is_set or
+                self.max_file_size_files.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.directoryname.yfilter != YFilter.not_set or
+                self.max_debug_files.yfilter != YFilter.not_set or
+                self.max_file_size_files.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "directory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.directoryname.is_set or self.directoryname.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.directoryname.get_name_leafdata())
+            if (self.max_debug_files.is_set or self.max_debug_files.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.max_debug_files.get_name_leafdata())
+            if (self.max_file_size_files.is_set or self.max_file_size_files.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.max_file_size_files.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "directoryname" or name == "max-debug-files" or name == "max-file-size-files"):
                 return True
-            if self.directoryname is not None:
-                return True
-
-            if self.max_debug_files is not None:
-                return True
-
-            if self.max_file_size_files is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.Directory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "directoryname"):
+                self.directoryname = value
+                self.directoryname.value_namespace = name_space
+                self.directoryname.value_namespace_prefix = name_space_prefix
+            if(value_path == "max-debug-files"):
+                self.max_debug_files = value
+                self.max_debug_files.value_namespace = name_space
+                self.max_debug_files.value_namespace_prefix = name_space_prefix
+            if(value_path == "max-file-size-files"):
+                self.max_file_size_files = value
+                self.max_file_size_files.value_namespace = name_space
+                self.max_file_size_files.value_namespace_prefix = name_space_prefix
 
 
-    class Throttle(object):
+    class Throttle(Entity):
         """
         Throttle TCP receive buffer (in percentage)
         
@@ -237,11 +346,6 @@ class IpTcp(object):
         
         	**mandatory**\: True
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -252,38 +356,98 @@ class IpTcp(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.tcpmaxthrottle = None
-            self.tcpmin_throttle = None
+            super(IpTcp.Throttle, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "throttle"
+            self.yang_parent_name = "ip-tcp"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:throttle'
+            self.tcpmaxthrottle = YLeaf(YType.uint32, "tcpmaxthrottle")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.tcpmin_throttle = YLeaf(YType.uint32, "tcpmin-throttle")
 
-        def _has_data(self):
-            if self._is_presence:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("tcpmaxthrottle",
+                            "tcpmin_throttle") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IpTcp.Throttle, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IpTcp.Throttle, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.tcpmaxthrottle.is_set or
+                self.tcpmin_throttle.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.tcpmaxthrottle.yfilter != YFilter.not_set or
+                self.tcpmin_throttle.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "throttle" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.tcpmaxthrottle.is_set or self.tcpmaxthrottle.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tcpmaxthrottle.get_name_leafdata())
+            if (self.tcpmin_throttle.is_set or self.tcpmin_throttle.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tcpmin_throttle.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "tcpmaxthrottle" or name == "tcpmin-throttle"):
                 return True
-            if self.tcpmaxthrottle is not None:
-                return True
-
-            if self.tcpmin_throttle is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.Throttle']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "tcpmaxthrottle"):
+                self.tcpmaxthrottle = value
+                self.tcpmaxthrottle.value_namespace = name_space
+                self.tcpmaxthrottle.value_namespace_prefix = name_space_prefix
+            if(value_path == "tcpmin-throttle"):
+                self.tcpmin_throttle = value
+                self.tcpmin_throttle.value_namespace = name_space
+                self.tcpmin_throttle.value_namespace_prefix = name_space_prefix
 
 
-    class NumThread(object):
+    class NumThread(Entity):
         """
         TCP InQueue and OutQueue threads
         
@@ -305,11 +469,6 @@ class IpTcp(object):
         
         	**mandatory**\: True
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -320,88 +479,230 @@ class IpTcp(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.tcp_in_q_threads = None
-            self.tcp_out_q_threads = None
+            super(IpTcp.NumThread, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "num-thread"
+            self.yang_parent_name = "ip-tcp"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:num-thread'
+            self.tcp_in_q_threads = YLeaf(YType.uint32, "tcp-in-q-threads")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.tcp_out_q_threads = YLeaf(YType.uint32, "tcp-out-q-threads")
 
-        def _has_data(self):
-            if self._is_presence:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("tcp_in_q_threads",
+                            "tcp_out_q_threads") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IpTcp.NumThread, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IpTcp.NumThread, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.tcp_in_q_threads.is_set or
+                self.tcp_out_q_threads.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.tcp_in_q_threads.yfilter != YFilter.not_set or
+                self.tcp_out_q_threads.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "num-thread" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.tcp_in_q_threads.is_set or self.tcp_in_q_threads.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tcp_in_q_threads.get_name_leafdata())
+            if (self.tcp_out_q_threads.is_set or self.tcp_out_q_threads.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tcp_out_q_threads.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "tcp-in-q-threads" or name == "tcp-out-q-threads"):
                 return True
-            if self.tcp_in_q_threads is not None:
-                return True
-
-            if self.tcp_out_q_threads is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.NumThread']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "tcp-in-q-threads"):
+                self.tcp_in_q_threads = value
+                self.tcp_in_q_threads.value_namespace = name_space
+                self.tcp_in_q_threads.value_namespace_prefix = name_space_prefix
+            if(value_path == "tcp-out-q-threads"):
+                self.tcp_out_q_threads = value
+                self.tcp_out_q_threads.value_namespace = name_space
+                self.tcp_out_q_threads.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.accept_rate.is_set or
+            self.maximum_segment_size.is_set or
+            self.path_mtu_discovery.is_set or
+            self.receive_q.is_set or
+            self.selective_ack.is_set or
+            self.syn_wait_time.is_set or
+            self.timestamp.is_set or
+            self.window_size.is_set or
+            (self.directory is not None) or
+            (self.num_thread is not None) or
+            (self.throttle is not None))
 
-        return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.accept_rate.yfilter != YFilter.not_set or
+            self.maximum_segment_size.yfilter != YFilter.not_set or
+            self.path_mtu_discovery.yfilter != YFilter.not_set or
+            self.receive_q.yfilter != YFilter.not_set or
+            self.selective_ack.yfilter != YFilter.not_set or
+            self.syn_wait_time.yfilter != YFilter.not_set or
+            self.timestamp.yfilter != YFilter.not_set or
+            self.window_size.yfilter != YFilter.not_set or
+            (self.directory is not None and self.directory.has_operation()) or
+            (self.num_thread is not None and self.num_thread.has_operation()) or
+            (self.throttle is not None and self.throttle.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp" + path_buffer
 
-    def _has_data(self):
-        if self.accept_rate is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.accept_rate.is_set or self.accept_rate.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.accept_rate.get_name_leafdata())
+        if (self.maximum_segment_size.is_set or self.maximum_segment_size.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.maximum_segment_size.get_name_leafdata())
+        if (self.path_mtu_discovery.is_set or self.path_mtu_discovery.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.path_mtu_discovery.get_name_leafdata())
+        if (self.receive_q.is_set or self.receive_q.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.receive_q.get_name_leafdata())
+        if (self.selective_ack.is_set or self.selective_ack.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.selective_ack.get_name_leafdata())
+        if (self.syn_wait_time.is_set or self.syn_wait_time.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.syn_wait_time.get_name_leafdata())
+        if (self.timestamp.is_set or self.timestamp.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.timestamp.get_name_leafdata())
+        if (self.window_size.is_set or self.window_size.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.window_size.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "directory"):
+            if (self.directory is None):
+                self.directory = IpTcp.Directory()
+                self.directory.parent = self
+                self._children_name_map["directory"] = "directory"
+            return self.directory
+
+        if (child_yang_name == "num-thread"):
+            if (self.num_thread is None):
+                self.num_thread = IpTcp.NumThread()
+                self.num_thread.parent = self
+                self._children_name_map["num_thread"] = "num-thread"
+            return self.num_thread
+
+        if (child_yang_name == "throttle"):
+            if (self.throttle is None):
+                self.throttle = IpTcp.Throttle()
+                self.throttle.parent = self
+                self._children_name_map["throttle"] = "throttle"
+            return self.throttle
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "directory" or name == "num-thread" or name == "throttle" or name == "accept-rate" or name == "maximum-segment-size" or name == "path-mtu-discovery" or name == "receive-q" or name == "selective-ack" or name == "syn-wait-time" or name == "timestamp" or name == "window-size"):
             return True
-
-        if self.directory is not None and self.directory._has_data():
-            return True
-
-        if self.maximum_segment_size is not None:
-            return True
-
-        if self.num_thread is not None and self.num_thread._has_data():
-            return True
-
-        if self.path_mtu_discovery is not None:
-            return True
-
-        if self.receive_q is not None:
-            return True
-
-        if self.selective_ack is not None:
-            return True
-
-        if self.syn_wait_time is not None:
-            return True
-
-        if self.throttle is not None and self.throttle._has_data():
-            return True
-
-        if self.timestamp is not None:
-            return True
-
-        if self.window_size is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-        return meta._meta_table['IpTcp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "accept-rate"):
+            self.accept_rate = value
+            self.accept_rate.value_namespace = name_space
+            self.accept_rate.value_namespace_prefix = name_space_prefix
+        if(value_path == "maximum-segment-size"):
+            self.maximum_segment_size = value
+            self.maximum_segment_size.value_namespace = name_space
+            self.maximum_segment_size.value_namespace_prefix = name_space_prefix
+        if(value_path == "path-mtu-discovery"):
+            self.path_mtu_discovery = value
+            self.path_mtu_discovery.value_namespace = name_space
+            self.path_mtu_discovery.value_namespace_prefix = name_space_prefix
+        if(value_path == "receive-q"):
+            self.receive_q = value
+            self.receive_q.value_namespace = name_space
+            self.receive_q.value_namespace_prefix = name_space_prefix
+        if(value_path == "selective-ack"):
+            self.selective_ack = value
+            self.selective_ack.value_namespace = name_space
+            self.selective_ack.value_namespace_prefix = name_space_prefix
+        if(value_path == "syn-wait-time"):
+            self.syn_wait_time = value
+            self.syn_wait_time.value_namespace = name_space
+            self.syn_wait_time.value_namespace_prefix = name_space_prefix
+        if(value_path == "timestamp"):
+            self.timestamp = value
+            self.timestamp.value_namespace = name_space
+            self.timestamp.value_namespace_prefix = name_space_prefix
+        if(value_path == "window-size"):
+            self.window_size = value
+            self.window_size.value_namespace = name_space
+            self.window_size.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = IpTcp()
+        return self._top_entity
 
-class Ip(object):
+class Ip(Entity):
     """
     ip
     
@@ -423,13 +724,24 @@ class Ip(object):
     _revision = '2016-02-26'
 
     def __init__(self):
+        super(Ip, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ip"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-cfg"
+
         self.cinetd = Ip.Cinetd()
         self.cinetd.parent = self
+        self._children_name_map["cinetd"] = "cinetd"
+        self._children_yang_names.add("cinetd")
+
         self.forward_protocol = Ip.ForwardProtocol()
         self.forward_protocol.parent = self
+        self._children_name_map["forward_protocol"] = "forward-protocol"
+        self._children_yang_names.add("forward-protocol")
 
 
-    class Cinetd(object):
+    class Cinetd(Entity):
         """
         Cinetd configuration data
         
@@ -446,12 +758,18 @@ class Ip(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
+            super(Ip.Cinetd, self).__init__()
+
+            self.yang_name = "cinetd"
+            self.yang_parent_name = "ip"
+
             self.services = Ip.Cinetd.Services()
             self.services.parent = self
+            self._children_name_map["services"] = "services"
+            self._children_yang_names.add("services")
 
 
-        class Services(object):
+        class Services(Entity):
             """
             Describing services of cinetd
             
@@ -478,16 +796,28 @@ class Ip(object):
             _revision = '2016-02-26'
 
             def __init__(self):
-                self.parent = None
+                super(Ip.Cinetd.Services, self).__init__()
+
+                self.yang_name = "services"
+                self.yang_parent_name = "cinetd"
+
                 self.ipv4 = Ip.Cinetd.Services.Ipv4()
                 self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+                self._children_yang_names.add("ipv4")
+
                 self.ipv6 = Ip.Cinetd.Services.Ipv6()
                 self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+                self._children_yang_names.add("ipv6")
+
                 self.vrfs = Ip.Cinetd.Services.Vrfs()
                 self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+                self._children_yang_names.add("vrfs")
 
 
-            class Ipv4(object):
+            class Ipv4(Entity):
                 """
                 IPV4 related services
                 
@@ -504,12 +834,18 @@ class Ip(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Ip.Cinetd.Services.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "services"
+
                     self.small_servers = Ip.Cinetd.Services.Ipv4.SmallServers()
                     self.small_servers.parent = self
+                    self._children_name_map["small_servers"] = "small-servers"
+                    self._children_yang_names.add("small-servers")
 
 
-                class SmallServers(object):
+                class SmallServers(Entity):
                     """
                     Describing IPV4 and IPV6 small servers
                     
@@ -535,12 +871,21 @@ class Ip(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Ip.Cinetd.Services.Ipv4.SmallServers, self).__init__()
+
+                        self.yang_name = "small-servers"
+                        self.yang_parent_name = "ipv4"
+
                         self.tcp_small_servers = None
+                        self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
+                        self._children_yang_names.add("tcp-small-servers")
+
                         self.udp_small_servers = None
+                        self._children_name_map["udp_small_servers"] = "udp-small-servers"
+                        self._children_yang_names.add("udp-small-servers")
 
 
-                    class TcpSmallServers(object):
+                    class TcpSmallServers(Entity):
                         """
                         Describing TCP related IPV4 and IPV6 small
                         servers
@@ -559,11 +904,6 @@ class Ip(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -574,38 +914,98 @@ class Ip(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_control_list_name = None
-                            self.small_server = None
+                            super(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "tcp-small-servers"
+                            self.yang_parent_name = "small-servers"
+                            self.is_presence_container = True
 
-                            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv4/Cisco-IOS-XR-ip-tcp-cfg:small-servers/Cisco-IOS-XR-ip-tcp-cfg:tcp-small-servers'
+                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.small_server = YLeaf(YType.int32, "small-server")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("access_control_list_name",
+                                            "small_server") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.access_control_list_name.is_set or
+                                self.small_server.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.access_control_list_name.yfilter != YFilter.not_set or
+                                self.small_server.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tcp-small-servers" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.access_control_list_name.is_set or self.access_control_list_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.access_control_list_name.get_name_leafdata())
+                            if (self.small_server.is_set or self.small_server.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.small_server.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-control-list-name" or name == "small-server"):
                                 return True
-                            if self.access_control_list_name is not None:
-                                return True
-
-                            if self.small_server is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "access-control-list-name"):
+                                self.access_control_list_name = value
+                                self.access_control_list_name.value_namespace = name_space
+                                self.access_control_list_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "small-server"):
+                                self.small_server = value
+                                self.small_server.value_namespace = name_space
+                                self.small_server.value_namespace_prefix = name_space_prefix
 
 
-                    class UdpSmallServers(object):
+                    class UdpSmallServers(Entity):
                         """
                         UDP small servers configuration
                         
@@ -625,11 +1025,6 @@ class Ip(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -640,81 +1035,204 @@ class Ip(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_control_list_name = None
-                            self.small_server = None
+                            super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "udp-small-servers"
+                            self.yang_parent_name = "small-servers"
+                            self.is_presence_container = True
 
-                            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv4/Cisco-IOS-XR-ip-tcp-cfg:small-servers/Cisco-IOS-XR-ip-udp-cfg:udp-small-servers'
+                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.small_server = YLeaf(YType.uint32, "small-server")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("access_control_list_name",
+                                            "small_server") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.access_control_list_name.is_set or
+                                self.small_server.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.access_control_list_name.yfilter != YFilter.not_set or
+                                self.small_server.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.access_control_list_name.is_set or self.access_control_list_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.access_control_list_name.get_name_leafdata())
+                            if (self.small_server.is_set or self.small_server.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.small_server.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-control-list-name" or name == "small-server"):
                                 return True
-                            if self.access_control_list_name is not None:
-                                return True
-
-                            if self.small_server is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "access-control-list-name"):
+                                self.access_control_list_name = value
+                                self.access_control_list_name.value_namespace = name_space
+                                self.access_control_list_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "small-server"):
+                                self.small_server = value
+                                self.small_server.value_namespace = name_space
+                                self.small_server.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
+                    def has_data(self):
+                        return (
+                            (self.tcp_small_servers is not None) or
+                            (self.udp_small_servers is not None))
 
-                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv4/Cisco-IOS-XR-ip-tcp-cfg:small-servers'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.tcp_small_servers is not None and self.tcp_small_servers.has_operation()) or
+                            (self.udp_small_servers is not None and self.udp_small_servers.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "small-servers" + path_buffer
 
-                    def _has_data(self):
-                        if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "tcp-small-servers"):
+                            if (self.tcp_small_servers is None):
+                                self.tcp_small_servers = Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers()
+                                self.tcp_small_servers.parent = self
+                                self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
+                            return self.tcp_small_servers
+
+                        if (child_yang_name == "udp-small-servers"):
+                            if (self.udp_small_servers is None):
+                                self.udp_small_servers = Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers()
+                                self.udp_small_servers.parent = self
+                                self._children_name_map["udp_small_servers"] = "udp-small-servers"
+                            return self.udp_small_servers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tcp-small-servers" or name == "udp-small-servers"):
                             return True
-
-                        if self.udp_small_servers is not None and self.udp_small_servers._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                        return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (self.small_servers is not None and self.small_servers.has_data())
 
-                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv4'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.small_servers is not None and self.small_servers.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv4" + path_buffer
 
-                def _has_data(self):
-                    if self.small_servers is not None and self.small_servers._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "small-servers"):
+                        if (self.small_servers is None):
+                            self.small_servers = Ip.Cinetd.Services.Ipv4.SmallServers()
+                            self.small_servers.parent = self
+                            self._children_name_map["small_servers"] = "small-servers"
+                        return self.small_servers
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "small-servers"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                    return meta._meta_table['Ip.Cinetd.Services.Ipv4']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Vrfs(object):
+            class Vrfs(Entity):
                 """
                 VRF table
                 
@@ -731,13 +1249,39 @@ class Ip(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf = YList()
-                    self.vrf.parent = self
-                    self.vrf.name = 'vrf'
+                    super(Ip.Cinetd.Services.Vrfs, self).__init__()
+
+                    self.yang_name = "vrfs"
+                    self.yang_parent_name = "services"
+
+                    self.vrf = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ip.Cinetd.Services.Vrfs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ip.Cinetd.Services.Vrfs, self).__setattr__(name, value)
 
 
-                class Vrf(object):
+                class Vrf(Entity):
                     """
                     VRF specific data
                     
@@ -766,15 +1310,49 @@ class Ip(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.vrf_name = None
+                        super(Ip.Cinetd.Services.Vrfs.Vrf, self).__init__()
+
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "vrfs"
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                         self.ipv4 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4()
                         self.ipv4.parent = self
+                        self._children_name_map["ipv4"] = "ipv4"
+                        self._children_yang_names.add("ipv4")
+
                         self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
                         self.ipv6.parent = self
+                        self._children_name_map["ipv6"] = "ipv6"
+                        self._children_yang_names.add("ipv6")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ip.Cinetd.Services.Vrfs.Vrf, self).__setattr__(name, value)
 
 
-                    class Ipv6(object):
+                    class Ipv6(Entity):
                         """
                         IPV6 related services
                         
@@ -796,14 +1374,23 @@ class Ip(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6, self).__init__()
+
+                            self.yang_name = "ipv6"
+                            self.yang_parent_name = "vrf"
+
                             self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet()
                             self.telnet.parent = self
+                            self._children_name_map["telnet"] = "telnet"
+                            self._children_yang_names.add("telnet")
+
                             self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp()
                             self.tftp.parent = self
+                            self._children_name_map["tftp"] = "tftp"
+                            self._children_yang_names.add("tftp")
 
 
-                        class Telnet(object):
+                        class Telnet(Entity):
                             """
                             TELNET server configuration commands
                             
@@ -822,11 +1409,17 @@ class Ip(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet, self).__init__()
+
+                                self.yang_name = "telnet"
+                                self.yang_parent_name = "ipv6"
+
                                 self.tcp = None
+                                self._children_name_map["tcp"] = "tcp"
+                                self._children_yang_names.add("tcp")
 
 
-                            class Tcp(object):
+                            class Tcp(Entity):
                                 """
                                 TCP details
                                 
@@ -844,11 +1437,6 @@ class Ip(object):
                                 
                                 	**mandatory**\: True
                                 
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -859,62 +1447,146 @@ class Ip(object):
                                 _revision = '2016-02-26'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.access_list_name = None
-                                    self.maximum_server = None
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "tcp"
+                                    self.yang_parent_name = "telnet"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
+                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("access_list_name",
+                                                    "maximum_server") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.access_list_name.is_set or
+                                        self.maximum_server.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.access_list_name.yfilter != YFilter.not_set or
+                                        self.maximum_server.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tcp" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                                    if (self.maximum_server.is_set or self.maximum_server.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.maximum_server.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "access-list-name" or name == "maximum-server"):
                                         return True
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "access-list-name"):
+                                        self.access_list_name = value
+                                        self.access_list_name.value_namespace = name_space
+                                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "maximum-server"):
+                                        self.maximum_server = value
+                                        self.maximum_server.value_namespace = name_space
+                                        self.maximum_server.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (self.tcp is not None)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.tcp is not None and self.tcp.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "telnet" + path_buffer
 
-                            def _has_data(self):
-                                if self.tcp is not None and self.tcp._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "tcp"):
+                                    if (self.tcp is None):
+                                        self.tcp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp()
+                                        self.tcp.parent = self
+                                        self._children_name_map["tcp"] = "tcp"
+                                    return self.tcp
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "tcp"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
 
-                        class Tftp(object):
+                        class Tftp(Entity):
                             """
                             TFTP server configuration commands
                             
@@ -933,11 +1605,17 @@ class Ip(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp, self).__init__()
+
+                                self.yang_name = "tftp"
+                                self.yang_parent_name = "ipv6"
+
                                 self.udp = None
+                                self._children_name_map["udp"] = "udp"
+                                self._children_yang_names.add("udp")
 
 
-                            class Udp(object):
+                            class Udp(Entity):
                                 """
                                 UDP details
                                 
@@ -967,11 +1645,6 @@ class Ip(object):
                                 
                                 	**range:** 0..2147483647
                                 
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -982,95 +1655,226 @@ class Ip(object):
                                 _revision = '2016-02-26'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.access_list_name = None
-                                    self.dscp_value = None
-                                    self.home_directory = None
-                                    self.maximum_server = None
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "udp"
+                                    self.yang_parent_name = "tftp"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
+                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.dscp_value = YLeaf(YType.int32, "dscp-value")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                    self.home_directory = YLeaf(YType.str, "home-directory")
+
+                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("access_list_name",
+                                                    "dscp_value",
+                                                    "home_directory",
+                                                    "maximum_server") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.access_list_name.is_set or
+                                        self.dscp_value.is_set or
+                                        self.home_directory.is_set or
+                                        self.maximum_server.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.access_list_name.yfilter != YFilter.not_set or
+                                        self.dscp_value.yfilter != YFilter.not_set or
+                                        self.home_directory.yfilter != YFilter.not_set or
+                                        self.maximum_server.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "udp" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                                    if (self.dscp_value.is_set or self.dscp_value.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.dscp_value.get_name_leafdata())
+                                    if (self.home_directory.is_set or self.home_directory.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.home_directory.get_name_leafdata())
+                                    if (self.maximum_server.is_set or self.maximum_server.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.maximum_server.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "access-list-name" or name == "dscp-value" or name == "home-directory" or name == "maximum-server"):
                                         return True
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.dscp_value is not None:
-                                        return True
-
-                                    if self.home_directory is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "access-list-name"):
+                                        self.access_list_name = value
+                                        self.access_list_name.value_namespace = name_space
+                                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "dscp-value"):
+                                        self.dscp_value = value
+                                        self.dscp_value.value_namespace = name_space
+                                        self.dscp_value.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "home-directory"):
+                                        self.home_directory = value
+                                        self.home_directory.value_namespace = name_space
+                                        self.home_directory.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "maximum-server"):
+                                        self.maximum_server = value
+                                        self.maximum_server.value_namespace = name_space
+                                        self.maximum_server.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (self.udp is not None)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.udp is not None and self.udp.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "tftp" + path_buffer
 
-                            def _has_data(self):
-                                if self.udp is not None and self.udp._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "udp"):
+                                    if (self.udp is None):
+                                        self.udp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp()
+                                        self.udp.parent = self
+                                        self._children_name_map["udp"] = "udp"
+                                    return self.udp
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "udp"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.telnet is not None and self.telnet.has_data()) or
+                                (self.tftp is not None and self.tftp.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv6'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.telnet is not None and self.telnet.has_operation()) or
+                                (self.tftp is not None and self.tftp.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ipv6" + path_buffer
 
-                        def _has_data(self):
-                            if self.telnet is not None and self.telnet._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "telnet"):
+                                if (self.telnet is None):
+                                    self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet()
+                                    self.telnet.parent = self
+                                    self._children_name_map["telnet"] = "telnet"
+                                return self.telnet
+
+                            if (child_yang_name == "tftp"):
+                                if (self.tftp is None):
+                                    self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp()
+                                    self.tftp.parent = self
+                                    self._children_name_map["tftp"] = "tftp"
+                                return self.tftp
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "telnet" or name == "tftp"):
                                 return True
-
-                            if self.tftp is not None and self.tftp._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Ipv4(object):
+                    class Ipv4(Entity):
                         """
                         IPV4 related services
                         
@@ -1092,14 +1896,23 @@ class Ip(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4, self).__init__()
+
+                            self.yang_name = "ipv4"
+                            self.yang_parent_name = "vrf"
+
                             self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet()
                             self.telnet.parent = self
+                            self._children_name_map["telnet"] = "telnet"
+                            self._children_yang_names.add("telnet")
+
                             self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp()
                             self.tftp.parent = self
+                            self._children_name_map["tftp"] = "tftp"
+                            self._children_yang_names.add("tftp")
 
 
-                        class Telnet(object):
+                        class Telnet(Entity):
                             """
                             TELNET server configuration commands
                             
@@ -1118,11 +1931,17 @@ class Ip(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet, self).__init__()
+
+                                self.yang_name = "telnet"
+                                self.yang_parent_name = "ipv4"
+
                                 self.tcp = None
+                                self._children_name_map["tcp"] = "tcp"
+                                self._children_yang_names.add("tcp")
 
 
-                            class Tcp(object):
+                            class Tcp(Entity):
                                 """
                                 TCP details
                                 
@@ -1140,11 +1959,6 @@ class Ip(object):
                                 
                                 	**mandatory**\: True
                                 
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -1155,62 +1969,146 @@ class Ip(object):
                                 _revision = '2016-02-26'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.access_list_name = None
-                                    self.maximum_server = None
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "tcp"
+                                    self.yang_parent_name = "telnet"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
+                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("access_list_name",
+                                                    "maximum_server") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.access_list_name.is_set or
+                                        self.maximum_server.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.access_list_name.yfilter != YFilter.not_set or
+                                        self.maximum_server.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tcp" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                                    if (self.maximum_server.is_set or self.maximum_server.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.maximum_server.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "access-list-name" or name == "maximum-server"):
                                         return True
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "access-list-name"):
+                                        self.access_list_name = value
+                                        self.access_list_name.value_namespace = name_space
+                                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "maximum-server"):
+                                        self.maximum_server = value
+                                        self.maximum_server.value_namespace = name_space
+                                        self.maximum_server.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (self.tcp is not None)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.tcp is not None and self.tcp.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "telnet" + path_buffer
 
-                            def _has_data(self):
-                                if self.tcp is not None and self.tcp._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "tcp"):
+                                    if (self.tcp is None):
+                                        self.tcp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp()
+                                        self.tcp.parent = self
+                                        self._children_name_map["tcp"] = "tcp"
+                                    return self.tcp
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "tcp"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
 
-                        class Tftp(object):
+                        class Tftp(Entity):
                             """
                             TFTP server configuration commands
                             
@@ -1229,11 +2127,17 @@ class Ip(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp, self).__init__()
+
+                                self.yang_name = "tftp"
+                                self.yang_parent_name = "ipv4"
+
                                 self.udp = None
+                                self._children_name_map["udp"] = "udp"
+                                self._children_yang_names.add("udp")
 
 
-                            class Udp(object):
+                            class Udp(Entity):
                                 """
                                 UDP details
                                 
@@ -1263,11 +2167,6 @@ class Ip(object):
                                 
                                 	**range:** 0..2147483647
                                 
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -1278,145 +2177,348 @@ class Ip(object):
                                 _revision = '2016-02-26'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.access_list_name = None
-                                    self.dscp_value = None
-                                    self.home_directory = None
-                                    self.maximum_server = None
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "udp"
+                                    self.yang_parent_name = "tftp"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
+                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.dscp_value = YLeaf(YType.int32, "dscp-value")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                    self.home_directory = YLeaf(YType.str, "home-directory")
+
+                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("access_list_name",
+                                                    "dscp_value",
+                                                    "home_directory",
+                                                    "maximum_server") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.access_list_name.is_set or
+                                        self.dscp_value.is_set or
+                                        self.home_directory.is_set or
+                                        self.maximum_server.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.access_list_name.yfilter != YFilter.not_set or
+                                        self.dscp_value.yfilter != YFilter.not_set or
+                                        self.home_directory.yfilter != YFilter.not_set or
+                                        self.maximum_server.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "udp" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                                    if (self.dscp_value.is_set or self.dscp_value.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.dscp_value.get_name_leafdata())
+                                    if (self.home_directory.is_set or self.home_directory.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.home_directory.get_name_leafdata())
+                                    if (self.maximum_server.is_set or self.maximum_server.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.maximum_server.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "access-list-name" or name == "dscp-value" or name == "home-directory" or name == "maximum-server"):
                                         return True
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.dscp_value is not None:
-                                        return True
-
-                                    if self.home_directory is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "access-list-name"):
+                                        self.access_list_name = value
+                                        self.access_list_name.value_namespace = name_space
+                                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "dscp-value"):
+                                        self.dscp_value = value
+                                        self.dscp_value.value_namespace = name_space
+                                        self.dscp_value.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "home-directory"):
+                                        self.home_directory = value
+                                        self.home_directory.value_namespace = name_space
+                                        self.home_directory.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "maximum-server"):
+                                        self.maximum_server = value
+                                        self.maximum_server.value_namespace = name_space
+                                        self.maximum_server.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (self.udp is not None)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.udp is not None and self.udp.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "tftp" + path_buffer
 
-                            def _has_data(self):
-                                if self.udp is not None and self.udp._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "udp"):
+                                    if (self.udp is None):
+                                        self.udp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp()
+                                        self.udp.parent = self
+                                        self._children_name_map["udp"] = "udp"
+                                    return self.udp
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "udp"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.telnet is not None and self.telnet.has_data()) or
+                                (self.tftp is not None and self.tftp.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv4'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.telnet is not None and self.telnet.has_operation()) or
+                                (self.tftp is not None and self.tftp.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ipv4" + path_buffer
 
-                        def _has_data(self):
-                            if self.telnet is not None and self.telnet._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "telnet"):
+                                if (self.telnet is None):
+                                    self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet()
+                                    self.telnet.parent = self
+                                    self._children_name_map["telnet"] = "telnet"
+                                return self.telnet
+
+                            if (child_yang_name == "tftp"):
+                                if (self.tftp is None):
+                                    self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp()
+                                    self.tftp.parent = self
+                                    self._children_name_map["tftp"] = "tftp"
+                                return self.tftp
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "telnet" or name == "tftp"):
                                 return True
-
-                            if self.tftp is not None and self.tftp._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYModelError('Key property vrf_name is None')
+                    def has_data(self):
+                        return (
+                            self.vrf_name.is_set or
+                            (self.ipv4 is not None and self.ipv4.has_data()) or
+                            (self.ipv6 is not None and self.ipv6.has_data()))
 
-                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:vrfs/Cisco-IOS-XR-ip-tcp-cfg:vrf[Cisco-IOS-XR-ip-tcp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            (self.ipv4 is not None and self.ipv4.has_operation()) or
+                            (self.ipv6 is not None and self.ipv6.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.vrf_name is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "ipv4"):
+                            if (self.ipv4 is None):
+                                self.ipv4 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4()
+                                self.ipv4.parent = self
+                                self._children_name_map["ipv4"] = "ipv4"
+                            return self.ipv4
+
+                        if (child_yang_name == "ipv6"):
+                            if (self.ipv6 is None):
+                                self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
+                                self.ipv6.parent = self
+                                self._children_name_map["ipv6"] = "ipv6"
+                            return self.ipv6
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv4" or name == "ipv6" or name == "vrf-name"):
                             return True
-
-                        if self.ipv4 is not None and self.ipv4._has_data():
-                            return True
-
-                        if self.ipv6 is not None and self.ipv6._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                        return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:vrfs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.vrf is not None:
-                        for child_ref in self.vrf:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.vrf:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                    return meta._meta_table['Ip.Cinetd.Services.Vrfs']['meta_info']
+                def has_operation(self):
+                    for c in self.vrf:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrfs" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "vrf"):
+                        for c in self.vrf:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ip.Cinetd.Services.Vrfs.Vrf()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.vrf.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "vrf"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv6(object):
+            class Ipv6(Entity):
                 """
                 IPV6 related services
                 
@@ -1433,12 +2535,18 @@ class Ip(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Ip.Cinetd.Services.Ipv6, self).__init__()
+
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "services"
+
                     self.small_servers = Ip.Cinetd.Services.Ipv6.SmallServers()
                     self.small_servers.parent = self
+                    self._children_name_map["small_servers"] = "small-servers"
+                    self._children_yang_names.add("small-servers")
 
 
-                class SmallServers(object):
+                class SmallServers(Entity):
                     """
                     Describing IPV4 and IPV6 small servers
                     
@@ -1457,11 +2565,17 @@ class Ip(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Ip.Cinetd.Services.Ipv6.SmallServers, self).__init__()
+
+                        self.yang_name = "small-servers"
+                        self.yang_parent_name = "ipv6"
+
                         self.tcp_small_servers = None
+                        self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
+                        self._children_yang_names.add("tcp-small-servers")
 
 
-                    class TcpSmallServers(object):
+                    class TcpSmallServers(Entity):
                         """
                         Describing TCP related IPV4 and IPV6 small
                         servers
@@ -1480,11 +2594,6 @@ class Ip(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -1495,124 +2604,309 @@ class Ip(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_control_list_name = None
-                            self.small_server = None
+                            super(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "tcp-small-servers"
+                            self.yang_parent_name = "small-servers"
+                            self.is_presence_container = True
 
-                            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers/Cisco-IOS-XR-ip-tcp-cfg:tcp-small-servers'
+                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.small_server = YLeaf(YType.int32, "small-server")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("access_control_list_name",
+                                            "small_server") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.access_control_list_name.is_set or
+                                self.small_server.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.access_control_list_name.yfilter != YFilter.not_set or
+                                self.small_server.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tcp-small-servers" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/small-servers/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.access_control_list_name.is_set or self.access_control_list_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.access_control_list_name.get_name_leafdata())
+                            if (self.small_server.is_set or self.small_server.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.small_server.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-control-list-name" or name == "small-server"):
                                 return True
-                            if self.access_control_list_name is not None:
-                                return True
-
-                            if self.small_server is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "access-control-list-name"):
+                                self.access_control_list_name = value
+                                self.access_control_list_name.value_namespace = name_space
+                                self.access_control_list_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "small-server"):
+                                self.small_server = value
+                                self.small_server.value_namespace = name_space
+                                self.small_server.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
+                    def has_data(self):
+                        return (self.tcp_small_servers is not None)
 
-                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.tcp_small_servers is not None and self.tcp_small_servers.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "small-servers" + path_buffer
 
-                    def _has_data(self):
-                        if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "tcp-small-servers"):
+                            if (self.tcp_small_servers is None):
+                                self.tcp_small_servers = Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers()
+                                self.tcp_small_servers.parent = self
+                                self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
+                            return self.tcp_small_servers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tcp-small-servers"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                        return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (self.small_servers is not None and self.small_servers.has_data())
 
-                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.small_servers is not None and self.small_servers.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv6" + path_buffer
 
-                def _has_data(self):
-                    if self.small_servers is not None and self.small_servers._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "small-servers"):
+                        if (self.small_servers is None):
+                            self.small_servers = Ip.Cinetd.Services.Ipv6.SmallServers()
+                            self.small_servers.parent = self
+                            self._children_name_map["small_servers"] = "small-servers"
+                        return self.small_servers
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "small-servers"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                    return meta._meta_table['Ip.Cinetd.Services.Ipv6']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.ipv4 is not None and self.ipv4.has_data()) or
+                    (self.ipv6 is not None and self.ipv6.has_data()) or
+                    (self.vrfs is not None and self.vrfs.has_data()))
 
-                return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.ipv4 is not None and self.ipv4.has_operation()) or
+                    (self.ipv6 is not None and self.ipv6.has_operation()) or
+                    (self.vrfs is not None and self.vrfs.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "services" + path_buffer
 
-            def _has_data(self):
-                if self.ipv4 is not None and self.ipv4._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "ipv4"):
+                    if (self.ipv4 is None):
+                        self.ipv4 = Ip.Cinetd.Services.Ipv4()
+                        self.ipv4.parent = self
+                        self._children_name_map["ipv4"] = "ipv4"
+                    return self.ipv4
+
+                if (child_yang_name == "ipv6"):
+                    if (self.ipv6 is None):
+                        self.ipv6 = Ip.Cinetd.Services.Ipv6()
+                        self.ipv6.parent = self
+                        self._children_name_map["ipv6"] = "ipv6"
+                    return self.ipv6
+
+                if (child_yang_name == "vrfs"):
+                    if (self.vrfs is None):
+                        self.vrfs = Ip.Cinetd.Services.Vrfs()
+                        self.vrfs.parent = self
+                        self._children_name_map["vrfs"] = "vrfs"
+                    return self.vrfs
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ipv4" or name == "ipv6" or name == "vrfs"):
                     return True
-
-                if self.ipv6 is not None and self.ipv6._has_data():
-                    return True
-
-                if self.vrfs is not None and self.vrfs._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                return meta._meta_table['Ip.Cinetd.Services']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.services is not None and self.services.has_data())
 
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.services is not None and self.services.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cinetd" + path_buffer
 
-        def _has_data(self):
-            if self.services is not None and self.services._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "services"):
+                if (self.services is None):
+                    self.services = Ip.Cinetd.Services()
+                    self.services.parent = self
+                    self._children_name_map["services"] = "services"
+                return self.services
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "services"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['Ip.Cinetd']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ForwardProtocol(object):
+    class ForwardProtocol(Entity):
         """
         Controls forwarding of physical and directed IP
         broadcasts
@@ -1630,12 +2924,18 @@ class Ip(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
+            super(Ip.ForwardProtocol, self).__init__()
+
+            self.yang_name = "forward-protocol"
+            self.yang_parent_name = "ip"
+
             self.udp = Ip.ForwardProtocol.Udp()
             self.udp.parent = self
+            self._children_name_map["udp"] = "udp"
+            self._children_yang_names.add("udp")
 
 
-        class Udp(object):
+        class Udp(Entity):
             """
             Packets to a specific UDP port
             
@@ -1657,13 +2957,44 @@ class Ip(object):
             _revision = '2016-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.disable = None
+                super(Ip.ForwardProtocol.Udp, self).__init__()
+
+                self.yang_name = "udp"
+                self.yang_parent_name = "forward-protocol"
+
+                self.disable = YLeaf(YType.empty, "disable")
+
                 self.ports = Ip.ForwardProtocol.Udp.Ports()
                 self.ports.parent = self
+                self._children_name_map["ports"] = "ports"
+                self._children_yang_names.add("ports")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("disable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ip.ForwardProtocol.Udp, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ip.ForwardProtocol.Udp, self).__setattr__(name, value)
 
 
-            class Ports(object):
+            class Ports(Entity):
                 """
                 Port configuration
                 
@@ -1680,13 +3011,39 @@ class Ip(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
-                    self.port = YList()
-                    self.port.parent = self
-                    self.port.name = 'port'
+                    super(Ip.ForwardProtocol.Udp.Ports, self).__init__()
+
+                    self.yang_name = "ports"
+                    self.yang_parent_name = "udp"
+
+                    self.port = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ip.ForwardProtocol.Udp.Ports, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ip.ForwardProtocol.Udp.Ports, self).__setattr__(name, value)
 
 
-                class Port(object):
+                class Port(Entity):
                     """
                     Well\-known ports are enabled by default and
                     non well\-known ports are disabled by default.
@@ -1714,121 +3071,314 @@ class Ip(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.port_id = None
-                        self.enable = None
+                        super(Ip.ForwardProtocol.Udp.Ports.Port, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.port_id is None:
-                            raise YPYModelError('Key property port_id is None')
+                        self.yang_name = "port"
+                        self.yang_parent_name = "ports"
 
-                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/Cisco-IOS-XR-ip-udp-cfg:udp/Cisco-IOS-XR-ip-udp-cfg:ports/Cisco-IOS-XR-ip-udp-cfg:port[Cisco-IOS-XR-ip-udp-cfg:port-id = ' + str(self.port_id) + ']'
+                        self.port_id = YLeaf(YType.uint16, "port-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.enable = YLeaf(YType.boolean, "enable")
 
-                    def _has_data(self):
-                        if self.port_id is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("port_id",
+                                        "enable") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ip.ForwardProtocol.Udp.Ports.Port, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ip.ForwardProtocol.Udp.Ports.Port, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.port_id.is_set or
+                            self.enable.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.port_id.yfilter != YFilter.not_set or
+                            self.enable.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "port" + "[port-id='" + self.port_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/udp/ports/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.port_id.is_set or self.port_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port_id.get_name_leafdata())
+                        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enable.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "port-id" or name == "enable"):
                             return True
-
-                        if self.enable is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                        return meta._meta_table['Ip.ForwardProtocol.Udp.Ports.Port']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "port-id"):
+                            self.port_id = value
+                            self.port_id.value_namespace = name_space
+                            self.port_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "enable"):
+                            self.enable = value
+                            self.enable.value_namespace = name_space
+                            self.enable.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/Cisco-IOS-XR-ip-udp-cfg:udp/Cisco-IOS-XR-ip-udp-cfg:ports'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.port is not None:
-                        for child_ref in self.port:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.port:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                    return meta._meta_table['Ip.ForwardProtocol.Udp.Ports']['meta_info']
+                def has_operation(self):
+                    for c in self.port:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ports" + path_buffer
 
-                return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/Cisco-IOS-XR-ip-udp-cfg:udp'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/udp/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.disable is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "port"):
+                        for c in self.port:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ip.ForwardProtocol.Udp.Ports.Port()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.port.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "port"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.disable.is_set or
+                    (self.ports is not None and self.ports.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.disable.yfilter != YFilter.not_set or
+                    (self.ports is not None and self.ports.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "udp" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "ports"):
+                    if (self.ports is None):
+                        self.ports = Ip.ForwardProtocol.Udp.Ports()
+                        self.ports.parent = self
+                        self._children_name_map["ports"] = "ports"
+                    return self.ports
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ports" or name == "disable"):
                     return True
-
-                if self.ports is not None and self.ports._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                return meta._meta_table['Ip.ForwardProtocol.Udp']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "disable"):
+                    self.disable = value
+                    self.disable.value_namespace = name_space
+                    self.disable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.udp is not None and self.udp.has_data())
 
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.udp is not None and self.udp.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-ip-udp-cfg:forward-protocol" + path_buffer
 
-        def _has_data(self):
-            if self.udp is not None and self.udp._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "udp"):
+                if (self.udp is None):
+                    self.udp = Ip.ForwardProtocol.Udp()
+                    self.udp.parent = self
+                    self._children_name_map["udp"] = "udp"
+                return self.udp
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "udp"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['Ip.ForwardProtocol']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cinetd is not None and self.cinetd.has_data()) or
+            (self.forward_protocol is not None and self.forward_protocol.has_data()))
 
-        return '/Cisco-IOS-XR-ip-tcp-cfg:ip'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cinetd is not None and self.cinetd.has_operation()) or
+            (self.forward_protocol is not None and self.forward_protocol.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-tcp-cfg:ip" + path_buffer
 
-    def _has_data(self):
-        if self.cinetd is not None and self.cinetd._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cinetd"):
+            if (self.cinetd is None):
+                self.cinetd = Ip.Cinetd()
+                self.cinetd.parent = self
+                self._children_name_map["cinetd"] = "cinetd"
+            return self.cinetd
+
+        if (child_yang_name == "forward-protocol"):
+            if (self.forward_protocol is None):
+                self.forward_protocol = Ip.ForwardProtocol()
+                self.forward_protocol.parent = self
+                self._children_name_map["forward_protocol"] = "forward-protocol"
+            return self.forward_protocol
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cinetd" or name == "forward-protocol"):
             return True
-
-        if self.forward_protocol is not None and self.forward_protocol._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-        return meta._meta_table['Ip']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ip()
+        return self._top_entity
 

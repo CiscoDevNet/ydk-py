@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MplsVpnAfiEnum(Enum):
+class MplsVpnAfi(Enum):
     """
-    MplsVpnAfiEnum
+    MplsVpnAfi
 
     Layer 3 VPN Address Family Type
 
@@ -40,20 +34,14 @@ class MplsVpnAfiEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-        return meta._meta_table['MplsVpnAfiEnum']
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-class MplsVpnRtEnum(Enum):
+class MplsVpnRt(Enum):
     """
-    MplsVpnRtEnum
+    MplsVpnRt
 
     Layer 3 VPN Route Target Type
 
@@ -71,22 +59,16 @@ class MplsVpnRtEnum(Enum):
 
     """
 
-    import_ = 1
+    import_ = Enum.YLeaf(1, "import")
 
-    export = 2
+    export = Enum.YLeaf(2, "export")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-        return meta._meta_table['MplsVpnRtEnum']
+    both = Enum.YLeaf(3, "both")
 
 
-class MplsVpnSafiEnum(Enum):
+class MplsVpnSafi(Enum):
     """
-    MplsVpnSafiEnum
+    MplsVpnSafi
 
     Layer 3 VPN Sub\-Address Family Type
 
@@ -104,21 +86,15 @@ class MplsVpnSafiEnum(Enum):
 
     """
 
-    unicast = 1
+    unicast = Enum.YLeaf(1, "unicast")
 
-    multicast = 2
+    multicast = Enum.YLeaf(2, "multicast")
 
-    flowspec = 133
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-        return meta._meta_table['MplsVpnSafiEnum']
+    flowspec = Enum.YLeaf(133, "flowspec")
 
 
 
-class L3Vpn(object):
+class L3Vpn(Entity):
     """
     L3VPN operational data
     
@@ -140,13 +116,24 @@ class L3Vpn(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(L3Vpn, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "l3vpn"
+        self.yang_parent_name = "Cisco-IOS-XR-mpls-vpn-oper"
+
         self.invalid_vrfs = L3Vpn.InvalidVrfs()
         self.invalid_vrfs.parent = self
+        self._children_name_map["invalid_vrfs"] = "invalid-vrfs"
+        self._children_yang_names.add("invalid-vrfs")
+
         self.vrfs = L3Vpn.Vrfs()
         self.vrfs.parent = self
+        self._children_name_map["vrfs"] = "vrfs"
+        self._children_yang_names.add("vrfs")
 
 
-    class InvalidVrfs(object):
+    class InvalidVrfs(Entity):
         """
         Invalid VRF Table (VRFs that are forward
         referenced)
@@ -164,13 +151,39 @@ class L3Vpn(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.invalid_vrf = YList()
-            self.invalid_vrf.parent = self
-            self.invalid_vrf.name = 'invalid_vrf'
+            super(L3Vpn.InvalidVrfs, self).__init__()
+
+            self.yang_name = "invalid-vrfs"
+            self.yang_parent_name = "l3vpn"
+
+            self.invalid_vrf = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(L3Vpn.InvalidVrfs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(L3Vpn.InvalidVrfs, self).__setattr__(name, value)
 
 
-        class InvalidVrf(object):
+        class InvalidVrf(Entity):
             """
             Invalid VRF (VRF that is forward referenced)
             
@@ -217,21 +230,54 @@ class L3Vpn(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
-                self.af = YList()
-                self.af.parent = self
-                self.af.name = 'af'
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
-                self.is_big_vrf = None
-                self.route_distinguisher = None
-                self.vrf_description = None
-                self.vrf_name_xr = None
+                super(L3Vpn.InvalidVrfs.InvalidVrf, self).__init__()
+
+                self.yang_name = "invalid-vrf"
+                self.yang_parent_name = "invalid-vrfs"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
+
+                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
+
+                self.vrf_description = YLeaf(YType.str, "vrf-description")
+
+                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                self.af = YList(self)
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name",
+                                "is_big_vrf",
+                                "route_distinguisher",
+                                "vrf_description",
+                                "vrf_name_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(L3Vpn.InvalidVrfs.InvalidVrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(L3Vpn.InvalidVrfs.InvalidVrf, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 Interfaces in VRF
                 
@@ -248,40 +294,92 @@ class L3Vpn(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
+                    super(L3Vpn.InvalidVrfs.InvalidVrf.Interface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "invalid-vrf"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:interface'
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(L3Vpn.InvalidVrfs.InvalidVrf.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(L3Vpn.InvalidVrfs.InvalidVrf.Interface, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def has_data(self):
+                    return self.interface_name.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                    return meta._meta_table['L3Vpn.InvalidVrfs.InvalidVrf.Interface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-            class Af(object):
+            class Af(Entity):
                 """
                 AF/SAF information
                 
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
                 .. attribute:: export_route_policy
                 
@@ -301,7 +399,7 @@ class L3Vpn(object):
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                 
                 
 
@@ -311,29 +409,62 @@ class L3Vpn(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.af_name = None
-                    self.export_route_policy = None
-                    self.import_route_policy = None
-                    self.route_target = YList()
-                    self.route_target.parent = self
-                    self.route_target.name = 'route_target'
-                    self.saf_name = None
+                    super(L3Vpn.InvalidVrfs.InvalidVrf.Af, self).__init__()
+
+                    self.yang_name = "af"
+                    self.yang_parent_name = "invalid-vrf"
+
+                    self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
+
+                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
+
+                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    self.route_target = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("af_name",
+                                    "export_route_policy",
+                                    "import_route_policy",
+                                    "saf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(L3Vpn.InvalidVrfs.InvalidVrf.Af, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(L3Vpn.InvalidVrfs.InvalidVrf.Af, self).__setattr__(name, value)
 
 
-                class RouteTarget(object):
+                class RouteTarget(Entity):
                     """
                     Route Targets
                     
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
+                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
                     .. attribute:: route_target_value
                     
@@ -343,7 +474,7 @@ class L3Vpn(object):
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                     
                     
 
@@ -353,147 +484,380 @@ class L3Vpn(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.af_name = None
-                        self.route_target_type = None
-                        self.route_target_value = None
-                        self.saf_name = None
+                        super(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "route-target"
+                        self.yang_parent_name = "af"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:route-target'
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
+
+                        self.route_target_value = YLeaf(YType.str, "route-target-value")
+
+                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("af_name",
+                                        "route_target_type",
+                                        "route_target_value",
+                                        "saf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.af_name.is_set or
+                            self.route_target_type.is_set or
+                            self.route_target_value.is_set or
+                            self.saf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.route_target_type.yfilter != YFilter.not_set or
+                            self.route_target_value.yfilter != YFilter.not_set or
+                            self.saf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "route-target" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.route_target_type.is_set or self.route_target_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_target_type.get_name_leafdata())
+                        if (self.route_target_value.is_set or self.route_target_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_target_value.get_name_leafdata())
+                        if (self.saf_name.is_set or self.saf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.saf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "af-name" or name == "route-target-type" or name == "route-target-value" or name == "saf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.af_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-target-type"):
+                            self.route_target_type = value
+                            self.route_target_type.value_namespace = name_space
+                            self.route_target_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-target-value"):
+                            self.route_target_value = value
+                            self.route_target_value.value_namespace = name_space
+                            self.route_target_value.value_namespace_prefix = name_space_prefix
+                        if(value_path == "saf-name"):
+                            self.saf_name = value
+                            self.saf_name.value_namespace = name_space
+                            self.saf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.route_target:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.af_name.is_set or
+                        self.export_route_policy.is_set or
+                        self.import_route_policy.is_set or
+                        self.saf_name.is_set)
 
-                        if self.route_target_type is not None:
+                def has_operation(self):
+                    for c in self.route_target:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.af_name.yfilter != YFilter.not_set or
+                        self.export_route_policy.yfilter != YFilter.not_set or
+                        self.import_route_policy.yfilter != YFilter.not_set or
+                        self.saf_name.yfilter != YFilter.not_set)
 
-                        if self.route_target_value is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "af" + path_buffer
 
-                        if self.saf_name is not None:
-                            return True
+                    return path_buffer
 
-                        return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                        return meta._meta_table['L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget']['meta_info']
+                    leaf_name_data = LeafDataList()
+                    if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.af_name.get_name_leafdata())
+                    if (self.export_route_policy.is_set or self.export_route_policy.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.export_route_policy.get_name_leafdata())
+                    if (self.import_route_policy.is_set or self.import_route_policy.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.import_route_policy.get_name_leafdata())
+                    if (self.saf_name.is_set or self.saf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.saf_name.get_name_leafdata())
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:af'
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    if (child_yang_name == "route-target"):
+                        for c in self.route_target:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.route_target.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "route-target" or name == "af-name" or name == "export-route-policy" or name == "import-route-policy" or name == "saf-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.af_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "af-name"):
+                        self.af_name = value
+                        self.af_name.value_namespace = name_space
+                        self.af_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "export-route-policy"):
+                        self.export_route_policy = value
+                        self.export_route_policy.value_namespace = name_space
+                        self.export_route_policy.value_namespace_prefix = name_space_prefix
+                    if(value_path == "import-route-policy"):
+                        self.import_route_policy = value
+                        self.import_route_policy.value_namespace = name_space
+                        self.import_route_policy.value_namespace_prefix = name_space_prefix
+                    if(value_path == "saf-name"):
+                        self.saf_name = value
+                        self.saf_name.value_namespace = name_space
+                        self.saf_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.af:
+                    if (c.has_data()):
                         return True
-
-                    if self.export_route_policy is not None:
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.vrf_name.is_set or
+                    self.is_big_vrf.is_set or
+                    self.route_distinguisher.is_set or
+                    self.vrf_description.is_set or
+                    self.vrf_name_xr.is_set)
 
-                    if self.import_route_policy is not None:
+            def has_operation(self):
+                for c in self.af:
+                    if (c.has_operation()):
                         return True
-
-                    if self.route_target is not None:
-                        for child_ref in self.route_target:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.saf_name is not None:
+                for c in self.interface:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    self.is_big_vrf.yfilter != YFilter.not_set or
+                    self.route_distinguisher.yfilter != YFilter.not_set or
+                    self.vrf_description.yfilter != YFilter.not_set or
+                    self.vrf_name_xr.yfilter != YFilter.not_set)
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "invalid-vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                    return meta._meta_table['L3Vpn.InvalidVrfs.InvalidVrf.Af']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.vrf_name is None:
-                    raise YPYModelError('Key property vrf_name is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-mpls-vpn-oper:l3vpn/Cisco-IOS-XR-mpls-vpn-oper:invalid-vrfs/Cisco-IOS-XR-mpls-vpn-oper:invalid-vrf[Cisco-IOS-XR-mpls-vpn-oper:vrf-name = ' + str(self.vrf_name) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                if (self.is_big_vrf.is_set or self.is_big_vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_big_vrf.get_name_leafdata())
+                if (self.route_distinguisher.is_set or self.route_distinguisher.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_distinguisher.get_name_leafdata())
+                if (self.vrf_description.is_set or self.vrf_description.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_description.get_name_leafdata())
+                if (self.vrf_name_xr.is_set or self.vrf_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name_xr.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "af"):
+                    for c in self.af:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = L3Vpn.InvalidVrfs.InvalidVrf.Af()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.af.append(c)
+                    return c
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = L3Vpn.InvalidVrfs.InvalidVrf.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "af" or name == "interface" or name == "vrf-name" or name == "is-big-vrf" or name == "route-distinguisher" or name == "vrf-description" or name == "vrf-name-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.vrf_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-big-vrf"):
+                    self.is_big_vrf = value
+                    self.is_big_vrf.value_namespace = name_space
+                    self.is_big_vrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "route-distinguisher"):
+                    self.route_distinguisher = value
+                    self.route_distinguisher.value_namespace = name_space
+                    self.route_distinguisher.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-description"):
+                    self.vrf_description = value
+                    self.vrf_description.value_namespace = name_space
+                    self.vrf_description.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-name-xr"):
+                    self.vrf_name_xr = value
+                    self.vrf_name_xr.value_namespace = name_space
+                    self.vrf_name_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.invalid_vrf:
+                if (c.has_data()):
                     return True
-
-                if self.af is not None:
-                    for child_ref in self.af:
-                        if child_ref._has_data():
-                            return True
-
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
-
-                if self.is_big_vrf is not None:
-                    return True
-
-                if self.route_distinguisher is not None:
-                    return True
-
-                if self.vrf_description is not None:
-                    return True
-
-                if self.vrf_name_xr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                return meta._meta_table['L3Vpn.InvalidVrfs.InvalidVrf']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-mpls-vpn-oper:l3vpn/Cisco-IOS-XR-mpls-vpn-oper:invalid-vrfs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.invalid_vrf is not None:
-                for child_ref in self.invalid_vrf:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.invalid_vrf:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "invalid-vrfs" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "invalid-vrf"):
+                for c in self.invalid_vrf:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = L3Vpn.InvalidVrfs.InvalidVrf()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.invalid_vrf.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "invalid-vrf"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-            return meta._meta_table['L3Vpn.InvalidVrfs']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vrfs(object):
+    class Vrfs(Entity):
         """
         VRF Table
         
@@ -510,13 +874,39 @@ class L3Vpn(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.vrf = YList()
-            self.vrf.parent = self
-            self.vrf.name = 'vrf'
+            super(L3Vpn.Vrfs, self).__init__()
+
+            self.yang_name = "vrfs"
+            self.yang_parent_name = "l3vpn"
+
+            self.vrf = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(L3Vpn.Vrfs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(L3Vpn.Vrfs, self).__setattr__(name, value)
 
 
-        class Vrf(object):
+        class Vrf(Entity):
             """
             VRF
             
@@ -563,21 +953,54 @@ class L3Vpn(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
-                self.af = YList()
-                self.af.parent = self
-                self.af.name = 'af'
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
-                self.is_big_vrf = None
-                self.route_distinguisher = None
-                self.vrf_description = None
-                self.vrf_name_xr = None
+                super(L3Vpn.Vrfs.Vrf, self).__init__()
+
+                self.yang_name = "vrf"
+                self.yang_parent_name = "vrfs"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.is_big_vrf = YLeaf(YType.boolean, "is-big-vrf")
+
+                self.route_distinguisher = YLeaf(YType.str, "route-distinguisher")
+
+                self.vrf_description = YLeaf(YType.str, "vrf-description")
+
+                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                self.af = YList(self)
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name",
+                                "is_big_vrf",
+                                "route_distinguisher",
+                                "vrf_description",
+                                "vrf_name_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(L3Vpn.Vrfs.Vrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(L3Vpn.Vrfs.Vrf, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 Interfaces in VRF
                 
@@ -594,40 +1017,92 @@ class L3Vpn(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
+                    super(L3Vpn.Vrfs.Vrf.Interface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "vrf"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:interface'
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(L3Vpn.Vrfs.Vrf.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(L3Vpn.Vrfs.Vrf.Interface, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def has_data(self):
+                    return self.interface_name.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                    return meta._meta_table['L3Vpn.Vrfs.Vrf.Interface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-            class Af(object):
+            class Af(Entity):
                 """
                 AF/SAF information
                 
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
                 .. attribute:: export_route_policy
                 
@@ -647,7 +1122,7 @@ class L3Vpn(object):
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                 
                 
 
@@ -657,29 +1132,62 @@ class L3Vpn(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.af_name = None
-                    self.export_route_policy = None
-                    self.import_route_policy = None
-                    self.route_target = YList()
-                    self.route_target.parent = self
-                    self.route_target.name = 'route_target'
-                    self.saf_name = None
+                    super(L3Vpn.Vrfs.Vrf.Af, self).__init__()
+
+                    self.yang_name = "af"
+                    self.yang_parent_name = "vrf"
+
+                    self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                    self.export_route_policy = YLeaf(YType.str, "export-route-policy")
+
+                    self.import_route_policy = YLeaf(YType.str, "import-route-policy")
+
+                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    self.route_target = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("af_name",
+                                    "export_route_policy",
+                                    "import_route_policy",
+                                    "saf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(L3Vpn.Vrfs.Vrf.Af, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(L3Vpn.Vrfs.Vrf.Af, self).__setattr__(name, value)
 
 
-                class RouteTarget(object):
+                class RouteTarget(Entity):
                     """
                     Route Targets
                     
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
+                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
                     .. attribute:: route_target_value
                     
@@ -689,7 +1197,7 @@ class L3Vpn(object):
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                     
                     
 
@@ -699,166 +1207,436 @@ class L3Vpn(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.af_name = None
-                        self.route_target_type = None
-                        self.route_target_value = None
-                        self.saf_name = None
+                        super(L3Vpn.Vrfs.Vrf.Af.RouteTarget, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "route-target"
+                        self.yang_parent_name = "af"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:route-target'
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.route_target_type = YLeaf(YType.enumeration, "route-target-type")
+
+                        self.route_target_value = YLeaf(YType.str, "route-target-value")
+
+                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("af_name",
+                                        "route_target_type",
+                                        "route_target_value",
+                                        "saf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(L3Vpn.Vrfs.Vrf.Af.RouteTarget, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(L3Vpn.Vrfs.Vrf.Af.RouteTarget, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.af_name.is_set or
+                            self.route_target_type.is_set or
+                            self.route_target_value.is_set or
+                            self.saf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.route_target_type.yfilter != YFilter.not_set or
+                            self.route_target_value.yfilter != YFilter.not_set or
+                            self.saf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "route-target" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.route_target_type.is_set or self.route_target_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_target_type.get_name_leafdata())
+                        if (self.route_target_value.is_set or self.route_target_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_target_value.get_name_leafdata())
+                        if (self.saf_name.is_set or self.saf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.saf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "af-name" or name == "route-target-type" or name == "route-target-value" or name == "saf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.af_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-target-type"):
+                            self.route_target_type = value
+                            self.route_target_type.value_namespace = name_space
+                            self.route_target_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-target-value"):
+                            self.route_target_value = value
+                            self.route_target_value.value_namespace = name_space
+                            self.route_target_value.value_namespace_prefix = name_space_prefix
+                        if(value_path == "saf-name"):
+                            self.saf_name = value
+                            self.saf_name.value_namespace = name_space
+                            self.saf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.route_target:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.af_name.is_set or
+                        self.export_route_policy.is_set or
+                        self.import_route_policy.is_set or
+                        self.saf_name.is_set)
 
-                        if self.route_target_type is not None:
+                def has_operation(self):
+                    for c in self.route_target:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.af_name.yfilter != YFilter.not_set or
+                        self.export_route_policy.yfilter != YFilter.not_set or
+                        self.import_route_policy.yfilter != YFilter.not_set or
+                        self.saf_name.yfilter != YFilter.not_set)
 
-                        if self.route_target_value is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "af" + path_buffer
 
-                        if self.saf_name is not None:
-                            return True
+                    return path_buffer
 
-                        return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                        return meta._meta_table['L3Vpn.Vrfs.Vrf.Af.RouteTarget']['meta_info']
+                    leaf_name_data = LeafDataList()
+                    if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.af_name.get_name_leafdata())
+                    if (self.export_route_policy.is_set or self.export_route_policy.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.export_route_policy.get_name_leafdata())
+                    if (self.import_route_policy.is_set or self.import_route_policy.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.import_route_policy.get_name_leafdata())
+                    if (self.saf_name.is_set or self.saf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.saf_name.get_name_leafdata())
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-vpn-oper:af'
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    if (child_yang_name == "route-target"):
+                        for c in self.route_target:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = L3Vpn.Vrfs.Vrf.Af.RouteTarget()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.route_target.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "route-target" or name == "af-name" or name == "export-route-policy" or name == "import-route-policy" or name == "saf-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.af_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "af-name"):
+                        self.af_name = value
+                        self.af_name.value_namespace = name_space
+                        self.af_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "export-route-policy"):
+                        self.export_route_policy = value
+                        self.export_route_policy.value_namespace = name_space
+                        self.export_route_policy.value_namespace_prefix = name_space_prefix
+                    if(value_path == "import-route-policy"):
+                        self.import_route_policy = value
+                        self.import_route_policy.value_namespace = name_space
+                        self.import_route_policy.value_namespace_prefix = name_space_prefix
+                    if(value_path == "saf-name"):
+                        self.saf_name = value
+                        self.saf_name.value_namespace = name_space
+                        self.saf_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.af:
+                    if (c.has_data()):
                         return True
-
-                    if self.export_route_policy is not None:
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.vrf_name.is_set or
+                    self.is_big_vrf.is_set or
+                    self.route_distinguisher.is_set or
+                    self.vrf_description.is_set or
+                    self.vrf_name_xr.is_set)
 
-                    if self.import_route_policy is not None:
+            def has_operation(self):
+                for c in self.af:
+                    if (c.has_operation()):
                         return True
-
-                    if self.route_target is not None:
-                        for child_ref in self.route_target:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.saf_name is not None:
+                for c in self.interface:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    self.is_big_vrf.yfilter != YFilter.not_set or
+                    self.route_distinguisher.yfilter != YFilter.not_set or
+                    self.vrf_description.yfilter != YFilter.not_set or
+                    self.vrf_name_xr.yfilter != YFilter.not_set)
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                    return meta._meta_table['L3Vpn.Vrfs.Vrf.Af']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.vrf_name is None:
-                    raise YPYModelError('Key property vrf_name is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-mpls-vpn-oper:l3vpn/Cisco-IOS-XR-mpls-vpn-oper:vrfs/Cisco-IOS-XR-mpls-vpn-oper:vrf[Cisco-IOS-XR-mpls-vpn-oper:vrf-name = ' + str(self.vrf_name) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                if (self.is_big_vrf.is_set or self.is_big_vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_big_vrf.get_name_leafdata())
+                if (self.route_distinguisher.is_set or self.route_distinguisher.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_distinguisher.get_name_leafdata())
+                if (self.vrf_description.is_set or self.vrf_description.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_description.get_name_leafdata())
+                if (self.vrf_name_xr.is_set or self.vrf_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name_xr.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "af"):
+                    for c in self.af:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = L3Vpn.Vrfs.Vrf.Af()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.af.append(c)
+                    return c
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = L3Vpn.Vrfs.Vrf.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "af" or name == "interface" or name == "vrf-name" or name == "is-big-vrf" or name == "route-distinguisher" or name == "vrf-description" or name == "vrf-name-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.vrf_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-big-vrf"):
+                    self.is_big_vrf = value
+                    self.is_big_vrf.value_namespace = name_space
+                    self.is_big_vrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "route-distinguisher"):
+                    self.route_distinguisher = value
+                    self.route_distinguisher.value_namespace = name_space
+                    self.route_distinguisher.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-description"):
+                    self.vrf_description = value
+                    self.vrf_description.value_namespace = name_space
+                    self.vrf_description.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-name-xr"):
+                    self.vrf_name_xr = value
+                    self.vrf_name_xr.value_namespace = name_space
+                    self.vrf_name_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vrf:
+                if (c.has_data()):
                     return True
-
-                if self.af is not None:
-                    for child_ref in self.af:
-                        if child_ref._has_data():
-                            return True
-
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
-
-                if self.is_big_vrf is not None:
-                    return True
-
-                if self.route_distinguisher is not None:
-                    return True
-
-                if self.vrf_description is not None:
-                    return True
-
-                if self.vrf_name_xr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-                return meta._meta_table['L3Vpn.Vrfs.Vrf']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-mpls-vpn-oper:l3vpn/Cisco-IOS-XR-mpls-vpn-oper:vrfs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vrf is not None:
-                for child_ref in self.vrf:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vrf:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vrfs" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vrf"):
+                for c in self.vrf:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = L3Vpn.Vrfs.Vrf()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vrf.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vrf"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-            return meta._meta_table['L3Vpn.Vrfs']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.invalid_vrfs is not None and self.invalid_vrfs.has_data()) or
+            (self.vrfs is not None and self.vrfs.has_data()))
 
-        return '/Cisco-IOS-XR-mpls-vpn-oper:l3vpn'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.invalid_vrfs is not None and self.invalid_vrfs.has_operation()) or
+            (self.vrfs is not None and self.vrfs.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "invalid-vrfs"):
+            if (self.invalid_vrfs is None):
+                self.invalid_vrfs = L3Vpn.InvalidVrfs()
+                self.invalid_vrfs.parent = self
+                self._children_name_map["invalid_vrfs"] = "invalid-vrfs"
+            return self.invalid_vrfs
+
+        if (child_yang_name == "vrfs"):
+            if (self.vrfs is None):
+                self.vrfs = L3Vpn.Vrfs()
+                self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+            return self.vrfs
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "invalid-vrfs" or name == "vrfs"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.invalid_vrfs is not None and self.invalid_vrfs._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.vrfs is not None and self.vrfs._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
-        return meta._meta_table['L3Vpn']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = L3Vpn()
+        return self._top_entity
 

@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AtmPvcTestModeEnum(Enum):
+class AtmPvcTestMode(Enum):
     """
-    AtmPvcTestModeEnum
+    AtmPvcTestMode
 
     Atm pvc test mode
 
@@ -41,20 +35,14 @@ class AtmPvcTestModeEnum(Enum):
 
     """
 
-    loop = 1
+    loop = Enum.YLeaf(1, "loop")
 
-    reserved = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmPvcTestModeEnum']
+    reserved = Enum.YLeaf(2, "reserved")
 
 
-class AtmPvpTestModeEnum(Enum):
+class AtmPvpTestMode(Enum):
     """
-    AtmPvpTestModeEnum
+    AtmPvpTestMode
 
     Atm pvp test mode
 
@@ -64,18 +52,12 @@ class AtmPvpTestModeEnum(Enum):
 
     """
 
-    loop = 1
+    loop = Enum.YLeaf(1, "loop")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmPvpTestModeEnum']
-
-
-class AtmVpiBitsModeEnum(Enum):
+class AtmVpiBitsMode(Enum):
     """
-    AtmVpiBitsModeEnum
+    AtmVpiBitsMode
 
     Atm vpi bits mode
 
@@ -85,13 +67,7 @@ class AtmVpiBitsModeEnum(Enum):
 
     """
 
-    twelve = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmVpiBitsModeEnum']
+    twelve = Enum.YLeaf(12, "twelve")
 
 
 

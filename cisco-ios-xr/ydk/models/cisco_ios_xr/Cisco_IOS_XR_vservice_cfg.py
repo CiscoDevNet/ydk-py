@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SfcMetadataAllocEnum(Enum):
+class SfcMetadataAlloc(Enum):
     """
-    SfcMetadataAllocEnum
+    SfcMetadataAlloc
 
     Sfc metadata alloc
 
@@ -36,18 +30,12 @@ class SfcMetadataAllocEnum(Enum):
 
     """
 
-    type1 = 1
+    type1 = Enum.YLeaf(1, "type1")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['SfcMetadataAllocEnum']
-
-
-class SfcMetadataDispositionActionEnum(Enum):
+class SfcMetadataDispositionAction(Enum):
     """
-    SfcMetadataDispositionActionEnum
+    SfcMetadataDispositionAction
 
     Sfc metadata disposition action
 
@@ -57,18 +45,12 @@ class SfcMetadataDispositionActionEnum(Enum):
 
     """
 
-    redirect_nexthop = 1
+    redirect_nexthop = Enum.YLeaf(1, "redirect-nexthop")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['SfcMetadataDispositionActionEnum']
-
-
-class SfcMetadataDispositionMatchEnum(Enum):
+class SfcMetadataDispositionMatch(Enum):
     """
-    SfcMetadataDispositionMatchEnum
+    SfcMetadataDispositionMatch
 
     Sfc metadata disposition match
 
@@ -78,18 +60,12 @@ class SfcMetadataDispositionMatchEnum(Enum):
 
     """
 
-    type1_dcalloc_tenant_id = 1
+    type1_dcalloc_tenant_id = Enum.YLeaf(1, "type1-dcalloc-tenant-id")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['SfcMetadataDispositionMatchEnum']
-
-
-class SfcMetadataType1AllocFormatEnum(Enum):
+class SfcMetadataType1AllocFormat(Enum):
     """
-    SfcMetadataType1AllocFormatEnum
+    SfcMetadataType1AllocFormat
 
     Sfc metadata type1 alloc format
 
@@ -99,18 +75,12 @@ class SfcMetadataType1AllocFormatEnum(Enum):
 
     """
 
-    dc_allocation = 1
+    dc_allocation = Enum.YLeaf(1, "dc-allocation")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['SfcMetadataType1AllocFormatEnum']
-
-
-class SfcSfTransportEnum(Enum):
+class SfcSfTransport(Enum):
     """
-    SfcSfTransportEnum
+    SfcSfTransport
 
     Sfc sf transport
 
@@ -120,17 +90,11 @@ class SfcSfTransportEnum(Enum):
 
     """
 
-    vxlan_gpe = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['SfcSfTransportEnum']
+    vxlan_gpe = Enum.YLeaf(1, "vxlan-gpe")
 
 
 
-class Vservice(object):
+class Vservice(Entity):
     """
     configure vservice node
     
@@ -167,19 +131,39 @@ class Vservice(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Vservice, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "vservice"
+        self.yang_parent_name = "Cisco-IOS-XR-vservice-cfg"
+
         self.metadata_dispositions = Vservice.MetadataDispositions()
         self.metadata_dispositions.parent = self
+        self._children_name_map["metadata_dispositions"] = "metadata-dispositions"
+        self._children_yang_names.add("metadata-dispositions")
+
         self.metadata_templates = Vservice.MetadataTemplates()
         self.metadata_templates.parent = self
+        self._children_name_map["metadata_templates"] = "metadata-templates"
+        self._children_yang_names.add("metadata-templates")
+
         self.service_function_forward_locator = Vservice.ServiceFunctionForwardLocator()
         self.service_function_forward_locator.parent = self
+        self._children_name_map["service_function_forward_locator"] = "service-function-forward-locator"
+        self._children_yang_names.add("service-function-forward-locator")
+
         self.service_function_locator = Vservice.ServiceFunctionLocator()
         self.service_function_locator.parent = self
+        self._children_name_map["service_function_locator"] = "service-function-locator"
+        self._children_yang_names.add("service-function-locator")
+
         self.service_function_path = Vservice.ServiceFunctionPath()
         self.service_function_path.parent = self
+        self._children_name_map["service_function_path"] = "service-function-path"
+        self._children_yang_names.add("service-function-path")
 
 
-    class ServiceFunctionLocator(object):
+    class ServiceFunctionLocator(Entity):
         """
         configure service function locator
         
@@ -196,12 +180,18 @@ class Vservice(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Vservice.ServiceFunctionLocator, self).__init__()
+
+            self.yang_name = "service-function-locator"
+            self.yang_parent_name = "vservice"
+
             self.names = Vservice.ServiceFunctionLocator.Names()
             self.names.parent = self
+            self._children_name_map["names"] = "names"
+            self._children_yang_names.add("names")
 
 
-        class Names(object):
+        class Names(Entity):
             """
             Mention the sf/sff name
             
@@ -218,13 +208,39 @@ class Vservice(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.name = YList()
-                self.name.parent = self
-                self.name.name = 'name'
+                super(Vservice.ServiceFunctionLocator.Names, self).__init__()
+
+                self.yang_name = "names"
+                self.yang_parent_name = "service-function-locator"
+
+                self.name = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vservice.ServiceFunctionLocator.Names, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vservice.ServiceFunctionLocator.Names, self).__setattr__(name, value)
 
 
-            class Name(object):
+            class Name(Entity):
                 """
                 service function name
                 
@@ -255,14 +271,47 @@ class Vservice(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.function_name = None
-                    self.locator_id = None
+                    super(Vservice.ServiceFunctionLocator.Names.Name, self).__init__()
+
+                    self.yang_name = "name"
+                    self.yang_parent_name = "names"
+
+                    self.function_name = YLeaf(YType.str, "function-name")
+
+                    self.locator_id = YLeaf(YType.uint32, "locator-id")
+
                     self.node = Vservice.ServiceFunctionLocator.Names.Name.Node()
                     self.node.parent = self
+                    self._children_name_map["node"] = "node"
+                    self._children_yang_names.add("node")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("function_name",
+                                    "locator_id") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vservice.ServiceFunctionLocator.Names.Name, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vservice.ServiceFunctionLocator.Names.Name, self).__setattr__(name, value)
 
 
-                class Node(object):
+                class Node(Entity):
                     """
                     configure sff/sffl
                     
@@ -283,7 +332,7 @@ class Vservice(object):
                     .. attribute:: transport
                     
                     	Transport type
-                    	**type**\:   :py:class:`SfcSfTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransportEnum>`
+                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
                     
                     .. attribute:: vni
                     
@@ -300,117 +349,288 @@ class Vservice(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv4_destination_address = None
-                        self.ipv4_source_address = None
-                        self.transport = None
-                        self.vni = None
+                        super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "node"
+                        self.yang_parent_name = "name"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
 
-                    def _has_data(self):
-                        if self.ipv4_destination_address is not None:
+                        self.transport = YLeaf(YType.enumeration, "transport")
+
+                        self.vni = YLeaf(YType.int32, "vni")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv4_destination_address",
+                                        "ipv4_source_address",
+                                        "transport",
+                                        "vni") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.ipv4_destination_address.is_set or
+                            self.ipv4_source_address.is_set or
+                            self.transport.is_set or
+                            self.vni.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv4_destination_address.yfilter != YFilter.not_set or
+                            self.ipv4_source_address.yfilter != YFilter.not_set or
+                            self.transport.yfilter != YFilter.not_set or
+                            self.vni.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "node" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv4_destination_address.is_set or self.ipv4_destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_destination_address.get_name_leafdata())
+                        if (self.ipv4_source_address.is_set or self.ipv4_source_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_source_address.get_name_leafdata())
+                        if (self.transport.is_set or self.transport.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.transport.get_name_leafdata())
+                        if (self.vni.is_set or self.vni.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vni.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv4-destination-address" or name == "ipv4-source-address" or name == "transport" or name == "vni"):
                             return True
-
-                        if self.ipv4_source_address is not None:
-                            return True
-
-                        if self.transport is not None:
-                            return True
-
-                        if self.vni is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                        return meta._meta_table['Vservice.ServiceFunctionLocator.Names.Name.Node']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv4-destination-address"):
+                            self.ipv4_destination_address = value
+                            self.ipv4_destination_address.value_namespace = name_space
+                            self.ipv4_destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-source-address"):
+                            self.ipv4_source_address = value
+                            self.ipv4_source_address.value_namespace = name_space
+                            self.ipv4_source_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "transport"):
+                            self.transport = value
+                            self.transport.value_namespace = name_space
+                            self.transport.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vni"):
+                            self.vni = value
+                            self.vni.value_namespace = name_space
+                            self.vni.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.function_name is None:
-                        raise YPYModelError('Key property function_name is None')
-                    if self.locator_id is None:
-                        raise YPYModelError('Key property locator_id is None')
+                def has_data(self):
+                    return (
+                        self.function_name.is_set or
+                        self.locator_id.is_set or
+                        (self.node is not None and self.node.has_data()))
 
-                    return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-locator/Cisco-IOS-XR-vservice-cfg:names/Cisco-IOS-XR-vservice-cfg:name[Cisco-IOS-XR-vservice-cfg:function-name = ' + str(self.function_name) + '][Cisco-IOS-XR-vservice-cfg:locator-id = ' + str(self.locator_id) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.function_name.yfilter != YFilter.not_set or
+                        self.locator_id.yfilter != YFilter.not_set or
+                        (self.node is not None and self.node.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.function_name is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/names/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.function_name.is_set or self.function_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.function_name.get_name_leafdata())
+                    if (self.locator_id.is_set or self.locator_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.locator_id.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "node"):
+                        if (self.node is None):
+                            self.node = Vservice.ServiceFunctionLocator.Names.Name.Node()
+                            self.node.parent = self
+                            self._children_name_map["node"] = "node"
+                        return self.node
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "node" or name == "function-name" or name == "locator-id"):
                         return True
-
-                    if self.locator_id is not None:
-                        return True
-
-                    if self.node is not None and self.node._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                    return meta._meta_table['Vservice.ServiceFunctionLocator.Names.Name']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "function-name"):
+                        self.function_name = value
+                        self.function_name.value_namespace = name_space
+                        self.function_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "locator-id"):
+                        self.locator_id = value
+                        self.locator_id.value_namespace = name_space
+                        self.locator_id.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-locator/Cisco-IOS-XR-vservice-cfg:names'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.name is not None:
-                    for child_ref in self.name:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.name:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                return meta._meta_table['Vservice.ServiceFunctionLocator.Names']['meta_info']
+            def has_operation(self):
+                for c in self.name:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "names" + path_buffer
 
-            return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-locator'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.names is not None and self.names._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "name"):
+                    for c in self.name:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Vservice.ServiceFunctionLocator.Names.Name()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.name.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.names is not None and self.names.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.names is not None and self.names.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function-locator" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "names"):
+                if (self.names is None):
+                    self.names = Vservice.ServiceFunctionLocator.Names()
+                    self.names.parent = self
+                    self._children_name_map["names"] = "names"
+                return self.names
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "names"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-            return meta._meta_table['Vservice.ServiceFunctionLocator']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class MetadataDispositions(object):
+    class MetadataDispositions(Entity):
         """
         Configure metadata disposition
         
@@ -427,13 +647,39 @@ class Vservice(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.metadata_disposition = YList()
-            self.metadata_disposition.parent = self
-            self.metadata_disposition.name = 'metadata_disposition'
+            super(Vservice.MetadataDispositions, self).__init__()
+
+            self.yang_name = "metadata-dispositions"
+            self.yang_parent_name = "vservice"
+
+            self.metadata_disposition = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Vservice.MetadataDispositions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Vservice.MetadataDispositions, self).__setattr__(name, value)
 
 
-        class MetadataDisposition(object):
+        class MetadataDisposition(Entity):
             """
             metadata disposition name
             
@@ -447,7 +693,7 @@ class Vservice(object):
             .. attribute:: format  <key>
             
             	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormatEnum>`
+            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
             
             .. attribute:: match_entry
             
@@ -462,15 +708,44 @@ class Vservice(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.disposition_name = None
-                self.format = None
-                self.match_entry = YList()
-                self.match_entry.parent = self
-                self.match_entry.name = 'match_entry'
+                super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
+
+                self.yang_name = "metadata-disposition"
+                self.yang_parent_name = "metadata-dispositions"
+
+                self.disposition_name = YLeaf(YType.str, "disposition-name")
+
+                self.format = YLeaf(YType.enumeration, "format")
+
+                self.match_entry = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("disposition_name",
+                                "format") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vservice.MetadataDispositions.MetadataDisposition, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vservice.MetadataDispositions.MetadataDisposition, self).__setattr__(name, value)
 
 
-            class MatchEntry(object):
+            class MatchEntry(Entity):
                 """
                 match entry name
                 
@@ -494,25 +769,56 @@ class Vservice(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.match_entry_name = None
+                    super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
+
+                    self.yang_name = "match-entry"
+                    self.yang_parent_name = "metadata-disposition"
+
+                    self.match_entry_name = YLeaf(YType.str, "match-entry-name")
+
                     self.node = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node()
                     self.node.parent = self
+                    self._children_name_map["node"] = "node"
+                    self._children_yang_names.add("node")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("match_entry_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__setattr__(name, value)
 
 
-                class Node(object):
+                class Node(Entity):
                     """
                     configure disposition data
                     
                     .. attribute:: action_type
                     
                     	action type
-                    	**type**\:   :py:class:`SfcMetadataDispositionActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionActionEnum>`
+                    	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
                     
                     .. attribute:: match_type
                     
                     	match type
-                    	**type**\:   :py:class:`SfcMetadataDispositionMatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatchEnum>`
+                    	**type**\:   :py:class:`SfcMetadataDispositionMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatch>`
                     
                     .. attribute:: nexthop_ipv4_address
                     
@@ -541,134 +847,319 @@ class Vservice(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.action_type = None
-                        self.match_type = None
-                        self.nexthop_ipv4_address = None
-                        self.tenant_id = YLeafList()
-                        self.tenant_id.parent = self
-                        self.tenant_id.name = 'tenant_id'
-                        self.vrf = None
+                        super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "node"
+                        self.yang_parent_name = "match-entry"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                        self.action_type = YLeaf(YType.enumeration, "action-type")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.match_type = YLeaf(YType.enumeration, "match-type")
 
-                    def _has_data(self):
-                        if self.action_type is not None:
+                        self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
+
+                        self.tenant_id = YLeafList(YType.int32, "tenant-id")
+
+                        self.vrf = YLeaf(YType.str, "vrf")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("action_type",
+                                        "match_type",
+                                        "nexthop_ipv4_address",
+                                        "tenant_id",
+                                        "vrf") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        for leaf in self.tenant_id.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
+                                return True
+                        return (
+                            self.action_type.is_set or
+                            self.match_type.is_set or
+                            self.nexthop_ipv4_address.is_set or
+                            self.vrf.is_set)
+
+                    def has_operation(self):
+                        for leaf in self.tenant_id.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.action_type.yfilter != YFilter.not_set or
+                            self.match_type.yfilter != YFilter.not_set or
+                            self.nexthop_ipv4_address.yfilter != YFilter.not_set or
+                            self.tenant_id.yfilter != YFilter.not_set or
+                            self.vrf.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "node" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.action_type.is_set or self.action_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.action_type.get_name_leafdata())
+                        if (self.match_type.is_set or self.match_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.match_type.get_name_leafdata())
+                        if (self.nexthop_ipv4_address.is_set or self.nexthop_ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nexthop_ipv4_address.get_name_leafdata())
+                        if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                        leaf_name_data.extend(self.tenant_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "action-type" or name == "match-type" or name == "nexthop-ipv4-address" or name == "tenant-id" or name == "vrf"):
                             return True
-
-                        if self.match_type is not None:
-                            return True
-
-                        if self.nexthop_ipv4_address is not None:
-                            return True
-
-                        if self.tenant_id is not None:
-                            for child in self.tenant_id:
-                                if child is not None:
-                                    return True
-
-                        if self.vrf is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                        return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "action-type"):
+                            self.action_type = value
+                            self.action_type.value_namespace = name_space
+                            self.action_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "match-type"):
+                            self.match_type = value
+                            self.match_type.value_namespace = name_space
+                            self.match_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "nexthop-ipv4-address"):
+                            self.nexthop_ipv4_address = value
+                            self.nexthop_ipv4_address.value_namespace = name_space
+                            self.nexthop_ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tenant-id"):
+                            self.tenant_id.append(value)
+                        if(value_path == "vrf"):
+                            self.vrf = value
+                            self.vrf.value_namespace = name_space
+                            self.vrf.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.match_entry_name is None:
-                        raise YPYModelError('Key property match_entry_name is None')
+                def has_data(self):
+                    return (
+                        self.match_entry_name.is_set or
+                        (self.node is not None and self.node.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:match-entry[Cisco-IOS-XR-vservice-cfg:match-entry-name = ' + str(self.match_entry_name) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.match_entry_name.yfilter != YFilter.not_set or
+                        (self.node is not None and self.node.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "match-entry" + "[match-entry-name='" + self.match_entry_name.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.match_entry_name is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.match_entry_name.is_set or self.match_entry_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.match_entry_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "node"):
+                        if (self.node is None):
+                            self.node = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node()
+                            self.node.parent = self
+                            self._children_name_map["node"] = "node"
+                        return self.node
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "node" or name == "match-entry-name"):
                         return True
-
-                    if self.node is not None and self.node._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                    return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition.MatchEntry']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "match-entry-name"):
+                        self.match_entry_name = value
+                        self.match_entry_name.value_namespace = name_space
+                        self.match_entry_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.disposition_name is None:
-                    raise YPYModelError('Key property disposition_name is None')
-                if self.format is None:
-                    raise YPYModelError('Key property format is None')
+            def has_data(self):
+                for c in self.match_entry:
+                    if (c.has_data()):
+                        return True
+                return (
+                    self.disposition_name.is_set or
+                    self.format.is_set)
 
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-dispositions/Cisco-IOS-XR-vservice-cfg:metadata-disposition[Cisco-IOS-XR-vservice-cfg:disposition-name = ' + str(self.disposition_name) + '][Cisco-IOS-XR-vservice-cfg:format = ' + str(self.format) + ']'
+            def has_operation(self):
+                for c in self.match_entry:
+                    if (c.has_operation()):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.disposition_name.yfilter != YFilter.not_set or
+                    self.format.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "metadata-disposition" + "[disposition-name='" + self.disposition_name.get() + "']" + "[format='" + self.format.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.disposition_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.disposition_name.is_set or self.disposition_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disposition_name.get_name_leafdata())
+                if (self.format.is_set or self.format.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.format.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "match-entry"):
+                    for c in self.match_entry:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.match_entry.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "match-entry" or name == "disposition-name" or name == "format"):
                     return True
-
-                if self.format is not None:
-                    return True
-
-                if self.match_entry is not None:
-                    for child_ref in self.match_entry:
-                        if child_ref._has_data():
-                            return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "disposition-name"):
+                    self.disposition_name = value
+                    self.disposition_name.value_namespace = name_space
+                    self.disposition_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "format"):
+                    self.format = value
+                    self.format.value_namespace = name_space
+                    self.format.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-dispositions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.metadata_disposition is not None:
-                for child_ref in self.metadata_disposition:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.metadata_disposition:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-            return meta._meta_table['Vservice.MetadataDispositions']['meta_info']
+        def has_operation(self):
+            for c in self.metadata_disposition:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "metadata-dispositions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "metadata-disposition"):
+                for c in self.metadata_disposition:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Vservice.MetadataDispositions.MetadataDisposition()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.metadata_disposition.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "metadata-disposition"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ServiceFunctionForwardLocator(object):
+    class ServiceFunctionForwardLocator(Entity):
         """
         configure service function forward locator
         
@@ -685,12 +1176,18 @@ class Vservice(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Vservice.ServiceFunctionForwardLocator, self).__init__()
+
+            self.yang_name = "service-function-forward-locator"
+            self.yang_parent_name = "vservice"
+
             self.names = Vservice.ServiceFunctionForwardLocator.Names()
             self.names.parent = self
+            self._children_name_map["names"] = "names"
+            self._children_yang_names.add("names")
 
 
-        class Names(object):
+        class Names(Entity):
             """
             Mention the sf/sff name
             
@@ -707,13 +1204,39 @@ class Vservice(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.name = YList()
-                self.name.parent = self
-                self.name.name = 'name'
+                super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
+
+                self.yang_name = "names"
+                self.yang_parent_name = "service-function-forward-locator"
+
+                self.name = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vservice.ServiceFunctionForwardLocator.Names, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vservice.ServiceFunctionForwardLocator.Names, self).__setattr__(name, value)
 
 
-            class Name(object):
+            class Name(Entity):
                 """
                 service function name
                 
@@ -744,14 +1267,47 @@ class Vservice(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.function_name = None
-                    self.locator_id = None
+                    super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
+
+                    self.yang_name = "name"
+                    self.yang_parent_name = "names"
+
+                    self.function_name = YLeaf(YType.str, "function-name")
+
+                    self.locator_id = YLeaf(YType.uint32, "locator-id")
+
                     self.node = Vservice.ServiceFunctionForwardLocator.Names.Name.Node()
                     self.node.parent = self
+                    self._children_name_map["node"] = "node"
+                    self._children_yang_names.add("node")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("function_name",
+                                    "locator_id") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__setattr__(name, value)
 
 
-                class Node(object):
+                class Node(Entity):
                     """
                     configure sff/sffl
                     
@@ -772,7 +1328,7 @@ class Vservice(object):
                     .. attribute:: transport
                     
                     	Transport type
-                    	**type**\:   :py:class:`SfcSfTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransportEnum>`
+                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
                     
                     .. attribute:: vni
                     
@@ -789,117 +1345,288 @@ class Vservice(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv4_destination_address = None
-                        self.ipv4_source_address = None
-                        self.transport = None
-                        self.vni = None
+                        super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "node"
+                        self.yang_parent_name = "name"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
 
-                    def _has_data(self):
-                        if self.ipv4_destination_address is not None:
+                        self.transport = YLeaf(YType.enumeration, "transport")
+
+                        self.vni = YLeaf(YType.int32, "vni")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv4_destination_address",
+                                        "ipv4_source_address",
+                                        "transport",
+                                        "vni") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.ipv4_destination_address.is_set or
+                            self.ipv4_source_address.is_set or
+                            self.transport.is_set or
+                            self.vni.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv4_destination_address.yfilter != YFilter.not_set or
+                            self.ipv4_source_address.yfilter != YFilter.not_set or
+                            self.transport.yfilter != YFilter.not_set or
+                            self.vni.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "node" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv4_destination_address.is_set or self.ipv4_destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_destination_address.get_name_leafdata())
+                        if (self.ipv4_source_address.is_set or self.ipv4_source_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_source_address.get_name_leafdata())
+                        if (self.transport.is_set or self.transport.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.transport.get_name_leafdata())
+                        if (self.vni.is_set or self.vni.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vni.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv4-destination-address" or name == "ipv4-source-address" or name == "transport" or name == "vni"):
                             return True
-
-                        if self.ipv4_source_address is not None:
-                            return True
-
-                        if self.transport is not None:
-                            return True
-
-                        if self.vni is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                        return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names.Name.Node']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv4-destination-address"):
+                            self.ipv4_destination_address = value
+                            self.ipv4_destination_address.value_namespace = name_space
+                            self.ipv4_destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-source-address"):
+                            self.ipv4_source_address = value
+                            self.ipv4_source_address.value_namespace = name_space
+                            self.ipv4_source_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "transport"):
+                            self.transport = value
+                            self.transport.value_namespace = name_space
+                            self.transport.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vni"):
+                            self.vni = value
+                            self.vni.value_namespace = name_space
+                            self.vni.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.function_name is None:
-                        raise YPYModelError('Key property function_name is None')
-                    if self.locator_id is None:
-                        raise YPYModelError('Key property locator_id is None')
+                def has_data(self):
+                    return (
+                        self.function_name.is_set or
+                        self.locator_id.is_set or
+                        (self.node is not None and self.node.has_data()))
 
-                    return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-forward-locator/Cisco-IOS-XR-vservice-cfg:names/Cisco-IOS-XR-vservice-cfg:name[Cisco-IOS-XR-vservice-cfg:function-name = ' + str(self.function_name) + '][Cisco-IOS-XR-vservice-cfg:locator-id = ' + str(self.locator_id) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.function_name.yfilter != YFilter.not_set or
+                        self.locator_id.yfilter != YFilter.not_set or
+                        (self.node is not None and self.node.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.function_name is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.function_name.is_set or self.function_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.function_name.get_name_leafdata())
+                    if (self.locator_id.is_set or self.locator_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.locator_id.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "node"):
+                        if (self.node is None):
+                            self.node = Vservice.ServiceFunctionForwardLocator.Names.Name.Node()
+                            self.node.parent = self
+                            self._children_name_map["node"] = "node"
+                        return self.node
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "node" or name == "function-name" or name == "locator-id"):
                         return True
-
-                    if self.locator_id is not None:
-                        return True
-
-                    if self.node is not None and self.node._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                    return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names.Name']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "function-name"):
+                        self.function_name = value
+                        self.function_name.value_namespace = name_space
+                        self.function_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "locator-id"):
+                        self.locator_id = value
+                        self.locator_id.value_namespace = name_space
+                        self.locator_id.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-forward-locator/Cisco-IOS-XR-vservice-cfg:names'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.name is not None:
-                    for child_ref in self.name:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.name:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names']['meta_info']
+            def has_operation(self):
+                for c in self.name:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "names" + path_buffer
 
-            return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-forward-locator'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.names is not None and self.names._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "name"):
+                    for c in self.name:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Vservice.ServiceFunctionForwardLocator.Names.Name()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.name.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.names is not None and self.names.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.names is not None and self.names.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function-forward-locator" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "names"):
+                if (self.names is None):
+                    self.names = Vservice.ServiceFunctionForwardLocator.Names()
+                    self.names.parent = self
+                    self._children_name_map["names"] = "names"
+                return self.names
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "names"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-            return meta._meta_table['Vservice.ServiceFunctionForwardLocator']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class MetadataTemplates(object):
+    class MetadataTemplates(Entity):
         """
         configure metadata imposition
         
@@ -916,13 +1643,39 @@ class Vservice(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.metadata_template = YList()
-            self.metadata_template.parent = self
-            self.metadata_template.name = 'metadata_template'
+            super(Vservice.MetadataTemplates, self).__init__()
+
+            self.yang_name = "metadata-templates"
+            self.yang_parent_name = "vservice"
+
+            self.metadata_template = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Vservice.MetadataTemplates, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Vservice.MetadataTemplates, self).__setattr__(name, value)
 
 
-        class MetadataTemplate(object):
+        class MetadataTemplate(Entity):
             """
             metadata name, type and format
             
@@ -936,12 +1689,12 @@ class Vservice(object):
             .. attribute:: type  <key>
             
             	Specify Type 
-            	**type**\:   :py:class:`SfcMetadataAllocEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAllocEnum>`
+            	**type**\:   :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
             
             .. attribute:: format  <key>
             
             	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormatEnum>`
+            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
             
             .. attribute:: tenant_id
             
@@ -958,71 +1711,176 @@ class Vservice(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.metadata_name = None
-                self.type = None
-                self.format = None
-                self.tenant_id = None
+                super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.metadata_name is None:
-                    raise YPYModelError('Key property metadata_name is None')
-                if self.type is None:
-                    raise YPYModelError('Key property type is None')
-                if self.format is None:
-                    raise YPYModelError('Key property format is None')
+                self.yang_name = "metadata-template"
+                self.yang_parent_name = "metadata-templates"
 
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-templates/Cisco-IOS-XR-vservice-cfg:metadata-template[Cisco-IOS-XR-vservice-cfg:metadata-name = ' + str(self.metadata_name) + '][Cisco-IOS-XR-vservice-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-vservice-cfg:format = ' + str(self.format) + ']'
+                self.metadata_name = YLeaf(YType.str, "metadata-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.type = YLeaf(YType.enumeration, "type")
 
-            def _has_data(self):
-                if self.metadata_name is not None:
+                self.format = YLeaf(YType.enumeration, "format")
+
+                self.tenant_id = YLeaf(YType.uint32, "tenant-id")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("metadata_name",
+                                "type",
+                                "format",
+                                "tenant_id") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vservice.MetadataTemplates.MetadataTemplate, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vservice.MetadataTemplates.MetadataTemplate, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.metadata_name.is_set or
+                    self.type.is_set or
+                    self.format.is_set or
+                    self.tenant_id.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.metadata_name.yfilter != YFilter.not_set or
+                    self.type.yfilter != YFilter.not_set or
+                    self.format.yfilter != YFilter.not_set or
+                    self.tenant_id.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "metadata-template" + "[metadata-name='" + self.metadata_name.get() + "']" + "[type='" + self.type.get() + "']" + "[format='" + self.format.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.metadata_name.is_set or self.metadata_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.metadata_name.get_name_leafdata())
+                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.type.get_name_leafdata())
+                if (self.format.is_set or self.format.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.format.get_name_leafdata())
+                if (self.tenant_id.is_set or self.tenant_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.tenant_id.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "metadata-name" or name == "type" or name == "format" or name == "tenant-id"):
                     return True
-
-                if self.type is not None:
-                    return True
-
-                if self.format is not None:
-                    return True
-
-                if self.tenant_id is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                return meta._meta_table['Vservice.MetadataTemplates.MetadataTemplate']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "metadata-name"):
+                    self.metadata_name = value
+                    self.metadata_name.value_namespace = name_space
+                    self.metadata_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "type"):
+                    self.type = value
+                    self.type.value_namespace = name_space
+                    self.type.value_namespace_prefix = name_space_prefix
+                if(value_path == "format"):
+                    self.format = value
+                    self.format.value_namespace = name_space
+                    self.format.value_namespace_prefix = name_space_prefix
+                if(value_path == "tenant-id"):
+                    self.tenant_id = value
+                    self.tenant_id.value_namespace = name_space
+                    self.tenant_id.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-templates'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.metadata_template is not None:
-                for child_ref in self.metadata_template:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.metadata_template:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-            return meta._meta_table['Vservice.MetadataTemplates']['meta_info']
+        def has_operation(self):
+            for c in self.metadata_template:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "metadata-templates" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "metadata-template"):
+                for c in self.metadata_template:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Vservice.MetadataTemplates.MetadataTemplate()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.metadata_template.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "metadata-template"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ServiceFunctionPath(object):
+    class ServiceFunctionPath(Entity):
         """
         service function path
         
@@ -1039,12 +1897,18 @@ class Vservice(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Vservice.ServiceFunctionPath, self).__init__()
+
+            self.yang_name = "service-function-path"
+            self.yang_parent_name = "vservice"
+
             self.paths = Vservice.ServiceFunctionPath.Paths()
             self.paths.parent = self
+            self._children_name_map["paths"] = "paths"
+            self._children_yang_names.add("paths")
 
 
-        class Paths(object):
+        class Paths(Entity):
             """
             service function path id
             
@@ -1061,13 +1925,39 @@ class Vservice(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.path = YList()
-                self.path.parent = self
-                self.path.name = 'path'
+                super(Vservice.ServiceFunctionPath.Paths, self).__init__()
+
+                self.yang_name = "paths"
+                self.yang_parent_name = "service-function-path"
+
+                self.path = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vservice.ServiceFunctionPath.Paths, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vservice.ServiceFunctionPath.Paths, self).__setattr__(name, value)
 
 
-            class Path(object):
+            class Path(Entity):
                 """
                 specify the service function path id
                 
@@ -1091,14 +1981,41 @@ class Vservice(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.path_id = None
-                    self.service_index = YList()
-                    self.service_index.parent = self
-                    self.service_index.name = 'service_index'
+                    super(Vservice.ServiceFunctionPath.Paths.Path, self).__init__()
+
+                    self.yang_name = "path"
+                    self.yang_parent_name = "paths"
+
+                    self.path_id = YLeaf(YType.uint32, "path-id")
+
+                    self.service_index = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("path_id") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vservice.ServiceFunctionPath.Paths.Path, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vservice.ServiceFunctionPath.Paths.Path, self).__setattr__(name, value)
 
 
-                class ServiceIndex(object):
+                class ServiceIndex(Entity):
                     """
                     specify the service index
                     
@@ -1132,17 +2049,54 @@ class Vservice(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.index = None
+                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__init__()
+
+                        self.yang_name = "service-index"
+                        self.yang_parent_name = "path"
+
+                        self.index = YLeaf(YType.uint32, "index")
+
                         self.sf_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames()
                         self.sf_names.parent = self
+                        self._children_name_map["sf_names"] = "sf-names"
+                        self._children_yang_names.add("sf-names")
+
                         self.sff_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames()
                         self.sff_names.parent = self
+                        self._children_name_map["sff_names"] = "sff-names"
+                        self._children_yang_names.add("sff-names")
+
                         self.terminate = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate()
                         self.terminate.parent = self
+                        self._children_name_map["terminate"] = "terminate"
+                        self._children_yang_names.add("terminate")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("index") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__setattr__(name, value)
 
 
-                    class Terminate(object):
+                    class Terminate(Entity):
                         """
                         configure terminate
                         
@@ -1159,19 +2113,25 @@ class Vservice(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
+
+                            self.yang_name = "terminate"
+                            self.yang_parent_name = "service-index"
+
                             self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node()
                             self.node.parent = self
+                            self._children_name_map["node"] = "node"
+                            self._children_yang_names.add("node")
 
 
-                        class Node(object):
+                        class Node(Entity):
                             """
                             configure default terminate action
                             
                             .. attribute:: action
                             
                             	default action enum
-                            	**type**\:   :py:class:`SfcMetadataDispositionActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionActionEnum>`
+                            	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
                             
                             .. attribute:: metatdata_disposition
                             
@@ -1198,67 +2158,167 @@ class Vservice(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.action = None
-                                self.metatdata_disposition = None
-                                self.nexthop_ipv4_address = None
-                                self.vrf = None
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "node"
+                                self.yang_parent_name = "terminate"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                                self.action = YLeaf(YType.enumeration, "action")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.metatdata_disposition = YLeaf(YType.str, "metatdata-disposition")
 
-                            def _has_data(self):
-                                if self.action is not None:
+                                self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
+
+                                self.vrf = YLeaf(YType.str, "vrf")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("action",
+                                                "metatdata_disposition",
+                                                "nexthop_ipv4_address",
+                                                "vrf") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.action.is_set or
+                                    self.metatdata_disposition.is_set or
+                                    self.nexthop_ipv4_address.is_set or
+                                    self.vrf.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.action.yfilter != YFilter.not_set or
+                                    self.metatdata_disposition.yfilter != YFilter.not_set or
+                                    self.nexthop_ipv4_address.yfilter != YFilter.not_set or
+                                    self.vrf.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "node" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.action.is_set or self.action.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.action.get_name_leafdata())
+                                if (self.metatdata_disposition.is_set or self.metatdata_disposition.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.metatdata_disposition.get_name_leafdata())
+                                if (self.nexthop_ipv4_address.is_set or self.nexthop_ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.nexthop_ipv4_address.get_name_leafdata())
+                                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "action" or name == "metatdata-disposition" or name == "nexthop-ipv4-address" or name == "vrf"):
                                     return True
-
-                                if self.metatdata_disposition is not None:
-                                    return True
-
-                                if self.nexthop_ipv4_address is not None:
-                                    return True
-
-                                if self.vrf is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "action"):
+                                    self.action = value
+                                    self.action.value_namespace = name_space
+                                    self.action.value_namespace_prefix = name_space_prefix
+                                if(value_path == "metatdata-disposition"):
+                                    self.metatdata_disposition = value
+                                    self.metatdata_disposition.value_namespace = name_space
+                                    self.metatdata_disposition.value_namespace_prefix = name_space_prefix
+                                if(value_path == "nexthop-ipv4-address"):
+                                    self.nexthop_ipv4_address = value
+                                    self.nexthop_ipv4_address.value_namespace = name_space
+                                    self.nexthop_ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf"):
+                                    self.vrf = value
+                                    self.vrf.value_namespace = name_space
+                                    self.vrf.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (self.node is not None and self.node.has_data())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:terminate'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.node is not None and self.node.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "terminate" + path_buffer
 
-                        def _has_data(self):
-                            if self.node is not None and self.node._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "node"):
+                                if (self.node is None):
+                                    self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node()
+                                    self.node.parent = self
+                                    self._children_name_map["node"] = "node"
+                                return self.node
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "node"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class SffNames(object):
+                    class SffNames(Entity):
                         """
                         service function forwarder 
                         
@@ -1275,13 +2335,39 @@ class Vservice(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.sff_name = YList()
-                            self.sff_name.parent = self
-                            self.sff_name.name = 'sff_name'
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__init__()
+
+                            self.yang_name = "sff-names"
+                            self.yang_parent_name = "service-index"
+
+                            self.sff_name = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__setattr__(name, value)
 
 
-                        class SffName(object):
+                        class SffName(Entity):
                             """
                             service function forwarder name
                             
@@ -1305,13 +2391,44 @@ class Vservice(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.name = None
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__init__()
+
+                                self.yang_name = "sff-name"
+                                self.yang_parent_name = "sff-names"
+
+                                self.name = YLeaf(YType.str, "name")
+
                                 self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node()
                                 self.node.parent = self
+                                self._children_name_map["node"] = "node"
+                                self._children_yang_names.add("node")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__setattr__(name, value)
 
 
-                            class Node(object):
+                            class Node(Entity):
                                 """
                                 configure SFP
                                 
@@ -1333,88 +2450,210 @@ class Vservice(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.enable = None
-                                    self.reserved = None
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "node"
+                                    self.yang_parent_name = "sff-name"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                                    self.enable = YLeaf(YType.empty, "enable")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.reserved = YLeaf(YType.empty, "reserved")
 
-                                def _has_data(self):
-                                    if self.enable is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("enable",
+                                                    "reserved") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.enable.is_set or
+                                        self.reserved.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.enable.yfilter != YFilter.not_set or
+                                        self.reserved.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "node" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.enable.get_name_leafdata())
+                                    if (self.reserved.is_set or self.reserved.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.reserved.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "enable" or name == "reserved"):
                                         return True
-
-                                    if self.reserved is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "enable"):
+                                        self.enable = value
+                                        self.enable.value_namespace = name_space
+                                        self.enable.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "reserved"):
+                                        self.reserved = value
+                                        self.reserved.value_namespace = name_space
+                                        self.reserved.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.name is None:
-                                    raise YPYModelError('Key property name is None')
+                            def has_data(self):
+                                return (
+                                    self.name.is_set or
+                                    (self.node is not None and self.node.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:sff-name[Cisco-IOS-XR-vservice-cfg:name = ' + str(self.name) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.name.yfilter != YFilter.not_set or
+                                    (self.node is not None and self.node.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "sff-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.name is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "node"):
+                                    if (self.node is None):
+                                        self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node()
+                                        self.node.parent = self
+                                        self._children_name_map["node"] = "node"
+                                    return self.node
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "node" or name == "name"):
                                     return True
-
-                                if self.node is not None and self.node._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "name"):
+                                    self.name = value
+                                    self.name.value_namespace = name_space
+                                    self.name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:sff-names'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.sff_name is not None:
-                                for child_ref in self.sff_name:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.sff_name:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames']['meta_info']
+                        def has_operation(self):
+                            for c in self.sff_name:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff-names" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "sff-name"):
+                                for c in self.sff_name:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.sff_name.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "sff-name"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class SfNames(object):
+                    class SfNames(Entity):
                         """
                         service function 
                         
@@ -1431,13 +2670,39 @@ class Vservice(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.sf_name = YList()
-                            self.sf_name.parent = self
-                            self.sf_name.name = 'sf_name'
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
+
+                            self.yang_name = "sf-names"
+                            self.yang_parent_name = "service-index"
+
+                            self.sf_name = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__setattr__(name, value)
 
 
-                        class SfName(object):
+                        class SfName(Entity):
                             """
                             service function name
                             
@@ -1461,13 +2726,44 @@ class Vservice(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.name = None
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
+
+                                self.yang_name = "sf-name"
+                                self.yang_parent_name = "sf-names"
+
+                                self.name = YLeaf(YType.str, "name")
+
                                 self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node()
                                 self.node.parent = self
+                                self._children_name_map["node"] = "node"
+                                self._children_yang_names.add("node")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__setattr__(name, value)
 
 
-                            class Node(object):
+                            class Node(Entity):
                                 """
                                 configure SFP
                                 
@@ -1489,218 +2785,536 @@ class Vservice(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.enable = None
-                                    self.reserved = None
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "node"
+                                    self.yang_parent_name = "sf-name"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:node'
+                                    self.enable = YLeaf(YType.empty, "enable")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.reserved = YLeaf(YType.empty, "reserved")
 
-                                def _has_data(self):
-                                    if self.enable is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("enable",
+                                                    "reserved") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.enable.is_set or
+                                        self.reserved.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.enable.yfilter != YFilter.not_set or
+                                        self.reserved.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "node" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.enable.get_name_leafdata())
+                                    if (self.reserved.is_set or self.reserved.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.reserved.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "enable" or name == "reserved"):
                                         return True
-
-                                    if self.reserved is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "enable"):
+                                        self.enable = value
+                                        self.enable.value_namespace = name_space
+                                        self.enable.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "reserved"):
+                                        self.reserved = value
+                                        self.reserved.value_namespace = name_space
+                                        self.reserved.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.name is None:
-                                    raise YPYModelError('Key property name is None')
+                            def has_data(self):
+                                return (
+                                    self.name.is_set or
+                                    (self.node is not None and self.node.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:sf-name[Cisco-IOS-XR-vservice-cfg:name = ' + str(self.name) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.name.yfilter != YFilter.not_set or
+                                    (self.node is not None and self.node.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "sf-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.name is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "node"):
+                                    if (self.node is None):
+                                        self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node()
+                                        self.node.parent = self
+                                        self._children_name_map["node"] = "node"
+                                    return self.node
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "node" or name == "name"):
                                     return True
-
-                                if self.node is not None and self.node._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "name"):
+                                    self.name = value
+                                    self.name.value_namespace = name_space
+                                    self.name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:sf-names'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.sf_name is not None:
-                                for child_ref in self.sf_name:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.sf_name:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames']['meta_info']
+                        def has_operation(self):
+                            for c in self.sf_name:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.index is None:
-                            raise YPYModelError('Key property index is None')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sf-names" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-vservice-cfg:service-index[Cisco-IOS-XR-vservice-cfg:index = ' + str(self.index) + ']'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.index is not None:
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "sf-name"):
+                                for c in self.sf_name:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.sf_name.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "sf-name"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (
+                            self.index.is_set or
+                            (self.sf_names is not None and self.sf_names.has_data()) or
+                            (self.sff_names is not None and self.sff_names.has_data()) or
+                            (self.terminate is not None and self.terminate.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.index.yfilter != YFilter.not_set or
+                            (self.sf_names is not None and self.sf_names.has_operation()) or
+                            (self.sff_names is not None and self.sff_names.has_operation()) or
+                            (self.terminate is not None and self.terminate.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-index" + "[index='" + self.index.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.index.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "sf-names"):
+                            if (self.sf_names is None):
+                                self.sf_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames()
+                                self.sf_names.parent = self
+                                self._children_name_map["sf_names"] = "sf-names"
+                            return self.sf_names
+
+                        if (child_yang_name == "sff-names"):
+                            if (self.sff_names is None):
+                                self.sff_names = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames()
+                                self.sff_names.parent = self
+                                self._children_name_map["sff_names"] = "sff-names"
+                            return self.sff_names
+
+                        if (child_yang_name == "terminate"):
+                            if (self.terminate is None):
+                                self.terminate = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate()
+                                self.terminate.parent = self
+                                self._children_name_map["terminate"] = "terminate"
+                            return self.terminate
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "sf-names" or name == "sff-names" or name == "terminate" or name == "index"):
                             return True
-
-                        if self.sf_names is not None and self.sf_names._has_data():
-                            return True
-
-                        if self.sff_names is not None and self.sff_names._has_data():
-                            return True
-
-                        if self.terminate is not None and self.terminate._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                        return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "index"):
+                            self.index = value
+                            self.index.value_namespace = name_space
+                            self.index.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.path_id is None:
-                        raise YPYModelError('Key property path_id is None')
+                def has_data(self):
+                    for c in self.service_index:
+                        if (c.has_data()):
+                            return True
+                    return self.path_id.is_set
 
-                    return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-path/Cisco-IOS-XR-vservice-cfg:paths/Cisco-IOS-XR-vservice-cfg:path[Cisco-IOS-XR-vservice-cfg:path-id = ' + str(self.path_id) + ']'
+                def has_operation(self):
+                    for c in self.service_index:
+                        if (c.has_operation()):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.path_id.yfilter != YFilter.not_set)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "path" + "[path-id='" + self.path_id.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.path_id is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.path_id.is_set or self.path_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_id.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "service-index"):
+                        for c in self.service_index:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.service_index.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service-index" or name == "path-id"):
                         return True
-
-                    if self.service_index is not None:
-                        for child_ref in self.service_index:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "path-id"):
+                        self.path_id = value
+                        self.path_id.value_namespace = name_space
+                        self.path_id.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-path/Cisco-IOS-XR-vservice-cfg:paths'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.path is not None:
-                    for child_ref in self.path:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.path:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-                return meta._meta_table['Vservice.ServiceFunctionPath.Paths']['meta_info']
+            def has_operation(self):
+                for c in self.path:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "paths" + path_buffer
 
-            return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:service-function-path'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.paths is not None and self.paths._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "path"):
+                    for c in self.path:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Vservice.ServiceFunctionPath.Paths.Path()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.path.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "path"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.paths is not None and self.paths.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.paths is not None and self.paths.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function-path" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "paths"):
+                if (self.paths is None):
+                    self.paths = Vservice.ServiceFunctionPath.Paths()
+                    self.paths.parent = self
+                    self._children_name_map["paths"] = "paths"
+                return self.paths
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "paths"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-            return meta._meta_table['Vservice.ServiceFunctionPath']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.metadata_dispositions is not None and self.metadata_dispositions.has_data()) or
+            (self.metadata_templates is not None and self.metadata_templates.has_data()) or
+            (self.service_function_forward_locator is not None and self.service_function_forward_locator.has_data()) or
+            (self.service_function_locator is not None and self.service_function_locator.has_data()) or
+            (self.service_function_path is not None and self.service_function_path.has_data()))
 
-        return '/Cisco-IOS-XR-vservice-cfg:vservice'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.metadata_dispositions is not None and self.metadata_dispositions.has_operation()) or
+            (self.metadata_templates is not None and self.metadata_templates.has_operation()) or
+            (self.service_function_forward_locator is not None and self.service_function_forward_locator.has_operation()) or
+            (self.service_function_locator is not None and self.service_function_locator.has_operation()) or
+            (self.service_function_path is not None and self.service_function_path.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-vservice-cfg:vservice" + path_buffer
 
-    def _has_data(self):
-        if self.metadata_dispositions is not None and self.metadata_dispositions._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "metadata-dispositions"):
+            if (self.metadata_dispositions is None):
+                self.metadata_dispositions = Vservice.MetadataDispositions()
+                self.metadata_dispositions.parent = self
+                self._children_name_map["metadata_dispositions"] = "metadata-dispositions"
+            return self.metadata_dispositions
+
+        if (child_yang_name == "metadata-templates"):
+            if (self.metadata_templates is None):
+                self.metadata_templates = Vservice.MetadataTemplates()
+                self.metadata_templates.parent = self
+                self._children_name_map["metadata_templates"] = "metadata-templates"
+            return self.metadata_templates
+
+        if (child_yang_name == "service-function-forward-locator"):
+            if (self.service_function_forward_locator is None):
+                self.service_function_forward_locator = Vservice.ServiceFunctionForwardLocator()
+                self.service_function_forward_locator.parent = self
+                self._children_name_map["service_function_forward_locator"] = "service-function-forward-locator"
+            return self.service_function_forward_locator
+
+        if (child_yang_name == "service-function-locator"):
+            if (self.service_function_locator is None):
+                self.service_function_locator = Vservice.ServiceFunctionLocator()
+                self.service_function_locator.parent = self
+                self._children_name_map["service_function_locator"] = "service-function-locator"
+            return self.service_function_locator
+
+        if (child_yang_name == "service-function-path"):
+            if (self.service_function_path is None):
+                self.service_function_path = Vservice.ServiceFunctionPath()
+                self.service_function_path.parent = self
+                self._children_name_map["service_function_path"] = "service-function-path"
+            return self.service_function_path
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "metadata-dispositions" or name == "metadata-templates" or name == "service-function-forward-locator" or name == "service-function-locator" or name == "service-function-path"):
             return True
-
-        if self.metadata_templates is not None and self.metadata_templates._has_data():
-            return True
-
-        if self.service_function_forward_locator is not None and self.service_function_forward_locator._has_data():
-            return True
-
-        if self.service_function_locator is not None and self.service_function_locator._has_data():
-            return True
-
-        if self.service_function_path is not None and self.service_function_path._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
-        return meta._meta_table['Vservice']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Vservice()
+        return self._top_entity
 

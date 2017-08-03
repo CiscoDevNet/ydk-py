@@ -5,62 +5,15 @@ module and describes addtional operational
 data for route list
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_routing import RoutingProtocolIdentity
 
-
-class RipIdentity(RoutingProtocolIdentity):
-    """
-    RIP.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_routing_ext as meta
-        return meta._meta_table['RipIdentity']['meta_info']
-
-
-class BgpIdentity(RoutingProtocolIdentity):
-    """
-    BGP.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_routing_ext as meta
-        return meta._meta_table['BgpIdentity']['meta_info']
-
-
-class IsIsIdentity(RoutingProtocolIdentity):
+class IsIs(Identity):
     """
     IS\-IS.
     
@@ -72,15 +25,40 @@ class IsIsIdentity(RoutingProtocolIdentity):
     _revision = '2016-07-09'
 
     def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_routing_ext as meta
-        return meta._meta_table['IsIsIdentity']['meta_info']
+        super(IsIs, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:is-is")
 
 
-class EigrpIdentity(RoutingProtocolIdentity):
+class Bgp(Identity):
+    """
+    BGP.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self):
+        super(Bgp, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:bgp")
+
+
+class Rip(Identity):
+    """
+    RIP.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self):
+        super(Rip, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:rip")
+
+
+class Eigrp(Identity):
     """
     Eigrp.
     
@@ -92,15 +70,10 @@ class EigrpIdentity(RoutingProtocolIdentity):
     _revision = '2016-07-09'
 
     def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_routing_ext as meta
-        return meta._meta_table['EigrpIdentity']['meta_info']
+        super(Eigrp, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:eigrp")
 
 
-class MobileIdentity(RoutingProtocolIdentity):
+class Mobile(Identity):
     """
     Mobile.
     
@@ -112,11 +85,6 @@ class MobileIdentity(RoutingProtocolIdentity):
     _revision = '2016-07-09'
 
     def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_routing_ext as meta
-        return meta._meta_table['MobileIdentity']['meta_info']
+        super(Mobile, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:mobile")
 
 

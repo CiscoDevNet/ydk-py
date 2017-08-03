@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AlAlarmBistateEnum(Enum):
+class AlAlarmBistate(Enum):
     """
-    AlAlarmBistateEnum
+    AlAlarmBistate
 
     Al alarm bistate
 
@@ -44,22 +38,16 @@ class AlAlarmBistateEnum(Enum):
 
     """
 
-    not_available = 0
+    not_available = Enum.YLeaf(0, "not-available")
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    clear = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-        return meta._meta_table['AlAlarmBistateEnum']
+    clear = Enum.YLeaf(2, "clear")
 
 
-class AlAlarmSeverityEnum(Enum):
+class AlAlarmSeverity(Enum):
     """
-    AlAlarmSeverityEnum
+    AlAlarmSeverity
 
     Al alarm severity
 
@@ -101,33 +89,27 @@ class AlAlarmSeverityEnum(Enum):
 
     """
 
-    unknown = -1
+    unknown = Enum.YLeaf(-1, "unknown")
 
-    emergency = 0
+    emergency = Enum.YLeaf(0, "emergency")
 
-    alert = 1
+    alert = Enum.YLeaf(1, "alert")
 
-    critical = 2
+    critical = Enum.YLeaf(2, "critical")
 
-    error = 3
+    error = Enum.YLeaf(3, "error")
 
-    warning = 4
+    warning = Enum.YLeaf(4, "warning")
 
-    notice = 5
+    notice = Enum.YLeaf(5, "notice")
 
-    informational = 6
+    informational = Enum.YLeaf(6, "informational")
 
-    debugging = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-        return meta._meta_table['AlAlarmSeverityEnum']
+    debugging = Enum.YLeaf(7, "debugging")
 
 
 
-class AlarmLogger(object):
+class AlarmLogger(Entity):
     """
     Alarm Logger operational data
     
@@ -149,13 +131,24 @@ class AlarmLogger(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(AlarmLogger, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "alarm-logger"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-alarm-logger-oper"
+
         self.alarms = AlarmLogger.Alarms()
         self.alarms.parent = self
+        self._children_name_map["alarms"] = "alarms"
+        self._children_yang_names.add("alarms")
+
         self.buffer_status = AlarmLogger.BufferStatus()
         self.buffer_status.parent = self
+        self._children_name_map["buffer_status"] = "buffer-status"
+        self._children_yang_names.add("buffer-status")
 
 
-    class BufferStatus(object):
+    class BufferStatus(Entity):
         """
         Describes buffer utilization and parameters
         configured
@@ -197,7 +190,7 @@ class AlarmLogger(object):
         .. attribute:: severity_filter
         
         	Severity Filter
-        	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
+        	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
         
         
 
@@ -207,47 +200,130 @@ class AlarmLogger(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.capacity_threshold = None
-            self.log_buffer_size = None
-            self.max_log_buffer_size = None
-            self.record_count = None
-            self.severity_filter = None
+            super(AlarmLogger.BufferStatus, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "buffer-status"
+            self.yang_parent_name = "alarm-logger"
 
-            return '/Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-oper:buffer-status'
+            self.capacity_threshold = YLeaf(YType.uint32, "capacity-threshold")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.log_buffer_size = YLeaf(YType.uint32, "log-buffer-size")
+
+            self.max_log_buffer_size = YLeaf(YType.uint32, "max-log-buffer-size")
+
+            self.record_count = YLeaf(YType.uint32, "record-count")
+
+            self.severity_filter = YLeaf(YType.enumeration, "severity-filter")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("capacity_threshold",
+                            "log_buffer_size",
+                            "max_log_buffer_size",
+                            "record_count",
+                            "severity_filter") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(AlarmLogger.BufferStatus, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(AlarmLogger.BufferStatus, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.capacity_threshold.is_set or
+                self.log_buffer_size.is_set or
+                self.max_log_buffer_size.is_set or
+                self.record_count.is_set or
+                self.severity_filter.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.capacity_threshold.yfilter != YFilter.not_set or
+                self.log_buffer_size.yfilter != YFilter.not_set or
+                self.max_log_buffer_size.yfilter != YFilter.not_set or
+                self.record_count.yfilter != YFilter.not_set or
+                self.severity_filter.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "buffer-status" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.capacity_threshold.is_set or self.capacity_threshold.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.capacity_threshold.get_name_leafdata())
+            if (self.log_buffer_size.is_set or self.log_buffer_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.log_buffer_size.get_name_leafdata())
+            if (self.max_log_buffer_size.is_set or self.max_log_buffer_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.max_log_buffer_size.get_name_leafdata())
+            if (self.record_count.is_set or self.record_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.record_count.get_name_leafdata())
+            if (self.severity_filter.is_set or self.severity_filter.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.severity_filter.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "capacity-threshold" or name == "log-buffer-size" or name == "max-log-buffer-size" or name == "record-count" or name == "severity-filter"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.capacity_threshold is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "capacity-threshold"):
+                self.capacity_threshold = value
+                self.capacity_threshold.value_namespace = name_space
+                self.capacity_threshold.value_namespace_prefix = name_space_prefix
+            if(value_path == "log-buffer-size"):
+                self.log_buffer_size = value
+                self.log_buffer_size.value_namespace = name_space
+                self.log_buffer_size.value_namespace_prefix = name_space_prefix
+            if(value_path == "max-log-buffer-size"):
+                self.max_log_buffer_size = value
+                self.max_log_buffer_size.value_namespace = name_space
+                self.max_log_buffer_size.value_namespace_prefix = name_space_prefix
+            if(value_path == "record-count"):
+                self.record_count = value
+                self.record_count.value_namespace = name_space
+                self.record_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "severity-filter"):
+                self.severity_filter = value
+                self.severity_filter.value_namespace = name_space
+                self.severity_filter.value_namespace_prefix = name_space_prefix
 
-            if self.log_buffer_size is not None:
-                return True
 
-            if self.max_log_buffer_size is not None:
-                return True
-
-            if self.record_count is not None:
-                return True
-
-            if self.severity_filter is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-            return meta._meta_table['AlarmLogger.BufferStatus']['meta_info']
-
-
-    class Alarms(object):
+    class Alarms(Entity):
         """
         Table that contains the database of logged
         alarms
@@ -265,13 +341,39 @@ class AlarmLogger(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.alarm = YList()
-            self.alarm.parent = self
-            self.alarm.name = 'alarm'
+            super(AlarmLogger.Alarms, self).__init__()
+
+            self.yang_name = "alarms"
+            self.yang_parent_name = "alarm-logger"
+
+            self.alarm = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(AlarmLogger.Alarms, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(AlarmLogger.Alarms, self).__setattr__(name, value)
 
 
-        class Alarm(object):
+        class Alarm(Entity):
             """
             One of the logged alarms
             
@@ -317,7 +419,7 @@ class AlarmLogger(object):
             .. attribute:: severity
             
             	Severity of the alarm
-            	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
+            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
             
             .. attribute:: source_id
             
@@ -327,7 +429,7 @@ class AlarmLogger(object):
             .. attribute:: state
             
             	State of the alarm (bistate alarms only)
-            	**type**\:   :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
+            	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
             
             .. attribute:: timestamp
             
@@ -346,114 +448,309 @@ class AlarmLogger(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.event_id = None
-                self.additional_text = None
-                self.category = None
-                self.code = None
-                self.correlation_id = None
-                self.group = None
-                self.is_admin = None
-                self.severity = None
-                self.source_id = None
-                self.state = None
-                self.timestamp = None
+                super(AlarmLogger.Alarms.Alarm, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.event_id is None:
-                    raise YPYModelError('Key property event_id is None')
+                self.yang_name = "alarm"
+                self.yang_parent_name = "alarms"
 
-                return '/Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-oper:alarms/Cisco-IOS-XR-infra-alarm-logger-oper:alarm[Cisco-IOS-XR-infra-alarm-logger-oper:event-id = ' + str(self.event_id) + ']'
+                self.event_id = YLeaf(YType.int32, "event-id")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.additional_text = YLeaf(YType.str, "additional-text")
+
+                self.category = YLeaf(YType.str, "category")
+
+                self.code = YLeaf(YType.str, "code")
+
+                self.correlation_id = YLeaf(YType.uint32, "correlation-id")
+
+                self.group = YLeaf(YType.str, "group")
+
+                self.is_admin = YLeaf(YType.boolean, "is-admin")
+
+                self.severity = YLeaf(YType.enumeration, "severity")
+
+                self.source_id = YLeaf(YType.str, "source-id")
+
+                self.state = YLeaf(YType.enumeration, "state")
+
+                self.timestamp = YLeaf(YType.uint64, "timestamp")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("event_id",
+                                "additional_text",
+                                "category",
+                                "code",
+                                "correlation_id",
+                                "group",
+                                "is_admin",
+                                "severity",
+                                "source_id",
+                                "state",
+                                "timestamp") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(AlarmLogger.Alarms.Alarm, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(AlarmLogger.Alarms.Alarm, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.event_id.is_set or
+                    self.additional_text.is_set or
+                    self.category.is_set or
+                    self.code.is_set or
+                    self.correlation_id.is_set or
+                    self.group.is_set or
+                    self.is_admin.is_set or
+                    self.severity.is_set or
+                    self.source_id.is_set or
+                    self.state.is_set or
+                    self.timestamp.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.event_id.yfilter != YFilter.not_set or
+                    self.additional_text.yfilter != YFilter.not_set or
+                    self.category.yfilter != YFilter.not_set or
+                    self.code.yfilter != YFilter.not_set or
+                    self.correlation_id.yfilter != YFilter.not_set or
+                    self.group.yfilter != YFilter.not_set or
+                    self.is_admin.yfilter != YFilter.not_set or
+                    self.severity.yfilter != YFilter.not_set or
+                    self.source_id.yfilter != YFilter.not_set or
+                    self.state.yfilter != YFilter.not_set or
+                    self.timestamp.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "alarm" + "[event-id='" + self.event_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/alarms/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.event_id.is_set or self.event_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.event_id.get_name_leafdata())
+                if (self.additional_text.is_set or self.additional_text.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.additional_text.get_name_leafdata())
+                if (self.category.is_set or self.category.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.category.get_name_leafdata())
+                if (self.code.is_set or self.code.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.code.get_name_leafdata())
+                if (self.correlation_id.is_set or self.correlation_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.correlation_id.get_name_leafdata())
+                if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.group.get_name_leafdata())
+                if (self.is_admin.is_set or self.is_admin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_admin.get_name_leafdata())
+                if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.severity.get_name_leafdata())
+                if (self.source_id.is_set or self.source_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_id.get_name_leafdata())
+                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.state.get_name_leafdata())
+                if (self.timestamp.is_set or self.timestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.timestamp.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "event-id" or name == "additional-text" or name == "category" or name == "code" or name == "correlation-id" or name == "group" or name == "is-admin" or name == "severity" or name == "source-id" or name == "state" or name == "timestamp"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.event_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "event-id"):
+                    self.event_id = value
+                    self.event_id.value_namespace = name_space
+                    self.event_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "additional-text"):
+                    self.additional_text = value
+                    self.additional_text.value_namespace = name_space
+                    self.additional_text.value_namespace_prefix = name_space_prefix
+                if(value_path == "category"):
+                    self.category = value
+                    self.category.value_namespace = name_space
+                    self.category.value_namespace_prefix = name_space_prefix
+                if(value_path == "code"):
+                    self.code = value
+                    self.code.value_namespace = name_space
+                    self.code.value_namespace_prefix = name_space_prefix
+                if(value_path == "correlation-id"):
+                    self.correlation_id = value
+                    self.correlation_id.value_namespace = name_space
+                    self.correlation_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "group"):
+                    self.group = value
+                    self.group.value_namespace = name_space
+                    self.group.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-admin"):
+                    self.is_admin = value
+                    self.is_admin.value_namespace = name_space
+                    self.is_admin.value_namespace_prefix = name_space_prefix
+                if(value_path == "severity"):
+                    self.severity = value
+                    self.severity.value_namespace = name_space
+                    self.severity.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-id"):
+                    self.source_id = value
+                    self.source_id.value_namespace = name_space
+                    self.source_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "state"):
+                    self.state = value
+                    self.state.value_namespace = name_space
+                    self.state.value_namespace_prefix = name_space_prefix
+                if(value_path == "timestamp"):
+                    self.timestamp = value
+                    self.timestamp.value_namespace = name_space
+                    self.timestamp.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.alarm:
+                if (c.has_data()):
                     return True
-
-                if self.additional_text is not None:
-                    return True
-
-                if self.category is not None:
-                    return True
-
-                if self.code is not None:
-                    return True
-
-                if self.correlation_id is not None:
-                    return True
-
-                if self.group is not None:
-                    return True
-
-                if self.is_admin is not None:
-                    return True
-
-                if self.severity is not None:
-                    return True
-
-                if self.source_id is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                if self.timestamp is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-                return meta._meta_table['AlarmLogger.Alarms.Alarm']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-oper:alarms'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.alarm is not None:
-                for child_ref in self.alarm:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.alarm:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "alarms" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "alarm"):
+                for c in self.alarm:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = AlarmLogger.Alarms.Alarm()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.alarm.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "alarm"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-            return meta._meta_table['AlarmLogger.Alarms']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.alarms is not None and self.alarms.has_data()) or
+            (self.buffer_status is not None and self.buffer_status.has_data()))
 
-        return '/Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.alarms is not None and self.alarms.has_operation()) or
+            (self.buffer_status is not None and self.buffer_status.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "alarms"):
+            if (self.alarms is None):
+                self.alarms = AlarmLogger.Alarms()
+                self.alarms.parent = self
+                self._children_name_map["alarms"] = "alarms"
+            return self.alarms
+
+        if (child_yang_name == "buffer-status"):
+            if (self.buffer_status is None):
+                self.buffer_status = AlarmLogger.BufferStatus()
+                self.buffer_status.parent = self
+                self._children_name_map["buffer_status"] = "buffer-status"
+            return self.buffer_status
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "alarms" or name == "buffer-status"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.alarms is not None and self.alarms._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.buffer_status is not None and self.buffer_status._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-        return meta._meta_table['AlarmLogger']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = AlarmLogger()
+        return self._top_entity
 

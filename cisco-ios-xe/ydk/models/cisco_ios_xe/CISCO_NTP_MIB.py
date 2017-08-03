@@ -99,22 +99,16 @@ Glossary\:
         a network path from the local host.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class NtpleapindicatorEnum(Enum):
+class Ntpleapindicator(Enum):
     """
-    NtpleapindicatorEnum
+    Ntpleapindicator
 
     This is a two\-bit code warning of an impending leap
 
@@ -148,23 +142,17 @@ class NtpleapindicatorEnum(Enum):
 
     """
 
-    noWarning = 0
+    noWarning = Enum.YLeaf(0, "noWarning")
 
-    addSecond = 1
+    addSecond = Enum.YLeaf(1, "addSecond")
 
-    subtractSecond = 2
+    subtractSecond = Enum.YLeaf(2, "subtractSecond")
 
-    alarm = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-        return meta._meta_table['NtpleapindicatorEnum']
+    alarm = Enum.YLeaf(3, "alarm")
 
 
 
-class CiscoNtpMib(object):
+class CiscoNtpMib(Entity):
     """
     
     
@@ -191,15 +179,29 @@ class CiscoNtpMib(object):
     _revision = '2006-07-31'
 
     def __init__(self):
+        super(CiscoNtpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-NTP-MIB"
+        self.yang_parent_name = "CISCO-NTP-MIB"
+
         self.cntpfilterregistertable = CiscoNtpMib.Cntpfilterregistertable()
         self.cntpfilterregistertable.parent = self
+        self._children_name_map["cntpfilterregistertable"] = "cntpFilterRegisterTable"
+        self._children_yang_names.add("cntpFilterRegisterTable")
+
         self.cntppeersvartable = CiscoNtpMib.Cntppeersvartable()
         self.cntppeersvartable.parent = self
+        self._children_name_map["cntppeersvartable"] = "cntpPeersVarTable"
+        self._children_yang_names.add("cntpPeersVarTable")
+
         self.cntpsystem = CiscoNtpMib.Cntpsystem()
         self.cntpsystem.parent = self
+        self._children_name_map["cntpsystem"] = "cntpSystem"
+        self._children_yang_names.add("cntpSystem")
 
 
-    class Cntpsystem(object):
+    class Cntpsystem(Entity):
         """
         
         
@@ -213,7 +215,7 @@ class CiscoNtpMib(object):
         .. attribute:: cntpsysleap
         
         	Two\-bit code warning of an impending leap second to be inserted in the NTP timescale. This object can be set only when the cntpSysStratum has a value of 1
-        	**type**\:   :py:class:`NtpleapindicatorEnum <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.NtpleapindicatorEnum>`
+        	**type**\:   :py:class:`Ntpleapindicator <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.Ntpleapindicator>`
         
         .. attribute:: cntpsyspeer
         
@@ -271,7 +273,7 @@ class CiscoNtpMib(object):
         .. attribute:: cntpsyssrvstatus
         
         	Current state of the NTP server with values coded as follows\: 1\: server status is unknown 2\: server is not running 3\: server is not synchronized to any time source 4\: server is synchronized to its own local clock 5\: server is synchronized to a local hardware refclock (e.g. GPS) 6\: server is synchronized to a remote NTP server
-        	**type**\:   :py:class:`CntpsyssrvstatusEnum <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CiscoNtpMib.Cntpsystem.CntpsyssrvstatusEnum>`
+        	**type**\:   :py:class:`Cntpsyssrvstatus <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CiscoNtpMib.Cntpsystem.Cntpsyssrvstatus>`
         
         .. attribute:: cntpsysstratum
         
@@ -288,22 +290,70 @@ class CiscoNtpMib(object):
         _revision = '2006-07-31'
 
         def __init__(self):
-            self.parent = None
-            self.cntpsysclock = None
-            self.cntpsysleap = None
-            self.cntpsyspeer = None
-            self.cntpsyspoll = None
-            self.cntpsysprecision = None
-            self.cntpsysrefid = None
-            self.cntpsysreftime = None
-            self.cntpsysrootdelay = None
-            self.cntpsysrootdispersion = None
-            self.cntpsyssrvstatus = None
-            self.cntpsysstratum = None
+            super(CiscoNtpMib.Cntpsystem, self).__init__()
 
-        class CntpsyssrvstatusEnum(Enum):
+            self.yang_name = "cntpSystem"
+            self.yang_parent_name = "CISCO-NTP-MIB"
+
+            self.cntpsysclock = YLeaf(YType.str, "cntpSysClock")
+
+            self.cntpsysleap = YLeaf(YType.enumeration, "cntpSysLeap")
+
+            self.cntpsyspeer = YLeaf(YType.int32, "cntpSysPeer")
+
+            self.cntpsyspoll = YLeaf(YType.int32, "cntpSysPoll")
+
+            self.cntpsysprecision = YLeaf(YType.int32, "cntpSysPrecision")
+
+            self.cntpsysrefid = YLeaf(YType.str, "cntpSysRefId")
+
+            self.cntpsysreftime = YLeaf(YType.str, "cntpSysRefTime")
+
+            self.cntpsysrootdelay = YLeaf(YType.str, "cntpSysRootDelay")
+
+            self.cntpsysrootdispersion = YLeaf(YType.str, "cntpSysRootDispersion")
+
+            self.cntpsyssrvstatus = YLeaf(YType.enumeration, "cntpSysSrvStatus")
+
+            self.cntpsysstratum = YLeaf(YType.int32, "cntpSysStratum")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cntpsysclock",
+                            "cntpsysleap",
+                            "cntpsyspeer",
+                            "cntpsyspoll",
+                            "cntpsysprecision",
+                            "cntpsysrefid",
+                            "cntpsysreftime",
+                            "cntpsysrootdelay",
+                            "cntpsysrootdispersion",
+                            "cntpsyssrvstatus",
+                            "cntpsysstratum") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNtpMib.Cntpsystem, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNtpMib.Cntpsystem, self).__setattr__(name, value)
+
+        class Cntpsyssrvstatus(Enum):
             """
-            CntpsyssrvstatusEnum
+            Cntpsyssrvstatus
 
             Current state of the NTP server with values coded as follows\:
 
@@ -333,77 +383,148 @@ class CiscoNtpMib(object):
 
             """
 
-            unknown = 1
+            unknown = Enum.YLeaf(1, "unknown")
 
-            notRunning = 2
+            notRunning = Enum.YLeaf(2, "notRunning")
 
-            notSynchronized = 3
+            notSynchronized = Enum.YLeaf(3, "notSynchronized")
 
-            syncToLocal = 4
+            syncToLocal = Enum.YLeaf(4, "syncToLocal")
 
-            syncToRefclock = 5
+            syncToRefclock = Enum.YLeaf(5, "syncToRefclock")
 
-            syncToRemoteServer = 6
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-                return meta._meta_table['CiscoNtpMib.Cntpsystem.CntpsyssrvstatusEnum']
+            syncToRemoteServer = Enum.YLeaf(6, "syncToRemoteServer")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.cntpsysclock.is_set or
+                self.cntpsysleap.is_set or
+                self.cntpsyspeer.is_set or
+                self.cntpsyspoll.is_set or
+                self.cntpsysprecision.is_set or
+                self.cntpsysrefid.is_set or
+                self.cntpsysreftime.is_set or
+                self.cntpsysrootdelay.is_set or
+                self.cntpsysrootdispersion.is_set or
+                self.cntpsyssrvstatus.is_set or
+                self.cntpsysstratum.is_set)
 
-            return '/CISCO-NTP-MIB:CISCO-NTP-MIB/CISCO-NTP-MIB:cntpSystem'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cntpsysclock.yfilter != YFilter.not_set or
+                self.cntpsysleap.yfilter != YFilter.not_set or
+                self.cntpsyspeer.yfilter != YFilter.not_set or
+                self.cntpsyspoll.yfilter != YFilter.not_set or
+                self.cntpsysprecision.yfilter != YFilter.not_set or
+                self.cntpsysrefid.yfilter != YFilter.not_set or
+                self.cntpsysreftime.yfilter != YFilter.not_set or
+                self.cntpsysrootdelay.yfilter != YFilter.not_set or
+                self.cntpsysrootdispersion.yfilter != YFilter.not_set or
+                self.cntpsyssrvstatus.yfilter != YFilter.not_set or
+                self.cntpsysstratum.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cntpSystem" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cntpsysclock.is_set or self.cntpsysclock.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysclock.get_name_leafdata())
+            if (self.cntpsysleap.is_set or self.cntpsysleap.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysleap.get_name_leafdata())
+            if (self.cntpsyspeer.is_set or self.cntpsyspeer.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsyspeer.get_name_leafdata())
+            if (self.cntpsyspoll.is_set or self.cntpsyspoll.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsyspoll.get_name_leafdata())
+            if (self.cntpsysprecision.is_set or self.cntpsysprecision.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysprecision.get_name_leafdata())
+            if (self.cntpsysrefid.is_set or self.cntpsysrefid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysrefid.get_name_leafdata())
+            if (self.cntpsysreftime.is_set or self.cntpsysreftime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysreftime.get_name_leafdata())
+            if (self.cntpsysrootdelay.is_set or self.cntpsysrootdelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysrootdelay.get_name_leafdata())
+            if (self.cntpsysrootdispersion.is_set or self.cntpsysrootdispersion.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysrootdispersion.get_name_leafdata())
+            if (self.cntpsyssrvstatus.is_set or self.cntpsyssrvstatus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsyssrvstatus.get_name_leafdata())
+            if (self.cntpsysstratum.is_set or self.cntpsysstratum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cntpsysstratum.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cntpSysClock" or name == "cntpSysLeap" or name == "cntpSysPeer" or name == "cntpSysPoll" or name == "cntpSysPrecision" or name == "cntpSysRefId" or name == "cntpSysRefTime" or name == "cntpSysRootDelay" or name == "cntpSysRootDispersion" or name == "cntpSysSrvStatus" or name == "cntpSysStratum"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cntpsysclock is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cntpSysClock"):
+                self.cntpsysclock = value
+                self.cntpsysclock.value_namespace = name_space
+                self.cntpsysclock.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysLeap"):
+                self.cntpsysleap = value
+                self.cntpsysleap.value_namespace = name_space
+                self.cntpsysleap.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysPeer"):
+                self.cntpsyspeer = value
+                self.cntpsyspeer.value_namespace = name_space
+                self.cntpsyspeer.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysPoll"):
+                self.cntpsyspoll = value
+                self.cntpsyspoll.value_namespace = name_space
+                self.cntpsyspoll.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysPrecision"):
+                self.cntpsysprecision = value
+                self.cntpsysprecision.value_namespace = name_space
+                self.cntpsysprecision.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysRefId"):
+                self.cntpsysrefid = value
+                self.cntpsysrefid.value_namespace = name_space
+                self.cntpsysrefid.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysRefTime"):
+                self.cntpsysreftime = value
+                self.cntpsysreftime.value_namespace = name_space
+                self.cntpsysreftime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysRootDelay"):
+                self.cntpsysrootdelay = value
+                self.cntpsysrootdelay.value_namespace = name_space
+                self.cntpsysrootdelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysRootDispersion"):
+                self.cntpsysrootdispersion = value
+                self.cntpsysrootdispersion.value_namespace = name_space
+                self.cntpsysrootdispersion.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysSrvStatus"):
+                self.cntpsyssrvstatus = value
+                self.cntpsyssrvstatus.value_namespace = name_space
+                self.cntpsyssrvstatus.value_namespace_prefix = name_space_prefix
+            if(value_path == "cntpSysStratum"):
+                self.cntpsysstratum = value
+                self.cntpsysstratum.value_namespace = name_space
+                self.cntpsysstratum.value_namespace_prefix = name_space_prefix
 
-            if self.cntpsysleap is not None:
-                return True
 
-            if self.cntpsyspeer is not None:
-                return True
-
-            if self.cntpsyspoll is not None:
-                return True
-
-            if self.cntpsysprecision is not None:
-                return True
-
-            if self.cntpsysrefid is not None:
-                return True
-
-            if self.cntpsysreftime is not None:
-                return True
-
-            if self.cntpsysrootdelay is not None:
-                return True
-
-            if self.cntpsysrootdispersion is not None:
-                return True
-
-            if self.cntpsyssrvstatus is not None:
-                return True
-
-            if self.cntpsysstratum is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-            return meta._meta_table['CiscoNtpMib.Cntpsystem']['meta_info']
-
-
-    class Cntppeersvartable(object):
+    class Cntppeersvartable(Entity):
         """
         This table provides information on the peers with
         which the local NTP server has associations.  The
@@ -423,13 +544,39 @@ class CiscoNtpMib(object):
         _revision = '2006-07-31'
 
         def __init__(self):
-            self.parent = None
-            self.cntppeersvarentry = YList()
-            self.cntppeersvarentry.parent = self
-            self.cntppeersvarentry.name = 'cntppeersvarentry'
+            super(CiscoNtpMib.Cntppeersvartable, self).__init__()
+
+            self.yang_name = "cntpPeersVarTable"
+            self.yang_parent_name = "CISCO-NTP-MIB"
+
+            self.cntppeersvarentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNtpMib.Cntppeersvartable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNtpMib.Cntppeersvartable, self).__setattr__(name, value)
 
 
-        class Cntppeersvarentry(object):
+        class Cntppeersvarentry(Entity):
             """
             Each peers' entry provides NTP information retrieved
             from a particular peer NTP server.  Each peer is
@@ -482,7 +629,7 @@ class CiscoNtpMib(object):
             .. attribute:: cntppeersentrystatus
             
             	The status object for this row. When a management station is creating a new row, it should set the value for cntpPeersPeerAddress at least, before the row can be made active(1)
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cntppeersfiltervalidentries
             
@@ -515,12 +662,12 @@ class CiscoNtpMib(object):
             .. attribute:: cntppeersleap
             
             	Two\-bit code warning of an impending leap second to be inserted in the NTP timescale of the peer
-            	**type**\:   :py:class:`NtpleapindicatorEnum <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.NtpleapindicatorEnum>`
+            	**type**\:   :py:class:`Ntpleapindicator <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.Ntpleapindicator>`
             
             .. attribute:: cntppeersmode
             
             	The association mode of the NTP server, with values coded as follows, 0, unspecified 1, symmetric active \- A host operating in this mode         sends periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 2, symmetric passive \- This type of association is         ordinarily created upon arrival of a message         from a peer operating in the symmetric active         mode and persists only as long as the peer is         reachable and operating at a stratum level         less than or equal to the host; otherwise, the         association is dissolved.  However, the         association will always persist until at least         one message has been sent in reply.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 3, client \-  A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host, usually a LAN         workstation, announces its willingness to be         synchronized by, but not to synchronize the peer 4, server \- This type of association is ordinarily         created upon arrival of a client request message         and exists only in order to reply to that         request, after which the association is         dissolved.  By operating in this mode the host,         usually a LAN time server, announces its         willingness to synchronize, but not to be         synchronized by the peer 5, broadcast \- A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of the peers.         By operating in this mode the host, usually a         LAN time server operating on a high\-speed         broadcast medium, announces its willingness to         synchronize all of the peers, but not to be         synchronized by any of them 6, reserved for NTP control messages 7, reserved for private use.  When creating a new peer association, if no value is specified for this object, it defaults to symmetricActive(1)
-            	**type**\:   :py:class:`CntppeersmodeEnum <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry.CntppeersmodeEnum>`
+            	**type**\:   :py:class:`Cntppeersmode <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry.Cntppeersmode>`
             
             .. attribute:: cntppeersoffset
             
@@ -569,7 +716,7 @@ class CiscoNtpMib(object):
             .. attribute:: cntppeerspeertype
             
             	Represents the type of the corresponding instance of cntpPeersPeerName object
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cntppeersprecision
             
@@ -676,42 +823,130 @@ class CiscoNtpMib(object):
             _revision = '2006-07-31'
 
             def __init__(self):
-                self.parent = None
-                self.cntppeersassocid = None
-                self.cntppeersconfigured = None
-                self.cntppeersdelay = None
-                self.cntppeersdispersion = None
-                self.cntppeersentrystatus = None
-                self.cntppeersfiltervalidentries = None
-                self.cntppeershostaddress = None
-                self.cntppeershostpoll = None
-                self.cntppeershostport = None
-                self.cntppeersleap = None
-                self.cntppeersmode = None
-                self.cntppeersoffset = None
-                self.cntppeersorgtime = None
-                self.cntppeerspeeraddress = None
-                self.cntppeerspeername = None
-                self.cntppeerspeerpoll = None
-                self.cntppeerspeerport = None
-                self.cntppeerspeertype = None
-                self.cntppeersprecision = None
-                self.cntppeersprefpeer = None
-                self.cntppeersreach = None
-                self.cntppeersreceivetime = None
-                self.cntppeersrefid = None
-                self.cntppeersreftime = None
-                self.cntppeersrootdelay = None
-                self.cntppeersrootdispersion = None
-                self.cntppeersstratum = None
-                self.cntppeerstimer = None
-                self.cntppeerstransmittime = None
-                self.cntppeersupdatetime = None
-                self.cntppeersupdatetimerev1 = None
+                super(CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry, self).__init__()
 
-            class CntppeersmodeEnum(Enum):
+                self.yang_name = "cntpPeersVarEntry"
+                self.yang_parent_name = "cntpPeersVarTable"
+
+                self.cntppeersassocid = YLeaf(YType.int32, "cntpPeersAssocId")
+
+                self.cntppeersconfigured = YLeaf(YType.boolean, "cntpPeersConfigured")
+
+                self.cntppeersdelay = YLeaf(YType.str, "cntpPeersDelay")
+
+                self.cntppeersdispersion = YLeaf(YType.str, "cntpPeersDispersion")
+
+                self.cntppeersentrystatus = YLeaf(YType.enumeration, "cntpPeersEntryStatus")
+
+                self.cntppeersfiltervalidentries = YLeaf(YType.uint32, "cntpPeersFilterValidEntries")
+
+                self.cntppeershostaddress = YLeaf(YType.str, "cntpPeersHostAddress")
+
+                self.cntppeershostpoll = YLeaf(YType.int32, "cntpPeersHostPoll")
+
+                self.cntppeershostport = YLeaf(YType.int32, "cntpPeersHostPort")
+
+                self.cntppeersleap = YLeaf(YType.enumeration, "cntpPeersLeap")
+
+                self.cntppeersmode = YLeaf(YType.enumeration, "cntpPeersMode")
+
+                self.cntppeersoffset = YLeaf(YType.str, "cntpPeersOffset")
+
+                self.cntppeersorgtime = YLeaf(YType.str, "cntpPeersOrgTime")
+
+                self.cntppeerspeeraddress = YLeaf(YType.str, "cntpPeersPeerAddress")
+
+                self.cntppeerspeername = YLeaf(YType.str, "cntpPeersPeerName")
+
+                self.cntppeerspeerpoll = YLeaf(YType.int32, "cntpPeersPeerPoll")
+
+                self.cntppeerspeerport = YLeaf(YType.int32, "cntpPeersPeerPort")
+
+                self.cntppeerspeertype = YLeaf(YType.enumeration, "cntpPeersPeerType")
+
+                self.cntppeersprecision = YLeaf(YType.int32, "cntpPeersPrecision")
+
+                self.cntppeersprefpeer = YLeaf(YType.boolean, "cntpPeersPrefPeer")
+
+                self.cntppeersreach = YLeaf(YType.int32, "cntpPeersReach")
+
+                self.cntppeersreceivetime = YLeaf(YType.str, "cntpPeersReceiveTime")
+
+                self.cntppeersrefid = YLeaf(YType.str, "cntpPeersRefId")
+
+                self.cntppeersreftime = YLeaf(YType.str, "cntpPeersRefTime")
+
+                self.cntppeersrootdelay = YLeaf(YType.str, "cntpPeersRootDelay")
+
+                self.cntppeersrootdispersion = YLeaf(YType.str, "cntpPeersRootDispersion")
+
+                self.cntppeersstratum = YLeaf(YType.int32, "cntpPeersStratum")
+
+                self.cntppeerstimer = YLeaf(YType.int32, "cntpPeersTimer")
+
+                self.cntppeerstransmittime = YLeaf(YType.str, "cntpPeersTransmitTime")
+
+                self.cntppeersupdatetime = YLeaf(YType.int32, "cntpPeersUpdateTime")
+
+                self.cntppeersupdatetimerev1 = YLeaf(YType.uint32, "cntpPeersUpdateTimeRev1")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cntppeersassocid",
+                                "cntppeersconfigured",
+                                "cntppeersdelay",
+                                "cntppeersdispersion",
+                                "cntppeersentrystatus",
+                                "cntppeersfiltervalidentries",
+                                "cntppeershostaddress",
+                                "cntppeershostpoll",
+                                "cntppeershostport",
+                                "cntppeersleap",
+                                "cntppeersmode",
+                                "cntppeersoffset",
+                                "cntppeersorgtime",
+                                "cntppeerspeeraddress",
+                                "cntppeerspeername",
+                                "cntppeerspeerpoll",
+                                "cntppeerspeerport",
+                                "cntppeerspeertype",
+                                "cntppeersprecision",
+                                "cntppeersprefpeer",
+                                "cntppeersreach",
+                                "cntppeersreceivetime",
+                                "cntppeersrefid",
+                                "cntppeersreftime",
+                                "cntppeersrootdelay",
+                                "cntppeersrootdispersion",
+                                "cntppeersstratum",
+                                "cntppeerstimer",
+                                "cntppeerstransmittime",
+                                "cntppeersupdatetime",
+                                "cntppeersupdatetimerev1") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry, self).__setattr__(name, value)
+
+            class Cntppeersmode(Enum):
                 """
-                CntppeersmodeEnum
+                Cntppeersmode
 
                 The association mode of the NTP server, with values
 
@@ -827,165 +1062,369 @@ class CiscoNtpMib(object):
 
                 """
 
-                unspecified = 0
+                unspecified = Enum.YLeaf(0, "unspecified")
 
-                symmetricActive = 1
+                symmetricActive = Enum.YLeaf(1, "symmetricActive")
 
-                symmetricPassive = 2
+                symmetricPassive = Enum.YLeaf(2, "symmetricPassive")
 
-                client = 3
+                client = Enum.YLeaf(3, "client")
 
-                server = 4
+                server = Enum.YLeaf(4, "server")
 
-                broadcast = 5
+                broadcast = Enum.YLeaf(5, "broadcast")
 
-                reservedControl = 6
+                reservedControl = Enum.YLeaf(6, "reservedControl")
 
-                reservedPrivate = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-                    return meta._meta_table['CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry.CntppeersmodeEnum']
+                reservedPrivate = Enum.YLeaf(7, "reservedPrivate")
 
 
-            @property
-            def _common_path(self):
-                if self.cntppeersassocid is None:
-                    raise YPYModelError('Key property cntppeersassocid is None')
+            def has_data(self):
+                return (
+                    self.cntppeersassocid.is_set or
+                    self.cntppeersconfigured.is_set or
+                    self.cntppeersdelay.is_set or
+                    self.cntppeersdispersion.is_set or
+                    self.cntppeersentrystatus.is_set or
+                    self.cntppeersfiltervalidentries.is_set or
+                    self.cntppeershostaddress.is_set or
+                    self.cntppeershostpoll.is_set or
+                    self.cntppeershostport.is_set or
+                    self.cntppeersleap.is_set or
+                    self.cntppeersmode.is_set or
+                    self.cntppeersoffset.is_set or
+                    self.cntppeersorgtime.is_set or
+                    self.cntppeerspeeraddress.is_set or
+                    self.cntppeerspeername.is_set or
+                    self.cntppeerspeerpoll.is_set or
+                    self.cntppeerspeerport.is_set or
+                    self.cntppeerspeertype.is_set or
+                    self.cntppeersprecision.is_set or
+                    self.cntppeersprefpeer.is_set or
+                    self.cntppeersreach.is_set or
+                    self.cntppeersreceivetime.is_set or
+                    self.cntppeersrefid.is_set or
+                    self.cntppeersreftime.is_set or
+                    self.cntppeersrootdelay.is_set or
+                    self.cntppeersrootdispersion.is_set or
+                    self.cntppeersstratum.is_set or
+                    self.cntppeerstimer.is_set or
+                    self.cntppeerstransmittime.is_set or
+                    self.cntppeersupdatetime.is_set or
+                    self.cntppeersupdatetimerev1.is_set)
 
-                return '/CISCO-NTP-MIB:CISCO-NTP-MIB/CISCO-NTP-MIB:cntpPeersVarTable/CISCO-NTP-MIB:cntpPeersVarEntry[CISCO-NTP-MIB:cntpPeersAssocId = ' + str(self.cntppeersassocid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cntppeersassocid.yfilter != YFilter.not_set or
+                    self.cntppeersconfigured.yfilter != YFilter.not_set or
+                    self.cntppeersdelay.yfilter != YFilter.not_set or
+                    self.cntppeersdispersion.yfilter != YFilter.not_set or
+                    self.cntppeersentrystatus.yfilter != YFilter.not_set or
+                    self.cntppeersfiltervalidentries.yfilter != YFilter.not_set or
+                    self.cntppeershostaddress.yfilter != YFilter.not_set or
+                    self.cntppeershostpoll.yfilter != YFilter.not_set or
+                    self.cntppeershostport.yfilter != YFilter.not_set or
+                    self.cntppeersleap.yfilter != YFilter.not_set or
+                    self.cntppeersmode.yfilter != YFilter.not_set or
+                    self.cntppeersoffset.yfilter != YFilter.not_set or
+                    self.cntppeersorgtime.yfilter != YFilter.not_set or
+                    self.cntppeerspeeraddress.yfilter != YFilter.not_set or
+                    self.cntppeerspeername.yfilter != YFilter.not_set or
+                    self.cntppeerspeerpoll.yfilter != YFilter.not_set or
+                    self.cntppeerspeerport.yfilter != YFilter.not_set or
+                    self.cntppeerspeertype.yfilter != YFilter.not_set or
+                    self.cntppeersprecision.yfilter != YFilter.not_set or
+                    self.cntppeersprefpeer.yfilter != YFilter.not_set or
+                    self.cntppeersreach.yfilter != YFilter.not_set or
+                    self.cntppeersreceivetime.yfilter != YFilter.not_set or
+                    self.cntppeersrefid.yfilter != YFilter.not_set or
+                    self.cntppeersreftime.yfilter != YFilter.not_set or
+                    self.cntppeersrootdelay.yfilter != YFilter.not_set or
+                    self.cntppeersrootdispersion.yfilter != YFilter.not_set or
+                    self.cntppeersstratum.yfilter != YFilter.not_set or
+                    self.cntppeerstimer.yfilter != YFilter.not_set or
+                    self.cntppeerstransmittime.yfilter != YFilter.not_set or
+                    self.cntppeersupdatetime.yfilter != YFilter.not_set or
+                    self.cntppeersupdatetimerev1.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cntpPeersVarEntry" + "[cntpPeersAssocId='" + self.cntppeersassocid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpPeersVarTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cntppeersassocid.is_set or self.cntppeersassocid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersassocid.get_name_leafdata())
+                if (self.cntppeersconfigured.is_set or self.cntppeersconfigured.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersconfigured.get_name_leafdata())
+                if (self.cntppeersdelay.is_set or self.cntppeersdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersdelay.get_name_leafdata())
+                if (self.cntppeersdispersion.is_set or self.cntppeersdispersion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersdispersion.get_name_leafdata())
+                if (self.cntppeersentrystatus.is_set or self.cntppeersentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersentrystatus.get_name_leafdata())
+                if (self.cntppeersfiltervalidentries.is_set or self.cntppeersfiltervalidentries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersfiltervalidentries.get_name_leafdata())
+                if (self.cntppeershostaddress.is_set or self.cntppeershostaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeershostaddress.get_name_leafdata())
+                if (self.cntppeershostpoll.is_set or self.cntppeershostpoll.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeershostpoll.get_name_leafdata())
+                if (self.cntppeershostport.is_set or self.cntppeershostport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeershostport.get_name_leafdata())
+                if (self.cntppeersleap.is_set or self.cntppeersleap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersleap.get_name_leafdata())
+                if (self.cntppeersmode.is_set or self.cntppeersmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersmode.get_name_leafdata())
+                if (self.cntppeersoffset.is_set or self.cntppeersoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersoffset.get_name_leafdata())
+                if (self.cntppeersorgtime.is_set or self.cntppeersorgtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersorgtime.get_name_leafdata())
+                if (self.cntppeerspeeraddress.is_set or self.cntppeerspeeraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerspeeraddress.get_name_leafdata())
+                if (self.cntppeerspeername.is_set or self.cntppeerspeername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerspeername.get_name_leafdata())
+                if (self.cntppeerspeerpoll.is_set or self.cntppeerspeerpoll.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerspeerpoll.get_name_leafdata())
+                if (self.cntppeerspeerport.is_set or self.cntppeerspeerport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerspeerport.get_name_leafdata())
+                if (self.cntppeerspeertype.is_set or self.cntppeerspeertype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerspeertype.get_name_leafdata())
+                if (self.cntppeersprecision.is_set or self.cntppeersprecision.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersprecision.get_name_leafdata())
+                if (self.cntppeersprefpeer.is_set or self.cntppeersprefpeer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersprefpeer.get_name_leafdata())
+                if (self.cntppeersreach.is_set or self.cntppeersreach.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersreach.get_name_leafdata())
+                if (self.cntppeersreceivetime.is_set or self.cntppeersreceivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersreceivetime.get_name_leafdata())
+                if (self.cntppeersrefid.is_set or self.cntppeersrefid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersrefid.get_name_leafdata())
+                if (self.cntppeersreftime.is_set or self.cntppeersreftime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersreftime.get_name_leafdata())
+                if (self.cntppeersrootdelay.is_set or self.cntppeersrootdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersrootdelay.get_name_leafdata())
+                if (self.cntppeersrootdispersion.is_set or self.cntppeersrootdispersion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersrootdispersion.get_name_leafdata())
+                if (self.cntppeersstratum.is_set or self.cntppeersstratum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersstratum.get_name_leafdata())
+                if (self.cntppeerstimer.is_set or self.cntppeerstimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerstimer.get_name_leafdata())
+                if (self.cntppeerstransmittime.is_set or self.cntppeerstransmittime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeerstransmittime.get_name_leafdata())
+                if (self.cntppeersupdatetime.is_set or self.cntppeersupdatetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersupdatetime.get_name_leafdata())
+                if (self.cntppeersupdatetimerev1.is_set or self.cntppeersupdatetimerev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersupdatetimerev1.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cntpPeersAssocId" or name == "cntpPeersConfigured" or name == "cntpPeersDelay" or name == "cntpPeersDispersion" or name == "cntpPeersEntryStatus" or name == "cntpPeersFilterValidEntries" or name == "cntpPeersHostAddress" or name == "cntpPeersHostPoll" or name == "cntpPeersHostPort" or name == "cntpPeersLeap" or name == "cntpPeersMode" or name == "cntpPeersOffset" or name == "cntpPeersOrgTime" or name == "cntpPeersPeerAddress" or name == "cntpPeersPeerName" or name == "cntpPeersPeerPoll" or name == "cntpPeersPeerPort" or name == "cntpPeersPeerType" or name == "cntpPeersPrecision" or name == "cntpPeersPrefPeer" or name == "cntpPeersReach" or name == "cntpPeersReceiveTime" or name == "cntpPeersRefId" or name == "cntpPeersRefTime" or name == "cntpPeersRootDelay" or name == "cntpPeersRootDispersion" or name == "cntpPeersStratum" or name == "cntpPeersTimer" or name == "cntpPeersTransmitTime" or name == "cntpPeersUpdateTime" or name == "cntpPeersUpdateTimeRev1"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cntppeersassocid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cntpPeersAssocId"):
+                    self.cntppeersassocid = value
+                    self.cntppeersassocid.value_namespace = name_space
+                    self.cntppeersassocid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersConfigured"):
+                    self.cntppeersconfigured = value
+                    self.cntppeersconfigured.value_namespace = name_space
+                    self.cntppeersconfigured.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersDelay"):
+                    self.cntppeersdelay = value
+                    self.cntppeersdelay.value_namespace = name_space
+                    self.cntppeersdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersDispersion"):
+                    self.cntppeersdispersion = value
+                    self.cntppeersdispersion.value_namespace = name_space
+                    self.cntppeersdispersion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersEntryStatus"):
+                    self.cntppeersentrystatus = value
+                    self.cntppeersentrystatus.value_namespace = name_space
+                    self.cntppeersentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersFilterValidEntries"):
+                    self.cntppeersfiltervalidentries = value
+                    self.cntppeersfiltervalidentries.value_namespace = name_space
+                    self.cntppeersfiltervalidentries.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersHostAddress"):
+                    self.cntppeershostaddress = value
+                    self.cntppeershostaddress.value_namespace = name_space
+                    self.cntppeershostaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersHostPoll"):
+                    self.cntppeershostpoll = value
+                    self.cntppeershostpoll.value_namespace = name_space
+                    self.cntppeershostpoll.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersHostPort"):
+                    self.cntppeershostport = value
+                    self.cntppeershostport.value_namespace = name_space
+                    self.cntppeershostport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersLeap"):
+                    self.cntppeersleap = value
+                    self.cntppeersleap.value_namespace = name_space
+                    self.cntppeersleap.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersMode"):
+                    self.cntppeersmode = value
+                    self.cntppeersmode.value_namespace = name_space
+                    self.cntppeersmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersOffset"):
+                    self.cntppeersoffset = value
+                    self.cntppeersoffset.value_namespace = name_space
+                    self.cntppeersoffset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersOrgTime"):
+                    self.cntppeersorgtime = value
+                    self.cntppeersorgtime.value_namespace = name_space
+                    self.cntppeersorgtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPeerAddress"):
+                    self.cntppeerspeeraddress = value
+                    self.cntppeerspeeraddress.value_namespace = name_space
+                    self.cntppeerspeeraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPeerName"):
+                    self.cntppeerspeername = value
+                    self.cntppeerspeername.value_namespace = name_space
+                    self.cntppeerspeername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPeerPoll"):
+                    self.cntppeerspeerpoll = value
+                    self.cntppeerspeerpoll.value_namespace = name_space
+                    self.cntppeerspeerpoll.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPeerPort"):
+                    self.cntppeerspeerport = value
+                    self.cntppeerspeerport.value_namespace = name_space
+                    self.cntppeerspeerport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPeerType"):
+                    self.cntppeerspeertype = value
+                    self.cntppeerspeertype.value_namespace = name_space
+                    self.cntppeerspeertype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPrecision"):
+                    self.cntppeersprecision = value
+                    self.cntppeersprecision.value_namespace = name_space
+                    self.cntppeersprecision.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersPrefPeer"):
+                    self.cntppeersprefpeer = value
+                    self.cntppeersprefpeer.value_namespace = name_space
+                    self.cntppeersprefpeer.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersReach"):
+                    self.cntppeersreach = value
+                    self.cntppeersreach.value_namespace = name_space
+                    self.cntppeersreach.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersReceiveTime"):
+                    self.cntppeersreceivetime = value
+                    self.cntppeersreceivetime.value_namespace = name_space
+                    self.cntppeersreceivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersRefId"):
+                    self.cntppeersrefid = value
+                    self.cntppeersrefid.value_namespace = name_space
+                    self.cntppeersrefid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersRefTime"):
+                    self.cntppeersreftime = value
+                    self.cntppeersreftime.value_namespace = name_space
+                    self.cntppeersreftime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersRootDelay"):
+                    self.cntppeersrootdelay = value
+                    self.cntppeersrootdelay.value_namespace = name_space
+                    self.cntppeersrootdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersRootDispersion"):
+                    self.cntppeersrootdispersion = value
+                    self.cntppeersrootdispersion.value_namespace = name_space
+                    self.cntppeersrootdispersion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersStratum"):
+                    self.cntppeersstratum = value
+                    self.cntppeersstratum.value_namespace = name_space
+                    self.cntppeersstratum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersTimer"):
+                    self.cntppeerstimer = value
+                    self.cntppeerstimer.value_namespace = name_space
+                    self.cntppeerstimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersTransmitTime"):
+                    self.cntppeerstransmittime = value
+                    self.cntppeerstransmittime.value_namespace = name_space
+                    self.cntppeerstransmittime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersUpdateTime"):
+                    self.cntppeersupdatetime = value
+                    self.cntppeersupdatetime.value_namespace = name_space
+                    self.cntppeersupdatetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpPeersUpdateTimeRev1"):
+                    self.cntppeersupdatetimerev1 = value
+                    self.cntppeersupdatetimerev1.value_namespace = name_space
+                    self.cntppeersupdatetimerev1.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cntppeersvarentry:
+                if (c.has_data()):
                     return True
-
-                if self.cntppeersconfigured is not None:
-                    return True
-
-                if self.cntppeersdelay is not None:
-                    return True
-
-                if self.cntppeersdispersion is not None:
-                    return True
-
-                if self.cntppeersentrystatus is not None:
-                    return True
-
-                if self.cntppeersfiltervalidentries is not None:
-                    return True
-
-                if self.cntppeershostaddress is not None:
-                    return True
-
-                if self.cntppeershostpoll is not None:
-                    return True
-
-                if self.cntppeershostport is not None:
-                    return True
-
-                if self.cntppeersleap is not None:
-                    return True
-
-                if self.cntppeersmode is not None:
-                    return True
-
-                if self.cntppeersoffset is not None:
-                    return True
-
-                if self.cntppeersorgtime is not None:
-                    return True
-
-                if self.cntppeerspeeraddress is not None:
-                    return True
-
-                if self.cntppeerspeername is not None:
-                    return True
-
-                if self.cntppeerspeerpoll is not None:
-                    return True
-
-                if self.cntppeerspeerport is not None:
-                    return True
-
-                if self.cntppeerspeertype is not None:
-                    return True
-
-                if self.cntppeersprecision is not None:
-                    return True
-
-                if self.cntppeersprefpeer is not None:
-                    return True
-
-                if self.cntppeersreach is not None:
-                    return True
-
-                if self.cntppeersreceivetime is not None:
-                    return True
-
-                if self.cntppeersrefid is not None:
-                    return True
-
-                if self.cntppeersreftime is not None:
-                    return True
-
-                if self.cntppeersrootdelay is not None:
-                    return True
-
-                if self.cntppeersrootdispersion is not None:
-                    return True
-
-                if self.cntppeersstratum is not None:
-                    return True
-
-                if self.cntppeerstimer is not None:
-                    return True
-
-                if self.cntppeerstransmittime is not None:
-                    return True
-
-                if self.cntppeersupdatetime is not None:
-                    return True
-
-                if self.cntppeersupdatetimerev1 is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-                return meta._meta_table['CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NTP-MIB:CISCO-NTP-MIB/CISCO-NTP-MIB:cntpPeersVarTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cntppeersvarentry is not None:
-                for child_ref in self.cntppeersvarentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cntppeersvarentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cntpPeersVarTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cntpPeersVarEntry"):
+                for c in self.cntppeersvarentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNtpMib.Cntppeersvartable.Cntppeersvarentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cntppeersvarentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cntpPeersVarEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-            return meta._meta_table['CiscoNtpMib.Cntppeersvartable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cntpfilterregistertable(object):
+    class Cntpfilterregistertable(Entity):
         """
         The following table contains NTP state variables
         used by the NTP clock filter and selection algorithms.
@@ -1019,13 +1458,39 @@ class CiscoNtpMib(object):
         _revision = '2006-07-31'
 
         def __init__(self):
-            self.parent = None
-            self.cntpfilterregisterentry = YList()
-            self.cntpfilterregisterentry.parent = self
-            self.cntpfilterregisterentry.name = 'cntpfilterregisterentry'
+            super(CiscoNtpMib.Cntpfilterregistertable, self).__init__()
+
+            self.yang_name = "cntpFilterRegisterTable"
+            self.yang_parent_name = "CISCO-NTP-MIB"
+
+            self.cntpfilterregisterentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNtpMib.Cntpfilterregistertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNtpMib.Cntpfilterregistertable, self).__setattr__(name, value)
 
 
-        class Cntpfilterregisterentry(object):
+        class Cntpfilterregisterentry(Entity):
             """
             Each entry corresponds to one stage of the shift
             register, i.e., one reading of the variables clock
@@ -1085,95 +1550,252 @@ class CiscoNtpMib(object):
             _revision = '2006-07-31'
 
             def __init__(self):
-                self.parent = None
-                self.cntppeersassocid = None
-                self.cntpfilterindex = None
-                self.cntpfilterpeersdelay = None
-                self.cntpfilterpeersdispersion = None
-                self.cntpfilterpeersoffset = None
+                super(CiscoNtpMib.Cntpfilterregistertable.Cntpfilterregisterentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cntppeersassocid is None:
-                    raise YPYModelError('Key property cntppeersassocid is None')
-                if self.cntpfilterindex is None:
-                    raise YPYModelError('Key property cntpfilterindex is None')
+                self.yang_name = "cntpFilterRegisterEntry"
+                self.yang_parent_name = "cntpFilterRegisterTable"
 
-                return '/CISCO-NTP-MIB:CISCO-NTP-MIB/CISCO-NTP-MIB:cntpFilterRegisterTable/CISCO-NTP-MIB:cntpFilterRegisterEntry[CISCO-NTP-MIB:cntpPeersAssocId = ' + str(self.cntppeersassocid) + '][CISCO-NTP-MIB:cntpFilterIndex = ' + str(self.cntpfilterindex) + ']'
+                self.cntppeersassocid = YLeaf(YType.str, "cntpPeersAssocId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cntpfilterindex = YLeaf(YType.int32, "cntpFilterIndex")
+
+                self.cntpfilterpeersdelay = YLeaf(YType.str, "cntpFilterPeersDelay")
+
+                self.cntpfilterpeersdispersion = YLeaf(YType.str, "cntpFilterPeersDispersion")
+
+                self.cntpfilterpeersoffset = YLeaf(YType.str, "cntpFilterPeersOffset")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cntppeersassocid",
+                                "cntpfilterindex",
+                                "cntpfilterpeersdelay",
+                                "cntpfilterpeersdispersion",
+                                "cntpfilterpeersoffset") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNtpMib.Cntpfilterregistertable.Cntpfilterregisterentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNtpMib.Cntpfilterregistertable.Cntpfilterregisterentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cntppeersassocid.is_set or
+                    self.cntpfilterindex.is_set or
+                    self.cntpfilterpeersdelay.is_set or
+                    self.cntpfilterpeersdispersion.is_set or
+                    self.cntpfilterpeersoffset.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cntppeersassocid.yfilter != YFilter.not_set or
+                    self.cntpfilterindex.yfilter != YFilter.not_set or
+                    self.cntpfilterpeersdelay.yfilter != YFilter.not_set or
+                    self.cntpfilterpeersdispersion.yfilter != YFilter.not_set or
+                    self.cntpfilterpeersoffset.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cntpFilterRegisterEntry" + "[cntpPeersAssocId='" + self.cntppeersassocid.get() + "']" + "[cntpFilterIndex='" + self.cntpfilterindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpFilterRegisterTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cntppeersassocid.is_set or self.cntppeersassocid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntppeersassocid.get_name_leafdata())
+                if (self.cntpfilterindex.is_set or self.cntpfilterindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntpfilterindex.get_name_leafdata())
+                if (self.cntpfilterpeersdelay.is_set or self.cntpfilterpeersdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntpfilterpeersdelay.get_name_leafdata())
+                if (self.cntpfilterpeersdispersion.is_set or self.cntpfilterpeersdispersion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntpfilterpeersdispersion.get_name_leafdata())
+                if (self.cntpfilterpeersoffset.is_set or self.cntpfilterpeersoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cntpfilterpeersoffset.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cntpPeersAssocId" or name == "cntpFilterIndex" or name == "cntpFilterPeersDelay" or name == "cntpFilterPeersDispersion" or name == "cntpFilterPeersOffset"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cntppeersassocid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cntpPeersAssocId"):
+                    self.cntppeersassocid = value
+                    self.cntppeersassocid.value_namespace = name_space
+                    self.cntppeersassocid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpFilterIndex"):
+                    self.cntpfilterindex = value
+                    self.cntpfilterindex.value_namespace = name_space
+                    self.cntpfilterindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpFilterPeersDelay"):
+                    self.cntpfilterpeersdelay = value
+                    self.cntpfilterpeersdelay.value_namespace = name_space
+                    self.cntpfilterpeersdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpFilterPeersDispersion"):
+                    self.cntpfilterpeersdispersion = value
+                    self.cntpfilterpeersdispersion.value_namespace = name_space
+                    self.cntpfilterpeersdispersion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cntpFilterPeersOffset"):
+                    self.cntpfilterpeersoffset = value
+                    self.cntpfilterpeersoffset.value_namespace = name_space
+                    self.cntpfilterpeersoffset.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cntpfilterregisterentry:
+                if (c.has_data()):
                     return True
-
-                if self.cntpfilterindex is not None:
-                    return True
-
-                if self.cntpfilterpeersdelay is not None:
-                    return True
-
-                if self.cntpfilterpeersdispersion is not None:
-                    return True
-
-                if self.cntpfilterpeersoffset is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-                return meta._meta_table['CiscoNtpMib.Cntpfilterregistertable.Cntpfilterregisterentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NTP-MIB:CISCO-NTP-MIB/CISCO-NTP-MIB:cntpFilterRegisterTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cntpfilterregisterentry is not None:
-                for child_ref in self.cntpfilterregisterentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cntpfilterregisterentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cntpFilterRegisterTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cntpFilterRegisterEntry"):
+                for c in self.cntpfilterregisterentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNtpMib.Cntpfilterregistertable.Cntpfilterregisterentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cntpfilterregisterentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cntpFilterRegisterEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-            return meta._meta_table['CiscoNtpMib.Cntpfilterregistertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cntpfilterregistertable is not None and self.cntpfilterregistertable.has_data()) or
+            (self.cntppeersvartable is not None and self.cntppeersvartable.has_data()) or
+            (self.cntpsystem is not None and self.cntpsystem.has_data()))
 
-        return '/CISCO-NTP-MIB:CISCO-NTP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cntpfilterregistertable is not None and self.cntpfilterregistertable.has_operation()) or
+            (self.cntppeersvartable is not None and self.cntppeersvartable.has_operation()) or
+            (self.cntpsystem is not None and self.cntpsystem.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-NTP-MIB:CISCO-NTP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cntpFilterRegisterTable"):
+            if (self.cntpfilterregistertable is None):
+                self.cntpfilterregistertable = CiscoNtpMib.Cntpfilterregistertable()
+                self.cntpfilterregistertable.parent = self
+                self._children_name_map["cntpfilterregistertable"] = "cntpFilterRegisterTable"
+            return self.cntpfilterregistertable
+
+        if (child_yang_name == "cntpPeersVarTable"):
+            if (self.cntppeersvartable is None):
+                self.cntppeersvartable = CiscoNtpMib.Cntppeersvartable()
+                self.cntppeersvartable.parent = self
+                self._children_name_map["cntppeersvartable"] = "cntpPeersVarTable"
+            return self.cntppeersvartable
+
+        if (child_yang_name == "cntpSystem"):
+            if (self.cntpsystem is None):
+                self.cntpsystem = CiscoNtpMib.Cntpsystem()
+                self.cntpsystem.parent = self
+                self._children_name_map["cntpsystem"] = "cntpSystem"
+            return self.cntpsystem
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cntpFilterRegisterTable" or name == "cntpPeersVarTable" or name == "cntpSystem"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cntpfilterregistertable is not None and self.cntpfilterregistertable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cntppeersvartable is not None and self.cntppeersvartable._has_data():
-            return True
-
-        if self.cntpsystem is not None and self.cntpsystem._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_NTP_MIB as meta
-        return meta._meta_table['CiscoNtpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoNtpMib()
+        return self._top_entity
 

@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class TcOperAfNameEnum(Enum):
+class TcOperAfName(Enum):
     """
-    TcOperAfNameEnum
+    TcOperAfName
 
     Tc oper af name
 
@@ -41,19 +35,13 @@ class TcOperAfNameEnum(Enum):
 
     """
 
-    ipv4 = 0
+    ipv4 = Enum.YLeaf(0, "ipv4")
 
-    ipv6 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-        return meta._meta_table['TcOperAfNameEnum']
+    ipv6 = Enum.YLeaf(1, "ipv6")
 
 
 
-class TrafficCollector(object):
+class TrafficCollector(Entity):
     """
     Global Traffic Collector configuration commands
     
@@ -85,17 +73,34 @@ class TrafficCollector(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(TrafficCollector, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "traffic-collector"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-tc-oper"
+
         self.afs = TrafficCollector.Afs()
         self.afs.parent = self
+        self._children_name_map["afs"] = "afs"
+        self._children_yang_names.add("afs")
+
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
+        self._children_name_map["external_interfaces"] = "external-interfaces"
+        self._children_yang_names.add("external-interfaces")
+
         self.summary = TrafficCollector.Summary()
         self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
+        self._children_yang_names.add("summary")
+
         self.vrf_table = TrafficCollector.VrfTable()
         self.vrf_table.parent = self
+        self._children_name_map["vrf_table"] = "vrf-table"
+        self._children_yang_names.add("vrf-table")
 
 
-    class ExternalInterfaces(object):
+    class ExternalInterfaces(Entity):
         """
         External Interface
         
@@ -112,13 +117,39 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.external_interface = YList()
-            self.external_interface.parent = self
-            self.external_interface.name = 'external_interface'
+            super(TrafficCollector.ExternalInterfaces, self).__init__()
+
+            self.yang_name = "external-interfaces"
+            self.yang_parent_name = "traffic-collector"
+
+            self.external_interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TrafficCollector.ExternalInterfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TrafficCollector.ExternalInterfaces, self).__setattr__(name, value)
 
 
-        class ExternalInterface(object):
+        class ExternalInterface(Entity):
             """
             External Interface 
             
@@ -161,71 +192,187 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.interface_handle = None
-                self.interface_name_xr = None
-                self.is_interface_enabled = None
-                self.vrfid = None
+                super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                self.yang_name = "external-interface"
+                self.yang_parent_name = "external-interfaces"
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:external-interfaces/Cisco-IOS-XR-infra-tc-oper:external-interface[Cisco-IOS-XR-infra-tc-oper:interface-name = ' + str(self.interface_name) + ']'
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.interface_handle = YLeaf(YType.uint32, "interface-handle")
+
+                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                self.is_interface_enabled = YLeaf(YType.boolean, "is-interface-enabled")
+
+                self.vrfid = YLeaf(YType.uint32, "vrfid")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "interface_handle",
+                                "interface_name_xr",
+                                "is_interface_enabled",
+                                "vrfid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.interface_handle.is_set or
+                    self.interface_name_xr.is_set or
+                    self.is_interface_enabled.is_set or
+                    self.vrfid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.interface_handle.yfilter != YFilter.not_set or
+                    self.interface_name_xr.yfilter != YFilter.not_set or
+                    self.is_interface_enabled.yfilter != YFilter.not_set or
+                    self.vrfid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "external-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/external-interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                if (self.is_interface_enabled.is_set or self.is_interface_enabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_interface_enabled.get_name_leafdata())
+                if (self.vrfid.is_set or self.vrfid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrfid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-name" or name == "interface-handle" or name == "interface-name-xr" or name == "is-interface-enabled" or name == "vrfid"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-handle"):
+                    self.interface_handle = value
+                    self.interface_handle.value_namespace = name_space
+                    self.interface_handle.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name-xr"):
+                    self.interface_name_xr = value
+                    self.interface_name_xr.value_namespace = name_space
+                    self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-interface-enabled"):
+                    self.is_interface_enabled = value
+                    self.is_interface_enabled.value_namespace = name_space
+                    self.is_interface_enabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrfid"):
+                    self.vrfid = value
+                    self.vrfid.value_namespace = name_space
+                    self.vrfid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.external_interface:
+                if (c.has_data()):
                     return True
-
-                if self.interface_handle is not None:
-                    return True
-
-                if self.interface_name_xr is not None:
-                    return True
-
-                if self.is_interface_enabled is not None:
-                    return True
-
-                if self.vrfid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.ExternalInterfaces.ExternalInterface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:external-interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.external_interface is not None:
-                for child_ref in self.external_interface:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.external_interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "external-interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "external-interface"):
+                for c in self.external_interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.ExternalInterfaces.ExternalInterface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.external_interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "external-interface"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-            return meta._meta_table['TrafficCollector.ExternalInterfaces']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Summary(object):
+    class Summary(Entity):
         """
         Traffic Collector summary
         
@@ -292,26 +439,60 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.checkpoint_message_statistic = YList()
-            self.checkpoint_message_statistic.parent = self
-            self.checkpoint_message_statistic.name = 'checkpoint_message_statistic'
-            self.collection_interval = None
-            self.collection_message_statistic = YList()
-            self.collection_message_statistic.parent = self
-            self.collection_message_statistic.name = 'collection_message_statistic'
-            self.collection_timer_is_running = None
+            super(TrafficCollector.Summary, self).__init__()
+
+            self.yang_name = "summary"
+            self.yang_parent_name = "traffic-collector"
+
+            self.collection_interval = YLeaf(YType.uint8, "collection-interval")
+
+            self.collection_timer_is_running = YLeaf(YType.boolean, "collection-timer-is-running")
+
+            self.history_size = YLeaf(YType.uint8, "history-size")
+
+            self.timeout_interval = YLeaf(YType.uint16, "timeout-interval")
+
+            self.timeout_timer_is_running = YLeaf(YType.boolean, "timeout-timer-is-running")
+
             self.database_statistics_external_interface = TrafficCollector.Summary.DatabaseStatisticsExternalInterface()
             self.database_statistics_external_interface.parent = self
-            self.history_size = None
-            self.timeout_interval = None
-            self.timeout_timer_is_running = None
-            self.vrf_statistic = YList()
-            self.vrf_statistic.parent = self
-            self.vrf_statistic.name = 'vrf_statistic'
+            self._children_name_map["database_statistics_external_interface"] = "database-statistics-external-interface"
+            self._children_yang_names.add("database-statistics-external-interface")
+
+            self.checkpoint_message_statistic = YList(self)
+            self.collection_message_statistic = YList(self)
+            self.vrf_statistic = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("collection_interval",
+                            "collection_timer_is_running",
+                            "history_size",
+                            "timeout_interval",
+                            "timeout_timer_is_running") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TrafficCollector.Summary, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TrafficCollector.Summary, self).__setattr__(name, value)
 
 
-        class DatabaseStatisticsExternalInterface(object):
+        class DatabaseStatisticsExternalInterface(Entity):
             """
             Database statistics for External Interface
             
@@ -351,43 +532,119 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.number_of_add_o_perations = None
-                self.number_of_delete_o_perations = None
-                self.number_of_entries = None
-                self.number_of_stale_entries = None
+                super(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "database-statistics-external-interface"
+                self.yang_parent_name = "summary"
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:database-statistics-external-interface'
+                self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+
+                self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
+
+                self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("number_of_add_o_perations",
+                                "number_of_delete_o_perations",
+                                "number_of_entries",
+                                "number_of_stale_entries") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.number_of_add_o_perations.is_set or
+                    self.number_of_delete_o_perations.is_set or
+                    self.number_of_entries.is_set or
+                    self.number_of_stale_entries.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.number_of_add_o_perations.yfilter != YFilter.not_set or
+                    self.number_of_delete_o_perations.yfilter != YFilter.not_set or
+                    self.number_of_entries.yfilter != YFilter.not_set or
+                    self.number_of_stale_entries.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "database-statistics-external-interface" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.number_of_add_o_perations.is_set or self.number_of_add_o_perations.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.number_of_add_o_perations.get_name_leafdata())
+                if (self.number_of_delete_o_perations.is_set or self.number_of_delete_o_perations.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.number_of_delete_o_perations.get_name_leafdata())
+                if (self.number_of_entries.is_set or self.number_of_entries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.number_of_entries.get_name_leafdata())
+                if (self.number_of_stale_entries.is_set or self.number_of_stale_entries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.number_of_stale_entries.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "number-of-add-o-perations" or name == "number-of-delete-o-perations" or name == "number-of-entries" or name == "number-of-stale-entries"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.number_of_add_o_perations is not None:
-                    return True
-
-                if self.number_of_delete_o_perations is not None:
-                    return True
-
-                if self.number_of_entries is not None:
-                    return True
-
-                if self.number_of_stale_entries is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.Summary.DatabaseStatisticsExternalInterface']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "number-of-add-o-perations"):
+                    self.number_of_add_o_perations = value
+                    self.number_of_add_o_perations.value_namespace = name_space
+                    self.number_of_add_o_perations.value_namespace_prefix = name_space_prefix
+                if(value_path == "number-of-delete-o-perations"):
+                    self.number_of_delete_o_perations = value
+                    self.number_of_delete_o_perations.value_namespace = name_space
+                    self.number_of_delete_o_perations.value_namespace_prefix = name_space_prefix
+                if(value_path == "number-of-entries"):
+                    self.number_of_entries = value
+                    self.number_of_entries.value_namespace = name_space
+                    self.number_of_entries.value_namespace_prefix = name_space_prefix
+                if(value_path == "number-of-stale-entries"):
+                    self.number_of_stale_entries = value
+                    self.number_of_stale_entries.value_namespace = name_space
+                    self.number_of_stale_entries.value_namespace_prefix = name_space_prefix
 
 
-        class VrfStatistic(object):
+        class VrfStatistic(Entity):
             """
             VRF table statistics
             
@@ -414,15 +671,49 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(TrafficCollector.Summary.VrfStatistic, self).__init__()
+
+                self.yang_name = "vrf-statistic"
+                self.yang_parent_name = "summary"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.database_statistics_ipv4 = TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4()
                 self.database_statistics_ipv4.parent = self
+                self._children_name_map["database_statistics_ipv4"] = "database-statistics-ipv4"
+                self._children_yang_names.add("database-statistics-ipv4")
+
                 self.database_statistics_tunnel = TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel()
                 self.database_statistics_tunnel.parent = self
-                self.vrf_name = None
+                self._children_name_map["database_statistics_tunnel"] = "database-statistics-tunnel"
+                self._children_yang_names.add("database-statistics-tunnel")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.Summary.VrfStatistic, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.Summary.VrfStatistic, self).__setattr__(name, value)
 
 
-            class DatabaseStatisticsIpv4(object):
+            class DatabaseStatisticsIpv4(Entity):
                 """
                 Database statistics for IPv4 table
                 
@@ -462,43 +753,119 @@ class TrafficCollector(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.number_of_add_o_perations = None
-                    self.number_of_delete_o_perations = None
-                    self.number_of_entries = None
-                    self.number_of_stale_entries = None
+                    super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "database-statistics-ipv4"
+                    self.yang_parent_name = "vrf-statistic"
 
-                    return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:vrf-statistic/Cisco-IOS-XR-infra-tc-oper:database-statistics-ipv4'
+                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+
+                    self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
+
+                    self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("number_of_add_o_perations",
+                                    "number_of_delete_o_perations",
+                                    "number_of_entries",
+                                    "number_of_stale_entries") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.number_of_add_o_perations.is_set or
+                        self.number_of_delete_o_perations.is_set or
+                        self.number_of_entries.is_set or
+                        self.number_of_stale_entries.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.number_of_add_o_perations.yfilter != YFilter.not_set or
+                        self.number_of_delete_o_perations.yfilter != YFilter.not_set or
+                        self.number_of_entries.yfilter != YFilter.not_set or
+                        self.number_of_stale_entries.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "database-statistics-ipv4" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.number_of_add_o_perations.is_set or self.number_of_add_o_perations.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_add_o_perations.get_name_leafdata())
+                    if (self.number_of_delete_o_perations.is_set or self.number_of_delete_o_perations.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_delete_o_perations.get_name_leafdata())
+                    if (self.number_of_entries.is_set or self.number_of_entries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_entries.get_name_leafdata())
+                    if (self.number_of_stale_entries.is_set or self.number_of_stale_entries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_stale_entries.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "number-of-add-o-perations" or name == "number-of-delete-o-perations" or name == "number-of-entries" or name == "number-of-stale-entries"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.number_of_add_o_perations is not None:
-                        return True
-
-                    if self.number_of_delete_o_perations is not None:
-                        return True
-
-                    if self.number_of_entries is not None:
-                        return True
-
-                    if self.number_of_stale_entries is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                    return meta._meta_table['TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "number-of-add-o-perations"):
+                        self.number_of_add_o_perations = value
+                        self.number_of_add_o_perations.value_namespace = name_space
+                        self.number_of_add_o_perations.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-delete-o-perations"):
+                        self.number_of_delete_o_perations = value
+                        self.number_of_delete_o_perations.value_namespace = name_space
+                        self.number_of_delete_o_perations.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-entries"):
+                        self.number_of_entries = value
+                        self.number_of_entries.value_namespace = name_space
+                        self.number_of_entries.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-stale-entries"):
+                        self.number_of_stale_entries = value
+                        self.number_of_stale_entries.value_namespace = name_space
+                        self.number_of_stale_entries.value_namespace_prefix = name_space_prefix
 
 
-            class DatabaseStatisticsTunnel(object):
+            class DatabaseStatisticsTunnel(Entity):
                 """
                 Database statistics for Tunnel table
                 
@@ -538,69 +905,184 @@ class TrafficCollector(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.number_of_add_o_perations = None
-                    self.number_of_delete_o_perations = None
-                    self.number_of_entries = None
-                    self.number_of_stale_entries = None
+                    super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "database-statistics-tunnel"
+                    self.yang_parent_name = "vrf-statistic"
 
-                    return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:vrf-statistic/Cisco-IOS-XR-infra-tc-oper:database-statistics-tunnel'
+                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+
+                    self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
+
+                    self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("number_of_add_o_perations",
+                                    "number_of_delete_o_perations",
+                                    "number_of_entries",
+                                    "number_of_stale_entries") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.number_of_add_o_perations.is_set or
+                        self.number_of_delete_o_perations.is_set or
+                        self.number_of_entries.is_set or
+                        self.number_of_stale_entries.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.number_of_add_o_perations.yfilter != YFilter.not_set or
+                        self.number_of_delete_o_perations.yfilter != YFilter.not_set or
+                        self.number_of_entries.yfilter != YFilter.not_set or
+                        self.number_of_stale_entries.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "database-statistics-tunnel" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.number_of_add_o_perations.is_set or self.number_of_add_o_perations.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_add_o_perations.get_name_leafdata())
+                    if (self.number_of_delete_o_perations.is_set or self.number_of_delete_o_perations.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_delete_o_perations.get_name_leafdata())
+                    if (self.number_of_entries.is_set or self.number_of_entries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_entries.get_name_leafdata())
+                    if (self.number_of_stale_entries.is_set or self.number_of_stale_entries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_of_stale_entries.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "number-of-add-o-perations" or name == "number-of-delete-o-perations" or name == "number-of-entries" or name == "number-of-stale-entries"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.number_of_add_o_perations is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "number-of-add-o-perations"):
+                        self.number_of_add_o_perations = value
+                        self.number_of_add_o_perations.value_namespace = name_space
+                        self.number_of_add_o_perations.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-delete-o-perations"):
+                        self.number_of_delete_o_perations = value
+                        self.number_of_delete_o_perations.value_namespace = name_space
+                        self.number_of_delete_o_perations.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-entries"):
+                        self.number_of_entries = value
+                        self.number_of_entries.value_namespace = name_space
+                        self.number_of_entries.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-of-stale-entries"):
+                        self.number_of_stale_entries = value
+                        self.number_of_stale_entries.value_namespace = name_space
+                        self.number_of_stale_entries.value_namespace_prefix = name_space_prefix
 
-                    if self.number_of_delete_o_perations is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.vrf_name.is_set or
+                    (self.database_statistics_ipv4 is not None and self.database_statistics_ipv4.has_data()) or
+                    (self.database_statistics_tunnel is not None and self.database_statistics_tunnel.has_data()))
 
-                    if self.number_of_entries is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    (self.database_statistics_ipv4 is not None and self.database_statistics_ipv4.has_operation()) or
+                    (self.database_statistics_tunnel is not None and self.database_statistics_tunnel.has_operation()))
 
-                    if self.number_of_stale_entries is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf-statistic" + path_buffer
 
-                    return False
+                return path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                    return meta._meta_table['TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel']['meta_info']
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            @property
-            def _common_path(self):
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:vrf-statistic'
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "database-statistics-ipv4"):
+                    if (self.database_statistics_ipv4 is None):
+                        self.database_statistics_ipv4 = TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4()
+                        self.database_statistics_ipv4.parent = self
+                        self._children_name_map["database_statistics_ipv4"] = "database-statistics-ipv4"
+                    return self.database_statistics_ipv4
+
+                if (child_yang_name == "database-statistics-tunnel"):
+                    if (self.database_statistics_tunnel is None):
+                        self.database_statistics_tunnel = TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel()
+                        self.database_statistics_tunnel.parent = self
+                        self._children_name_map["database_statistics_tunnel"] = "database-statistics-tunnel"
+                    return self.database_statistics_tunnel
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "database-statistics-ipv4" or name == "database-statistics-tunnel" or name == "vrf-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.database_statistics_ipv4 is not None and self.database_statistics_ipv4._has_data():
-                    return True
-
-                if self.database_statistics_tunnel is not None and self.database_statistics_tunnel._has_data():
-                    return True
-
-                if self.vrf_name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.Summary.VrfStatistic']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-        class CollectionMessageStatistic(object):
+        class CollectionMessageStatistic(Entity):
             """
             Statistics per message type for STAT collector
             
@@ -658,51 +1140,141 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.byte_received = None
-                self.byte_sent = None
-                self.maimum_latency_timestamp = None
-                self.maximum_roundtrip_latency = None
-                self.packet_received = None
-                self.packet_sent = None
+                super(TrafficCollector.Summary.CollectionMessageStatistic, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "collection-message-statistic"
+                self.yang_parent_name = "summary"
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:collection-message-statistic'
+                self.byte_received = YLeaf(YType.uint64, "byte-received")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
+
+                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+
+                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
+
+                self.packet_received = YLeaf(YType.uint64, "packet-received")
+
+                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("byte_received",
+                                "byte_sent",
+                                "maimum_latency_timestamp",
+                                "maximum_roundtrip_latency",
+                                "packet_received",
+                                "packet_sent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.Summary.CollectionMessageStatistic, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.Summary.CollectionMessageStatistic, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.byte_received.is_set or
+                    self.byte_sent.is_set or
+                    self.maimum_latency_timestamp.is_set or
+                    self.maximum_roundtrip_latency.is_set or
+                    self.packet_received.is_set or
+                    self.packet_sent.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.byte_received.yfilter != YFilter.not_set or
+                    self.byte_sent.yfilter != YFilter.not_set or
+                    self.maimum_latency_timestamp.yfilter != YFilter.not_set or
+                    self.maximum_roundtrip_latency.yfilter != YFilter.not_set or
+                    self.packet_received.yfilter != YFilter.not_set or
+                    self.packet_sent.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "collection-message-statistic" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.byte_received.is_set or self.byte_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.byte_received.get_name_leafdata())
+                if (self.byte_sent.is_set or self.byte_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.byte_sent.get_name_leafdata())
+                if (self.maimum_latency_timestamp.is_set or self.maimum_latency_timestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.maimum_latency_timestamp.get_name_leafdata())
+                if (self.maximum_roundtrip_latency.is_set or self.maximum_roundtrip_latency.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.maximum_roundtrip_latency.get_name_leafdata())
+                if (self.packet_received.is_set or self.packet_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.packet_received.get_name_leafdata())
+                if (self.packet_sent.is_set or self.packet_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.packet_sent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "byte-received" or name == "byte-sent" or name == "maimum-latency-timestamp" or name == "maximum-roundtrip-latency" or name == "packet-received" or name == "packet-sent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.byte_received is not None:
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "byte-received"):
+                    self.byte_received = value
+                    self.byte_received.value_namespace = name_space
+                    self.byte_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "byte-sent"):
+                    self.byte_sent = value
+                    self.byte_sent.value_namespace = name_space
+                    self.byte_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "maimum-latency-timestamp"):
+                    self.maimum_latency_timestamp = value
+                    self.maimum_latency_timestamp.value_namespace = name_space
+                    self.maimum_latency_timestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "maximum-roundtrip-latency"):
+                    self.maximum_roundtrip_latency = value
+                    self.maximum_roundtrip_latency.value_namespace = name_space
+                    self.maximum_roundtrip_latency.value_namespace_prefix = name_space_prefix
+                if(value_path == "packet-received"):
+                    self.packet_received = value
+                    self.packet_received.value_namespace = name_space
+                    self.packet_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "packet-sent"):
+                    self.packet_sent = value
+                    self.packet_sent.value_namespace = name_space
+                    self.packet_sent.value_namespace_prefix = name_space_prefix
 
-                if self.byte_sent is not None:
-                    return True
 
-                if self.maimum_latency_timestamp is not None:
-                    return True
-
-                if self.maximum_roundtrip_latency is not None:
-                    return True
-
-                if self.packet_received is not None:
-                    return True
-
-                if self.packet_sent is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.Summary.CollectionMessageStatistic']['meta_info']
-
-
-        class CheckpointMessageStatistic(object):
+        class CheckpointMessageStatistic(Entity):
             """
             Statistics per message type for Chkpt
             
@@ -760,101 +1332,283 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.byte_received = None
-                self.byte_sent = None
-                self.maimum_latency_timestamp = None
-                self.maximum_roundtrip_latency = None
-                self.packet_received = None
-                self.packet_sent = None
+                super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "checkpoint-message-statistic"
+                self.yang_parent_name = "summary"
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary/Cisco-IOS-XR-infra-tc-oper:checkpoint-message-statistic'
+                self.byte_received = YLeaf(YType.uint64, "byte-received")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
+
+                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+
+                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
+
+                self.packet_received = YLeaf(YType.uint64, "packet-received")
+
+                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("byte_received",
+                                "byte_sent",
+                                "maimum_latency_timestamp",
+                                "maximum_roundtrip_latency",
+                                "packet_received",
+                                "packet_sent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.byte_received.is_set or
+                    self.byte_sent.is_set or
+                    self.maimum_latency_timestamp.is_set or
+                    self.maximum_roundtrip_latency.is_set or
+                    self.packet_received.is_set or
+                    self.packet_sent.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.byte_received.yfilter != YFilter.not_set or
+                    self.byte_sent.yfilter != YFilter.not_set or
+                    self.maimum_latency_timestamp.yfilter != YFilter.not_set or
+                    self.maximum_roundtrip_latency.yfilter != YFilter.not_set or
+                    self.packet_received.yfilter != YFilter.not_set or
+                    self.packet_sent.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "checkpoint-message-statistic" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.byte_received.is_set or self.byte_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.byte_received.get_name_leafdata())
+                if (self.byte_sent.is_set or self.byte_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.byte_sent.get_name_leafdata())
+                if (self.maimum_latency_timestamp.is_set or self.maimum_latency_timestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.maimum_latency_timestamp.get_name_leafdata())
+                if (self.maximum_roundtrip_latency.is_set or self.maximum_roundtrip_latency.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.maximum_roundtrip_latency.get_name_leafdata())
+                if (self.packet_received.is_set or self.packet_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.packet_received.get_name_leafdata())
+                if (self.packet_sent.is_set or self.packet_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.packet_sent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "byte-received" or name == "byte-sent" or name == "maimum-latency-timestamp" or name == "maximum-roundtrip-latency" or name == "packet-received" or name == "packet-sent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.byte_received is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "byte-received"):
+                    self.byte_received = value
+                    self.byte_received.value_namespace = name_space
+                    self.byte_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "byte-sent"):
+                    self.byte_sent = value
+                    self.byte_sent.value_namespace = name_space
+                    self.byte_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "maimum-latency-timestamp"):
+                    self.maimum_latency_timestamp = value
+                    self.maimum_latency_timestamp.value_namespace = name_space
+                    self.maimum_latency_timestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "maximum-roundtrip-latency"):
+                    self.maximum_roundtrip_latency = value
+                    self.maximum_roundtrip_latency.value_namespace = name_space
+                    self.maximum_roundtrip_latency.value_namespace_prefix = name_space_prefix
+                if(value_path == "packet-received"):
+                    self.packet_received = value
+                    self.packet_received.value_namespace = name_space
+                    self.packet_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "packet-sent"):
+                    self.packet_sent = value
+                    self.packet_sent.value_namespace = name_space
+                    self.packet_sent.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.checkpoint_message_statistic:
+                if (c.has_data()):
                     return True
-
-                if self.byte_sent is not None:
+            for c in self.collection_message_statistic:
+                if (c.has_data()):
                     return True
-
-                if self.maimum_latency_timestamp is not None:
+            for c in self.vrf_statistic:
+                if (c.has_data()):
                     return True
+            return (
+                self.collection_interval.is_set or
+                self.collection_timer_is_running.is_set or
+                self.history_size.is_set or
+                self.timeout_interval.is_set or
+                self.timeout_timer_is_running.is_set or
+                (self.database_statistics_external_interface is not None and self.database_statistics_external_interface.has_data()))
 
-                if self.maximum_roundtrip_latency is not None:
+        def has_operation(self):
+            for c in self.checkpoint_message_statistic:
+                if (c.has_operation()):
                     return True
-
-                if self.packet_received is not None:
+            for c in self.collection_message_statistic:
+                if (c.has_operation()):
                     return True
-
-                if self.packet_sent is not None:
+            for c in self.vrf_statistic:
+                if (c.has_operation()):
                     return True
+            return (
+                self.yfilter != YFilter.not_set or
+                self.collection_interval.yfilter != YFilter.not_set or
+                self.collection_timer_is_running.yfilter != YFilter.not_set or
+                self.history_size.yfilter != YFilter.not_set or
+                self.timeout_interval.yfilter != YFilter.not_set or
+                self.timeout_timer_is_running.yfilter != YFilter.not_set or
+                (self.database_statistics_external_interface is not None and self.database_statistics_external_interface.has_operation()))
 
-                return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "summary" + path_buffer
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.Summary.CheckpointMessageStatistic']['meta_info']
+            return path_buffer
 
-        @property
-        def _common_path(self):
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:summary'
+            leaf_name_data = LeafDataList()
+            if (self.collection_interval.is_set or self.collection_interval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.collection_interval.get_name_leafdata())
+            if (self.collection_timer_is_running.is_set or self.collection_timer_is_running.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.collection_timer_is_running.get_name_leafdata())
+            if (self.history_size.is_set or self.history_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.history_size.get_name_leafdata())
+            if (self.timeout_interval.is_set or self.timeout_interval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.timeout_interval.get_name_leafdata())
+            if (self.timeout_timer_is_running.is_set or self.timeout_timer_is_running.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.timeout_timer_is_running.get_name_leafdata())
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "checkpoint-message-statistic"):
+                for c in self.checkpoint_message_statistic:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.Summary.CheckpointMessageStatistic()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.checkpoint_message_statistic.append(c)
+                return c
+
+            if (child_yang_name == "collection-message-statistic"):
+                for c in self.collection_message_statistic:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.Summary.CollectionMessageStatistic()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.collection_message_statistic.append(c)
+                return c
+
+            if (child_yang_name == "database-statistics-external-interface"):
+                if (self.database_statistics_external_interface is None):
+                    self.database_statistics_external_interface = TrafficCollector.Summary.DatabaseStatisticsExternalInterface()
+                    self.database_statistics_external_interface.parent = self
+                    self._children_name_map["database_statistics_external_interface"] = "database-statistics-external-interface"
+                return self.database_statistics_external_interface
+
+            if (child_yang_name == "vrf-statistic"):
+                for c in self.vrf_statistic:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.Summary.VrfStatistic()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vrf_statistic.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "checkpoint-message-statistic" or name == "collection-message-statistic" or name == "database-statistics-external-interface" or name == "vrf-statistic" or name == "collection-interval" or name == "collection-timer-is-running" or name == "history-size" or name == "timeout-interval" or name == "timeout-timer-is-running"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.checkpoint_message_statistic is not None:
-                for child_ref in self.checkpoint_message_statistic:
-                    if child_ref._has_data():
-                        return True
-
-            if self.collection_interval is not None:
-                return True
-
-            if self.collection_message_statistic is not None:
-                for child_ref in self.collection_message_statistic:
-                    if child_ref._has_data():
-                        return True
-
-            if self.collection_timer_is_running is not None:
-                return True
-
-            if self.database_statistics_external_interface is not None and self.database_statistics_external_interface._has_data():
-                return True
-
-            if self.history_size is not None:
-                return True
-
-            if self.timeout_interval is not None:
-                return True
-
-            if self.timeout_timer_is_running is not None:
-                return True
-
-            if self.vrf_statistic is not None:
-                for child_ref in self.vrf_statistic:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-            return meta._meta_table['TrafficCollector.Summary']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "collection-interval"):
+                self.collection_interval = value
+                self.collection_interval.value_namespace = name_space
+                self.collection_interval.value_namespace_prefix = name_space_prefix
+            if(value_path == "collection-timer-is-running"):
+                self.collection_timer_is_running = value
+                self.collection_timer_is_running.value_namespace = name_space
+                self.collection_timer_is_running.value_namespace_prefix = name_space_prefix
+            if(value_path == "history-size"):
+                self.history_size = value
+                self.history_size.value_namespace = name_space
+                self.history_size.value_namespace_prefix = name_space_prefix
+            if(value_path == "timeout-interval"):
+                self.timeout_interval = value
+                self.timeout_interval.value_namespace = name_space
+                self.timeout_interval.value_namespace_prefix = name_space_prefix
+            if(value_path == "timeout-timer-is-running"):
+                self.timeout_timer_is_running = value
+                self.timeout_timer_is_running.value_namespace = name_space
+                self.timeout_timer_is_running.value_namespace_prefix = name_space_prefix
 
 
-    class VrfTable(object):
+    class VrfTable(Entity):
         """
         VRF specific operational data
         
@@ -871,12 +1625,18 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(TrafficCollector.VrfTable, self).__init__()
+
+            self.yang_name = "vrf-table"
+            self.yang_parent_name = "traffic-collector"
+
             self.default_vrf = TrafficCollector.VrfTable.DefaultVrf()
             self.default_vrf.parent = self
+            self._children_name_map["default_vrf"] = "default-vrf"
+            self._children_yang_names.add("default-vrf")
 
 
-        class DefaultVrf(object):
+        class DefaultVrf(Entity):
             """
             DefaultVRF specific operational data
             
@@ -893,12 +1653,18 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(TrafficCollector.VrfTable.DefaultVrf, self).__init__()
+
+                self.yang_name = "default-vrf"
+                self.yang_parent_name = "vrf-table"
+
                 self.afs = TrafficCollector.VrfTable.DefaultVrf.Afs()
                 self.afs.parent = self
+                self._children_name_map["afs"] = "afs"
+                self._children_yang_names.add("afs")
 
 
-            class Afs(object):
+            class Afs(Entity):
                 """
                 Address Family specific operational data
                 
@@ -915,20 +1681,46 @@ class TrafficCollector(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.af = YList()
-                    self.af.parent = self
-                    self.af.name = 'af'
+                    super(TrafficCollector.VrfTable.DefaultVrf.Afs, self).__init__()
+
+                    self.yang_name = "afs"
+                    self.yang_parent_name = "default-vrf"
+
+                    self.af = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TrafficCollector.VrfTable.DefaultVrf.Afs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TrafficCollector.VrfTable.DefaultVrf.Afs, self).__setattr__(name, value)
 
 
-                class Af(object):
+                class Af(Entity):
                     """
                     Operational data for given Address Family
                     
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:   :py:class:`TcOperAfNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfNameEnum>`
+                    	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
                     
                     .. attribute:: counters
                     
@@ -943,13 +1735,44 @@ class TrafficCollector(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.af_name = None
+                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, self).__init__()
+
+                        self.yang_name = "af"
+                        self.yang_parent_name = "afs"
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
                         self.counters = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters()
                         self.counters.parent = self
+                        self._children_name_map["counters"] = "counters"
+                        self._children_yang_names.add("counters")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("af_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, self).__setattr__(name, value)
 
 
-                    class Counters(object):
+                    class Counters(Entity):
                         """
                         Show Counters
                         
@@ -971,14 +1794,23 @@ class TrafficCollector(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters, self).__init__()
+
+                            self.yang_name = "counters"
+                            self.yang_parent_name = "af"
+
                             self.prefixes = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes()
                             self.prefixes.parent = self
+                            self._children_name_map["prefixes"] = "prefixes"
+                            self._children_yang_names.add("prefixes")
+
                             self.tunnels = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels()
                             self.tunnels.parent = self
+                            self._children_name_map["tunnels"] = "tunnels"
+                            self._children_yang_names.add("tunnels")
 
 
-                        class Prefixes(object):
+                        class Prefixes(Entity):
                             """
                             Prefix Database
                             
@@ -995,13 +1827,39 @@ class TrafficCollector(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.prefix = YList()
-                                self.prefix.parent = self
-                                self.prefix.name = 'prefix'
+                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, self).__init__()
+
+                                self.yang_name = "prefixes"
+                                self.yang_parent_name = "counters"
+
+                                self.prefix = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, self).__setattr__(name, value)
 
 
-                            class Prefix(object):
+                            class Prefix(Entity):
                                 """
                                 Show Prefix Counter
                                 
@@ -1061,20 +1919,64 @@ class TrafficCollector(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
+
+                                    self.yang_name = "prefix"
+                                    self.yang_parent_name = "prefixes"
+
+                                    self.ipaddr = YLeaf(YType.str, "ipaddr")
+
+                                    self.is_active = YLeaf(YType.boolean, "is-active")
+
+                                    self.label = YLeaf(YType.uint32, "label")
+
+                                    self.label_xr = YLeaf(YType.uint32, "label-xr")
+
+                                    self.mask = YLeaf(YType.str, "mask")
+
+                                    self.prefix = YLeaf(YType.str, "prefix")
+
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
-                                    self.ipaddr = None
-                                    self.is_active = None
-                                    self.label = None
-                                    self.label_xr = None
-                                    self.mask = None
-                                    self.prefix = None
+                                    self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                    self._children_yang_names.add("base-counter-statistics")
+
                                     self.traffic_matrix_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
                                     self.traffic_matrix_counter_statistics.parent = self
+                                    self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
+                                    self._children_yang_names.add("traffic-matrix-counter-statistics")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ipaddr",
+                                                    "is_active",
+                                                    "label",
+                                                    "label_xr",
+                                                    "mask",
+                                                    "prefix") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, self).__setattr__(name, value)
 
 
-                                class BaseCounterStatistics(object):
+                                class BaseCounterStatistics(Entity):
                                     """
                                     Base counter statistics
                                     
@@ -1109,15 +2011,44 @@ class TrafficCollector(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.count_history = YList()
-                                        self.count_history.parent = self
-                                        self.count_history.name = 'count_history'
-                                        self.transmit_bytes_per_second_switched = None
-                                        self.transmit_packets_per_second_switched = None
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
+
+                                        self.yang_name = "base-counter-statistics"
+                                        self.yang_parent_name = "prefix"
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.count_history = YList(self)
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("transmit_bytes_per_second_switched",
+                                                        "transmit_packets_per_second_switched") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__setattr__(name, value)
 
 
-                                    class CountHistory(object):
+                                    class CountHistory(Entity):
                                         """
                                         Counter History
                                         
@@ -1164,79 +2095,203 @@ class TrafficCollector(object):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            self.parent = None
-                                            self.event_end_timestamp = None
-                                            self.event_start_timestamp = None
-                                            self.is_valid = None
-                                            self.transmit_number_of_bytes_switched = None
-                                            self.transmit_number_of_packets_switched = None
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
 
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            self.yang_name = "count-history"
+                                            self.yang_parent_name = "base-counter-statistics"
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
+                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in ("event_end_timestamp",
+                                                            "event_start_timestamp",
+                                                            "is_valid",
+                                                            "transmit_number_of_bytes_switched",
+                                                            "transmit_number_of_packets_switched") and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                        def has_data(self):
+                                            return (
+                                                self.event_end_timestamp.is_set or
+                                                self.event_start_timestamp.is_set or
+                                                self.is_valid.is_set or
+                                                self.transmit_number_of_bytes_switched.is_set or
+                                                self.transmit_number_of_packets_switched.is_set)
+
+                                        def has_operation(self):
+                                            return (
+                                                self.yfilter != YFilter.not_set or
+                                                self.event_end_timestamp.yfilter != YFilter.not_set or
+                                                self.event_start_timestamp.yfilter != YFilter.not_set or
+                                                self.is_valid.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "count-history" + path_buffer
+
+                                            return path_buffer
+
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                            leaf_name_data = LeafDataList()
+                                            if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                            if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                            if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                            if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                            if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
+
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
+
+                                            return None
+
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                                return True
                                             return False
 
-                                        def _has_data(self):
-                                            if self.event_end_timestamp is not None:
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            if(value_path == "event-end-timestamp"):
+                                                self.event_end_timestamp = value
+                                                self.event_end_timestamp.value_namespace = name_space
+                                                self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "event-start-timestamp"):
+                                                self.event_start_timestamp = value
+                                                self.event_start_timestamp.value_namespace = name_space
+                                                self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "is-valid"):
+                                                self.is_valid = value
+                                                self.is_valid.value_namespace = name_space
+                                                self.is_valid.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-bytes-switched"):
+                                                self.transmit_number_of_bytes_switched = value
+                                                self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                                self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-packets-switched"):
+                                                self.transmit_number_of_packets_switched = value
+                                                self.transmit_number_of_packets_switched.value_namespace = name_space
+                                                self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                                    def has_data(self):
+                                        for c in self.count_history:
+                                            if (c.has_data()):
                                                 return True
+                                        return (
+                                            self.transmit_bytes_per_second_switched.is_set or
+                                            self.transmit_packets_per_second_switched.is_set)
 
-                                            if self.event_start_timestamp is not None:
+                                    def has_operation(self):
+                                        for c in self.count_history:
+                                            if (c.has_operation()):
                                                 return True
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                            self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                            if self.is_valid is not None:
-                                                return True
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "base-counter-statistics" + path_buffer
 
-                                            if self.transmit_number_of_bytes_switched is not None:
-                                                return True
+                                        return path_buffer
 
-                                            if self.transmit_number_of_packets_switched is not None:
-                                                return True
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                            return False
+                                        leaf_name_data = LeafDataList()
+                                        if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                        if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory']['meta_info']
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:base-counter-statistics'
+                                        if (child_yang_name == "count-history"):
+                                            for c in self.count_history:
+                                                segment = c.get_segment_path()
+                                                if (segment_path == segment):
+                                                    return c
+                                            c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory()
+                                            c.parent = self
+                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                            self._local_refs[local_reference_key] = c
+                                            self.count_history.append(c)
+                                            return c
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.count_history is not None:
-                                            for child_ref in self.count_history:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.transmit_bytes_per_second_switched is not None:
-                                            return True
-
-                                        if self.transmit_packets_per_second_switched is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "transmit-bytes-per-second-switched"):
+                                            self.transmit_bytes_per_second_switched = value
+                                            self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                            self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "transmit-packets-per-second-switched"):
+                                            self.transmit_packets_per_second_switched = value
+                                            self.transmit_packets_per_second_switched.value_namespace = name_space
+                                            self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
 
-                                class TrafficMatrixCounterStatistics(object):
+                                class TrafficMatrixCounterStatistics(Entity):
                                     """
                                     Traffic Matrix (TM) counter statistics
                                     
@@ -1271,15 +2326,44 @@ class TrafficCollector(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.count_history = YList()
-                                        self.count_history.parent = self
-                                        self.count_history.name = 'count_history'
-                                        self.transmit_bytes_per_second_switched = None
-                                        self.transmit_packets_per_second_switched = None
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
+
+                                        self.yang_name = "traffic-matrix-counter-statistics"
+                                        self.yang_parent_name = "prefix"
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.count_history = YList(self)
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("transmit_bytes_per_second_switched",
+                                                        "transmit_packets_per_second_switched") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__setattr__(name, value)
 
 
-                                    class CountHistory(object):
+                                    class CountHistory(Entity):
                                         """
                                         Counter History
                                         
@@ -1326,146 +2410,365 @@ class TrafficCollector(object):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            self.parent = None
-                                            self.event_end_timestamp = None
-                                            self.event_start_timestamp = None
-                                            self.is_valid = None
-                                            self.transmit_number_of_bytes_switched = None
-                                            self.transmit_number_of_packets_switched = None
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
 
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            self.yang_name = "count-history"
+                                            self.yang_parent_name = "traffic-matrix-counter-statistics"
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
+                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in ("event_end_timestamp",
+                                                            "event_start_timestamp",
+                                                            "is_valid",
+                                                            "transmit_number_of_bytes_switched",
+                                                            "transmit_number_of_packets_switched") and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                        def has_data(self):
+                                            return (
+                                                self.event_end_timestamp.is_set or
+                                                self.event_start_timestamp.is_set or
+                                                self.is_valid.is_set or
+                                                self.transmit_number_of_bytes_switched.is_set or
+                                                self.transmit_number_of_packets_switched.is_set)
+
+                                        def has_operation(self):
+                                            return (
+                                                self.yfilter != YFilter.not_set or
+                                                self.event_end_timestamp.yfilter != YFilter.not_set or
+                                                self.event_start_timestamp.yfilter != YFilter.not_set or
+                                                self.is_valid.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "count-history" + path_buffer
+
+                                            return path_buffer
+
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                            leaf_name_data = LeafDataList()
+                                            if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                            if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                            if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                            if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                            if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
+
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
+
+                                            return None
+
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                                return True
                                             return False
 
-                                        def _has_data(self):
-                                            if self.event_end_timestamp is not None:
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            if(value_path == "event-end-timestamp"):
+                                                self.event_end_timestamp = value
+                                                self.event_end_timestamp.value_namespace = name_space
+                                                self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "event-start-timestamp"):
+                                                self.event_start_timestamp = value
+                                                self.event_start_timestamp.value_namespace = name_space
+                                                self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "is-valid"):
+                                                self.is_valid = value
+                                                self.is_valid.value_namespace = name_space
+                                                self.is_valid.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-bytes-switched"):
+                                                self.transmit_number_of_bytes_switched = value
+                                                self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                                self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-packets-switched"):
+                                                self.transmit_number_of_packets_switched = value
+                                                self.transmit_number_of_packets_switched.value_namespace = name_space
+                                                self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                                    def has_data(self):
+                                        for c in self.count_history:
+                                            if (c.has_data()):
                                                 return True
+                                        return (
+                                            self.transmit_bytes_per_second_switched.is_set or
+                                            self.transmit_packets_per_second_switched.is_set)
 
-                                            if self.event_start_timestamp is not None:
+                                    def has_operation(self):
+                                        for c in self.count_history:
+                                            if (c.has_operation()):
                                                 return True
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                            self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                            if self.is_valid is not None:
-                                                return True
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "traffic-matrix-counter-statistics" + path_buffer
 
-                                            if self.transmit_number_of_bytes_switched is not None:
-                                                return True
+                                        return path_buffer
 
-                                            if self.transmit_number_of_packets_switched is not None:
-                                                return True
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                            return False
+                                        leaf_name_data = LeafDataList()
+                                        if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                        if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory']['meta_info']
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:traffic-matrix-counter-statistics'
+                                        if (child_yang_name == "count-history"):
+                                            for c in self.count_history:
+                                                segment = c.get_segment_path()
+                                                if (segment_path == segment):
+                                                    return c
+                                            c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory()
+                                            c.parent = self
+                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                            self._local_refs[local_reference_key] = c
+                                            self.count_history.append(c)
+                                            return c
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.count_history is not None:
-                                            for child_ref in self.count_history:
-                                                if child_ref._has_data():
-                                                    return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "transmit-bytes-per-second-switched"):
+                                            self.transmit_bytes_per_second_switched = value
+                                            self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                            self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "transmit-packets-per-second-switched"):
+                                            self.transmit_packets_per_second_switched = value
+                                            self.transmit_packets_per_second_switched.value_namespace = name_space
+                                            self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
-                                        if self.transmit_bytes_per_second_switched is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.ipaddr.is_set or
+                                        self.is_active.is_set or
+                                        self.label.is_set or
+                                        self.label_xr.is_set or
+                                        self.mask.is_set or
+                                        self.prefix.is_set or
+                                        (self.base_counter_statistics is not None and self.base_counter_statistics.has_data()) or
+                                        (self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics.has_data()))
 
-                                        if self.transmit_packets_per_second_switched is not None:
-                                            return True
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ipaddr.yfilter != YFilter.not_set or
+                                        self.is_active.yfilter != YFilter.not_set or
+                                        self.label.yfilter != YFilter.not_set or
+                                        self.label_xr.yfilter != YFilter.not_set or
+                                        self.mask.yfilter != YFilter.not_set or
+                                        self.prefix.yfilter != YFilter.not_set or
+                                        (self.base_counter_statistics is not None and self.base_counter_statistics.has_operation()) or
+                                        (self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics.has_operation()))
 
-                                        return False
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "prefix" + path_buffer
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics']['meta_info']
+                                    return path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:prefix'
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ipaddr.is_set or self.ipaddr.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ipaddr.get_name_leafdata())
+                                    if (self.is_active.is_set or self.is_active.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.is_active.get_name_leafdata())
+                                    if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.label.get_name_leafdata())
+                                    if (self.label_xr.is_set or self.label_xr.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.label_xr.get_name_leafdata())
+                                    if (self.mask.is_set or self.mask.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.mask.get_name_leafdata())
+                                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.prefix.get_name_leafdata())
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "base-counter-statistics"):
+                                        if (self.base_counter_statistics is None):
+                                            self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
+                                            self.base_counter_statistics.parent = self
+                                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                        return self.base_counter_statistics
+
+                                    if (child_yang_name == "traffic-matrix-counter-statistics"):
+                                        if (self.traffic_matrix_counter_statistics is None):
+                                            self.traffic_matrix_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
+                                            self.traffic_matrix_counter_statistics.parent = self
+                                            self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
+                                        return self.traffic_matrix_counter_statistics
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "base-counter-statistics" or name == "traffic-matrix-counter-statistics" or name == "ipaddr" or name == "is-active" or name == "label" or name == "label-xr" or name == "mask" or name == "prefix"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ipaddr"):
+                                        self.ipaddr = value
+                                        self.ipaddr.value_namespace = name_space
+                                        self.ipaddr.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "is-active"):
+                                        self.is_active = value
+                                        self.is_active.value_namespace = name_space
+                                        self.is_active.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "label"):
+                                        self.label = value
+                                        self.label.value_namespace = name_space
+                                        self.label.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "label-xr"):
+                                        self.label_xr = value
+                                        self.label_xr.value_namespace = name_space
+                                        self.label_xr.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "mask"):
+                                        self.mask = value
+                                        self.mask.value_namespace = name_space
+                                        self.mask.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "prefix"):
+                                        self.prefix = value
+                                        self.prefix.value_namespace = name_space
+                                        self.prefix.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.prefix:
+                                    if (c.has_data()):
                                         return True
-
-                                    if self.ipaddr is not None:
-                                        return True
-
-                                    if self.is_active is not None:
-                                        return True
-
-                                    if self.label is not None:
-                                        return True
-
-                                    if self.label_xr is not None:
-                                        return True
-
-                                    if self.mask is not None:
-                                        return True
-
-                                    if self.prefix is not None:
-                                        return True
-
-                                    if self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:prefixes'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
                                 return False
 
-                            def _has_data(self):
-                                if self.prefix is not None:
-                                    for child_ref in self.prefix:
-                                        if child_ref._has_data():
-                                            return True
+                            def has_operation(self):
+                                for c in self.prefix:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "prefixes" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "prefix"):
+                                    for c in self.prefix:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.prefix.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "prefix"):
+                                    return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
 
-                        class Tunnels(object):
+                        class Tunnels(Entity):
                             """
                             Tunnels
                             
@@ -1482,13 +2785,39 @@ class TrafficCollector(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.tunnel = YList()
-                                self.tunnel.parent = self
-                                self.tunnel.name = 'tunnel'
+                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, self).__init__()
+
+                                self.yang_name = "tunnels"
+                                self.yang_parent_name = "counters"
+
+                                self.tunnel = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, self).__setattr__(name, value)
 
 
-                            class Tunnel(object):
+                            class Tunnel(Entity):
                                 """
                                 Tunnel information
                                 
@@ -1536,17 +2865,56 @@ class TrafficCollector(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.interface_name = None
+                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
+
+                                    self.yang_name = "tunnel"
+                                    self.yang_parent_name = "tunnels"
+
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                    self.interface_handle = YLeaf(YType.uint32, "interface-handle")
+
+                                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                                    self.is_active = YLeaf(YType.boolean, "is-active")
+
+                                    self.vrfid = YLeaf(YType.uint32, "vrfid")
+
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
-                                    self.interface_handle = None
-                                    self.interface_name_xr = None
-                                    self.is_active = None
-                                    self.vrfid = None
+                                    self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                    self._children_yang_names.add("base-counter-statistics")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("interface_name",
+                                                    "interface_handle",
+                                                    "interface_name_xr",
+                                                    "is_active",
+                                                    "vrfid") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, self).__setattr__(name, value)
 
 
-                                class BaseCounterStatistics(object):
+                                class BaseCounterStatistics(Entity):
                                     """
                                     Base counter statistics
                                     
@@ -1581,15 +2949,44 @@ class TrafficCollector(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.count_history = YList()
-                                        self.count_history.parent = self
-                                        self.count_history.name = 'count_history'
-                                        self.transmit_bytes_per_second_switched = None
-                                        self.transmit_packets_per_second_switched = None
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
+
+                                        self.yang_name = "base-counter-statistics"
+                                        self.yang_parent_name = "tunnel"
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.count_history = YList(self)
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("transmit_bytes_per_second_switched",
+                                                        "transmit_packets_per_second_switched") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__setattr__(name, value)
 
 
-                                    class CountHistory(object):
+                                    class CountHistory(Entity):
                                         """
                                         Counter History
                                         
@@ -1636,254 +3033,615 @@ class TrafficCollector(object):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            self.parent = None
-                                            self.event_end_timestamp = None
-                                            self.event_start_timestamp = None
-                                            self.is_valid = None
-                                            self.transmit_number_of_bytes_switched = None
-                                            self.transmit_number_of_packets_switched = None
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
 
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            self.yang_name = "count-history"
+                                            self.yang_parent_name = "base-counter-statistics"
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
+                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in ("event_end_timestamp",
+                                                            "event_start_timestamp",
+                                                            "is_valid",
+                                                            "transmit_number_of_bytes_switched",
+                                                            "transmit_number_of_packets_switched") and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                        def has_data(self):
+                                            return (
+                                                self.event_end_timestamp.is_set or
+                                                self.event_start_timestamp.is_set or
+                                                self.is_valid.is_set or
+                                                self.transmit_number_of_bytes_switched.is_set or
+                                                self.transmit_number_of_packets_switched.is_set)
+
+                                        def has_operation(self):
+                                            return (
+                                                self.yfilter != YFilter.not_set or
+                                                self.event_end_timestamp.yfilter != YFilter.not_set or
+                                                self.event_start_timestamp.yfilter != YFilter.not_set or
+                                                self.is_valid.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                                self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "count-history" + path_buffer
+
+                                            return path_buffer
+
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                            leaf_name_data = LeafDataList()
+                                            if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                            if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                            if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                            if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                            if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
+
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
+
+                                            return None
+
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                                return True
                                             return False
 
-                                        def _has_data(self):
-                                            if self.event_end_timestamp is not None:
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            if(value_path == "event-end-timestamp"):
+                                                self.event_end_timestamp = value
+                                                self.event_end_timestamp.value_namespace = name_space
+                                                self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "event-start-timestamp"):
+                                                self.event_start_timestamp = value
+                                                self.event_start_timestamp.value_namespace = name_space
+                                                self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "is-valid"):
+                                                self.is_valid = value
+                                                self.is_valid.value_namespace = name_space
+                                                self.is_valid.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-bytes-switched"):
+                                                self.transmit_number_of_bytes_switched = value
+                                                self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                                self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "transmit-number-of-packets-switched"):
+                                                self.transmit_number_of_packets_switched = value
+                                                self.transmit_number_of_packets_switched.value_namespace = name_space
+                                                self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                                    def has_data(self):
+                                        for c in self.count_history:
+                                            if (c.has_data()):
                                                 return True
+                                        return (
+                                            self.transmit_bytes_per_second_switched.is_set or
+                                            self.transmit_packets_per_second_switched.is_set)
 
-                                            if self.event_start_timestamp is not None:
+                                    def has_operation(self):
+                                        for c in self.count_history:
+                                            if (c.has_operation()):
                                                 return True
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                            self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                            if self.is_valid is not None:
-                                                return True
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "base-counter-statistics" + path_buffer
 
-                                            if self.transmit_number_of_bytes_switched is not None:
-                                                return True
+                                        return path_buffer
 
-                                            if self.transmit_number_of_packets_switched is not None:
-                                                return True
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                            return False
+                                        leaf_name_data = LeafDataList()
+                                        if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                        if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory']['meta_info']
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:base-counter-statistics'
+                                        if (child_yang_name == "count-history"):
+                                            for c in self.count_history:
+                                                segment = c.get_segment_path()
+                                                if (segment_path == segment):
+                                                    return c
+                                            c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory()
+                                            c.parent = self
+                                            local_reference_key = "ydk::seg::%s" % segment_path
+                                            self._local_refs[local_reference_key] = c
+                                            self.count_history.append(c)
+                                            return c
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.count_history is not None:
-                                            for child_ref in self.count_history:
-                                                if child_ref._has_data():
-                                                    return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "transmit-bytes-per-second-switched"):
+                                            self.transmit_bytes_per_second_switched = value
+                                            self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                            self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "transmit-packets-per-second-switched"):
+                                            self.transmit_packets_per_second_switched = value
+                                            self.transmit_packets_per_second_switched.value_namespace = name_space
+                                            self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
-                                        if self.transmit_bytes_per_second_switched is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.interface_name.is_set or
+                                        self.interface_handle.is_set or
+                                        self.interface_name_xr.is_set or
+                                        self.is_active.is_set or
+                                        self.vrfid.is_set or
+                                        (self.base_counter_statistics is not None and self.base_counter_statistics.has_data()))
 
-                                        if self.transmit_packets_per_second_switched is not None:
-                                            return True
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set or
+                                        self.interface_handle.yfilter != YFilter.not_set or
+                                        self.interface_name_xr.yfilter != YFilter.not_set or
+                                        self.is_active.yfilter != YFilter.not_set or
+                                        self.vrfid.yfilter != YFilter.not_set or
+                                        (self.base_counter_statistics is not None and self.base_counter_statistics.has_operation()))
 
-                                        return False
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tunnel" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics']['meta_info']
+                                    return path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.interface_name is None:
-                                        raise YPYModelError('Key property interface_name is None')
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:tunnel[Cisco-IOS-XR-infra-tc-oper:interface-name = ' + str(self.interface_name) + ']'
+                                    leaf_name_data = LeafDataList()
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                    if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                                    if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                                    if (self.is_active.is_set or self.is_active.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.is_active.get_name_leafdata())
+                                    if (self.vrfid.is_set or self.vrfid.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.vrfid.get_name_leafdata())
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "base-counter-statistics"):
+                                        if (self.base_counter_statistics is None):
+                                            self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
+                                            self.base_counter_statistics.parent = self
+                                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                        return self.base_counter_statistics
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "base-counter-statistics" or name == "interface-name" or name == "interface-handle" or name == "interface-name-xr" or name == "is-active" or name == "vrfid"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.interface_name is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "interface-handle"):
+                                        self.interface_handle = value
+                                        self.interface_handle.value_namespace = name_space
+                                        self.interface_handle.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "interface-name-xr"):
+                                        self.interface_name_xr = value
+                                        self.interface_name_xr.value_namespace = name_space
+                                        self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "is-active"):
+                                        self.is_active = value
+                                        self.is_active.value_namespace = name_space
+                                        self.is_active.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "vrfid"):
+                                        self.vrfid = value
+                                        self.vrfid.value_namespace = name_space
+                                        self.vrfid.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.tunnel:
+                                    if (c.has_data()):
                                         return True
-
-                                    if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
-                                        return True
-
-                                    if self.interface_handle is not None:
-                                        return True
-
-                                    if self.interface_name_xr is not None:
-                                        return True
-
-                                    if self.is_active is not None:
-                                        return True
-
-                                    if self.vrfid is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:tunnels'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
                                 return False
 
-                            def _has_data(self):
-                                if self.tunnel is not None:
-                                    for child_ref in self.tunnel:
-                                        if child_ref._has_data():
-                                            return True
+                            def has_operation(self):
+                                for c in self.tunnel:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "tunnels" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "tunnel"):
+                                    for c in self.tunnel:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.tunnel.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "tunnel"):
+                                    return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.prefixes is not None and self.prefixes.has_data()) or
+                                (self.tunnels is not None and self.tunnels.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:counters'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.prefixes is not None and self.prefixes.has_operation()) or
+                                (self.tunnels is not None and self.tunnels.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "counters" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "prefixes"):
+                                if (self.prefixes is None):
+                                    self.prefixes = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes()
+                                    self.prefixes.parent = self
+                                    self._children_name_map["prefixes"] = "prefixes"
+                                return self.prefixes
+
+                            if (child_yang_name == "tunnels"):
+                                if (self.tunnels is None):
+                                    self.tunnels = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels()
+                                    self.tunnels.parent = self
+                                    self._children_name_map["tunnels"] = "tunnels"
+                                return self.tunnels
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "prefixes" or name == "tunnels"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.prefixes is not None and self.prefixes._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                            if self.tunnels is not None and self.tunnels._has_data():
-                                return True
+                    def has_data(self):
+                        return (
+                            self.af_name.is_set or
+                            (self.counters is not None and self.counters.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            (self.counters is not None and self.counters.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "af" + "[af-name='" + self.af_name.get() + "']" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.af_name is None:
-                            raise YPYModelError('Key property af_name is None')
+                        return path_buffer
 
-                        return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:vrf-table/Cisco-IOS-XR-infra-tc-oper:default-vrf/Cisco-IOS-XR-infra-tc-oper:afs/Cisco-IOS-XR-infra-tc-oper:af[Cisco-IOS-XR-infra-tc-oper:af-name = ' + str(self.af_name) + ']'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "counters"):
+                            if (self.counters is None):
+                                self.counters = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters()
+                                self.counters.parent = self
+                                self._children_name_map["counters"] = "counters"
+                            return self.counters
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "counters" or name == "af-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.af_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.af:
+                        if (c.has_data()):
                             return True
-
-                        if self.counters is not None and self.counters._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:vrf-table/Cisco-IOS-XR-infra-tc-oper:default-vrf/Cisco-IOS-XR-infra-tc-oper:afs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.af is not None:
-                        for child_ref in self.af:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.af:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "afs" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "af"):
+                        for c in self.af:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TrafficCollector.VrfTable.DefaultVrf.Afs.Af()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.af.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "af"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.afs is not None and self.afs.has_data())
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:vrf-table/Cisco-IOS-XR-infra-tc-oper:default-vrf'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.afs is not None and self.afs.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "default-vrf" + path_buffer
 
-            def _has_data(self):
-                if self.afs is not None and self.afs._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "afs"):
+                    if (self.afs is None):
+                        self.afs = TrafficCollector.VrfTable.DefaultVrf.Afs()
+                        self.afs.parent = self
+                        self._children_name_map["afs"] = "afs"
+                    return self.afs
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "afs"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.default_vrf is not None and self.default_vrf.has_data())
 
-            return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:vrf-table'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.default_vrf is not None and self.default_vrf.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vrf-table" + path_buffer
 
-        def _has_data(self):
-            if self.default_vrf is not None and self.default_vrf._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "default-vrf"):
+                if (self.default_vrf is None):
+                    self.default_vrf = TrafficCollector.VrfTable.DefaultVrf()
+                    self.default_vrf.parent = self
+                    self._children_name_map["default_vrf"] = "default-vrf"
+                return self.default_vrf
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "default-vrf"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-            return meta._meta_table['TrafficCollector.VrfTable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Afs(object):
+    class Afs(Entity):
         """
         Address Family specific operational data
         
@@ -1900,20 +3658,46 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.af = YList()
-            self.af.parent = self
-            self.af.name = 'af'
+            super(TrafficCollector.Afs, self).__init__()
+
+            self.yang_name = "afs"
+            self.yang_parent_name = "traffic-collector"
+
+            self.af = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TrafficCollector.Afs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TrafficCollector.Afs, self).__setattr__(name, value)
 
 
-        class Af(object):
+        class Af(Entity):
             """
             Operational data for given Address Family
             
             .. attribute:: af_name  <key>
             
             	Address Family name
-            	**type**\:   :py:class:`TcOperAfNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfNameEnum>`
+            	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
             
             .. attribute:: counters
             
@@ -1928,13 +3712,44 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.af_name = None
+                super(TrafficCollector.Afs.Af, self).__init__()
+
+                self.yang_name = "af"
+                self.yang_parent_name = "afs"
+
+                self.af_name = YLeaf(YType.enumeration, "af-name")
+
                 self.counters = TrafficCollector.Afs.Af.Counters()
                 self.counters.parent = self
+                self._children_name_map["counters"] = "counters"
+                self._children_yang_names.add("counters")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("af_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.Afs.Af, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.Afs.Af, self).__setattr__(name, value)
 
 
-            class Counters(object):
+            class Counters(Entity):
                 """
                 Show Counters
                 
@@ -1956,14 +3771,23 @@ class TrafficCollector(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(TrafficCollector.Afs.Af.Counters, self).__init__()
+
+                    self.yang_name = "counters"
+                    self.yang_parent_name = "af"
+
                     self.prefixes = TrafficCollector.Afs.Af.Counters.Prefixes()
                     self.prefixes.parent = self
+                    self._children_name_map["prefixes"] = "prefixes"
+                    self._children_yang_names.add("prefixes")
+
                     self.tunnels = TrafficCollector.Afs.Af.Counters.Tunnels()
                     self.tunnels.parent = self
+                    self._children_name_map["tunnels"] = "tunnels"
+                    self._children_yang_names.add("tunnels")
 
 
-                class Prefixes(object):
+                class Prefixes(Entity):
                     """
                     Prefix Database
                     
@@ -1980,13 +3804,39 @@ class TrafficCollector(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.prefix = YList()
-                        self.prefix.parent = self
-                        self.prefix.name = 'prefix'
+                        super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__init__()
+
+                        self.yang_name = "prefixes"
+                        self.yang_parent_name = "counters"
+
+                        self.prefix = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__setattr__(name, value)
 
 
-                    class Prefix(object):
+                    class Prefix(Entity):
                         """
                         Show Prefix Counter
                         
@@ -2046,20 +3896,64 @@ class TrafficCollector(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
+
+                            self.yang_name = "prefix"
+                            self.yang_parent_name = "prefixes"
+
+                            self.ipaddr = YLeaf(YType.str, "ipaddr")
+
+                            self.is_active = YLeaf(YType.boolean, "is-active")
+
+                            self.label = YLeaf(YType.uint32, "label")
+
+                            self.label_xr = YLeaf(YType.uint32, "label-xr")
+
+                            self.mask = YLeaf(YType.str, "mask")
+
+                            self.prefix = YLeaf(YType.str, "prefix")
+
                             self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
                             self.base_counter_statistics.parent = self
-                            self.ipaddr = None
-                            self.is_active = None
-                            self.label = None
-                            self.label_xr = None
-                            self.mask = None
-                            self.prefix = None
+                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                            self._children_yang_names.add("base-counter-statistics")
+
                             self.traffic_matrix_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
                             self.traffic_matrix_counter_statistics.parent = self
+                            self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
+                            self._children_yang_names.add("traffic-matrix-counter-statistics")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("ipaddr",
+                                            "is_active",
+                                            "label",
+                                            "label_xr",
+                                            "mask",
+                                            "prefix") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__setattr__(name, value)
 
 
-                        class BaseCounterStatistics(object):
+                        class BaseCounterStatistics(Entity):
                             """
                             Base counter statistics
                             
@@ -2094,15 +3988,44 @@ class TrafficCollector(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.count_history = YList()
-                                self.count_history.parent = self
-                                self.count_history.name = 'count_history'
-                                self.transmit_bytes_per_second_switched = None
-                                self.transmit_packets_per_second_switched = None
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
+
+                                self.yang_name = "base-counter-statistics"
+                                self.yang_parent_name = "prefix"
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.count_history = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("transmit_bytes_per_second_switched",
+                                                "transmit_packets_per_second_switched") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__setattr__(name, value)
 
 
-                            class CountHistory(object):
+                            class CountHistory(Entity):
                                 """
                                 Counter History
                                 
@@ -2149,79 +4072,203 @@ class TrafficCollector(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.event_end_timestamp = None
-                                    self.event_start_timestamp = None
-                                    self.is_valid = None
-                                    self.transmit_number_of_bytes_switched = None
-                                    self.transmit_number_of_packets_switched = None
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "base-counter-statistics"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("event_end_timestamp",
+                                                    "event_start_timestamp",
+                                                    "is_valid",
+                                                    "transmit_number_of_bytes_switched",
+                                                    "transmit_number_of_packets_switched") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.event_end_timestamp.is_set or
+                                        self.event_start_timestamp.is_set or
+                                        self.is_valid.is_set or
+                                        self.transmit_number_of_bytes_switched.is_set or
+                                        self.transmit_number_of_packets_switched.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.event_end_timestamp.yfilter != YFilter.not_set or
+                                        self.event_start_timestamp.yfilter != YFilter.not_set or
+                                        self.is_valid.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "count-history" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                    if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                    if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                    if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                    if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.event_end_timestamp is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "event-end-timestamp"):
+                                        self.event_end_timestamp = value
+                                        self.event_end_timestamp.value_namespace = name_space
+                                        self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "event-start-timestamp"):
+                                        self.event_start_timestamp = value
+                                        self.event_start_timestamp.value_namespace = name_space
+                                        self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "is-valid"):
+                                        self.is_valid = value
+                                        self.is_valid.value_namespace = name_space
+                                        self.is_valid.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-bytes-switched"):
+                                        self.transmit_number_of_bytes_switched = value
+                                        self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                        self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-packets-switched"):
+                                        self.transmit_number_of_packets_switched = value
+                                        self.transmit_number_of_packets_switched.value_namespace = name_space
+                                        self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.count_history:
+                                    if (c.has_data()):
                                         return True
+                                return (
+                                    self.transmit_bytes_per_second_switched.is_set or
+                                    self.transmit_packets_per_second_switched.is_set)
 
-                                    if self.event_start_timestamp is not None:
+                            def has_operation(self):
+                                for c in self.count_history:
+                                    if (c.has_operation()):
                                         return True
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                    self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                    if self.is_valid is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "base-counter-statistics" + path_buffer
 
-                                    if self.transmit_number_of_bytes_switched is not None:
-                                        return True
+                                return path_buffer
 
-                                    if self.transmit_number_of_packets_switched is not None:
-                                        return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                    return False
+                                leaf_name_data = LeafDataList()
+                                if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory']['meta_info']
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:base-counter-statistics'
+                                if (child_yang_name == "count-history"):
+                                    for c in self.count_history:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.count_history.append(c)
+                                    return c
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.count_history is not None:
-                                    for child_ref in self.count_history:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.transmit_bytes_per_second_switched is not None:
-                                    return True
-
-                                if self.transmit_packets_per_second_switched is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "transmit-bytes-per-second-switched"):
+                                    self.transmit_bytes_per_second_switched = value
+                                    self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                    self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                if(value_path == "transmit-packets-per-second-switched"):
+                                    self.transmit_packets_per_second_switched = value
+                                    self.transmit_packets_per_second_switched.value_namespace = name_space
+                                    self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
 
-                        class TrafficMatrixCounterStatistics(object):
+                        class TrafficMatrixCounterStatistics(Entity):
                             """
                             Traffic Matrix (TM) counter statistics
                             
@@ -2256,15 +4303,44 @@ class TrafficCollector(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.count_history = YList()
-                                self.count_history.parent = self
-                                self.count_history.name = 'count_history'
-                                self.transmit_bytes_per_second_switched = None
-                                self.transmit_packets_per_second_switched = None
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
+
+                                self.yang_name = "traffic-matrix-counter-statistics"
+                                self.yang_parent_name = "prefix"
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.count_history = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("transmit_bytes_per_second_switched",
+                                                "transmit_packets_per_second_switched") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__setattr__(name, value)
 
 
-                            class CountHistory(object):
+                            class CountHistory(Entity):
                                 """
                                 Counter History
                                 
@@ -2311,146 +4387,365 @@ class TrafficCollector(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.event_end_timestamp = None
-                                    self.event_start_timestamp = None
-                                    self.is_valid = None
-                                    self.transmit_number_of_bytes_switched = None
-                                    self.transmit_number_of_packets_switched = None
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "traffic-matrix-counter-statistics"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("event_end_timestamp",
+                                                    "event_start_timestamp",
+                                                    "is_valid",
+                                                    "transmit_number_of_bytes_switched",
+                                                    "transmit_number_of_packets_switched") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.event_end_timestamp.is_set or
+                                        self.event_start_timestamp.is_set or
+                                        self.is_valid.is_set or
+                                        self.transmit_number_of_bytes_switched.is_set or
+                                        self.transmit_number_of_packets_switched.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.event_end_timestamp.yfilter != YFilter.not_set or
+                                        self.event_start_timestamp.yfilter != YFilter.not_set or
+                                        self.is_valid.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "count-history" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                    if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                    if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                    if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                    if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.event_end_timestamp is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "event-end-timestamp"):
+                                        self.event_end_timestamp = value
+                                        self.event_end_timestamp.value_namespace = name_space
+                                        self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "event-start-timestamp"):
+                                        self.event_start_timestamp = value
+                                        self.event_start_timestamp.value_namespace = name_space
+                                        self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "is-valid"):
+                                        self.is_valid = value
+                                        self.is_valid.value_namespace = name_space
+                                        self.is_valid.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-bytes-switched"):
+                                        self.transmit_number_of_bytes_switched = value
+                                        self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                        self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-packets-switched"):
+                                        self.transmit_number_of_packets_switched = value
+                                        self.transmit_number_of_packets_switched.value_namespace = name_space
+                                        self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.count_history:
+                                    if (c.has_data()):
                                         return True
+                                return (
+                                    self.transmit_bytes_per_second_switched.is_set or
+                                    self.transmit_packets_per_second_switched.is_set)
 
-                                    if self.event_start_timestamp is not None:
+                            def has_operation(self):
+                                for c in self.count_history:
+                                    if (c.has_operation()):
                                         return True
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                    self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                    if self.is_valid is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "traffic-matrix-counter-statistics" + path_buffer
 
-                                    if self.transmit_number_of_bytes_switched is not None:
-                                        return True
+                                return path_buffer
 
-                                    if self.transmit_number_of_packets_switched is not None:
-                                        return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                    return False
+                                leaf_name_data = LeafDataList()
+                                if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory']['meta_info']
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:traffic-matrix-counter-statistics'
+                                if (child_yang_name == "count-history"):
+                                    for c in self.count_history:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.count_history.append(c)
+                                    return c
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.count_history is not None:
-                                    for child_ref in self.count_history:
-                                        if child_ref._has_data():
-                                            return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "transmit-bytes-per-second-switched"):
+                                    self.transmit_bytes_per_second_switched = value
+                                    self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                    self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                if(value_path == "transmit-packets-per-second-switched"):
+                                    self.transmit_packets_per_second_switched = value
+                                    self.transmit_packets_per_second_switched.value_namespace = name_space
+                                    self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
-                                if self.transmit_bytes_per_second_switched is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.ipaddr.is_set or
+                                self.is_active.is_set or
+                                self.label.is_set or
+                                self.label_xr.is_set or
+                                self.mask.is_set or
+                                self.prefix.is_set or
+                                (self.base_counter_statistics is not None and self.base_counter_statistics.has_data()) or
+                                (self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics.has_data()))
 
-                                if self.transmit_packets_per_second_switched is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.ipaddr.yfilter != YFilter.not_set or
+                                self.is_active.yfilter != YFilter.not_set or
+                                self.label.yfilter != YFilter.not_set or
+                                self.label_xr.yfilter != YFilter.not_set or
+                                self.mask.yfilter != YFilter.not_set or
+                                self.prefix.yfilter != YFilter.not_set or
+                                (self.base_counter_statistics is not None and self.base_counter_statistics.has_operation()) or
+                                (self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "prefix" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:prefix'
+                            leaf_name_data = LeafDataList()
+                            if (self.ipaddr.is_set or self.ipaddr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipaddr.get_name_leafdata())
+                            if (self.is_active.is_set or self.is_active.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_active.get_name_leafdata())
+                            if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.label.get_name_leafdata())
+                            if (self.label_xr.is_set or self.label_xr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.label_xr.get_name_leafdata())
+                            if (self.mask.is_set or self.mask.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mask.get_name_leafdata())
+                            if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.prefix.get_name_leafdata())
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "base-counter-statistics"):
+                                if (self.base_counter_statistics is None):
+                                    self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
+                                    self.base_counter_statistics.parent = self
+                                    self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                return self.base_counter_statistics
+
+                            if (child_yang_name == "traffic-matrix-counter-statistics"):
+                                if (self.traffic_matrix_counter_statistics is None):
+                                    self.traffic_matrix_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
+                                    self.traffic_matrix_counter_statistics.parent = self
+                                    self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
+                                return self.traffic_matrix_counter_statistics
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "base-counter-statistics" or name == "traffic-matrix-counter-statistics" or name == "ipaddr" or name == "is-active" or name == "label" or name == "label-xr" or name == "mask" or name == "prefix"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "ipaddr"):
+                                self.ipaddr = value
+                                self.ipaddr.value_namespace = name_space
+                                self.ipaddr.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-active"):
+                                self.is_active = value
+                                self.is_active.value_namespace = name_space
+                                self.is_active.value_namespace_prefix = name_space_prefix
+                            if(value_path == "label"):
+                                self.label = value
+                                self.label.value_namespace = name_space
+                                self.label.value_namespace_prefix = name_space_prefix
+                            if(value_path == "label-xr"):
+                                self.label_xr = value
+                                self.label_xr.value_namespace = name_space
+                                self.label_xr.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mask"):
+                                self.mask = value
+                                self.mask.value_namespace = name_space
+                                self.mask.value_namespace_prefix = name_space_prefix
+                            if(value_path == "prefix"):
+                                self.prefix = value
+                                self.prefix.value_namespace = name_space
+                                self.prefix.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.prefix:
+                            if (c.has_data()):
                                 return True
-
-                            if self.ipaddr is not None:
-                                return True
-
-                            if self.is_active is not None:
-                                return True
-
-                            if self.label is not None:
-                                return True
-
-                            if self.label_xr is not None:
-                                return True
-
-                            if self.mask is not None:
-                                return True
-
-                            if self.prefix is not None:
-                                return True
-
-                            if self.traffic_matrix_counter_statistics is not None and self.traffic_matrix_counter_statistics._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                            return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:prefixes'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.prefix is not None:
-                            for child_ref in self.prefix:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.prefix:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "prefixes" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "prefix"):
+                            for c in self.prefix:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.prefix.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                        return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Tunnels(object):
+                class Tunnels(Entity):
                     """
                     Tunnels
                     
@@ -2467,13 +4762,39 @@ class TrafficCollector(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.tunnel = YList()
-                        self.tunnel.parent = self
-                        self.tunnel.name = 'tunnel'
+                        super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__init__()
+
+                        self.yang_name = "tunnels"
+                        self.yang_parent_name = "counters"
+
+                        self.tunnel = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__setattr__(name, value)
 
 
-                    class Tunnel(object):
+                    class Tunnel(Entity):
                         """
                         Tunnel information
                         
@@ -2521,17 +4842,56 @@ class TrafficCollector(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
+                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
+
+                            self.yang_name = "tunnel"
+                            self.yang_parent_name = "tunnels"
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
+
+                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                            self.is_active = YLeaf(YType.boolean, "is-active")
+
+                            self.vrfid = YLeaf(YType.uint32, "vrfid")
+
                             self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
                             self.base_counter_statistics.parent = self
-                            self.interface_handle = None
-                            self.interface_name_xr = None
-                            self.is_active = None
-                            self.vrfid = None
+                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                            self._children_yang_names.add("base-counter-statistics")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name",
+                                            "interface_handle",
+                                            "interface_name_xr",
+                                            "is_active",
+                                            "vrfid") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__setattr__(name, value)
 
 
-                        class BaseCounterStatistics(object):
+                        class BaseCounterStatistics(Entity):
                             """
                             Base counter statistics
                             
@@ -2566,15 +4926,44 @@ class TrafficCollector(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.count_history = YList()
-                                self.count_history.parent = self
-                                self.count_history.name = 'count_history'
-                                self.transmit_bytes_per_second_switched = None
-                                self.transmit_packets_per_second_switched = None
+                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
+
+                                self.yang_name = "base-counter-statistics"
+                                self.yang_parent_name = "tunnel"
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.count_history = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("transmit_bytes_per_second_switched",
+                                                "transmit_packets_per_second_switched") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__setattr__(name, value)
 
 
-                            class CountHistory(object):
+                            class CountHistory(Entity):
                                 """
                                 Counter History
                                 
@@ -2621,239 +5010,593 @@ class TrafficCollector(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.event_end_timestamp = None
-                                    self.event_start_timestamp = None
-                                    self.is_valid = None
-                                    self.transmit_number_of_bytes_switched = None
-                                    self.transmit_number_of_packets_switched = None
+                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "base-counter-statistics"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:count-history'
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("event_end_timestamp",
+                                                    "event_start_timestamp",
+                                                    "is_valid",
+                                                    "transmit_number_of_bytes_switched",
+                                                    "transmit_number_of_packets_switched") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.event_end_timestamp.is_set or
+                                        self.event_start_timestamp.is_set or
+                                        self.is_valid.is_set or
+                                        self.transmit_number_of_bytes_switched.is_set or
+                                        self.transmit_number_of_packets_switched.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.event_end_timestamp.yfilter != YFilter.not_set or
+                                        self.event_start_timestamp.yfilter != YFilter.not_set or
+                                        self.is_valid.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set or
+                                        self.transmit_number_of_packets_switched.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "count-history" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.event_end_timestamp.is_set or self.event_end_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_end_timestamp.get_name_leafdata())
+                                    if (self.event_start_timestamp.is_set or self.event_start_timestamp.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.event_start_timestamp.get_name_leafdata())
+                                    if (self.is_valid.is_set or self.is_valid.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.is_valid.get_name_leafdata())
+                                    if (self.transmit_number_of_bytes_switched.is_set or self.transmit_number_of_bytes_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_bytes_switched.get_name_leafdata())
+                                    if (self.transmit_number_of_packets_switched.is_set or self.transmit_number_of_packets_switched.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.transmit_number_of_packets_switched.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "event-end-timestamp" or name == "event-start-timestamp" or name == "is-valid" or name == "transmit-number-of-bytes-switched" or name == "transmit-number-of-packets-switched"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.event_end_timestamp is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "event-end-timestamp"):
+                                        self.event_end_timestamp = value
+                                        self.event_end_timestamp.value_namespace = name_space
+                                        self.event_end_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "event-start-timestamp"):
+                                        self.event_start_timestamp = value
+                                        self.event_start_timestamp.value_namespace = name_space
+                                        self.event_start_timestamp.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "is-valid"):
+                                        self.is_valid = value
+                                        self.is_valid.value_namespace = name_space
+                                        self.is_valid.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-bytes-switched"):
+                                        self.transmit_number_of_bytes_switched = value
+                                        self.transmit_number_of_bytes_switched.value_namespace = name_space
+                                        self.transmit_number_of_bytes_switched.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "transmit-number-of-packets-switched"):
+                                        self.transmit_number_of_packets_switched = value
+                                        self.transmit_number_of_packets_switched.value_namespace = name_space
+                                        self.transmit_number_of_packets_switched.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.count_history:
+                                    if (c.has_data()):
                                         return True
+                                return (
+                                    self.transmit_bytes_per_second_switched.is_set or
+                                    self.transmit_packets_per_second_switched.is_set)
 
-                                    if self.event_start_timestamp is not None:
+                            def has_operation(self):
+                                for c in self.count_history:
+                                    if (c.has_operation()):
                                         return True
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set or
+                                    self.transmit_packets_per_second_switched.yfilter != YFilter.not_set)
 
-                                    if self.is_valid is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "base-counter-statistics" + path_buffer
 
-                                    if self.transmit_number_of_bytes_switched is not None:
-                                        return True
+                                return path_buffer
 
-                                    if self.transmit_number_of_packets_switched is not None:
-                                        return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                    return False
+                                leaf_name_data = LeafDataList()
+                                if (self.transmit_bytes_per_second_switched.is_set or self.transmit_bytes_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_bytes_per_second_switched.get_name_leafdata())
+                                if (self.transmit_packets_per_second_switched.is_set or self.transmit_packets_per_second_switched.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.transmit_packets_per_second_switched.get_name_leafdata())
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory']['meta_info']
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:base-counter-statistics'
+                                if (child_yang_name == "count-history"):
+                                    for c in self.count_history:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.count_history.append(c)
+                                    return c
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "count-history" or name == "transmit-bytes-per-second-switched" or name == "transmit-packets-per-second-switched"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.count_history is not None:
-                                    for child_ref in self.count_history:
-                                        if child_ref._has_data():
-                                            return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "transmit-bytes-per-second-switched"):
+                                    self.transmit_bytes_per_second_switched = value
+                                    self.transmit_bytes_per_second_switched.value_namespace = name_space
+                                    self.transmit_bytes_per_second_switched.value_namespace_prefix = name_space_prefix
+                                if(value_path == "transmit-packets-per-second-switched"):
+                                    self.transmit_packets_per_second_switched = value
+                                    self.transmit_packets_per_second_switched.value_namespace = name_space
+                                    self.transmit_packets_per_second_switched.value_namespace_prefix = name_space_prefix
 
-                                if self.transmit_bytes_per_second_switched is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.interface_name.is_set or
+                                self.interface_handle.is_set or
+                                self.interface_name_xr.is_set or
+                                self.is_active.is_set or
+                                self.vrfid.is_set or
+                                (self.base_counter_statistics is not None and self.base_counter_statistics.has_data()))
 
-                                if self.transmit_packets_per_second_switched is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.interface_handle.yfilter != YFilter.not_set or
+                                self.interface_name_xr.yfilter != YFilter.not_set or
+                                self.is_active.yfilter != YFilter.not_set or
+                                self.vrfid.yfilter != YFilter.not_set or
+                                (self.base_counter_statistics is not None and self.base_counter_statistics.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tunnel" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.interface_name is None:
-                                raise YPYModelError('Key property interface_name is None')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:tunnel[Cisco-IOS-XR-infra-tc-oper:interface-name = ' + str(self.interface_name) + ']'
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                            if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                            if (self.is_active.is_set or self.is_active.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_active.get_name_leafdata())
+                            if (self.vrfid.is_set or self.vrfid.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrfid.get_name_leafdata())
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "base-counter-statistics"):
+                                if (self.base_counter_statistics is None):
+                                    self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
+                                    self.base_counter_statistics.parent = self
+                                    self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                                return self.base_counter_statistics
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "base-counter-statistics" or name == "interface-name" or name == "interface-handle" or name == "interface-name-xr" or name == "is-active" or name == "vrfid"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-handle"):
+                                self.interface_handle = value
+                                self.interface_handle.value_namespace = name_space
+                                self.interface_handle.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-name-xr"):
+                                self.interface_name_xr = value
+                                self.interface_name_xr.value_namespace = name_space
+                                self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-active"):
+                                self.is_active = value
+                                self.is_active.value_namespace = name_space
+                                self.is_active.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrfid"):
+                                self.vrfid = value
+                                self.vrfid.value_namespace = name_space
+                                self.vrfid.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.tunnel:
+                            if (c.has_data()):
                                 return True
-
-                            if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
-                                return True
-
-                            if self.interface_handle is not None:
-                                return True
-
-                            if self.interface_name_xr is not None:
-                                return True
-
-                            if self.is_active is not None:
-                                return True
-
-                            if self.vrfid is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                            return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:tunnels'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.tunnel is not None:
-                            for child_ref in self.tunnel:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.tunnel:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "tunnels" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "tunnel"):
+                            for c in self.tunnel:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.tunnel.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tunnel"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                        return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.prefixes is not None and self.prefixes.has_data()) or
+                        (self.tunnels is not None and self.tunnels.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-tc-oper:counters'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.prefixes is not None and self.prefixes.has_operation()) or
+                        (self.tunnels is not None and self.tunnels.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "counters" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "prefixes"):
+                        if (self.prefixes is None):
+                            self.prefixes = TrafficCollector.Afs.Af.Counters.Prefixes()
+                            self.prefixes.parent = self
+                            self._children_name_map["prefixes"] = "prefixes"
+                        return self.prefixes
+
+                    if (child_yang_name == "tunnels"):
+                        if (self.tunnels is None):
+                            self.tunnels = TrafficCollector.Afs.Af.Counters.Tunnels()
+                            self.tunnels.parent = self
+                            self._children_name_map["tunnels"] = "tunnels"
+                        return self.tunnels
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "prefixes" or name == "tunnels"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.prefixes is not None and self.prefixes._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.tunnels is not None and self.tunnels._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.af_name.is_set or
+                    (self.counters is not None and self.counters.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.af_name.yfilter != YFilter.not_set or
+                    (self.counters is not None and self.counters.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                    return meta._meta_table['TrafficCollector.Afs.Af.Counters']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "af" + "[af-name='" + self.af_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.af_name is None:
-                    raise YPYModelError('Key property af_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:afs/Cisco-IOS-XR-infra-tc-oper:af[Cisco-IOS-XR-infra-tc-oper:af-name = ' + str(self.af_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.af_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "counters"):
+                    if (self.counters is None):
+                        self.counters = TrafficCollector.Afs.Af.Counters()
+                        self.counters.parent = self
+                        self._children_name_map["counters"] = "counters"
+                    return self.counters
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "counters" or name == "af-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.af_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "af-name"):
+                    self.af_name = value
+                    self.af_name.value_namespace = name_space
+                    self.af_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.af:
+                if (c.has_data()):
                     return True
-
-                if self.counters is not None and self.counters._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-                return meta._meta_table['TrafficCollector.Afs.Af']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector/Cisco-IOS-XR-infra-tc-oper:afs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.af is not None:
-                for child_ref in self.af:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.af:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "afs" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "af"):
+                for c in self.af:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.Afs.Af()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.af.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "af"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-            return meta._meta_table['TrafficCollector.Afs']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.afs is not None and self.afs.has_data()) or
+            (self.external_interfaces is not None and self.external_interfaces.has_data()) or
+            (self.summary is not None and self.summary.has_data()) or
+            (self.vrf_table is not None and self.vrf_table.has_data()))
 
-        return '/Cisco-IOS-XR-infra-tc-oper:traffic-collector'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.afs is not None and self.afs.has_operation()) or
+            (self.external_interfaces is not None and self.external_interfaces.has_operation()) or
+            (self.summary is not None and self.summary.has_operation()) or
+            (self.vrf_table is not None and self.vrf_table.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-tc-oper:traffic-collector" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "afs"):
+            if (self.afs is None):
+                self.afs = TrafficCollector.Afs()
+                self.afs.parent = self
+                self._children_name_map["afs"] = "afs"
+            return self.afs
+
+        if (child_yang_name == "external-interfaces"):
+            if (self.external_interfaces is None):
+                self.external_interfaces = TrafficCollector.ExternalInterfaces()
+                self.external_interfaces.parent = self
+                self._children_name_map["external_interfaces"] = "external-interfaces"
+            return self.external_interfaces
+
+        if (child_yang_name == "summary"):
+            if (self.summary is None):
+                self.summary = TrafficCollector.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+            return self.summary
+
+        if (child_yang_name == "vrf-table"):
+            if (self.vrf_table is None):
+                self.vrf_table = TrafficCollector.VrfTable()
+                self.vrf_table.parent = self
+                self._children_name_map["vrf_table"] = "vrf-table"
+            return self.vrf_table
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "afs" or name == "external-interfaces" or name == "summary" or name == "vrf-table"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.afs is not None and self.afs._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.external_interfaces is not None and self.external_interfaces._has_data():
-            return True
-
-        if self.summary is not None and self.summary._has_data():
-            return True
-
-        if self.vrf_table is not None and self.vrf_table._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
-        return meta._meta_table['TrafficCollector']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = TrafficCollector()
+        return self._top_entity
 

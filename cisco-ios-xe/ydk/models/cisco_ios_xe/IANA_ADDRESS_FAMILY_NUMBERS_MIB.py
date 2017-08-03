@@ -4,22 +4,16 @@ The MIB module defines the AddressFamilyNumbers
 textual convention.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AddressfamilynumbersEnum(Enum):
+class Addressfamilynumbers(Enum):
     """
-    AddressfamilynumbersEnum
+    Addressfamilynumbers
 
     The definition of this textual convention with the
 
@@ -133,57 +127,51 @@ class AddressfamilynumbersEnum(Enum):
 
     """
 
-    other = 0
+    other = Enum.YLeaf(0, "other")
 
-    ipV4 = 1
+    ipV4 = Enum.YLeaf(1, "ipV4")
 
-    ipV6 = 2
+    ipV6 = Enum.YLeaf(2, "ipV6")
 
-    nsap = 3
+    nsap = Enum.YLeaf(3, "nsap")
 
-    hdlc = 4
+    hdlc = Enum.YLeaf(4, "hdlc")
 
-    bbn1822 = 5
+    bbn1822 = Enum.YLeaf(5, "bbn1822")
 
-    all802 = 6
+    all802 = Enum.YLeaf(6, "all802")
 
-    e163 = 7
+    e163 = Enum.YLeaf(7, "e163")
 
-    e164 = 8
+    e164 = Enum.YLeaf(8, "e164")
 
-    f69 = 9
+    f69 = Enum.YLeaf(9, "f69")
 
-    x121 = 10
+    x121 = Enum.YLeaf(10, "x121")
 
-    ipx = 11
+    ipx = Enum.YLeaf(11, "ipx")
 
-    appletalk = 12
+    appletalk = Enum.YLeaf(12, "appletalk")
 
-    decnetIV = 13
+    decnetIV = Enum.YLeaf(13, "decnetIV")
 
-    banyanVines = 14
+    banyanVines = Enum.YLeaf(14, "banyanVines")
 
-    e164withNsap = 15
+    e164withNsap = Enum.YLeaf(15, "e164withNsap")
 
-    dns = 16
+    dns = Enum.YLeaf(16, "dns")
 
-    distinguishedname = 17
+    distinguishedname = Enum.YLeaf(17, "distinguishedname")
 
-    asnumber = 18
+    asnumber = Enum.YLeaf(18, "asnumber")
 
-    xtpoveripv4 = 19
+    xtpoveripv4 = Enum.YLeaf(19, "xtpoveripv4")
 
-    xtpoveripv6 = 20
+    xtpoveripv6 = Enum.YLeaf(20, "xtpoveripv6")
 
-    xtpnativemodextp = 21
+    xtpnativemodextp = Enum.YLeaf(21, "xtpnativemodextp")
 
-    reserved = 65535
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IANA_ADDRESS_FAMILY_NUMBERS_MIB as meta
-        return meta._meta_table['AddressfamilynumbersEnum']
+    reserved = Enum.YLeaf(65535, "reserved")
 
 
 

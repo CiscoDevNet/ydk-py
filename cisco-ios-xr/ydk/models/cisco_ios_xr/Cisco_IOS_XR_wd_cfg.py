@@ -15,21 +15,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Watchdog(object):
+class Watchdog(Entity):
     """
     watchdog
     
@@ -109,20 +103,69 @@ class Watchdog(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.monitor_cpuhog_timeout = None
-        self.monitor_procnto_timeout = None
-        self.monitor_qnet_timeout = None
-        self.overload_notification = None
-        self.overload_throttle_timeout = None
-        self.restart_cpuhog_disable = None
-        self.restart_deadlock_disable = None
-        self.restart_memoryhog_disable = None
+        super(Watchdog, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "watchdog"
+        self.yang_parent_name = "Cisco-IOS-XR-wd-cfg"
+
+        self.monitor_cpuhog_timeout = YLeaf(YType.uint32, "monitor-cpuhog-timeout")
+
+        self.monitor_procnto_timeout = YLeaf(YType.uint32, "monitor-procnto-timeout")
+
+        self.monitor_qnet_timeout = YLeaf(YType.uint32, "monitor-qnet-timeout")
+
+        self.overload_notification = YLeaf(YType.empty, "overload-notification")
+
+        self.overload_throttle_timeout = YLeaf(YType.uint32, "overload-throttle-timeout")
+
+        self.restart_cpuhog_disable = YLeaf(YType.empty, "restart-cpuhog-disable")
+
+        self.restart_deadlock_disable = YLeaf(YType.empty, "restart-deadlock-disable")
+
+        self.restart_memoryhog_disable = YLeaf(YType.empty, "restart-memoryhog-disable")
+
+        self.threshold_memory_switchover = YLeaf(YType.uint32, "threshold-memory-switchover")
+
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
-        self.threshold_memory_switchover = None
+        self._children_name_map["threshold_memory"] = "threshold-memory"
+        self._children_yang_names.add("threshold-memory")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("monitor_cpuhog_timeout",
+                        "monitor_procnto_timeout",
+                        "monitor_qnet_timeout",
+                        "overload_notification",
+                        "overload_throttle_timeout",
+                        "restart_cpuhog_disable",
+                        "restart_deadlock_disable",
+                        "restart_memoryhog_disable",
+                        "threshold_memory_switchover") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Watchdog, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Watchdog, self).__setattr__(name, value)
 
 
-    class ThresholdMemory(object):
+    class ThresholdMemory(Entity):
         """
         Memory thresholds
         
@@ -155,82 +198,226 @@ class Watchdog(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.critical = None
-            self.minor = None
-            self.severe = None
+            super(Watchdog.ThresholdMemory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "threshold-memory"
+            self.yang_parent_name = "watchdog"
 
-            return '/Cisco-IOS-XR-wd-cfg:watchdog/Cisco-IOS-XR-wd-cfg:threshold-memory'
+            self.critical = YLeaf(YType.uint32, "critical")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.minor = YLeaf(YType.uint32, "minor")
 
-        def _has_data(self):
-            if self.critical is not None:
+            self.severe = YLeaf(YType.uint32, "severe")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("critical",
+                            "minor",
+                            "severe") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Watchdog.ThresholdMemory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Watchdog.ThresholdMemory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.critical.is_set or
+                self.minor.is_set or
+                self.severe.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.critical.yfilter != YFilter.not_set or
+                self.minor.yfilter != YFilter.not_set or
+                self.severe.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "threshold-memory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-wd-cfg:watchdog/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.critical.is_set or self.critical.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.critical.get_name_leafdata())
+            if (self.minor.is_set or self.minor.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.minor.get_name_leafdata())
+            if (self.severe.is_set or self.severe.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.severe.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "critical" or name == "minor" or name == "severe"):
                 return True
-
-            if self.minor is not None:
-                return True
-
-            if self.severe is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_cfg as meta
-            return meta._meta_table['Watchdog.ThresholdMemory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "critical"):
+                self.critical = value
+                self.critical.value_namespace = name_space
+                self.critical.value_namespace_prefix = name_space_prefix
+            if(value_path == "minor"):
+                self.minor = value
+                self.minor.value_namespace = name_space
+                self.minor.value_namespace_prefix = name_space_prefix
+            if(value_path == "severe"):
+                self.severe = value
+                self.severe.value_namespace = name_space
+                self.severe.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.monitor_cpuhog_timeout.is_set or
+            self.monitor_procnto_timeout.is_set or
+            self.monitor_qnet_timeout.is_set or
+            self.overload_notification.is_set or
+            self.overload_throttle_timeout.is_set or
+            self.restart_cpuhog_disable.is_set or
+            self.restart_deadlock_disable.is_set or
+            self.restart_memoryhog_disable.is_set or
+            self.threshold_memory_switchover.is_set or
+            (self.threshold_memory is not None and self.threshold_memory.has_data()))
 
-        return '/Cisco-IOS-XR-wd-cfg:watchdog'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.monitor_cpuhog_timeout.yfilter != YFilter.not_set or
+            self.monitor_procnto_timeout.yfilter != YFilter.not_set or
+            self.monitor_qnet_timeout.yfilter != YFilter.not_set or
+            self.overload_notification.yfilter != YFilter.not_set or
+            self.overload_throttle_timeout.yfilter != YFilter.not_set or
+            self.restart_cpuhog_disable.yfilter != YFilter.not_set or
+            self.restart_deadlock_disable.yfilter != YFilter.not_set or
+            self.restart_memoryhog_disable.yfilter != YFilter.not_set or
+            self.threshold_memory_switchover.yfilter != YFilter.not_set or
+            (self.threshold_memory is not None and self.threshold_memory.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-wd-cfg:watchdog" + path_buffer
 
-    def _has_data(self):
-        if self.monitor_cpuhog_timeout is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.monitor_cpuhog_timeout.is_set or self.monitor_cpuhog_timeout.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.monitor_cpuhog_timeout.get_name_leafdata())
+        if (self.monitor_procnto_timeout.is_set or self.monitor_procnto_timeout.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.monitor_procnto_timeout.get_name_leafdata())
+        if (self.monitor_qnet_timeout.is_set or self.monitor_qnet_timeout.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.monitor_qnet_timeout.get_name_leafdata())
+        if (self.overload_notification.is_set or self.overload_notification.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.overload_notification.get_name_leafdata())
+        if (self.overload_throttle_timeout.is_set or self.overload_throttle_timeout.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.overload_throttle_timeout.get_name_leafdata())
+        if (self.restart_cpuhog_disable.is_set or self.restart_cpuhog_disable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.restart_cpuhog_disable.get_name_leafdata())
+        if (self.restart_deadlock_disable.is_set or self.restart_deadlock_disable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.restart_deadlock_disable.get_name_leafdata())
+        if (self.restart_memoryhog_disable.is_set or self.restart_memoryhog_disable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.restart_memoryhog_disable.get_name_leafdata())
+        if (self.threshold_memory_switchover.is_set or self.threshold_memory_switchover.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.threshold_memory_switchover.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "threshold-memory"):
+            if (self.threshold_memory is None):
+                self.threshold_memory = Watchdog.ThresholdMemory()
+                self.threshold_memory.parent = self
+                self._children_name_map["threshold_memory"] = "threshold-memory"
+            return self.threshold_memory
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "threshold-memory" or name == "monitor-cpuhog-timeout" or name == "monitor-procnto-timeout" or name == "monitor-qnet-timeout" or name == "overload-notification" or name == "overload-throttle-timeout" or name == "restart-cpuhog-disable" or name == "restart-deadlock-disable" or name == "restart-memoryhog-disable" or name == "threshold-memory-switchover"):
             return True
-
-        if self.monitor_procnto_timeout is not None:
-            return True
-
-        if self.monitor_qnet_timeout is not None:
-            return True
-
-        if self.overload_notification is not None:
-            return True
-
-        if self.overload_throttle_timeout is not None:
-            return True
-
-        if self.restart_cpuhog_disable is not None:
-            return True
-
-        if self.restart_deadlock_disable is not None:
-            return True
-
-        if self.restart_memoryhog_disable is not None:
-            return True
-
-        if self.threshold_memory is not None and self.threshold_memory._has_data():
-            return True
-
-        if self.threshold_memory_switchover is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_cfg as meta
-        return meta._meta_table['Watchdog']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "monitor-cpuhog-timeout"):
+            self.monitor_cpuhog_timeout = value
+            self.monitor_cpuhog_timeout.value_namespace = name_space
+            self.monitor_cpuhog_timeout.value_namespace_prefix = name_space_prefix
+        if(value_path == "monitor-procnto-timeout"):
+            self.monitor_procnto_timeout = value
+            self.monitor_procnto_timeout.value_namespace = name_space
+            self.monitor_procnto_timeout.value_namespace_prefix = name_space_prefix
+        if(value_path == "monitor-qnet-timeout"):
+            self.monitor_qnet_timeout = value
+            self.monitor_qnet_timeout.value_namespace = name_space
+            self.monitor_qnet_timeout.value_namespace_prefix = name_space_prefix
+        if(value_path == "overload-notification"):
+            self.overload_notification = value
+            self.overload_notification.value_namespace = name_space
+            self.overload_notification.value_namespace_prefix = name_space_prefix
+        if(value_path == "overload-throttle-timeout"):
+            self.overload_throttle_timeout = value
+            self.overload_throttle_timeout.value_namespace = name_space
+            self.overload_throttle_timeout.value_namespace_prefix = name_space_prefix
+        if(value_path == "restart-cpuhog-disable"):
+            self.restart_cpuhog_disable = value
+            self.restart_cpuhog_disable.value_namespace = name_space
+            self.restart_cpuhog_disable.value_namespace_prefix = name_space_prefix
+        if(value_path == "restart-deadlock-disable"):
+            self.restart_deadlock_disable = value
+            self.restart_deadlock_disable.value_namespace = name_space
+            self.restart_deadlock_disable.value_namespace_prefix = name_space_prefix
+        if(value_path == "restart-memoryhog-disable"):
+            self.restart_memoryhog_disable = value
+            self.restart_memoryhog_disable.value_namespace = name_space
+            self.restart_memoryhog_disable.value_namespace_prefix = name_space_prefix
+        if(value_path == "threshold-memory-switchover"):
+            self.threshold_memory_switchover = value
+            self.threshold_memory_switchover.value_namespace = name_space
+            self.threshold_memory_switchover.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Watchdog()
+        return self._top_entity
 

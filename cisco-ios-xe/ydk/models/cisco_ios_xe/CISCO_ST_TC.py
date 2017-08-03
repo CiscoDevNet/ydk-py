@@ -4,22 +4,16 @@ This module defines textual conventions used in
 Storage Area Network technology specific mibs.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class FcaddresstypeEnum(Enum):
+class Fcaddresstype(Enum):
     """
-    FcaddresstypeEnum
+    Fcaddresstype
 
     Denotes if a Fibre Channel Address is
 
@@ -37,20 +31,14 @@ class FcaddresstypeEnum(Enum):
 
     """
 
-    wwn = 1
+    wwn = Enum.YLeaf(1, "wwn")
 
-    fcid = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcaddresstypeEnum']
+    fcid = Enum.YLeaf(2, "fcid")
 
 
-class FcifservicestatetypeEnum(Enum):
+class Fcifservicestatetype(Enum):
     """
-    FcifservicestatetypeEnum
+    Fcifservicestatetype
 
     Represents the service state of a Fibre Channel
 
@@ -74,20 +62,14 @@ class FcifservicestatetypeEnum(Enum):
 
     """
 
-    inService = 1
+    inService = Enum.YLeaf(1, "inService")
 
-    outOfService = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcifservicestatetypeEnum']
+    outOfService = Enum.YLeaf(2, "outOfService")
 
 
-class FcifsfpdiagleveltypeEnum(Enum):
+class Fcifsfpdiagleveltype(Enum):
     """
-    FcifsfpdiagleveltypeEnum
+    Fcifsfpdiagleveltype
 
     Represents the severity level of the SFP
 
@@ -111,28 +93,22 @@ class FcifsfpdiagleveltypeEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    normal = 2
+    normal = Enum.YLeaf(2, "normal")
 
-    lowWarning = 3
+    lowWarning = Enum.YLeaf(3, "lowWarning")
 
-    lowAlarm = 4
+    lowAlarm = Enum.YLeaf(4, "lowAlarm")
 
-    highWarning = 5
+    highWarning = Enum.YLeaf(5, "highWarning")
 
-    highAlarm = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcifsfpdiagleveltypeEnum']
+    highAlarm = Enum.YLeaf(6, "highAlarm")
 
 
-class FcifspeedEnum(Enum):
+class Fcifspeed(Enum):
     """
-    FcifspeedEnum
+    Fcifspeed
 
     Represents the speed of a fibre channel port.
 
@@ -202,38 +178,32 @@ class FcifspeedEnum(Enum):
 
     """
 
-    auto = 1
+    auto = Enum.YLeaf(1, "auto")
 
-    oneG = 2
+    oneG = Enum.YLeaf(2, "oneG")
 
-    twoG = 3
+    twoG = Enum.YLeaf(3, "twoG")
 
-    fourG = 4
+    fourG = Enum.YLeaf(4, "fourG")
 
-    autoMaxTwoG = 5
+    autoMaxTwoG = Enum.YLeaf(5, "autoMaxTwoG")
 
-    eightG = 6
+    eightG = Enum.YLeaf(6, "eightG")
 
-    autoMaxFourG = 7
+    autoMaxFourG = Enum.YLeaf(7, "autoMaxFourG")
 
-    tenG = 8
+    tenG = Enum.YLeaf(8, "tenG")
 
-    autoMaxEightG = 9
+    autoMaxEightG = Enum.YLeaf(9, "autoMaxEightG")
 
-    sixteenG = 10
+    sixteenG = Enum.YLeaf(10, "sixteenG")
 
-    autoMaxSixteenG = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcifspeedEnum']
+    autoMaxSixteenG = Enum.YLeaf(11, "autoMaxSixteenG")
 
 
-class FcportmoduletypesEnum(Enum):
+class Fcportmoduletypes(Enum):
     """
-    FcportmoduletypesEnum
+    Fcportmoduletypes
 
     Represents module type of the port connector. This
 
@@ -347,56 +317,50 @@ class FcportmoduletypesEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    gbic = 3
+    gbic = Enum.YLeaf(3, "gbic")
 
-    embedded = 4
+    embedded = Enum.YLeaf(4, "embedded")
 
-    glm = 5
+    glm = Enum.YLeaf(5, "glm")
 
-    gbicWithSerialID = 6
+    gbicWithSerialID = Enum.YLeaf(6, "gbicWithSerialID")
 
-    gbicWithoutSerialID = 7
+    gbicWithoutSerialID = Enum.YLeaf(7, "gbicWithoutSerialID")
 
-    sfpWithSerialID = 8
+    sfpWithSerialID = Enum.YLeaf(8, "sfpWithSerialID")
 
-    sfpWithoutSerialID = 9
+    sfpWithoutSerialID = Enum.YLeaf(9, "sfpWithoutSerialID")
 
-    xfp = 10
+    xfp = Enum.YLeaf(10, "xfp")
 
-    x2Short = 11
+    x2Short = Enum.YLeaf(11, "x2Short")
 
-    x2Medium = 12
+    x2Medium = Enum.YLeaf(12, "x2Medium")
 
-    x2Tall = 13
+    x2Tall = Enum.YLeaf(13, "x2Tall")
 
-    xpakShort = 14
+    xpakShort = Enum.YLeaf(14, "xpakShort")
 
-    xpakMedium = 15
+    xpakMedium = Enum.YLeaf(15, "xpakMedium")
 
-    xpakTall = 16
+    xpakTall = Enum.YLeaf(16, "xpakTall")
 
-    xenpak = 17
+    xenpak = Enum.YLeaf(17, "xenpak")
 
-    sfpDwdm = 18
+    sfpDwdm = Enum.YLeaf(18, "sfpDwdm")
 
-    qsfp = 19
+    qsfp = Enum.YLeaf(19, "qsfp")
 
-    x2Dwdm = 20
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcportmoduletypesEnum']
+    x2Dwdm = Enum.YLeaf(20, "x2Dwdm")
 
 
-class FcporttxtypesEnum(Enum):
+class Fcporttxtypes(Enum):
     """
-    FcporttxtypesEnum
+    Fcporttxtypes
 
     Represents port transciever technology types.
 
@@ -452,40 +416,34 @@ class FcporttxtypesEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    longWaveLaser = 2
+    longWaveLaser = Enum.YLeaf(2, "longWaveLaser")
 
-    shortWaveLaser = 3
+    shortWaveLaser = Enum.YLeaf(3, "shortWaveLaser")
 
-    longWaveLaserCostReduced = 4
+    longWaveLaserCostReduced = Enum.YLeaf(4, "longWaveLaserCostReduced")
 
-    electrical = 5
+    electrical = Enum.YLeaf(5, "electrical")
 
-    tenGigBaseSr = 6
+    tenGigBaseSr = Enum.YLeaf(6, "tenGigBaseSr")
 
-    tenGigBaseLr = 7
+    tenGigBaseLr = Enum.YLeaf(7, "tenGigBaseLr")
 
-    tenGigBaseEr = 8
+    tenGigBaseEr = Enum.YLeaf(8, "tenGigBaseEr")
 
-    tenGigBaseLx4 = 9
+    tenGigBaseLx4 = Enum.YLeaf(9, "tenGigBaseLx4")
 
-    tenGigBaseSw = 10
+    tenGigBaseSw = Enum.YLeaf(10, "tenGigBaseSw")
 
-    tenGigBaseLw = 11
+    tenGigBaseLw = Enum.YLeaf(11, "tenGigBaseLw")
 
-    tenGigBaseEw = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcporttxtypesEnum']
+    tenGigBaseEw = Enum.YLeaf(12, "tenGigBaseEw")
 
 
-class FcporttypesEnum(Enum):
+class Fcporttypes(Enum):
     """
-    FcporttypesEnum
+    Fcporttypes
 
     Represents fibre channel port types\:
 
@@ -591,52 +549,46 @@ class FcporttypesEnum(Enum):
 
     """
 
-    auto = 1
+    auto = Enum.YLeaf(1, "auto")
 
-    fPort = 2
+    fPort = Enum.YLeaf(2, "fPort")
 
-    flPort = 3
+    flPort = Enum.YLeaf(3, "flPort")
 
-    ePort = 4
+    ePort = Enum.YLeaf(4, "ePort")
 
-    bPort = 5
+    bPort = Enum.YLeaf(5, "bPort")
 
-    fxPort = 6
+    fxPort = Enum.YLeaf(6, "fxPort")
 
-    sdPort = 7
+    sdPort = Enum.YLeaf(7, "sdPort")
 
-    tlPort = 8
+    tlPort = Enum.YLeaf(8, "tlPort")
 
-    nPort = 9
+    nPort = Enum.YLeaf(9, "nPort")
 
-    nlPort = 10
+    nlPort = Enum.YLeaf(10, "nlPort")
 
-    nxPort = 11
+    nxPort = Enum.YLeaf(11, "nxPort")
 
-    tePort = 12
+    tePort = Enum.YLeaf(12, "tePort")
 
-    fvPort = 13
+    fvPort = Enum.YLeaf(13, "fvPort")
 
-    portOperDown = 14
+    portOperDown = Enum.YLeaf(14, "portOperDown")
 
-    stPort = 15
+    stPort = Enum.YLeaf(15, "stPort")
 
-    npPort = 16
+    npPort = Enum.YLeaf(16, "npPort")
 
-    tfPort = 17
+    tfPort = Enum.YLeaf(17, "tfPort")
 
-    tnpPort = 18
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['FcporttypesEnum']
+    tnpPort = Enum.YLeaf(18, "tnpPort")
 
 
-class InterfaceopermodeEnum(Enum):
+class Interfaceopermode(Enum):
     """
-    InterfaceopermodeEnum
+    Interfaceopermode
 
     Represents the operational mode of an interface
 
@@ -754,83 +706,60 @@ class InterfaceopermodeEnum(Enum):
 
     """
 
-    auto = 1
+    auto = Enum.YLeaf(1, "auto")
 
-    fPort = 2
+    fPort = Enum.YLeaf(2, "fPort")
 
-    flPort = 3
+    flPort = Enum.YLeaf(3, "flPort")
 
-    ePort = 4
+    ePort = Enum.YLeaf(4, "ePort")
 
-    bPort = 5
+    bPort = Enum.YLeaf(5, "bPort")
 
-    fxPort = 6
+    fxPort = Enum.YLeaf(6, "fxPort")
 
-    sdPort = 7
+    sdPort = Enum.YLeaf(7, "sdPort")
 
-    tlPort = 8
+    tlPort = Enum.YLeaf(8, "tlPort")
 
-    nPort = 9
+    nPort = Enum.YLeaf(9, "nPort")
 
-    nlPort = 10
+    nlPort = Enum.YLeaf(10, "nlPort")
 
-    nxPort = 11
+    nxPort = Enum.YLeaf(11, "nxPort")
 
-    tePort = 12
+    tePort = Enum.YLeaf(12, "tePort")
 
-    fvPort = 13
+    fvPort = Enum.YLeaf(13, "fvPort")
 
-    portOperDown = 14
+    portOperDown = Enum.YLeaf(14, "portOperDown")
 
-    stPort = 15
+    stPort = Enum.YLeaf(15, "stPort")
 
-    mgmtPort = 16
+    mgmtPort = Enum.YLeaf(16, "mgmtPort")
 
-    ipsPort = 17
+    ipsPort = Enum.YLeaf(17, "ipsPort")
 
-    evPort = 18
+    evPort = Enum.YLeaf(18, "evPort")
 
-    npPort = 19
+    npPort = Enum.YLeaf(19, "npPort")
 
-    tfPort = 20
+    tfPort = Enum.YLeaf(20, "tfPort")
 
-    tnpPort = 21
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ST_TC as meta
-        return meta._meta_table['InterfaceopermodeEnum']
+    tnpPort = Enum.YLeaf(21, "tnpPort")
 
 
-class Fcclassofservices(FixedBitsDict):
+class Fcclassofservices(Bits):
     """
     Fcclassofservices
 
     Represents the class of service capability of an
     NxPort or FxPort.
-    Keys are:- class6 , class3 , class2 , classF , class1 , class5 , class4
+    Keys are:- class6 , class2 , classF , class1 , class5 , class4 , class3
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'class6':False,
-            'class3':False,
-            'class2':False,
-            'classF':False,
-            'class1':False,
-            'class5':False,
-            'class4':False,
-        }
-        self._pos_map = { 
-            'class6':6,
-            'class3':3,
-            'class2':2,
-            'classF':0,
-            'class1':1,
-            'class5':5,
-            'class4':4,
-        }
+        super(Fcclassofservices, self).__init__()
 
 

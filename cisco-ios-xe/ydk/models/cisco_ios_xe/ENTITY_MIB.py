@@ -8,22 +8,16 @@ version of this MIB module is part of RFC 4133; see
 the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class PhysicalclassEnum(Enum):
+class Physicalclass(Enum):
     """
-    PhysicalclassEnum
+    Physicalclass
 
     An enumerated value which provides an indication of the
 
@@ -167,39 +161,33 @@ class PhysicalclassEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    unknown = 2
+    unknown = Enum.YLeaf(2, "unknown")
 
-    chassis = 3
+    chassis = Enum.YLeaf(3, "chassis")
 
-    backplane = 4
+    backplane = Enum.YLeaf(4, "backplane")
 
-    container = 5
+    container = Enum.YLeaf(5, "container")
 
-    powerSupply = 6
+    powerSupply = Enum.YLeaf(6, "powerSupply")
 
-    fan = 7
+    fan = Enum.YLeaf(7, "fan")
 
-    sensor = 8
+    sensor = Enum.YLeaf(8, "sensor")
 
-    module = 9
+    module = Enum.YLeaf(9, "module")
 
-    port = 10
+    port = Enum.YLeaf(10, "port")
 
-    stack = 11
+    stack = Enum.YLeaf(11, "stack")
 
-    cpu = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-        return meta._meta_table['PhysicalclassEnum']
+    cpu = Enum.YLeaf(12, "cpu")
 
 
 
-class EntityMib(object):
+class EntityMib(Entity):
     """
     
     
@@ -241,21 +229,44 @@ class EntityMib(object):
     _revision = '2005-08-10'
 
     def __init__(self):
+        super(EntityMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ENTITY-MIB"
+        self.yang_parent_name = "ENTITY-MIB"
+
         self.entaliasmappingtable = EntityMib.Entaliasmappingtable()
         self.entaliasmappingtable.parent = self
+        self._children_name_map["entaliasmappingtable"] = "entAliasMappingTable"
+        self._children_yang_names.add("entAliasMappingTable")
+
         self.entitygeneral = EntityMib.Entitygeneral()
         self.entitygeneral.parent = self
+        self._children_name_map["entitygeneral"] = "entityGeneral"
+        self._children_yang_names.add("entityGeneral")
+
         self.entlogicaltable = EntityMib.Entlogicaltable()
         self.entlogicaltable.parent = self
+        self._children_name_map["entlogicaltable"] = "entLogicalTable"
+        self._children_yang_names.add("entLogicalTable")
+
         self.entlpmappingtable = EntityMib.Entlpmappingtable()
         self.entlpmappingtable.parent = self
+        self._children_name_map["entlpmappingtable"] = "entLPMappingTable"
+        self._children_yang_names.add("entLPMappingTable")
+
         self.entphysicalcontainstable = EntityMib.Entphysicalcontainstable()
         self.entphysicalcontainstable.parent = self
+        self._children_name_map["entphysicalcontainstable"] = "entPhysicalContainsTable"
+        self._children_yang_names.add("entPhysicalContainsTable")
+
         self.entphysicaltable = EntityMib.Entphysicaltable()
         self.entphysicaltable.parent = self
+        self._children_name_map["entphysicaltable"] = "entPhysicalTable"
+        self._children_yang_names.add("entPhysicalTable")
 
 
-    class Entitygeneral(object):
+    class Entitygeneral(Entity):
         """
         
         
@@ -274,31 +285,85 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entlastchangetime = None
+            super(EntityMib.Entitygeneral, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "entityGeneral"
+            self.yang_parent_name = "ENTITY-MIB"
 
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entityGeneral'
+            self.entlastchangetime = YLeaf(YType.uint32, "entLastChangeTime")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("entlastchangetime") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entitygeneral, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entitygeneral, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.entlastchangetime is not None:
+        def has_data(self):
+            return self.entlastchangetime.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.entlastchangetime.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entityGeneral" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.entlastchangetime.is_set or self.entlastchangetime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.entlastchangetime.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entLastChangeTime"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entitygeneral']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "entLastChangeTime"):
+                self.entlastchangetime = value
+                self.entlastchangetime.value_namespace = name_space
+                self.entlastchangetime.value_namespace_prefix = name_space_prefix
 
 
-    class Entphysicaltable(object):
+    class Entphysicaltable(Entity):
         """
         This table contains one row per physical entity.  There is
         always at least one row for an 'overall' physical entity.
@@ -316,13 +381,39 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entphysicalentry = YList()
-            self.entphysicalentry.parent = self
-            self.entphysicalentry.name = 'entphysicalentry'
+            super(EntityMib.Entphysicaltable, self).__init__()
+
+            self.yang_name = "entPhysicalTable"
+            self.yang_parent_name = "ENTITY-MIB"
+
+            self.entphysicalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entphysicaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entphysicaltable, self).__setattr__(name, value)
 
 
-        class Entphysicalentry(object):
+        class Entphysicalentry(Entity):
             """
             Information about a particular physical entity.
             
@@ -364,7 +455,7 @@ class EntityMib(object):
             .. attribute:: entphysicalclass
             
             	An indication of the general hardware type of the physical entity.  An agent should set this object to the standard enumeration value that most accurately indicates the general class of the physical entity, or the primary class if there is more than one entity.  If no appropriate standard registration identifier exists for this physical entity, then the value 'other(1)' is returned.  If the value is unknown by this agent, then the value 'unknown(2)' is returned
-            	**type**\:   :py:class:`PhysicalclassEnum <ydk.models.cisco_ios_xe.ENTITY_MIB.PhysicalclassEnum>`
+            	**type**\:   :py:class:`Physicalclass <ydk.models.cisco_ios_xe.ENTITY_MIB.Physicalclass>`
             
             .. attribute:: entphysicalcontainedin
             
@@ -452,127 +543,341 @@ class EntityMib(object):
             _revision = '2005-08-10'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.ceentphysicalsecondserialnum = None
-                self.entphysicalalias = None
-                self.entphysicalassetid = None
-                self.entphysicalclass = None
-                self.entphysicalcontainedin = None
-                self.entphysicaldescr = None
-                self.entphysicalfirmwarerev = None
-                self.entphysicalhardwarerev = None
-                self.entphysicalisfru = None
-                self.entphysicalmfgdate = None
-                self.entphysicalmfgname = None
-                self.entphysicalmodelname = None
-                self.entphysicalname = None
-                self.entphysicalparentrelpos = None
-                self.entphysicalserialnum = None
-                self.entphysicalsoftwarerev = None
-                self.entphysicaluris = None
-                self.entphysicalvendortype = None
+                super(EntityMib.Entphysicaltable.Entphysicalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "entPhysicalEntry"
+                self.yang_parent_name = "entPhysicalTable"
 
-                return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entPhysicalTable/ENTITY-MIB:entPhysicalEntry[ENTITY-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.int32, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceentphysicalsecondserialnum = YLeaf(YType.str, "CISCO-ENTITY-EXT-MIB:ceEntPhysicalSecondSerialNum")
+
+                self.entphysicalalias = YLeaf(YType.str, "entPhysicalAlias")
+
+                self.entphysicalassetid = YLeaf(YType.str, "entPhysicalAssetID")
+
+                self.entphysicalclass = YLeaf(YType.enumeration, "entPhysicalClass")
+
+                self.entphysicalcontainedin = YLeaf(YType.int32, "entPhysicalContainedIn")
+
+                self.entphysicaldescr = YLeaf(YType.str, "entPhysicalDescr")
+
+                self.entphysicalfirmwarerev = YLeaf(YType.str, "entPhysicalFirmwareRev")
+
+                self.entphysicalhardwarerev = YLeaf(YType.str, "entPhysicalHardwareRev")
+
+                self.entphysicalisfru = YLeaf(YType.boolean, "entPhysicalIsFRU")
+
+                self.entphysicalmfgdate = YLeaf(YType.str, "entPhysicalMfgDate")
+
+                self.entphysicalmfgname = YLeaf(YType.str, "entPhysicalMfgName")
+
+                self.entphysicalmodelname = YLeaf(YType.str, "entPhysicalModelName")
+
+                self.entphysicalname = YLeaf(YType.str, "entPhysicalName")
+
+                self.entphysicalparentrelpos = YLeaf(YType.int32, "entPhysicalParentRelPos")
+
+                self.entphysicalserialnum = YLeaf(YType.str, "entPhysicalSerialNum")
+
+                self.entphysicalsoftwarerev = YLeaf(YType.str, "entPhysicalSoftwareRev")
+
+                self.entphysicaluris = YLeaf(YType.str, "entPhysicalUris")
+
+                self.entphysicalvendortype = YLeaf(YType.str, "entPhysicalVendorType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "ceentphysicalsecondserialnum",
+                                "entphysicalalias",
+                                "entphysicalassetid",
+                                "entphysicalclass",
+                                "entphysicalcontainedin",
+                                "entphysicaldescr",
+                                "entphysicalfirmwarerev",
+                                "entphysicalhardwarerev",
+                                "entphysicalisfru",
+                                "entphysicalmfgdate",
+                                "entphysicalmfgname",
+                                "entphysicalmodelname",
+                                "entphysicalname",
+                                "entphysicalparentrelpos",
+                                "entphysicalserialnum",
+                                "entphysicalsoftwarerev",
+                                "entphysicaluris",
+                                "entphysicalvendortype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntityMib.Entphysicaltable.Entphysicalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntityMib.Entphysicaltable.Entphysicalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.ceentphysicalsecondserialnum.is_set or
+                    self.entphysicalalias.is_set or
+                    self.entphysicalassetid.is_set or
+                    self.entphysicalclass.is_set or
+                    self.entphysicalcontainedin.is_set or
+                    self.entphysicaldescr.is_set or
+                    self.entphysicalfirmwarerev.is_set or
+                    self.entphysicalhardwarerev.is_set or
+                    self.entphysicalisfru.is_set or
+                    self.entphysicalmfgdate.is_set or
+                    self.entphysicalmfgname.is_set or
+                    self.entphysicalmodelname.is_set or
+                    self.entphysicalname.is_set or
+                    self.entphysicalparentrelpos.is_set or
+                    self.entphysicalserialnum.is_set or
+                    self.entphysicalsoftwarerev.is_set or
+                    self.entphysicaluris.is_set or
+                    self.entphysicalvendortype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.ceentphysicalsecondserialnum.yfilter != YFilter.not_set or
+                    self.entphysicalalias.yfilter != YFilter.not_set or
+                    self.entphysicalassetid.yfilter != YFilter.not_set or
+                    self.entphysicalclass.yfilter != YFilter.not_set or
+                    self.entphysicalcontainedin.yfilter != YFilter.not_set or
+                    self.entphysicaldescr.yfilter != YFilter.not_set or
+                    self.entphysicalfirmwarerev.yfilter != YFilter.not_set or
+                    self.entphysicalhardwarerev.yfilter != YFilter.not_set or
+                    self.entphysicalisfru.yfilter != YFilter.not_set or
+                    self.entphysicalmfgdate.yfilter != YFilter.not_set or
+                    self.entphysicalmfgname.yfilter != YFilter.not_set or
+                    self.entphysicalmodelname.yfilter != YFilter.not_set or
+                    self.entphysicalname.yfilter != YFilter.not_set or
+                    self.entphysicalparentrelpos.yfilter != YFilter.not_set or
+                    self.entphysicalserialnum.yfilter != YFilter.not_set or
+                    self.entphysicalsoftwarerev.yfilter != YFilter.not_set or
+                    self.entphysicaluris.yfilter != YFilter.not_set or
+                    self.entphysicalvendortype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entPhysicalEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-MIB:ENTITY-MIB/entPhysicalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.ceentphysicalsecondserialnum.is_set or self.ceentphysicalsecondserialnum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceentphysicalsecondserialnum.get_name_leafdata())
+                if (self.entphysicalalias.is_set or self.entphysicalalias.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalalias.get_name_leafdata())
+                if (self.entphysicalassetid.is_set or self.entphysicalassetid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalassetid.get_name_leafdata())
+                if (self.entphysicalclass.is_set or self.entphysicalclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalclass.get_name_leafdata())
+                if (self.entphysicalcontainedin.is_set or self.entphysicalcontainedin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalcontainedin.get_name_leafdata())
+                if (self.entphysicaldescr.is_set or self.entphysicaldescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicaldescr.get_name_leafdata())
+                if (self.entphysicalfirmwarerev.is_set or self.entphysicalfirmwarerev.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalfirmwarerev.get_name_leafdata())
+                if (self.entphysicalhardwarerev.is_set or self.entphysicalhardwarerev.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalhardwarerev.get_name_leafdata())
+                if (self.entphysicalisfru.is_set or self.entphysicalisfru.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalisfru.get_name_leafdata())
+                if (self.entphysicalmfgdate.is_set or self.entphysicalmfgdate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalmfgdate.get_name_leafdata())
+                if (self.entphysicalmfgname.is_set or self.entphysicalmfgname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalmfgname.get_name_leafdata())
+                if (self.entphysicalmodelname.is_set or self.entphysicalmodelname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalmodelname.get_name_leafdata())
+                if (self.entphysicalname.is_set or self.entphysicalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalname.get_name_leafdata())
+                if (self.entphysicalparentrelpos.is_set or self.entphysicalparentrelpos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalparentrelpos.get_name_leafdata())
+                if (self.entphysicalserialnum.is_set or self.entphysicalserialnum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalserialnum.get_name_leafdata())
+                if (self.entphysicalsoftwarerev.is_set or self.entphysicalsoftwarerev.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalsoftwarerev.get_name_leafdata())
+                if (self.entphysicaluris.is_set or self.entphysicaluris.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicaluris.get_name_leafdata())
+                if (self.entphysicalvendortype.is_set or self.entphysicalvendortype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalvendortype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceEntPhysicalSecondSerialNum" or name == "entPhysicalAlias" or name == "entPhysicalAssetID" or name == "entPhysicalClass" or name == "entPhysicalContainedIn" or name == "entPhysicalDescr" or name == "entPhysicalFirmwareRev" or name == "entPhysicalHardwareRev" or name == "entPhysicalIsFRU" or name == "entPhysicalMfgDate" or name == "entPhysicalMfgName" or name == "entPhysicalModelName" or name == "entPhysicalName" or name == "entPhysicalParentRelPos" or name == "entPhysicalSerialNum" or name == "entPhysicalSoftwareRev" or name == "entPhysicalUris" or name == "entPhysicalVendorType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceEntPhysicalSecondSerialNum"):
+                    self.ceentphysicalsecondserialnum = value
+                    self.ceentphysicalsecondserialnum.value_namespace = name_space
+                    self.ceentphysicalsecondserialnum.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalAlias"):
+                    self.entphysicalalias = value
+                    self.entphysicalalias.value_namespace = name_space
+                    self.entphysicalalias.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalAssetID"):
+                    self.entphysicalassetid = value
+                    self.entphysicalassetid.value_namespace = name_space
+                    self.entphysicalassetid.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalClass"):
+                    self.entphysicalclass = value
+                    self.entphysicalclass.value_namespace = name_space
+                    self.entphysicalclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalContainedIn"):
+                    self.entphysicalcontainedin = value
+                    self.entphysicalcontainedin.value_namespace = name_space
+                    self.entphysicalcontainedin.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalDescr"):
+                    self.entphysicaldescr = value
+                    self.entphysicaldescr.value_namespace = name_space
+                    self.entphysicaldescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalFirmwareRev"):
+                    self.entphysicalfirmwarerev = value
+                    self.entphysicalfirmwarerev.value_namespace = name_space
+                    self.entphysicalfirmwarerev.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalHardwareRev"):
+                    self.entphysicalhardwarerev = value
+                    self.entphysicalhardwarerev.value_namespace = name_space
+                    self.entphysicalhardwarerev.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalIsFRU"):
+                    self.entphysicalisfru = value
+                    self.entphysicalisfru.value_namespace = name_space
+                    self.entphysicalisfru.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalMfgDate"):
+                    self.entphysicalmfgdate = value
+                    self.entphysicalmfgdate.value_namespace = name_space
+                    self.entphysicalmfgdate.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalMfgName"):
+                    self.entphysicalmfgname = value
+                    self.entphysicalmfgname.value_namespace = name_space
+                    self.entphysicalmfgname.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalModelName"):
+                    self.entphysicalmodelname = value
+                    self.entphysicalmodelname.value_namespace = name_space
+                    self.entphysicalmodelname.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalName"):
+                    self.entphysicalname = value
+                    self.entphysicalname.value_namespace = name_space
+                    self.entphysicalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalParentRelPos"):
+                    self.entphysicalparentrelpos = value
+                    self.entphysicalparentrelpos.value_namespace = name_space
+                    self.entphysicalparentrelpos.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalSerialNum"):
+                    self.entphysicalserialnum = value
+                    self.entphysicalserialnum.value_namespace = name_space
+                    self.entphysicalserialnum.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalSoftwareRev"):
+                    self.entphysicalsoftwarerev = value
+                    self.entphysicalsoftwarerev.value_namespace = name_space
+                    self.entphysicalsoftwarerev.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalUris"):
+                    self.entphysicaluris = value
+                    self.entphysicaluris.value_namespace = name_space
+                    self.entphysicaluris.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalVendorType"):
+                    self.entphysicalvendortype = value
+                    self.entphysicalvendortype.value_namespace = name_space
+                    self.entphysicalvendortype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entphysicalentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceentphysicalsecondserialnum is not None:
-                    return True
-
-                if self.entphysicalalias is not None:
-                    return True
-
-                if self.entphysicalassetid is not None:
-                    return True
-
-                if self.entphysicalclass is not None:
-                    return True
-
-                if self.entphysicalcontainedin is not None:
-                    return True
-
-                if self.entphysicaldescr is not None:
-                    return True
-
-                if self.entphysicalfirmwarerev is not None:
-                    return True
-
-                if self.entphysicalhardwarerev is not None:
-                    return True
-
-                if self.entphysicalisfru is not None:
-                    return True
-
-                if self.entphysicalmfgdate is not None:
-                    return True
-
-                if self.entphysicalmfgname is not None:
-                    return True
-
-                if self.entphysicalmodelname is not None:
-                    return True
-
-                if self.entphysicalname is not None:
-                    return True
-
-                if self.entphysicalparentrelpos is not None:
-                    return True
-
-                if self.entphysicalserialnum is not None:
-                    return True
-
-                if self.entphysicalsoftwarerev is not None:
-                    return True
-
-                if self.entphysicaluris is not None:
-                    return True
-
-                if self.entphysicalvendortype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-                return meta._meta_table['EntityMib.Entphysicaltable.Entphysicalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entPhysicalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entphysicalentry is not None:
-                for child_ref in self.entphysicalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entphysicalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entPhysicalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entPhysicalEntry"):
+                for c in self.entphysicalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntityMib.Entphysicaltable.Entphysicalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entphysicalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entPhysicalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entphysicaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Entlogicaltable(object):
+    class Entlogicaltable(Entity):
         """
         This table contains one row per logical entity.  For agents
         that implement more than one naming scope, at least one
@@ -593,13 +898,39 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entlogicalentry = YList()
-            self.entlogicalentry.parent = self
-            self.entlogicalentry.name = 'entlogicalentry'
+            super(EntityMib.Entlogicaltable, self).__init__()
+
+            self.yang_name = "entLogicalTable"
+            self.yang_parent_name = "ENTITY-MIB"
+
+            self.entlogicalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entlogicaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entlogicaltable, self).__setattr__(name, value)
 
 
-        class Entlogicalentry(object):
+        class Entlogicalentry(Entity):
             """
             Information about a particular logical entity.  Entities
             may be managed by this agent or other SNMP agents (possibly)
@@ -667,83 +998,220 @@ class EntityMib(object):
             _revision = '2005-08-10'
 
             def __init__(self):
-                self.parent = None
-                self.entlogicalindex = None
-                self.entlogicalcommunity = None
-                self.entlogicalcontextengineid = None
-                self.entlogicalcontextname = None
-                self.entlogicaldescr = None
-                self.entlogicaltaddress = None
-                self.entlogicaltdomain = None
-                self.entlogicaltype = None
+                super(EntityMib.Entlogicaltable.Entlogicalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entlogicalindex is None:
-                    raise YPYModelError('Key property entlogicalindex is None')
+                self.yang_name = "entLogicalEntry"
+                self.yang_parent_name = "entLogicalTable"
 
-                return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entLogicalTable/ENTITY-MIB:entLogicalEntry[ENTITY-MIB:entLogicalIndex = ' + str(self.entlogicalindex) + ']'
+                self.entlogicalindex = YLeaf(YType.int32, "entLogicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.entlogicalcommunity = YLeaf(YType.str, "entLogicalCommunity")
+
+                self.entlogicalcontextengineid = YLeaf(YType.str, "entLogicalContextEngineID")
+
+                self.entlogicalcontextname = YLeaf(YType.str, "entLogicalContextName")
+
+                self.entlogicaldescr = YLeaf(YType.str, "entLogicalDescr")
+
+                self.entlogicaltaddress = YLeaf(YType.str, "entLogicalTAddress")
+
+                self.entlogicaltdomain = YLeaf(YType.str, "entLogicalTDomain")
+
+                self.entlogicaltype = YLeaf(YType.str, "entLogicalType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entlogicalindex",
+                                "entlogicalcommunity",
+                                "entlogicalcontextengineid",
+                                "entlogicalcontextname",
+                                "entlogicaldescr",
+                                "entlogicaltaddress",
+                                "entlogicaltdomain",
+                                "entlogicaltype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntityMib.Entlogicaltable.Entlogicalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntityMib.Entlogicaltable.Entlogicalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entlogicalindex.is_set or
+                    self.entlogicalcommunity.is_set or
+                    self.entlogicalcontextengineid.is_set or
+                    self.entlogicalcontextname.is_set or
+                    self.entlogicaldescr.is_set or
+                    self.entlogicaltaddress.is_set or
+                    self.entlogicaltdomain.is_set or
+                    self.entlogicaltype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entlogicalindex.yfilter != YFilter.not_set or
+                    self.entlogicalcommunity.yfilter != YFilter.not_set or
+                    self.entlogicalcontextengineid.yfilter != YFilter.not_set or
+                    self.entlogicalcontextname.yfilter != YFilter.not_set or
+                    self.entlogicaldescr.yfilter != YFilter.not_set or
+                    self.entlogicaltaddress.yfilter != YFilter.not_set or
+                    self.entlogicaltdomain.yfilter != YFilter.not_set or
+                    self.entlogicaltype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entLogicalEntry" + "[entLogicalIndex='" + self.entlogicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-MIB:ENTITY-MIB/entLogicalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entlogicalindex.is_set or self.entlogicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicalindex.get_name_leafdata())
+                if (self.entlogicalcommunity.is_set or self.entlogicalcommunity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicalcommunity.get_name_leafdata())
+                if (self.entlogicalcontextengineid.is_set or self.entlogicalcontextengineid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicalcontextengineid.get_name_leafdata())
+                if (self.entlogicalcontextname.is_set or self.entlogicalcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicalcontextname.get_name_leafdata())
+                if (self.entlogicaldescr.is_set or self.entlogicaldescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicaldescr.get_name_leafdata())
+                if (self.entlogicaltaddress.is_set or self.entlogicaltaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicaltaddress.get_name_leafdata())
+                if (self.entlogicaltdomain.is_set or self.entlogicaltdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicaltdomain.get_name_leafdata())
+                if (self.entlogicaltype.is_set or self.entlogicaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicaltype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entLogicalIndex" or name == "entLogicalCommunity" or name == "entLogicalContextEngineID" or name == "entLogicalContextName" or name == "entLogicalDescr" or name == "entLogicalTAddress" or name == "entLogicalTDomain" or name == "entLogicalType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entlogicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entLogicalIndex"):
+                    self.entlogicalindex = value
+                    self.entlogicalindex.value_namespace = name_space
+                    self.entlogicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalCommunity"):
+                    self.entlogicalcommunity = value
+                    self.entlogicalcommunity.value_namespace = name_space
+                    self.entlogicalcommunity.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalContextEngineID"):
+                    self.entlogicalcontextengineid = value
+                    self.entlogicalcontextengineid.value_namespace = name_space
+                    self.entlogicalcontextengineid.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalContextName"):
+                    self.entlogicalcontextname = value
+                    self.entlogicalcontextname.value_namespace = name_space
+                    self.entlogicalcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalDescr"):
+                    self.entlogicaldescr = value
+                    self.entlogicaldescr.value_namespace = name_space
+                    self.entlogicaldescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalTAddress"):
+                    self.entlogicaltaddress = value
+                    self.entlogicaltaddress.value_namespace = name_space
+                    self.entlogicaltaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalTDomain"):
+                    self.entlogicaltdomain = value
+                    self.entlogicaltdomain.value_namespace = name_space
+                    self.entlogicaltdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLogicalType"):
+                    self.entlogicaltype = value
+                    self.entlogicaltype.value_namespace = name_space
+                    self.entlogicaltype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entlogicalentry:
+                if (c.has_data()):
                     return True
-
-                if self.entlogicalcommunity is not None:
-                    return True
-
-                if self.entlogicalcontextengineid is not None:
-                    return True
-
-                if self.entlogicalcontextname is not None:
-                    return True
-
-                if self.entlogicaldescr is not None:
-                    return True
-
-                if self.entlogicaltaddress is not None:
-                    return True
-
-                if self.entlogicaltdomain is not None:
-                    return True
-
-                if self.entlogicaltype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-                return meta._meta_table['EntityMib.Entlogicaltable.Entlogicalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entLogicalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entlogicalentry is not None:
-                for child_ref in self.entlogicalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entlogicalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entLogicalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entLogicalEntry"):
+                for c in self.entlogicalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntityMib.Entlogicaltable.Entlogicalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entlogicalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entLogicalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entlogicaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Entlpmappingtable(object):
+    class Entlpmappingtable(Entity):
         """
         This table contains zero or more rows of logical entity to
         physical equipment associations.  For each logical entity
@@ -789,13 +1257,39 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entlpmappingentry = YList()
-            self.entlpmappingentry.parent = self
-            self.entlpmappingentry.name = 'entlpmappingentry'
+            super(EntityMib.Entlpmappingtable, self).__init__()
+
+            self.yang_name = "entLPMappingTable"
+            self.yang_parent_name = "ENTITY-MIB"
+
+            self.entlpmappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entlpmappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entlpmappingtable, self).__setattr__(name, value)
 
 
-        class Entlpmappingentry(object):
+        class Entlpmappingentry(Entity):
             """
             Information about a particular logical entity to physical
             equipment association.  Note that the nature of the
@@ -828,61 +1322,154 @@ class EntityMib(object):
             _revision = '2005-08-10'
 
             def __init__(self):
-                self.parent = None
-                self.entlogicalindex = None
-                self.entlpphysicalindex = None
+                super(EntityMib.Entlpmappingtable.Entlpmappingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entlogicalindex is None:
-                    raise YPYModelError('Key property entlogicalindex is None')
-                if self.entlpphysicalindex is None:
-                    raise YPYModelError('Key property entlpphysicalindex is None')
+                self.yang_name = "entLPMappingEntry"
+                self.yang_parent_name = "entLPMappingTable"
 
-                return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entLPMappingTable/ENTITY-MIB:entLPMappingEntry[ENTITY-MIB:entLogicalIndex = ' + str(self.entlogicalindex) + '][ENTITY-MIB:entLPPhysicalIndex = ' + str(self.entlpphysicalindex) + ']'
+                self.entlogicalindex = YLeaf(YType.str, "entLogicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.entlpphysicalindex = YLeaf(YType.int32, "entLPPhysicalIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entlogicalindex",
+                                "entlpphysicalindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntityMib.Entlpmappingtable.Entlpmappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntityMib.Entlpmappingtable.Entlpmappingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entlogicalindex.is_set or
+                    self.entlpphysicalindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entlogicalindex.yfilter != YFilter.not_set or
+                    self.entlpphysicalindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entLPMappingEntry" + "[entLogicalIndex='" + self.entlogicalindex.get() + "']" + "[entLPPhysicalIndex='" + self.entlpphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-MIB:ENTITY-MIB/entLPMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entlogicalindex.is_set or self.entlogicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlogicalindex.get_name_leafdata())
+                if (self.entlpphysicalindex.is_set or self.entlpphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entlpphysicalindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entLogicalIndex" or name == "entLPPhysicalIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entlogicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entLogicalIndex"):
+                    self.entlogicalindex = value
+                    self.entlogicalindex.value_namespace = name_space
+                    self.entlogicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "entLPPhysicalIndex"):
+                    self.entlpphysicalindex = value
+                    self.entlpphysicalindex.value_namespace = name_space
+                    self.entlpphysicalindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entlpmappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.entlpphysicalindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-                return meta._meta_table['EntityMib.Entlpmappingtable.Entlpmappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entLPMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entlpmappingentry is not None:
-                for child_ref in self.entlpmappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entlpmappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entLPMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entLPMappingEntry"):
+                for c in self.entlpmappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntityMib.Entlpmappingtable.Entlpmappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entlpmappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entLPMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entlpmappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Entaliasmappingtable(object):
+    class Entaliasmappingtable(Entity):
         """
         This table contains zero or more rows, representing
         mappings of logical entity and physical component to
@@ -906,13 +1493,39 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entaliasmappingentry = YList()
-            self.entaliasmappingentry.parent = self
-            self.entaliasmappingentry.name = 'entaliasmappingentry'
+            super(EntityMib.Entaliasmappingtable, self).__init__()
+
+            self.yang_name = "entAliasMappingTable"
+            self.yang_parent_name = "ENTITY-MIB"
+
+            self.entaliasmappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entaliasmappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entaliasmappingtable, self).__setattr__(name, value)
 
 
-        class Entaliasmappingentry(object):
+        class Entaliasmappingentry(Entity):
             """
             Information about a particular physical equipment, logical
             
@@ -958,65 +1571,165 @@ class EntityMib(object):
             _revision = '2005-08-10'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.entaliaslogicalindexorzero = None
-                self.entaliasmappingidentifier = None
+                super(EntityMib.Entaliasmappingtable.Entaliasmappingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.entaliaslogicalindexorzero is None:
-                    raise YPYModelError('Key property entaliaslogicalindexorzero is None')
+                self.yang_name = "entAliasMappingEntry"
+                self.yang_parent_name = "entAliasMappingTable"
 
-                return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entAliasMappingTable/ENTITY-MIB:entAliasMappingEntry[ENTITY-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][ENTITY-MIB:entAliasLogicalIndexOrZero = ' + str(self.entaliaslogicalindexorzero) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.entaliaslogicalindexorzero = YLeaf(YType.int32, "entAliasLogicalIndexOrZero")
+
+                self.entaliasmappingidentifier = YLeaf(YType.str, "entAliasMappingIdentifier")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "entaliaslogicalindexorzero",
+                                "entaliasmappingidentifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntityMib.Entaliasmappingtable.Entaliasmappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntityMib.Entaliasmappingtable.Entaliasmappingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.entaliaslogicalindexorzero.is_set or
+                    self.entaliasmappingidentifier.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.entaliaslogicalindexorzero.yfilter != YFilter.not_set or
+                    self.entaliasmappingidentifier.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entAliasMappingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[entAliasLogicalIndexOrZero='" + self.entaliaslogicalindexorzero.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-MIB:ENTITY-MIB/entAliasMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.entaliaslogicalindexorzero.is_set or self.entaliaslogicalindexorzero.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entaliaslogicalindexorzero.get_name_leafdata())
+                if (self.entaliasmappingidentifier.is_set or self.entaliasmappingidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entaliasmappingidentifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "entAliasLogicalIndexOrZero" or name == "entAliasMappingIdentifier"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "entAliasLogicalIndexOrZero"):
+                    self.entaliaslogicalindexorzero = value
+                    self.entaliaslogicalindexorzero.value_namespace = name_space
+                    self.entaliaslogicalindexorzero.value_namespace_prefix = name_space_prefix
+                if(value_path == "entAliasMappingIdentifier"):
+                    self.entaliasmappingidentifier = value
+                    self.entaliasmappingidentifier.value_namespace = name_space
+                    self.entaliasmappingidentifier.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entaliasmappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.entaliaslogicalindexorzero is not None:
-                    return True
-
-                if self.entaliasmappingidentifier is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-                return meta._meta_table['EntityMib.Entaliasmappingtable.Entaliasmappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entAliasMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entaliasmappingentry is not None:
-                for child_ref in self.entaliasmappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entaliasmappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entAliasMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entAliasMappingEntry"):
+                for c in self.entaliasmappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntityMib.Entaliasmappingtable.Entaliasmappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entaliasmappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entAliasMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entaliasmappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Entphysicalcontainstable(object):
+    class Entphysicalcontainstable(Entity):
         """
         A table that exposes the container/'containee'
         relationships between physical entities.  This table
@@ -1043,13 +1756,39 @@ class EntityMib(object):
         _revision = '2005-08-10'
 
         def __init__(self):
-            self.parent = None
-            self.entphysicalcontainsentry = YList()
-            self.entphysicalcontainsentry.parent = self
-            self.entphysicalcontainsentry.name = 'entphysicalcontainsentry'
+            super(EntityMib.Entphysicalcontainstable, self).__init__()
+
+            self.yang_name = "entPhysicalContainsTable"
+            self.yang_parent_name = "ENTITY-MIB"
+
+            self.entphysicalcontainsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EntityMib.Entphysicalcontainstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EntityMib.Entphysicalcontainstable, self).__setattr__(name, value)
 
 
-        class Entphysicalcontainsentry(object):
+        class Entphysicalcontainsentry(Entity):
             """
             A single container/'containee' relationship.
             
@@ -1077,92 +1816,246 @@ class EntityMib(object):
             _revision = '2005-08-10'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.entphysicalchildindex = None
+                super(EntityMib.Entphysicalcontainstable.Entphysicalcontainsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.entphysicalchildindex is None:
-                    raise YPYModelError('Key property entphysicalchildindex is None')
+                self.yang_name = "entPhysicalContainsEntry"
+                self.yang_parent_name = "entPhysicalContainsTable"
 
-                return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entPhysicalContainsTable/ENTITY-MIB:entPhysicalContainsEntry[ENTITY-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][ENTITY-MIB:entPhysicalChildIndex = ' + str(self.entphysicalchildindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.entphysicalchildindex = YLeaf(YType.int32, "entPhysicalChildIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "entphysicalchildindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EntityMib.Entphysicalcontainstable.Entphysicalcontainsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EntityMib.Entphysicalcontainstable.Entphysicalcontainsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.entphysicalchildindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.entphysicalchildindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "entPhysicalContainsEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[entPhysicalChildIndex='" + self.entphysicalchildindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ENTITY-MIB:ENTITY-MIB/entPhysicalContainsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.entphysicalchildindex.is_set or self.entphysicalchildindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalchildindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "entPhysicalChildIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "entPhysicalChildIndex"):
+                    self.entphysicalchildindex = value
+                    self.entphysicalchildindex.value_namespace = name_space
+                    self.entphysicalchildindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.entphysicalcontainsentry:
+                if (c.has_data()):
                     return True
-
-                if self.entphysicalchildindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-                return meta._meta_table['EntityMib.Entphysicalcontainstable.Entphysicalcontainsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ENTITY-MIB:ENTITY-MIB/ENTITY-MIB:entPhysicalContainsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.entphysicalcontainsentry is not None:
-                for child_ref in self.entphysicalcontainsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.entphysicalcontainsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "entPhysicalContainsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ENTITY-MIB:ENTITY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "entPhysicalContainsEntry"):
+                for c in self.entphysicalcontainsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EntityMib.Entphysicalcontainstable.Entphysicalcontainsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.entphysicalcontainsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "entPhysicalContainsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-            return meta._meta_table['EntityMib.Entphysicalcontainstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.entaliasmappingtable is not None and self.entaliasmappingtable.has_data()) or
+            (self.entitygeneral is not None and self.entitygeneral.has_data()) or
+            (self.entlogicaltable is not None and self.entlogicaltable.has_data()) or
+            (self.entlpmappingtable is not None and self.entlpmappingtable.has_data()) or
+            (self.entphysicalcontainstable is not None and self.entphysicalcontainstable.has_data()) or
+            (self.entphysicaltable is not None and self.entphysicaltable.has_data()))
 
-        return '/ENTITY-MIB:ENTITY-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.entaliasmappingtable is not None and self.entaliasmappingtable.has_operation()) or
+            (self.entitygeneral is not None and self.entitygeneral.has_operation()) or
+            (self.entlogicaltable is not None and self.entlogicaltable.has_operation()) or
+            (self.entlpmappingtable is not None and self.entlpmappingtable.has_operation()) or
+            (self.entphysicalcontainstable is not None and self.entphysicalcontainstable.has_operation()) or
+            (self.entphysicaltable is not None and self.entphysicaltable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ENTITY-MIB:ENTITY-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "entAliasMappingTable"):
+            if (self.entaliasmappingtable is None):
+                self.entaliasmappingtable = EntityMib.Entaliasmappingtable()
+                self.entaliasmappingtable.parent = self
+                self._children_name_map["entaliasmappingtable"] = "entAliasMappingTable"
+            return self.entaliasmappingtable
+
+        if (child_yang_name == "entityGeneral"):
+            if (self.entitygeneral is None):
+                self.entitygeneral = EntityMib.Entitygeneral()
+                self.entitygeneral.parent = self
+                self._children_name_map["entitygeneral"] = "entityGeneral"
+            return self.entitygeneral
+
+        if (child_yang_name == "entLogicalTable"):
+            if (self.entlogicaltable is None):
+                self.entlogicaltable = EntityMib.Entlogicaltable()
+                self.entlogicaltable.parent = self
+                self._children_name_map["entlogicaltable"] = "entLogicalTable"
+            return self.entlogicaltable
+
+        if (child_yang_name == "entLPMappingTable"):
+            if (self.entlpmappingtable is None):
+                self.entlpmappingtable = EntityMib.Entlpmappingtable()
+                self.entlpmappingtable.parent = self
+                self._children_name_map["entlpmappingtable"] = "entLPMappingTable"
+            return self.entlpmappingtable
+
+        if (child_yang_name == "entPhysicalContainsTable"):
+            if (self.entphysicalcontainstable is None):
+                self.entphysicalcontainstable = EntityMib.Entphysicalcontainstable()
+                self.entphysicalcontainstable.parent = self
+                self._children_name_map["entphysicalcontainstable"] = "entPhysicalContainsTable"
+            return self.entphysicalcontainstable
+
+        if (child_yang_name == "entPhysicalTable"):
+            if (self.entphysicaltable is None):
+                self.entphysicaltable = EntityMib.Entphysicaltable()
+                self.entphysicaltable.parent = self
+                self._children_name_map["entphysicaltable"] = "entPhysicalTable"
+            return self.entphysicaltable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "entAliasMappingTable" or name == "entityGeneral" or name == "entLogicalTable" or name == "entLPMappingTable" or name == "entPhysicalContainsTable" or name == "entPhysicalTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.entaliasmappingtable is not None and self.entaliasmappingtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.entitygeneral is not None and self.entitygeneral._has_data():
-            return True
-
-        if self.entlogicaltable is not None and self.entlogicaltable._has_data():
-            return True
-
-        if self.entlpmappingtable is not None and self.entlpmappingtable._has_data():
-            return True
-
-        if self.entphysicalcontainstable is not None and self.entphysicalcontainstable._has_data():
-            return True
-
-        if self.entphysicaltable is not None and self.entphysicaltable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_MIB as meta
-        return meta._meta_table['EntityMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = EntityMib()
+        return self._top_entity
 

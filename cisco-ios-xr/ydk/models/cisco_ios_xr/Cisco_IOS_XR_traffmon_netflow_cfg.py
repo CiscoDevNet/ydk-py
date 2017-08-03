@@ -15,22 +15,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class NfCacheAgingModeEnum(Enum):
+class NfCacheAgingMode(Enum):
     """
-    NfCacheAgingModeEnum
+    NfCacheAgingMode
 
     Nf cache aging mode
 
@@ -48,22 +42,16 @@ class NfCacheAgingModeEnum(Enum):
 
     """
 
-    normal = 0
+    normal = Enum.YLeaf(0, "normal")
 
-    permanent = 1
+    permanent = Enum.YLeaf(1, "permanent")
 
-    immediate = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-        return meta._meta_table['NfCacheAgingModeEnum']
+    immediate = Enum.YLeaf(2, "immediate")
 
 
-class NfSamplingModeEnum(Enum):
+class NfSamplingMode(Enum):
     """
-    NfSamplingModeEnum
+    NfSamplingMode
 
     Nf sampling mode
 
@@ -73,17 +61,11 @@ class NfSamplingModeEnum(Enum):
 
     """
 
-    random = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-        return meta._meta_table['NfSamplingModeEnum']
+    random = Enum.YLeaf(2, "random")
 
 
 
-class NetFlow(object):
+class NetFlow(Entity):
     """
     NetFlow Configuration
     
@@ -115,17 +97,34 @@ class NetFlow(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(NetFlow, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "net-flow"
+        self.yang_parent_name = "Cisco-IOS-XR-traffmon-netflow-cfg"
+
         self.flow_exporter_maps = NetFlow.FlowExporterMaps()
         self.flow_exporter_maps.parent = self
+        self._children_name_map["flow_exporter_maps"] = "flow-exporter-maps"
+        self._children_yang_names.add("flow-exporter-maps")
+
         self.flow_monitor_map_performance_table = NetFlow.FlowMonitorMapPerformanceTable()
         self.flow_monitor_map_performance_table.parent = self
+        self._children_name_map["flow_monitor_map_performance_table"] = "flow-monitor-map-performance-table"
+        self._children_yang_names.add("flow-monitor-map-performance-table")
+
         self.flow_monitor_map_table = NetFlow.FlowMonitorMapTable()
         self.flow_monitor_map_table.parent = self
+        self._children_name_map["flow_monitor_map_table"] = "flow-monitor-map-table"
+        self._children_yang_names.add("flow-monitor-map-table")
+
         self.flow_sampler_maps = NetFlow.FlowSamplerMaps()
         self.flow_sampler_maps.parent = self
+        self._children_name_map["flow_sampler_maps"] = "flow-sampler-maps"
+        self._children_yang_names.add("flow-sampler-maps")
 
 
-    class FlowExporterMaps(object):
+    class FlowExporterMaps(Entity):
         """
         Configure a flow exporter map
         
@@ -142,13 +141,39 @@ class NetFlow(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.flow_exporter_map = YList()
-            self.flow_exporter_map.parent = self
-            self.flow_exporter_map.name = 'flow_exporter_map'
+            super(NetFlow.FlowExporterMaps, self).__init__()
+
+            self.yang_name = "flow-exporter-maps"
+            self.yang_parent_name = "net-flow"
+
+            self.flow_exporter_map = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetFlow.FlowExporterMaps, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetFlow.FlowExporterMaps, self).__setattr__(name, value)
 
 
-        class FlowExporterMap(object):
+        class FlowExporterMap(Entity):
             """
             Exporter map name
             
@@ -203,20 +228,63 @@ class NetFlow(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.exporter_map_name = None
+                super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__init__()
+
+                self.yang_name = "flow-exporter-map"
+                self.yang_parent_name = "flow-exporter-maps"
+
+                self.exporter_map_name = YLeaf(YType.str, "exporter-map-name")
+
+                self.dscp = YLeaf(YType.uint32, "dscp")
+
+                self.packet_length = YLeaf(YType.uint32, "packet-length")
+
+                self.source_interface = YLeaf(YType.str, "source-interface")
+
                 self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
                 self.destination.parent = self
-                self.dscp = None
-                self.packet_length = None
-                self.source_interface = None
+                self._children_name_map["destination"] = "destination"
+                self._children_yang_names.add("destination")
+
                 self.udp = NetFlow.FlowExporterMaps.FlowExporterMap.Udp()
                 self.udp.parent = self
+                self._children_name_map["udp"] = "udp"
+                self._children_yang_names.add("udp")
+
                 self.versions = NetFlow.FlowExporterMaps.FlowExporterMap.Versions()
                 self.versions.parent = self
+                self._children_name_map["versions"] = "versions"
+                self._children_yang_names.add("versions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("exporter_map_name",
+                                "dscp",
+                                "packet_length",
+                                "source_interface") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__setattr__(name, value)
 
 
-            class Udp(object):
+            class Udp(Entity):
                 """
                 Use UDP as transport protocol
                 
@@ -235,33 +303,85 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.destination_port = None
+                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "udp"
+                    self.yang_parent_name = "flow-exporter-map"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:udp'
+                    self.destination_port = YLeaf(YType.uint32, "destination-port")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("destination_port") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.destination_port is not None:
+                def has_data(self):
+                    return self.destination_port.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.destination_port.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "udp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.destination_port.is_set or self.destination_port.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_port.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-port"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Udp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "destination-port"):
+                        self.destination_port = value
+                        self.destination_port.value_namespace = name_space
+                        self.destination_port.value_namespace_prefix = name_space_prefix
 
 
-            class Versions(object):
+            class Versions(Entity):
                 """
                 Specify export version parameters
                 
@@ -278,13 +398,39 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.version = YList()
-                    self.version.parent = self
-                    self.version.name = 'version'
+                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions, self).__init__()
+
+                    self.yang_name = "versions"
+                    self.yang_parent_name = "flow-exporter-map"
+
+                    self.version = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions, self).__setattr__(name, value)
 
 
-                class Version(object):
+                class Version(Entity):
                     """
                     Configure export version options
                     
@@ -341,16 +487,53 @@ class NetFlow(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.version_number = None
-                        self.common_template_timeout = None
-                        self.data_template_timeout = None
+                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version, self).__init__()
+
+                        self.yang_name = "version"
+                        self.yang_parent_name = "versions"
+
+                        self.version_number = YLeaf(YType.uint32, "version-number")
+
+                        self.common_template_timeout = YLeaf(YType.uint32, "common-template-timeout")
+
+                        self.data_template_timeout = YLeaf(YType.uint32, "data-template-timeout")
+
+                        self.options_template_timeout = YLeaf(YType.uint32, "options-template-timeout")
+
                         self.options = NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options()
                         self.options.parent = self
-                        self.options_template_timeout = None
+                        self._children_name_map["options"] = "options"
+                        self._children_yang_names.add("options")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("version_number",
+                                        "common_template_timeout",
+                                        "data_template_timeout",
+                                        "options_template_timeout") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version, self).__setattr__(name, value)
 
 
-                    class Options(object):
+                    class Options(Entity):
                         """
                         Specify options for exporting templates
                         
@@ -389,101 +572,245 @@ class NetFlow(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_table_export_timeout = None
-                            self.sampler_table_export_timeout = None
-                            self.vrf_table_export_timeout = None
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "options"
+                            self.yang_parent_name = "version"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:options'
+                            self.interface_table_export_timeout = YLeaf(YType.uint32, "interface-table-export-timeout")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.sampler_table_export_timeout = YLeaf(YType.uint32, "sampler-table-export-timeout")
 
-                        def _has_data(self):
-                            if self.interface_table_export_timeout is not None:
+                            self.vrf_table_export_timeout = YLeaf(YType.uint32, "vrf-table-export-timeout")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_table_export_timeout",
+                                            "sampler_table_export_timeout",
+                                            "vrf_table_export_timeout") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface_table_export_timeout.is_set or
+                                self.sampler_table_export_timeout.is_set or
+                                self.vrf_table_export_timeout.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_table_export_timeout.yfilter != YFilter.not_set or
+                                self.sampler_table_export_timeout.yfilter != YFilter.not_set or
+                                self.vrf_table_export_timeout.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "options" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_table_export_timeout.is_set or self.interface_table_export_timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_table_export_timeout.get_name_leafdata())
+                            if (self.sampler_table_export_timeout.is_set or self.sampler_table_export_timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sampler_table_export_timeout.get_name_leafdata())
+                            if (self.vrf_table_export_timeout.is_set or self.vrf_table_export_timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_table_export_timeout.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-table-export-timeout" or name == "sampler-table-export-timeout" or name == "vrf-table-export-timeout"):
                                 return True
-
-                            if self.sampler_table_export_timeout is not None:
-                                return True
-
-                            if self.vrf_table_export_timeout is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                            return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-table-export-timeout"):
+                                self.interface_table_export_timeout = value
+                                self.interface_table_export_timeout.value_namespace = name_space
+                                self.interface_table_export_timeout.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sampler-table-export-timeout"):
+                                self.sampler_table_export_timeout = value
+                                self.sampler_table_export_timeout.value_namespace = name_space
+                                self.sampler_table_export_timeout.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-table-export-timeout"):
+                                self.vrf_table_export_timeout = value
+                                self.vrf_table_export_timeout.value_namespace = name_space
+                                self.vrf_table_export_timeout.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.version_number is None:
-                            raise YPYModelError('Key property version_number is None')
+                    def has_data(self):
+                        return (
+                            self.version_number.is_set or
+                            self.common_template_timeout.is_set or
+                            self.data_template_timeout.is_set or
+                            self.options_template_timeout.is_set or
+                            (self.options is not None and self.options.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:version[Cisco-IOS-XR-traffmon-netflow-cfg:version-number = ' + str(self.version_number) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.version_number.yfilter != YFilter.not_set or
+                            self.common_template_timeout.yfilter != YFilter.not_set or
+                            self.data_template_timeout.yfilter != YFilter.not_set or
+                            self.options_template_timeout.yfilter != YFilter.not_set or
+                            (self.options is not None and self.options.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version" + "[version-number='" + self.version_number.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.version_number is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.version_number.is_set or self.version_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version_number.get_name_leafdata())
+                        if (self.common_template_timeout.is_set or self.common_template_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_template_timeout.get_name_leafdata())
+                        if (self.data_template_timeout.is_set or self.data_template_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.data_template_timeout.get_name_leafdata())
+                        if (self.options_template_timeout.is_set or self.options_template_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.options_template_timeout.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "options"):
+                            if (self.options is None):
+                                self.options = NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options()
+                                self.options.parent = self
+                                self._children_name_map["options"] = "options"
+                            return self.options
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "options" or name == "version-number" or name == "common-template-timeout" or name == "data-template-timeout" or name == "options-template-timeout"):
                             return True
-
-                        if self.common_template_timeout is not None:
-                            return True
-
-                        if self.data_template_timeout is not None:
-                            return True
-
-                        if self.options is not None and self.options._has_data():
-                            return True
-
-                        if self.options_template_timeout is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "version-number"):
+                            self.version_number = value
+                            self.version_number.value_namespace = name_space
+                            self.version_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "common-template-timeout"):
+                            self.common_template_timeout = value
+                            self.common_template_timeout.value_namespace = name_space
+                            self.common_template_timeout.value_namespace_prefix = name_space_prefix
+                        if(value_path == "data-template-timeout"):
+                            self.data_template_timeout = value
+                            self.data_template_timeout.value_namespace = name_space
+                            self.data_template_timeout.value_namespace_prefix = name_space_prefix
+                        if(value_path == "options-template-timeout"):
+                            self.options_template_timeout = value
+                            self.options_template_timeout.value_namespace = name_space
+                            self.options_template_timeout.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:versions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.version is not None:
-                        for child_ref in self.version:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.version:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Versions']['meta_info']
+                def has_operation(self):
+                    for c in self.version:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "versions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "version"):
+                        for c in self.version:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.version.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "version"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Destination(object):
+            class Destination(Entity):
                 """
                 Configure export destination (collector)
                 
@@ -512,103 +839,263 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.ip_address = None
-                    self.ipv6_address = None
-                    self.vrf_name = None
+                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "destination"
+                    self.yang_parent_name = "flow-exporter-map"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:destination'
+                    self.ip_address = YLeaf(YType.str, "ip-address")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                def _has_data(self):
-                    if self.ip_address is not None:
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("ip_address",
+                                    "ipv6_address",
+                                    "vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.ip_address.is_set or
+                        self.ipv6_address.is_set or
+                        self.vrf_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.ip_address.yfilter != YFilter.not_set or
+                        self.ipv6_address.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "destination" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ip_address.get_name_leafdata())
+                    if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ip-address" or name == "ipv6-address" or name == "vrf-name"):
                         return True
-
-                    if self.ipv6_address is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Destination']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "ip-address"):
+                        self.ip_address = value
+                        self.ip_address.value_namespace = name_space
+                        self.ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ipv6-address"):
+                        self.ipv6_address = value
+                        self.ipv6_address.value_namespace = name_space
+                        self.ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.exporter_map_name is None:
-                    raise YPYModelError('Key property exporter_map_name is None')
+            def has_data(self):
+                return (
+                    self.exporter_map_name.is_set or
+                    self.dscp.is_set or
+                    self.packet_length.is_set or
+                    self.source_interface.is_set or
+                    (self.destination is not None and self.destination.has_data()) or
+                    (self.udp is not None and self.udp.has_data()) or
+                    (self.versions is not None and self.versions.has_data()))
 
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-exporter-maps/Cisco-IOS-XR-traffmon-netflow-cfg:flow-exporter-map[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-map-name = ' + str(self.exporter_map_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.exporter_map_name.yfilter != YFilter.not_set or
+                    self.dscp.yfilter != YFilter.not_set or
+                    self.packet_length.yfilter != YFilter.not_set or
+                    self.source_interface.yfilter != YFilter.not_set or
+                    (self.destination is not None and self.destination.has_operation()) or
+                    (self.udp is not None and self.udp.has_operation()) or
+                    (self.versions is not None and self.versions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "flow-exporter-map" + "[exporter-map-name='" + self.exporter_map_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.exporter_map_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.exporter_map_name.is_set or self.exporter_map_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.exporter_map_name.get_name_leafdata())
+                if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dscp.get_name_leafdata())
+                if (self.packet_length.is_set or self.packet_length.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.packet_length.get_name_leafdata())
+                if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "destination"):
+                    if (self.destination is None):
+                        self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
+                        self.destination.parent = self
+                        self._children_name_map["destination"] = "destination"
+                    return self.destination
+
+                if (child_yang_name == "udp"):
+                    if (self.udp is None):
+                        self.udp = NetFlow.FlowExporterMaps.FlowExporterMap.Udp()
+                        self.udp.parent = self
+                        self._children_name_map["udp"] = "udp"
+                    return self.udp
+
+                if (child_yang_name == "versions"):
+                    if (self.versions is None):
+                        self.versions = NetFlow.FlowExporterMaps.FlowExporterMap.Versions()
+                        self.versions.parent = self
+                        self._children_name_map["versions"] = "versions"
+                    return self.versions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "destination" or name == "udp" or name == "versions" or name == "exporter-map-name" or name == "dscp" or name == "packet-length" or name == "source-interface"):
                     return True
-
-                if self.destination is not None and self.destination._has_data():
-                    return True
-
-                if self.dscp is not None:
-                    return True
-
-                if self.packet_length is not None:
-                    return True
-
-                if self.source_interface is not None:
-                    return True
-
-                if self.udp is not None and self.udp._has_data():
-                    return True
-
-                if self.versions is not None and self.versions._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "exporter-map-name"):
+                    self.exporter_map_name = value
+                    self.exporter_map_name.value_namespace = name_space
+                    self.exporter_map_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "dscp"):
+                    self.dscp = value
+                    self.dscp.value_namespace = name_space
+                    self.dscp.value_namespace_prefix = name_space_prefix
+                if(value_path == "packet-length"):
+                    self.packet_length = value
+                    self.packet_length.value_namespace = name_space
+                    self.packet_length.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-interface"):
+                    self.source_interface = value
+                    self.source_interface.value_namespace = name_space
+                    self.source_interface.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-exporter-maps'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.flow_exporter_map is not None:
-                for child_ref in self.flow_exporter_map:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.flow_exporter_map:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowExporterMaps']['meta_info']
+        def has_operation(self):
+            for c in self.flow_exporter_map:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "flow-exporter-maps" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "flow-exporter-map"):
+                for c in self.flow_exporter_map:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetFlow.FlowExporterMaps.FlowExporterMap()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.flow_exporter_map.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "flow-exporter-map"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class FlowSamplerMaps(object):
+    class FlowSamplerMaps(Entity):
         """
         Flow sampler map configuration
         
@@ -625,13 +1112,39 @@ class NetFlow(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.flow_sampler_map = YList()
-            self.flow_sampler_map.parent = self
-            self.flow_sampler_map.name = 'flow_sampler_map'
+            super(NetFlow.FlowSamplerMaps, self).__init__()
+
+            self.yang_name = "flow-sampler-maps"
+            self.yang_parent_name = "net-flow"
+
+            self.flow_sampler_map = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetFlow.FlowSamplerMaps, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetFlow.FlowSamplerMaps, self).__setattr__(name, value)
 
 
-        class FlowSamplerMap(object):
+        class FlowSamplerMap(Entity):
             """
             Sampler map name
             
@@ -655,13 +1168,44 @@ class NetFlow(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.sampler_map_name = None
+                super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__init__()
+
+                self.yang_name = "flow-sampler-map"
+                self.yang_parent_name = "flow-sampler-maps"
+
+                self.sampler_map_name = YLeaf(YType.str, "sampler-map-name")
+
                 self.sampling_modes = NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes()
                 self.sampling_modes.parent = self
+                self._children_name_map["sampling_modes"] = "sampling-modes"
+                self._children_yang_names.add("sampling-modes")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("sampler_map_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__setattr__(name, value)
 
 
-            class SamplingModes(object):
+            class SamplingModes(Entity):
                 """
                 Configure packet sampling mode
                 
@@ -678,20 +1222,46 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.sampling_mode = YList()
-                    self.sampling_mode.parent = self
-                    self.sampling_mode.name = 'sampling_mode'
+                    super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__init__()
+
+                    self.yang_name = "sampling-modes"
+                    self.yang_parent_name = "flow-sampler-map"
+
+                    self.sampling_mode = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__setattr__(name, value)
 
 
-                class SamplingMode(object):
+                class SamplingMode(Entity):
                     """
                     Configure sampling mode
                     
                     .. attribute:: mode  <key>
                     
                     	Sampling mode
-                    	**type**\:   :py:class:`NfSamplingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfSamplingModeEnum>`
+                    	**type**\:   :py:class:`NfSamplingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfSamplingMode>`
                     
                     .. attribute:: interval
                     
@@ -719,114 +1289,278 @@ class NetFlow(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.mode = None
-                        self.interval = None
-                        self.sample_number = None
+                        super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.mode is None:
-                            raise YPYModelError('Key property mode is None')
+                        self.yang_name = "sampling-mode"
+                        self.yang_parent_name = "sampling-modes"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:sampling-mode[Cisco-IOS-XR-traffmon-netflow-cfg:mode = ' + str(self.mode) + ']'
+                        self.mode = YLeaf(YType.enumeration, "mode")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interval = YLeaf(YType.uint32, "interval")
 
-                    def _has_data(self):
-                        if self.mode is not None:
+                        self.sample_number = YLeaf(YType.uint32, "sample-number")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("mode",
+                                        "interval",
+                                        "sample_number") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.mode.is_set or
+                            self.interval.is_set or
+                            self.sample_number.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.mode.yfilter != YFilter.not_set or
+                            self.interval.yfilter != YFilter.not_set or
+                            self.sample_number.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "sampling-mode" + "[mode='" + self.mode.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mode.get_name_leafdata())
+                        if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interval.get_name_leafdata())
+                        if (self.sample_number.is_set or self.sample_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sample_number.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "mode" or name == "interval" or name == "sample-number"):
                             return True
-
-                        if self.interval is not None:
-                            return True
-
-                        if self.sample_number is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "mode"):
+                            self.mode = value
+                            self.mode.value_namespace = name_space
+                            self.mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interval"):
+                            self.interval = value
+                            self.interval.value_namespace = name_space
+                            self.interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sample-number"):
+                            self.sample_number = value
+                            self.sample_number.value_namespace = name_space
+                            self.sample_number.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:sampling-modes'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.sampling_mode is not None:
-                        for child_ref in self.sampling_mode:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.sampling_mode:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes']['meta_info']
+                def has_operation(self):
+                    for c in self.sampling_mode:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.sampler_map_name is None:
-                    raise YPYModelError('Key property sampler_map_name is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sampling-modes" + path_buffer
 
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-sampler-maps/Cisco-IOS-XR-traffmon-netflow-cfg:flow-sampler-map[Cisco-IOS-XR-traffmon-netflow-cfg:sampler-map-name = ' + str(self.sampler_map_name) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.sampler_map_name is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "sampling-mode"):
+                        for c in self.sampling_mode:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.sampling_mode.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "sampling-mode"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.sampler_map_name.is_set or
+                    (self.sampling_modes is not None and self.sampling_modes.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.sampler_map_name.yfilter != YFilter.not_set or
+                    (self.sampling_modes is not None and self.sampling_modes.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "flow-sampler-map" + "[sampler-map-name='" + self.sampler_map_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-sampler-maps/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.sampler_map_name.is_set or self.sampler_map_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sampler_map_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sampling-modes"):
+                    if (self.sampling_modes is None):
+                        self.sampling_modes = NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes()
+                        self.sampling_modes.parent = self
+                        self._children_name_map["sampling_modes"] = "sampling-modes"
+                    return self.sampling_modes
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sampling-modes" or name == "sampler-map-name"):
                     return True
-
-                if self.sampling_modes is not None and self.sampling_modes._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "sampler-map-name"):
+                    self.sampler_map_name = value
+                    self.sampler_map_name.value_namespace = name_space
+                    self.sampler_map_name.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-sampler-maps'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.flow_sampler_map is not None:
-                for child_ref in self.flow_sampler_map:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.flow_sampler_map:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowSamplerMaps']['meta_info']
+        def has_operation(self):
+            for c in self.flow_sampler_map:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "flow-sampler-maps" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "flow-sampler-map"):
+                for c in self.flow_sampler_map:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetFlow.FlowSamplerMaps.FlowSamplerMap()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.flow_sampler_map.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "flow-sampler-map"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class FlowMonitorMapTable(object):
+    class FlowMonitorMapTable(Entity):
         """
         Flow monitor map configuration
         
@@ -843,13 +1577,39 @@ class NetFlow(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.flow_monitor_map = YList()
-            self.flow_monitor_map.parent = self
-            self.flow_monitor_map.name = 'flow_monitor_map'
+            super(NetFlow.FlowMonitorMapTable, self).__init__()
+
+            self.yang_name = "flow-monitor-map-table"
+            self.yang_parent_name = "net-flow"
+
+            self.flow_monitor_map = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetFlow.FlowMonitorMapTable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetFlow.FlowMonitorMapTable, self).__setattr__(name, value)
 
 
-        class FlowMonitorMap(object):
+        class FlowMonitorMap(Entity):
             """
             Monitor map name
             
@@ -874,7 +1634,7 @@ class NetFlow(object):
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
-            	**type**\:   :py:class:`NfCacheAgingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
+            	**type**\:   :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
             
             	**default value**\: normal
             
@@ -943,22 +1703,71 @@ class NetFlow(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.monitor_map_name = None
-                self.cache_active_aging_timeout = None
-                self.cache_aging_mode = None
-                self.cache_entries = None
-                self.cache_inactive_aging_timeout = None
-                self.cache_timeout_rate_limit = None
-                self.cache_update_aging_timeout = None
+                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__init__()
+
+                self.yang_name = "flow-monitor-map"
+                self.yang_parent_name = "flow-monitor-map-table"
+
+                self.monitor_map_name = YLeaf(YType.str, "monitor-map-name")
+
+                self.cache_active_aging_timeout = YLeaf(YType.uint32, "cache-active-aging-timeout")
+
+                self.cache_aging_mode = YLeaf(YType.enumeration, "cache-aging-mode")
+
+                self.cache_entries = YLeaf(YType.uint32, "cache-entries")
+
+                self.cache_inactive_aging_timeout = YLeaf(YType.uint32, "cache-inactive-aging-timeout")
+
+                self.cache_timeout_rate_limit = YLeaf(YType.uint32, "cache-timeout-rate-limit")
+
+                self.cache_update_aging_timeout = YLeaf(YType.uint32, "cache-update-aging-timeout")
+
                 self.exporters = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters()
                 self.exporters.parent = self
+                self._children_name_map["exporters"] = "exporters"
+                self._children_yang_names.add("exporters")
+
                 self.option = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option()
                 self.option.parent = self
+                self._children_name_map["option"] = "option"
+                self._children_yang_names.add("option")
+
                 self.record = None
+                self._children_name_map["record"] = "record"
+                self._children_yang_names.add("record")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("monitor_map_name",
+                                "cache_active_aging_timeout",
+                                "cache_aging_mode",
+                                "cache_entries",
+                                "cache_inactive_aging_timeout",
+                                "cache_timeout_rate_limit",
+                                "cache_update_aging_timeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__setattr__(name, value)
 
 
-            class Option(object):
+            class Option(Entity):
                 """
                 Specify an option for the flow cache
                 
@@ -990,45 +1799,119 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bgp_attr = None
-                    self.filtered = None
-                    self.out_bundle_member = None
-                    self.out_phys_int = None
+                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "option"
+                    self.yang_parent_name = "flow-monitor-map"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
+                    self.bgp_attr = YLeaf(YType.empty, "bgp-attr")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.filtered = YLeaf(YType.empty, "filtered")
 
-                def _has_data(self):
-                    if self.bgp_attr is not None:
+                    self.out_bundle_member = YLeaf(YType.empty, "out-bundle-member")
+
+                    self.out_phys_int = YLeaf(YType.empty, "out-phys-int")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("bgp_attr",
+                                    "filtered",
+                                    "out_bundle_member",
+                                    "out_phys_int") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.bgp_attr.is_set or
+                        self.filtered.is_set or
+                        self.out_bundle_member.is_set or
+                        self.out_phys_int.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.bgp_attr.yfilter != YFilter.not_set or
+                        self.filtered.yfilter != YFilter.not_set or
+                        self.out_bundle_member.yfilter != YFilter.not_set or
+                        self.out_phys_int.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "option" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.bgp_attr.is_set or self.bgp_attr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bgp_attr.get_name_leafdata())
+                    if (self.filtered.is_set or self.filtered.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.filtered.get_name_leafdata())
+                    if (self.out_bundle_member.is_set or self.out_bundle_member.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.out_bundle_member.get_name_leafdata())
+                    if (self.out_phys_int.is_set or self.out_phys_int.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.out_phys_int.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bgp-attr" or name == "filtered" or name == "out-bundle-member" or name == "out-phys-int"):
                         return True
-
-                    if self.filtered is not None:
-                        return True
-
-                    if self.out_bundle_member is not None:
-                        return True
-
-                    if self.out_phys_int is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "bgp-attr"):
+                        self.bgp_attr = value
+                        self.bgp_attr.value_namespace = name_space
+                        self.bgp_attr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "filtered"):
+                        self.filtered = value
+                        self.filtered.value_namespace = name_space
+                        self.filtered.value_namespace_prefix = name_space_prefix
+                    if(value_path == "out-bundle-member"):
+                        self.out_bundle_member = value
+                        self.out_bundle_member.value_namespace = name_space
+                        self.out_bundle_member.value_namespace_prefix = name_space_prefix
+                    if(value_path == "out-phys-int"):
+                        self.out_phys_int = value
+                        self.out_phys_int.value_namespace = name_space
+                        self.out_phys_int.value_namespace_prefix = name_space_prefix
 
 
-            class Exporters(object):
+            class Exporters(Entity):
                 """
                 Configure exporters to be used by the
                 monitor\-map
@@ -1046,13 +1929,39 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.exporter = YList()
-                    self.exporter.parent = self
-                    self.exporter.name = 'exporter'
+                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__init__()
+
+                    self.yang_name = "exporters"
+                    self.yang_parent_name = "flow-monitor-map"
+
+                    self.exporter = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__setattr__(name, value)
 
 
-                class Exporter(object):
+                class Exporter(Entity):
                     """
                     Configure exporter to be used by the
                     monitor\-map
@@ -1072,59 +1981,142 @@ class NetFlow(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.exporter_name = None
+                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.exporter_name is None:
-                            raise YPYModelError('Key property exporter_name is None')
+                        self.yang_name = "exporter"
+                        self.yang_parent_name = "exporters"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
+                        self.exporter_name = YLeaf(YType.str, "exporter-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("exporter_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.exporter_name is not None:
+                    def has_data(self):
+                        return self.exporter_name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.exporter_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "exporter" + "[exporter-name='" + self.exporter_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.exporter_name.is_set or self.exporter_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.exporter_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "exporter-name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "exporter-name"):
+                            self.exporter_name = value
+                            self.exporter_name.value_namespace = name_space
+                            self.exporter_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.exporter is not None:
-                        for child_ref in self.exporter:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.exporter:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters']['meta_info']
+                def has_operation(self):
+                    for c in self.exporter:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "exporters" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "exporter"):
+                        for c in self.exporter:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.exporter.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "exporter"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Record(object):
+            class Record(Entity):
                 """
                 Specify a flow record format
                 
@@ -1144,11 +2136,6 @@ class NetFlow(object):
                 
                 	**mandatory**\: True
                 
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -1159,111 +2146,277 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self._is_presence = True
-                    self.label = None
-                    self.record_name = None
+                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "record"
+                    self.yang_parent_name = "flow-monitor-map"
+                    self.is_presence_container = True
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
+                    self.label = YLeaf(YType.uint32, "label")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.record_name = YLeaf(YType.str, "record-name")
 
-                def _has_data(self):
-                    if self._is_presence:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("label",
+                                    "record_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.label.is_set or
+                        self.record_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.label.yfilter != YFilter.not_set or
+                        self.record_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "record" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.label.get_name_leafdata())
+                    if (self.record_name.is_set or self.record_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.record_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "label" or name == "record-name"):
                         return True
-                    if self.label is not None:
-                        return True
-
-                    if self.record_name is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "label"):
+                        self.label = value
+                        self.label.value_namespace = name_space
+                        self.label.value_namespace_prefix = name_space_prefix
+                    if(value_path == "record-name"):
+                        self.record_name = value
+                        self.record_name.value_namespace = name_space
+                        self.record_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.monitor_map_name is None:
-                    raise YPYModelError('Key property monitor_map_name is None')
+            def has_data(self):
+                return (
+                    self.monitor_map_name.is_set or
+                    self.cache_active_aging_timeout.is_set or
+                    self.cache_aging_mode.is_set or
+                    self.cache_entries.is_set or
+                    self.cache_inactive_aging_timeout.is_set or
+                    self.cache_timeout_rate_limit.is_set or
+                    self.cache_update_aging_timeout.is_set or
+                    (self.exporters is not None and self.exporters.has_data()) or
+                    (self.option is not None and self.option.has_data()) or
+                    (self.record is not None))
 
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.monitor_map_name.yfilter != YFilter.not_set or
+                    self.cache_active_aging_timeout.yfilter != YFilter.not_set or
+                    self.cache_aging_mode.yfilter != YFilter.not_set or
+                    self.cache_entries.yfilter != YFilter.not_set or
+                    self.cache_inactive_aging_timeout.yfilter != YFilter.not_set or
+                    self.cache_timeout_rate_limit.yfilter != YFilter.not_set or
+                    self.cache_update_aging_timeout.yfilter != YFilter.not_set or
+                    (self.exporters is not None and self.exporters.has_operation()) or
+                    (self.option is not None and self.option.has_operation()) or
+                    (self.record is not None and self.record.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "flow-monitor-map" + "[monitor-map-name='" + self.monitor_map_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.monitor_map_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.monitor_map_name.is_set or self.monitor_map_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.monitor_map_name.get_name_leafdata())
+                if (self.cache_active_aging_timeout.is_set or self.cache_active_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_active_aging_timeout.get_name_leafdata())
+                if (self.cache_aging_mode.is_set or self.cache_aging_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_aging_mode.get_name_leafdata())
+                if (self.cache_entries.is_set or self.cache_entries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_entries.get_name_leafdata())
+                if (self.cache_inactive_aging_timeout.is_set or self.cache_inactive_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_inactive_aging_timeout.get_name_leafdata())
+                if (self.cache_timeout_rate_limit.is_set or self.cache_timeout_rate_limit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_timeout_rate_limit.get_name_leafdata())
+                if (self.cache_update_aging_timeout.is_set or self.cache_update_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_update_aging_timeout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "exporters"):
+                    if (self.exporters is None):
+                        self.exporters = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters()
+                        self.exporters.parent = self
+                        self._children_name_map["exporters"] = "exporters"
+                    return self.exporters
+
+                if (child_yang_name == "option"):
+                    if (self.option is None):
+                        self.option = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option()
+                        self.option.parent = self
+                        self._children_name_map["option"] = "option"
+                    return self.option
+
+                if (child_yang_name == "record"):
+                    if (self.record is None):
+                        self.record = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record()
+                        self.record.parent = self
+                        self._children_name_map["record"] = "record"
+                    return self.record
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "exporters" or name == "option" or name == "record" or name == "monitor-map-name" or name == "cache-active-aging-timeout" or name == "cache-aging-mode" or name == "cache-entries" or name == "cache-inactive-aging-timeout" or name == "cache-timeout-rate-limit" or name == "cache-update-aging-timeout"):
                     return True
-
-                if self.cache_active_aging_timeout is not None:
-                    return True
-
-                if self.cache_aging_mode is not None:
-                    return True
-
-                if self.cache_entries is not None:
-                    return True
-
-                if self.cache_inactive_aging_timeout is not None:
-                    return True
-
-                if self.cache_timeout_rate_limit is not None:
-                    return True
-
-                if self.cache_update_aging_timeout is not None:
-                    return True
-
-                if self.exporters is not None and self.exporters._has_data():
-                    return True
-
-                if self.option is not None and self.option._has_data():
-                    return True
-
-                if self.record is not None and self.record._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "monitor-map-name"):
+                    self.monitor_map_name = value
+                    self.monitor_map_name.value_namespace = name_space
+                    self.monitor_map_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-active-aging-timeout"):
+                    self.cache_active_aging_timeout = value
+                    self.cache_active_aging_timeout.value_namespace = name_space
+                    self.cache_active_aging_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-aging-mode"):
+                    self.cache_aging_mode = value
+                    self.cache_aging_mode.value_namespace = name_space
+                    self.cache_aging_mode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-entries"):
+                    self.cache_entries = value
+                    self.cache_entries.value_namespace = name_space
+                    self.cache_entries.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-inactive-aging-timeout"):
+                    self.cache_inactive_aging_timeout = value
+                    self.cache_inactive_aging_timeout.value_namespace = name_space
+                    self.cache_inactive_aging_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-timeout-rate-limit"):
+                    self.cache_timeout_rate_limit = value
+                    self.cache_timeout_rate_limit.value_namespace = name_space
+                    self.cache_timeout_rate_limit.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-update-aging-timeout"):
+                    self.cache_update_aging_timeout = value
+                    self.cache_update_aging_timeout.value_namespace = name_space
+                    self.cache_update_aging_timeout.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.flow_monitor_map is not None:
-                for child_ref in self.flow_monitor_map:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.flow_monitor_map:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowMonitorMapTable']['meta_info']
+        def has_operation(self):
+            for c in self.flow_monitor_map:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "flow-monitor-map-table" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "flow-monitor-map"):
+                for c in self.flow_monitor_map:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetFlow.FlowMonitorMapTable.FlowMonitorMap()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.flow_monitor_map.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "flow-monitor-map"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class FlowMonitorMapPerformanceTable(object):
+    class FlowMonitorMapPerformanceTable(Entity):
         """
         Configure a performance traffic flow monitor map
         
@@ -1280,13 +2433,39 @@ class NetFlow(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.flow_monitor_map = YList()
-            self.flow_monitor_map.parent = self
-            self.flow_monitor_map.name = 'flow_monitor_map'
+            super(NetFlow.FlowMonitorMapPerformanceTable, self).__init__()
+
+            self.yang_name = "flow-monitor-map-performance-table"
+            self.yang_parent_name = "net-flow"
+
+            self.flow_monitor_map = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetFlow.FlowMonitorMapPerformanceTable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetFlow.FlowMonitorMapPerformanceTable, self).__setattr__(name, value)
 
 
-        class FlowMonitorMap(object):
+        class FlowMonitorMap(Entity):
             """
             Monitor map name
             
@@ -1311,7 +2490,7 @@ class NetFlow(object):
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
-            	**type**\:   :py:class:`NfCacheAgingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
+            	**type**\:   :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
             
             	**default value**\: normal
             
@@ -1380,22 +2559,71 @@ class NetFlow(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.monitor_map_name = None
-                self.cache_active_aging_timeout = None
-                self.cache_aging_mode = None
-                self.cache_entries = None
-                self.cache_inactive_aging_timeout = None
-                self.cache_timeout_rate_limit = None
-                self.cache_update_aging_timeout = None
+                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__init__()
+
+                self.yang_name = "flow-monitor-map"
+                self.yang_parent_name = "flow-monitor-map-performance-table"
+
+                self.monitor_map_name = YLeaf(YType.str, "monitor-map-name")
+
+                self.cache_active_aging_timeout = YLeaf(YType.uint32, "cache-active-aging-timeout")
+
+                self.cache_aging_mode = YLeaf(YType.enumeration, "cache-aging-mode")
+
+                self.cache_entries = YLeaf(YType.uint32, "cache-entries")
+
+                self.cache_inactive_aging_timeout = YLeaf(YType.uint32, "cache-inactive-aging-timeout")
+
+                self.cache_timeout_rate_limit = YLeaf(YType.uint32, "cache-timeout-rate-limit")
+
+                self.cache_update_aging_timeout = YLeaf(YType.uint32, "cache-update-aging-timeout")
+
                 self.exporters = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters()
                 self.exporters.parent = self
+                self._children_name_map["exporters"] = "exporters"
+                self._children_yang_names.add("exporters")
+
                 self.option = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option()
                 self.option.parent = self
+                self._children_name_map["option"] = "option"
+                self._children_yang_names.add("option")
+
                 self.record = None
+                self._children_name_map["record"] = "record"
+                self._children_yang_names.add("record")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("monitor_map_name",
+                                "cache_active_aging_timeout",
+                                "cache_aging_mode",
+                                "cache_entries",
+                                "cache_inactive_aging_timeout",
+                                "cache_timeout_rate_limit",
+                                "cache_update_aging_timeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__setattr__(name, value)
 
 
-            class Option(object):
+            class Option(Entity):
                 """
                 Specify an option for the flow cache
                 
@@ -1427,45 +2655,119 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bgp_attr = None
-                    self.filtered = None
-                    self.out_bundle_member = None
-                    self.out_phys_int = None
+                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "option"
+                    self.yang_parent_name = "flow-monitor-map"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
+                    self.bgp_attr = YLeaf(YType.empty, "bgp-attr")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.filtered = YLeaf(YType.empty, "filtered")
 
-                def _has_data(self):
-                    if self.bgp_attr is not None:
+                    self.out_bundle_member = YLeaf(YType.empty, "out-bundle-member")
+
+                    self.out_phys_int = YLeaf(YType.empty, "out-phys-int")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("bgp_attr",
+                                    "filtered",
+                                    "out_bundle_member",
+                                    "out_phys_int") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.bgp_attr.is_set or
+                        self.filtered.is_set or
+                        self.out_bundle_member.is_set or
+                        self.out_phys_int.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.bgp_attr.yfilter != YFilter.not_set or
+                        self.filtered.yfilter != YFilter.not_set or
+                        self.out_bundle_member.yfilter != YFilter.not_set or
+                        self.out_phys_int.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "option" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.bgp_attr.is_set or self.bgp_attr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bgp_attr.get_name_leafdata())
+                    if (self.filtered.is_set or self.filtered.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.filtered.get_name_leafdata())
+                    if (self.out_bundle_member.is_set or self.out_bundle_member.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.out_bundle_member.get_name_leafdata())
+                    if (self.out_phys_int.is_set or self.out_phys_int.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.out_phys_int.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bgp-attr" or name == "filtered" or name == "out-bundle-member" or name == "out-phys-int"):
                         return True
-
-                    if self.filtered is not None:
-                        return True
-
-                    if self.out_bundle_member is not None:
-                        return True
-
-                    if self.out_phys_int is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "bgp-attr"):
+                        self.bgp_attr = value
+                        self.bgp_attr.value_namespace = name_space
+                        self.bgp_attr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "filtered"):
+                        self.filtered = value
+                        self.filtered.value_namespace = name_space
+                        self.filtered.value_namespace_prefix = name_space_prefix
+                    if(value_path == "out-bundle-member"):
+                        self.out_bundle_member = value
+                        self.out_bundle_member.value_namespace = name_space
+                        self.out_bundle_member.value_namespace_prefix = name_space_prefix
+                    if(value_path == "out-phys-int"):
+                        self.out_phys_int = value
+                        self.out_phys_int.value_namespace = name_space
+                        self.out_phys_int.value_namespace_prefix = name_space_prefix
 
 
-            class Exporters(object):
+            class Exporters(Entity):
                 """
                 Configure exporters to be used by the
                 monitor\-map
@@ -1483,13 +2785,39 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.exporter = YList()
-                    self.exporter.parent = self
-                    self.exporter.name = 'exporter'
+                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__init__()
+
+                    self.yang_name = "exporters"
+                    self.yang_parent_name = "flow-monitor-map"
+
+                    self.exporter = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__setattr__(name, value)
 
 
-                class Exporter(object):
+                class Exporter(Entity):
                     """
                     Configure exporter to be used by the
                     monitor\-map
@@ -1509,59 +2837,142 @@ class NetFlow(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.exporter_name = None
+                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.exporter_name is None:
-                            raise YPYModelError('Key property exporter_name is None')
+                        self.yang_name = "exporter"
+                        self.yang_parent_name = "exporters"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
+                        self.exporter_name = YLeaf(YType.str, "exporter-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("exporter_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.exporter_name is not None:
+                    def has_data(self):
+                        return self.exporter_name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.exporter_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "exporter" + "[exporter-name='" + self.exporter_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.exporter_name.is_set or self.exporter_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.exporter_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "exporter-name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "exporter-name"):
+                            self.exporter_name = value
+                            self.exporter_name.value_namespace = name_space
+                            self.exporter_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.exporter is not None:
-                        for child_ref in self.exporter:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.exporter:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters']['meta_info']
+                def has_operation(self):
+                    for c in self.exporter:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "exporters" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "exporter"):
+                        for c in self.exporter:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.exporter.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "exporter"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Record(object):
+            class Record(Entity):
                 """
                 Specify a flow record format
                 
@@ -1581,11 +2992,6 @@ class NetFlow(object):
                 
                 	**mandatory**\: True
                 
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -1596,136 +3002,351 @@ class NetFlow(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self._is_presence = True
-                    self.label = None
-                    self.record_name = None
+                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "record"
+                    self.yang_parent_name = "flow-monitor-map"
+                    self.is_presence_container = True
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
+                    self.label = YLeaf(YType.uint32, "label")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.record_name = YLeaf(YType.str, "record-name")
 
-                def _has_data(self):
-                    if self._is_presence:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("label",
+                                    "record_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.label.is_set or
+                        self.record_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.label.yfilter != YFilter.not_set or
+                        self.record_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "record" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.label.get_name_leafdata())
+                    if (self.record_name.is_set or self.record_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.record_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "label" or name == "record-name"):
                         return True
-                    if self.label is not None:
-                        return True
-
-                    if self.record_name is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "label"):
+                        self.label = value
+                        self.label.value_namespace = name_space
+                        self.label.value_namespace_prefix = name_space_prefix
+                    if(value_path == "record-name"):
+                        self.record_name = value
+                        self.record_name.value_namespace = name_space
+                        self.record_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.monitor_map_name is None:
-                    raise YPYModelError('Key property monitor_map_name is None')
+            def has_data(self):
+                return (
+                    self.monitor_map_name.is_set or
+                    self.cache_active_aging_timeout.is_set or
+                    self.cache_aging_mode.is_set or
+                    self.cache_entries.is_set or
+                    self.cache_inactive_aging_timeout.is_set or
+                    self.cache_timeout_rate_limit.is_set or
+                    self.cache_update_aging_timeout.is_set or
+                    (self.exporters is not None and self.exporters.has_data()) or
+                    (self.option is not None and self.option.has_data()) or
+                    (self.record is not None))
 
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.monitor_map_name.yfilter != YFilter.not_set or
+                    self.cache_active_aging_timeout.yfilter != YFilter.not_set or
+                    self.cache_aging_mode.yfilter != YFilter.not_set or
+                    self.cache_entries.yfilter != YFilter.not_set or
+                    self.cache_inactive_aging_timeout.yfilter != YFilter.not_set or
+                    self.cache_timeout_rate_limit.yfilter != YFilter.not_set or
+                    self.cache_update_aging_timeout.yfilter != YFilter.not_set or
+                    (self.exporters is not None and self.exporters.has_operation()) or
+                    (self.option is not None and self.option.has_operation()) or
+                    (self.record is not None and self.record.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "flow-monitor-map" + "[monitor-map-name='" + self.monitor_map_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.monitor_map_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.monitor_map_name.is_set or self.monitor_map_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.monitor_map_name.get_name_leafdata())
+                if (self.cache_active_aging_timeout.is_set or self.cache_active_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_active_aging_timeout.get_name_leafdata())
+                if (self.cache_aging_mode.is_set or self.cache_aging_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_aging_mode.get_name_leafdata())
+                if (self.cache_entries.is_set or self.cache_entries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_entries.get_name_leafdata())
+                if (self.cache_inactive_aging_timeout.is_set or self.cache_inactive_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_inactive_aging_timeout.get_name_leafdata())
+                if (self.cache_timeout_rate_limit.is_set or self.cache_timeout_rate_limit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_timeout_rate_limit.get_name_leafdata())
+                if (self.cache_update_aging_timeout.is_set or self.cache_update_aging_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_update_aging_timeout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "exporters"):
+                    if (self.exporters is None):
+                        self.exporters = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters()
+                        self.exporters.parent = self
+                        self._children_name_map["exporters"] = "exporters"
+                    return self.exporters
+
+                if (child_yang_name == "option"):
+                    if (self.option is None):
+                        self.option = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option()
+                        self.option.parent = self
+                        self._children_name_map["option"] = "option"
+                    return self.option
+
+                if (child_yang_name == "record"):
+                    if (self.record is None):
+                        self.record = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record()
+                        self.record.parent = self
+                        self._children_name_map["record"] = "record"
+                    return self.record
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "exporters" or name == "option" or name == "record" or name == "monitor-map-name" or name == "cache-active-aging-timeout" or name == "cache-aging-mode" or name == "cache-entries" or name == "cache-inactive-aging-timeout" or name == "cache-timeout-rate-limit" or name == "cache-update-aging-timeout"):
                     return True
-
-                if self.cache_active_aging_timeout is not None:
-                    return True
-
-                if self.cache_aging_mode is not None:
-                    return True
-
-                if self.cache_entries is not None:
-                    return True
-
-                if self.cache_inactive_aging_timeout is not None:
-                    return True
-
-                if self.cache_timeout_rate_limit is not None:
-                    return True
-
-                if self.cache_update_aging_timeout is not None:
-                    return True
-
-                if self.exporters is not None and self.exporters._has_data():
-                    return True
-
-                if self.option is not None and self.option._has_data():
-                    return True
-
-                if self.record is not None and self.record._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "monitor-map-name"):
+                    self.monitor_map_name = value
+                    self.monitor_map_name.value_namespace = name_space
+                    self.monitor_map_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-active-aging-timeout"):
+                    self.cache_active_aging_timeout = value
+                    self.cache_active_aging_timeout.value_namespace = name_space
+                    self.cache_active_aging_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-aging-mode"):
+                    self.cache_aging_mode = value
+                    self.cache_aging_mode.value_namespace = name_space
+                    self.cache_aging_mode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-entries"):
+                    self.cache_entries = value
+                    self.cache_entries.value_namespace = name_space
+                    self.cache_entries.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-inactive-aging-timeout"):
+                    self.cache_inactive_aging_timeout = value
+                    self.cache_inactive_aging_timeout.value_namespace = name_space
+                    self.cache_inactive_aging_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-timeout-rate-limit"):
+                    self.cache_timeout_rate_limit = value
+                    self.cache_timeout_rate_limit.value_namespace = name_space
+                    self.cache_timeout_rate_limit.value_namespace_prefix = name_space_prefix
+                if(value_path == "cache-update-aging-timeout"):
+                    self.cache_update_aging_timeout = value
+                    self.cache_update_aging_timeout.value_namespace = name_space
+                    self.cache_update_aging_timeout.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.flow_monitor_map is not None:
-                for child_ref in self.flow_monitor_map:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.flow_monitor_map:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable']['meta_info']
+        def has_operation(self):
+            for c in self.flow_monitor_map:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "flow-monitor-map-performance-table" + path_buffer
 
-        return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.flow_exporter_maps is not None and self.flow_exporter_maps._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "flow-monitor-map"):
+                for c in self.flow_monitor_map:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.flow_monitor_map.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "flow-monitor-map"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.flow_exporter_maps is not None and self.flow_exporter_maps.has_data()) or
+            (self.flow_monitor_map_performance_table is not None and self.flow_monitor_map_performance_table.has_data()) or
+            (self.flow_monitor_map_table is not None and self.flow_monitor_map_table.has_data()) or
+            (self.flow_sampler_maps is not None and self.flow_sampler_maps.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.flow_exporter_maps is not None and self.flow_exporter_maps.has_operation()) or
+            (self.flow_monitor_map_performance_table is not None and self.flow_monitor_map_performance_table.has_operation()) or
+            (self.flow_monitor_map_table is not None and self.flow_monitor_map_table.has_operation()) or
+            (self.flow_sampler_maps is not None and self.flow_sampler_maps.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "flow-exporter-maps"):
+            if (self.flow_exporter_maps is None):
+                self.flow_exporter_maps = NetFlow.FlowExporterMaps()
+                self.flow_exporter_maps.parent = self
+                self._children_name_map["flow_exporter_maps"] = "flow-exporter-maps"
+            return self.flow_exporter_maps
+
+        if (child_yang_name == "flow-monitor-map-performance-table"):
+            if (self.flow_monitor_map_performance_table is None):
+                self.flow_monitor_map_performance_table = NetFlow.FlowMonitorMapPerformanceTable()
+                self.flow_monitor_map_performance_table.parent = self
+                self._children_name_map["flow_monitor_map_performance_table"] = "flow-monitor-map-performance-table"
+            return self.flow_monitor_map_performance_table
+
+        if (child_yang_name == "flow-monitor-map-table"):
+            if (self.flow_monitor_map_table is None):
+                self.flow_monitor_map_table = NetFlow.FlowMonitorMapTable()
+                self.flow_monitor_map_table.parent = self
+                self._children_name_map["flow_monitor_map_table"] = "flow-monitor-map-table"
+            return self.flow_monitor_map_table
+
+        if (child_yang_name == "flow-sampler-maps"):
+            if (self.flow_sampler_maps is None):
+                self.flow_sampler_maps = NetFlow.FlowSamplerMaps()
+                self.flow_sampler_maps.parent = self
+                self._children_name_map["flow_sampler_maps"] = "flow-sampler-maps"
+            return self.flow_sampler_maps
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "flow-exporter-maps" or name == "flow-monitor-map-performance-table" or name == "flow-monitor-map-table" or name == "flow-sampler-maps"):
             return True
-
-        if self.flow_monitor_map_performance_table is not None and self.flow_monitor_map_performance_table._has_data():
-            return True
-
-        if self.flow_monitor_map_table is not None and self.flow_monitor_map_table._has_data():
-            return True
-
-        if self.flow_sampler_maps is not None and self.flow_sampler_maps._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-        return meta._meta_table['NetFlow']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = NetFlow()
+        return self._top_entity
 

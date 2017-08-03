@@ -1,26 +1,20 @@
 """ Cisco_IOS_XE_ospf 
 
 Cisco XE Native Open Shortest Path First (OSPF) Yang model.
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RedistOspfExternalTypeEnum(Enum):
+class RedistOspfExternalType(Enum):
     """
-    RedistOspfExternalTypeEnum
+    RedistOspfExternalType
 
     .. data:: Y_1 = 0
 
@@ -28,15 +22,9 @@ class RedistOspfExternalTypeEnum(Enum):
 
     """
 
-    Y_1 = 0
+    Y_1 = Enum.YLeaf(0, "1")
 
-    Y_2 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_ospf as meta
-        return meta._meta_table['RedistOspfExternalTypeEnum']
+    Y_2 = Enum.YLeaf(1, "2")
 
 
 

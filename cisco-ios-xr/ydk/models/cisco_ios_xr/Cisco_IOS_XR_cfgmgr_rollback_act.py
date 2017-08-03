@@ -7,28 +7,22 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class RollBackConfigurationLastRpc(object):
+class RollBackConfigurationLast(Entity):
     """
     Rollback last <n> commits made
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLastRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLast.Input>`
     
     
 
@@ -38,13 +32,19 @@ class RollBackConfigurationLastRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = RollBackConfigurationLastRpc.Input()
+        super(RollBackConfigurationLast, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "roll-back-configuration-last"
+        self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
+
+        self.input = RollBackConfigurationLast.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -89,76 +89,187 @@ class RollBackConfigurationLastRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.best_effort = None
-            self.comment = None
-            self.count = None
-            self.force = None
-            self.label = None
+            super(RollBackConfigurationLast.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "roll-back-configuration-last"
 
-            return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last/Cisco-IOS-XR-cfgmgr-rollback-act:input'
+            self.best_effort = YLeaf(YType.boolean, "best-effort")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.comment = YLeaf(YType.str, "comment")
 
-        def _has_data(self):
-            if self.best_effort is not None:
+            self.count = YLeaf(YType.int32, "count")
+
+            self.force = YLeaf(YType.boolean, "force")
+
+            self.label = YLeaf(YType.str, "label")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("best_effort",
+                            "comment",
+                            "count",
+                            "force",
+                            "label") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RollBackConfigurationLast.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RollBackConfigurationLast.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.best_effort.is_set or
+                self.comment.is_set or
+                self.count.is_set or
+                self.force.is_set or
+                self.label.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.best_effort.yfilter != YFilter.not_set or
+                self.comment.yfilter != YFilter.not_set or
+                self.count.yfilter != YFilter.not_set or
+                self.force.yfilter != YFilter.not_set or
+                self.label.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.best_effort.is_set or self.best_effort.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.best_effort.get_name_leafdata())
+            if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.comment.get_name_leafdata())
+            if (self.count.is_set or self.count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.count.get_name_leafdata())
+            if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.force.get_name_leafdata())
+            if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.label.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "best-effort" or name == "comment" or name == "count" or name == "force" or name == "label"):
                 return True
-
-            if self.comment is not None:
-                return True
-
-            if self.count is not None:
-                return True
-
-            if self.force is not None:
-                return True
-
-            if self.label is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-            return meta._meta_table['RollBackConfigurationLastRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "best-effort"):
+                self.best_effort = value
+                self.best_effort.value_namespace = name_space
+                self.best_effort.value_namespace_prefix = name_space_prefix
+            if(value_path == "comment"):
+                self.comment = value
+                self.comment.value_namespace = name_space
+                self.comment.value_namespace_prefix = name_space_prefix
+            if(value_path == "count"):
+                self.count = value
+                self.count.value_namespace = name_space
+                self.count.value_namespace_prefix = name_space_prefix
+            if(value_path == "force"):
+                self.force = value
+                self.force.value_namespace = name_space
+                self.force.value_namespace_prefix = name_space_prefix
+            if(value_path == "label"):
+                self.label = value
+                self.label.value_namespace = name_space
+                self.label.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RollBackConfigurationLast.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-        return meta._meta_table['RollBackConfigurationLastRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RollBackConfigurationLast()
+        return self._top_entity
 
-class RollBackConfigurationToRpc(object):
+class RollBackConfigurationTo(Entity):
     """
     Rollback up to (and including) a specific commit
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationTo.Input>`
     
     
 
@@ -168,13 +279,19 @@ class RollBackConfigurationToRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = RollBackConfigurationToRpc.Input()
+        super(RollBackConfigurationTo, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "roll-back-configuration-to"
+        self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
+
+        self.input = RollBackConfigurationTo.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -217,76 +334,187 @@ class RollBackConfigurationToRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.best_effort = None
-            self.comment = None
-            self.commit_id = None
-            self.force = None
-            self.label = None
+            super(RollBackConfigurationTo.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "roll-back-configuration-to"
 
-            return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to/Cisco-IOS-XR-cfgmgr-rollback-act:input'
+            self.best_effort = YLeaf(YType.boolean, "best-effort")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.comment = YLeaf(YType.str, "comment")
 
-        def _has_data(self):
-            if self.best_effort is not None:
+            self.commit_id = YLeaf(YType.str, "commit-id")
+
+            self.force = YLeaf(YType.boolean, "force")
+
+            self.label = YLeaf(YType.str, "label")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("best_effort",
+                            "comment",
+                            "commit_id",
+                            "force",
+                            "label") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RollBackConfigurationTo.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RollBackConfigurationTo.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.best_effort.is_set or
+                self.comment.is_set or
+                self.commit_id.is_set or
+                self.force.is_set or
+                self.label.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.best_effort.yfilter != YFilter.not_set or
+                self.comment.yfilter != YFilter.not_set or
+                self.commit_id.yfilter != YFilter.not_set or
+                self.force.yfilter != YFilter.not_set or
+                self.label.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.best_effort.is_set or self.best_effort.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.best_effort.get_name_leafdata())
+            if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.comment.get_name_leafdata())
+            if (self.commit_id.is_set or self.commit_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.commit_id.get_name_leafdata())
+            if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.force.get_name_leafdata())
+            if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.label.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "best-effort" or name == "comment" or name == "commit-id" or name == "force" or name == "label"):
                 return True
-
-            if self.comment is not None:
-                return True
-
-            if self.commit_id is not None:
-                return True
-
-            if self.force is not None:
-                return True
-
-            if self.label is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-            return meta._meta_table['RollBackConfigurationToRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "best-effort"):
+                self.best_effort = value
+                self.best_effort.value_namespace = name_space
+                self.best_effort.value_namespace_prefix = name_space_prefix
+            if(value_path == "comment"):
+                self.comment = value
+                self.comment.value_namespace = name_space
+                self.comment.value_namespace_prefix = name_space_prefix
+            if(value_path == "commit-id"):
+                self.commit_id = value
+                self.commit_id.value_namespace = name_space
+                self.commit_id.value_namespace_prefix = name_space_prefix
+            if(value_path == "force"):
+                self.force = value
+                self.force.value_namespace = name_space
+                self.force.value_namespace_prefix = name_space_prefix
+            if(value_path == "label"):
+                self.label = value
+                self.label.value_namespace = name_space
+                self.label.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RollBackConfigurationTo.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-        return meta._meta_table['RollBackConfigurationToRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RollBackConfigurationTo()
+        return self._top_entity
 
-class RollBackConfigurationToExcludeRpc(object):
+class RollBackConfigurationToExclude(Entity):
     """
     Rollback up to (and excluding) a specific commit
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExcludeRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExclude.Input>`
     
     
 
@@ -296,13 +524,19 @@ class RollBackConfigurationToExcludeRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = RollBackConfigurationToExcludeRpc.Input()
+        super(RollBackConfigurationToExclude, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "roll-back-configuration-to-exclude"
+        self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
+
+        self.input = RollBackConfigurationToExclude.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -345,76 +579,187 @@ class RollBackConfigurationToExcludeRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.best_effort = None
-            self.comment = None
-            self.commit_id = None
-            self.force = None
-            self.label = None
+            super(RollBackConfigurationToExclude.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "roll-back-configuration-to-exclude"
 
-            return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude/Cisco-IOS-XR-cfgmgr-rollback-act:input'
+            self.best_effort = YLeaf(YType.boolean, "best-effort")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.comment = YLeaf(YType.str, "comment")
 
-        def _has_data(self):
-            if self.best_effort is not None:
+            self.commit_id = YLeaf(YType.str, "commit-id")
+
+            self.force = YLeaf(YType.boolean, "force")
+
+            self.label = YLeaf(YType.str, "label")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("best_effort",
+                            "comment",
+                            "commit_id",
+                            "force",
+                            "label") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RollBackConfigurationToExclude.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RollBackConfigurationToExclude.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.best_effort.is_set or
+                self.comment.is_set or
+                self.commit_id.is_set or
+                self.force.is_set or
+                self.label.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.best_effort.yfilter != YFilter.not_set or
+                self.comment.yfilter != YFilter.not_set or
+                self.commit_id.yfilter != YFilter.not_set or
+                self.force.yfilter != YFilter.not_set or
+                self.label.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.best_effort.is_set or self.best_effort.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.best_effort.get_name_leafdata())
+            if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.comment.get_name_leafdata())
+            if (self.commit_id.is_set or self.commit_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.commit_id.get_name_leafdata())
+            if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.force.get_name_leafdata())
+            if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.label.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "best-effort" or name == "comment" or name == "commit-id" or name == "force" or name == "label"):
                 return True
-
-            if self.comment is not None:
-                return True
-
-            if self.commit_id is not None:
-                return True
-
-            if self.force is not None:
-                return True
-
-            if self.label is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-            return meta._meta_table['RollBackConfigurationToExcludeRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "best-effort"):
+                self.best_effort = value
+                self.best_effort.value_namespace = name_space
+                self.best_effort.value_namespace_prefix = name_space_prefix
+            if(value_path == "comment"):
+                self.comment = value
+                self.comment.value_namespace = name_space
+                self.comment.value_namespace_prefix = name_space_prefix
+            if(value_path == "commit-id"):
+                self.commit_id = value
+                self.commit_id.value_namespace = name_space
+                self.commit_id.value_namespace_prefix = name_space_prefix
+            if(value_path == "force"):
+                self.force = value
+                self.force.value_namespace = name_space
+                self.force.value_namespace_prefix = name_space_prefix
+            if(value_path == "label"):
+                self.label = value
+                self.label.value_namespace = name_space
+                self.label.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RollBackConfigurationToExclude.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-        return meta._meta_table['RollBackConfigurationToExcludeRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RollBackConfigurationToExclude()
+        return self._top_entity
 
-class RollBackConfigurationRpc(object):
+class RollBackConfiguration(Entity):
     """
     Rollback a specific commit
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfiguration.Input>`
     
     
 
@@ -424,13 +769,19 @@ class RollBackConfigurationRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = RollBackConfigurationRpc.Input()
+        super(RollBackConfiguration, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "roll-back-configuration"
+        self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
+
+        self.input = RollBackConfiguration.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -473,65 +824,176 @@ class RollBackConfigurationRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.best_effort = None
-            self.comment = None
-            self.commit_id = None
-            self.force = None
-            self.label = None
+            super(RollBackConfiguration.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "roll-back-configuration"
 
-            return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration/Cisco-IOS-XR-cfgmgr-rollback-act:input'
+            self.best_effort = YLeaf(YType.boolean, "best-effort")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.comment = YLeaf(YType.str, "comment")
 
-        def _has_data(self):
-            if self.best_effort is not None:
+            self.commit_id = YLeaf(YType.str, "commit-id")
+
+            self.force = YLeaf(YType.boolean, "force")
+
+            self.label = YLeaf(YType.str, "label")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("best_effort",
+                            "comment",
+                            "commit_id",
+                            "force",
+                            "label") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RollBackConfiguration.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RollBackConfiguration.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.best_effort.is_set or
+                self.comment.is_set or
+                self.commit_id.is_set or
+                self.force.is_set or
+                self.label.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.best_effort.yfilter != YFilter.not_set or
+                self.comment.yfilter != YFilter.not_set or
+                self.commit_id.yfilter != YFilter.not_set or
+                self.force.yfilter != YFilter.not_set or
+                self.label.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.best_effort.is_set or self.best_effort.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.best_effort.get_name_leafdata())
+            if (self.comment.is_set or self.comment.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.comment.get_name_leafdata())
+            if (self.commit_id.is_set or self.commit_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.commit_id.get_name_leafdata())
+            if (self.force.is_set or self.force.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.force.get_name_leafdata())
+            if (self.label.is_set or self.label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.label.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "best-effort" or name == "comment" or name == "commit-id" or name == "force" or name == "label"):
                 return True
-
-            if self.comment is not None:
-                return True
-
-            if self.commit_id is not None:
-                return True
-
-            if self.force is not None:
-                return True
-
-            if self.label is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-            return meta._meta_table['RollBackConfigurationRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "best-effort"):
+                self.best_effort = value
+                self.best_effort.value_namespace = name_space
+                self.best_effort.value_namespace_prefix = name_space_prefix
+            if(value_path == "comment"):
+                self.comment = value
+                self.comment.value_namespace = name_space
+                self.comment.value_namespace_prefix = name_space_prefix
+            if(value_path == "commit-id"):
+                self.commit_id = value
+                self.commit_id.value_namespace = name_space
+                self.commit_id.value_namespace_prefix = name_space_prefix
+            if(value_path == "force"):
+                self.force = value
+                self.force.value_namespace = name_space
+                self.force.value_namespace_prefix = name_space_prefix
+            if(value_path == "label"):
+                self.label = value
+                self.label.value_namespace = name_space
+                self.label.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = RollBackConfiguration.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
-        return meta._meta_table['RollBackConfigurationRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = RollBackConfiguration()
+        return self._top_entity
 

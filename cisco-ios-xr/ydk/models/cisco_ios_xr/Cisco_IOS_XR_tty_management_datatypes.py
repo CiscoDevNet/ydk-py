@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class TtyEscapeCharEnum(Enum):
+class TtyEscapeChar(Enum):
     """
-    TtyEscapeCharEnum
+    TtyEscapeChar
 
     Tty escape char
 
@@ -40,22 +34,16 @@ class TtyEscapeCharEnum(Enum):
 
     """
 
-    break_ = 257
+    break_ = Enum.YLeaf(257, "break")
 
-    default = 30
+    default = Enum.YLeaf(30, "default")
 
-    none = 256
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyEscapeCharEnum']
+    none = Enum.YLeaf(256, "none")
 
 
-class TtyPagerEnum(Enum):
+class TtyPager(Enum):
     """
-    TtyPagerEnum
+    TtyPager
 
     Tty pager
 
@@ -73,22 +61,16 @@ class TtyPagerEnum(Enum):
 
     """
 
-    more = 1
+    more = Enum.YLeaf(1, "more")
 
-    less = 2
+    less = Enum.YLeaf(2, "less")
 
-    none = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyPagerEnum']
+    none = Enum.YLeaf(3, "none")
 
 
-class TtySessionTimeoutDirectionEnum(Enum):
+class TtySessionTimeoutDirection(Enum):
     """
-    TtySessionTimeoutDirectionEnum
+    TtySessionTimeoutDirection
 
     Tty session timeout direction
 
@@ -102,20 +84,14 @@ class TtySessionTimeoutDirectionEnum(Enum):
 
     """
 
-    in_ = 1
+    in_ = Enum.YLeaf(1, "in")
 
-    in_out = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtySessionTimeoutDirectionEnum']
+    in_out = Enum.YLeaf(3, "in-out")
 
 
-class TtyTransportProtocolEnum(Enum):
+class TtyTransportProtocol(Enum):
     """
-    TtyTransportProtocolEnum
+    TtyTransportProtocol
 
     Tty transport protocol
 
@@ -133,22 +109,16 @@ class TtyTransportProtocolEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    telnet = 1
+    telnet = Enum.YLeaf(1, "telnet")
 
-    ssh = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyTransportProtocolEnum']
+    ssh = Enum.YLeaf(3, "ssh")
 
 
-class TtyTransportProtocolSelectEnum(Enum):
+class TtyTransportProtocolSelect(Enum):
     """
-    TtyTransportProtocolSelectEnum
+    TtyTransportProtocolSelect
 
     Tty transport protocol select
 
@@ -166,17 +136,11 @@ class TtyTransportProtocolSelectEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    all = 1
+    all = Enum.YLeaf(1, "all")
 
-    some = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyTransportProtocolSelectEnum']
+    some = Enum.YLeaf(2, "some")
 
 
 

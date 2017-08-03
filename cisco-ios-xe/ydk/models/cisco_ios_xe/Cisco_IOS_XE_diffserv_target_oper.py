@@ -4,21 +4,15 @@ This module contains a collection of YANG definitions for
 Diffserv operational dataCopyright (c) 2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class DirectionIdentity(object):
+class Direction(Identity):
     """
     This is identity of traffic direction
     
@@ -30,15 +24,10 @@ class DirectionIdentity(object):
     _revision = '2017-02-09'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-        return meta._meta_table['DirectionIdentity']['meta_info']
+        super(Direction, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper:direction")
 
 
-class DiffservInterfacesState(object):
+class DiffservInterfacesState(Entity):
     """
     Interface configuration parameters.
     
@@ -55,12 +44,40 @@ class DiffservInterfacesState(object):
     _revision = '2017-02-09'
 
     def __init__(self):
-        self.diffserv_interface = YList()
-        self.diffserv_interface.parent = self
-        self.diffserv_interface.name = 'diffserv_interface'
+        super(DiffservInterfacesState, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "diffserv-interfaces-state"
+        self.yang_parent_name = "Cisco-IOS-XE-diffserv-target-oper"
+
+        self.diffserv_interface = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(DiffservInterfacesState, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(DiffservInterfacesState, self).__setattr__(name, value)
 
 
-    class DiffservInterface(object):
+    class DiffservInterface(Entity):
         """
         The list of configured interfaces on the device.
         
@@ -82,21 +99,48 @@ class DiffservInterfacesState(object):
         _revision = '2017-02-09'
 
         def __init__(self):
-            self.parent = None
-            self.name = None
-            self.diffserv_target_entry = YList()
-            self.diffserv_target_entry.parent = self
-            self.diffserv_target_entry.name = 'diffserv_target_entry'
+            super(DiffservInterfacesState.DiffservInterface, self).__init__()
+
+            self.yang_name = "diffserv-interface"
+            self.yang_parent_name = "diffserv-interfaces-state"
+
+            self.name = YLeaf(YType.str, "name")
+
+            self.diffserv_target_entry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DiffservInterfacesState.DiffservInterface, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DiffservInterfacesState.DiffservInterface, self).__setattr__(name, value)
 
 
-        class DiffservTargetEntry(object):
+        class DiffservTargetEntry(Entity):
             """
             policy target for inbound or outbound direction
             
             .. attribute:: direction  <key>
             
             	Direction fo the traffic flow either inbound or outbound
-            	**type**\:   :py:class:`DirectionIdentity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DirectionIdentity>`
+            	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.Direction>`
             
             .. attribute:: policy_name  <key>
             
@@ -116,15 +160,44 @@ class DiffservInterfacesState(object):
             _revision = '2017-02-09'
 
             def __init__(self):
-                self.parent = None
-                self.direction = None
-                self.policy_name = None
-                self.diffserv_target_classifier_statistics = YList()
-                self.diffserv_target_classifier_statistics.parent = self
-                self.diffserv_target_classifier_statistics.name = 'diffserv_target_classifier_statistics'
+                super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry, self).__init__()
+
+                self.yang_name = "diffserv-target-entry"
+                self.yang_parent_name = "diffserv-interface"
+
+                self.direction = YLeaf(YType.identityref, "direction")
+
+                self.policy_name = YLeaf(YType.str, "policy-name")
+
+                self.diffserv_target_classifier_statistics = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("direction",
+                                "policy_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry, self).__setattr__(name, value)
 
 
-            class DiffservTargetClassifierStatistics(object):
+            class DiffservTargetClassifierStatistics(Entity):
                 """
                 Statistics for each Classifier Entry in a Policy
                 
@@ -161,19 +234,54 @@ class DiffservInterfacesState(object):
                 _revision = '2017-02-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.classifier_entry_name = None
-                    self.parent_path = None
+                    super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics, self).__init__()
+
+                    self.yang_name = "diffserv-target-classifier-statistics"
+                    self.yang_parent_name = "diffserv-target-entry"
+
+                    self.classifier_entry_name = YLeaf(YType.str, "classifier-entry-name")
+
+                    self.parent_path = YLeaf(YType.str, "parent-path")
+
                     self.classifier_entry_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics()
                     self.classifier_entry_statistics.parent = self
-                    self.meter_statistics = YList()
-                    self.meter_statistics.parent = self
-                    self.meter_statistics.name = 'meter_statistics'
+                    self._children_name_map["classifier_entry_statistics"] = "classifier-entry-statistics"
+                    self._children_yang_names.add("classifier-entry-statistics")
+
                     self.queuing_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics()
                     self.queuing_statistics.parent = self
+                    self._children_name_map["queuing_statistics"] = "queuing-statistics"
+                    self._children_yang_names.add("queuing-statistics")
+
+                    self.meter_statistics = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("classifier_entry_name",
+                                    "parent_path") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics, self).__setattr__(name, value)
 
 
-                class ClassifierEntryStatistics(object):
+                class ClassifierEntryStatistics(Entity):
                     """
                     
                     This group defines the classifier filter statistics of 
@@ -212,41 +320,108 @@ class DiffservInterfacesState(object):
                     _revision = '2017-02-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.classified_bytes = None
-                        self.classified_pkts = None
-                        self.classified_rate = None
+                        super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "classifier-entry-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:classifier-entry-statistics'
+                        self.classified_bytes = YLeaf(YType.uint64, "classified-bytes")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.classified_pkts = YLeaf(YType.uint64, "classified-pkts")
+
+                        self.classified_rate = YLeaf(YType.uint64, "classified-rate")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("classified_bytes",
+                                        "classified_pkts",
+                                        "classified_rate") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.classified_bytes.is_set or
+                            self.classified_pkts.is_set or
+                            self.classified_rate.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.classified_bytes.yfilter != YFilter.not_set or
+                            self.classified_pkts.yfilter != YFilter.not_set or
+                            self.classified_rate.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "classifier-entry-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.classified_bytes.is_set or self.classified_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.classified_bytes.get_name_leafdata())
+                        if (self.classified_pkts.is_set or self.classified_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.classified_pkts.get_name_leafdata())
+                        if (self.classified_rate.is_set or self.classified_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.classified_rate.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "classified-bytes" or name == "classified-pkts" or name == "classified-rate"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.classified_bytes is not None:
-                            return True
-
-                        if self.classified_pkts is not None:
-                            return True
-
-                        if self.classified_rate is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                        return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "classified-bytes"):
+                            self.classified_bytes = value
+                            self.classified_bytes.value_namespace = name_space
+                            self.classified_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "classified-pkts"):
+                            self.classified_pkts = value
+                            self.classified_pkts.value_namespace = name_space
+                            self.classified_pkts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "classified-rate"):
+                            self.classified_rate = value
+                            self.classified_rate.value_namespace = name_space
+                            self.classified_rate.value_namespace_prefix = name_space_prefix
 
 
-                class MeterStatistics(object):
+                class MeterStatistics(Entity):
                     """
                     Meter statistics
                     
@@ -293,51 +468,130 @@ class DiffservInterfacesState(object):
                     _revision = '2017-02-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.meter_id = None
-                        self.meter_failed_bytes = None
-                        self.meter_failed_pkts = None
-                        self.meter_succeed_bytes = None
-                        self.meter_succeed_pkts = None
+                        super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.meter_id is None:
-                            raise YPYModelError('Key property meter_id is None')
+                        self.yang_name = "meter-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:meter-statistics[Cisco-IOS-XE-diffserv-target-oper:meter-id = ' + str(self.meter_id) + ']'
+                        self.meter_id = YLeaf(YType.uint16, "meter-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.meter_failed_bytes = YLeaf(YType.uint64, "meter-failed-bytes")
+
+                        self.meter_failed_pkts = YLeaf(YType.uint64, "meter-failed-pkts")
+
+                        self.meter_succeed_bytes = YLeaf(YType.uint64, "meter-succeed-bytes")
+
+                        self.meter_succeed_pkts = YLeaf(YType.uint64, "meter-succeed-pkts")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("meter_id",
+                                        "meter_failed_bytes",
+                                        "meter_failed_pkts",
+                                        "meter_succeed_bytes",
+                                        "meter_succeed_pkts") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.meter_id.is_set or
+                            self.meter_failed_bytes.is_set or
+                            self.meter_failed_pkts.is_set or
+                            self.meter_succeed_bytes.is_set or
+                            self.meter_succeed_pkts.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.meter_id.yfilter != YFilter.not_set or
+                            self.meter_failed_bytes.yfilter != YFilter.not_set or
+                            self.meter_failed_pkts.yfilter != YFilter.not_set or
+                            self.meter_succeed_bytes.yfilter != YFilter.not_set or
+                            self.meter_succeed_pkts.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "meter-statistics" + "[meter-id='" + self.meter_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.meter_id.is_set or self.meter_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.meter_id.get_name_leafdata())
+                        if (self.meter_failed_bytes.is_set or self.meter_failed_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.meter_failed_bytes.get_name_leafdata())
+                        if (self.meter_failed_pkts.is_set or self.meter_failed_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.meter_failed_pkts.get_name_leafdata())
+                        if (self.meter_succeed_bytes.is_set or self.meter_succeed_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.meter_succeed_bytes.get_name_leafdata())
+                        if (self.meter_succeed_pkts.is_set or self.meter_succeed_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.meter_succeed_pkts.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "meter-id" or name == "meter-failed-bytes" or name == "meter-failed-pkts" or name == "meter-succeed-bytes" or name == "meter-succeed-pkts"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.meter_id is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "meter-id"):
+                            self.meter_id = value
+                            self.meter_id.value_namespace = name_space
+                            self.meter_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "meter-failed-bytes"):
+                            self.meter_failed_bytes = value
+                            self.meter_failed_bytes.value_namespace = name_space
+                            self.meter_failed_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "meter-failed-pkts"):
+                            self.meter_failed_pkts = value
+                            self.meter_failed_pkts.value_namespace = name_space
+                            self.meter_failed_pkts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "meter-succeed-bytes"):
+                            self.meter_succeed_bytes = value
+                            self.meter_succeed_bytes.value_namespace = name_space
+                            self.meter_succeed_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "meter-succeed-pkts"):
+                            self.meter_succeed_pkts = value
+                            self.meter_succeed_pkts.value_namespace = name_space
+                            self.meter_succeed_pkts.value_namespace_prefix = name_space_prefix
 
-                        if self.meter_failed_bytes is not None:
-                            return True
 
-                        if self.meter_failed_pkts is not None:
-                            return True
-
-                        if self.meter_succeed_bytes is not None:
-                            return True
-
-                        if self.meter_succeed_pkts is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                        return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics']['meta_info']
-
-
-                class QueuingStatistics(object):
+                class QueuingStatistics(Entity):
                     """
                     queue related statistics 
                     
@@ -396,18 +650,59 @@ class DiffservInterfacesState(object):
                     _revision = '2017-02-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.drop_bytes = None
-                        self.drop_pkts = None
-                        self.output_bytes = None
-                        self.output_pkts = None
-                        self.queue_size_bytes = None
-                        self.queue_size_pkts = None
+                        super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, self).__init__()
+
+                        self.yang_name = "queuing-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
+
+                        self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
+
+                        self.drop_pkts = YLeaf(YType.uint64, "drop-pkts")
+
+                        self.output_bytes = YLeaf(YType.uint64, "output-bytes")
+
+                        self.output_pkts = YLeaf(YType.uint64, "output-pkts")
+
+                        self.queue_size_bytes = YLeaf(YType.uint64, "queue-size-bytes")
+
+                        self.queue_size_pkts = YLeaf(YType.uint64, "queue-size-pkts")
+
                         self.wred_stats = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
                         self.wred_stats.parent = self
+                        self._children_name_map["wred_stats"] = "wred-stats"
+                        self._children_yang_names.add("wred-stats")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("drop_bytes",
+                                        "drop_pkts",
+                                        "output_bytes",
+                                        "output_pkts",
+                                        "queue_size_bytes",
+                                        "queue_size_pkts") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, self).__setattr__(name, value)
 
 
-                    class WredStats(object):
+                    class WredStats(Entity):
                         """
                         Container for WRED statistics
                         
@@ -433,220 +728,480 @@ class DiffservInterfacesState(object):
                         _revision = '2017-02-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.early_drop_bytes = None
-                            self.early_drop_pkts = None
+                            super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "wred-stats"
+                            self.yang_parent_name = "queuing-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:wred-stats'
+                            self.early_drop_bytes = YLeaf(YType.uint64, "early-drop-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.early_drop_pkts = YLeaf(YType.uint64, "early-drop-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("early_drop_bytes",
+                                            "early_drop_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.early_drop_bytes.is_set or
+                                self.early_drop_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.early_drop_bytes.yfilter != YFilter.not_set or
+                                self.early_drop_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "wred-stats" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.early_drop_bytes.is_set or self.early_drop_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.early_drop_bytes.get_name_leafdata())
+                            if (self.early_drop_pkts.is_set or self.early_drop_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.early_drop_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "early-drop-bytes" or name == "early-drop-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.early_drop_bytes is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "early-drop-bytes"):
+                                self.early_drop_bytes = value
+                                self.early_drop_bytes.value_namespace = name_space
+                                self.early_drop_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "early-drop-pkts"):
+                                self.early_drop_pkts = value
+                                self.early_drop_pkts.value_namespace = name_space
+                                self.early_drop_pkts.value_namespace_prefix = name_space_prefix
 
-                            if self.early_drop_pkts is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.drop_bytes.is_set or
+                            self.drop_pkts.is_set or
+                            self.output_bytes.is_set or
+                            self.output_pkts.is_set or
+                            self.queue_size_bytes.is_set or
+                            self.queue_size_pkts.is_set or
+                            (self.wred_stats is not None and self.wred_stats.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.drop_bytes.yfilter != YFilter.not_set or
+                            self.drop_pkts.yfilter != YFilter.not_set or
+                            self.output_bytes.yfilter != YFilter.not_set or
+                            self.output_pkts.yfilter != YFilter.not_set or
+                            self.queue_size_bytes.yfilter != YFilter.not_set or
+                            self.queue_size_pkts.yfilter != YFilter.not_set or
+                            (self.wred_stats is not None and self.wred_stats.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                            return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "queuing-statistics" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:queuing-statistics'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+                        if (self.drop_bytes.is_set or self.drop_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.drop_bytes.get_name_leafdata())
+                        if (self.drop_pkts.is_set or self.drop_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.drop_pkts.get_name_leafdata())
+                        if (self.output_bytes.is_set or self.output_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_bytes.get_name_leafdata())
+                        if (self.output_pkts.is_set or self.output_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_pkts.get_name_leafdata())
+                        if (self.queue_size_bytes.is_set or self.queue_size_bytes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.queue_size_bytes.get_name_leafdata())
+                        if (self.queue_size_pkts.is_set or self.queue_size_pkts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.queue_size_pkts.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "wred-stats"):
+                            if (self.wred_stats is None):
+                                self.wred_stats = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
+                                self.wred_stats.parent = self
+                                self._children_name_map["wred_stats"] = "wred-stats"
+                            return self.wred_stats
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "wred-stats" or name == "drop-bytes" or name == "drop-pkts" or name == "output-bytes" or name == "output-pkts" or name == "queue-size-bytes" or name == "queue-size-pkts"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.drop_bytes is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "drop-bytes"):
+                            self.drop_bytes = value
+                            self.drop_bytes.value_namespace = name_space
+                            self.drop_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "drop-pkts"):
+                            self.drop_pkts = value
+                            self.drop_pkts.value_namespace = name_space
+                            self.drop_pkts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-bytes"):
+                            self.output_bytes = value
+                            self.output_bytes.value_namespace = name_space
+                            self.output_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-pkts"):
+                            self.output_pkts = value
+                            self.output_pkts.value_namespace = name_space
+                            self.output_pkts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "queue-size-bytes"):
+                            self.queue_size_bytes = value
+                            self.queue_size_bytes.value_namespace = name_space
+                            self.queue_size_bytes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "queue-size-pkts"):
+                            self.queue_size_pkts = value
+                            self.queue_size_pkts.value_namespace = name_space
+                            self.queue_size_pkts.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.meter_statistics:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.classifier_entry_name.is_set or
+                        self.parent_path.is_set or
+                        (self.classifier_entry_statistics is not None and self.classifier_entry_statistics.has_data()) or
+                        (self.queuing_statistics is not None and self.queuing_statistics.has_data()))
 
-                        if self.drop_pkts is not None:
+                def has_operation(self):
+                    for c in self.meter_statistics:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.classifier_entry_name.yfilter != YFilter.not_set or
+                        self.parent_path.yfilter != YFilter.not_set or
+                        (self.classifier_entry_statistics is not None and self.classifier_entry_statistics.has_operation()) or
+                        (self.queuing_statistics is not None and self.queuing_statistics.has_operation()))
 
-                        if self.output_bytes is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + self.classifier_entry_name.get() + "']" + "[parent-path='" + self.parent_path.get() + "']" + path_buffer
 
-                        if self.output_pkts is not None:
-                            return True
+                    return path_buffer
 
-                        if self.queue_size_bytes is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.queue_size_pkts is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.classifier_entry_name.is_set or self.classifier_entry_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.classifier_entry_name.get_name_leafdata())
+                    if (self.parent_path.is_set or self.parent_path.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.parent_path.get_name_leafdata())
 
-                        if self.wred_stats is not None and self.wred_stats._has_data():
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                        return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics']['meta_info']
+                    if (child_yang_name == "classifier-entry-statistics"):
+                        if (self.classifier_entry_statistics is None):
+                            self.classifier_entry_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics()
+                            self.classifier_entry_statistics.parent = self
+                            self._children_name_map["classifier_entry_statistics"] = "classifier-entry-statistics"
+                        return self.classifier_entry_statistics
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.classifier_entry_name is None:
-                        raise YPYModelError('Key property classifier_entry_name is None')
-                    if self.parent_path is None:
-                        raise YPYModelError('Key property parent_path is None')
+                    if (child_yang_name == "meter-statistics"):
+                        for c in self.meter_statistics:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.meter_statistics.append(c)
+                        return c
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:diffserv-target-classifier-statistics[Cisco-IOS-XE-diffserv-target-oper:classifier-entry-name = ' + str(self.classifier_entry_name) + '][Cisco-IOS-XE-diffserv-target-oper:parent-path = ' + str(self.parent_path) + ']'
+                    if (child_yang_name == "queuing-statistics"):
+                        if (self.queuing_statistics is None):
+                            self.queuing_statistics = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics()
+                            self.queuing_statistics.parent = self
+                            self._children_name_map["queuing_statistics"] = "queuing-statistics"
+                        return self.queuing_statistics
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "classifier-entry-statistics" or name == "meter-statistics" or name == "queuing-statistics" or name == "classifier-entry-name" or name == "parent-path"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.classifier_entry_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "classifier-entry-name"):
+                        self.classifier_entry_name = value
+                        self.classifier_entry_name.value_namespace = name_space
+                        self.classifier_entry_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "parent-path"):
+                        self.parent_path = value
+                        self.parent_path.value_namespace = name_space
+                        self.parent_path.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.diffserv_target_classifier_statistics:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.direction.is_set or
+                    self.policy_name.is_set)
 
-                    if self.parent_path is not None:
+            def has_operation(self):
+                for c in self.diffserv_target_classifier_statistics:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.direction.yfilter != YFilter.not_set or
+                    self.policy_name.yfilter != YFilter.not_set)
 
-                    if self.classifier_entry_statistics is not None and self.classifier_entry_statistics._has_data():
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "diffserv-target-entry" + "[direction='" + self.direction.get() + "']" + "[policy-name='" + self.policy_name.get() + "']" + path_buffer
 
-                    if self.meter_statistics is not None:
-                        for child_ref in self.meter_statistics:
-                            if child_ref._has_data():
-                                return True
+                return path_buffer
 
-                    if self.queuing_statistics is not None and self.queuing_statistics._has_data():
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return False
+                leaf_name_data = LeafDataList()
+                if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.direction.get_name_leafdata())
+                if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.policy_name.get_name_leafdata())
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                    return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics']['meta_info']
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-                if self.direction is None:
-                    raise YPYModelError('Key property direction is None')
-                if self.policy_name is None:
-                    raise YPYModelError('Key property policy_name is None')
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                return self.parent._common_path +'/Cisco-IOS-XE-diffserv-target-oper:diffserv-target-entry[Cisco-IOS-XE-diffserv-target-oper:direction = ' + str(self.direction) + '][Cisco-IOS-XE-diffserv-target-oper:policy-name = ' + str(self.policy_name) + ']'
+                if (child_yang_name == "diffserv-target-classifier-statistics"):
+                    for c in self.diffserv_target_classifier_statistics:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.diffserv_target_classifier_statistics.append(c)
+                    return c
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "diffserv-target-classifier-statistics" or name == "direction" or name == "policy-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.direction is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "direction"):
+                    self.direction = value
+                    self.direction.value_namespace = name_space
+                    self.direction.value_namespace_prefix = name_space_prefix
+                if(value_path == "policy-name"):
+                    self.policy_name = value
+                    self.policy_name.value_namespace = name_space
+                    self.policy_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.diffserv_target_entry:
+                if (c.has_data()):
                     return True
+            return self.name.is_set
 
-                if self.policy_name is not None:
+        def has_operation(self):
+            for c in self.diffserv_target_entry:
+                if (c.has_operation()):
                     return True
+            return (
+                self.yfilter != YFilter.not_set or
+                self.name.yfilter != YFilter.not_set)
 
-                if self.diffserv_target_classifier_statistics is not None:
-                    for child_ref in self.diffserv_target_classifier_statistics:
-                        if child_ref._has_data():
-                            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "diffserv-interface" + "[name='" + self.name.get() + "']" + path_buffer
 
-                return False
+            return path_buffer
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-                return meta._meta_table['DiffservInterfacesState.DiffservInterface.DiffservTargetEntry']['meta_info']
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        @property
-        def _common_path(self):
-            if self.name is None:
-                raise YPYModelError('Key property name is None')
+            leaf_name_data = LeafDataList()
+            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.name.get_name_leafdata())
 
-            return '/Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/Cisco-IOS-XE-diffserv-target-oper:diffserv-interface[Cisco-IOS-XE-diffserv-target-oper:name = ' + str(self.name) + ']'
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
 
-        def _has_data(self):
-            if self.name is not None:
+            if (child_yang_name == "diffserv-target-entry"):
+                for c in self.diffserv_target_entry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.diffserv_target_entry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "diffserv-target-entry" or name == "name"):
                 return True
-
-            if self.diffserv_target_entry is not None:
-                for child_ref in self.diffserv_target_entry:
-                    if child_ref._has_data():
-                        return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-            return meta._meta_table['DiffservInterfacesState.DiffservInterface']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "name"):
+                self.name = value
+                self.name.value_namespace = name_space
+                self.name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def has_data(self):
+        for c in self.diffserv_interface:
+            if (c.has_data()):
+                return True
         return False
 
-    def _has_data(self):
-        if self.diffserv_interface is not None:
-            for child_ref in self.diffserv_interface:
-                if child_ref._has_data():
-                    return True
+    def has_operation(self):
+        for c in self.diffserv_interface:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "diffserv-interface"):
+            for c in self.diffserv_interface:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = DiffservInterfacesState.DiffservInterface()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.diffserv_interface.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "diffserv-interface"):
+            return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-        return meta._meta_table['DiffservInterfacesState']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = DiffservInterfacesState()
+        return self._top_entity
 
-class InboundIdentity(DirectionIdentity):
-    """
-    Direction of traffic coming into the network entry
-    
-    
-
-    """
-
-    _prefix = 'diffserv-target-oper'
-    _revision = '2017-02-09'
-
-    def __init__(self):
-        DirectionIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-        return meta._meta_table['InboundIdentity']['meta_info']
-
-
-class OutboundIdentity(DirectionIdentity):
+class Outbound(Identity):
     """
     Direction of traffic going out of the network entry
     
@@ -658,11 +1213,21 @@ class OutboundIdentity(DirectionIdentity):
     _revision = '2017-02-09'
 
     def __init__(self):
-        DirectionIdentity.__init__(self)
+        super(Outbound, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper:outbound")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_diffserv_target_oper as meta
-        return meta._meta_table['OutboundIdentity']['meta_info']
+
+class Inbound(Identity):
+    """
+    Direction of traffic coming into the network entry
+    
+    
+
+    """
+
+    _prefix = 'diffserv-target-oper'
+    _revision = '2017-02-09'
+
+    def __init__(self):
+        super(Inbound, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper:inbound")
 
 

@@ -13,21 +13,15 @@ This MIB contains managed object definitions for the
 Protocol, LDP' document.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class MplsLdpStdMib(object):
+class MplsLdpStdMib(Entity):
     """
     
     
@@ -99,33 +93,74 @@ class MplsLdpStdMib(object):
     _revision = '2004-06-03'
 
     def __init__(self):
+        super(MplsLdpStdMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "MPLS-LDP-STD-MIB"
+        self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
         self.mplsfecobjects = MplsLdpStdMib.Mplsfecobjects()
         self.mplsfecobjects.parent = self
+        self._children_name_map["mplsfecobjects"] = "mplsFecObjects"
+        self._children_yang_names.add("mplsFecObjects")
+
         self.mplsfectable = MplsLdpStdMib.Mplsfectable()
         self.mplsfectable.parent = self
+        self._children_name_map["mplsfectable"] = "mplsFecTable"
+        self._children_yang_names.add("mplsFecTable")
+
         self.mplsinsegmentldplsptable = MplsLdpStdMib.Mplsinsegmentldplsptable()
         self.mplsinsegmentldplsptable.parent = self
+        self._children_name_map["mplsinsegmentldplsptable"] = "mplsInSegmentLdpLspTable"
+        self._children_yang_names.add("mplsInSegmentLdpLspTable")
+
         self.mplsldpentityobjects = MplsLdpStdMib.Mplsldpentityobjects()
         self.mplsldpentityobjects.parent = self
+        self._children_name_map["mplsldpentityobjects"] = "mplsLdpEntityObjects"
+        self._children_yang_names.add("mplsLdpEntityObjects")
+
         self.mplsldpentitytable = MplsLdpStdMib.Mplsldpentitytable()
         self.mplsldpentitytable.parent = self
+        self._children_name_map["mplsldpentitytable"] = "mplsLdpEntityTable"
+        self._children_yang_names.add("mplsLdpEntityTable")
+
         self.mplsldphelloadjacencytable = MplsLdpStdMib.Mplsldphelloadjacencytable()
         self.mplsldphelloadjacencytable.parent = self
+        self._children_name_map["mplsldphelloadjacencytable"] = "mplsLdpHelloAdjacencyTable"
+        self._children_yang_names.add("mplsLdpHelloAdjacencyTable")
+
         self.mplsldplspfectable = MplsLdpStdMib.Mplsldplspfectable()
         self.mplsldplspfectable.parent = self
+        self._children_name_map["mplsldplspfectable"] = "mplsLdpLspFecTable"
+        self._children_yang_names.add("mplsLdpLspFecTable")
+
         self.mplsldplsrobjects = MplsLdpStdMib.Mplsldplsrobjects()
         self.mplsldplsrobjects.parent = self
+        self._children_name_map["mplsldplsrobjects"] = "mplsLdpLsrObjects"
+        self._children_yang_names.add("mplsLdpLsrObjects")
+
         self.mplsldppeertable = MplsLdpStdMib.Mplsldppeertable()
         self.mplsldppeertable.parent = self
+        self._children_name_map["mplsldppeertable"] = "mplsLdpPeerTable"
+        self._children_yang_names.add("mplsLdpPeerTable")
+
         self.mplsldpsessionobjects = MplsLdpStdMib.Mplsldpsessionobjects()
         self.mplsldpsessionobjects.parent = self
+        self._children_name_map["mplsldpsessionobjects"] = "mplsLdpSessionObjects"
+        self._children_yang_names.add("mplsLdpSessionObjects")
+
         self.mplsldpsessionpeeraddrtable = MplsLdpStdMib.Mplsldpsessionpeeraddrtable()
         self.mplsldpsessionpeeraddrtable.parent = self
+        self._children_name_map["mplsldpsessionpeeraddrtable"] = "mplsLdpSessionPeerAddrTable"
+        self._children_yang_names.add("mplsLdpSessionPeerAddrTable")
+
         self.mplsoutsegmentldplsptable = MplsLdpStdMib.Mplsoutsegmentldplsptable()
         self.mplsoutsegmentldplsptable.parent = self
+        self._children_name_map["mplsoutsegmentldplsptable"] = "mplsOutSegmentLdpLspTable"
+        self._children_yang_names.add("mplsOutSegmentLdpLspTable")
 
 
-    class Mplsldplsrobjects(object):
+    class Mplsldplsrobjects(Entity):
         """
         
         
@@ -139,7 +174,7 @@ class MplsLdpStdMib(object):
         .. attribute:: mplsldplsrloopdetectioncapable
         
         	A indication of whether this Label Switching Router supports loop detection.  none(1) \-\- Loop Detection is not supported            on this LSR.  other(2) \-\- Loop Detection is supported but             by a method other than those             listed below.  hopCount(3) \-\- Loop Detection is supported by                Hop Count only.  pathVector(4) \-\- Loop Detection is supported by                  Path Vector only.  hopCountAndPathVector(5) \-\- Loop Detection is                      supported by both Hop Count                      And Path Vector.  Since Loop Detection is determined during Session Initialization, an individual session may not be running with loop detection.  This object simply gives an indication of whether or not the LSR has the ability to support Loop Detection and which types
-        	**type**\:   :py:class:`MplsldplsrloopdetectioncapableEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldplsrobjects.MplsldplsrloopdetectioncapableEnum>`
+        	**type**\:   :py:class:`Mplsldplsrloopdetectioncapable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldplsrobjects.Mplsldplsrloopdetectioncapable>`
         
         
 
@@ -149,13 +184,43 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldplsrid = None
-            self.mplsldplsrloopdetectioncapable = None
+            super(MplsLdpStdMib.Mplsldplsrobjects, self).__init__()
 
-        class MplsldplsrloopdetectioncapableEnum(Enum):
+            self.yang_name = "mplsLdpLsrObjects"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldplsrid = YLeaf(YType.str, "mplsLdpLsrId")
+
+            self.mplsldplsrloopdetectioncapable = YLeaf(YType.enumeration, "mplsLdpLsrLoopDetectionCapable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("mplsldplsrid",
+                            "mplsldplsrloopdetectioncapable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldplsrobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldplsrobjects, self).__setattr__(name, value)
+
+        class Mplsldplsrloopdetectioncapable(Enum):
             """
-            MplsldplsrloopdetectioncapableEnum
+            Mplsldplsrloopdetectioncapable
 
             A indication of whether this
 
@@ -211,48 +276,74 @@ class MplsLdpStdMib(object):
 
             """
 
-            none = 1
+            none = Enum.YLeaf(1, "none")
 
-            other = 2
+            other = Enum.YLeaf(2, "other")
 
-            hopCount = 3
+            hopCount = Enum.YLeaf(3, "hopCount")
 
-            pathVector = 4
+            pathVector = Enum.YLeaf(4, "pathVector")
 
-            hopCountAndPathVector = 5
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldplsrobjects.MplsldplsrloopdetectioncapableEnum']
+            hopCountAndPathVector = Enum.YLeaf(5, "hopCountAndPathVector")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.mplsldplsrid.is_set or
+                self.mplsldplsrloopdetectioncapable.is_set)
 
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpLsrObjects'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.mplsldplsrid.yfilter != YFilter.not_set or
+                self.mplsldplsrloopdetectioncapable.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpLsrObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.mplsldplsrid.is_set or self.mplsldplsrid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldplsrid.get_name_leafdata())
+            if (self.mplsldplsrloopdetectioncapable.is_set or self.mplsldplsrloopdetectioncapable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldplsrloopdetectioncapable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpLsrId" or name == "mplsLdpLsrLoopDetectionCapable"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.mplsldplsrid is not None:
-                return True
-
-            if self.mplsldplsrloopdetectioncapable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldplsrobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "mplsLdpLsrId"):
+                self.mplsldplsrid = value
+                self.mplsldplsrid.value_namespace = name_space
+                self.mplsldplsrid.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsLdpLsrLoopDetectionCapable"):
+                self.mplsldplsrloopdetectioncapable = value
+                self.mplsldplsrloopdetectioncapable.value_namespace = name_space
+                self.mplsldplsrloopdetectioncapable.value_namespace_prefix = name_space_prefix
 
 
-    class Mplsldpentityobjects(object):
+    class Mplsldpentityobjects(Entity):
         """
         
         
@@ -278,35 +369,97 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldpentityindexnext = None
-            self.mplsldpentitylastchange = None
+            super(MplsLdpStdMib.Mplsldpentityobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "mplsLdpEntityObjects"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
 
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpEntityObjects'
+            self.mplsldpentityindexnext = YLeaf(YType.uint32, "mplsLdpEntityIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.mplsldpentitylastchange = YLeaf(YType.uint32, "mplsLdpEntityLastChange")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("mplsldpentityindexnext",
+                            "mplsldpentitylastchange") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldpentityobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldpentityobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.mplsldpentityindexnext.is_set or
+                self.mplsldpentitylastchange.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.mplsldpentityindexnext.yfilter != YFilter.not_set or
+                self.mplsldpentitylastchange.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpEntityObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.mplsldpentityindexnext.is_set or self.mplsldpentityindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldpentityindexnext.get_name_leafdata())
+            if (self.mplsldpentitylastchange.is_set or self.mplsldpentitylastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldpentitylastchange.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpEntityIndexNext" or name == "mplsLdpEntityLastChange"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.mplsldpentityindexnext is not None:
-                return True
-
-            if self.mplsldpentitylastchange is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldpentityobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "mplsLdpEntityIndexNext"):
+                self.mplsldpentityindexnext = value
+                self.mplsldpentityindexnext.value_namespace = name_space
+                self.mplsldpentityindexnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsLdpEntityLastChange"):
+                self.mplsldpentitylastchange = value
+                self.mplsldpentitylastchange.value_namespace = name_space
+                self.mplsldpentitylastchange.value_namespace_prefix = name_space_prefix
 
 
-    class Mplsldpsessionobjects(object):
+    class Mplsldpsessionobjects(Entity):
         """
         
         
@@ -332,35 +485,97 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldplspfeclastchange = None
-            self.mplsldppeerlastchange = None
+            super(MplsLdpStdMib.Mplsldpsessionobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "mplsLdpSessionObjects"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
 
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpSessionObjects'
+            self.mplsldplspfeclastchange = YLeaf(YType.uint32, "mplsLdpLspFecLastChange")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.mplsldppeerlastchange = YLeaf(YType.uint32, "mplsLdpPeerLastChange")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("mplsldplspfeclastchange",
+                            "mplsldppeerlastchange") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldpsessionobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldpsessionobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.mplsldplspfeclastchange.is_set or
+                self.mplsldppeerlastchange.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.mplsldplspfeclastchange.yfilter != YFilter.not_set or
+                self.mplsldppeerlastchange.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpSessionObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.mplsldplspfeclastchange.is_set or self.mplsldplspfeclastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldplspfeclastchange.get_name_leafdata())
+            if (self.mplsldppeerlastchange.is_set or self.mplsldppeerlastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsldppeerlastchange.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpLspFecLastChange" or name == "mplsLdpPeerLastChange"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.mplsldplspfeclastchange is not None:
-                return True
-
-            if self.mplsldppeerlastchange is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldpsessionobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "mplsLdpLspFecLastChange"):
+                self.mplsldplspfeclastchange = value
+                self.mplsldplspfeclastchange.value_namespace = name_space
+                self.mplsldplspfeclastchange.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsLdpPeerLastChange"):
+                self.mplsldppeerlastchange = value
+                self.mplsldppeerlastchange.value_namespace = name_space
+                self.mplsldppeerlastchange.value_namespace_prefix = name_space_prefix
 
 
-    class Mplsfecobjects(object):
+    class Mplsfecobjects(Entity):
         """
         
         
@@ -386,35 +601,97 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsfecindexnext = None
-            self.mplsfeclastchange = None
+            super(MplsLdpStdMib.Mplsfecobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "mplsFecObjects"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
 
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsFecObjects'
+            self.mplsfecindexnext = YLeaf(YType.uint32, "mplsFecIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.mplsfeclastchange = YLeaf(YType.uint32, "mplsFecLastChange")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("mplsfecindexnext",
+                            "mplsfeclastchange") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsfecobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsfecobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.mplsfecindexnext.is_set or
+                self.mplsfeclastchange.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.mplsfecindexnext.yfilter != YFilter.not_set or
+                self.mplsfeclastchange.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsFecObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.mplsfecindexnext.is_set or self.mplsfecindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsfecindexnext.get_name_leafdata())
+            if (self.mplsfeclastchange.is_set or self.mplsfeclastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.mplsfeclastchange.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsFecIndexNext" or name == "mplsFecLastChange"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.mplsfecindexnext is not None:
-                return True
-
-            if self.mplsfeclastchange is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsfecobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "mplsFecIndexNext"):
+                self.mplsfecindexnext = value
+                self.mplsfecindexnext.value_namespace = name_space
+                self.mplsfecindexnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "mplsFecLastChange"):
+                self.mplsfeclastchange = value
+                self.mplsfeclastchange.value_namespace = name_space
+                self.mplsfeclastchange.value_namespace_prefix = name_space_prefix
 
 
-    class Mplsldpentitytable(object):
+    class Mplsldpentitytable(Entity):
         """
         This table contains information about the
         MPLS Label Distribution Protocol Entities which
@@ -434,13 +711,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldpentityentry = YList()
-            self.mplsldpentityentry.parent = self
-            self.mplsldpentityentry.name = 'mplsldpentityentry'
+            super(MplsLdpStdMib.Mplsldpentitytable, self).__init__()
+
+            self.yang_name = "mplsLdpEntityTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldpentityentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldpentitytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldpentitytable, self).__setattr__(name, value)
 
 
-        class Mplsldpentityentry(object):
+        class Mplsldpentityentry(Entity):
             """
             An entry in this table represents an LDP entity.
             An entry can be created by a network administrator
@@ -461,7 +764,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentityadminstatus
             
             	The administrative status of this LDP Entity. If this object is changed from 'enable' to 'disable' and this entity has already attempted to establish contact with a Peer, then all contact with that Peer is lost and all information from that Peer needs to be removed from the MIB. (This implies that the network management subsystem should clean up any related entry in the mplsLdpPeerTable.  This further implies that a 'tear\-down' for that session is issued and the session and all information related to that session cease to exist).  At this point the operator is able to change values which are related to this entity.  When the admin status is set back to 'enable', then this Entity will attempt to establish a new session with the Peer
-            	**type**\:   :py:class:`MplsldpentityadminstatusEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentityadminstatusEnum>`
+            	**type**\:   :py:class:`Mplsldpentityadminstatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentityadminstatus>`
             
             .. attribute:: mplsldpentitydiscontinuitytime
             
@@ -505,17 +808,17 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentitylabeldistmethod
             
             	For any given LDP session, the method of label distribution must be specified
-            	**type**\:   :py:class:`MplslabeldistributionmethodEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplslabeldistributionmethodEnum>`
+            	**type**\:   :py:class:`Mplslabeldistributionmethod <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplslabeldistributionmethod>`
             
             .. attribute:: mplsldpentitylabelretentionmode
             
             	The LDP Entity can be configured to use either conservative or liberal label retention mode.  If the value of this object is conservative(1) then advertized label mappings are retained only if they will be used to forward packets, i.e., if label came from a valid next hop.  If the value of this object is liberal(2) then all advertized label mappings are retained whether they are from a valid next hop or not
-            	**type**\:   :py:class:`MplsretentionmodeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsretentionmodeEnum>`
+            	**type**\:   :py:class:`Mplsretentionmode <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplsretentionmode>`
             
             .. attribute:: mplsldpentitylabeltype
             
             	Specifies the optional parameters for the LDP Initialization Message.  If the value is generic(1) then no optional parameters will be sent in the LDP Initialization message associated with this Entity.  If the value is atmParameters(2) then a row must be created in the mplsLdpEntityAtmTable, which corresponds to this entry.  If the value is frameRelayParameters(3) then a row must be created in the mplsLdpEntityFrameRelayTable, which corresponds to this entry
-            	**type**\:   :py:class:`MplsldplabeltypeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsldplabeltypeEnum>`
+            	**type**\:   :py:class:`Mplsldplabeltype <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplsldplabeltype>`
             
             .. attribute:: mplsldpentitymaxpdulength
             
@@ -529,7 +832,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentityoperstatus
             
             	The operational status of this LDP Entity.  The value of unknown(1) indicates that the operational status cannot be determined at this time.  The value of unknown should be a transient condition before changing to enabled(2) or disabled(3)
-            	**type**\:   :py:class:`MplsldpentityoperstatusEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentityoperstatusEnum>`
+            	**type**\:   :py:class:`Mplsldpentityoperstatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentityoperstatus>`
             
             .. attribute:: mplsldpentitypathvectorlimit
             
@@ -548,7 +851,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentityrowstatus
             
             	The status of this conceptual row.  All writable objects in this row may be modified at any time, however, as described in detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object, if a session has been initiated with a Peer, changing objects in this table will wreak havoc with the session and interrupt traffic.  To repeat again\: the recommended procedure is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. Then, change objects in this entry, then set the mplsLdpEntityAdminStatus to enable, which enables a new session to be initiated
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsldpentitystatsbadldpidentifiererrors
             
@@ -644,7 +947,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentitystoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsldpentitytargetpeer
             
@@ -661,7 +964,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentitytargetpeeraddrtype
             
             	The type of the internetwork layer address used for the Extended Discovery.  This object indicates how the value of mplsLdpEntityTargetPeerAddr is to be interpreted
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsldpentitytcpport
             
@@ -673,7 +976,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpentitytransportaddrkind
             
             	This specifies whether the loopback or interface address is to be used as the transport address in the transport address TLV of the hello message.  If the value is interface(1), then the IP address of the interface from which hello messages are sent is used as the transport address in the hello message.  Otherwise, if the value is loopback(2), then the IP address of the loopback interface is used as the transport address in the hello message
-            	**type**\:   :py:class:`MplsldpentitytransportaddrkindEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentitytransportaddrkindEnum>`
+            	**type**\:   :py:class:`Mplsldpentitytransportaddrkind <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.Mplsldpentitytransportaddrkind>`
             
             .. attribute:: mplsldpentityudpdscport
             
@@ -690,47 +993,145 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldpentityadminstatus = None
-                self.mplsldpentitydiscontinuitytime = None
-                self.mplsldpentityhelloholdtimer = None
-                self.mplsldpentityhopcountlimit = None
-                self.mplsldpentityinitsessionthreshold = None
-                self.mplsldpentitykeepaliveholdtimer = None
-                self.mplsldpentitylabeldistmethod = None
-                self.mplsldpentitylabelretentionmode = None
-                self.mplsldpentitylabeltype = None
-                self.mplsldpentitymaxpdulength = None
-                self.mplsldpentityoperstatus = None
-                self.mplsldpentitypathvectorlimit = None
-                self.mplsldpentityprotocolversion = None
-                self.mplsldpentityrowstatus = None
-                self.mplsldpentitystatsbadldpidentifiererrors = None
-                self.mplsldpentitystatsbadmessagelengtherrors = None
-                self.mplsldpentitystatsbadpdulengtherrors = None
-                self.mplsldpentitystatsbadtlvlengtherrors = None
-                self.mplsldpentitystatskeepalivetimerexperrors = None
-                self.mplsldpentitystatsmalformedtlvvalueerrors = None
-                self.mplsldpentitystatssessionattempts = None
-                self.mplsldpentitystatssessionrejectedaderrors = None
-                self.mplsldpentitystatssessionrejectedlrerrors = None
-                self.mplsldpentitystatssessionrejectedmaxpduerrors = None
-                self.mplsldpentitystatssessionrejectednohelloerrors = None
-                self.mplsldpentitystatsshutdownreceivednotifications = None
-                self.mplsldpentitystatsshutdownsentnotifications = None
-                self.mplsldpentitystoragetype = None
-                self.mplsldpentitytargetpeer = None
-                self.mplsldpentitytargetpeeraddr = None
-                self.mplsldpentitytargetpeeraddrtype = None
-                self.mplsldpentitytcpport = None
-                self.mplsldpentitytransportaddrkind = None
-                self.mplsldpentityudpdscport = None
+                super(MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry, self).__init__()
 
-            class MplsldpentityadminstatusEnum(Enum):
+                self.yang_name = "mplsLdpEntityEntry"
+                self.yang_parent_name = "mplsLdpEntityTable"
+
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
+
+                self.mplsldpentityindex = YLeaf(YType.uint32, "mplsLdpEntityIndex")
+
+                self.mplsldpentityadminstatus = YLeaf(YType.enumeration, "mplsLdpEntityAdminStatus")
+
+                self.mplsldpentitydiscontinuitytime = YLeaf(YType.uint32, "mplsLdpEntityDiscontinuityTime")
+
+                self.mplsldpentityhelloholdtimer = YLeaf(YType.uint32, "mplsLdpEntityHelloHoldTimer")
+
+                self.mplsldpentityhopcountlimit = YLeaf(YType.int32, "mplsLdpEntityHopCountLimit")
+
+                self.mplsldpentityinitsessionthreshold = YLeaf(YType.int32, "mplsLdpEntityInitSessionThreshold")
+
+                self.mplsldpentitykeepaliveholdtimer = YLeaf(YType.uint32, "mplsLdpEntityKeepAliveHoldTimer")
+
+                self.mplsldpentitylabeldistmethod = YLeaf(YType.enumeration, "mplsLdpEntityLabelDistMethod")
+
+                self.mplsldpentitylabelretentionmode = YLeaf(YType.enumeration, "mplsLdpEntityLabelRetentionMode")
+
+                self.mplsldpentitylabeltype = YLeaf(YType.enumeration, "mplsLdpEntityLabelType")
+
+                self.mplsldpentitymaxpdulength = YLeaf(YType.uint32, "mplsLdpEntityMaxPduLength")
+
+                self.mplsldpentityoperstatus = YLeaf(YType.enumeration, "mplsLdpEntityOperStatus")
+
+                self.mplsldpentitypathvectorlimit = YLeaf(YType.int32, "mplsLdpEntityPathVectorLimit")
+
+                self.mplsldpentityprotocolversion = YLeaf(YType.uint32, "mplsLdpEntityProtocolVersion")
+
+                self.mplsldpentityrowstatus = YLeaf(YType.enumeration, "mplsLdpEntityRowStatus")
+
+                self.mplsldpentitystatsbadldpidentifiererrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadLdpIdentifierErrors")
+
+                self.mplsldpentitystatsbadmessagelengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadMessageLengthErrors")
+
+                self.mplsldpentitystatsbadpdulengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadPduLengthErrors")
+
+                self.mplsldpentitystatsbadtlvlengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadTlvLengthErrors")
+
+                self.mplsldpentitystatskeepalivetimerexperrors = YLeaf(YType.uint32, "mplsLdpEntityStatsKeepAliveTimerExpErrors")
+
+                self.mplsldpentitystatsmalformedtlvvalueerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsMalformedTlvValueErrors")
+
+                self.mplsldpentitystatssessionattempts = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionAttempts")
+
+                self.mplsldpentitystatssessionrejectedaderrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedAdErrors")
+
+                self.mplsldpentitystatssessionrejectedlrerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedLRErrors")
+
+                self.mplsldpentitystatssessionrejectedmaxpduerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedMaxPduErrors")
+
+                self.mplsldpentitystatssessionrejectednohelloerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedNoHelloErrors")
+
+                self.mplsldpentitystatsshutdownreceivednotifications = YLeaf(YType.uint32, "mplsLdpEntityStatsShutdownReceivedNotifications")
+
+                self.mplsldpentitystatsshutdownsentnotifications = YLeaf(YType.uint32, "mplsLdpEntityStatsShutdownSentNotifications")
+
+                self.mplsldpentitystoragetype = YLeaf(YType.enumeration, "mplsLdpEntityStorageType")
+
+                self.mplsldpentitytargetpeer = YLeaf(YType.boolean, "mplsLdpEntityTargetPeer")
+
+                self.mplsldpentitytargetpeeraddr = YLeaf(YType.str, "mplsLdpEntityTargetPeerAddr")
+
+                self.mplsldpentitytargetpeeraddrtype = YLeaf(YType.enumeration, "mplsLdpEntityTargetPeerAddrType")
+
+                self.mplsldpentitytcpport = YLeaf(YType.uint16, "mplsLdpEntityTcpPort")
+
+                self.mplsldpentitytransportaddrkind = YLeaf(YType.enumeration, "mplsLdpEntityTransportAddrKind")
+
+                self.mplsldpentityudpdscport = YLeaf(YType.uint16, "mplsLdpEntityUdpDscPort")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldpentityadminstatus",
+                                "mplsldpentitydiscontinuitytime",
+                                "mplsldpentityhelloholdtimer",
+                                "mplsldpentityhopcountlimit",
+                                "mplsldpentityinitsessionthreshold",
+                                "mplsldpentitykeepaliveholdtimer",
+                                "mplsldpentitylabeldistmethod",
+                                "mplsldpentitylabelretentionmode",
+                                "mplsldpentitylabeltype",
+                                "mplsldpentitymaxpdulength",
+                                "mplsldpentityoperstatus",
+                                "mplsldpentitypathvectorlimit",
+                                "mplsldpentityprotocolversion",
+                                "mplsldpentityrowstatus",
+                                "mplsldpentitystatsbadldpidentifiererrors",
+                                "mplsldpentitystatsbadmessagelengtherrors",
+                                "mplsldpentitystatsbadpdulengtherrors",
+                                "mplsldpentitystatsbadtlvlengtherrors",
+                                "mplsldpentitystatskeepalivetimerexperrors",
+                                "mplsldpentitystatsmalformedtlvvalueerrors",
+                                "mplsldpentitystatssessionattempts",
+                                "mplsldpentitystatssessionrejectedaderrors",
+                                "mplsldpentitystatssessionrejectedlrerrors",
+                                "mplsldpentitystatssessionrejectedmaxpduerrors",
+                                "mplsldpentitystatssessionrejectednohelloerrors",
+                                "mplsldpentitystatsshutdownreceivednotifications",
+                                "mplsldpentitystatsshutdownsentnotifications",
+                                "mplsldpentitystoragetype",
+                                "mplsldpentitytargetpeer",
+                                "mplsldpentitytargetpeeraddr",
+                                "mplsldpentitytargetpeeraddrtype",
+                                "mplsldpentitytcpport",
+                                "mplsldpentitytransportaddrkind",
+                                "mplsldpentityudpdscport") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry, self).__setattr__(name, value)
+
+            class Mplsldpentityadminstatus(Enum):
                 """
-                MplsldpentityadminstatusEnum
+                Mplsldpentityadminstatus
 
                 The administrative status of this LDP Entity.
 
@@ -770,20 +1171,14 @@ class MplsLdpStdMib(object):
 
                 """
 
-                enable = 1
+                enable = Enum.YLeaf(1, "enable")
 
-                disable = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentityadminstatusEnum']
+                disable = Enum.YLeaf(2, "disable")
 
 
-            class MplsldpentityoperstatusEnum(Enum):
+            class Mplsldpentityoperstatus(Enum):
                 """
-                MplsldpentityoperstatusEnum
+                Mplsldpentityoperstatus
 
                 The operational status of this LDP Entity.
 
@@ -805,22 +1200,16 @@ class MplsLdpStdMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                enabled = 2
+                enabled = Enum.YLeaf(2, "enabled")
 
-                disabled = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentityoperstatusEnum']
+                disabled = Enum.YLeaf(3, "disabled")
 
 
-            class MplsldpentitytransportaddrkindEnum(Enum):
+            class Mplsldpentitytransportaddrkind(Enum):
                 """
-                MplsldpentitytransportaddrkindEnum
+                Mplsldpentitytransportaddrkind
 
                 This specifies whether the loopback or interface
 
@@ -850,170 +1239,397 @@ class MplsLdpStdMib(object):
 
                 """
 
-                interface = 1
+                interface = Enum.YLeaf(1, "interface")
 
-                loopback = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry.MplsldpentitytransportaddrkindEnum']
+                loopback = Enum.YLeaf(2, "loopback")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldpentityadminstatus.is_set or
+                    self.mplsldpentitydiscontinuitytime.is_set or
+                    self.mplsldpentityhelloholdtimer.is_set or
+                    self.mplsldpentityhopcountlimit.is_set or
+                    self.mplsldpentityinitsessionthreshold.is_set or
+                    self.mplsldpentitykeepaliveholdtimer.is_set or
+                    self.mplsldpentitylabeldistmethod.is_set or
+                    self.mplsldpentitylabelretentionmode.is_set or
+                    self.mplsldpentitylabeltype.is_set or
+                    self.mplsldpentitymaxpdulength.is_set or
+                    self.mplsldpentityoperstatus.is_set or
+                    self.mplsldpentitypathvectorlimit.is_set or
+                    self.mplsldpentityprotocolversion.is_set or
+                    self.mplsldpentityrowstatus.is_set or
+                    self.mplsldpentitystatsbadldpidentifiererrors.is_set or
+                    self.mplsldpentitystatsbadmessagelengtherrors.is_set or
+                    self.mplsldpentitystatsbadpdulengtherrors.is_set or
+                    self.mplsldpentitystatsbadtlvlengtherrors.is_set or
+                    self.mplsldpentitystatskeepalivetimerexperrors.is_set or
+                    self.mplsldpentitystatsmalformedtlvvalueerrors.is_set or
+                    self.mplsldpentitystatssessionattempts.is_set or
+                    self.mplsldpentitystatssessionrejectedaderrors.is_set or
+                    self.mplsldpentitystatssessionrejectedlrerrors.is_set or
+                    self.mplsldpentitystatssessionrejectedmaxpduerrors.is_set or
+                    self.mplsldpentitystatssessionrejectednohelloerrors.is_set or
+                    self.mplsldpentitystatsshutdownreceivednotifications.is_set or
+                    self.mplsldpentitystatsshutdownsentnotifications.is_set or
+                    self.mplsldpentitystoragetype.is_set or
+                    self.mplsldpentitytargetpeer.is_set or
+                    self.mplsldpentitytargetpeeraddr.is_set or
+                    self.mplsldpentitytargetpeeraddrtype.is_set or
+                    self.mplsldpentitytcpport.is_set or
+                    self.mplsldpentitytransportaddrkind.is_set or
+                    self.mplsldpentityudpdscport.is_set)
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpEntityTable/MPLS-LDP-STD-MIB:mplsLdpEntityEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldpentityadminstatus.yfilter != YFilter.not_set or
+                    self.mplsldpentitydiscontinuitytime.yfilter != YFilter.not_set or
+                    self.mplsldpentityhelloholdtimer.yfilter != YFilter.not_set or
+                    self.mplsldpentityhopcountlimit.yfilter != YFilter.not_set or
+                    self.mplsldpentityinitsessionthreshold.yfilter != YFilter.not_set or
+                    self.mplsldpentitykeepaliveholdtimer.yfilter != YFilter.not_set or
+                    self.mplsldpentitylabeldistmethod.yfilter != YFilter.not_set or
+                    self.mplsldpentitylabelretentionmode.yfilter != YFilter.not_set or
+                    self.mplsldpentitylabeltype.yfilter != YFilter.not_set or
+                    self.mplsldpentitymaxpdulength.yfilter != YFilter.not_set or
+                    self.mplsldpentityoperstatus.yfilter != YFilter.not_set or
+                    self.mplsldpentitypathvectorlimit.yfilter != YFilter.not_set or
+                    self.mplsldpentityprotocolversion.yfilter != YFilter.not_set or
+                    self.mplsldpentityrowstatus.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsbadldpidentifiererrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsbadmessagelengtherrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsbadpdulengtherrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsbadtlvlengtherrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatskeepalivetimerexperrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsmalformedtlvvalueerrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatssessionattempts.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatssessionrejectedaderrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatssessionrejectedlrerrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatssessionrejectedmaxpduerrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatssessionrejectednohelloerrors.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsshutdownreceivednotifications.yfilter != YFilter.not_set or
+                    self.mplsldpentitystatsshutdownsentnotifications.yfilter != YFilter.not_set or
+                    self.mplsldpentitystoragetype.yfilter != YFilter.not_set or
+                    self.mplsldpentitytargetpeer.yfilter != YFilter.not_set or
+                    self.mplsldpentitytargetpeeraddr.yfilter != YFilter.not_set or
+                    self.mplsldpentitytargetpeeraddrtype.yfilter != YFilter.not_set or
+                    self.mplsldpentitytcpport.yfilter != YFilter.not_set or
+                    self.mplsldpentitytransportaddrkind.yfilter != YFilter.not_set or
+                    self.mplsldpentityudpdscport.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsLdpEntityEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpEntityTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldpentityadminstatus.is_set or self.mplsldpentityadminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityadminstatus.get_name_leafdata())
+                if (self.mplsldpentitydiscontinuitytime.is_set or self.mplsldpentitydiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitydiscontinuitytime.get_name_leafdata())
+                if (self.mplsldpentityhelloholdtimer.is_set or self.mplsldpentityhelloholdtimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityhelloholdtimer.get_name_leafdata())
+                if (self.mplsldpentityhopcountlimit.is_set or self.mplsldpentityhopcountlimit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityhopcountlimit.get_name_leafdata())
+                if (self.mplsldpentityinitsessionthreshold.is_set or self.mplsldpentityinitsessionthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityinitsessionthreshold.get_name_leafdata())
+                if (self.mplsldpentitykeepaliveholdtimer.is_set or self.mplsldpentitykeepaliveholdtimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitykeepaliveholdtimer.get_name_leafdata())
+                if (self.mplsldpentitylabeldistmethod.is_set or self.mplsldpentitylabeldistmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitylabeldistmethod.get_name_leafdata())
+                if (self.mplsldpentitylabelretentionmode.is_set or self.mplsldpentitylabelretentionmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitylabelretentionmode.get_name_leafdata())
+                if (self.mplsldpentitylabeltype.is_set or self.mplsldpentitylabeltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitylabeltype.get_name_leafdata())
+                if (self.mplsldpentitymaxpdulength.is_set or self.mplsldpentitymaxpdulength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitymaxpdulength.get_name_leafdata())
+                if (self.mplsldpentityoperstatus.is_set or self.mplsldpentityoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityoperstatus.get_name_leafdata())
+                if (self.mplsldpentitypathvectorlimit.is_set or self.mplsldpentitypathvectorlimit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitypathvectorlimit.get_name_leafdata())
+                if (self.mplsldpentityprotocolversion.is_set or self.mplsldpentityprotocolversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityprotocolversion.get_name_leafdata())
+                if (self.mplsldpentityrowstatus.is_set or self.mplsldpentityrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityrowstatus.get_name_leafdata())
+                if (self.mplsldpentitystatsbadldpidentifiererrors.is_set or self.mplsldpentitystatsbadldpidentifiererrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsbadldpidentifiererrors.get_name_leafdata())
+                if (self.mplsldpentitystatsbadmessagelengtherrors.is_set or self.mplsldpentitystatsbadmessagelengtherrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsbadmessagelengtherrors.get_name_leafdata())
+                if (self.mplsldpentitystatsbadpdulengtherrors.is_set or self.mplsldpentitystatsbadpdulengtherrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsbadpdulengtherrors.get_name_leafdata())
+                if (self.mplsldpentitystatsbadtlvlengtherrors.is_set or self.mplsldpentitystatsbadtlvlengtherrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsbadtlvlengtherrors.get_name_leafdata())
+                if (self.mplsldpentitystatskeepalivetimerexperrors.is_set or self.mplsldpentitystatskeepalivetimerexperrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatskeepalivetimerexperrors.get_name_leafdata())
+                if (self.mplsldpentitystatsmalformedtlvvalueerrors.is_set or self.mplsldpentitystatsmalformedtlvvalueerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsmalformedtlvvalueerrors.get_name_leafdata())
+                if (self.mplsldpentitystatssessionattempts.is_set or self.mplsldpentitystatssessionattempts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatssessionattempts.get_name_leafdata())
+                if (self.mplsldpentitystatssessionrejectedaderrors.is_set or self.mplsldpentitystatssessionrejectedaderrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatssessionrejectedaderrors.get_name_leafdata())
+                if (self.mplsldpentitystatssessionrejectedlrerrors.is_set or self.mplsldpentitystatssessionrejectedlrerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatssessionrejectedlrerrors.get_name_leafdata())
+                if (self.mplsldpentitystatssessionrejectedmaxpduerrors.is_set or self.mplsldpentitystatssessionrejectedmaxpduerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatssessionrejectedmaxpduerrors.get_name_leafdata())
+                if (self.mplsldpentitystatssessionrejectednohelloerrors.is_set or self.mplsldpentitystatssessionrejectednohelloerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatssessionrejectednohelloerrors.get_name_leafdata())
+                if (self.mplsldpentitystatsshutdownreceivednotifications.is_set or self.mplsldpentitystatsshutdownreceivednotifications.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsshutdownreceivednotifications.get_name_leafdata())
+                if (self.mplsldpentitystatsshutdownsentnotifications.is_set or self.mplsldpentitystatsshutdownsentnotifications.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystatsshutdownsentnotifications.get_name_leafdata())
+                if (self.mplsldpentitystoragetype.is_set or self.mplsldpentitystoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitystoragetype.get_name_leafdata())
+                if (self.mplsldpentitytargetpeer.is_set or self.mplsldpentitytargetpeer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitytargetpeer.get_name_leafdata())
+                if (self.mplsldpentitytargetpeeraddr.is_set or self.mplsldpentitytargetpeeraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitytargetpeeraddr.get_name_leafdata())
+                if (self.mplsldpentitytargetpeeraddrtype.is_set or self.mplsldpentitytargetpeeraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitytargetpeeraddrtype.get_name_leafdata())
+                if (self.mplsldpentitytcpport.is_set or self.mplsldpentitytcpport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitytcpport.get_name_leafdata())
+                if (self.mplsldpentitytransportaddrkind.is_set or self.mplsldpentitytransportaddrkind.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentitytransportaddrkind.get_name_leafdata())
+                if (self.mplsldpentityudpdscport.is_set or self.mplsldpentityudpdscport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityudpdscport.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpEntityAdminStatus" or name == "mplsLdpEntityDiscontinuityTime" or name == "mplsLdpEntityHelloHoldTimer" or name == "mplsLdpEntityHopCountLimit" or name == "mplsLdpEntityInitSessionThreshold" or name == "mplsLdpEntityKeepAliveHoldTimer" or name == "mplsLdpEntityLabelDistMethod" or name == "mplsLdpEntityLabelRetentionMode" or name == "mplsLdpEntityLabelType" or name == "mplsLdpEntityMaxPduLength" or name == "mplsLdpEntityOperStatus" or name == "mplsLdpEntityPathVectorLimit" or name == "mplsLdpEntityProtocolVersion" or name == "mplsLdpEntityRowStatus" or name == "mplsLdpEntityStatsBadLdpIdentifierErrors" or name == "mplsLdpEntityStatsBadMessageLengthErrors" or name == "mplsLdpEntityStatsBadPduLengthErrors" or name == "mplsLdpEntityStatsBadTlvLengthErrors" or name == "mplsLdpEntityStatsKeepAliveTimerExpErrors" or name == "mplsLdpEntityStatsMalformedTlvValueErrors" or name == "mplsLdpEntityStatsSessionAttempts" or name == "mplsLdpEntityStatsSessionRejectedAdErrors" or name == "mplsLdpEntityStatsSessionRejectedLRErrors" or name == "mplsLdpEntityStatsSessionRejectedMaxPduErrors" or name == "mplsLdpEntityStatsSessionRejectedNoHelloErrors" or name == "mplsLdpEntityStatsShutdownReceivedNotifications" or name == "mplsLdpEntityStatsShutdownSentNotifications" or name == "mplsLdpEntityStorageType" or name == "mplsLdpEntityTargetPeer" or name == "mplsLdpEntityTargetPeerAddr" or name == "mplsLdpEntityTargetPeerAddrType" or name == "mplsLdpEntityTcpPort" or name == "mplsLdpEntityTransportAddrKind" or name == "mplsLdpEntityUdpDscPort"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityAdminStatus"):
+                    self.mplsldpentityadminstatus = value
+                    self.mplsldpentityadminstatus.value_namespace = name_space
+                    self.mplsldpentityadminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityDiscontinuityTime"):
+                    self.mplsldpentitydiscontinuitytime = value
+                    self.mplsldpentitydiscontinuitytime.value_namespace = name_space
+                    self.mplsldpentitydiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityHelloHoldTimer"):
+                    self.mplsldpentityhelloholdtimer = value
+                    self.mplsldpentityhelloholdtimer.value_namespace = name_space
+                    self.mplsldpentityhelloholdtimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityHopCountLimit"):
+                    self.mplsldpentityhopcountlimit = value
+                    self.mplsldpentityhopcountlimit.value_namespace = name_space
+                    self.mplsldpentityhopcountlimit.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityInitSessionThreshold"):
+                    self.mplsldpentityinitsessionthreshold = value
+                    self.mplsldpentityinitsessionthreshold.value_namespace = name_space
+                    self.mplsldpentityinitsessionthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityKeepAliveHoldTimer"):
+                    self.mplsldpentitykeepaliveholdtimer = value
+                    self.mplsldpentitykeepaliveholdtimer.value_namespace = name_space
+                    self.mplsldpentitykeepaliveholdtimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityLabelDistMethod"):
+                    self.mplsldpentitylabeldistmethod = value
+                    self.mplsldpentitylabeldistmethod.value_namespace = name_space
+                    self.mplsldpentitylabeldistmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityLabelRetentionMode"):
+                    self.mplsldpentitylabelretentionmode = value
+                    self.mplsldpentitylabelretentionmode.value_namespace = name_space
+                    self.mplsldpentitylabelretentionmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityLabelType"):
+                    self.mplsldpentitylabeltype = value
+                    self.mplsldpentitylabeltype.value_namespace = name_space
+                    self.mplsldpentitylabeltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityMaxPduLength"):
+                    self.mplsldpentitymaxpdulength = value
+                    self.mplsldpentitymaxpdulength.value_namespace = name_space
+                    self.mplsldpentitymaxpdulength.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityOperStatus"):
+                    self.mplsldpentityoperstatus = value
+                    self.mplsldpentityoperstatus.value_namespace = name_space
+                    self.mplsldpentityoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityPathVectorLimit"):
+                    self.mplsldpentitypathvectorlimit = value
+                    self.mplsldpentitypathvectorlimit.value_namespace = name_space
+                    self.mplsldpentitypathvectorlimit.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityProtocolVersion"):
+                    self.mplsldpentityprotocolversion = value
+                    self.mplsldpentityprotocolversion.value_namespace = name_space
+                    self.mplsldpentityprotocolversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityRowStatus"):
+                    self.mplsldpentityrowstatus = value
+                    self.mplsldpentityrowstatus.value_namespace = name_space
+                    self.mplsldpentityrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsBadLdpIdentifierErrors"):
+                    self.mplsldpentitystatsbadldpidentifiererrors = value
+                    self.mplsldpentitystatsbadldpidentifiererrors.value_namespace = name_space
+                    self.mplsldpentitystatsbadldpidentifiererrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsBadMessageLengthErrors"):
+                    self.mplsldpentitystatsbadmessagelengtherrors = value
+                    self.mplsldpentitystatsbadmessagelengtherrors.value_namespace = name_space
+                    self.mplsldpentitystatsbadmessagelengtherrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsBadPduLengthErrors"):
+                    self.mplsldpentitystatsbadpdulengtherrors = value
+                    self.mplsldpentitystatsbadpdulengtherrors.value_namespace = name_space
+                    self.mplsldpentitystatsbadpdulengtherrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsBadTlvLengthErrors"):
+                    self.mplsldpentitystatsbadtlvlengtherrors = value
+                    self.mplsldpentitystatsbadtlvlengtherrors.value_namespace = name_space
+                    self.mplsldpentitystatsbadtlvlengtherrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsKeepAliveTimerExpErrors"):
+                    self.mplsldpentitystatskeepalivetimerexperrors = value
+                    self.mplsldpentitystatskeepalivetimerexperrors.value_namespace = name_space
+                    self.mplsldpentitystatskeepalivetimerexperrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsMalformedTlvValueErrors"):
+                    self.mplsldpentitystatsmalformedtlvvalueerrors = value
+                    self.mplsldpentitystatsmalformedtlvvalueerrors.value_namespace = name_space
+                    self.mplsldpentitystatsmalformedtlvvalueerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsSessionAttempts"):
+                    self.mplsldpentitystatssessionattempts = value
+                    self.mplsldpentitystatssessionattempts.value_namespace = name_space
+                    self.mplsldpentitystatssessionattempts.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsSessionRejectedAdErrors"):
+                    self.mplsldpentitystatssessionrejectedaderrors = value
+                    self.mplsldpentitystatssessionrejectedaderrors.value_namespace = name_space
+                    self.mplsldpentitystatssessionrejectedaderrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsSessionRejectedLRErrors"):
+                    self.mplsldpentitystatssessionrejectedlrerrors = value
+                    self.mplsldpentitystatssessionrejectedlrerrors.value_namespace = name_space
+                    self.mplsldpentitystatssessionrejectedlrerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsSessionRejectedMaxPduErrors"):
+                    self.mplsldpentitystatssessionrejectedmaxpduerrors = value
+                    self.mplsldpentitystatssessionrejectedmaxpduerrors.value_namespace = name_space
+                    self.mplsldpentitystatssessionrejectedmaxpduerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsSessionRejectedNoHelloErrors"):
+                    self.mplsldpentitystatssessionrejectednohelloerrors = value
+                    self.mplsldpentitystatssessionrejectednohelloerrors.value_namespace = name_space
+                    self.mplsldpentitystatssessionrejectednohelloerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsShutdownReceivedNotifications"):
+                    self.mplsldpentitystatsshutdownreceivednotifications = value
+                    self.mplsldpentitystatsshutdownreceivednotifications.value_namespace = name_space
+                    self.mplsldpentitystatsshutdownreceivednotifications.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStatsShutdownSentNotifications"):
+                    self.mplsldpentitystatsshutdownsentnotifications = value
+                    self.mplsldpentitystatsshutdownsentnotifications.value_namespace = name_space
+                    self.mplsldpentitystatsshutdownsentnotifications.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityStorageType"):
+                    self.mplsldpentitystoragetype = value
+                    self.mplsldpentitystoragetype.value_namespace = name_space
+                    self.mplsldpentitystoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityTargetPeer"):
+                    self.mplsldpentitytargetpeer = value
+                    self.mplsldpentitytargetpeer.value_namespace = name_space
+                    self.mplsldpentitytargetpeer.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityTargetPeerAddr"):
+                    self.mplsldpentitytargetpeeraddr = value
+                    self.mplsldpentitytargetpeeraddr.value_namespace = name_space
+                    self.mplsldpentitytargetpeeraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityTargetPeerAddrType"):
+                    self.mplsldpentitytargetpeeraddrtype = value
+                    self.mplsldpentitytargetpeeraddrtype.value_namespace = name_space
+                    self.mplsldpentitytargetpeeraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityTcpPort"):
+                    self.mplsldpentitytcpport = value
+                    self.mplsldpentitytcpport.value_namespace = name_space
+                    self.mplsldpentitytcpport.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityTransportAddrKind"):
+                    self.mplsldpentitytransportaddrkind = value
+                    self.mplsldpentitytransportaddrkind.value_namespace = name_space
+                    self.mplsldpentitytransportaddrkind.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityUdpDscPort"):
+                    self.mplsldpentityudpdscport = value
+                    self.mplsldpentityudpdscport.value_namespace = name_space
+                    self.mplsldpentityudpdscport.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsldpentityentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldpentityadminstatus is not None:
-                    return True
-
-                if self.mplsldpentitydiscontinuitytime is not None:
-                    return True
-
-                if self.mplsldpentityhelloholdtimer is not None:
-                    return True
-
-                if self.mplsldpentityhopcountlimit is not None:
-                    return True
-
-                if self.mplsldpentityinitsessionthreshold is not None:
-                    return True
-
-                if self.mplsldpentitykeepaliveholdtimer is not None:
-                    return True
-
-                if self.mplsldpentitylabeldistmethod is not None:
-                    return True
-
-                if self.mplsldpentitylabelretentionmode is not None:
-                    return True
-
-                if self.mplsldpentitylabeltype is not None:
-                    return True
-
-                if self.mplsldpentitymaxpdulength is not None:
-                    return True
-
-                if self.mplsldpentityoperstatus is not None:
-                    return True
-
-                if self.mplsldpentitypathvectorlimit is not None:
-                    return True
-
-                if self.mplsldpentityprotocolversion is not None:
-                    return True
-
-                if self.mplsldpentityrowstatus is not None:
-                    return True
-
-                if self.mplsldpentitystatsbadldpidentifiererrors is not None:
-                    return True
-
-                if self.mplsldpentitystatsbadmessagelengtherrors is not None:
-                    return True
-
-                if self.mplsldpentitystatsbadpdulengtherrors is not None:
-                    return True
-
-                if self.mplsldpentitystatsbadtlvlengtherrors is not None:
-                    return True
-
-                if self.mplsldpentitystatskeepalivetimerexperrors is not None:
-                    return True
-
-                if self.mplsldpentitystatsmalformedtlvvalueerrors is not None:
-                    return True
-
-                if self.mplsldpentitystatssessionattempts is not None:
-                    return True
-
-                if self.mplsldpentitystatssessionrejectedaderrors is not None:
-                    return True
-
-                if self.mplsldpentitystatssessionrejectedlrerrors is not None:
-                    return True
-
-                if self.mplsldpentitystatssessionrejectedmaxpduerrors is not None:
-                    return True
-
-                if self.mplsldpentitystatssessionrejectednohelloerrors is not None:
-                    return True
-
-                if self.mplsldpentitystatsshutdownreceivednotifications is not None:
-                    return True
-
-                if self.mplsldpentitystatsshutdownsentnotifications is not None:
-                    return True
-
-                if self.mplsldpentitystoragetype is not None:
-                    return True
-
-                if self.mplsldpentitytargetpeer is not None:
-                    return True
-
-                if self.mplsldpentitytargetpeeraddr is not None:
-                    return True
-
-                if self.mplsldpentitytargetpeeraddrtype is not None:
-                    return True
-
-                if self.mplsldpentitytcpport is not None:
-                    return True
-
-                if self.mplsldpentitytransportaddrkind is not None:
-                    return True
-
-                if self.mplsldpentityudpdscport is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpEntityTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsldpentityentry is not None:
-                for child_ref in self.mplsldpentityentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsldpentityentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpEntityTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsLdpEntityEntry"):
+                for c in self.mplsldpentityentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsldpentitytable.Mplsldpentityentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsldpentityentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpEntityEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldpentitytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsldppeertable(object):
+    class Mplsldppeertable(Entity):
         """
         Information about LDP peers known by Entities in
         the mplsLdpEntityTable.  The information in this table
@@ -1035,13 +1651,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldppeerentry = YList()
-            self.mplsldppeerentry.parent = self
-            self.mplsldppeerentry.name = 'mplsldppeerentry'
+            super(MplsLdpStdMib.Mplsldppeertable, self).__init__()
+
+            self.yang_name = "mplsLdpPeerTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldppeerentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldppeertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldppeertable, self).__setattr__(name, value)
 
 
-        class Mplsldppeerentry(object):
+        class Mplsldppeerentry(Entity):
             """
             Information about a single Peer which is related
             to a Session.  This table is augmented by
@@ -1071,7 +1713,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldppeerlabeldistmethod
             
             	For any given LDP session, the method of label distribution must be specified
-            	**type**\:   :py:class:`MplslabeldistributionmethodEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplslabeldistributionmethodEnum>`
+            	**type**\:   :py:class:`Mplslabeldistributionmethod <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplslabeldistributionmethod>`
             
             .. attribute:: mplsldppeerpathvectorlimit
             
@@ -1090,7 +1732,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldppeertransportaddrtype
             
             	The type of the Internet address for the mplsLdpPeerTransportAddr object.  The LDP specification describes this as being either an IPv4 Transport Address or IPv6 Transport   Address which is used in opening the LDP session's TCP connection, or if the optional TLV is not present, then this is the IPv4/IPv6 source address for the UPD packet carrying the Hellos.  This object specifies how the value of the mplsLdpPeerTransportAddr object should be interpreted
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsldpsessiondiscontinuitytime
             
@@ -1134,12 +1776,12 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpsessionrole
             
             	During session establishment the LSR/LER takes either the active role or the passive role based on address comparisons.  This object indicates whether this LSR/LER was behaving in an active role or passive role during this session's establishment.  The value of unknown(1), indicates that the role is not able to be determined at the present time
-            	**type**\:   :py:class:`MplsldpsessionroleEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.MplsldpsessionroleEnum>`
+            	**type**\:   :py:class:`Mplsldpsessionrole <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.Mplsldpsessionrole>`
             
             .. attribute:: mplsldpsessionstate
             
             	The current state of the session, all of the states 1 to 5 are based on the state machine for session negotiation behavior
-            	**type**\:   :py:class:`MplsldpsessionstateEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.MplsldpsessionstateEnum>`
+            	**type**\:   :py:class:`Mplsldpsessionstate <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.Mplsldpsessionstate>`
             
             .. attribute:: mplsldpsessionstatelastchange
             
@@ -1170,28 +1812,88 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsldppeerlabeldistmethod = None
-                self.mplsldppeerpathvectorlimit = None
-                self.mplsldppeertransportaddr = None
-                self.mplsldppeertransportaddrtype = None
-                self.mplsldpsessiondiscontinuitytime = None
-                self.mplsldpsessionkeepaliveholdtimerem = None
-                self.mplsldpsessionkeepalivetime = None
-                self.mplsldpsessionmaxpdulength = None
-                self.mplsldpsessionprotocolversion = None
-                self.mplsldpsessionrole = None
-                self.mplsldpsessionstate = None
-                self.mplsldpsessionstatelastchange = None
-                self.mplsldpsessionstatsunknownmestypeerrors = None
-                self.mplsldpsessionstatsunknowntlverrors = None
+                super(MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry, self).__init__()
 
-            class MplsldpsessionroleEnum(Enum):
+                self.yang_name = "mplsLdpPeerEntry"
+                self.yang_parent_name = "mplsLdpPeerTable"
+
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
+
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsldppeerlabeldistmethod = YLeaf(YType.enumeration, "mplsLdpPeerLabelDistMethod")
+
+                self.mplsldppeerpathvectorlimit = YLeaf(YType.int32, "mplsLdpPeerPathVectorLimit")
+
+                self.mplsldppeertransportaddr = YLeaf(YType.str, "mplsLdpPeerTransportAddr")
+
+                self.mplsldppeertransportaddrtype = YLeaf(YType.enumeration, "mplsLdpPeerTransportAddrType")
+
+                self.mplsldpsessiondiscontinuitytime = YLeaf(YType.uint32, "mplsLdpSessionDiscontinuityTime")
+
+                self.mplsldpsessionkeepaliveholdtimerem = YLeaf(YType.int32, "mplsLdpSessionKeepAliveHoldTimeRem")
+
+                self.mplsldpsessionkeepalivetime = YLeaf(YType.uint32, "mplsLdpSessionKeepAliveTime")
+
+                self.mplsldpsessionmaxpdulength = YLeaf(YType.uint32, "mplsLdpSessionMaxPduLength")
+
+                self.mplsldpsessionprotocolversion = YLeaf(YType.uint32, "mplsLdpSessionProtocolVersion")
+
+                self.mplsldpsessionrole = YLeaf(YType.enumeration, "mplsLdpSessionRole")
+
+                self.mplsldpsessionstate = YLeaf(YType.enumeration, "mplsLdpSessionState")
+
+                self.mplsldpsessionstatelastchange = YLeaf(YType.uint32, "mplsLdpSessionStateLastChange")
+
+                self.mplsldpsessionstatsunknownmestypeerrors = YLeaf(YType.uint32, "mplsLdpSessionStatsUnknownMesTypeErrors")
+
+                self.mplsldpsessionstatsunknowntlverrors = YLeaf(YType.uint32, "mplsLdpSessionStatsUnknownTlvErrors")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsldppeerlabeldistmethod",
+                                "mplsldppeerpathvectorlimit",
+                                "mplsldppeertransportaddr",
+                                "mplsldppeertransportaddrtype",
+                                "mplsldpsessiondiscontinuitytime",
+                                "mplsldpsessionkeepaliveholdtimerem",
+                                "mplsldpsessionkeepalivetime",
+                                "mplsldpsessionmaxpdulength",
+                                "mplsldpsessionprotocolversion",
+                                "mplsldpsessionrole",
+                                "mplsldpsessionstate",
+                                "mplsldpsessionstatelastchange",
+                                "mplsldpsessionstatsunknownmestypeerrors",
+                                "mplsldpsessionstatsunknowntlverrors") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry, self).__setattr__(name, value)
+
+            class Mplsldpsessionrole(Enum):
                 """
-                MplsldpsessionroleEnum
+                Mplsldpsessionrole
 
                 During session establishment the LSR/LER takes either
 
@@ -1215,22 +1917,16 @@ class MplsLdpStdMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                active = 2
+                active = Enum.YLeaf(2, "active")
 
-                passive = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.MplsldpsessionroleEnum']
+                passive = Enum.YLeaf(3, "passive")
 
 
-            class MplsldpsessionstateEnum(Enum):
+            class Mplsldpsessionstate(Enum):
                 """
-                MplsldpsessionstateEnum
+                Mplsldpsessionstate
 
                 The current state of the session, all of the
 
@@ -1250,121 +1946,251 @@ class MplsLdpStdMib(object):
 
                 """
 
-                nonexistent = 1
+                nonexistent = Enum.YLeaf(1, "nonexistent")
 
-                initialized = 2
+                initialized = Enum.YLeaf(2, "initialized")
 
-                openrec = 3
+                openrec = Enum.YLeaf(3, "openrec")
 
-                opensent = 4
+                opensent = Enum.YLeaf(4, "opensent")
 
-                operational = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry.MplsldpsessionstateEnum']
+                operational = Enum.YLeaf(5, "operational")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsldppeerlabeldistmethod.is_set or
+                    self.mplsldppeerpathvectorlimit.is_set or
+                    self.mplsldppeertransportaddr.is_set or
+                    self.mplsldppeertransportaddrtype.is_set or
+                    self.mplsldpsessiondiscontinuitytime.is_set or
+                    self.mplsldpsessionkeepaliveholdtimerem.is_set or
+                    self.mplsldpsessionkeepalivetime.is_set or
+                    self.mplsldpsessionmaxpdulength.is_set or
+                    self.mplsldpsessionprotocolversion.is_set or
+                    self.mplsldpsessionrole.is_set or
+                    self.mplsldpsessionstate.is_set or
+                    self.mplsldpsessionstatelastchange.is_set or
+                    self.mplsldpsessionstatsunknownmestypeerrors.is_set or
+                    self.mplsldpsessionstatsunknowntlverrors.is_set)
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpPeerTable/MPLS-LDP-STD-MIB:mplsLdpPeerEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsldppeerlabeldistmethod.yfilter != YFilter.not_set or
+                    self.mplsldppeerpathvectorlimit.yfilter != YFilter.not_set or
+                    self.mplsldppeertransportaddr.yfilter != YFilter.not_set or
+                    self.mplsldppeertransportaddrtype.yfilter != YFilter.not_set or
+                    self.mplsldpsessiondiscontinuitytime.yfilter != YFilter.not_set or
+                    self.mplsldpsessionkeepaliveholdtimerem.yfilter != YFilter.not_set or
+                    self.mplsldpsessionkeepalivetime.yfilter != YFilter.not_set or
+                    self.mplsldpsessionmaxpdulength.yfilter != YFilter.not_set or
+                    self.mplsldpsessionprotocolversion.yfilter != YFilter.not_set or
+                    self.mplsldpsessionrole.yfilter != YFilter.not_set or
+                    self.mplsldpsessionstate.yfilter != YFilter.not_set or
+                    self.mplsldpsessionstatelastchange.yfilter != YFilter.not_set or
+                    self.mplsldpsessionstatsunknownmestypeerrors.yfilter != YFilter.not_set or
+                    self.mplsldpsessionstatsunknowntlverrors.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsLdpPeerEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpPeerTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsldppeerlabeldistmethod.is_set or self.mplsldppeerlabeldistmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerlabeldistmethod.get_name_leafdata())
+                if (self.mplsldppeerpathvectorlimit.is_set or self.mplsldppeerpathvectorlimit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerpathvectorlimit.get_name_leafdata())
+                if (self.mplsldppeertransportaddr.is_set or self.mplsldppeertransportaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeertransportaddr.get_name_leafdata())
+                if (self.mplsldppeertransportaddrtype.is_set or self.mplsldppeertransportaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeertransportaddrtype.get_name_leafdata())
+                if (self.mplsldpsessiondiscontinuitytime.is_set or self.mplsldpsessiondiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessiondiscontinuitytime.get_name_leafdata())
+                if (self.mplsldpsessionkeepaliveholdtimerem.is_set or self.mplsldpsessionkeepaliveholdtimerem.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionkeepaliveholdtimerem.get_name_leafdata())
+                if (self.mplsldpsessionkeepalivetime.is_set or self.mplsldpsessionkeepalivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionkeepalivetime.get_name_leafdata())
+                if (self.mplsldpsessionmaxpdulength.is_set or self.mplsldpsessionmaxpdulength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionmaxpdulength.get_name_leafdata())
+                if (self.mplsldpsessionprotocolversion.is_set or self.mplsldpsessionprotocolversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionprotocolversion.get_name_leafdata())
+                if (self.mplsldpsessionrole.is_set or self.mplsldpsessionrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionrole.get_name_leafdata())
+                if (self.mplsldpsessionstate.is_set or self.mplsldpsessionstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionstate.get_name_leafdata())
+                if (self.mplsldpsessionstatelastchange.is_set or self.mplsldpsessionstatelastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionstatelastchange.get_name_leafdata())
+                if (self.mplsldpsessionstatsunknownmestypeerrors.is_set or self.mplsldpsessionstatsunknownmestypeerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionstatsunknownmestypeerrors.get_name_leafdata())
+                if (self.mplsldpsessionstatsunknowntlverrors.is_set or self.mplsldpsessionstatsunknowntlverrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionstatsunknowntlverrors.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsLdpPeerLabelDistMethod" or name == "mplsLdpPeerPathVectorLimit" or name == "mplsLdpPeerTransportAddr" or name == "mplsLdpPeerTransportAddrType" or name == "mplsLdpSessionDiscontinuityTime" or name == "mplsLdpSessionKeepAliveHoldTimeRem" or name == "mplsLdpSessionKeepAliveTime" or name == "mplsLdpSessionMaxPduLength" or name == "mplsLdpSessionProtocolVersion" or name == "mplsLdpSessionRole" or name == "mplsLdpSessionState" or name == "mplsLdpSessionStateLastChange" or name == "mplsLdpSessionStatsUnknownMesTypeErrors" or name == "mplsLdpSessionStatsUnknownTlvErrors"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLabelDistMethod"):
+                    self.mplsldppeerlabeldistmethod = value
+                    self.mplsldppeerlabeldistmethod.value_namespace = name_space
+                    self.mplsldppeerlabeldistmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerPathVectorLimit"):
+                    self.mplsldppeerpathvectorlimit = value
+                    self.mplsldppeerpathvectorlimit.value_namespace = name_space
+                    self.mplsldppeerpathvectorlimit.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerTransportAddr"):
+                    self.mplsldppeertransportaddr = value
+                    self.mplsldppeertransportaddr.value_namespace = name_space
+                    self.mplsldppeertransportaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerTransportAddrType"):
+                    self.mplsldppeertransportaddrtype = value
+                    self.mplsldppeertransportaddrtype.value_namespace = name_space
+                    self.mplsldppeertransportaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionDiscontinuityTime"):
+                    self.mplsldpsessiondiscontinuitytime = value
+                    self.mplsldpsessiondiscontinuitytime.value_namespace = name_space
+                    self.mplsldpsessiondiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionKeepAliveHoldTimeRem"):
+                    self.mplsldpsessionkeepaliveholdtimerem = value
+                    self.mplsldpsessionkeepaliveholdtimerem.value_namespace = name_space
+                    self.mplsldpsessionkeepaliveholdtimerem.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionKeepAliveTime"):
+                    self.mplsldpsessionkeepalivetime = value
+                    self.mplsldpsessionkeepalivetime.value_namespace = name_space
+                    self.mplsldpsessionkeepalivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionMaxPduLength"):
+                    self.mplsldpsessionmaxpdulength = value
+                    self.mplsldpsessionmaxpdulength.value_namespace = name_space
+                    self.mplsldpsessionmaxpdulength.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionProtocolVersion"):
+                    self.mplsldpsessionprotocolversion = value
+                    self.mplsldpsessionprotocolversion.value_namespace = name_space
+                    self.mplsldpsessionprotocolversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionRole"):
+                    self.mplsldpsessionrole = value
+                    self.mplsldpsessionrole.value_namespace = name_space
+                    self.mplsldpsessionrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionState"):
+                    self.mplsldpsessionstate = value
+                    self.mplsldpsessionstate.value_namespace = name_space
+                    self.mplsldpsessionstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionStateLastChange"):
+                    self.mplsldpsessionstatelastchange = value
+                    self.mplsldpsessionstatelastchange.value_namespace = name_space
+                    self.mplsldpsessionstatelastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionStatsUnknownMesTypeErrors"):
+                    self.mplsldpsessionstatsunknownmestypeerrors = value
+                    self.mplsldpsessionstatsunknownmestypeerrors.value_namespace = name_space
+                    self.mplsldpsessionstatsunknownmestypeerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionStatsUnknownTlvErrors"):
+                    self.mplsldpsessionstatsunknowntlverrors = value
+                    self.mplsldpsessionstatsunknowntlverrors.value_namespace = name_space
+                    self.mplsldpsessionstatsunknowntlverrors.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsldppeerentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsldppeerlabeldistmethod is not None:
-                    return True
-
-                if self.mplsldppeerpathvectorlimit is not None:
-                    return True
-
-                if self.mplsldppeertransportaddr is not None:
-                    return True
-
-                if self.mplsldppeertransportaddrtype is not None:
-                    return True
-
-                if self.mplsldpsessiondiscontinuitytime is not None:
-                    return True
-
-                if self.mplsldpsessionkeepaliveholdtimerem is not None:
-                    return True
-
-                if self.mplsldpsessionkeepalivetime is not None:
-                    return True
-
-                if self.mplsldpsessionmaxpdulength is not None:
-                    return True
-
-                if self.mplsldpsessionprotocolversion is not None:
-                    return True
-
-                if self.mplsldpsessionrole is not None:
-                    return True
-
-                if self.mplsldpsessionstate is not None:
-                    return True
-
-                if self.mplsldpsessionstatelastchange is not None:
-                    return True
-
-                if self.mplsldpsessionstatsunknownmestypeerrors is not None:
-                    return True
-
-                if self.mplsldpsessionstatsunknowntlverrors is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpPeerTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsldppeerentry is not None:
-                for child_ref in self.mplsldppeerentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsldppeerentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpPeerTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsLdpPeerEntry"):
+                for c in self.mplsldppeerentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsldppeertable.Mplsldppeerentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsldppeerentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpPeerEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldppeertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsldphelloadjacencytable(object):
+    class Mplsldphelloadjacencytable(Entity):
         """
         A table of Hello Adjacencies for Sessions.
         
@@ -1381,13 +2207,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldphelloadjacencyentry = YList()
-            self.mplsldphelloadjacencyentry.parent = self
-            self.mplsldphelloadjacencyentry.name = 'mplsldphelloadjacencyentry'
+            super(MplsLdpStdMib.Mplsldphelloadjacencytable, self).__init__()
+
+            self.yang_name = "mplsLdpHelloAdjacencyTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldphelloadjacencyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldphelloadjacencytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldphelloadjacencytable, self).__setattr__(name, value)
 
 
-        class Mplsldphelloadjacencyentry(object):
+        class Mplsldphelloadjacencyentry(Entity):
             """
             Each row represents a single LDP Hello Adjacency.
             An LDP Session can have one or more Hello
@@ -1442,7 +2294,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldphelloadjacencytype
             
             	This adjacency is the result of a 'link' hello if the value of this object is link(1).   Otherwise, it is a result of a 'targeted' hello, targeted(2)
-            	**type**\:   :py:class:`MplsldphelloadjacencytypeEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry.MplsldphelloadjacencytypeEnum>`
+            	**type**\:   :py:class:`Mplsldphelloadjacencytype <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry.Mplsldphelloadjacencytype>`
             
             
 
@@ -1452,18 +2304,58 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsldphelloadjacencyindex = None
-                self.mplsldphelloadjacencyholdtime = None
-                self.mplsldphelloadjacencyholdtimerem = None
-                self.mplsldphelloadjacencytype = None
+                super(MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry, self).__init__()
 
-            class MplsldphelloadjacencytypeEnum(Enum):
+                self.yang_name = "mplsLdpHelloAdjacencyEntry"
+                self.yang_parent_name = "mplsLdpHelloAdjacencyTable"
+
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
+
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsldphelloadjacencyindex = YLeaf(YType.uint32, "mplsLdpHelloAdjacencyIndex")
+
+                self.mplsldphelloadjacencyholdtime = YLeaf(YType.uint32, "mplsLdpHelloAdjacencyHoldTime")
+
+                self.mplsldphelloadjacencyholdtimerem = YLeaf(YType.int32, "mplsLdpHelloAdjacencyHoldTimeRem")
+
+                self.mplsldphelloadjacencytype = YLeaf(YType.enumeration, "mplsLdpHelloAdjacencyType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsldphelloadjacencyindex",
+                                "mplsldphelloadjacencyholdtime",
+                                "mplsldphelloadjacencyholdtimerem",
+                                "mplsldphelloadjacencytype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry, self).__setattr__(name, value)
+
+            class Mplsldphelloadjacencytype(Enum):
                 """
-                MplsldphelloadjacencytypeEnum
+                Mplsldphelloadjacencytype
 
                 This adjacency is the result of a 'link'
 
@@ -1479,87 +2371,165 @@ class MplsLdpStdMib(object):
 
                 """
 
-                link = 1
+                link = Enum.YLeaf(1, "link")
 
-                targeted = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry.MplsldphelloadjacencytypeEnum']
+                targeted = Enum.YLeaf(2, "targeted")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
-                if self.mplsldphelloadjacencyindex is None:
-                    raise YPYModelError('Key property mplsldphelloadjacencyindex is None')
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsldphelloadjacencyindex.is_set or
+                    self.mplsldphelloadjacencyholdtime.is_set or
+                    self.mplsldphelloadjacencyholdtimerem.is_set or
+                    self.mplsldphelloadjacencytype.is_set)
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpHelloAdjacencyTable/MPLS-LDP-STD-MIB:mplsLdpHelloAdjacencyEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + '][MPLS-LDP-STD-MIB:mplsLdpHelloAdjacencyIndex = ' + str(self.mplsldphelloadjacencyindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsldphelloadjacencyindex.yfilter != YFilter.not_set or
+                    self.mplsldphelloadjacencyholdtime.yfilter != YFilter.not_set or
+                    self.mplsldphelloadjacencyholdtimerem.yfilter != YFilter.not_set or
+                    self.mplsldphelloadjacencytype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsLdpHelloAdjacencyEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpHelloAdjacencyIndex='" + self.mplsldphelloadjacencyindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpHelloAdjacencyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsldphelloadjacencyindex.is_set or self.mplsldphelloadjacencyindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldphelloadjacencyindex.get_name_leafdata())
+                if (self.mplsldphelloadjacencyholdtime.is_set or self.mplsldphelloadjacencyholdtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldphelloadjacencyholdtime.get_name_leafdata())
+                if (self.mplsldphelloadjacencyholdtimerem.is_set or self.mplsldphelloadjacencyholdtimerem.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldphelloadjacencyholdtimerem.get_name_leafdata())
+                if (self.mplsldphelloadjacencytype.is_set or self.mplsldphelloadjacencytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldphelloadjacencytype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsLdpHelloAdjacencyIndex" or name == "mplsLdpHelloAdjacencyHoldTime" or name == "mplsLdpHelloAdjacencyHoldTimeRem" or name == "mplsLdpHelloAdjacencyType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpHelloAdjacencyIndex"):
+                    self.mplsldphelloadjacencyindex = value
+                    self.mplsldphelloadjacencyindex.value_namespace = name_space
+                    self.mplsldphelloadjacencyindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpHelloAdjacencyHoldTime"):
+                    self.mplsldphelloadjacencyholdtime = value
+                    self.mplsldphelloadjacencyholdtime.value_namespace = name_space
+                    self.mplsldphelloadjacencyholdtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpHelloAdjacencyHoldTimeRem"):
+                    self.mplsldphelloadjacencyholdtimerem = value
+                    self.mplsldphelloadjacencyholdtimerem.value_namespace = name_space
+                    self.mplsldphelloadjacencyholdtimerem.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpHelloAdjacencyType"):
+                    self.mplsldphelloadjacencytype = value
+                    self.mplsldphelloadjacencytype.value_namespace = name_space
+                    self.mplsldphelloadjacencytype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsldphelloadjacencyentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsldphelloadjacencyindex is not None:
-                    return True
-
-                if self.mplsldphelloadjacencyholdtime is not None:
-                    return True
-
-                if self.mplsldphelloadjacencyholdtimerem is not None:
-                    return True
-
-                if self.mplsldphelloadjacencytype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpHelloAdjacencyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsldphelloadjacencyentry is not None:
-                for child_ref in self.mplsldphelloadjacencyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsldphelloadjacencyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpHelloAdjacencyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsLdpHelloAdjacencyEntry"):
+                for c in self.mplsldphelloadjacencyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsldphelloadjacencyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpHelloAdjacencyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldphelloadjacencytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsinsegmentldplsptable(object):
+    class Mplsinsegmentldplsptable(Entity):
         """
         A table of LDP LSP's which
         map to the mplsInSegmentTable in the
@@ -1578,13 +2548,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsinsegmentldplspentry = YList()
-            self.mplsinsegmentldplspentry.parent = self
-            self.mplsinsegmentldplspentry.name = 'mplsinsegmentldplspentry'
+            super(MplsLdpStdMib.Mplsinsegmentldplsptable, self).__init__()
+
+            self.yang_name = "mplsInSegmentLdpLspTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsinsegmentldplspentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsinsegmentldplsptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsinsegmentldplsptable, self).__setattr__(name, value)
 
 
-        class Mplsinsegmentldplspentry(object):
+        class Mplsinsegmentldplspentry(Entity):
             """
             An entry in this table represents information
             on a single LDP LSP which is represented by
@@ -1629,12 +2625,12 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsinsegmentldplsplabeltype
             
             	The Layer 2 Label Type
-            	**type**\:   :py:class:`MplsldplabeltypeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsldplabeltypeEnum>`
+            	**type**\:   :py:class:`Mplsldplabeltype <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplsldplabeltype>`
             
             .. attribute:: mplsinsegmentldplsptype
             
             	The type of LSP connection
-            	**type**\:   :py:class:`MplslsptypeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplslsptypeEnum>`
+            	**type**\:   :py:class:`Mplslsptype <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplslsptype>`
             
             
 
@@ -1644,81 +2640,198 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsinsegmentldplspindex = None
-                self.mplsinsegmentldplsplabeltype = None
-                self.mplsinsegmentldplsptype = None
+                super(MplsLdpStdMib.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
-                if self.mplsinsegmentldplspindex is None:
-                    raise YPYModelError('Key property mplsinsegmentldplspindex is None')
+                self.yang_name = "mplsInSegmentLdpLspEntry"
+                self.yang_parent_name = "mplsInSegmentLdpLspTable"
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsInSegmentLdpLspTable/MPLS-LDP-STD-MIB:mplsInSegmentLdpLspEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + '][MPLS-LDP-STD-MIB:mplsInSegmentLdpLspIndex = ' + str(self.mplsinsegmentldplspindex) + ']'
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsinsegmentldplspindex = YLeaf(YType.str, "mplsInSegmentLdpLspIndex")
+
+                self.mplsinsegmentldplsplabeltype = YLeaf(YType.enumeration, "mplsInSegmentLdpLspLabelType")
+
+                self.mplsinsegmentldplsptype = YLeaf(YType.enumeration, "mplsInSegmentLdpLspType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsinsegmentldplspindex",
+                                "mplsinsegmentldplsplabeltype",
+                                "mplsinsegmentldplsptype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsinsegmentldplspindex.is_set or
+                    self.mplsinsegmentldplsplabeltype.is_set or
+                    self.mplsinsegmentldplsptype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsinsegmentldplspindex.yfilter != YFilter.not_set or
+                    self.mplsinsegmentldplsplabeltype.yfilter != YFilter.not_set or
+                    self.mplsinsegmentldplsptype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsInSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsInSegmentLdpLspIndex='" + self.mplsinsegmentldplspindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsInSegmentLdpLspTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsinsegmentldplspindex.is_set or self.mplsinsegmentldplspindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsinsegmentldplspindex.get_name_leafdata())
+                if (self.mplsinsegmentldplsplabeltype.is_set or self.mplsinsegmentldplsplabeltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsinsegmentldplsplabeltype.get_name_leafdata())
+                if (self.mplsinsegmentldplsptype.is_set or self.mplsinsegmentldplsptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsinsegmentldplsptype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsInSegmentLdpLspIndex" or name == "mplsInSegmentLdpLspLabelType" or name == "mplsInSegmentLdpLspType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsInSegmentLdpLspIndex"):
+                    self.mplsinsegmentldplspindex = value
+                    self.mplsinsegmentldplspindex.value_namespace = name_space
+                    self.mplsinsegmentldplspindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsInSegmentLdpLspLabelType"):
+                    self.mplsinsegmentldplsplabeltype = value
+                    self.mplsinsegmentldplsplabeltype.value_namespace = name_space
+                    self.mplsinsegmentldplsplabeltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsInSegmentLdpLspType"):
+                    self.mplsinsegmentldplsptype = value
+                    self.mplsinsegmentldplsptype.value_namespace = name_space
+                    self.mplsinsegmentldplsptype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsinsegmentldplspentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsinsegmentldplspindex is not None:
-                    return True
-
-                if self.mplsinsegmentldplsplabeltype is not None:
-                    return True
-
-                if self.mplsinsegmentldplsptype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsInSegmentLdpLspTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsinsegmentldplspentry is not None:
-                for child_ref in self.mplsinsegmentldplspentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsinsegmentldplspentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsInSegmentLdpLspTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsInSegmentLdpLspEntry"):
+                for c in self.mplsinsegmentldplspentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsinsegmentldplspentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsInSegmentLdpLspEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsinsegmentldplsptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsoutsegmentldplsptable(object):
+    class Mplsoutsegmentldplsptable(Entity):
         """
         A table of LDP LSP's which
         map to the mplsOutSegmentTable in the
@@ -1737,13 +2850,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsoutsegmentldplspentry = YList()
-            self.mplsoutsegmentldplspentry.parent = self
-            self.mplsoutsegmentldplspentry.name = 'mplsoutsegmentldplspentry'
+            super(MplsLdpStdMib.Mplsoutsegmentldplsptable, self).__init__()
+
+            self.yang_name = "mplsOutSegmentLdpLspTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsoutsegmentldplspentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsoutsegmentldplsptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsoutsegmentldplsptable, self).__setattr__(name, value)
 
 
-        class Mplsoutsegmentldplspentry(object):
+        class Mplsoutsegmentldplspentry(Entity):
             """
             An entry in this table represents information
             on a single LDP LSP which is represented by
@@ -1787,12 +2926,12 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsoutsegmentldplsplabeltype
             
             	The Layer 2 Label Type
-            	**type**\:   :py:class:`MplsldplabeltypeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsldplabeltypeEnum>`
+            	**type**\:   :py:class:`Mplsldplabeltype <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplsldplabeltype>`
             
             .. attribute:: mplsoutsegmentldplsptype
             
             	The type of LSP connection
-            	**type**\:   :py:class:`MplslsptypeEnum <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplslsptypeEnum>`
+            	**type**\:   :py:class:`Mplslsptype <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.Mplslsptype>`
             
             
 
@@ -1802,81 +2941,198 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsoutsegmentldplspindex = None
-                self.mplsoutsegmentldplsplabeltype = None
-                self.mplsoutsegmentldplsptype = None
+                super(MplsLdpStdMib.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
-                if self.mplsoutsegmentldplspindex is None:
-                    raise YPYModelError('Key property mplsoutsegmentldplspindex is None')
+                self.yang_name = "mplsOutSegmentLdpLspEntry"
+                self.yang_parent_name = "mplsOutSegmentLdpLspTable"
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsOutSegmentLdpLspTable/MPLS-LDP-STD-MIB:mplsOutSegmentLdpLspEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + '][MPLS-LDP-STD-MIB:mplsOutSegmentLdpLspIndex = ' + str(self.mplsoutsegmentldplspindex) + ']'
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsoutsegmentldplspindex = YLeaf(YType.str, "mplsOutSegmentLdpLspIndex")
+
+                self.mplsoutsegmentldplsplabeltype = YLeaf(YType.enumeration, "mplsOutSegmentLdpLspLabelType")
+
+                self.mplsoutsegmentldplsptype = YLeaf(YType.enumeration, "mplsOutSegmentLdpLspType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsoutsegmentldplspindex",
+                                "mplsoutsegmentldplsplabeltype",
+                                "mplsoutsegmentldplsptype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsoutsegmentldplspindex.is_set or
+                    self.mplsoutsegmentldplsplabeltype.is_set or
+                    self.mplsoutsegmentldplsptype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsoutsegmentldplspindex.yfilter != YFilter.not_set or
+                    self.mplsoutsegmentldplsplabeltype.yfilter != YFilter.not_set or
+                    self.mplsoutsegmentldplsptype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsOutSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsOutSegmentLdpLspIndex='" + self.mplsoutsegmentldplspindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsOutSegmentLdpLspTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsoutsegmentldplspindex.is_set or self.mplsoutsegmentldplspindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsoutsegmentldplspindex.get_name_leafdata())
+                if (self.mplsoutsegmentldplsplabeltype.is_set or self.mplsoutsegmentldplsplabeltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsoutsegmentldplsplabeltype.get_name_leafdata())
+                if (self.mplsoutsegmentldplsptype.is_set or self.mplsoutsegmentldplsptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsoutsegmentldplsptype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsOutSegmentLdpLspIndex" or name == "mplsOutSegmentLdpLspLabelType" or name == "mplsOutSegmentLdpLspType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsOutSegmentLdpLspIndex"):
+                    self.mplsoutsegmentldplspindex = value
+                    self.mplsoutsegmentldplspindex.value_namespace = name_space
+                    self.mplsoutsegmentldplspindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsOutSegmentLdpLspLabelType"):
+                    self.mplsoutsegmentldplsplabeltype = value
+                    self.mplsoutsegmentldplsplabeltype.value_namespace = name_space
+                    self.mplsoutsegmentldplsplabeltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsOutSegmentLdpLspType"):
+                    self.mplsoutsegmentldplsptype = value
+                    self.mplsoutsegmentldplsptype.value_namespace = name_space
+                    self.mplsoutsegmentldplsptype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsoutsegmentldplspentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsoutsegmentldplspindex is not None:
-                    return True
-
-                if self.mplsoutsegmentldplsplabeltype is not None:
-                    return True
-
-                if self.mplsoutsegmentldplsptype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsOutSegmentLdpLspTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsoutsegmentldplspentry is not None:
-                for child_ref in self.mplsoutsegmentldplspentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsoutsegmentldplspentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsOutSegmentLdpLspTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsOutSegmentLdpLspEntry"):
+                for c in self.mplsoutsegmentldplspentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsoutsegmentldplspentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsOutSegmentLdpLspEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsoutsegmentldplsptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsfectable(object):
+    class Mplsfectable(Entity):
         """
         This table represents the FEC
         (Forwarding Equivalence Class)
@@ -1895,13 +3151,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsfecentry = YList()
-            self.mplsfecentry.parent = self
-            self.mplsfecentry.name = 'mplsfecentry'
+            super(MplsLdpStdMib.Mplsfectable, self).__init__()
+
+            self.yang_name = "mplsFecTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsfecentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsfectable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsfectable, self).__setattr__(name, value)
 
 
-        class Mplsfecentry(object):
+        class Mplsfecentry(Entity):
             """
             Each row represents a single FEC Element.
             
@@ -1929,22 +3211,22 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsfecaddrtype
             
             	The value of this object is the type of the Internet address.  The value of this object, decides how the value of the mplsFecAddr object is interpreted
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: mplsfecrowstatus
             
             	The status of this conceptual row.  If the value of this object is 'active(1)', then none of the writable objects of this entry can be modified, except to set this object to 'destroy(6)'.  NOTE\: if this row is being referenced by any entry in the mplsLdpLspFecTable, then a request to destroy this row, will result in an inconsistentValue error
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsfecstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: mplsfectype
             
             	The type of the FEC.  If the value of this object is 'prefix(1)' then the FEC type described by this row is an address prefix.  If the value of this object is 'hostAddress(2)' then the FEC type described by this row is a host address
-            	**type**\:   :py:class:`MplsfectypeEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsfectable.Mplsfecentry.MplsfectypeEnum>`
+            	**type**\:   :py:class:`Mplsfectype <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsfectable.Mplsfecentry.Mplsfectype>`
             
             
 
@@ -1954,18 +3236,58 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsfecindex = None
-                self.mplsfecaddr = None
-                self.mplsfecaddrprefixlength = None
-                self.mplsfecaddrtype = None
-                self.mplsfecrowstatus = None
-                self.mplsfecstoragetype = None
-                self.mplsfectype = None
+                super(MplsLdpStdMib.Mplsfectable.Mplsfecentry, self).__init__()
 
-            class MplsfectypeEnum(Enum):
+                self.yang_name = "mplsFecEntry"
+                self.yang_parent_name = "mplsFecTable"
+
+                self.mplsfecindex = YLeaf(YType.uint32, "mplsFecIndex")
+
+                self.mplsfecaddr = YLeaf(YType.str, "mplsFecAddr")
+
+                self.mplsfecaddrprefixlength = YLeaf(YType.uint32, "mplsFecAddrPrefixLength")
+
+                self.mplsfecaddrtype = YLeaf(YType.enumeration, "mplsFecAddrType")
+
+                self.mplsfecrowstatus = YLeaf(YType.enumeration, "mplsFecRowStatus")
+
+                self.mplsfecstoragetype = YLeaf(YType.enumeration, "mplsFecStorageType")
+
+                self.mplsfectype = YLeaf(YType.enumeration, "mplsFecType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsfecindex",
+                                "mplsfecaddr",
+                                "mplsfecaddrprefixlength",
+                                "mplsfecaddrtype",
+                                "mplsfecrowstatus",
+                                "mplsfecstoragetype",
+                                "mplsfectype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsfectable.Mplsfecentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsfectable.Mplsfecentry, self).__setattr__(name, value)
+
+            class Mplsfectype(Enum):
                 """
-                MplsfectypeEnum
+                Mplsfectype
 
                 The type of the FEC.  If the value of this object
 
@@ -1983,81 +3305,165 @@ class MplsLdpStdMib(object):
 
                 """
 
-                prefix = 1
+                prefix = Enum.YLeaf(1, "prefix")
 
-                hostAddress = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsfectable.Mplsfecentry.MplsfectypeEnum']
+                hostAddress = Enum.YLeaf(2, "hostAddress")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsfecindex is None:
-                    raise YPYModelError('Key property mplsfecindex is None')
+            def has_data(self):
+                return (
+                    self.mplsfecindex.is_set or
+                    self.mplsfecaddr.is_set or
+                    self.mplsfecaddrprefixlength.is_set or
+                    self.mplsfecaddrtype.is_set or
+                    self.mplsfecrowstatus.is_set or
+                    self.mplsfecstoragetype.is_set or
+                    self.mplsfectype.is_set)
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsFecTable/MPLS-LDP-STD-MIB:mplsFecEntry[MPLS-LDP-STD-MIB:mplsFecIndex = ' + str(self.mplsfecindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsfecindex.yfilter != YFilter.not_set or
+                    self.mplsfecaddr.yfilter != YFilter.not_set or
+                    self.mplsfecaddrprefixlength.yfilter != YFilter.not_set or
+                    self.mplsfecaddrtype.yfilter != YFilter.not_set or
+                    self.mplsfecrowstatus.yfilter != YFilter.not_set or
+                    self.mplsfecstoragetype.yfilter != YFilter.not_set or
+                    self.mplsfectype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsFecEntry" + "[mplsFecIndex='" + self.mplsfecindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsFecTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsfecindex.is_set or self.mplsfecindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecindex.get_name_leafdata())
+                if (self.mplsfecaddr.is_set or self.mplsfecaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecaddr.get_name_leafdata())
+                if (self.mplsfecaddrprefixlength.is_set or self.mplsfecaddrprefixlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecaddrprefixlength.get_name_leafdata())
+                if (self.mplsfecaddrtype.is_set or self.mplsfecaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecaddrtype.get_name_leafdata())
+                if (self.mplsfecrowstatus.is_set or self.mplsfecrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecrowstatus.get_name_leafdata())
+                if (self.mplsfecstoragetype.is_set or self.mplsfecstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfecstoragetype.get_name_leafdata())
+                if (self.mplsfectype.is_set or self.mplsfectype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsfectype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsFecIndex" or name == "mplsFecAddr" or name == "mplsFecAddrPrefixLength" or name == "mplsFecAddrType" or name == "mplsFecRowStatus" or name == "mplsFecStorageType" or name == "mplsFecType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsfecindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsFecIndex"):
+                    self.mplsfecindex = value
+                    self.mplsfecindex.value_namespace = name_space
+                    self.mplsfecindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecAddr"):
+                    self.mplsfecaddr = value
+                    self.mplsfecaddr.value_namespace = name_space
+                    self.mplsfecaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecAddrPrefixLength"):
+                    self.mplsfecaddrprefixlength = value
+                    self.mplsfecaddrprefixlength.value_namespace = name_space
+                    self.mplsfecaddrprefixlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecAddrType"):
+                    self.mplsfecaddrtype = value
+                    self.mplsfecaddrtype.value_namespace = name_space
+                    self.mplsfecaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecRowStatus"):
+                    self.mplsfecrowstatus = value
+                    self.mplsfecrowstatus.value_namespace = name_space
+                    self.mplsfecrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecStorageType"):
+                    self.mplsfecstoragetype = value
+                    self.mplsfecstoragetype.value_namespace = name_space
+                    self.mplsfecstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsFecType"):
+                    self.mplsfectype = value
+                    self.mplsfectype.value_namespace = name_space
+                    self.mplsfectype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsfecentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsfecaddr is not None:
-                    return True
-
-                if self.mplsfecaddrprefixlength is not None:
-                    return True
-
-                if self.mplsfecaddrtype is not None:
-                    return True
-
-                if self.mplsfecrowstatus is not None:
-                    return True
-
-                if self.mplsfecstoragetype is not None:
-                    return True
-
-                if self.mplsfectype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsfectable.Mplsfecentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsFecTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsfecentry is not None:
-                for child_ref in self.mplsfecentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsfecentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsFecTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsFecEntry"):
+                for c in self.mplsfecentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsfectable.Mplsfecentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsfecentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsFecEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsfectable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsldplspfectable(object):
+    class Mplsldplspfectable(Entity):
         """
         A table which shows the relationship between
         LDP LSPs and FECs.  Each row represents
@@ -2076,13 +3482,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldplspfecentry = YList()
-            self.mplsldplspfecentry.parent = self
-            self.mplsldplspfecentry.name = 'mplsldplspfecentry'
+            super(MplsLdpStdMib.Mplsldplspfectable, self).__init__()
+
+            self.yang_name = "mplsLdpLspFecTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldplspfecentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldplspfectable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldplspfectable, self).__setattr__(name, value)
 
 
-        class Mplsldplspfecentry(object):
+        class Mplsldplspfecentry(Entity):
             """
             An entry represents a LDP LSP
             to FEC association.
@@ -2113,7 +3545,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldplspfecsegment  <key>
             
             	If the value is inSegment(1), then this indicates that the following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsInSegmentLdpLspIndex.  Otherwise, if the value of this object is   outSegment(2),  then this indicates that following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsOutSegmentLdpLspIndex
-            	**type**\:   :py:class:`MplsldplspfecsegmentEnum <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry.MplsldplspfecsegmentEnum>`
+            	**type**\:   :py:class:`Mplsldplspfecsegment <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry.Mplsldplspfecsegment>`
             
             .. attribute:: mplsldplspfecsegmentindex  <key>
             
@@ -2132,12 +3564,12 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldplspfecrowstatus
             
             	The status of this conceptual row.  If the value of this object is 'active(1)', then none of the writable objects of this entry can be modified.  The Agent should delete this row when the session ceases to exist.  If an operator wants to associate the session with a different FEC, the recommended procedure is (as described in detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object) is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. This will also cause this entry to be deleted.  Then, set the mplsLdpEntityAdminStatus to enable which enables a new session to be initiated. Once the session is initiated, an entry may be added to this table to associate the new session with a FEC
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: mplsldplspfecstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -2147,19 +3579,61 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsldplspfecsegment = None
-                self.mplsldplspfecsegmentindex = None
-                self.mplsldplspfecindex = None
-                self.mplsldplspfecrowstatus = None
-                self.mplsldplspfecstoragetype = None
+                super(MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry, self).__init__()
 
-            class MplsldplspfecsegmentEnum(Enum):
+                self.yang_name = "mplsLdpLspFecEntry"
+                self.yang_parent_name = "mplsLdpLspFecTable"
+
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
+
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsldplspfecsegment = YLeaf(YType.enumeration, "mplsLdpLspFecSegment")
+
+                self.mplsldplspfecsegmentindex = YLeaf(YType.str, "mplsLdpLspFecSegmentIndex")
+
+                self.mplsldplspfecindex = YLeaf(YType.uint32, "mplsLdpLspFecIndex")
+
+                self.mplsldplspfecrowstatus = YLeaf(YType.enumeration, "mplsLdpLspFecRowStatus")
+
+                self.mplsldplspfecstoragetype = YLeaf(YType.enumeration, "mplsLdpLspFecStorageType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsldplspfecsegment",
+                                "mplsldplspfecsegmentindex",
+                                "mplsldplspfecindex",
+                                "mplsldplspfecrowstatus",
+                                "mplsldplspfecstoragetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry, self).__setattr__(name, value)
+
+            class Mplsldplspfecsegment(Enum):
                 """
-                MplsldplspfecsegmentEnum
+                Mplsldplspfecsegment
 
                 If the value is inSegment(1), then this
 
@@ -2185,94 +3659,173 @@ class MplsLdpStdMib(object):
 
                 """
 
-                inSegment = 1
+                inSegment = Enum.YLeaf(1, "inSegment")
 
-                outSegment = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                    return meta._meta_table['MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry.MplsldplspfecsegmentEnum']
+                outSegment = Enum.YLeaf(2, "outSegment")
 
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
-                if self.mplsldplspfecsegment is None:
-                    raise YPYModelError('Key property mplsldplspfecsegment is None')
-                if self.mplsldplspfecsegmentindex is None:
-                    raise YPYModelError('Key property mplsldplspfecsegmentindex is None')
-                if self.mplsldplspfecindex is None:
-                    raise YPYModelError('Key property mplsldplspfecindex is None')
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsldplspfecsegment.is_set or
+                    self.mplsldplspfecsegmentindex.is_set or
+                    self.mplsldplspfecindex.is_set or
+                    self.mplsldplspfecrowstatus.is_set or
+                    self.mplsldplspfecstoragetype.is_set)
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpLspFecTable/MPLS-LDP-STD-MIB:mplsLdpLspFecEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + '][MPLS-LDP-STD-MIB:mplsLdpLspFecSegment = ' + str(self.mplsldplspfecsegment) + '][MPLS-LDP-STD-MIB:mplsLdpLspFecSegmentIndex = ' + str(self.mplsldplspfecsegmentindex) + '][MPLS-LDP-STD-MIB:mplsLdpLspFecIndex = ' + str(self.mplsldplspfecindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsldplspfecsegment.yfilter != YFilter.not_set or
+                    self.mplsldplspfecsegmentindex.yfilter != YFilter.not_set or
+                    self.mplsldplspfecindex.yfilter != YFilter.not_set or
+                    self.mplsldplspfecrowstatus.yfilter != YFilter.not_set or
+                    self.mplsldplspfecstoragetype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsLdpLspFecEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpLspFecSegment='" + self.mplsldplspfecsegment.get() + "']" + "[mplsLdpLspFecSegmentIndex='" + self.mplsldplspfecsegmentindex.get() + "']" + "[mplsLdpLspFecIndex='" + self.mplsldplspfecindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpLspFecTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsldplspfecsegment.is_set or self.mplsldplspfecsegment.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldplspfecsegment.get_name_leafdata())
+                if (self.mplsldplspfecsegmentindex.is_set or self.mplsldplspfecsegmentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldplspfecsegmentindex.get_name_leafdata())
+                if (self.mplsldplspfecindex.is_set or self.mplsldplspfecindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldplspfecindex.get_name_leafdata())
+                if (self.mplsldplspfecrowstatus.is_set or self.mplsldplspfecrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldplspfecrowstatus.get_name_leafdata())
+                if (self.mplsldplspfecstoragetype.is_set or self.mplsldplspfecstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldplspfecstoragetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsLdpLspFecSegment" or name == "mplsLdpLspFecSegmentIndex" or name == "mplsLdpLspFecIndex" or name == "mplsLdpLspFecRowStatus" or name == "mplsLdpLspFecStorageType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpLspFecSegment"):
+                    self.mplsldplspfecsegment = value
+                    self.mplsldplspfecsegment.value_namespace = name_space
+                    self.mplsldplspfecsegment.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpLspFecSegmentIndex"):
+                    self.mplsldplspfecsegmentindex = value
+                    self.mplsldplspfecsegmentindex.value_namespace = name_space
+                    self.mplsldplspfecsegmentindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpLspFecIndex"):
+                    self.mplsldplspfecindex = value
+                    self.mplsldplspfecindex.value_namespace = name_space
+                    self.mplsldplspfecindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpLspFecRowStatus"):
+                    self.mplsldplspfecrowstatus = value
+                    self.mplsldplspfecrowstatus.value_namespace = name_space
+                    self.mplsldplspfecrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpLspFecStorageType"):
+                    self.mplsldplspfecstoragetype = value
+                    self.mplsldplspfecstoragetype.value_namespace = name_space
+                    self.mplsldplspfecstoragetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsldplspfecentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsldplspfecsegment is not None:
-                    return True
-
-                if self.mplsldplspfecsegmentindex is not None:
-                    return True
-
-                if self.mplsldplspfecindex is not None:
-                    return True
-
-                if self.mplsldplspfecrowstatus is not None:
-                    return True
-
-                if self.mplsldplspfecstoragetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpLspFecTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsldplspfecentry is not None:
-                for child_ref in self.mplsldplspfecentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsldplspfecentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpLspFecTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsLdpLspFecEntry"):
+                for c in self.mplsldplspfecentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsldplspfectable.Mplsldplspfecentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsldplspfecentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpLspFecEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldplspfectable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Mplsldpsessionpeeraddrtable(object):
+    class Mplsldpsessionpeeraddrtable(Entity):
         """
         This table 'extends' the mplsLdpSessionTable.
         This table is used to store Label Address Information
@@ -2300,13 +3853,39 @@ class MplsLdpStdMib(object):
         _revision = '2004-06-03'
 
         def __init__(self):
-            self.parent = None
-            self.mplsldpsessionpeeraddrentry = YList()
-            self.mplsldpsessionpeeraddrentry.parent = self
-            self.mplsldpsessionpeeraddrentry.name = 'mplsldpsessionpeeraddrentry'
+            super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable, self).__init__()
+
+            self.yang_name = "mplsLdpSessionPeerAddrTable"
+            self.yang_parent_name = "MPLS-LDP-STD-MIB"
+
+            self.mplsldpsessionpeeraddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable, self).__setattr__(name, value)
 
 
-        class Mplsldpsessionpeeraddrentry(object):
+        class Mplsldpsessionpeeraddrentry(Entity):
             """
             An entry in this table represents information on
             a session's single next hop address which was
@@ -2353,7 +3932,7 @@ class MplsLdpStdMib(object):
             .. attribute:: mplsldpsessionpeernexthopaddrtype
             
             	The internetwork layer address type of this Next Hop Address as specified in the Label Address Message associated with this Session. The value of this object indicates how to interpret the value of   mplsLdpSessionPeerNextHopAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -2363,130 +3942,344 @@ class MplsLdpStdMib(object):
             _revision = '2004-06-03'
 
             def __init__(self):
-                self.parent = None
-                self.mplsldpentityldpid = None
-                self.mplsldpentityindex = None
-                self.mplsldppeerldpid = None
-                self.mplsldpsessionpeeraddrindex = None
-                self.mplsldpsessionpeernexthopaddr = None
-                self.mplsldpsessionpeernexthopaddrtype = None
+                super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.mplsldpentityldpid is None:
-                    raise YPYModelError('Key property mplsldpentityldpid is None')
-                if self.mplsldpentityindex is None:
-                    raise YPYModelError('Key property mplsldpentityindex is None')
-                if self.mplsldppeerldpid is None:
-                    raise YPYModelError('Key property mplsldppeerldpid is None')
-                if self.mplsldpsessionpeeraddrindex is None:
-                    raise YPYModelError('Key property mplsldpsessionpeeraddrindex is None')
+                self.yang_name = "mplsLdpSessionPeerAddrEntry"
+                self.yang_parent_name = "mplsLdpSessionPeerAddrTable"
 
-                return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpSessionPeerAddrTable/MPLS-LDP-STD-MIB:mplsLdpSessionPeerAddrEntry[MPLS-LDP-STD-MIB:mplsLdpEntityLdpId = ' + str(self.mplsldpentityldpid) + '][MPLS-LDP-STD-MIB:mplsLdpEntityIndex = ' + str(self.mplsldpentityindex) + '][MPLS-LDP-STD-MIB:mplsLdpPeerLdpId = ' + str(self.mplsldppeerldpid) + '][MPLS-LDP-STD-MIB:mplsLdpSessionPeerAddrIndex = ' + str(self.mplsldpsessionpeeraddrindex) + ']'
+                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
+
+                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
+
+                self.mplsldpsessionpeeraddrindex = YLeaf(YType.uint32, "mplsLdpSessionPeerAddrIndex")
+
+                self.mplsldpsessionpeernexthopaddr = YLeaf(YType.str, "mplsLdpSessionPeerNextHopAddr")
+
+                self.mplsldpsessionpeernexthopaddrtype = YLeaf(YType.enumeration, "mplsLdpSessionPeerNextHopAddrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("mplsldpentityldpid",
+                                "mplsldpentityindex",
+                                "mplsldppeerldpid",
+                                "mplsldpsessionpeeraddrindex",
+                                "mplsldpsessionpeernexthopaddr",
+                                "mplsldpsessionpeernexthopaddrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MplsLdpStdMib.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.mplsldpentityldpid.is_set or
+                    self.mplsldpentityindex.is_set or
+                    self.mplsldppeerldpid.is_set or
+                    self.mplsldpsessionpeeraddrindex.is_set or
+                    self.mplsldpsessionpeernexthopaddr.is_set or
+                    self.mplsldpsessionpeernexthopaddrtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.mplsldpentityldpid.yfilter != YFilter.not_set or
+                    self.mplsldpentityindex.yfilter != YFilter.not_set or
+                    self.mplsldppeerldpid.yfilter != YFilter.not_set or
+                    self.mplsldpsessionpeeraddrindex.yfilter != YFilter.not_set or
+                    self.mplsldpsessionpeernexthopaddr.yfilter != YFilter.not_set or
+                    self.mplsldpsessionpeernexthopaddrtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mplsLdpSessionPeerAddrEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpSessionPeerAddrIndex='" + self.mplsldpsessionpeeraddrindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpSessionPeerAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.mplsldpentityldpid.is_set or self.mplsldpentityldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityldpid.get_name_leafdata())
+                if (self.mplsldpentityindex.is_set or self.mplsldpentityindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpentityindex.get_name_leafdata())
+                if (self.mplsldppeerldpid.is_set or self.mplsldppeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldppeerldpid.get_name_leafdata())
+                if (self.mplsldpsessionpeeraddrindex.is_set or self.mplsldpsessionpeeraddrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionpeeraddrindex.get_name_leafdata())
+                if (self.mplsldpsessionpeernexthopaddr.is_set or self.mplsldpsessionpeernexthopaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionpeernexthopaddr.get_name_leafdata())
+                if (self.mplsldpsessionpeernexthopaddrtype.is_set or self.mplsldpsessionpeernexthopaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mplsldpsessionpeernexthopaddrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mplsLdpEntityLdpId" or name == "mplsLdpEntityIndex" or name == "mplsLdpPeerLdpId" or name == "mplsLdpSessionPeerAddrIndex" or name == "mplsLdpSessionPeerNextHopAddr" or name == "mplsLdpSessionPeerNextHopAddrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.mplsldpentityldpid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "mplsLdpEntityLdpId"):
+                    self.mplsldpentityldpid = value
+                    self.mplsldpentityldpid.value_namespace = name_space
+                    self.mplsldpentityldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpEntityIndex"):
+                    self.mplsldpentityindex = value
+                    self.mplsldpentityindex.value_namespace = name_space
+                    self.mplsldpentityindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpPeerLdpId"):
+                    self.mplsldppeerldpid = value
+                    self.mplsldppeerldpid.value_namespace = name_space
+                    self.mplsldppeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionPeerAddrIndex"):
+                    self.mplsldpsessionpeeraddrindex = value
+                    self.mplsldpsessionpeeraddrindex.value_namespace = name_space
+                    self.mplsldpsessionpeeraddrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionPeerNextHopAddr"):
+                    self.mplsldpsessionpeernexthopaddr = value
+                    self.mplsldpsessionpeernexthopaddr.value_namespace = name_space
+                    self.mplsldpsessionpeernexthopaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "mplsLdpSessionPeerNextHopAddrType"):
+                    self.mplsldpsessionpeernexthopaddrtype = value
+                    self.mplsldpsessionpeernexthopaddrtype.value_namespace = name_space
+                    self.mplsldpsessionpeernexthopaddrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mplsldpsessionpeeraddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.mplsldpentityindex is not None:
-                    return True
-
-                if self.mplsldppeerldpid is not None:
-                    return True
-
-                if self.mplsldpsessionpeeraddrindex is not None:
-                    return True
-
-                if self.mplsldpsessionpeernexthopaddr is not None:
-                    return True
-
-                if self.mplsldpsessionpeernexthopaddrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-                return meta._meta_table['MplsLdpStdMib.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/MPLS-LDP-STD-MIB:mplsLdpSessionPeerAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mplsldpsessionpeeraddrentry is not None:
-                for child_ref in self.mplsldpsessionpeeraddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mplsldpsessionpeeraddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mplsLdpSessionPeerAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mplsLdpSessionPeerAddrEntry"):
+                for c in self.mplsldpsessionpeeraddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MplsLdpStdMib.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mplsldpsessionpeeraddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mplsLdpSessionPeerAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-            return meta._meta_table['MplsLdpStdMib.Mplsldpsessionpeeraddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.mplsfecobjects is not None and self.mplsfecobjects.has_data()) or
+            (self.mplsfectable is not None and self.mplsfectable.has_data()) or
+            (self.mplsinsegmentldplsptable is not None and self.mplsinsegmentldplsptable.has_data()) or
+            (self.mplsldpentityobjects is not None and self.mplsldpentityobjects.has_data()) or
+            (self.mplsldpentitytable is not None and self.mplsldpentitytable.has_data()) or
+            (self.mplsldphelloadjacencytable is not None and self.mplsldphelloadjacencytable.has_data()) or
+            (self.mplsldplspfectable is not None and self.mplsldplspfectable.has_data()) or
+            (self.mplsldplsrobjects is not None and self.mplsldplsrobjects.has_data()) or
+            (self.mplsldppeertable is not None and self.mplsldppeertable.has_data()) or
+            (self.mplsldpsessionobjects is not None and self.mplsldpsessionobjects.has_data()) or
+            (self.mplsldpsessionpeeraddrtable is not None and self.mplsldpsessionpeeraddrtable.has_data()) or
+            (self.mplsoutsegmentldplsptable is not None and self.mplsoutsegmentldplsptable.has_data()))
 
-        return '/MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.mplsfecobjects is not None and self.mplsfecobjects.has_operation()) or
+            (self.mplsfectable is not None and self.mplsfectable.has_operation()) or
+            (self.mplsinsegmentldplsptable is not None and self.mplsinsegmentldplsptable.has_operation()) or
+            (self.mplsldpentityobjects is not None and self.mplsldpentityobjects.has_operation()) or
+            (self.mplsldpentitytable is not None and self.mplsldpentitytable.has_operation()) or
+            (self.mplsldphelloadjacencytable is not None and self.mplsldphelloadjacencytable.has_operation()) or
+            (self.mplsldplspfectable is not None and self.mplsldplspfectable.has_operation()) or
+            (self.mplsldplsrobjects is not None and self.mplsldplsrobjects.has_operation()) or
+            (self.mplsldppeertable is not None and self.mplsldppeertable.has_operation()) or
+            (self.mplsldpsessionobjects is not None and self.mplsldpsessionobjects.has_operation()) or
+            (self.mplsldpsessionpeeraddrtable is not None and self.mplsldpsessionpeeraddrtable.has_operation()) or
+            (self.mplsoutsegmentldplsptable is not None and self.mplsoutsegmentldplsptable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "mplsFecObjects"):
+            if (self.mplsfecobjects is None):
+                self.mplsfecobjects = MplsLdpStdMib.Mplsfecobjects()
+                self.mplsfecobjects.parent = self
+                self._children_name_map["mplsfecobjects"] = "mplsFecObjects"
+            return self.mplsfecobjects
+
+        if (child_yang_name == "mplsFecTable"):
+            if (self.mplsfectable is None):
+                self.mplsfectable = MplsLdpStdMib.Mplsfectable()
+                self.mplsfectable.parent = self
+                self._children_name_map["mplsfectable"] = "mplsFecTable"
+            return self.mplsfectable
+
+        if (child_yang_name == "mplsInSegmentLdpLspTable"):
+            if (self.mplsinsegmentldplsptable is None):
+                self.mplsinsegmentldplsptable = MplsLdpStdMib.Mplsinsegmentldplsptable()
+                self.mplsinsegmentldplsptable.parent = self
+                self._children_name_map["mplsinsegmentldplsptable"] = "mplsInSegmentLdpLspTable"
+            return self.mplsinsegmentldplsptable
+
+        if (child_yang_name == "mplsLdpEntityObjects"):
+            if (self.mplsldpentityobjects is None):
+                self.mplsldpentityobjects = MplsLdpStdMib.Mplsldpentityobjects()
+                self.mplsldpentityobjects.parent = self
+                self._children_name_map["mplsldpentityobjects"] = "mplsLdpEntityObjects"
+            return self.mplsldpentityobjects
+
+        if (child_yang_name == "mplsLdpEntityTable"):
+            if (self.mplsldpentitytable is None):
+                self.mplsldpentitytable = MplsLdpStdMib.Mplsldpentitytable()
+                self.mplsldpentitytable.parent = self
+                self._children_name_map["mplsldpentitytable"] = "mplsLdpEntityTable"
+            return self.mplsldpentitytable
+
+        if (child_yang_name == "mplsLdpHelloAdjacencyTable"):
+            if (self.mplsldphelloadjacencytable is None):
+                self.mplsldphelloadjacencytable = MplsLdpStdMib.Mplsldphelloadjacencytable()
+                self.mplsldphelloadjacencytable.parent = self
+                self._children_name_map["mplsldphelloadjacencytable"] = "mplsLdpHelloAdjacencyTable"
+            return self.mplsldphelloadjacencytable
+
+        if (child_yang_name == "mplsLdpLspFecTable"):
+            if (self.mplsldplspfectable is None):
+                self.mplsldplspfectable = MplsLdpStdMib.Mplsldplspfectable()
+                self.mplsldplspfectable.parent = self
+                self._children_name_map["mplsldplspfectable"] = "mplsLdpLspFecTable"
+            return self.mplsldplspfectable
+
+        if (child_yang_name == "mplsLdpLsrObjects"):
+            if (self.mplsldplsrobjects is None):
+                self.mplsldplsrobjects = MplsLdpStdMib.Mplsldplsrobjects()
+                self.mplsldplsrobjects.parent = self
+                self._children_name_map["mplsldplsrobjects"] = "mplsLdpLsrObjects"
+            return self.mplsldplsrobjects
+
+        if (child_yang_name == "mplsLdpPeerTable"):
+            if (self.mplsldppeertable is None):
+                self.mplsldppeertable = MplsLdpStdMib.Mplsldppeertable()
+                self.mplsldppeertable.parent = self
+                self._children_name_map["mplsldppeertable"] = "mplsLdpPeerTable"
+            return self.mplsldppeertable
+
+        if (child_yang_name == "mplsLdpSessionObjects"):
+            if (self.mplsldpsessionobjects is None):
+                self.mplsldpsessionobjects = MplsLdpStdMib.Mplsldpsessionobjects()
+                self.mplsldpsessionobjects.parent = self
+                self._children_name_map["mplsldpsessionobjects"] = "mplsLdpSessionObjects"
+            return self.mplsldpsessionobjects
+
+        if (child_yang_name == "mplsLdpSessionPeerAddrTable"):
+            if (self.mplsldpsessionpeeraddrtable is None):
+                self.mplsldpsessionpeeraddrtable = MplsLdpStdMib.Mplsldpsessionpeeraddrtable()
+                self.mplsldpsessionpeeraddrtable.parent = self
+                self._children_name_map["mplsldpsessionpeeraddrtable"] = "mplsLdpSessionPeerAddrTable"
+            return self.mplsldpsessionpeeraddrtable
+
+        if (child_yang_name == "mplsOutSegmentLdpLspTable"):
+            if (self.mplsoutsegmentldplsptable is None):
+                self.mplsoutsegmentldplsptable = MplsLdpStdMib.Mplsoutsegmentldplsptable()
+                self.mplsoutsegmentldplsptable.parent = self
+                self._children_name_map["mplsoutsegmentldplsptable"] = "mplsOutSegmentLdpLspTable"
+            return self.mplsoutsegmentldplsptable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "mplsFecObjects" or name == "mplsFecTable" or name == "mplsInSegmentLdpLspTable" or name == "mplsLdpEntityObjects" or name == "mplsLdpEntityTable" or name == "mplsLdpHelloAdjacencyTable" or name == "mplsLdpLspFecTable" or name == "mplsLdpLsrObjects" or name == "mplsLdpPeerTable" or name == "mplsLdpSessionObjects" or name == "mplsLdpSessionPeerAddrTable" or name == "mplsOutSegmentLdpLspTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.mplsfecobjects is not None and self.mplsfecobjects._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.mplsfectable is not None and self.mplsfectable._has_data():
-            return True
-
-        if self.mplsinsegmentldplsptable is not None and self.mplsinsegmentldplsptable._has_data():
-            return True
-
-        if self.mplsldpentityobjects is not None and self.mplsldpentityobjects._has_data():
-            return True
-
-        if self.mplsldpentitytable is not None and self.mplsldpentitytable._has_data():
-            return True
-
-        if self.mplsldphelloadjacencytable is not None and self.mplsldphelloadjacencytable._has_data():
-            return True
-
-        if self.mplsldplspfectable is not None and self.mplsldplspfectable._has_data():
-            return True
-
-        if self.mplsldplsrobjects is not None and self.mplsldplsrobjects._has_data():
-            return True
-
-        if self.mplsldppeertable is not None and self.mplsldppeertable._has_data():
-            return True
-
-        if self.mplsldpsessionobjects is not None and self.mplsldpsessionobjects._has_data():
-            return True
-
-        if self.mplsldpsessionpeeraddrtable is not None and self.mplsldpsessionpeeraddrtable._has_data():
-            return True
-
-        if self.mplsoutsegmentldplsptable is not None and self.mplsoutsegmentldplsptable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_LDP_STD_MIB as meta
-        return meta._meta_table['MplsLdpStdMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = MplsLdpStdMib()
+        return self._top_entity
 

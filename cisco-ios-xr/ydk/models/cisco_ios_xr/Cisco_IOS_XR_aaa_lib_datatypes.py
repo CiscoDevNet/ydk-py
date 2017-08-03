@@ -7,49 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AaaAccountingBroadcastEnum(Enum):
+class AaaAccounting(Enum):
     """
-    AaaAccountingBroadcastEnum
-
-    Aaa accounting broadcast
-
-    .. data:: disable = 0
-
-    	Disable Broadcast
-
-    .. data:: enable = 1
-
-    	Enable Broadcast
-
-    """
-
-    disable = 0
-
-    enable = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_datatypes as meta
-        return meta._meta_table['AaaAccountingBroadcastEnum']
-
-
-class AaaAccountingEnum(Enum):
-    """
-    AaaAccountingEnum
+    AaaAccounting
 
     Aaa accounting
 
@@ -67,22 +34,37 @@ class AaaAccountingEnum(Enum):
 
     """
 
-    not_set = 0
+    not_set = Enum.YLeaf(0, "not-set")
 
-    start_stop = 1
+    start_stop = Enum.YLeaf(1, "start-stop")
 
-    stop_only = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_datatypes as meta
-        return meta._meta_table['AaaAccountingEnum']
+    stop_only = Enum.YLeaf(2, "stop-only")
 
 
-class AaaAccountingRpFailoverEnum(Enum):
+class AaaAccountingBroadcast(Enum):
     """
-    AaaAccountingRpFailoverEnum
+    AaaAccountingBroadcast
+
+    Aaa accounting broadcast
+
+    .. data:: disable = 0
+
+    	Disable Broadcast
+
+    .. data:: enable = 1
+
+    	Enable Broadcast
+
+    """
+
+    disable = Enum.YLeaf(0, "disable")
+
+    enable = Enum.YLeaf(1, "enable")
+
+
+class AaaAccountingRpFailover(Enum):
+    """
+    AaaAccountingRpFailover
 
     Aaa accounting rp failover
 
@@ -96,20 +78,14 @@ class AaaAccountingRpFailoverEnum(Enum):
 
     """
 
-    disable = 0
+    disable = Enum.YLeaf(0, "disable")
 
-    enable = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_datatypes as meta
-        return meta._meta_table['AaaAccountingRpFailoverEnum']
+    enable = Enum.YLeaf(1, "enable")
 
 
-class AaaAccountingUpdateEnum(Enum):
+class AaaAccountingUpdate(Enum):
     """
-    AaaAccountingUpdateEnum
+    AaaAccountingUpdate
 
     Aaa accounting update
 
@@ -129,22 +105,16 @@ class AaaAccountingUpdateEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    newinfo = 3
+    newinfo = Enum.YLeaf(3, "newinfo")
 
-    periodic = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_datatypes as meta
-        return meta._meta_table['AaaAccountingUpdateEnum']
+    periodic = Enum.YLeaf(4, "periodic")
 
 
-class AaaMethodEnum(Enum):
+class AaaMethod(Enum):
     """
-    AaaMethodEnum
+    AaaMethod
 
     Aaa method
 
@@ -218,45 +188,39 @@ class AaaMethodEnum(Enum):
 
     """
 
-    not_set = 0
+    not_set = Enum.YLeaf(0, "not-set")
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    radius = 3
+    radius = Enum.YLeaf(3, "radius")
 
-    tacacs_plus = 4
+    tacacs_plus = Enum.YLeaf(4, "tacacs-plus")
 
-    dsmd = 5
+    dsmd = Enum.YLeaf(5, "dsmd")
 
-    sgbp = 6
+    sgbp = Enum.YLeaf(6, "sgbp")
 
-    acct_d = 7
+    acct_d = Enum.YLeaf(7, "acct-d")
 
-    error = 8
+    error = Enum.YLeaf(8, "error")
 
-    if_authenticated = 9
+    if_authenticated = Enum.YLeaf(9, "if-authenticated")
 
-    server_group = 10
+    server_group = Enum.YLeaf(10, "server-group")
 
-    server_group_not_defined = 11
+    server_group_not_defined = Enum.YLeaf(11, "server-group-not-defined")
 
-    line = 12
+    line = Enum.YLeaf(12, "line")
 
-    enable = 13
+    enable = Enum.YLeaf(13, "enable")
 
-    kerberos = 14
+    kerberos = Enum.YLeaf(14, "kerberos")
 
-    diameter = 15
+    diameter = Enum.YLeaf(15, "diameter")
 
-    last = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_datatypes as meta
-        return meta._meta_table['AaaMethodEnum']
+    last = Enum.YLeaf(16, "last")
 
 
 

@@ -126,7 +126,7 @@ def _get_decoded_entity():
 def _init_logging():
     import logging
     log = logging.getLogger('ydk')
-    log.setLevel(logging.DEBUG)
+    log.setLevel(logging.INFO)
     ch = logging.StreamHandler()
     log.addHandler(ch)
 

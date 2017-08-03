@@ -199,21 +199,15 @@ Subscriber Session
     sessions, see the CISCO\-SUBSCRIBER\-SESSION\-TC\-MIB.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoSubscriberSessionMib(object):
+class CiscoSubscriberSessionMib(Entity):
     """
     
     
@@ -285,33 +279,74 @@ class CiscoSubscriberSessionMib(object):
     _revision = '2012-08-08'
 
     def __init__(self):
+        super(CiscoSubscriberSessionMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+        self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
         self.csubaggstatsinttable = CiscoSubscriberSessionMib.Csubaggstatsinttable()
         self.csubaggstatsinttable.parent = self
+        self._children_name_map["csubaggstatsinttable"] = "csubAggStatsIntTable"
+        self._children_yang_names.add("csubAggStatsIntTable")
+
         self.csubaggstatstable = CiscoSubscriberSessionMib.Csubaggstatstable()
         self.csubaggstatstable.parent = self
+        self._children_name_map["csubaggstatstable"] = "csubAggStatsTable"
+        self._children_yang_names.add("csubAggStatsTable")
+
         self.csubaggstatsthreshtable = CiscoSubscriberSessionMib.Csubaggstatsthreshtable()
         self.csubaggstatsthreshtable.parent = self
+        self._children_name_map["csubaggstatsthreshtable"] = "csubAggStatsThreshTable"
+        self._children_yang_names.add("csubAggStatsThreshTable")
+
         self.csubaggthresh = CiscoSubscriberSessionMib.Csubaggthresh()
         self.csubaggthresh.parent = self
+        self._children_name_map["csubaggthresh"] = "csubAggThresh"
+        self._children_yang_names.add("csubAggThresh")
+
         self.csubjob = CiscoSubscriberSessionMib.Csubjob()
         self.csubjob.parent = self
+        self._children_name_map["csubjob"] = "csubJob"
+        self._children_yang_names.add("csubJob")
+
         self.csubjobmatchparamstable = CiscoSubscriberSessionMib.Csubjobmatchparamstable()
         self.csubjobmatchparamstable.parent = self
+        self._children_name_map["csubjobmatchparamstable"] = "csubJobMatchParamsTable"
+        self._children_yang_names.add("csubJobMatchParamsTable")
+
         self.csubjobqueryparamstable = CiscoSubscriberSessionMib.Csubjobqueryparamstable()
         self.csubjobqueryparamstable.parent = self
+        self._children_name_map["csubjobqueryparamstable"] = "csubJobQueryParamsTable"
+        self._children_yang_names.add("csubJobQueryParamsTable")
+
         self.csubjobqueuetable = CiscoSubscriberSessionMib.Csubjobqueuetable()
         self.csubjobqueuetable.parent = self
+        self._children_name_map["csubjobqueuetable"] = "csubJobQueueTable"
+        self._children_yang_names.add("csubJobQueueTable")
+
         self.csubjobreporttable = CiscoSubscriberSessionMib.Csubjobreporttable()
         self.csubjobreporttable.parent = self
+        self._children_name_map["csubjobreporttable"] = "csubJobReportTable"
+        self._children_yang_names.add("csubJobReportTable")
+
         self.csubjobtable = CiscoSubscriberSessionMib.Csubjobtable()
         self.csubjobtable.parent = self
+        self._children_name_map["csubjobtable"] = "csubJobTable"
+        self._children_yang_names.add("csubJobTable")
+
         self.csubsessionbytypetable = CiscoSubscriberSessionMib.Csubsessionbytypetable()
         self.csubsessionbytypetable.parent = self
+        self._children_name_map["csubsessionbytypetable"] = "csubSessionByTypeTable"
+        self._children_yang_names.add("csubSessionByTypeTable")
+
         self.csubsessiontable = CiscoSubscriberSessionMib.Csubsessiontable()
         self.csubsessiontable.parent = self
+        self._children_name_map["csubsessiontable"] = "csubSessionTable"
+        self._children_yang_names.add("csubSessionTable")
 
 
-    class Csubjob(object):
+    class Csubjob(Entity):
         """
         
         
@@ -367,52 +402,139 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobcount = None
-            self.csubjobfinishednotifyenable = None
-            self.csubjobidnext = None
-            self.csubjobindexedattributes = Subsessionidentities()
-            self.csubjobmaxlife = None
-            self.csubjobmaxnumber = None
+            super(CiscoSubscriberSessionMib.Csubjob, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "csubJob"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
 
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJob'
+            self.csubjobcount = YLeaf(YType.uint32, "csubJobCount")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.csubjobfinishednotifyenable = YLeaf(YType.boolean, "csubJobFinishedNotifyEnable")
+
+            self.csubjobidnext = YLeaf(YType.uint32, "csubJobIdNext")
+
+            self.csubjobindexedattributes = YLeaf(YType.bits, "csubJobIndexedAttributes")
+
+            self.csubjobmaxlife = YLeaf(YType.uint32, "csubJobMaxLife")
+
+            self.csubjobmaxnumber = YLeaf(YType.uint32, "csubJobMaxNumber")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("csubjobcount",
+                            "csubjobfinishednotifyenable",
+                            "csubjobidnext",
+                            "csubjobindexedattributes",
+                            "csubjobmaxlife",
+                            "csubjobmaxnumber") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjob, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjob, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.csubjobcount.is_set or
+                self.csubjobfinishednotifyenable.is_set or
+                self.csubjobidnext.is_set or
+                self.csubjobindexedattributes.is_set or
+                self.csubjobmaxlife.is_set or
+                self.csubjobmaxnumber.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.csubjobcount.yfilter != YFilter.not_set or
+                self.csubjobfinishednotifyenable.yfilter != YFilter.not_set or
+                self.csubjobidnext.yfilter != YFilter.not_set or
+                self.csubjobindexedattributes.yfilter != YFilter.not_set or
+                self.csubjobmaxlife.yfilter != YFilter.not_set or
+                self.csubjobmaxnumber.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJob" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.csubjobcount.is_set or self.csubjobcount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobcount.get_name_leafdata())
+            if (self.csubjobfinishednotifyenable.is_set or self.csubjobfinishednotifyenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobfinishednotifyenable.get_name_leafdata())
+            if (self.csubjobidnext.is_set or self.csubjobidnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobidnext.get_name_leafdata())
+            if (self.csubjobindexedattributes.is_set or self.csubjobindexedattributes.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobindexedattributes.get_name_leafdata())
+            if (self.csubjobmaxlife.is_set or self.csubjobmaxlife.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobmaxlife.get_name_leafdata())
+            if (self.csubjobmaxnumber.is_set or self.csubjobmaxnumber.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubjobmaxnumber.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobCount" or name == "csubJobFinishedNotifyEnable" or name == "csubJobIdNext" or name == "csubJobIndexedAttributes" or name == "csubJobMaxLife" or name == "csubJobMaxNumber"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.csubjobcount is not None:
-                return True
-
-            if self.csubjobfinishednotifyenable is not None:
-                return True
-
-            if self.csubjobidnext is not None:
-                return True
-
-            if self.csubjobindexedattributes is not None:
-                if self.csubjobindexedattributes._has_data():
-                    return True
-
-            if self.csubjobmaxlife is not None:
-                return True
-
-            if self.csubjobmaxnumber is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjob']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "csubJobCount"):
+                self.csubjobcount = value
+                self.csubjobcount.value_namespace = name_space
+                self.csubjobcount.value_namespace_prefix = name_space_prefix
+            if(value_path == "csubJobFinishedNotifyEnable"):
+                self.csubjobfinishednotifyenable = value
+                self.csubjobfinishednotifyenable.value_namespace = name_space
+                self.csubjobfinishednotifyenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "csubJobIdNext"):
+                self.csubjobidnext = value
+                self.csubjobidnext.value_namespace = name_space
+                self.csubjobidnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "csubJobIndexedAttributes"):
+                self.csubjobindexedattributes[value] = True
+            if(value_path == "csubJobMaxLife"):
+                self.csubjobmaxlife = value
+                self.csubjobmaxlife.value_namespace = name_space
+                self.csubjobmaxlife.value_namespace_prefix = name_space_prefix
+            if(value_path == "csubJobMaxNumber"):
+                self.csubjobmaxnumber = value
+                self.csubjobmaxnumber.value_namespace = name_space
+                self.csubjobmaxnumber.value_namespace_prefix = name_space_prefix
 
 
-    class Csubaggthresh(object):
+    class Csubaggthresh(Entity):
         """
         
         
@@ -429,31 +551,85 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubaggstatsthreshnotifenable = None
+            super(CiscoSubscriberSessionMib.Csubaggthresh, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "csubAggThresh"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
 
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggThresh'
+            self.csubaggstatsthreshnotifenable = YLeaf(YType.boolean, "csubAggStatsThreshNotifEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("csubaggstatsthreshnotifenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubaggthresh, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubaggthresh, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.csubaggstatsthreshnotifenable is not None:
+        def has_data(self):
+            return self.csubaggstatsthreshnotifenable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.csubaggstatsthreshnotifenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubAggThresh" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.csubaggstatsthreshnotifenable.is_set or self.csubaggstatsthreshnotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.csubaggstatsthreshnotifenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubAggStatsThreshNotifEnable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubaggthresh']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "csubAggStatsThreshNotifEnable"):
+                self.csubaggstatsthreshnotifenable = value
+                self.csubaggstatsthreshnotifenable.value_namespace = name_space
+                self.csubaggstatsthreshnotifenable.value_namespace_prefix = name_space_prefix
 
 
-    class Csubsessiontable(object):
+    class Csubsessiontable(Entity):
         """
         This table describes a list of subscriber sessions currently
         maintained by the system.
@@ -475,13 +651,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubsessionentry = YList()
-            self.csubsessionentry.parent = self
-            self.csubsessionentry.name = 'csubsessionentry'
+            super(CiscoSubscriberSessionMib.Csubsessiontable, self).__init__()
+
+            self.yang_name = "csubSessionTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubsessionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubsessiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubsessiontable, self).__setattr__(name, value)
 
 
-        class Csubsessionentry(object):
+        class Csubsessionentry(Entity):
             """
             This entry contains data describing a subscriber sessions,
             including its state, configuration, and collected identities.
@@ -566,7 +768,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessiondomainipaddrtype
             
             	This object indicates the type of IP address assigned to the subscriber on the service\-facing side of the system.  This column is valid only if the 'domainIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: csubsessiondomainipmask
             
@@ -583,7 +785,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionipaddrassignment
             
             	This object indicates how the system assigns IP addresses to the subscriber\:      'none'         The system does not an involvement in (or is it aware         of) the assignment an subscriber IP addresses.  For         example, a system does not have an involvement in the         assignment of subscriber IP addresses for IP interface         subscriber sessions.      'other'         The system assigns subscriber IP addresses using a         method not recognized by this MIB module.      'static'         Subscriber IP addresses have been configured correctly         for the service domain.  The system does not have an         involvement in the assignment of the IP address.      'localPool'         The system assigns subscriber IP addresses from a         locally configured pool of IP addresses.      'dhcpv4'         The system assigns subscriber IP addresses are using the         DHCPv4.      'dhcpv6'         The system assigns subscriber IP addresses using the         DHCPv6.      'userProfileIpAddr'         The system assigns subscriber IP addresses from a user         profile.      'userProfileIpSubnet'         The system assigns the subscriber an IP subnet from a         user profile.      'userProfileNamedPool'         The system assigns subscriber IP addresses from a         locally configured named pool specified by a user         profile
-            	**type**\:   :py:class:`CsubsessionipaddrassignmentEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry.CsubsessionipaddrassignmentEnum>`
+            	**type**\:   :py:class:`Csubsessionipaddrassignment <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry.Csubsessionipaddrassignment>`
             
             .. attribute:: csubsessionlastchanged
             
@@ -605,7 +807,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionmedia
             
             	This object indicates the type of media providing access to the subscriber.  This column is valid only if the 'media' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
-            	**type**\:   :py:class:`SubscribermediatypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscribermediatypeEnum>`
+            	**type**\:   :py:class:`Subscribermediatype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subscribermediatype>`
             
             .. attribute:: csubsessionmlpnegotiated
             
@@ -634,12 +836,12 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionnativeipaddrtype
             
             	This object indicates the type of IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: csubsessionnativeipaddrtype2
             
             	This object indicates the type of IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'.  In Dual stack scenarios both 'csubSessionNativeIpAddrType' and  'csubSessionNativeIpAddrType2' will be valid
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: csubsessionnativeipmask
             
@@ -668,12 +870,12 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionprotocol
             
             	This object indicates the type of protocol providing access to the subscriber.  This column is valid only if the 'protocol' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
-            	**type**\:   :py:class:`SubscriberprotocoltypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberprotocoltypeEnum>`
+            	**type**\:   :py:class:`Subscriberprotocoltype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subscriberprotocoltype>`
             
             .. attribute:: csubsessionredundancymode
             
             	This object indicates the redundancy mode in which the subscriber session is operating
-            	**type**\:   :py:class:`SubsessionredundancymodeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessionredundancymodeEnum>`
+            	**type**\:   :py:class:`Subsessionredundancymode <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessionredundancymode>`
             
             .. attribute:: csubsessionremoteid
             
@@ -688,7 +890,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionstate
             
             	This object indicates the operational state of the subscriber session
-            	**type**\:   :py:class:`SubsessionstateEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessionstateEnum>`
+            	**type**\:   :py:class:`Subsessionstate <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessionstate>`
             
             .. attribute:: csubsessionsubscriberlabel
             
@@ -705,7 +907,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessiontype
             
             	This object indicates the type of subscriber session
-            	**type**\:   :py:class:`SubsessiontypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessiontypeEnum>`
+            	**type**\:   :py:class:`Subsessiontype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessiontype>`
             
             .. attribute:: csubsessionusername
             
@@ -720,49 +922,151 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.csubsessionacctsessionid = None
-                self.csubsessionauthenticated = None
-                self.csubsessionavailableidentities = Subsessionidentities()
-                self.csubsessioncircuitid = None
-                self.csubsessioncreationtime = None
-                self.csubsessionderivedcfg = None
-                self.csubsessiondhcpclass = None
-                self.csubsessiondnis = None
-                self.csubsessiondomain = None
-                self.csubsessiondomainipaddr = None
-                self.csubsessiondomainipaddrtype = None
-                self.csubsessiondomainipmask = None
-                self.csubsessiondomainvrf = None
-                self.csubsessionipaddrassignment = None
-                self.csubsessionlastchanged = None
-                self.csubsessionlocationidentifier = None
-                self.csubsessionmacaddress = None
-                self.csubsessionmedia = None
-                self.csubsessionmlpnegotiated = None
-                self.csubsessionnasport = None
-                self.csubsessionnativeipaddr = None
-                self.csubsessionnativeipaddr2 = None
-                self.csubsessionnativeipaddrtype = None
-                self.csubsessionnativeipaddrtype2 = None
-                self.csubsessionnativeipmask = None
-                self.csubsessionnativeipmask2 = None
-                self.csubsessionnativevrf = None
-                self.csubsessionpbhk = None
-                self.csubsessionprotocol = None
-                self.csubsessionredundancymode = None
-                self.csubsessionremoteid = None
-                self.csubsessionserviceidentifier = None
-                self.csubsessionstate = None
-                self.csubsessionsubscriberlabel = None
-                self.csubsessiontunnelname = None
-                self.csubsessiontype = None
-                self.csubsessionusername = None
+                super(CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry, self).__init__()
 
-            class CsubsessionipaddrassignmentEnum(Enum):
+                self.yang_name = "csubSessionEntry"
+                self.yang_parent_name = "csubSessionTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.csubsessionacctsessionid = YLeaf(YType.uint32, "csubSessionAcctSessionId")
+
+                self.csubsessionauthenticated = YLeaf(YType.boolean, "csubSessionAuthenticated")
+
+                self.csubsessionavailableidentities = YLeaf(YType.bits, "csubSessionAvailableIdentities")
+
+                self.csubsessioncircuitid = YLeaf(YType.str, "csubSessionCircuitId")
+
+                self.csubsessioncreationtime = YLeaf(YType.str, "csubSessionCreationTime")
+
+                self.csubsessionderivedcfg = YLeaf(YType.str, "csubSessionDerivedCfg")
+
+                self.csubsessiondhcpclass = YLeaf(YType.str, "csubSessionDhcpClass")
+
+                self.csubsessiondnis = YLeaf(YType.str, "csubSessionDnis")
+
+                self.csubsessiondomain = YLeaf(YType.str, "csubSessionDomain")
+
+                self.csubsessiondomainipaddr = YLeaf(YType.str, "csubSessionDomainIpAddr")
+
+                self.csubsessiondomainipaddrtype = YLeaf(YType.enumeration, "csubSessionDomainIpAddrType")
+
+                self.csubsessiondomainipmask = YLeaf(YType.str, "csubSessionDomainIpMask")
+
+                self.csubsessiondomainvrf = YLeaf(YType.str, "csubSessionDomainVrf")
+
+                self.csubsessionipaddrassignment = YLeaf(YType.enumeration, "csubSessionIpAddrAssignment")
+
+                self.csubsessionlastchanged = YLeaf(YType.str, "csubSessionLastChanged")
+
+                self.csubsessionlocationidentifier = YLeaf(YType.str, "csubSessionLocationIdentifier")
+
+                self.csubsessionmacaddress = YLeaf(YType.str, "csubSessionMacAddress")
+
+                self.csubsessionmedia = YLeaf(YType.enumeration, "csubSessionMedia")
+
+                self.csubsessionmlpnegotiated = YLeaf(YType.boolean, "csubSessionMlpNegotiated")
+
+                self.csubsessionnasport = YLeaf(YType.str, "csubSessionNasPort")
+
+                self.csubsessionnativeipaddr = YLeaf(YType.str, "csubSessionNativeIpAddr")
+
+                self.csubsessionnativeipaddr2 = YLeaf(YType.str, "csubSessionNativeIpAddr2")
+
+                self.csubsessionnativeipaddrtype = YLeaf(YType.enumeration, "csubSessionNativeIpAddrType")
+
+                self.csubsessionnativeipaddrtype2 = YLeaf(YType.enumeration, "csubSessionNativeIpAddrType2")
+
+                self.csubsessionnativeipmask = YLeaf(YType.str, "csubSessionNativeIpMask")
+
+                self.csubsessionnativeipmask2 = YLeaf(YType.str, "csubSessionNativeIpMask2")
+
+                self.csubsessionnativevrf = YLeaf(YType.str, "csubSessionNativeVrf")
+
+                self.csubsessionpbhk = YLeaf(YType.str, "csubSessionPbhk")
+
+                self.csubsessionprotocol = YLeaf(YType.enumeration, "csubSessionProtocol")
+
+                self.csubsessionredundancymode = YLeaf(YType.enumeration, "csubSessionRedundancyMode")
+
+                self.csubsessionremoteid = YLeaf(YType.str, "csubSessionRemoteId")
+
+                self.csubsessionserviceidentifier = YLeaf(YType.str, "csubSessionServiceIdentifier")
+
+                self.csubsessionstate = YLeaf(YType.enumeration, "csubSessionState")
+
+                self.csubsessionsubscriberlabel = YLeaf(YType.uint32, "csubSessionSubscriberLabel")
+
+                self.csubsessiontunnelname = YLeaf(YType.str, "csubSessionTunnelName")
+
+                self.csubsessiontype = YLeaf(YType.enumeration, "csubSessionType")
+
+                self.csubsessionusername = YLeaf(YType.str, "csubSessionUsername")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "csubsessionacctsessionid",
+                                "csubsessionauthenticated",
+                                "csubsessionavailableidentities",
+                                "csubsessioncircuitid",
+                                "csubsessioncreationtime",
+                                "csubsessionderivedcfg",
+                                "csubsessiondhcpclass",
+                                "csubsessiondnis",
+                                "csubsessiondomain",
+                                "csubsessiondomainipaddr",
+                                "csubsessiondomainipaddrtype",
+                                "csubsessiondomainipmask",
+                                "csubsessiondomainvrf",
+                                "csubsessionipaddrassignment",
+                                "csubsessionlastchanged",
+                                "csubsessionlocationidentifier",
+                                "csubsessionmacaddress",
+                                "csubsessionmedia",
+                                "csubsessionmlpnegotiated",
+                                "csubsessionnasport",
+                                "csubsessionnativeipaddr",
+                                "csubsessionnativeipaddr2",
+                                "csubsessionnativeipaddrtype",
+                                "csubsessionnativeipaddrtype2",
+                                "csubsessionnativeipmask",
+                                "csubsessionnativeipmask2",
+                                "csubsessionnativevrf",
+                                "csubsessionpbhk",
+                                "csubsessionprotocol",
+                                "csubsessionredundancymode",
+                                "csubsessionremoteid",
+                                "csubsessionserviceidentifier",
+                                "csubsessionstate",
+                                "csubsessionsubscriberlabel",
+                                "csubsessiontunnelname",
+                                "csubsessiontype",
+                                "csubsessionusername") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry, self).__setattr__(name, value)
+
+            class Csubsessionipaddrassignment(Enum):
                 """
-                CsubsessionipaddrassignmentEnum
+                Csubsessionipaddrassignment
 
                 This object indicates how the system assigns IP addresses to
 
@@ -852,189 +1156,425 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                other = 2
+                other = Enum.YLeaf(2, "other")
 
-                static = 3
+                static = Enum.YLeaf(3, "static")
 
-                localPool = 4
+                localPool = Enum.YLeaf(4, "localPool")
 
-                dhcpv4 = 5
+                dhcpv4 = Enum.YLeaf(5, "dhcpv4")
 
-                dhcpv6 = 6
+                dhcpv6 = Enum.YLeaf(6, "dhcpv6")
 
-                userProfileIpAddr = 7
+                userProfileIpAddr = Enum.YLeaf(7, "userProfileIpAddr")
 
-                userProfileIpSubnet = 8
+                userProfileIpSubnet = Enum.YLeaf(8, "userProfileIpSubnet")
 
-                userProfileNamedPool = 9
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry.CsubsessionipaddrassignmentEnum']
+                userProfileNamedPool = Enum.YLeaf(9, "userProfileNamedPool")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.csubsessionacctsessionid.is_set or
+                    self.csubsessionauthenticated.is_set or
+                    self.csubsessionavailableidentities.is_set or
+                    self.csubsessioncircuitid.is_set or
+                    self.csubsessioncreationtime.is_set or
+                    self.csubsessionderivedcfg.is_set or
+                    self.csubsessiondhcpclass.is_set or
+                    self.csubsessiondnis.is_set or
+                    self.csubsessiondomain.is_set or
+                    self.csubsessiondomainipaddr.is_set or
+                    self.csubsessiondomainipaddrtype.is_set or
+                    self.csubsessiondomainipmask.is_set or
+                    self.csubsessiondomainvrf.is_set or
+                    self.csubsessionipaddrassignment.is_set or
+                    self.csubsessionlastchanged.is_set or
+                    self.csubsessionlocationidentifier.is_set or
+                    self.csubsessionmacaddress.is_set or
+                    self.csubsessionmedia.is_set or
+                    self.csubsessionmlpnegotiated.is_set or
+                    self.csubsessionnasport.is_set or
+                    self.csubsessionnativeipaddr.is_set or
+                    self.csubsessionnativeipaddr2.is_set or
+                    self.csubsessionnativeipaddrtype.is_set or
+                    self.csubsessionnativeipaddrtype2.is_set or
+                    self.csubsessionnativeipmask.is_set or
+                    self.csubsessionnativeipmask2.is_set or
+                    self.csubsessionnativevrf.is_set or
+                    self.csubsessionpbhk.is_set or
+                    self.csubsessionprotocol.is_set or
+                    self.csubsessionredundancymode.is_set or
+                    self.csubsessionremoteid.is_set or
+                    self.csubsessionserviceidentifier.is_set or
+                    self.csubsessionstate.is_set or
+                    self.csubsessionsubscriberlabel.is_set or
+                    self.csubsessiontunnelname.is_set or
+                    self.csubsessiontype.is_set or
+                    self.csubsessionusername.is_set)
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionTable/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionEntry[CISCO-SUBSCRIBER-SESSION-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.csubsessionacctsessionid.yfilter != YFilter.not_set or
+                    self.csubsessionauthenticated.yfilter != YFilter.not_set or
+                    self.csubsessionavailableidentities.yfilter != YFilter.not_set or
+                    self.csubsessioncircuitid.yfilter != YFilter.not_set or
+                    self.csubsessioncreationtime.yfilter != YFilter.not_set or
+                    self.csubsessionderivedcfg.yfilter != YFilter.not_set or
+                    self.csubsessiondhcpclass.yfilter != YFilter.not_set or
+                    self.csubsessiondnis.yfilter != YFilter.not_set or
+                    self.csubsessiondomain.yfilter != YFilter.not_set or
+                    self.csubsessiondomainipaddr.yfilter != YFilter.not_set or
+                    self.csubsessiondomainipaddrtype.yfilter != YFilter.not_set or
+                    self.csubsessiondomainipmask.yfilter != YFilter.not_set or
+                    self.csubsessiondomainvrf.yfilter != YFilter.not_set or
+                    self.csubsessionipaddrassignment.yfilter != YFilter.not_set or
+                    self.csubsessionlastchanged.yfilter != YFilter.not_set or
+                    self.csubsessionlocationidentifier.yfilter != YFilter.not_set or
+                    self.csubsessionmacaddress.yfilter != YFilter.not_set or
+                    self.csubsessionmedia.yfilter != YFilter.not_set or
+                    self.csubsessionmlpnegotiated.yfilter != YFilter.not_set or
+                    self.csubsessionnasport.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipaddr.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipaddr2.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipaddrtype.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipaddrtype2.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipmask.yfilter != YFilter.not_set or
+                    self.csubsessionnativeipmask2.yfilter != YFilter.not_set or
+                    self.csubsessionnativevrf.yfilter != YFilter.not_set or
+                    self.csubsessionpbhk.yfilter != YFilter.not_set or
+                    self.csubsessionprotocol.yfilter != YFilter.not_set or
+                    self.csubsessionredundancymode.yfilter != YFilter.not_set or
+                    self.csubsessionremoteid.yfilter != YFilter.not_set or
+                    self.csubsessionserviceidentifier.yfilter != YFilter.not_set or
+                    self.csubsessionstate.yfilter != YFilter.not_set or
+                    self.csubsessionsubscriberlabel.yfilter != YFilter.not_set or
+                    self.csubsessiontunnelname.yfilter != YFilter.not_set or
+                    self.csubsessiontype.yfilter != YFilter.not_set or
+                    self.csubsessionusername.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubSessionEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.csubsessionacctsessionid.is_set or self.csubsessionacctsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionacctsessionid.get_name_leafdata())
+                if (self.csubsessionauthenticated.is_set or self.csubsessionauthenticated.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionauthenticated.get_name_leafdata())
+                if (self.csubsessionavailableidentities.is_set or self.csubsessionavailableidentities.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionavailableidentities.get_name_leafdata())
+                if (self.csubsessioncircuitid.is_set or self.csubsessioncircuitid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessioncircuitid.get_name_leafdata())
+                if (self.csubsessioncreationtime.is_set or self.csubsessioncreationtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessioncreationtime.get_name_leafdata())
+                if (self.csubsessionderivedcfg.is_set or self.csubsessionderivedcfg.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionderivedcfg.get_name_leafdata())
+                if (self.csubsessiondhcpclass.is_set or self.csubsessiondhcpclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondhcpclass.get_name_leafdata())
+                if (self.csubsessiondnis.is_set or self.csubsessiondnis.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondnis.get_name_leafdata())
+                if (self.csubsessiondomain.is_set or self.csubsessiondomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondomain.get_name_leafdata())
+                if (self.csubsessiondomainipaddr.is_set or self.csubsessiondomainipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondomainipaddr.get_name_leafdata())
+                if (self.csubsessiondomainipaddrtype.is_set or self.csubsessiondomainipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondomainipaddrtype.get_name_leafdata())
+                if (self.csubsessiondomainipmask.is_set or self.csubsessiondomainipmask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondomainipmask.get_name_leafdata())
+                if (self.csubsessiondomainvrf.is_set or self.csubsessiondomainvrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondomainvrf.get_name_leafdata())
+                if (self.csubsessionipaddrassignment.is_set or self.csubsessionipaddrassignment.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionipaddrassignment.get_name_leafdata())
+                if (self.csubsessionlastchanged.is_set or self.csubsessionlastchanged.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionlastchanged.get_name_leafdata())
+                if (self.csubsessionlocationidentifier.is_set or self.csubsessionlocationidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionlocationidentifier.get_name_leafdata())
+                if (self.csubsessionmacaddress.is_set or self.csubsessionmacaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionmacaddress.get_name_leafdata())
+                if (self.csubsessionmedia.is_set or self.csubsessionmedia.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionmedia.get_name_leafdata())
+                if (self.csubsessionmlpnegotiated.is_set or self.csubsessionmlpnegotiated.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionmlpnegotiated.get_name_leafdata())
+                if (self.csubsessionnasport.is_set or self.csubsessionnasport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnasport.get_name_leafdata())
+                if (self.csubsessionnativeipaddr.is_set or self.csubsessionnativeipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipaddr.get_name_leafdata())
+                if (self.csubsessionnativeipaddr2.is_set or self.csubsessionnativeipaddr2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipaddr2.get_name_leafdata())
+                if (self.csubsessionnativeipaddrtype.is_set or self.csubsessionnativeipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipaddrtype.get_name_leafdata())
+                if (self.csubsessionnativeipaddrtype2.is_set or self.csubsessionnativeipaddrtype2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipaddrtype2.get_name_leafdata())
+                if (self.csubsessionnativeipmask.is_set or self.csubsessionnativeipmask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipmask.get_name_leafdata())
+                if (self.csubsessionnativeipmask2.is_set or self.csubsessionnativeipmask2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativeipmask2.get_name_leafdata())
+                if (self.csubsessionnativevrf.is_set or self.csubsessionnativevrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionnativevrf.get_name_leafdata())
+                if (self.csubsessionpbhk.is_set or self.csubsessionpbhk.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionpbhk.get_name_leafdata())
+                if (self.csubsessionprotocol.is_set or self.csubsessionprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionprotocol.get_name_leafdata())
+                if (self.csubsessionredundancymode.is_set or self.csubsessionredundancymode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionredundancymode.get_name_leafdata())
+                if (self.csubsessionremoteid.is_set or self.csubsessionremoteid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionremoteid.get_name_leafdata())
+                if (self.csubsessionserviceidentifier.is_set or self.csubsessionserviceidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionserviceidentifier.get_name_leafdata())
+                if (self.csubsessionstate.is_set or self.csubsessionstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionstate.get_name_leafdata())
+                if (self.csubsessionsubscriberlabel.is_set or self.csubsessionsubscriberlabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionsubscriberlabel.get_name_leafdata())
+                if (self.csubsessiontunnelname.is_set or self.csubsessiontunnelname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiontunnelname.get_name_leafdata())
+                if (self.csubsessiontype.is_set or self.csubsessiontype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiontype.get_name_leafdata())
+                if (self.csubsessionusername.is_set or self.csubsessionusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionusername.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "csubSessionAcctSessionId" or name == "csubSessionAuthenticated" or name == "csubSessionAvailableIdentities" or name == "csubSessionCircuitId" or name == "csubSessionCreationTime" or name == "csubSessionDerivedCfg" or name == "csubSessionDhcpClass" or name == "csubSessionDnis" or name == "csubSessionDomain" or name == "csubSessionDomainIpAddr" or name == "csubSessionDomainIpAddrType" or name == "csubSessionDomainIpMask" or name == "csubSessionDomainVrf" or name == "csubSessionIpAddrAssignment" or name == "csubSessionLastChanged" or name == "csubSessionLocationIdentifier" or name == "csubSessionMacAddress" or name == "csubSessionMedia" or name == "csubSessionMlpNegotiated" or name == "csubSessionNasPort" or name == "csubSessionNativeIpAddr" or name == "csubSessionNativeIpAddr2" or name == "csubSessionNativeIpAddrType" or name == "csubSessionNativeIpAddrType2" or name == "csubSessionNativeIpMask" or name == "csubSessionNativeIpMask2" or name == "csubSessionNativeVrf" or name == "csubSessionPbhk" or name == "csubSessionProtocol" or name == "csubSessionRedundancyMode" or name == "csubSessionRemoteId" or name == "csubSessionServiceIdentifier" or name == "csubSessionState" or name == "csubSessionSubscriberLabel" or name == "csubSessionTunnelName" or name == "csubSessionType" or name == "csubSessionUsername"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionAcctSessionId"):
+                    self.csubsessionacctsessionid = value
+                    self.csubsessionacctsessionid.value_namespace = name_space
+                    self.csubsessionacctsessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionAuthenticated"):
+                    self.csubsessionauthenticated = value
+                    self.csubsessionauthenticated.value_namespace = name_space
+                    self.csubsessionauthenticated.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionAvailableIdentities"):
+                    self.csubsessionavailableidentities[value] = True
+                if(value_path == "csubSessionCircuitId"):
+                    self.csubsessioncircuitid = value
+                    self.csubsessioncircuitid.value_namespace = name_space
+                    self.csubsessioncircuitid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionCreationTime"):
+                    self.csubsessioncreationtime = value
+                    self.csubsessioncreationtime.value_namespace = name_space
+                    self.csubsessioncreationtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDerivedCfg"):
+                    self.csubsessionderivedcfg = value
+                    self.csubsessionderivedcfg.value_namespace = name_space
+                    self.csubsessionderivedcfg.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDhcpClass"):
+                    self.csubsessiondhcpclass = value
+                    self.csubsessiondhcpclass.value_namespace = name_space
+                    self.csubsessiondhcpclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDnis"):
+                    self.csubsessiondnis = value
+                    self.csubsessiondnis.value_namespace = name_space
+                    self.csubsessiondnis.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDomain"):
+                    self.csubsessiondomain = value
+                    self.csubsessiondomain.value_namespace = name_space
+                    self.csubsessiondomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDomainIpAddr"):
+                    self.csubsessiondomainipaddr = value
+                    self.csubsessiondomainipaddr.value_namespace = name_space
+                    self.csubsessiondomainipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDomainIpAddrType"):
+                    self.csubsessiondomainipaddrtype = value
+                    self.csubsessiondomainipaddrtype.value_namespace = name_space
+                    self.csubsessiondomainipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDomainIpMask"):
+                    self.csubsessiondomainipmask = value
+                    self.csubsessiondomainipmask.value_namespace = name_space
+                    self.csubsessiondomainipmask.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDomainVrf"):
+                    self.csubsessiondomainvrf = value
+                    self.csubsessiondomainvrf.value_namespace = name_space
+                    self.csubsessiondomainvrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionIpAddrAssignment"):
+                    self.csubsessionipaddrassignment = value
+                    self.csubsessionipaddrassignment.value_namespace = name_space
+                    self.csubsessionipaddrassignment.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionLastChanged"):
+                    self.csubsessionlastchanged = value
+                    self.csubsessionlastchanged.value_namespace = name_space
+                    self.csubsessionlastchanged.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionLocationIdentifier"):
+                    self.csubsessionlocationidentifier = value
+                    self.csubsessionlocationidentifier.value_namespace = name_space
+                    self.csubsessionlocationidentifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionMacAddress"):
+                    self.csubsessionmacaddress = value
+                    self.csubsessionmacaddress.value_namespace = name_space
+                    self.csubsessionmacaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionMedia"):
+                    self.csubsessionmedia = value
+                    self.csubsessionmedia.value_namespace = name_space
+                    self.csubsessionmedia.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionMlpNegotiated"):
+                    self.csubsessionmlpnegotiated = value
+                    self.csubsessionmlpnegotiated.value_namespace = name_space
+                    self.csubsessionmlpnegotiated.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNasPort"):
+                    self.csubsessionnasport = value
+                    self.csubsessionnasport.value_namespace = name_space
+                    self.csubsessionnasport.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpAddr"):
+                    self.csubsessionnativeipaddr = value
+                    self.csubsessionnativeipaddr.value_namespace = name_space
+                    self.csubsessionnativeipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpAddr2"):
+                    self.csubsessionnativeipaddr2 = value
+                    self.csubsessionnativeipaddr2.value_namespace = name_space
+                    self.csubsessionnativeipaddr2.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpAddrType"):
+                    self.csubsessionnativeipaddrtype = value
+                    self.csubsessionnativeipaddrtype.value_namespace = name_space
+                    self.csubsessionnativeipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpAddrType2"):
+                    self.csubsessionnativeipaddrtype2 = value
+                    self.csubsessionnativeipaddrtype2.value_namespace = name_space
+                    self.csubsessionnativeipaddrtype2.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpMask"):
+                    self.csubsessionnativeipmask = value
+                    self.csubsessionnativeipmask.value_namespace = name_space
+                    self.csubsessionnativeipmask.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeIpMask2"):
+                    self.csubsessionnativeipmask2 = value
+                    self.csubsessionnativeipmask2.value_namespace = name_space
+                    self.csubsessionnativeipmask2.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionNativeVrf"):
+                    self.csubsessionnativevrf = value
+                    self.csubsessionnativevrf.value_namespace = name_space
+                    self.csubsessionnativevrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionPbhk"):
+                    self.csubsessionpbhk = value
+                    self.csubsessionpbhk.value_namespace = name_space
+                    self.csubsessionpbhk.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionProtocol"):
+                    self.csubsessionprotocol = value
+                    self.csubsessionprotocol.value_namespace = name_space
+                    self.csubsessionprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionRedundancyMode"):
+                    self.csubsessionredundancymode = value
+                    self.csubsessionredundancymode.value_namespace = name_space
+                    self.csubsessionredundancymode.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionRemoteId"):
+                    self.csubsessionremoteid = value
+                    self.csubsessionremoteid.value_namespace = name_space
+                    self.csubsessionremoteid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionServiceIdentifier"):
+                    self.csubsessionserviceidentifier = value
+                    self.csubsessionserviceidentifier.value_namespace = name_space
+                    self.csubsessionserviceidentifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionState"):
+                    self.csubsessionstate = value
+                    self.csubsessionstate.value_namespace = name_space
+                    self.csubsessionstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionSubscriberLabel"):
+                    self.csubsessionsubscriberlabel = value
+                    self.csubsessionsubscriberlabel.value_namespace = name_space
+                    self.csubsessionsubscriberlabel.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionTunnelName"):
+                    self.csubsessiontunnelname = value
+                    self.csubsessiontunnelname.value_namespace = name_space
+                    self.csubsessiontunnelname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionType"):
+                    self.csubsessiontype = value
+                    self.csubsessiontype.value_namespace = name_space
+                    self.csubsessiontype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionUsername"):
+                    self.csubsessionusername = value
+                    self.csubsessionusername.value_namespace = name_space
+                    self.csubsessionusername.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubsessionentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubsessionacctsessionid is not None:
-                    return True
-
-                if self.csubsessionauthenticated is not None:
-                    return True
-
-                if self.csubsessionavailableidentities is not None:
-                    if self.csubsessionavailableidentities._has_data():
-                        return True
-
-                if self.csubsessioncircuitid is not None:
-                    return True
-
-                if self.csubsessioncreationtime is not None:
-                    return True
-
-                if self.csubsessionderivedcfg is not None:
-                    return True
-
-                if self.csubsessiondhcpclass is not None:
-                    return True
-
-                if self.csubsessiondnis is not None:
-                    return True
-
-                if self.csubsessiondomain is not None:
-                    return True
-
-                if self.csubsessiondomainipaddr is not None:
-                    return True
-
-                if self.csubsessiondomainipaddrtype is not None:
-                    return True
-
-                if self.csubsessiondomainipmask is not None:
-                    return True
-
-                if self.csubsessiondomainvrf is not None:
-                    return True
-
-                if self.csubsessionipaddrassignment is not None:
-                    return True
-
-                if self.csubsessionlastchanged is not None:
-                    return True
-
-                if self.csubsessionlocationidentifier is not None:
-                    return True
-
-                if self.csubsessionmacaddress is not None:
-                    return True
-
-                if self.csubsessionmedia is not None:
-                    return True
-
-                if self.csubsessionmlpnegotiated is not None:
-                    return True
-
-                if self.csubsessionnasport is not None:
-                    return True
-
-                if self.csubsessionnativeipaddr is not None:
-                    return True
-
-                if self.csubsessionnativeipaddr2 is not None:
-                    return True
-
-                if self.csubsessionnativeipaddrtype is not None:
-                    return True
-
-                if self.csubsessionnativeipaddrtype2 is not None:
-                    return True
-
-                if self.csubsessionnativeipmask is not None:
-                    return True
-
-                if self.csubsessionnativeipmask2 is not None:
-                    return True
-
-                if self.csubsessionnativevrf is not None:
-                    return True
-
-                if self.csubsessionpbhk is not None:
-                    return True
-
-                if self.csubsessionprotocol is not None:
-                    return True
-
-                if self.csubsessionredundancymode is not None:
-                    return True
-
-                if self.csubsessionremoteid is not None:
-                    return True
-
-                if self.csubsessionserviceidentifier is not None:
-                    return True
-
-                if self.csubsessionstate is not None:
-                    return True
-
-                if self.csubsessionsubscriberlabel is not None:
-                    return True
-
-                if self.csubsessiontunnelname is not None:
-                    return True
-
-                if self.csubsessiontype is not None:
-                    return True
-
-                if self.csubsessionusername is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubsessionentry is not None:
-                for child_ref in self.csubsessionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubsessionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubSessionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubSessionEntry"):
+                for c in self.csubsessionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubsessiontable.Csubsessionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubsessionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubSessionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubsessiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubsessionbytypetable(object):
+    class Csubsessionbytypetable(Entity):
         """
         This table describes a list of subscriber sessions currently
         maintained by the system.  The tables sorts the subscriber
@@ -1054,13 +1594,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubsessionbytypeentry = YList()
-            self.csubsessionbytypeentry.parent = self
-            self.csubsessionbytypeentry.name = 'csubsessionbytypeentry'
+            super(CiscoSubscriberSessionMib.Csubsessionbytypetable, self).__init__()
+
+            self.yang_name = "csubSessionByTypeTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubsessionbytypeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubsessionbytypetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubsessionbytypetable, self).__setattr__(name, value)
 
 
-        class Csubsessionbytypeentry(object):
+        class Csubsessionbytypeentry(Entity):
             """
             This entry identifies a subscriber session.
             
@@ -1079,7 +1645,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubsessionbytype  <key>
             
             	This object indicates the type of the subscriber session
-            	**type**\:   :py:class:`SubsessiontypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessiontypeEnum>`
+            	**type**\:   :py:class:`Subsessiontype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessiontype>`
             
             .. attribute:: csubsessionifindex  <key>
             
@@ -1096,61 +1662,154 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubsessionbytype = None
-                self.csubsessionifindex = None
+                super(CiscoSubscriberSessionMib.Csubsessionbytypetable.Csubsessionbytypeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubsessionbytype is None:
-                    raise YPYModelError('Key property csubsessionbytype is None')
-                if self.csubsessionifindex is None:
-                    raise YPYModelError('Key property csubsessionifindex is None')
+                self.yang_name = "csubSessionByTypeEntry"
+                self.yang_parent_name = "csubSessionByTypeTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionByTypeTable/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionByTypeEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubSessionByType = ' + str(self.csubsessionbytype) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubSessionIfIndex = ' + str(self.csubsessionifindex) + ']'
+                self.csubsessionbytype = YLeaf(YType.enumeration, "csubSessionByType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubsessionifindex = YLeaf(YType.int32, "csubSessionIfIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubsessionbytype",
+                                "csubsessionifindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubsessionbytypetable.Csubsessionbytypeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubsessionbytypetable.Csubsessionbytypeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubsessionbytype.is_set or
+                    self.csubsessionifindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubsessionbytype.yfilter != YFilter.not_set or
+                    self.csubsessionifindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubSessionByTypeEntry" + "[csubSessionByType='" + self.csubsessionbytype.get() + "']" + "[csubSessionIfIndex='" + self.csubsessionifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionByTypeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubsessionbytype.is_set or self.csubsessionbytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionbytype.get_name_leafdata())
+                if (self.csubsessionifindex.is_set or self.csubsessionifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionifindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubSessionByType" or name == "csubSessionIfIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubsessionbytype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubSessionByType"):
+                    self.csubsessionbytype = value
+                    self.csubsessionbytype.value_namespace = name_space
+                    self.csubsessionbytype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionIfIndex"):
+                    self.csubsessionifindex = value
+                    self.csubsessionifindex.value_namespace = name_space
+                    self.csubsessionifindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubsessionbytypeentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubsessionifindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubsessionbytypetable.Csubsessionbytypeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubSessionByTypeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubsessionbytypeentry is not None:
-                for child_ref in self.csubsessionbytypeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubsessionbytypeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubSessionByTypeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubSessionByTypeEntry"):
+                for c in self.csubsessionbytypeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubsessionbytypetable.Csubsessionbytypeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubsessionbytypeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubSessionByTypeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubsessionbytypetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubaggstatstable(object):
+    class Csubaggstatstable(Entity):
         """
         This table contains sets of aggregated statistics relating to
         subscriber sessions, where each set has a unique scope of
@@ -1169,13 +1828,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubaggstatsentry = YList()
-            self.csubaggstatsentry.parent = self
-            self.csubaggstatsentry.name = 'csubaggstatsentry'
+            super(CiscoSubscriberSessionMib.Csubaggstatstable, self).__init__()
+
+            self.yang_name = "csubAggStatsTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubaggstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubaggstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubaggstatstable, self).__setattr__(name, value)
 
 
-        class Csubaggstatsentry(object):
+        class Csubaggstatsentry(Entity):
             """
             An entry contains a set of aggregated statistics relating to
             those subscriber sessions that fall into a 'scope of 
@@ -1261,7 +1946,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubaggstatspointtype  <key>
             
             	This object indicates format of the csubAggStatsPoint for this entry.   The format for the csubAggStatsPoint is as follows\:   csubAggStatsPointType      csubAggStatsPoint  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      'physical'                 PhysicalIndex      'interface'                InterfaceIndex
-            	**type**\:   :py:class:`CsubaggstatspointtypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry.CsubaggstatspointtypeEnum>`
+            	**type**\:   :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
             
             .. attribute:: csubaggstatspoint  <key>
             
@@ -1273,7 +1958,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubaggstatssessiontype  <key>
             
             	This object indicates one of the determining factors affecting the 'scope of aggregation' for the statistics contained by the row.  If the value of this column is 'all', then the 'scope of aggregation' may include all subscriber sessions, regardless of type.  If the value of this column is not 'all', then the 'scope of aggregation' may include subscriber sessions of the indicated subscriber session type
-            	**type**\:   :py:class:`SubsessiontypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessiontypeEnum>`
+            	**type**\:   :py:class:`Subsessiontype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessiontype>`
             
             .. attribute:: csubaggstatsauthsessions
             
@@ -1576,47 +2261,145 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubaggstatspointtype = None
-                self.csubaggstatspoint = None
-                self.csubaggstatssessiontype = None
-                self.csubaggstatsauthsessions = None
-                self.csubaggstatsavgsessionrph = None
-                self.csubaggstatsavgsessionrpm = None
-                self.csubaggstatsavgsessionuptime = None
-                self.csubaggstatscurrauthsessions = None
-                self.csubaggstatscurrcreatedsessions = None
-                self.csubaggstatscurrdiscsessions = None
-                self.csubaggstatscurrfailedsessions = None
-                self.csubaggstatscurrflowsup = None
-                self.csubaggstatscurrinvalidintervals = None
-                self.csubaggstatscurrtimeelapsed = None
-                self.csubaggstatscurrupsessions = None
-                self.csubaggstatscurrvalidintervals = None
-                self.csubaggstatsdayauthsessions = None
-                self.csubaggstatsdaycreatedsessions = None
-                self.csubaggstatsdaydiscsessions = None
-                self.csubaggstatsdayfailedsessions = None
-                self.csubaggstatsdayupsessions = None
-                self.csubaggstatsdiscontinuitytime = None
-                self.csubaggstatshighupsessions = None
-                self.csubaggstatslightweightsessions = None
-                self.csubaggstatspendingsessions = None
-                self.csubaggstatsredsessions = None
-                self.csubaggstatsthrottleengagements = None
-                self.csubaggstatstotalauthsessions = None
-                self.csubaggstatstotalcreatedsessions = None
-                self.csubaggstatstotaldiscsessions = None
-                self.csubaggstatstotalfailedsessions = None
-                self.csubaggstatstotalflowsup = None
-                self.csubaggstatstotallightweightsessions = None
-                self.csubaggstatstotalupsessions = None
-                self.csubaggstatsunauthsessions = None
-                self.csubaggstatsupsessions = None
+                super(CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry, self).__init__()
 
-            class CsubaggstatspointtypeEnum(Enum):
+                self.yang_name = "csubAggStatsEntry"
+                self.yang_parent_name = "csubAggStatsTable"
+
+                self.csubaggstatspointtype = YLeaf(YType.enumeration, "csubAggStatsPointType")
+
+                self.csubaggstatspoint = YLeaf(YType.uint32, "csubAggStatsPoint")
+
+                self.csubaggstatssessiontype = YLeaf(YType.enumeration, "csubAggStatsSessionType")
+
+                self.csubaggstatsauthsessions = YLeaf(YType.uint32, "csubAggStatsAuthSessions")
+
+                self.csubaggstatsavgsessionrph = YLeaf(YType.uint32, "csubAggStatsAvgSessionRPH")
+
+                self.csubaggstatsavgsessionrpm = YLeaf(YType.uint32, "csubAggStatsAvgSessionRPM")
+
+                self.csubaggstatsavgsessionuptime = YLeaf(YType.uint32, "csubAggStatsAvgSessionUptime")
+
+                self.csubaggstatscurrauthsessions = YLeaf(YType.uint32, "csubAggStatsCurrAuthSessions")
+
+                self.csubaggstatscurrcreatedsessions = YLeaf(YType.uint32, "csubAggStatsCurrCreatedSessions")
+
+                self.csubaggstatscurrdiscsessions = YLeaf(YType.uint32, "csubAggStatsCurrDiscSessions")
+
+                self.csubaggstatscurrfailedsessions = YLeaf(YType.uint32, "csubAggStatsCurrFailedSessions")
+
+                self.csubaggstatscurrflowsup = YLeaf(YType.uint32, "csubAggStatsCurrFlowsUp")
+
+                self.csubaggstatscurrinvalidintervals = YLeaf(YType.uint32, "csubAggStatsCurrInvalidIntervals")
+
+                self.csubaggstatscurrtimeelapsed = YLeaf(YType.uint32, "csubAggStatsCurrTimeElapsed")
+
+                self.csubaggstatscurrupsessions = YLeaf(YType.uint32, "csubAggStatsCurrUpSessions")
+
+                self.csubaggstatscurrvalidintervals = YLeaf(YType.uint32, "csubAggStatsCurrValidIntervals")
+
+                self.csubaggstatsdayauthsessions = YLeaf(YType.uint32, "csubAggStatsDayAuthSessions")
+
+                self.csubaggstatsdaycreatedsessions = YLeaf(YType.uint32, "csubAggStatsDayCreatedSessions")
+
+                self.csubaggstatsdaydiscsessions = YLeaf(YType.uint32, "csubAggStatsDayDiscSessions")
+
+                self.csubaggstatsdayfailedsessions = YLeaf(YType.uint32, "csubAggStatsDayFailedSessions")
+
+                self.csubaggstatsdayupsessions = YLeaf(YType.uint32, "csubAggStatsDayUpSessions")
+
+                self.csubaggstatsdiscontinuitytime = YLeaf(YType.str, "csubAggStatsDiscontinuityTime")
+
+                self.csubaggstatshighupsessions = YLeaf(YType.uint32, "csubAggStatsHighUpSessions")
+
+                self.csubaggstatslightweightsessions = YLeaf(YType.uint32, "csubAggStatsLightWeightSessions")
+
+                self.csubaggstatspendingsessions = YLeaf(YType.uint32, "csubAggStatsPendingSessions")
+
+                self.csubaggstatsredsessions = YLeaf(YType.uint32, "csubAggStatsRedSessions")
+
+                self.csubaggstatsthrottleengagements = YLeaf(YType.uint64, "csubAggStatsThrottleEngagements")
+
+                self.csubaggstatstotalauthsessions = YLeaf(YType.uint64, "csubAggStatsTotalAuthSessions")
+
+                self.csubaggstatstotalcreatedsessions = YLeaf(YType.uint64, "csubAggStatsTotalCreatedSessions")
+
+                self.csubaggstatstotaldiscsessions = YLeaf(YType.uint64, "csubAggStatsTotalDiscSessions")
+
+                self.csubaggstatstotalfailedsessions = YLeaf(YType.uint64, "csubAggStatsTotalFailedSessions")
+
+                self.csubaggstatstotalflowsup = YLeaf(YType.uint64, "csubAggStatsTotalFlowsUp")
+
+                self.csubaggstatstotallightweightsessions = YLeaf(YType.uint64, "csubAggStatsTotalLightWeightSessions")
+
+                self.csubaggstatstotalupsessions = YLeaf(YType.uint64, "csubAggStatsTotalUpSessions")
+
+                self.csubaggstatsunauthsessions = YLeaf(YType.uint32, "csubAggStatsUnAuthSessions")
+
+                self.csubaggstatsupsessions = YLeaf(YType.uint32, "csubAggStatsUpSessions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubaggstatspointtype",
+                                "csubaggstatspoint",
+                                "csubaggstatssessiontype",
+                                "csubaggstatsauthsessions",
+                                "csubaggstatsavgsessionrph",
+                                "csubaggstatsavgsessionrpm",
+                                "csubaggstatsavgsessionuptime",
+                                "csubaggstatscurrauthsessions",
+                                "csubaggstatscurrcreatedsessions",
+                                "csubaggstatscurrdiscsessions",
+                                "csubaggstatscurrfailedsessions",
+                                "csubaggstatscurrflowsup",
+                                "csubaggstatscurrinvalidintervals",
+                                "csubaggstatscurrtimeelapsed",
+                                "csubaggstatscurrupsessions",
+                                "csubaggstatscurrvalidintervals",
+                                "csubaggstatsdayauthsessions",
+                                "csubaggstatsdaycreatedsessions",
+                                "csubaggstatsdaydiscsessions",
+                                "csubaggstatsdayfailedsessions",
+                                "csubaggstatsdayupsessions",
+                                "csubaggstatsdiscontinuitytime",
+                                "csubaggstatshighupsessions",
+                                "csubaggstatslightweightsessions",
+                                "csubaggstatspendingsessions",
+                                "csubaggstatsredsessions",
+                                "csubaggstatsthrottleengagements",
+                                "csubaggstatstotalauthsessions",
+                                "csubaggstatstotalcreatedsessions",
+                                "csubaggstatstotaldiscsessions",
+                                "csubaggstatstotalfailedsessions",
+                                "csubaggstatstotalflowsup",
+                                "csubaggstatstotallightweightsessions",
+                                "csubaggstatstotalupsessions",
+                                "csubaggstatsunauthsessions",
+                                "csubaggstatsupsessions") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry, self).__setattr__(name, value)
+
+            class Csubaggstatspointtype(Enum):
                 """
-                CsubaggstatspointtypeEnum
+                Csubaggstatspointtype
 
                 This object indicates format of the csubAggStatsPoint
 
@@ -1638,172 +2421,397 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                physical = 1
+                physical = Enum.YLeaf(1, "physical")
 
-                interface = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry.CsubaggstatspointtypeEnum']
+                interface = Enum.YLeaf(2, "interface")
 
 
-            @property
-            def _common_path(self):
-                if self.csubaggstatspointtype is None:
-                    raise YPYModelError('Key property csubaggstatspointtype is None')
-                if self.csubaggstatspoint is None:
-                    raise YPYModelError('Key property csubaggstatspoint is None')
-                if self.csubaggstatssessiontype is None:
-                    raise YPYModelError('Key property csubaggstatssessiontype is None')
+            def has_data(self):
+                return (
+                    self.csubaggstatspointtype.is_set or
+                    self.csubaggstatspoint.is_set or
+                    self.csubaggstatssessiontype.is_set or
+                    self.csubaggstatsauthsessions.is_set or
+                    self.csubaggstatsavgsessionrph.is_set or
+                    self.csubaggstatsavgsessionrpm.is_set or
+                    self.csubaggstatsavgsessionuptime.is_set or
+                    self.csubaggstatscurrauthsessions.is_set or
+                    self.csubaggstatscurrcreatedsessions.is_set or
+                    self.csubaggstatscurrdiscsessions.is_set or
+                    self.csubaggstatscurrfailedsessions.is_set or
+                    self.csubaggstatscurrflowsup.is_set or
+                    self.csubaggstatscurrinvalidintervals.is_set or
+                    self.csubaggstatscurrtimeelapsed.is_set or
+                    self.csubaggstatscurrupsessions.is_set or
+                    self.csubaggstatscurrvalidintervals.is_set or
+                    self.csubaggstatsdayauthsessions.is_set or
+                    self.csubaggstatsdaycreatedsessions.is_set or
+                    self.csubaggstatsdaydiscsessions.is_set or
+                    self.csubaggstatsdayfailedsessions.is_set or
+                    self.csubaggstatsdayupsessions.is_set or
+                    self.csubaggstatsdiscontinuitytime.is_set or
+                    self.csubaggstatshighupsessions.is_set or
+                    self.csubaggstatslightweightsessions.is_set or
+                    self.csubaggstatspendingsessions.is_set or
+                    self.csubaggstatsredsessions.is_set or
+                    self.csubaggstatsthrottleengagements.is_set or
+                    self.csubaggstatstotalauthsessions.is_set or
+                    self.csubaggstatstotalcreatedsessions.is_set or
+                    self.csubaggstatstotaldiscsessions.is_set or
+                    self.csubaggstatstotalfailedsessions.is_set or
+                    self.csubaggstatstotalflowsup.is_set or
+                    self.csubaggstatstotallightweightsessions.is_set or
+                    self.csubaggstatstotalupsessions.is_set or
+                    self.csubaggstatsunauthsessions.is_set or
+                    self.csubaggstatsupsessions.is_set)
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsTable/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsPointType = ' + str(self.csubaggstatspointtype) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsPoint = ' + str(self.csubaggstatspoint) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsSessionType = ' + str(self.csubaggstatssessiontype) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubaggstatspointtype.yfilter != YFilter.not_set or
+                    self.csubaggstatspoint.yfilter != YFilter.not_set or
+                    self.csubaggstatssessiontype.yfilter != YFilter.not_set or
+                    self.csubaggstatsauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsavgsessionrph.yfilter != YFilter.not_set or
+                    self.csubaggstatsavgsessionrpm.yfilter != YFilter.not_set or
+                    self.csubaggstatsavgsessionuptime.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrcreatedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrdiscsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrfailedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrflowsup.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrinvalidintervals.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrtimeelapsed.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrupsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatscurrvalidintervals.yfilter != YFilter.not_set or
+                    self.csubaggstatsdayauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsdaycreatedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsdaydiscsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsdayfailedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsdayupsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsdiscontinuitytime.yfilter != YFilter.not_set or
+                    self.csubaggstatshighupsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatslightweightsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatspendingsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsredsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsthrottleengagements.yfilter != YFilter.not_set or
+                    self.csubaggstatstotalauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatstotalcreatedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatstotaldiscsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatstotalfailedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatstotalflowsup.yfilter != YFilter.not_set or
+                    self.csubaggstatstotallightweightsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatstotalupsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsunauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsupsessions.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubAggStatsEntry" + "[csubAggStatsPointType='" + self.csubaggstatspointtype.get() + "']" + "[csubAggStatsPoint='" + self.csubaggstatspoint.get() + "']" + "[csubAggStatsSessionType='" + self.csubaggstatssessiontype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubaggstatspointtype.is_set or self.csubaggstatspointtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatspointtype.get_name_leafdata())
+                if (self.csubaggstatspoint.is_set or self.csubaggstatspoint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatspoint.get_name_leafdata())
+                if (self.csubaggstatssessiontype.is_set or self.csubaggstatssessiontype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatssessiontype.get_name_leafdata())
+                if (self.csubaggstatsauthsessions.is_set or self.csubaggstatsauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsauthsessions.get_name_leafdata())
+                if (self.csubaggstatsavgsessionrph.is_set or self.csubaggstatsavgsessionrph.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsavgsessionrph.get_name_leafdata())
+                if (self.csubaggstatsavgsessionrpm.is_set or self.csubaggstatsavgsessionrpm.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsavgsessionrpm.get_name_leafdata())
+                if (self.csubaggstatsavgsessionuptime.is_set or self.csubaggstatsavgsessionuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsavgsessionuptime.get_name_leafdata())
+                if (self.csubaggstatscurrauthsessions.is_set or self.csubaggstatscurrauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrauthsessions.get_name_leafdata())
+                if (self.csubaggstatscurrcreatedsessions.is_set or self.csubaggstatscurrcreatedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrcreatedsessions.get_name_leafdata())
+                if (self.csubaggstatscurrdiscsessions.is_set or self.csubaggstatscurrdiscsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrdiscsessions.get_name_leafdata())
+                if (self.csubaggstatscurrfailedsessions.is_set or self.csubaggstatscurrfailedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrfailedsessions.get_name_leafdata())
+                if (self.csubaggstatscurrflowsup.is_set or self.csubaggstatscurrflowsup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrflowsup.get_name_leafdata())
+                if (self.csubaggstatscurrinvalidintervals.is_set or self.csubaggstatscurrinvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrinvalidintervals.get_name_leafdata())
+                if (self.csubaggstatscurrtimeelapsed.is_set or self.csubaggstatscurrtimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrtimeelapsed.get_name_leafdata())
+                if (self.csubaggstatscurrupsessions.is_set or self.csubaggstatscurrupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrupsessions.get_name_leafdata())
+                if (self.csubaggstatscurrvalidintervals.is_set or self.csubaggstatscurrvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatscurrvalidintervals.get_name_leafdata())
+                if (self.csubaggstatsdayauthsessions.is_set or self.csubaggstatsdayauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdayauthsessions.get_name_leafdata())
+                if (self.csubaggstatsdaycreatedsessions.is_set or self.csubaggstatsdaycreatedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdaycreatedsessions.get_name_leafdata())
+                if (self.csubaggstatsdaydiscsessions.is_set or self.csubaggstatsdaydiscsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdaydiscsessions.get_name_leafdata())
+                if (self.csubaggstatsdayfailedsessions.is_set or self.csubaggstatsdayfailedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdayfailedsessions.get_name_leafdata())
+                if (self.csubaggstatsdayupsessions.is_set or self.csubaggstatsdayupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdayupsessions.get_name_leafdata())
+                if (self.csubaggstatsdiscontinuitytime.is_set or self.csubaggstatsdiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsdiscontinuitytime.get_name_leafdata())
+                if (self.csubaggstatshighupsessions.is_set or self.csubaggstatshighupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatshighupsessions.get_name_leafdata())
+                if (self.csubaggstatslightweightsessions.is_set or self.csubaggstatslightweightsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatslightweightsessions.get_name_leafdata())
+                if (self.csubaggstatspendingsessions.is_set or self.csubaggstatspendingsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatspendingsessions.get_name_leafdata())
+                if (self.csubaggstatsredsessions.is_set or self.csubaggstatsredsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsredsessions.get_name_leafdata())
+                if (self.csubaggstatsthrottleengagements.is_set or self.csubaggstatsthrottleengagements.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsthrottleengagements.get_name_leafdata())
+                if (self.csubaggstatstotalauthsessions.is_set or self.csubaggstatstotalauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotalauthsessions.get_name_leafdata())
+                if (self.csubaggstatstotalcreatedsessions.is_set or self.csubaggstatstotalcreatedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotalcreatedsessions.get_name_leafdata())
+                if (self.csubaggstatstotaldiscsessions.is_set or self.csubaggstatstotaldiscsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotaldiscsessions.get_name_leafdata())
+                if (self.csubaggstatstotalfailedsessions.is_set or self.csubaggstatstotalfailedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotalfailedsessions.get_name_leafdata())
+                if (self.csubaggstatstotalflowsup.is_set or self.csubaggstatstotalflowsup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotalflowsup.get_name_leafdata())
+                if (self.csubaggstatstotallightweightsessions.is_set or self.csubaggstatstotallightweightsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotallightweightsessions.get_name_leafdata())
+                if (self.csubaggstatstotalupsessions.is_set or self.csubaggstatstotalupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatstotalupsessions.get_name_leafdata())
+                if (self.csubaggstatsunauthsessions.is_set or self.csubaggstatsunauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsunauthsessions.get_name_leafdata())
+                if (self.csubaggstatsupsessions.is_set or self.csubaggstatsupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsupsessions.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubAggStatsPointType" or name == "csubAggStatsPoint" or name == "csubAggStatsSessionType" or name == "csubAggStatsAuthSessions" or name == "csubAggStatsAvgSessionRPH" or name == "csubAggStatsAvgSessionRPM" or name == "csubAggStatsAvgSessionUptime" or name == "csubAggStatsCurrAuthSessions" or name == "csubAggStatsCurrCreatedSessions" or name == "csubAggStatsCurrDiscSessions" or name == "csubAggStatsCurrFailedSessions" or name == "csubAggStatsCurrFlowsUp" or name == "csubAggStatsCurrInvalidIntervals" or name == "csubAggStatsCurrTimeElapsed" or name == "csubAggStatsCurrUpSessions" or name == "csubAggStatsCurrValidIntervals" or name == "csubAggStatsDayAuthSessions" or name == "csubAggStatsDayCreatedSessions" or name == "csubAggStatsDayDiscSessions" or name == "csubAggStatsDayFailedSessions" or name == "csubAggStatsDayUpSessions" or name == "csubAggStatsDiscontinuityTime" or name == "csubAggStatsHighUpSessions" or name == "csubAggStatsLightWeightSessions" or name == "csubAggStatsPendingSessions" or name == "csubAggStatsRedSessions" or name == "csubAggStatsThrottleEngagements" or name == "csubAggStatsTotalAuthSessions" or name == "csubAggStatsTotalCreatedSessions" or name == "csubAggStatsTotalDiscSessions" or name == "csubAggStatsTotalFailedSessions" or name == "csubAggStatsTotalFlowsUp" or name == "csubAggStatsTotalLightWeightSessions" or name == "csubAggStatsTotalUpSessions" or name == "csubAggStatsUnAuthSessions" or name == "csubAggStatsUpSessions"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubaggstatspointtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubAggStatsPointType"):
+                    self.csubaggstatspointtype = value
+                    self.csubaggstatspointtype.value_namespace = name_space
+                    self.csubaggstatspointtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsPoint"):
+                    self.csubaggstatspoint = value
+                    self.csubaggstatspoint.value_namespace = name_space
+                    self.csubaggstatspoint.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsSessionType"):
+                    self.csubaggstatssessiontype = value
+                    self.csubaggstatssessiontype.value_namespace = name_space
+                    self.csubaggstatssessiontype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsAuthSessions"):
+                    self.csubaggstatsauthsessions = value
+                    self.csubaggstatsauthsessions.value_namespace = name_space
+                    self.csubaggstatsauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsAvgSessionRPH"):
+                    self.csubaggstatsavgsessionrph = value
+                    self.csubaggstatsavgsessionrph.value_namespace = name_space
+                    self.csubaggstatsavgsessionrph.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsAvgSessionRPM"):
+                    self.csubaggstatsavgsessionrpm = value
+                    self.csubaggstatsavgsessionrpm.value_namespace = name_space
+                    self.csubaggstatsavgsessionrpm.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsAvgSessionUptime"):
+                    self.csubaggstatsavgsessionuptime = value
+                    self.csubaggstatsavgsessionuptime.value_namespace = name_space
+                    self.csubaggstatsavgsessionuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrAuthSessions"):
+                    self.csubaggstatscurrauthsessions = value
+                    self.csubaggstatscurrauthsessions.value_namespace = name_space
+                    self.csubaggstatscurrauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrCreatedSessions"):
+                    self.csubaggstatscurrcreatedsessions = value
+                    self.csubaggstatscurrcreatedsessions.value_namespace = name_space
+                    self.csubaggstatscurrcreatedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrDiscSessions"):
+                    self.csubaggstatscurrdiscsessions = value
+                    self.csubaggstatscurrdiscsessions.value_namespace = name_space
+                    self.csubaggstatscurrdiscsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrFailedSessions"):
+                    self.csubaggstatscurrfailedsessions = value
+                    self.csubaggstatscurrfailedsessions.value_namespace = name_space
+                    self.csubaggstatscurrfailedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrFlowsUp"):
+                    self.csubaggstatscurrflowsup = value
+                    self.csubaggstatscurrflowsup.value_namespace = name_space
+                    self.csubaggstatscurrflowsup.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrInvalidIntervals"):
+                    self.csubaggstatscurrinvalidintervals = value
+                    self.csubaggstatscurrinvalidintervals.value_namespace = name_space
+                    self.csubaggstatscurrinvalidintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrTimeElapsed"):
+                    self.csubaggstatscurrtimeelapsed = value
+                    self.csubaggstatscurrtimeelapsed.value_namespace = name_space
+                    self.csubaggstatscurrtimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrUpSessions"):
+                    self.csubaggstatscurrupsessions = value
+                    self.csubaggstatscurrupsessions.value_namespace = name_space
+                    self.csubaggstatscurrupsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsCurrValidIntervals"):
+                    self.csubaggstatscurrvalidintervals = value
+                    self.csubaggstatscurrvalidintervals.value_namespace = name_space
+                    self.csubaggstatscurrvalidintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDayAuthSessions"):
+                    self.csubaggstatsdayauthsessions = value
+                    self.csubaggstatsdayauthsessions.value_namespace = name_space
+                    self.csubaggstatsdayauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDayCreatedSessions"):
+                    self.csubaggstatsdaycreatedsessions = value
+                    self.csubaggstatsdaycreatedsessions.value_namespace = name_space
+                    self.csubaggstatsdaycreatedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDayDiscSessions"):
+                    self.csubaggstatsdaydiscsessions = value
+                    self.csubaggstatsdaydiscsessions.value_namespace = name_space
+                    self.csubaggstatsdaydiscsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDayFailedSessions"):
+                    self.csubaggstatsdayfailedsessions = value
+                    self.csubaggstatsdayfailedsessions.value_namespace = name_space
+                    self.csubaggstatsdayfailedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDayUpSessions"):
+                    self.csubaggstatsdayupsessions = value
+                    self.csubaggstatsdayupsessions.value_namespace = name_space
+                    self.csubaggstatsdayupsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsDiscontinuityTime"):
+                    self.csubaggstatsdiscontinuitytime = value
+                    self.csubaggstatsdiscontinuitytime.value_namespace = name_space
+                    self.csubaggstatsdiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsHighUpSessions"):
+                    self.csubaggstatshighupsessions = value
+                    self.csubaggstatshighupsessions.value_namespace = name_space
+                    self.csubaggstatshighupsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsLightWeightSessions"):
+                    self.csubaggstatslightweightsessions = value
+                    self.csubaggstatslightweightsessions.value_namespace = name_space
+                    self.csubaggstatslightweightsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsPendingSessions"):
+                    self.csubaggstatspendingsessions = value
+                    self.csubaggstatspendingsessions.value_namespace = name_space
+                    self.csubaggstatspendingsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsRedSessions"):
+                    self.csubaggstatsredsessions = value
+                    self.csubaggstatsredsessions.value_namespace = name_space
+                    self.csubaggstatsredsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsThrottleEngagements"):
+                    self.csubaggstatsthrottleengagements = value
+                    self.csubaggstatsthrottleengagements.value_namespace = name_space
+                    self.csubaggstatsthrottleengagements.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalAuthSessions"):
+                    self.csubaggstatstotalauthsessions = value
+                    self.csubaggstatstotalauthsessions.value_namespace = name_space
+                    self.csubaggstatstotalauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalCreatedSessions"):
+                    self.csubaggstatstotalcreatedsessions = value
+                    self.csubaggstatstotalcreatedsessions.value_namespace = name_space
+                    self.csubaggstatstotalcreatedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalDiscSessions"):
+                    self.csubaggstatstotaldiscsessions = value
+                    self.csubaggstatstotaldiscsessions.value_namespace = name_space
+                    self.csubaggstatstotaldiscsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalFailedSessions"):
+                    self.csubaggstatstotalfailedsessions = value
+                    self.csubaggstatstotalfailedsessions.value_namespace = name_space
+                    self.csubaggstatstotalfailedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalFlowsUp"):
+                    self.csubaggstatstotalflowsup = value
+                    self.csubaggstatstotalflowsup.value_namespace = name_space
+                    self.csubaggstatstotalflowsup.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalLightWeightSessions"):
+                    self.csubaggstatstotallightweightsessions = value
+                    self.csubaggstatstotallightweightsessions.value_namespace = name_space
+                    self.csubaggstatstotallightweightsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsTotalUpSessions"):
+                    self.csubaggstatstotalupsessions = value
+                    self.csubaggstatstotalupsessions.value_namespace = name_space
+                    self.csubaggstatstotalupsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsUnAuthSessions"):
+                    self.csubaggstatsunauthsessions = value
+                    self.csubaggstatsunauthsessions.value_namespace = name_space
+                    self.csubaggstatsunauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsUpSessions"):
+                    self.csubaggstatsupsessions = value
+                    self.csubaggstatsupsessions.value_namespace = name_space
+                    self.csubaggstatsupsessions.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubaggstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubaggstatspoint is not None:
-                    return True
-
-                if self.csubaggstatssessiontype is not None:
-                    return True
-
-                if self.csubaggstatsauthsessions is not None:
-                    return True
-
-                if self.csubaggstatsavgsessionrph is not None:
-                    return True
-
-                if self.csubaggstatsavgsessionrpm is not None:
-                    return True
-
-                if self.csubaggstatsavgsessionuptime is not None:
-                    return True
-
-                if self.csubaggstatscurrauthsessions is not None:
-                    return True
-
-                if self.csubaggstatscurrcreatedsessions is not None:
-                    return True
-
-                if self.csubaggstatscurrdiscsessions is not None:
-                    return True
-
-                if self.csubaggstatscurrfailedsessions is not None:
-                    return True
-
-                if self.csubaggstatscurrflowsup is not None:
-                    return True
-
-                if self.csubaggstatscurrinvalidintervals is not None:
-                    return True
-
-                if self.csubaggstatscurrtimeelapsed is not None:
-                    return True
-
-                if self.csubaggstatscurrupsessions is not None:
-                    return True
-
-                if self.csubaggstatscurrvalidintervals is not None:
-                    return True
-
-                if self.csubaggstatsdayauthsessions is not None:
-                    return True
-
-                if self.csubaggstatsdaycreatedsessions is not None:
-                    return True
-
-                if self.csubaggstatsdaydiscsessions is not None:
-                    return True
-
-                if self.csubaggstatsdayfailedsessions is not None:
-                    return True
-
-                if self.csubaggstatsdayupsessions is not None:
-                    return True
-
-                if self.csubaggstatsdiscontinuitytime is not None:
-                    return True
-
-                if self.csubaggstatshighupsessions is not None:
-                    return True
-
-                if self.csubaggstatslightweightsessions is not None:
-                    return True
-
-                if self.csubaggstatspendingsessions is not None:
-                    return True
-
-                if self.csubaggstatsredsessions is not None:
-                    return True
-
-                if self.csubaggstatsthrottleengagements is not None:
-                    return True
-
-                if self.csubaggstatstotalauthsessions is not None:
-                    return True
-
-                if self.csubaggstatstotalcreatedsessions is not None:
-                    return True
-
-                if self.csubaggstatstotaldiscsessions is not None:
-                    return True
-
-                if self.csubaggstatstotalfailedsessions is not None:
-                    return True
-
-                if self.csubaggstatstotalflowsup is not None:
-                    return True
-
-                if self.csubaggstatstotallightweightsessions is not None:
-                    return True
-
-                if self.csubaggstatstotalupsessions is not None:
-                    return True
-
-                if self.csubaggstatsunauthsessions is not None:
-                    return True
-
-                if self.csubaggstatsupsessions is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubaggstatsentry is not None:
-                for child_ref in self.csubaggstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubaggstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubAggStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubAggStatsEntry"):
+                for c in self.csubaggstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubaggstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubAggStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubaggstatsinttable(object):
+    class Csubaggstatsinttable(Entity):
         """
         This table contains aggregated subscriber session performance
         data collected for as much as a day's worth of 15\-minute
@@ -1832,13 +2840,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubaggstatsintentry = YList()
-            self.csubaggstatsintentry.parent = self
-            self.csubaggstatsintentry.name = 'csubaggstatsintentry'
+            super(CiscoSubscriberSessionMib.Csubaggstatsinttable, self).__init__()
+
+            self.yang_name = "csubAggStatsIntTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubaggstatsintentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubaggstatsinttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubaggstatsinttable, self).__setattr__(name, value)
 
 
-        class Csubaggstatsintentry(object):
+        class Csubaggstatsintentry(Entity):
             """
             An entry contains the aggregated subscriber session performance
             data collected over a single 15\-minute measurement interval
@@ -1849,7 +2883,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubaggstatspointtype  <key>
             
             	
-            	**type**\:   :py:class:`CsubaggstatspointtypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry.CsubaggstatspointtypeEnum>`
+            	**type**\:   :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
             
             .. attribute:: csubaggstatspoint  <key>
             
@@ -1863,7 +2897,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubaggstatssessiontype  <key>
             
             	
-            	**type**\:   :py:class:`SubsessiontypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessiontypeEnum>`
+            	**type**\:   :py:class:`Subsessiontype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessiontype>`
             
             .. attribute:: csubaggstatsintnumber  <key>
             
@@ -1930,97 +2964,242 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubaggstatspointtype = None
-                self.csubaggstatspoint = None
-                self.csubaggstatssessiontype = None
-                self.csubaggstatsintnumber = None
-                self.csubaggstatsintauthsessions = None
-                self.csubaggstatsintcreatedsessions = None
-                self.csubaggstatsintdiscsessions = None
-                self.csubaggstatsintfailedsessions = None
-                self.csubaggstatsintupsessions = None
-                self.csubaggstatsintvalid = None
+                super(CiscoSubscriberSessionMib.Csubaggstatsinttable.Csubaggstatsintentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubaggstatspointtype is None:
-                    raise YPYModelError('Key property csubaggstatspointtype is None')
-                if self.csubaggstatspoint is None:
-                    raise YPYModelError('Key property csubaggstatspoint is None')
-                if self.csubaggstatssessiontype is None:
-                    raise YPYModelError('Key property csubaggstatssessiontype is None')
-                if self.csubaggstatsintnumber is None:
-                    raise YPYModelError('Key property csubaggstatsintnumber is None')
+                self.yang_name = "csubAggStatsIntEntry"
+                self.yang_parent_name = "csubAggStatsIntTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsIntTable/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsIntEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsPointType = ' + str(self.csubaggstatspointtype) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsPoint = ' + str(self.csubaggstatspoint) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsSessionType = ' + str(self.csubaggstatssessiontype) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsIntNumber = ' + str(self.csubaggstatsintnumber) + ']'
+                self.csubaggstatspointtype = YLeaf(YType.enumeration, "csubAggStatsPointType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubaggstatspoint = YLeaf(YType.str, "csubAggStatsPoint")
+
+                self.csubaggstatssessiontype = YLeaf(YType.enumeration, "csubAggStatsSessionType")
+
+                self.csubaggstatsintnumber = YLeaf(YType.uint32, "csubAggStatsIntNumber")
+
+                self.csubaggstatsintauthsessions = YLeaf(YType.uint32, "csubAggStatsIntAuthSessions")
+
+                self.csubaggstatsintcreatedsessions = YLeaf(YType.uint32, "csubAggStatsIntCreatedSessions")
+
+                self.csubaggstatsintdiscsessions = YLeaf(YType.uint32, "csubAggStatsIntDiscSessions")
+
+                self.csubaggstatsintfailedsessions = YLeaf(YType.uint32, "csubAggStatsIntFailedSessions")
+
+                self.csubaggstatsintupsessions = YLeaf(YType.uint32, "csubAggStatsIntUpSessions")
+
+                self.csubaggstatsintvalid = YLeaf(YType.boolean, "csubAggStatsIntValid")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubaggstatspointtype",
+                                "csubaggstatspoint",
+                                "csubaggstatssessiontype",
+                                "csubaggstatsintnumber",
+                                "csubaggstatsintauthsessions",
+                                "csubaggstatsintcreatedsessions",
+                                "csubaggstatsintdiscsessions",
+                                "csubaggstatsintfailedsessions",
+                                "csubaggstatsintupsessions",
+                                "csubaggstatsintvalid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubaggstatsinttable.Csubaggstatsintentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubaggstatsinttable.Csubaggstatsintentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubaggstatspointtype.is_set or
+                    self.csubaggstatspoint.is_set or
+                    self.csubaggstatssessiontype.is_set or
+                    self.csubaggstatsintnumber.is_set or
+                    self.csubaggstatsintauthsessions.is_set or
+                    self.csubaggstatsintcreatedsessions.is_set or
+                    self.csubaggstatsintdiscsessions.is_set or
+                    self.csubaggstatsintfailedsessions.is_set or
+                    self.csubaggstatsintupsessions.is_set or
+                    self.csubaggstatsintvalid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubaggstatspointtype.yfilter != YFilter.not_set or
+                    self.csubaggstatspoint.yfilter != YFilter.not_set or
+                    self.csubaggstatssessiontype.yfilter != YFilter.not_set or
+                    self.csubaggstatsintnumber.yfilter != YFilter.not_set or
+                    self.csubaggstatsintauthsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsintcreatedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsintdiscsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsintfailedsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsintupsessions.yfilter != YFilter.not_set or
+                    self.csubaggstatsintvalid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubAggStatsIntEntry" + "[csubAggStatsPointType='" + self.csubaggstatspointtype.get() + "']" + "[csubAggStatsPoint='" + self.csubaggstatspoint.get() + "']" + "[csubAggStatsSessionType='" + self.csubaggstatssessiontype.get() + "']" + "[csubAggStatsIntNumber='" + self.csubaggstatsintnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsIntTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubaggstatspointtype.is_set or self.csubaggstatspointtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatspointtype.get_name_leafdata())
+                if (self.csubaggstatspoint.is_set or self.csubaggstatspoint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatspoint.get_name_leafdata())
+                if (self.csubaggstatssessiontype.is_set or self.csubaggstatssessiontype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatssessiontype.get_name_leafdata())
+                if (self.csubaggstatsintnumber.is_set or self.csubaggstatsintnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintnumber.get_name_leafdata())
+                if (self.csubaggstatsintauthsessions.is_set or self.csubaggstatsintauthsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintauthsessions.get_name_leafdata())
+                if (self.csubaggstatsintcreatedsessions.is_set or self.csubaggstatsintcreatedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintcreatedsessions.get_name_leafdata())
+                if (self.csubaggstatsintdiscsessions.is_set or self.csubaggstatsintdiscsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintdiscsessions.get_name_leafdata())
+                if (self.csubaggstatsintfailedsessions.is_set or self.csubaggstatsintfailedsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintfailedsessions.get_name_leafdata())
+                if (self.csubaggstatsintupsessions.is_set or self.csubaggstatsintupsessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintupsessions.get_name_leafdata())
+                if (self.csubaggstatsintvalid.is_set or self.csubaggstatsintvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubaggstatsintvalid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubAggStatsPointType" or name == "csubAggStatsPoint" or name == "csubAggStatsSessionType" or name == "csubAggStatsIntNumber" or name == "csubAggStatsIntAuthSessions" or name == "csubAggStatsIntCreatedSessions" or name == "csubAggStatsIntDiscSessions" or name == "csubAggStatsIntFailedSessions" or name == "csubAggStatsIntUpSessions" or name == "csubAggStatsIntValid"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubaggstatspointtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubAggStatsPointType"):
+                    self.csubaggstatspointtype = value
+                    self.csubaggstatspointtype.value_namespace = name_space
+                    self.csubaggstatspointtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsPoint"):
+                    self.csubaggstatspoint = value
+                    self.csubaggstatspoint.value_namespace = name_space
+                    self.csubaggstatspoint.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsSessionType"):
+                    self.csubaggstatssessiontype = value
+                    self.csubaggstatssessiontype.value_namespace = name_space
+                    self.csubaggstatssessiontype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntNumber"):
+                    self.csubaggstatsintnumber = value
+                    self.csubaggstatsintnumber.value_namespace = name_space
+                    self.csubaggstatsintnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntAuthSessions"):
+                    self.csubaggstatsintauthsessions = value
+                    self.csubaggstatsintauthsessions.value_namespace = name_space
+                    self.csubaggstatsintauthsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntCreatedSessions"):
+                    self.csubaggstatsintcreatedsessions = value
+                    self.csubaggstatsintcreatedsessions.value_namespace = name_space
+                    self.csubaggstatsintcreatedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntDiscSessions"):
+                    self.csubaggstatsintdiscsessions = value
+                    self.csubaggstatsintdiscsessions.value_namespace = name_space
+                    self.csubaggstatsintdiscsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntFailedSessions"):
+                    self.csubaggstatsintfailedsessions = value
+                    self.csubaggstatsintfailedsessions.value_namespace = name_space
+                    self.csubaggstatsintfailedsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntUpSessions"):
+                    self.csubaggstatsintupsessions = value
+                    self.csubaggstatsintupsessions.value_namespace = name_space
+                    self.csubaggstatsintupsessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubAggStatsIntValid"):
+                    self.csubaggstatsintvalid = value
+                    self.csubaggstatsintvalid.value_namespace = name_space
+                    self.csubaggstatsintvalid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubaggstatsintentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubaggstatspoint is not None:
-                    return True
-
-                if self.csubaggstatssessiontype is not None:
-                    return True
-
-                if self.csubaggstatsintnumber is not None:
-                    return True
-
-                if self.csubaggstatsintauthsessions is not None:
-                    return True
-
-                if self.csubaggstatsintcreatedsessions is not None:
-                    return True
-
-                if self.csubaggstatsintdiscsessions is not None:
-                    return True
-
-                if self.csubaggstatsintfailedsessions is not None:
-                    return True
-
-                if self.csubaggstatsintupsessions is not None:
-                    return True
-
-                if self.csubaggstatsintvalid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatsinttable.Csubaggstatsintentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsIntTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubaggstatsintentry is not None:
-                for child_ref in self.csubaggstatsintentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubaggstatsintentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubAggStatsIntTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubAggStatsIntEntry"):
+                for c in self.csubaggstatsintentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubaggstatsinttable.Csubaggstatsintentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubaggstatsintentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubAggStatsIntEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatsinttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubaggstatsthreshtable(object):
+    class Csubaggstatsthreshtable(Entity):
         """
         Please enter the Table Description here.
         
@@ -2037,13 +3216,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubaggstatsthreshentry = YList()
-            self.csubaggstatsthreshentry.parent = self
-            self.csubaggstatsthreshentry.name = 'csubaggstatsthreshentry'
+            super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable, self).__init__()
+
+            self.yang_name = "csubAggStatsThreshTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubaggstatsthreshentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable, self).__setattr__(name, value)
 
 
-        class Csubaggstatsthreshentry(object):
+        class Csubaggstatsthreshentry(Entity):
             """
             A row in this table exists for each row in the
             csubAggStatsTable.
@@ -2086,67 +3291,176 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubsessionrisingthresh = None
-                self.csubsessiondeltapercentfallingthresh = None
-                self.csubsessionfallingthresh = None
-                self.csubsessionthreshevalinterval = None
+                super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable.Csubaggstatsthreshentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubsessionrisingthresh is None:
-                    raise YPYModelError('Key property csubsessionrisingthresh is None')
+                self.yang_name = "csubAggStatsThreshEntry"
+                self.yang_parent_name = "csubAggStatsThreshTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsThreshTable/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsThreshEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubSessionRisingThresh = ' + str(self.csubsessionrisingthresh) + ']'
+                self.csubsessionrisingthresh = YLeaf(YType.uint32, "csubSessionRisingThresh")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubsessiondeltapercentfallingthresh = YLeaf(YType.uint32, "csubSessionDeltaPercentFallingThresh")
+
+                self.csubsessionfallingthresh = YLeaf(YType.uint32, "csubSessionFallingThresh")
+
+                self.csubsessionthreshevalinterval = YLeaf(YType.uint32, "csubSessionThreshEvalInterval")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubsessionrisingthresh",
+                                "csubsessiondeltapercentfallingthresh",
+                                "csubsessionfallingthresh",
+                                "csubsessionthreshevalinterval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable.Csubaggstatsthreshentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubaggstatsthreshtable.Csubaggstatsthreshentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubsessionrisingthresh.is_set or
+                    self.csubsessiondeltapercentfallingthresh.is_set or
+                    self.csubsessionfallingthresh.is_set or
+                    self.csubsessionthreshevalinterval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubsessionrisingthresh.yfilter != YFilter.not_set or
+                    self.csubsessiondeltapercentfallingthresh.yfilter != YFilter.not_set or
+                    self.csubsessionfallingthresh.yfilter != YFilter.not_set or
+                    self.csubsessionthreshevalinterval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubAggStatsThreshEntry" + "[csubSessionRisingThresh='" + self.csubsessionrisingthresh.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsThreshTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubsessionrisingthresh.is_set or self.csubsessionrisingthresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionrisingthresh.get_name_leafdata())
+                if (self.csubsessiondeltapercentfallingthresh.is_set or self.csubsessiondeltapercentfallingthresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessiondeltapercentfallingthresh.get_name_leafdata())
+                if (self.csubsessionfallingthresh.is_set or self.csubsessionfallingthresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionfallingthresh.get_name_leafdata())
+                if (self.csubsessionthreshevalinterval.is_set or self.csubsessionthreshevalinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubsessionthreshevalinterval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubSessionRisingThresh" or name == "csubSessionDeltaPercentFallingThresh" or name == "csubSessionFallingThresh" or name == "csubSessionThreshEvalInterval"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubsessionrisingthresh is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubSessionRisingThresh"):
+                    self.csubsessionrisingthresh = value
+                    self.csubsessionrisingthresh.value_namespace = name_space
+                    self.csubsessionrisingthresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionDeltaPercentFallingThresh"):
+                    self.csubsessiondeltapercentfallingthresh = value
+                    self.csubsessiondeltapercentfallingthresh.value_namespace = name_space
+                    self.csubsessiondeltapercentfallingthresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionFallingThresh"):
+                    self.csubsessionfallingthresh = value
+                    self.csubsessionfallingthresh.value_namespace = name_space
+                    self.csubsessionfallingthresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubSessionThreshEvalInterval"):
+                    self.csubsessionthreshevalinterval = value
+                    self.csubsessionthreshevalinterval.value_namespace = name_space
+                    self.csubsessionthreshevalinterval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubaggstatsthreshentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubsessiondeltapercentfallingthresh is not None:
-                    return True
-
-                if self.csubsessionfallingthresh is not None:
-                    return True
-
-                if self.csubsessionthreshevalinterval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatsthreshtable.Csubaggstatsthreshentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubAggStatsThreshTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubaggstatsthreshentry is not None:
-                for child_ref in self.csubaggstatsthreshentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubaggstatsthreshentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubAggStatsThreshTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubAggStatsThreshEntry"):
+                for c in self.csubaggstatsthreshentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubaggstatsthreshtable.Csubaggstatsthreshentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubaggstatsthreshentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubAggStatsThreshEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubaggstatsthreshtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubjobtable(object):
+    class Csubjobtable(Entity):
         """
         This table contains the subscriber session jobs submitted by
         the EMS/NMS.
@@ -2164,13 +3478,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobentry = YList()
-            self.csubjobentry.parent = self
-            self.csubjobentry.name = 'csubjobentry'
+            super(CiscoSubscriberSessionMib.Csubjobtable, self).__init__()
+
+            self.yang_name = "csubJobTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubjobentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjobtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjobtable, self).__setattr__(name, value)
 
 
-        class Csubjobentry(object):
+        class Csubjobentry(Entity):
             """
             An entry describing a subscriber session job.  At this time,
             subscriber session jobs can perform one of two tasks\:
@@ -2254,12 +3594,12 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobcontrol
             
             	This object specifies an action relating to the subscriber session job\:      'noop'         This action does nothing.      'start'         If the corresponding instance of csubJobType is 'noop',         then this action simply causes the system to set the         corresponding instances of csubJobState and         csubJobFinishedReason to 'finished' and 'normal',         respectively.          If the corresponding instance of csubJobType is not         'noop' and the system is not executing a subscriber         session job, then this action causes the system         immediately execute the subscriber session job.          If the corresponding instance of csubJobType is not         'noop' and the system is already executing a subscriber         session job, then this action causes the system to put         the job on the subscriber session job queue.      'abort'         If the subscriber session job is in the subscriber         session job queue, then this action causes the system to         remove the job from the queue.          If the system is executing the subscriber session job,         then this action causes the system to stop the job.      'release'         This action causes the system to destroy any         corresponding rows in the csubJobReportTable.          The system only accepts this action for a previously         executed subscriber session job having a corresponding         instance of csubJobType set to 'query'.  Any attempt to         issue this action under other circumstances will result         in a response indicating an  error\-status of         'inconsistentValue'.  When read, this column is always 'noop'
-            	**type**\:   :py:class:`CsubjobcontrolEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobcontrolEnum>`
+            	**type**\:   :py:class:`Csubjobcontrol <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.Csubjobcontrol>`
             
             .. attribute:: csubjobfinishedreason
             
             	This object indicates the reason why the system finished executing the subscriber session job\:      'invalid'         Indicates that the corresponding instance of         csubJobState is either 'idle', 'pending', or         'inProgress'.      'other'         Indicates that the system finished executing the         subscriber session job abnormally for a reason not         recognized by this MIB module.      'normal'         Indicates that the system finished executing the         subscriber session job with no problems.      'aborted'         Indicates that the system finished executing the         subscriber session job as the result of the EMS/NMS         writing 'abort' to the corresponding instance of         csubJobControl.      'insufficientResources'         Indicates that the system finished executing the         subscriber session job abnormally due to insufficient         resources to continue.      'error'         Indicates that the system encountered an error that         prevented it from completing the job
-            	**type**\:   :py:class:`CsubjobfinishedreasonEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobfinishedreasonEnum>`
+            	**type**\:   :py:class:`Csubjobfinishedreason <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.Csubjobfinishedreason>`
             
             .. attribute:: csubjobfinishedtime
             
@@ -2278,22 +3618,22 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobstate
             
             	This object indicates the current state of the subscriber session job\:      'idle'         This state indicates that the system has not executed         the subscriber session job since it was created.      'pending'         This state indicates that the subscriber session job is         waiting in the subscriber session job queue.      'inProgress'         This state indicates that the system is executing the         subscriber session job.  Observe that the system may         execute more than one subscriber session job at a time.      'finished'         This state indicates that the system has executed the         subscriber session job and it has finished.  The         corresponding instance of csubJobFinishedReason         indicates further details regarding the reason why the         job finished
-            	**type**\:   :py:class:`CsubjobstateEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobstateEnum>`
+            	**type**\:   :py:class:`Csubjobstate <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.Csubjobstate>`
             
             .. attribute:: csubjobstatus
             
             	This object specifies the status of the subscriber session job.  The following columns must be valid before activating a subscriber session job\:      \- csubJobStorage     \- csubJobType     \- csubJobControl  However, these objects specify a default value.  Thus, it is possible to use create\-and\-go semantics without setting any additional columns.  An implementation must allow the EMS/NMS to modify any column when this column is 'active', including columns defined in tables that have a one\-to\-one or sparse dependent relationship on this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: csubjobstorage
             
             	This object specifies what happens to the subscriber session job upon restart
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: csubjobtype
             
             	This object specifies the type of subscriber session job\:  'noop'     This type of job does nothing and simply serves as a     convenient default value for newly created jobs, thereby     allowing create\-and\-go row creation without having to     specify the type of job.  'query'     This type of job starts a subscriber session query.  The     system searches for any subscriber sessions matching the     configured criteria and sorts them into a resulting     report.      Upon activation of a subscriber session with this value,     the system automatically creates corresponding rows in     the csubJobMatchParamsTable and csubQueryParamsTable.  'clear'     This type of job causes the system to terminated all     subscriber sessions matching configured criteria.      Upon activation of a subscriber session with this value,     the system automatically creates a corresponding row in     the csubJobMatchParamsTable
-            	**type**\:   :py:class:`CsubjobtypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobtypeEnum>`
+            	**type**\:   :py:class:`Csubjobtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.Csubjobtype>`
             
             
 
@@ -2303,20 +3643,64 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubjobid = None
-                self.csubjobcontrol = None
-                self.csubjobfinishedreason = None
-                self.csubjobfinishedtime = None
-                self.csubjobstartedtime = None
-                self.csubjobstate = None
-                self.csubjobstatus = None
-                self.csubjobstorage = None
-                self.csubjobtype = None
+                super(CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry, self).__init__()
 
-            class CsubjobcontrolEnum(Enum):
+                self.yang_name = "csubJobEntry"
+                self.yang_parent_name = "csubJobTable"
+
+                self.csubjobid = YLeaf(YType.uint32, "csubJobId")
+
+                self.csubjobcontrol = YLeaf(YType.enumeration, "csubJobControl")
+
+                self.csubjobfinishedreason = YLeaf(YType.enumeration, "csubJobFinishedReason")
+
+                self.csubjobfinishedtime = YLeaf(YType.uint32, "csubJobFinishedTime")
+
+                self.csubjobstartedtime = YLeaf(YType.uint32, "csubJobStartedTime")
+
+                self.csubjobstate = YLeaf(YType.enumeration, "csubJobState")
+
+                self.csubjobstatus = YLeaf(YType.enumeration, "csubJobStatus")
+
+                self.csubjobstorage = YLeaf(YType.enumeration, "csubJobStorage")
+
+                self.csubjobtype = YLeaf(YType.enumeration, "csubJobType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubjobid",
+                                "csubjobcontrol",
+                                "csubjobfinishedreason",
+                                "csubjobfinishedtime",
+                                "csubjobstartedtime",
+                                "csubjobstate",
+                                "csubjobstatus",
+                                "csubjobstorage",
+                                "csubjobtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry, self).__setattr__(name, value)
+
+            class Csubjobcontrol(Enum):
                 """
-                CsubjobcontrolEnum
+                Csubjobcontrol
 
                 This object specifies an action relating to the subscriber
 
@@ -2396,24 +3780,18 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                noop = 1
+                noop = Enum.YLeaf(1, "noop")
 
-                start = 2
+                start = Enum.YLeaf(2, "start")
 
-                abort = 3
+                abort = Enum.YLeaf(3, "abort")
 
-                release = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobcontrolEnum']
+                release = Enum.YLeaf(4, "release")
 
 
-            class CsubjobfinishedreasonEnum(Enum):
+            class Csubjobfinishedreason(Enum):
                 """
-                CsubjobfinishedreasonEnum
+                Csubjobfinishedreason
 
                 This object indicates the reason why the system finished
 
@@ -2479,28 +3857,22 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                invalid = 1
+                invalid = Enum.YLeaf(1, "invalid")
 
-                other = 2
+                other = Enum.YLeaf(2, "other")
 
-                normal = 3
+                normal = Enum.YLeaf(3, "normal")
 
-                aborted = 4
+                aborted = Enum.YLeaf(4, "aborted")
 
-                insufficientResources = 5
+                insufficientResources = Enum.YLeaf(5, "insufficientResources")
 
-                error = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobfinishedreasonEnum']
+                error = Enum.YLeaf(6, "error")
 
 
-            class CsubjobstateEnum(Enum):
+            class Csubjobstate(Enum):
                 """
-                CsubjobstateEnum
+                Csubjobstate
 
                 This object indicates the current state of the subscriber
 
@@ -2548,24 +3920,18 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                idle = 1
+                idle = Enum.YLeaf(1, "idle")
 
-                pending = 2
+                pending = Enum.YLeaf(2, "pending")
 
-                inProgress = 3
+                inProgress = Enum.YLeaf(3, "inProgress")
 
-                finished = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobstateEnum']
+                finished = Enum.YLeaf(4, "finished")
 
 
-            class CsubjobtypeEnum(Enum):
+            class Csubjobtype(Enum):
                 """
-                CsubjobtypeEnum
+                Csubjobtype
 
                 This object specifies the type of subscriber session job\:
 
@@ -2615,89 +3981,183 @@ class CiscoSubscriberSessionMib(object):
 
                 """
 
-                noop = 1
+                noop = Enum.YLeaf(1, "noop")
 
-                query = 2
+                query = Enum.YLeaf(2, "query")
 
-                clear = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                    return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry.CsubjobtypeEnum']
+                clear = Enum.YLeaf(3, "clear")
 
 
-            @property
-            def _common_path(self):
-                if self.csubjobid is None:
-                    raise YPYModelError('Key property csubjobid is None')
+            def has_data(self):
+                return (
+                    self.csubjobid.is_set or
+                    self.csubjobcontrol.is_set or
+                    self.csubjobfinishedreason.is_set or
+                    self.csubjobfinishedtime.is_set or
+                    self.csubjobstartedtime.is_set or
+                    self.csubjobstate.is_set or
+                    self.csubjobstatus.is_set or
+                    self.csubjobstorage.is_set or
+                    self.csubjobtype.is_set)
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobTable/CISCO-SUBSCRIBER-SESSION-MIB:csubJobEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubJobId = ' + str(self.csubjobid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubjobid.yfilter != YFilter.not_set or
+                    self.csubjobcontrol.yfilter != YFilter.not_set or
+                    self.csubjobfinishedreason.yfilter != YFilter.not_set or
+                    self.csubjobfinishedtime.yfilter != YFilter.not_set or
+                    self.csubjobstartedtime.yfilter != YFilter.not_set or
+                    self.csubjobstate.yfilter != YFilter.not_set or
+                    self.csubjobstatus.yfilter != YFilter.not_set or
+                    self.csubjobstorage.yfilter != YFilter.not_set or
+                    self.csubjobtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubJobEntry" + "[csubJobId='" + self.csubjobid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubjobid.is_set or self.csubjobid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobid.get_name_leafdata())
+                if (self.csubjobcontrol.is_set or self.csubjobcontrol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobcontrol.get_name_leafdata())
+                if (self.csubjobfinishedreason.is_set or self.csubjobfinishedreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobfinishedreason.get_name_leafdata())
+                if (self.csubjobfinishedtime.is_set or self.csubjobfinishedtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobfinishedtime.get_name_leafdata())
+                if (self.csubjobstartedtime.is_set or self.csubjobstartedtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobstartedtime.get_name_leafdata())
+                if (self.csubjobstate.is_set or self.csubjobstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobstate.get_name_leafdata())
+                if (self.csubjobstatus.is_set or self.csubjobstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobstatus.get_name_leafdata())
+                if (self.csubjobstorage.is_set or self.csubjobstorage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobstorage.get_name_leafdata())
+                if (self.csubjobtype.is_set or self.csubjobtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubJobId" or name == "csubJobControl" or name == "csubJobFinishedReason" or name == "csubJobFinishedTime" or name == "csubJobStartedTime" or name == "csubJobState" or name == "csubJobStatus" or name == "csubJobStorage" or name == "csubJobType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubjobid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubJobId"):
+                    self.csubjobid = value
+                    self.csubjobid.value_namespace = name_space
+                    self.csubjobid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobControl"):
+                    self.csubjobcontrol = value
+                    self.csubjobcontrol.value_namespace = name_space
+                    self.csubjobcontrol.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobFinishedReason"):
+                    self.csubjobfinishedreason = value
+                    self.csubjobfinishedreason.value_namespace = name_space
+                    self.csubjobfinishedreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobFinishedTime"):
+                    self.csubjobfinishedtime = value
+                    self.csubjobfinishedtime.value_namespace = name_space
+                    self.csubjobfinishedtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobStartedTime"):
+                    self.csubjobstartedtime = value
+                    self.csubjobstartedtime.value_namespace = name_space
+                    self.csubjobstartedtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobState"):
+                    self.csubjobstate = value
+                    self.csubjobstate.value_namespace = name_space
+                    self.csubjobstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobStatus"):
+                    self.csubjobstatus = value
+                    self.csubjobstatus.value_namespace = name_space
+                    self.csubjobstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobStorage"):
+                    self.csubjobstorage = value
+                    self.csubjobstorage.value_namespace = name_space
+                    self.csubjobstorage.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobType"):
+                    self.csubjobtype = value
+                    self.csubjobtype.value_namespace = name_space
+                    self.csubjobtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubjobentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubjobcontrol is not None:
-                    return True
-
-                if self.csubjobfinishedreason is not None:
-                    return True
-
-                if self.csubjobfinishedtime is not None:
-                    return True
-
-                if self.csubjobstartedtime is not None:
-                    return True
-
-                if self.csubjobstate is not None:
-                    return True
-
-                if self.csubjobstatus is not None:
-                    return True
-
-                if self.csubjobstorage is not None:
-                    return True
-
-                if self.csubjobtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubjobentry is not None:
-                for child_ref in self.csubjobentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubjobentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJobTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubJobEntry"):
+                for c in self.csubjobentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubjobtable.Csubjobentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubjobentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjobtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubjobmatchparamstable(object):
+    class Csubjobmatchparamstable(Entity):
         """
         This table contains subscriber session job parameters
         describing match criteria.
@@ -2719,13 +4179,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobmatchparamsentry = YList()
-            self.csubjobmatchparamsentry.parent = self
-            self.csubjobmatchparamsentry.name = 'csubjobmatchparamsentry'
+            super(CiscoSubscriberSessionMib.Csubjobmatchparamstable, self).__init__()
+
+            self.yang_name = "csubJobMatchParamsTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubjobmatchparamsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjobmatchparamstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjobmatchparamstable, self).__setattr__(name, value)
 
 
-        class Csubjobmatchparamsentry(object):
+        class Csubjobmatchparamsentry(Entity):
             """
             An entry describes a set of subscriber session match criteria.
             The set contains those subscriber session identities specified
@@ -2808,7 +4294,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobmatchdomainipaddrtype
             
             	This object specifies the type of Internet address specified by csubJobMatchDomainIpAddr and csubJobMatchDomainIpMask.  This value is valid only if the 'domainIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: csubjobmatchdomainipmask
             
@@ -2837,7 +4323,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobmatchmedia
             
             	This object specifies the media type the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'media' bit of the corresponding instance of csubJobMatchIdentities is '1'
-            	**type**\:   :py:class:`SubscribermediatypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscribermediatypeEnum>`
+            	**type**\:   :py:class:`Subscribermediatype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subscribermediatype>`
             
             .. attribute:: csubjobmatchmlpnegotiated
             
@@ -2859,7 +4345,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobmatchnativeipaddrtype
             
             	This object specifies the type of Internet address specified by csubJobMatchNativeIpAddr and csubJobMatchNativeIpMask.  This value is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: csubjobmatchnativeipmask
             
@@ -2886,12 +4372,12 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobmatchprotocol
             
             	This object specifies the protocol type the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'protocol' bit of the corresponding instance of csubJobMatchIdentities is '1'
-            	**type**\:   :py:class:`SubscriberprotocoltypeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberprotocoltypeEnum>`
+            	**type**\:   :py:class:`Subscriberprotocoltype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subscriberprotocoltype>`
             
             .. attribute:: csubjobmatchredundancymode
             
             	This object specifies the redudancy mode of the subscriber session in order for the system to consider a match in the process of executing a subscriber session job.  The value 'other' is not valid and an implementation should not allow it to be written to this column.  This value is valid only if the 'redundancyMode' bit of the corresponding instance of csubJobMatchOtherParams is '1'
-            	**type**\:   :py:class:`SubsessionredundancymodeEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessionredundancymodeEnum>`
+            	**type**\:   :py:class:`Subsessionredundancymode <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessionredundancymode>`
             
             .. attribute:: csubjobmatchremoteid
             
@@ -2906,7 +4392,7 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobmatchstate
             
             	This object specifies the state of a subscriber session in order for the system to consider a match in the process of executing a subscriber session job.  The value 'other' is not valid and an implementation should not allow it to be written to this column.  This value is valid only if the 'state' bit of the corresponding instance of csubJobMatchOtherParams is '1'
-            	**type**\:   :py:class:`SubsessionstateEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubsessionstateEnum>`
+            	**type**\:   :py:class:`Subsessionstate <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.Subsessionstate>`
             
             .. attribute:: csubjobmatchsubscriberlabel
             
@@ -2933,216 +4419,469 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubjobid = None
-                self.csubjobmatchacctsessionid = None
-                self.csubjobmatchauthenticated = None
-                self.csubjobmatchcircuitid = None
-                self.csubjobmatchdanglingduration = None
-                self.csubjobmatchdhcpclass = None
-                self.csubjobmatchdnis = None
-                self.csubjobmatchdomain = None
-                self.csubjobmatchdomainipaddr = None
-                self.csubjobmatchdomainipaddrtype = None
-                self.csubjobmatchdomainipmask = None
-                self.csubjobmatchdomainvrf = None
-                self.csubjobmatchidentities = Subsessionidentities()
-                self.csubjobmatchmacaddress = None
-                self.csubjobmatchmedia = None
-                self.csubjobmatchmlpnegotiated = None
-                self.csubjobmatchnasport = None
-                self.csubjobmatchnativeipaddr = None
-                self.csubjobmatchnativeipaddrtype = None
-                self.csubjobmatchnativeipmask = None
-                self.csubjobmatchnativevrf = None
-                self.csubjobmatchotherparams = CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry.Csubjobmatchotherparams()
-                self.csubjobmatchpbhk = None
-                self.csubjobmatchprotocol = None
-                self.csubjobmatchredundancymode = None
-                self.csubjobmatchremoteid = None
-                self.csubjobmatchservicename = None
-                self.csubjobmatchstate = None
-                self.csubjobmatchsubscriberlabel = None
-                self.csubjobmatchtunnelname = None
-                self.csubjobmatchusername = None
+                super(CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry, self).__init__()
 
-            class Csubjobmatchotherparams(FixedBitsDict):
-                """
-                Csubjobmatchotherparams
+                self.yang_name = "csubJobMatchParamsEntry"
+                self.yang_parent_name = "csubJobMatchParamsTable"
 
-                This object specifies other parameters relating to subscriber
-                sessions a subscriber session job may match against.
-                
-                Each bit in this bit string corresponds to a column in this
-                table.  If the bit is '0', then the value of the corresponding
-                column is invalid.  If the bit is '1', then the value of the
-                corresponding column represents the value of the parameter
-                identity the system should match against for the corresponding
-                subscriber session job.
-                
-                The following list specifies the mappings between bits and the
-                columns\:
-                
-                    'danglingDuration' => csubJobMatchDanglingDuration
-                    'state'            => csubJobMatchState
-                    'authenticated'    => csubJobMatchAuthenticated
-                    'redundancyMode'   => csubJobMatchRedundancyMode
-                Keys are:- state , redundancyMode , danglingDuration , authenticated
+                self.csubjobid = YLeaf(YType.str, "csubJobId")
 
-                """
+                self.csubjobmatchacctsessionid = YLeaf(YType.uint32, "csubJobMatchAcctSessionId")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'state':False,
-                        'redundancyMode':False,
-                        'danglingDuration':False,
-                        'authenticated':False,
-                    }
-                    self._pos_map = { 
-                        'state':1,
-                        'redundancyMode':3,
-                        'danglingDuration':0,
-                        'authenticated':2,
-                    }
+                self.csubjobmatchauthenticated = YLeaf(YType.boolean, "csubJobMatchAuthenticated")
 
-            @property
-            def _common_path(self):
-                if self.csubjobid is None:
-                    raise YPYModelError('Key property csubjobid is None')
+                self.csubjobmatchcircuitid = YLeaf(YType.str, "csubJobMatchCircuitId")
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobMatchParamsTable/CISCO-SUBSCRIBER-SESSION-MIB:csubJobMatchParamsEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubJobId = ' + str(self.csubjobid) + ']'
+                self.csubjobmatchdanglingduration = YLeaf(YType.uint32, "csubJobMatchDanglingDuration")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubjobmatchdhcpclass = YLeaf(YType.str, "csubJobMatchDhcpClass")
+
+                self.csubjobmatchdnis = YLeaf(YType.str, "csubJobMatchDnis")
+
+                self.csubjobmatchdomain = YLeaf(YType.str, "csubJobMatchDomain")
+
+                self.csubjobmatchdomainipaddr = YLeaf(YType.str, "csubJobMatchDomainIpAddr")
+
+                self.csubjobmatchdomainipaddrtype = YLeaf(YType.enumeration, "csubJobMatchDomainIpAddrType")
+
+                self.csubjobmatchdomainipmask = YLeaf(YType.str, "csubJobMatchDomainIpMask")
+
+                self.csubjobmatchdomainvrf = YLeaf(YType.str, "csubJobMatchDomainVrf")
+
+                self.csubjobmatchidentities = YLeaf(YType.bits, "csubJobMatchIdentities")
+
+                self.csubjobmatchmacaddress = YLeaf(YType.str, "csubJobMatchMacAddress")
+
+                self.csubjobmatchmedia = YLeaf(YType.enumeration, "csubJobMatchMedia")
+
+                self.csubjobmatchmlpnegotiated = YLeaf(YType.boolean, "csubJobMatchMlpNegotiated")
+
+                self.csubjobmatchnasport = YLeaf(YType.str, "csubJobMatchNasPort")
+
+                self.csubjobmatchnativeipaddr = YLeaf(YType.str, "csubJobMatchNativeIpAddr")
+
+                self.csubjobmatchnativeipaddrtype = YLeaf(YType.enumeration, "csubJobMatchNativeIpAddrType")
+
+                self.csubjobmatchnativeipmask = YLeaf(YType.str, "csubJobMatchNativeIpMask")
+
+                self.csubjobmatchnativevrf = YLeaf(YType.str, "csubJobMatchNativeVrf")
+
+                self.csubjobmatchotherparams = YLeaf(YType.bits, "csubJobMatchOtherParams")
+
+                self.csubjobmatchpbhk = YLeaf(YType.str, "csubJobMatchPbhk")
+
+                self.csubjobmatchprotocol = YLeaf(YType.enumeration, "csubJobMatchProtocol")
+
+                self.csubjobmatchredundancymode = YLeaf(YType.enumeration, "csubJobMatchRedundancyMode")
+
+                self.csubjobmatchremoteid = YLeaf(YType.str, "csubJobMatchRemoteId")
+
+                self.csubjobmatchservicename = YLeaf(YType.str, "csubJobMatchServiceName")
+
+                self.csubjobmatchstate = YLeaf(YType.enumeration, "csubJobMatchState")
+
+                self.csubjobmatchsubscriberlabel = YLeaf(YType.uint32, "csubJobMatchSubscriberLabel")
+
+                self.csubjobmatchtunnelname = YLeaf(YType.str, "csubJobMatchTunnelName")
+
+                self.csubjobmatchusername = YLeaf(YType.str, "csubJobMatchUsername")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubjobid",
+                                "csubjobmatchacctsessionid",
+                                "csubjobmatchauthenticated",
+                                "csubjobmatchcircuitid",
+                                "csubjobmatchdanglingduration",
+                                "csubjobmatchdhcpclass",
+                                "csubjobmatchdnis",
+                                "csubjobmatchdomain",
+                                "csubjobmatchdomainipaddr",
+                                "csubjobmatchdomainipaddrtype",
+                                "csubjobmatchdomainipmask",
+                                "csubjobmatchdomainvrf",
+                                "csubjobmatchidentities",
+                                "csubjobmatchmacaddress",
+                                "csubjobmatchmedia",
+                                "csubjobmatchmlpnegotiated",
+                                "csubjobmatchnasport",
+                                "csubjobmatchnativeipaddr",
+                                "csubjobmatchnativeipaddrtype",
+                                "csubjobmatchnativeipmask",
+                                "csubjobmatchnativevrf",
+                                "csubjobmatchotherparams",
+                                "csubjobmatchpbhk",
+                                "csubjobmatchprotocol",
+                                "csubjobmatchredundancymode",
+                                "csubjobmatchremoteid",
+                                "csubjobmatchservicename",
+                                "csubjobmatchstate",
+                                "csubjobmatchsubscriberlabel",
+                                "csubjobmatchtunnelname",
+                                "csubjobmatchusername") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubjobid.is_set or
+                    self.csubjobmatchacctsessionid.is_set or
+                    self.csubjobmatchauthenticated.is_set or
+                    self.csubjobmatchcircuitid.is_set or
+                    self.csubjobmatchdanglingduration.is_set or
+                    self.csubjobmatchdhcpclass.is_set or
+                    self.csubjobmatchdnis.is_set or
+                    self.csubjobmatchdomain.is_set or
+                    self.csubjobmatchdomainipaddr.is_set or
+                    self.csubjobmatchdomainipaddrtype.is_set or
+                    self.csubjobmatchdomainipmask.is_set or
+                    self.csubjobmatchdomainvrf.is_set or
+                    self.csubjobmatchidentities.is_set or
+                    self.csubjobmatchmacaddress.is_set or
+                    self.csubjobmatchmedia.is_set or
+                    self.csubjobmatchmlpnegotiated.is_set or
+                    self.csubjobmatchnasport.is_set or
+                    self.csubjobmatchnativeipaddr.is_set or
+                    self.csubjobmatchnativeipaddrtype.is_set or
+                    self.csubjobmatchnativeipmask.is_set or
+                    self.csubjobmatchnativevrf.is_set or
+                    self.csubjobmatchotherparams.is_set or
+                    self.csubjobmatchpbhk.is_set or
+                    self.csubjobmatchprotocol.is_set or
+                    self.csubjobmatchredundancymode.is_set or
+                    self.csubjobmatchremoteid.is_set or
+                    self.csubjobmatchservicename.is_set or
+                    self.csubjobmatchstate.is_set or
+                    self.csubjobmatchsubscriberlabel.is_set or
+                    self.csubjobmatchtunnelname.is_set or
+                    self.csubjobmatchusername.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubjobid.yfilter != YFilter.not_set or
+                    self.csubjobmatchacctsessionid.yfilter != YFilter.not_set or
+                    self.csubjobmatchauthenticated.yfilter != YFilter.not_set or
+                    self.csubjobmatchcircuitid.yfilter != YFilter.not_set or
+                    self.csubjobmatchdanglingduration.yfilter != YFilter.not_set or
+                    self.csubjobmatchdhcpclass.yfilter != YFilter.not_set or
+                    self.csubjobmatchdnis.yfilter != YFilter.not_set or
+                    self.csubjobmatchdomain.yfilter != YFilter.not_set or
+                    self.csubjobmatchdomainipaddr.yfilter != YFilter.not_set or
+                    self.csubjobmatchdomainipaddrtype.yfilter != YFilter.not_set or
+                    self.csubjobmatchdomainipmask.yfilter != YFilter.not_set or
+                    self.csubjobmatchdomainvrf.yfilter != YFilter.not_set or
+                    self.csubjobmatchidentities.yfilter != YFilter.not_set or
+                    self.csubjobmatchmacaddress.yfilter != YFilter.not_set or
+                    self.csubjobmatchmedia.yfilter != YFilter.not_set or
+                    self.csubjobmatchmlpnegotiated.yfilter != YFilter.not_set or
+                    self.csubjobmatchnasport.yfilter != YFilter.not_set or
+                    self.csubjobmatchnativeipaddr.yfilter != YFilter.not_set or
+                    self.csubjobmatchnativeipaddrtype.yfilter != YFilter.not_set or
+                    self.csubjobmatchnativeipmask.yfilter != YFilter.not_set or
+                    self.csubjobmatchnativevrf.yfilter != YFilter.not_set or
+                    self.csubjobmatchotherparams.yfilter != YFilter.not_set or
+                    self.csubjobmatchpbhk.yfilter != YFilter.not_set or
+                    self.csubjobmatchprotocol.yfilter != YFilter.not_set or
+                    self.csubjobmatchredundancymode.yfilter != YFilter.not_set or
+                    self.csubjobmatchremoteid.yfilter != YFilter.not_set or
+                    self.csubjobmatchservicename.yfilter != YFilter.not_set or
+                    self.csubjobmatchstate.yfilter != YFilter.not_set or
+                    self.csubjobmatchsubscriberlabel.yfilter != YFilter.not_set or
+                    self.csubjobmatchtunnelname.yfilter != YFilter.not_set or
+                    self.csubjobmatchusername.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubJobMatchParamsEntry" + "[csubJobId='" + self.csubjobid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobMatchParamsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubjobid.is_set or self.csubjobid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobid.get_name_leafdata())
+                if (self.csubjobmatchacctsessionid.is_set or self.csubjobmatchacctsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchacctsessionid.get_name_leafdata())
+                if (self.csubjobmatchauthenticated.is_set or self.csubjobmatchauthenticated.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchauthenticated.get_name_leafdata())
+                if (self.csubjobmatchcircuitid.is_set or self.csubjobmatchcircuitid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchcircuitid.get_name_leafdata())
+                if (self.csubjobmatchdanglingduration.is_set or self.csubjobmatchdanglingduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdanglingduration.get_name_leafdata())
+                if (self.csubjobmatchdhcpclass.is_set or self.csubjobmatchdhcpclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdhcpclass.get_name_leafdata())
+                if (self.csubjobmatchdnis.is_set or self.csubjobmatchdnis.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdnis.get_name_leafdata())
+                if (self.csubjobmatchdomain.is_set or self.csubjobmatchdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdomain.get_name_leafdata())
+                if (self.csubjobmatchdomainipaddr.is_set or self.csubjobmatchdomainipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdomainipaddr.get_name_leafdata())
+                if (self.csubjobmatchdomainipaddrtype.is_set or self.csubjobmatchdomainipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdomainipaddrtype.get_name_leafdata())
+                if (self.csubjobmatchdomainipmask.is_set or self.csubjobmatchdomainipmask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdomainipmask.get_name_leafdata())
+                if (self.csubjobmatchdomainvrf.is_set or self.csubjobmatchdomainvrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchdomainvrf.get_name_leafdata())
+                if (self.csubjobmatchidentities.is_set or self.csubjobmatchidentities.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchidentities.get_name_leafdata())
+                if (self.csubjobmatchmacaddress.is_set or self.csubjobmatchmacaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchmacaddress.get_name_leafdata())
+                if (self.csubjobmatchmedia.is_set or self.csubjobmatchmedia.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchmedia.get_name_leafdata())
+                if (self.csubjobmatchmlpnegotiated.is_set or self.csubjobmatchmlpnegotiated.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchmlpnegotiated.get_name_leafdata())
+                if (self.csubjobmatchnasport.is_set or self.csubjobmatchnasport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchnasport.get_name_leafdata())
+                if (self.csubjobmatchnativeipaddr.is_set or self.csubjobmatchnativeipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchnativeipaddr.get_name_leafdata())
+                if (self.csubjobmatchnativeipaddrtype.is_set or self.csubjobmatchnativeipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchnativeipaddrtype.get_name_leafdata())
+                if (self.csubjobmatchnativeipmask.is_set or self.csubjobmatchnativeipmask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchnativeipmask.get_name_leafdata())
+                if (self.csubjobmatchnativevrf.is_set or self.csubjobmatchnativevrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchnativevrf.get_name_leafdata())
+                if (self.csubjobmatchotherparams.is_set or self.csubjobmatchotherparams.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchotherparams.get_name_leafdata())
+                if (self.csubjobmatchpbhk.is_set or self.csubjobmatchpbhk.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchpbhk.get_name_leafdata())
+                if (self.csubjobmatchprotocol.is_set or self.csubjobmatchprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchprotocol.get_name_leafdata())
+                if (self.csubjobmatchredundancymode.is_set or self.csubjobmatchredundancymode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchredundancymode.get_name_leafdata())
+                if (self.csubjobmatchremoteid.is_set or self.csubjobmatchremoteid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchremoteid.get_name_leafdata())
+                if (self.csubjobmatchservicename.is_set or self.csubjobmatchservicename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchservicename.get_name_leafdata())
+                if (self.csubjobmatchstate.is_set or self.csubjobmatchstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchstate.get_name_leafdata())
+                if (self.csubjobmatchsubscriberlabel.is_set or self.csubjobmatchsubscriberlabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchsubscriberlabel.get_name_leafdata())
+                if (self.csubjobmatchtunnelname.is_set or self.csubjobmatchtunnelname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchtunnelname.get_name_leafdata())
+                if (self.csubjobmatchusername.is_set or self.csubjobmatchusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobmatchusername.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubJobId" or name == "csubJobMatchAcctSessionId" or name == "csubJobMatchAuthenticated" or name == "csubJobMatchCircuitId" or name == "csubJobMatchDanglingDuration" or name == "csubJobMatchDhcpClass" or name == "csubJobMatchDnis" or name == "csubJobMatchDomain" or name == "csubJobMatchDomainIpAddr" or name == "csubJobMatchDomainIpAddrType" or name == "csubJobMatchDomainIpMask" or name == "csubJobMatchDomainVrf" or name == "csubJobMatchIdentities" or name == "csubJobMatchMacAddress" or name == "csubJobMatchMedia" or name == "csubJobMatchMlpNegotiated" or name == "csubJobMatchNasPort" or name == "csubJobMatchNativeIpAddr" or name == "csubJobMatchNativeIpAddrType" or name == "csubJobMatchNativeIpMask" or name == "csubJobMatchNativeVrf" or name == "csubJobMatchOtherParams" or name == "csubJobMatchPbhk" or name == "csubJobMatchProtocol" or name == "csubJobMatchRedundancyMode" or name == "csubJobMatchRemoteId" or name == "csubJobMatchServiceName" or name == "csubJobMatchState" or name == "csubJobMatchSubscriberLabel" or name == "csubJobMatchTunnelName" or name == "csubJobMatchUsername"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubjobid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubJobId"):
+                    self.csubjobid = value
+                    self.csubjobid.value_namespace = name_space
+                    self.csubjobid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchAcctSessionId"):
+                    self.csubjobmatchacctsessionid = value
+                    self.csubjobmatchacctsessionid.value_namespace = name_space
+                    self.csubjobmatchacctsessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchAuthenticated"):
+                    self.csubjobmatchauthenticated = value
+                    self.csubjobmatchauthenticated.value_namespace = name_space
+                    self.csubjobmatchauthenticated.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchCircuitId"):
+                    self.csubjobmatchcircuitid = value
+                    self.csubjobmatchcircuitid.value_namespace = name_space
+                    self.csubjobmatchcircuitid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDanglingDuration"):
+                    self.csubjobmatchdanglingduration = value
+                    self.csubjobmatchdanglingduration.value_namespace = name_space
+                    self.csubjobmatchdanglingduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDhcpClass"):
+                    self.csubjobmatchdhcpclass = value
+                    self.csubjobmatchdhcpclass.value_namespace = name_space
+                    self.csubjobmatchdhcpclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDnis"):
+                    self.csubjobmatchdnis = value
+                    self.csubjobmatchdnis.value_namespace = name_space
+                    self.csubjobmatchdnis.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDomain"):
+                    self.csubjobmatchdomain = value
+                    self.csubjobmatchdomain.value_namespace = name_space
+                    self.csubjobmatchdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDomainIpAddr"):
+                    self.csubjobmatchdomainipaddr = value
+                    self.csubjobmatchdomainipaddr.value_namespace = name_space
+                    self.csubjobmatchdomainipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDomainIpAddrType"):
+                    self.csubjobmatchdomainipaddrtype = value
+                    self.csubjobmatchdomainipaddrtype.value_namespace = name_space
+                    self.csubjobmatchdomainipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDomainIpMask"):
+                    self.csubjobmatchdomainipmask = value
+                    self.csubjobmatchdomainipmask.value_namespace = name_space
+                    self.csubjobmatchdomainipmask.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchDomainVrf"):
+                    self.csubjobmatchdomainvrf = value
+                    self.csubjobmatchdomainvrf.value_namespace = name_space
+                    self.csubjobmatchdomainvrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchIdentities"):
+                    self.csubjobmatchidentities[value] = True
+                if(value_path == "csubJobMatchMacAddress"):
+                    self.csubjobmatchmacaddress = value
+                    self.csubjobmatchmacaddress.value_namespace = name_space
+                    self.csubjobmatchmacaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchMedia"):
+                    self.csubjobmatchmedia = value
+                    self.csubjobmatchmedia.value_namespace = name_space
+                    self.csubjobmatchmedia.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchMlpNegotiated"):
+                    self.csubjobmatchmlpnegotiated = value
+                    self.csubjobmatchmlpnegotiated.value_namespace = name_space
+                    self.csubjobmatchmlpnegotiated.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchNasPort"):
+                    self.csubjobmatchnasport = value
+                    self.csubjobmatchnasport.value_namespace = name_space
+                    self.csubjobmatchnasport.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchNativeIpAddr"):
+                    self.csubjobmatchnativeipaddr = value
+                    self.csubjobmatchnativeipaddr.value_namespace = name_space
+                    self.csubjobmatchnativeipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchNativeIpAddrType"):
+                    self.csubjobmatchnativeipaddrtype = value
+                    self.csubjobmatchnativeipaddrtype.value_namespace = name_space
+                    self.csubjobmatchnativeipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchNativeIpMask"):
+                    self.csubjobmatchnativeipmask = value
+                    self.csubjobmatchnativeipmask.value_namespace = name_space
+                    self.csubjobmatchnativeipmask.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchNativeVrf"):
+                    self.csubjobmatchnativevrf = value
+                    self.csubjobmatchnativevrf.value_namespace = name_space
+                    self.csubjobmatchnativevrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchOtherParams"):
+                    self.csubjobmatchotherparams[value] = True
+                if(value_path == "csubJobMatchPbhk"):
+                    self.csubjobmatchpbhk = value
+                    self.csubjobmatchpbhk.value_namespace = name_space
+                    self.csubjobmatchpbhk.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchProtocol"):
+                    self.csubjobmatchprotocol = value
+                    self.csubjobmatchprotocol.value_namespace = name_space
+                    self.csubjobmatchprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchRedundancyMode"):
+                    self.csubjobmatchredundancymode = value
+                    self.csubjobmatchredundancymode.value_namespace = name_space
+                    self.csubjobmatchredundancymode.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchRemoteId"):
+                    self.csubjobmatchremoteid = value
+                    self.csubjobmatchremoteid.value_namespace = name_space
+                    self.csubjobmatchremoteid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchServiceName"):
+                    self.csubjobmatchservicename = value
+                    self.csubjobmatchservicename.value_namespace = name_space
+                    self.csubjobmatchservicename.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchState"):
+                    self.csubjobmatchstate = value
+                    self.csubjobmatchstate.value_namespace = name_space
+                    self.csubjobmatchstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchSubscriberLabel"):
+                    self.csubjobmatchsubscriberlabel = value
+                    self.csubjobmatchsubscriberlabel.value_namespace = name_space
+                    self.csubjobmatchsubscriberlabel.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchTunnelName"):
+                    self.csubjobmatchtunnelname = value
+                    self.csubjobmatchtunnelname.value_namespace = name_space
+                    self.csubjobmatchtunnelname.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobMatchUsername"):
+                    self.csubjobmatchusername = value
+                    self.csubjobmatchusername.value_namespace = name_space
+                    self.csubjobmatchusername.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubjobmatchparamsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubjobmatchacctsessionid is not None:
-                    return True
-
-                if self.csubjobmatchauthenticated is not None:
-                    return True
-
-                if self.csubjobmatchcircuitid is not None:
-                    return True
-
-                if self.csubjobmatchdanglingduration is not None:
-                    return True
-
-                if self.csubjobmatchdhcpclass is not None:
-                    return True
-
-                if self.csubjobmatchdnis is not None:
-                    return True
-
-                if self.csubjobmatchdomain is not None:
-                    return True
-
-                if self.csubjobmatchdomainipaddr is not None:
-                    return True
-
-                if self.csubjobmatchdomainipaddrtype is not None:
-                    return True
-
-                if self.csubjobmatchdomainipmask is not None:
-                    return True
-
-                if self.csubjobmatchdomainvrf is not None:
-                    return True
-
-                if self.csubjobmatchidentities is not None:
-                    if self.csubjobmatchidentities._has_data():
-                        return True
-
-                if self.csubjobmatchmacaddress is not None:
-                    return True
-
-                if self.csubjobmatchmedia is not None:
-                    return True
-
-                if self.csubjobmatchmlpnegotiated is not None:
-                    return True
-
-                if self.csubjobmatchnasport is not None:
-                    return True
-
-                if self.csubjobmatchnativeipaddr is not None:
-                    return True
-
-                if self.csubjobmatchnativeipaddrtype is not None:
-                    return True
-
-                if self.csubjobmatchnativeipmask is not None:
-                    return True
-
-                if self.csubjobmatchnativevrf is not None:
-                    return True
-
-                if self.csubjobmatchotherparams is not None:
-                    if self.csubjobmatchotherparams._has_data():
-                        return True
-
-                if self.csubjobmatchpbhk is not None:
-                    return True
-
-                if self.csubjobmatchprotocol is not None:
-                    return True
-
-                if self.csubjobmatchredundancymode is not None:
-                    return True
-
-                if self.csubjobmatchremoteid is not None:
-                    return True
-
-                if self.csubjobmatchservicename is not None:
-                    return True
-
-                if self.csubjobmatchstate is not None:
-                    return True
-
-                if self.csubjobmatchsubscriberlabel is not None:
-                    return True
-
-                if self.csubjobmatchtunnelname is not None:
-                    return True
-
-                if self.csubjobmatchusername is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobMatchParamsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubjobmatchparamsentry is not None:
-                for child_ref in self.csubjobmatchparamsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubjobmatchparamsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJobMatchParamsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubJobMatchParamsEntry"):
+                for c in self.csubjobmatchparamsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubjobmatchparamstable.Csubjobmatchparamsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubjobmatchparamsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobMatchParamsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjobmatchparamstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubjobqueryparamstable(object):
+    class Csubjobqueryparamstable(Entity):
         """
         This table contains subscriber session job parameters
         describing query parameters.
@@ -3164,13 +4903,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobqueryparamsentry = YList()
-            self.csubjobqueryparamsentry.parent = self
-            self.csubjobqueryparamsentry.name = 'csubjobqueryparamsentry'
+            super(CiscoSubscriberSessionMib.Csubjobqueryparamstable, self).__init__()
+
+            self.yang_name = "csubJobQueryParamsTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubjobqueryparamsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjobqueryparamstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjobqueryparamstable, self).__setattr__(name, value)
 
 
-        class Csubjobqueryparamsentry(object):
+        class Csubjobqueryparamsentry(Entity):
             """
             An entry describes a set of subscriber session query
             parameters.
@@ -3204,17 +4969,17 @@ class CiscoSubscriberSessionMib(object):
             .. attribute:: csubjobquerysortkey1
             
             	This object specifies the first subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  It is not valid to set this column to 'other' or 'ifIndex'
-            	**type**\:   :py:class:`SubsessionidentityEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubsessionidentityEnum>`
+            	**type**\:   :py:class:`Subsessionidentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subsessionidentity>`
             
             .. attribute:: csubjobquerysortkey2
             
             	This object specifies the second subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  If it is the desire to have the final report sorted on a single subscriber identity, then this column should be 'other'
-            	**type**\:   :py:class:`SubsessionidentityEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubsessionidentityEnum>`
+            	**type**\:   :py:class:`Subsessionidentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subsessionidentity>`
             
             .. attribute:: csubjobquerysortkey3
             
             	This object specifies the third subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  If it is the desire to have the final report sorted on one or two subscriber identities, then this column should be 'other'
-            	**type**\:   :py:class:`SubsessionidentityEnum <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubsessionidentityEnum>`
+            	**type**\:   :py:class:`Subsessionidentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.Subsessionidentity>`
             
             
 
@@ -3224,71 +4989,187 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubjobid = None
-                self.csubjobqueryresultingreportsize = None
-                self.csubjobquerysortkey1 = None
-                self.csubjobquerysortkey2 = None
-                self.csubjobquerysortkey3 = None
+                super(CiscoSubscriberSessionMib.Csubjobqueryparamstable.Csubjobqueryparamsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubjobid is None:
-                    raise YPYModelError('Key property csubjobid is None')
+                self.yang_name = "csubJobQueryParamsEntry"
+                self.yang_parent_name = "csubJobQueryParamsTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueryParamsTable/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueryParamsEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubJobId = ' + str(self.csubjobid) + ']'
+                self.csubjobid = YLeaf(YType.str, "csubJobId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubjobqueryresultingreportsize = YLeaf(YType.uint32, "csubJobQueryResultingReportSize")
+
+                self.csubjobquerysortkey1 = YLeaf(YType.enumeration, "csubJobQuerySortKey1")
+
+                self.csubjobquerysortkey2 = YLeaf(YType.enumeration, "csubJobQuerySortKey2")
+
+                self.csubjobquerysortkey3 = YLeaf(YType.enumeration, "csubJobQuerySortKey3")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubjobid",
+                                "csubjobqueryresultingreportsize",
+                                "csubjobquerysortkey1",
+                                "csubjobquerysortkey2",
+                                "csubjobquerysortkey3") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubjobqueryparamstable.Csubjobqueryparamsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubjobqueryparamstable.Csubjobqueryparamsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubjobid.is_set or
+                    self.csubjobqueryresultingreportsize.is_set or
+                    self.csubjobquerysortkey1.is_set or
+                    self.csubjobquerysortkey2.is_set or
+                    self.csubjobquerysortkey3.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubjobid.yfilter != YFilter.not_set or
+                    self.csubjobqueryresultingreportsize.yfilter != YFilter.not_set or
+                    self.csubjobquerysortkey1.yfilter != YFilter.not_set or
+                    self.csubjobquerysortkey2.yfilter != YFilter.not_set or
+                    self.csubjobquerysortkey3.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubJobQueryParamsEntry" + "[csubJobId='" + self.csubjobid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueryParamsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubjobid.is_set or self.csubjobid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobid.get_name_leafdata())
+                if (self.csubjobqueryresultingreportsize.is_set or self.csubjobqueryresultingreportsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobqueryresultingreportsize.get_name_leafdata())
+                if (self.csubjobquerysortkey1.is_set or self.csubjobquerysortkey1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobquerysortkey1.get_name_leafdata())
+                if (self.csubjobquerysortkey2.is_set or self.csubjobquerysortkey2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobquerysortkey2.get_name_leafdata())
+                if (self.csubjobquerysortkey3.is_set or self.csubjobquerysortkey3.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobquerysortkey3.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubJobId" or name == "csubJobQueryResultingReportSize" or name == "csubJobQuerySortKey1" or name == "csubJobQuerySortKey2" or name == "csubJobQuerySortKey3"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubjobid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubJobId"):
+                    self.csubjobid = value
+                    self.csubjobid.value_namespace = name_space
+                    self.csubjobid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobQueryResultingReportSize"):
+                    self.csubjobqueryresultingreportsize = value
+                    self.csubjobqueryresultingreportsize.value_namespace = name_space
+                    self.csubjobqueryresultingreportsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobQuerySortKey1"):
+                    self.csubjobquerysortkey1 = value
+                    self.csubjobquerysortkey1.value_namespace = name_space
+                    self.csubjobquerysortkey1.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobQuerySortKey2"):
+                    self.csubjobquerysortkey2 = value
+                    self.csubjobquerysortkey2.value_namespace = name_space
+                    self.csubjobquerysortkey2.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobQuerySortKey3"):
+                    self.csubjobquerysortkey3 = value
+                    self.csubjobquerysortkey3.value_namespace = name_space
+                    self.csubjobquerysortkey3.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubjobqueryparamsentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubjobqueryresultingreportsize is not None:
-                    return True
-
-                if self.csubjobquerysortkey1 is not None:
-                    return True
-
-                if self.csubjobquerysortkey2 is not None:
-                    return True
-
-                if self.csubjobquerysortkey3 is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubjobqueryparamstable.Csubjobqueryparamsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueryParamsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubjobqueryparamsentry is not None:
-                for child_ref in self.csubjobqueryparamsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubjobqueryparamsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJobQueryParamsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubJobQueryParamsEntry"):
+                for c in self.csubjobqueryparamsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubjobqueryparamstable.Csubjobqueryparamsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubjobqueryparamsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobQueryParamsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjobqueryparamstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubjobqueuetable(object):
+    class Csubjobqueuetable(Entity):
         """
         This table lists the subscriber session jobs currently pending
         in the subscriber session job queue.
@@ -3306,13 +5187,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobqueueentry = YList()
-            self.csubjobqueueentry.parent = self
-            self.csubjobqueueentry.name = 'csubjobqueueentry'
+            super(CiscoSubscriberSessionMib.Csubjobqueuetable, self).__init__()
+
+            self.yang_name = "csubJobQueueTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubjobqueueentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjobqueuetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjobqueuetable, self).__setattr__(name, value)
 
 
-        class Csubjobqueueentry(object):
+        class Csubjobqueueentry(Entity):
             """
             An entry describing an subscriber session job in the
             subscriber session job queue.
@@ -3353,59 +5260,154 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubjobqueuenumber = None
-                self.csubjobqueuejobid = None
+                super(CiscoSubscriberSessionMib.Csubjobqueuetable.Csubjobqueueentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubjobqueuenumber is None:
-                    raise YPYModelError('Key property csubjobqueuenumber is None')
+                self.yang_name = "csubJobQueueEntry"
+                self.yang_parent_name = "csubJobQueueTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueueTable/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueueEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueueNumber = ' + str(self.csubjobqueuenumber) + ']'
+                self.csubjobqueuenumber = YLeaf(YType.uint32, "csubJobQueueNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubjobqueuejobid = YLeaf(YType.uint32, "csubJobQueueJobId")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubjobqueuenumber",
+                                "csubjobqueuejobid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubjobqueuetable.Csubjobqueueentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubjobqueuetable.Csubjobqueueentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubjobqueuenumber.is_set or
+                    self.csubjobqueuejobid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubjobqueuenumber.yfilter != YFilter.not_set or
+                    self.csubjobqueuejobid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubJobQueueEntry" + "[csubJobQueueNumber='" + self.csubjobqueuenumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueueTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubjobqueuenumber.is_set or self.csubjobqueuenumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobqueuenumber.get_name_leafdata())
+                if (self.csubjobqueuejobid.is_set or self.csubjobqueuejobid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobqueuejobid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubJobQueueNumber" or name == "csubJobQueueJobId"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubjobqueuenumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubJobQueueNumber"):
+                    self.csubjobqueuenumber = value
+                    self.csubjobqueuenumber.value_namespace = name_space
+                    self.csubjobqueuenumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobQueueJobId"):
+                    self.csubjobqueuejobid = value
+                    self.csubjobqueuejobid.value_namespace = name_space
+                    self.csubjobqueuejobid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubjobqueueentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubjobqueuejobid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubjobqueuetable.Csubjobqueueentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobQueueTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubjobqueueentry is not None:
-                for child_ref in self.csubjobqueueentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubjobqueueentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJobQueueTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubJobQueueEntry"):
+                for c in self.csubjobqueueentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubjobqueuetable.Csubjobqueueentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubjobqueueentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobQueueEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjobqueuetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Csubjobreporttable(object):
+    class Csubjobreporttable(Entity):
         """
         This table contains the reports corresponding to subscriber
         session jobs that have a csubJobType of 'query' and
@@ -3427,13 +5429,39 @@ class CiscoSubscriberSessionMib(object):
         _revision = '2012-08-08'
 
         def __init__(self):
-            self.parent = None
-            self.csubjobreportentry = YList()
-            self.csubjobreportentry.parent = self
-            self.csubjobreportentry.name = 'csubjobreportentry'
+            super(CiscoSubscriberSessionMib.Csubjobreporttable, self).__init__()
+
+            self.yang_name = "csubJobReportTable"
+            self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
+
+            self.csubjobreportentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoSubscriberSessionMib.Csubjobreporttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoSubscriberSessionMib.Csubjobreporttable, self).__setattr__(name, value)
 
 
-        class Csubjobreportentry(object):
+        class Csubjobreportentry(Entity):
             """
             An entry describes a subscriber session that satisfied the
             match criteria specified by the corresponding job.
@@ -3490,114 +5518,311 @@ class CiscoSubscriberSessionMib(object):
             _revision = '2012-08-08'
 
             def __init__(self):
-                self.parent = None
-                self.csubjobid = None
-                self.csubjobreportid = None
-                self.csubjobreportsession = None
+                super(CiscoSubscriberSessionMib.Csubjobreporttable.Csubjobreportentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.csubjobid is None:
-                    raise YPYModelError('Key property csubjobid is None')
-                if self.csubjobreportid is None:
-                    raise YPYModelError('Key property csubjobreportid is None')
+                self.yang_name = "csubJobReportEntry"
+                self.yang_parent_name = "csubJobReportTable"
 
-                return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobReportTable/CISCO-SUBSCRIBER-SESSION-MIB:csubJobReportEntry[CISCO-SUBSCRIBER-SESSION-MIB:csubJobId = ' + str(self.csubjobid) + '][CISCO-SUBSCRIBER-SESSION-MIB:csubJobReportId = ' + str(self.csubjobreportid) + ']'
+                self.csubjobid = YLeaf(YType.str, "csubJobId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.csubjobreportid = YLeaf(YType.uint32, "csubJobReportId")
+
+                self.csubjobreportsession = YLeaf(YType.int32, "csubJobReportSession")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("csubjobid",
+                                "csubjobreportid",
+                                "csubjobreportsession") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoSubscriberSessionMib.Csubjobreporttable.Csubjobreportentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoSubscriberSessionMib.Csubjobreporttable.Csubjobreportentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.csubjobid.is_set or
+                    self.csubjobreportid.is_set or
+                    self.csubjobreportsession.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.csubjobid.yfilter != YFilter.not_set or
+                    self.csubjobreportid.yfilter != YFilter.not_set or
+                    self.csubjobreportsession.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "csubJobReportEntry" + "[csubJobId='" + self.csubjobid.get() + "']" + "[csubJobReportId='" + self.csubjobreportid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobReportTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.csubjobid.is_set or self.csubjobid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobid.get_name_leafdata())
+                if (self.csubjobreportid.is_set or self.csubjobreportid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobreportid.get_name_leafdata())
+                if (self.csubjobreportsession.is_set or self.csubjobreportsession.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csubjobreportsession.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "csubJobId" or name == "csubJobReportId" or name == "csubJobReportSession"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.csubjobid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "csubJobId"):
+                    self.csubjobid = value
+                    self.csubjobid.value_namespace = name_space
+                    self.csubjobid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobReportId"):
+                    self.csubjobreportid = value
+                    self.csubjobreportid.value_namespace = name_space
+                    self.csubjobreportid.value_namespace_prefix = name_space_prefix
+                if(value_path == "csubJobReportSession"):
+                    self.csubjobreportsession = value
+                    self.csubjobreportsession.value_namespace = name_space
+                    self.csubjobreportsession.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.csubjobreportentry:
+                if (c.has_data()):
                     return True
-
-                if self.csubjobreportid is not None:
-                    return True
-
-                if self.csubjobreportsession is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-                return meta._meta_table['CiscoSubscriberSessionMib.Csubjobreporttable.Csubjobreportentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/CISCO-SUBSCRIBER-SESSION-MIB:csubJobReportTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.csubjobreportentry is not None:
-                for child_ref in self.csubjobreportentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.csubjobreportentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "csubJobReportTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "csubJobReportEntry"):
+                for c in self.csubjobreportentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoSubscriberSessionMib.Csubjobreporttable.Csubjobreportentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.csubjobreportentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "csubJobReportEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-            return meta._meta_table['CiscoSubscriberSessionMib.Csubjobreporttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.csubaggstatsinttable is not None and self.csubaggstatsinttable.has_data()) or
+            (self.csubaggstatstable is not None and self.csubaggstatstable.has_data()) or
+            (self.csubaggstatsthreshtable is not None and self.csubaggstatsthreshtable.has_data()) or
+            (self.csubaggthresh is not None and self.csubaggthresh.has_data()) or
+            (self.csubjob is not None and self.csubjob.has_data()) or
+            (self.csubjobmatchparamstable is not None and self.csubjobmatchparamstable.has_data()) or
+            (self.csubjobqueryparamstable is not None and self.csubjobqueryparamstable.has_data()) or
+            (self.csubjobqueuetable is not None and self.csubjobqueuetable.has_data()) or
+            (self.csubjobreporttable is not None and self.csubjobreporttable.has_data()) or
+            (self.csubjobtable is not None and self.csubjobtable.has_data()) or
+            (self.csubsessionbytypetable is not None and self.csubsessionbytypetable.has_data()) or
+            (self.csubsessiontable is not None and self.csubsessiontable.has_data()))
 
-        return '/CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.csubaggstatsinttable is not None and self.csubaggstatsinttable.has_operation()) or
+            (self.csubaggstatstable is not None and self.csubaggstatstable.has_operation()) or
+            (self.csubaggstatsthreshtable is not None and self.csubaggstatsthreshtable.has_operation()) or
+            (self.csubaggthresh is not None and self.csubaggthresh.has_operation()) or
+            (self.csubjob is not None and self.csubjob.has_operation()) or
+            (self.csubjobmatchparamstable is not None and self.csubjobmatchparamstable.has_operation()) or
+            (self.csubjobqueryparamstable is not None and self.csubjobqueryparamstable.has_operation()) or
+            (self.csubjobqueuetable is not None and self.csubjobqueuetable.has_operation()) or
+            (self.csubjobreporttable is not None and self.csubjobreporttable.has_operation()) or
+            (self.csubjobtable is not None and self.csubjobtable.has_operation()) or
+            (self.csubsessionbytypetable is not None and self.csubsessionbytypetable.has_operation()) or
+            (self.csubsessiontable is not None and self.csubsessiontable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "csubAggStatsIntTable"):
+            if (self.csubaggstatsinttable is None):
+                self.csubaggstatsinttable = CiscoSubscriberSessionMib.Csubaggstatsinttable()
+                self.csubaggstatsinttable.parent = self
+                self._children_name_map["csubaggstatsinttable"] = "csubAggStatsIntTable"
+            return self.csubaggstatsinttable
+
+        if (child_yang_name == "csubAggStatsTable"):
+            if (self.csubaggstatstable is None):
+                self.csubaggstatstable = CiscoSubscriberSessionMib.Csubaggstatstable()
+                self.csubaggstatstable.parent = self
+                self._children_name_map["csubaggstatstable"] = "csubAggStatsTable"
+            return self.csubaggstatstable
+
+        if (child_yang_name == "csubAggStatsThreshTable"):
+            if (self.csubaggstatsthreshtable is None):
+                self.csubaggstatsthreshtable = CiscoSubscriberSessionMib.Csubaggstatsthreshtable()
+                self.csubaggstatsthreshtable.parent = self
+                self._children_name_map["csubaggstatsthreshtable"] = "csubAggStatsThreshTable"
+            return self.csubaggstatsthreshtable
+
+        if (child_yang_name == "csubAggThresh"):
+            if (self.csubaggthresh is None):
+                self.csubaggthresh = CiscoSubscriberSessionMib.Csubaggthresh()
+                self.csubaggthresh.parent = self
+                self._children_name_map["csubaggthresh"] = "csubAggThresh"
+            return self.csubaggthresh
+
+        if (child_yang_name == "csubJob"):
+            if (self.csubjob is None):
+                self.csubjob = CiscoSubscriberSessionMib.Csubjob()
+                self.csubjob.parent = self
+                self._children_name_map["csubjob"] = "csubJob"
+            return self.csubjob
+
+        if (child_yang_name == "csubJobMatchParamsTable"):
+            if (self.csubjobmatchparamstable is None):
+                self.csubjobmatchparamstable = CiscoSubscriberSessionMib.Csubjobmatchparamstable()
+                self.csubjobmatchparamstable.parent = self
+                self._children_name_map["csubjobmatchparamstable"] = "csubJobMatchParamsTable"
+            return self.csubjobmatchparamstable
+
+        if (child_yang_name == "csubJobQueryParamsTable"):
+            if (self.csubjobqueryparamstable is None):
+                self.csubjobqueryparamstable = CiscoSubscriberSessionMib.Csubjobqueryparamstable()
+                self.csubjobqueryparamstable.parent = self
+                self._children_name_map["csubjobqueryparamstable"] = "csubJobQueryParamsTable"
+            return self.csubjobqueryparamstable
+
+        if (child_yang_name == "csubJobQueueTable"):
+            if (self.csubjobqueuetable is None):
+                self.csubjobqueuetable = CiscoSubscriberSessionMib.Csubjobqueuetable()
+                self.csubjobqueuetable.parent = self
+                self._children_name_map["csubjobqueuetable"] = "csubJobQueueTable"
+            return self.csubjobqueuetable
+
+        if (child_yang_name == "csubJobReportTable"):
+            if (self.csubjobreporttable is None):
+                self.csubjobreporttable = CiscoSubscriberSessionMib.Csubjobreporttable()
+                self.csubjobreporttable.parent = self
+                self._children_name_map["csubjobreporttable"] = "csubJobReportTable"
+            return self.csubjobreporttable
+
+        if (child_yang_name == "csubJobTable"):
+            if (self.csubjobtable is None):
+                self.csubjobtable = CiscoSubscriberSessionMib.Csubjobtable()
+                self.csubjobtable.parent = self
+                self._children_name_map["csubjobtable"] = "csubJobTable"
+            return self.csubjobtable
+
+        if (child_yang_name == "csubSessionByTypeTable"):
+            if (self.csubsessionbytypetable is None):
+                self.csubsessionbytypetable = CiscoSubscriberSessionMib.Csubsessionbytypetable()
+                self.csubsessionbytypetable.parent = self
+                self._children_name_map["csubsessionbytypetable"] = "csubSessionByTypeTable"
+            return self.csubsessionbytypetable
+
+        if (child_yang_name == "csubSessionTable"):
+            if (self.csubsessiontable is None):
+                self.csubsessiontable = CiscoSubscriberSessionMib.Csubsessiontable()
+                self.csubsessiontable.parent = self
+                self._children_name_map["csubsessiontable"] = "csubSessionTable"
+            return self.csubsessiontable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "csubAggStatsIntTable" or name == "csubAggStatsTable" or name == "csubAggStatsThreshTable" or name == "csubAggThresh" or name == "csubJob" or name == "csubJobMatchParamsTable" or name == "csubJobQueryParamsTable" or name == "csubJobQueueTable" or name == "csubJobReportTable" or name == "csubJobTable" or name == "csubSessionByTypeTable" or name == "csubSessionTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.csubaggstatsinttable is not None and self.csubaggstatsinttable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.csubaggstatstable is not None and self.csubaggstatstable._has_data():
-            return True
-
-        if self.csubaggstatsthreshtable is not None and self.csubaggstatsthreshtable._has_data():
-            return True
-
-        if self.csubaggthresh is not None and self.csubaggthresh._has_data():
-            return True
-
-        if self.csubjob is not None and self.csubjob._has_data():
-            return True
-
-        if self.csubjobmatchparamstable is not None and self.csubjobmatchparamstable._has_data():
-            return True
-
-        if self.csubjobqueryparamstable is not None and self.csubjobqueryparamstable._has_data():
-            return True
-
-        if self.csubjobqueuetable is not None and self.csubjobqueuetable._has_data():
-            return True
-
-        if self.csubjobreporttable is not None and self.csubjobreporttable._has_data():
-            return True
-
-        if self.csubjobtable is not None and self.csubjobtable._has_data():
-            return True
-
-        if self.csubsessionbytypetable is not None and self.csubsessionbytypetable._has_data():
-            return True
-
-        if self.csubsessiontable is not None and self.csubsessiontable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_MIB as meta
-        return meta._meta_table['CiscoSubscriberSessionMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoSubscriberSessionMib()
+        return self._top_entity
 

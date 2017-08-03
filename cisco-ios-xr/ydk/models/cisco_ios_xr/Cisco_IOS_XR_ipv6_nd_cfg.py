@@ -16,22 +16,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ipv6NdMonthEnum(Enum):
+class Ipv6NdMonth(Enum):
     """
-    Ipv6NdMonthEnum
+    Ipv6NdMonth
 
     Ipv6nd month
 
@@ -85,40 +79,34 @@ class Ipv6NdMonthEnum(Enum):
 
     """
 
-    january = 0
+    january = Enum.YLeaf(0, "january")
 
-    february = 1
+    february = Enum.YLeaf(1, "february")
 
-    march = 2
+    march = Enum.YLeaf(2, "march")
 
-    april = 3
+    april = Enum.YLeaf(3, "april")
 
-    may = 4
+    may = Enum.YLeaf(4, "may")
 
-    june = 5
+    june = Enum.YLeaf(5, "june")
 
-    july = 6
+    july = Enum.YLeaf(6, "july")
 
-    august = 7
+    august = Enum.YLeaf(7, "august")
 
-    september = 8
+    september = Enum.YLeaf(8, "september")
 
-    october = 9
+    october = Enum.YLeaf(9, "october")
 
-    november = 10
+    november = Enum.YLeaf(10, "november")
 
-    december = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6NdMonthEnum']
+    december = Enum.YLeaf(11, "december")
 
 
-class Ipv6NdRouterPrefEnum(Enum):
+class Ipv6NdRouterPref(Enum):
     """
-    Ipv6NdRouterPrefEnum
+    Ipv6NdRouterPref
 
     Ipv6 nd router pref
 
@@ -136,22 +124,16 @@ class Ipv6NdRouterPrefEnum(Enum):
 
     """
 
-    high = 1
+    high = Enum.YLeaf(1, "high")
 
-    medium = 2
+    medium = Enum.YLeaf(2, "medium")
 
-    low = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6NdRouterPrefEnum']
+    low = Enum.YLeaf(3, "low")
 
 
-class Ipv6SrpEncapsulationEnum(Enum):
+class Ipv6SrpEncapsulation(Enum):
     """
-    Ipv6SrpEncapsulationEnum
+    Ipv6SrpEncapsulation
 
     Ipv6srp encapsulation
 
@@ -165,19 +147,13 @@ class Ipv6SrpEncapsulationEnum(Enum):
 
     """
 
-    srpa = 5
+    srpa = Enum.YLeaf(5, "srpa")
 
-    srpb = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6SrpEncapsulationEnum']
+    srpb = Enum.YLeaf(6, "srpb")
 
 
 
-class Ipv6Neighbor(object):
+class Ipv6Neighbor(Entity):
     """
     IPv6 neighbor or neighbor discovery configuration
     
@@ -203,12 +179,45 @@ class Ipv6Neighbor(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Ipv6Neighbor, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv6-neighbor"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-nd-cfg"
+
+        self.scavenge_timeout = YLeaf(YType.uint32, "scavenge-timeout")
+
         self.neighbors = Ipv6Neighbor.Neighbors()
         self.neighbors.parent = self
-        self.scavenge_timeout = None
+        self._children_name_map["neighbors"] = "neighbors"
+        self._children_yang_names.add("neighbors")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("scavenge_timeout") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Ipv6Neighbor, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Ipv6Neighbor, self).__setattr__(name, value)
 
 
-    class Neighbors(object):
+    class Neighbors(Entity):
         """
         IPv6 neighbors
         
@@ -225,13 +234,39 @@ class Ipv6Neighbor(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.neighbor = YList()
-            self.neighbor.parent = self
-            self.neighbor.name = 'neighbor'
+            super(Ipv6Neighbor.Neighbors, self).__init__()
+
+            self.yang_name = "neighbors"
+            self.yang_parent_name = "ipv6-neighbor"
+
+            self.neighbor = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ipv6Neighbor.Neighbors, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ipv6Neighbor.Neighbors, self).__setattr__(name, value)
 
 
-        class Neighbor(object):
+        class Neighbor(Entity):
             """
             IPv6 neighbor configuration
             
@@ -252,7 +287,7 @@ class Ipv6Neighbor(object):
             .. attribute:: encapsulation
             
             	Encapsulation type only if interface type is SRP
-            	**type**\:   :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            	**type**\:   :py:class:`Ipv6SrpEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulation>`
             
             .. attribute:: mac_address
             
@@ -278,92 +313,241 @@ class Ipv6Neighbor(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.neighbor_address = None
-                self.interface_name = None
-                self.encapsulation = None
-                self.mac_address = None
-                self.zone = None
+                super(Ipv6Neighbor.Neighbors.Neighbor, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.neighbor_address is None:
-                    raise YPYModelError('Key property neighbor_address is None')
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                self.yang_name = "neighbor"
+                self.yang_parent_name = "neighbors"
 
-                return '/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/Cisco-IOS-XR-ipv6-nd-cfg:neighbors/Cisco-IOS-XR-ipv6-nd-cfg:neighbor[Cisco-IOS-XR-ipv6-nd-cfg:neighbor-address = ' + str(self.neighbor_address) + '][Cisco-IOS-XR-ipv6-nd-cfg:interface-name = ' + str(self.interface_name) + ']'
+                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-            def _has_data(self):
-                if self.neighbor_address is not None:
+                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                self.zone = YLeaf(YType.str, "zone")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("neighbor_address",
+                                "interface_name",
+                                "encapsulation",
+                                "mac_address",
+                                "zone") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6Neighbor.Neighbors.Neighbor, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6Neighbor.Neighbors.Neighbor, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.neighbor_address.is_set or
+                    self.interface_name.is_set or
+                    self.encapsulation.is_set or
+                    self.mac_address.is_set or
+                    self.zone.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.neighbor_address.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.encapsulation.yfilter != YFilter.not_set or
+                    self.mac_address.yfilter != YFilter.not_set or
+                    self.zone.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/neighbors/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.neighbor_address.is_set or self.neighbor_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.neighbor_address.get_name_leafdata())
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.encapsulation.get_name_leafdata())
+                if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mac_address.get_name_leafdata())
+                if (self.zone.is_set or self.zone.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.zone.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "neighbor-address" or name == "interface-name" or name == "encapsulation" or name == "mac-address" or name == "zone"):
                     return True
-
-                if self.interface_name is not None:
-                    return True
-
-                if self.encapsulation is not None:
-                    return True
-
-                if self.mac_address is not None:
-                    return True
-
-                if self.zone is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-                return meta._meta_table['Ipv6Neighbor.Neighbors.Neighbor']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "neighbor-address"):
+                    self.neighbor_address = value
+                    self.neighbor_address.value_namespace = name_space
+                    self.neighbor_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "encapsulation"):
+                    self.encapsulation = value
+                    self.encapsulation.value_namespace = name_space
+                    self.encapsulation.value_namespace_prefix = name_space_prefix
+                if(value_path == "mac-address"):
+                    self.mac_address = value
+                    self.mac_address.value_namespace = name_space
+                    self.mac_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "zone"):
+                    self.zone = value
+                    self.zone.value_namespace = name_space
+                    self.zone.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/Cisco-IOS-XR-ipv6-nd-cfg:neighbors'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.neighbor is not None:
-                for child_ref in self.neighbor:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.neighbor:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-            return meta._meta_table['Ipv6Neighbor.Neighbors']['meta_info']
+        def has_operation(self):
+            for c in self.neighbor:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "neighbors" + path_buffer
 
-        return '/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.neighbors is not None and self.neighbors._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "neighbor"):
+                for c in self.neighbor:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ipv6Neighbor.Neighbors.Neighbor()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.neighbor.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "neighbor"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            self.scavenge_timeout.is_set or
+            (self.neighbors is not None and self.neighbors.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.scavenge_timeout.yfilter != YFilter.not_set or
+            (self.neighbors is not None and self.neighbors.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.scavenge_timeout.is_set or self.scavenge_timeout.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.scavenge_timeout.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "neighbors"):
+            if (self.neighbors is None):
+                self.neighbors = Ipv6Neighbor.Neighbors()
+                self.neighbors.parent = self
+                self._children_name_map["neighbors"] = "neighbors"
+            return self.neighbors
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "neighbors" or name == "scavenge-timeout"):
             return True
-
-        if self.scavenge_timeout is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6Neighbor']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "scavenge-timeout"):
+            self.scavenge_timeout = value
+            self.scavenge_timeout.value_namespace = name_space
+            self.scavenge_timeout.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Ipv6Neighbor()
+        return self._top_entity
 

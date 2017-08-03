@@ -13,22 +13,16 @@ will be selected by the IESG Area Director(s) of the Routing
 Area.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IanaipmrouteprotocolEnum(Enum):
+class Ianaipmrouteprotocol(Enum):
     """
-    IanaipmrouteprotocolEnum
+    Ianaipmrouteprotocol
 
     The multicast routing protocol.  Inclusion of values for
 
@@ -62,40 +56,34 @@ class IanaipmrouteprotocolEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    netmgmt = 3
+    netmgmt = Enum.YLeaf(3, "netmgmt")
 
-    dvmrp = 4
+    dvmrp = Enum.YLeaf(4, "dvmrp")
 
-    mospf = 5
+    mospf = Enum.YLeaf(5, "mospf")
 
-    pimSparseDense = 6
+    pimSparseDense = Enum.YLeaf(6, "pimSparseDense")
 
-    cbt = 7
+    cbt = Enum.YLeaf(7, "cbt")
 
-    pimSparseMode = 8
+    pimSparseMode = Enum.YLeaf(8, "pimSparseMode")
 
-    pimDenseMode = 9
+    pimDenseMode = Enum.YLeaf(9, "pimDenseMode")
 
-    igmpOnly = 10
+    igmpOnly = Enum.YLeaf(10, "igmpOnly")
 
-    bgmp = 11
+    bgmp = Enum.YLeaf(11, "bgmp")
 
-    msdp = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IANA_RTPROTO_MIB as meta
-        return meta._meta_table['IanaipmrouteprotocolEnum']
+    msdp = Enum.YLeaf(12, "msdp")
 
 
-class IanaiprouteprotocolEnum(Enum):
+class Ianaiprouteprotocol(Enum):
     """
-    IanaiprouteprotocolEnum
+    Ianaiprouteprotocol
 
     A mechanism for learning routes.  Inclusion of values for
 
@@ -139,45 +127,39 @@ class IanaiprouteprotocolEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    netmgmt = 3
+    netmgmt = Enum.YLeaf(3, "netmgmt")
 
-    icmp = 4
+    icmp = Enum.YLeaf(4, "icmp")
 
-    egp = 5
+    egp = Enum.YLeaf(5, "egp")
 
-    ggp = 6
+    ggp = Enum.YLeaf(6, "ggp")
 
-    hello = 7
+    hello = Enum.YLeaf(7, "hello")
 
-    rip = 8
+    rip = Enum.YLeaf(8, "rip")
 
-    isIs = 9
+    isIs = Enum.YLeaf(9, "isIs")
 
-    esIs = 10
+    esIs = Enum.YLeaf(10, "esIs")
 
-    ciscoIgrp = 11
+    ciscoIgrp = Enum.YLeaf(11, "ciscoIgrp")
 
-    bbnSpfIgp = 12
+    bbnSpfIgp = Enum.YLeaf(12, "bbnSpfIgp")
 
-    ospf = 13
+    ospf = Enum.YLeaf(13, "ospf")
 
-    bgp = 14
+    bgp = Enum.YLeaf(14, "bgp")
 
-    idpr = 15
+    idpr = Enum.YLeaf(15, "idpr")
 
-    ciscoEigrp = 16
+    ciscoEigrp = Enum.YLeaf(16, "ciscoEigrp")
 
-    dvmrp = 17
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IANA_RTPROTO_MIB as meta
-        return meta._meta_table['IanaiprouteprotocolEnum']
+    dvmrp = Enum.YLeaf(17, "dvmrp")
 
 
 

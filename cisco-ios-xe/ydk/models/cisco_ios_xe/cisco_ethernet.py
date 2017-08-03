@@ -6,21 +6,15 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class EthIfSpeedIdentity(object):
+class EthIfSpeed(Identity):
     """
     Representing the speed of the ethernet interface
     
@@ -32,15 +26,10 @@ class EthIfSpeedIdentity(object):
     _revision = '2016-05-10'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeedIdentity']['meta_info']
+        super(EthIfSpeed, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed")
 
 
-class EthIfSpeed10GbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed100Mb(Identity):
     """
     
     
@@ -52,15 +41,10 @@ class EthIfSpeed10GbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed10GbIdentity']['meta_info']
+        super(EthIfSpeed100Mb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-100mb")
 
 
-class EthIfSpeed100GbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed10Mb(Identity):
     """
     
     
@@ -72,15 +56,10 @@ class EthIfSpeed100GbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed100GbIdentity']['meta_info']
+        super(EthIfSpeed10Mb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-10mb")
 
 
-class EthIfSpeed10MbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed100Gb(Identity):
     """
     
     
@@ -92,15 +71,10 @@ class EthIfSpeed10MbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed10MbIdentity']['meta_info']
+        super(EthIfSpeed100Gb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-100gb")
 
 
-class EthIfSpeed100MbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed40Gb(Identity):
     """
     
     
@@ -112,15 +86,10 @@ class EthIfSpeed100MbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed100MbIdentity']['meta_info']
+        super(EthIfSpeed40Gb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-40gb")
 
 
-class EthIfSpeed40GbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed10Gb(Identity):
     """
     
     
@@ -132,15 +101,10 @@ class EthIfSpeed40GbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed40GbIdentity']['meta_info']
+        super(EthIfSpeed10Gb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-10gb")
 
 
-class EthIfSpeed1GbIdentity(EthIfSpeedIdentity):
+class EthIfSpeed1Gb(Identity):
     """
     
     
@@ -152,11 +116,6 @@ class EthIfSpeed1GbIdentity(EthIfSpeedIdentity):
     _revision = '2016-05-10'
 
     def __init__(self):
-        EthIfSpeedIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_ethernet as meta
-        return meta._meta_table['EthIfSpeed1GbIdentity']['meta_info']
+        super(EthIfSpeed1Gb, self).__init__("urn:cisco:params:xml:ns:yang:cisco-ethernet", "cisco-ethernet", "cisco-ethernet:eth-if-speed-1gb")
 
 

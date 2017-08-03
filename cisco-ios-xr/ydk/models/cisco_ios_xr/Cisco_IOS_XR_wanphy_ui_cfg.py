@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class WanphyLanModeEnum(Enum):
+class WanphyLanMode(Enum):
     """
-    WanphyLanModeEnum
+    WanphyLanMode
 
     Wanphy lan mode
 
@@ -36,18 +30,12 @@ class WanphyLanModeEnum(Enum):
 
     """
 
-    on = 1
+    on = Enum.YLeaf(1, "on")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_cfg as meta
-        return meta._meta_table['WanphyLanModeEnum']
-
-
-class WanphyWanModeEnum(Enum):
+class WanphyWanMode(Enum):
     """
-    WanphyWanModeEnum
+    WanphyWanMode
 
     Wanphy wan mode
 
@@ -57,13 +45,7 @@ class WanphyWanModeEnum(Enum):
 
     """
 
-    on = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_cfg as meta
-        return meta._meta_table['WanphyWanModeEnum']
+    on = Enum.YLeaf(1, "on")
 
 
 

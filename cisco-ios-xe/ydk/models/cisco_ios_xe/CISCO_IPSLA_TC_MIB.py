@@ -15,22 +15,16 @@ Acronyms\:
  ICPIF\: Calculated Planning Impairment Factor
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IpslacodectypeEnum(Enum):
+class Ipslacodectype(Enum):
     """
-    IpslacodectypeEnum
+    Ipslacodectype
 
     Specifies the IP SLA codec type to be used with the UDP 
 
@@ -54,24 +48,18 @@ class IpslacodectypeEnum(Enum):
 
     """
 
-    notApplicable = 0
+    notApplicable = Enum.YLeaf(0, "notApplicable")
 
-    g711ulaw = 1
+    g711ulaw = Enum.YLeaf(1, "g711ulaw")
 
-    g711alaw = 2
+    g711alaw = Enum.YLeaf(2, "g711alaw")
 
-    g729a = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_TC_MIB as meta
-        return meta._meta_table['IpslacodectypeEnum']
+    g729a = Enum.YLeaf(3, "g729a")
 
 
-class IpslaopertypeEnum(Enum):
+class Ipslaopertype(Enum):
     """
-    IpslaopertypeEnum
+    Ipslaopertype
 
     Specifies the type of IP SLA operation to be performed.
 
@@ -117,26 +105,20 @@ class IpslaopertypeEnum(Enum):
 
     """
 
-    icmpEcho = 1
+    icmpEcho = Enum.YLeaf(1, "icmpEcho")
 
-    udpEcho = 2
+    udpEcho = Enum.YLeaf(2, "udpEcho")
 
-    tcpConnect = 3
+    tcpConnect = Enum.YLeaf(3, "tcpConnect")
 
-    udpJitter = 4
+    udpJitter = Enum.YLeaf(4, "udpJitter")
 
-    icmpJitter = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_TC_MIB as meta
-        return meta._meta_table['IpslaopertypeEnum']
+    icmpJitter = Enum.YLeaf(5, "icmpJitter")
 
 
-class IpslareactvarEnum(Enum):
+class Ipslareactvar(Enum):
     """
-    IpslareactvarEnum
+    Ipslareactvar
 
     The following are specific reaction variables for an
 
@@ -264,59 +246,53 @@ class IpslareactvarEnum(Enum):
 
     """
 
-    rtt = 1
+    rtt = Enum.YLeaf(1, "rtt")
 
-    jitterSDAvg = 2
+    jitterSDAvg = Enum.YLeaf(2, "jitterSDAvg")
 
-    jitterDSAvg = 3
+    jitterDSAvg = Enum.YLeaf(3, "jitterDSAvg")
 
-    packetLossSD = 4
+    packetLossSD = Enum.YLeaf(4, "packetLossSD")
 
-    packetLossDS = 5
+    packetLossDS = Enum.YLeaf(5, "packetLossDS")
 
-    mos = 6
+    mos = Enum.YLeaf(6, "mos")
 
-    timeout = 7
+    timeout = Enum.YLeaf(7, "timeout")
 
-    connectionLoss = 8
+    connectionLoss = Enum.YLeaf(8, "connectionLoss")
 
-    verifyError = 9
+    verifyError = Enum.YLeaf(9, "verifyError")
 
-    jitterAvg = 10
+    jitterAvg = Enum.YLeaf(10, "jitterAvg")
 
-    icpif = 11
+    icpif = Enum.YLeaf(11, "icpif")
 
-    packetMIA = 12
+    packetMIA = Enum.YLeaf(12, "packetMIA")
 
-    packetLateArrival = 13
+    packetLateArrival = Enum.YLeaf(13, "packetLateArrival")
 
-    packetOutOfSequence = 14
+    packetOutOfSequence = Enum.YLeaf(14, "packetOutOfSequence")
 
-    maxOfPositiveSD = 15
+    maxOfPositiveSD = Enum.YLeaf(15, "maxOfPositiveSD")
 
-    maxOfNegativeSD = 16
+    maxOfNegativeSD = Enum.YLeaf(16, "maxOfNegativeSD")
 
-    maxOfPositiveDS = 17
+    maxOfPositiveDS = Enum.YLeaf(17, "maxOfPositiveDS")
 
-    maxOfNegativeDS = 18
+    maxOfNegativeDS = Enum.YLeaf(18, "maxOfNegativeDS")
 
-    successivePacketLoss = 19
+    successivePacketLoss = Enum.YLeaf(19, "successivePacketLoss")
 
-    maxOfLatencyDS = 20
+    maxOfLatencyDS = Enum.YLeaf(20, "maxOfLatencyDS")
 
-    maxOfLatencySD = 21
+    maxOfLatencySD = Enum.YLeaf(21, "maxOfLatencySD")
 
-    latencyDSAvg = 22
+    latencyDSAvg = Enum.YLeaf(22, "latencyDSAvg")
 
-    latencySDAvg = 23
+    latencySDAvg = Enum.YLeaf(23, "latencySDAvg")
 
-    packetLoss = 24
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_TC_MIB as meta
-        return meta._meta_table['IpslareactvarEnum']
+    packetLoss = Enum.YLeaf(24, "packetLoss")
 
 
 

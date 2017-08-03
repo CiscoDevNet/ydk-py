@@ -7,22 +7,16 @@ as described in RFC 1195. This MIB is entirely based upon
 the IETF draft draft\-ietf\-isis\-wg\-mib\-16.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CiiadminstateEnum(Enum):
+class Ciiadminstate(Enum):
     """
-    CiiadminstateEnum
+    Ciiadminstate
 
     Type used in enabling and disabling a row.
 
@@ -34,20 +28,14 @@ class CiiadminstateEnum(Enum):
 
     """
 
-    on = 1
+    on = Enum.YLeaf(1, "on")
 
-    off = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiiadminstateEnum']
+    off = Enum.YLeaf(2, "off")
 
 
-class CiiislevelEnum(Enum):
+class Ciiislevel(Enum):
     """
-    CiiislevelEnum
+    Ciiislevel
 
     Identifies a level.
 
@@ -59,22 +47,16 @@ class CiiislevelEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    area = 1
+    area = Enum.YLeaf(1, "area")
 
-    domain = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiiislevelEnum']
+    domain = Enum.YLeaf(2, "domain")
 
 
-class CiilevelstateEnum(Enum):
+class Ciilevelstate(Enum):
     """
-    CiilevelstateEnum
+    Ciilevelstate
 
     States of the IS\-IS protocol.
 
@@ -88,24 +70,18 @@ class CiilevelstateEnum(Enum):
 
     """
 
-    off = 1
+    off = Enum.YLeaf(1, "off")
 
-    on = 2
+    on = Enum.YLeaf(2, "on")
 
-    waiting = 3
+    waiting = Enum.YLeaf(3, "waiting")
 
-    overloaded = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiilevelstateEnum']
+    overloaded = Enum.YLeaf(4, "overloaded")
 
 
-class CiimetricstyleEnum(Enum):
+class Ciimetricstyle(Enum):
     """
-    CiimetricstyleEnum
+    Ciimetricstyle
 
     Do we use 1195 style Metrics or wide metrics.
 
@@ -117,22 +93,16 @@ class CiimetricstyleEnum(Enum):
 
     """
 
-    narrow = 1
+    narrow = Enum.YLeaf(1, "narrow")
 
-    wide = 2
+    wide = Enum.YLeaf(2, "wide")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiimetricstyleEnum']
+    both = Enum.YLeaf(3, "both")
 
 
-class CiimetrictypeEnum(Enum):
+class Ciimetrictype(Enum):
     """
-    CiimetrictypeEnum
+    Ciimetrictype
 
     Is this an Internal or External Metric?
 
@@ -142,20 +112,14 @@ class CiimetrictypeEnum(Enum):
 
     """
 
-    internal = 1
+    internal = Enum.YLeaf(1, "internal")
 
-    external = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiimetrictypeEnum']
+    external = Enum.YLeaf(2, "external")
 
 
-class CiisupportedprotocolEnum(Enum):
+class Ciisupportedprotocol(Enum):
     """
-    CiisupportedprotocolEnum
+    Ciisupportedprotocol
 
     Types of network protocol supported by Integrated IS\-IS.
 
@@ -171,21 +135,15 @@ class CiisupportedprotocolEnum(Enum):
 
     """
 
-    iso8473 = 129
+    iso8473 = Enum.YLeaf(129, "iso8473")
 
-    ipV6 = 142
+    ipV6 = Enum.YLeaf(142, "ipV6")
 
-    ip = 204
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiisupportedprotocolEnum']
+    ip = Enum.YLeaf(204, "ip")
 
 
 
-class CiscoIetfIsisMib(object):
+class CiscoIetfIsisMib(Entity):
     """
     
     
@@ -307,60 +265,131 @@ class CiscoIetfIsisMib(object):
     _revision = '2005-08-16'
 
     def __init__(self):
+        super(CiscoIetfIsisMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IETF-ISIS-MIB"
+        self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
         self.ciiareaaddrtable = CiscoIetfIsisMib.Ciiareaaddrtable()
         self.ciiareaaddrtable.parent = self
+        self._children_name_map["ciiareaaddrtable"] = "ciiAreaAddrTable"
+        self._children_yang_names.add("ciiAreaAddrTable")
+
         self.ciicirc = CiscoIetfIsisMib.Ciicirc()
         self.ciicirc.parent = self
+        self._children_name_map["ciicirc"] = "ciiCirc"
+        self._children_yang_names.add("ciiCirc")
+
         self.ciicircleveltable = CiscoIetfIsisMib.Ciicircleveltable()
         self.ciicircleveltable.parent = self
+        self._children_name_map["ciicircleveltable"] = "ciiCircLevelTable"
+        self._children_yang_names.add("ciiCircLevelTable")
+
         self.ciicirctable = CiscoIetfIsisMib.Ciicirctable()
         self.ciicirctable.parent = self
+        self._children_name_map["ciicirctable"] = "ciiCircTable"
+        self._children_yang_names.add("ciiCircTable")
+
         self.ciicircuitcountertable = CiscoIetfIsisMib.Ciicircuitcountertable()
         self.ciicircuitcountertable.parent = self
+        self._children_name_map["ciicircuitcountertable"] = "ciiCircuitCounterTable"
+        self._children_yang_names.add("ciiCircuitCounterTable")
+
         self.ciiipratable = CiscoIetfIsisMib.Ciiipratable()
         self.ciiipratable.parent = self
+        self._children_name_map["ciiipratable"] = "ciiIPRATable"
+        self._children_yang_names.add("ciiIPRATable")
+
         self.ciiisadjareaaddrtable = CiscoIetfIsisMib.Ciiisadjareaaddrtable()
         self.ciiisadjareaaddrtable.parent = self
+        self._children_name_map["ciiisadjareaaddrtable"] = "ciiISAdjAreaAddrTable"
+        self._children_yang_names.add("ciiISAdjAreaAddrTable")
+
         self.ciiisadjipaddrtable = CiscoIetfIsisMib.Ciiisadjipaddrtable()
         self.ciiisadjipaddrtable.parent = self
+        self._children_name_map["ciiisadjipaddrtable"] = "ciiISAdjIPAddrTable"
+        self._children_yang_names.add("ciiISAdjIPAddrTable")
+
         self.ciiisadjprotsupptable = CiscoIetfIsisMib.Ciiisadjprotsupptable()
         self.ciiisadjprotsupptable.parent = self
+        self._children_name_map["ciiisadjprotsupptable"] = "ciiISAdjProtSuppTable"
+        self._children_yang_names.add("ciiISAdjProtSuppTable")
+
         self.ciiisadjtable = CiscoIetfIsisMib.Ciiisadjtable()
         self.ciiisadjtable.parent = self
+        self._children_name_map["ciiisadjtable"] = "ciiISAdjTable"
+        self._children_yang_names.add("ciiISAdjTable")
+
         self.ciilspsummarytable = CiscoIetfIsisMib.Ciilspsummarytable()
         self.ciilspsummarytable.parent = self
+        self._children_name_map["ciilspsummarytable"] = "ciiLSPSummaryTable"
+        self._children_yang_names.add("ciiLSPSummaryTable")
+
         self.ciilsptlvtable = CiscoIetfIsisMib.Ciilsptlvtable()
         self.ciilsptlvtable.parent = self
+        self._children_name_map["ciilsptlvtable"] = "ciiLSPTLVTable"
+        self._children_yang_names.add("ciiLSPTLVTable")
+
         self.ciimanareaaddrtable = CiscoIetfIsisMib.Ciimanareaaddrtable()
         self.ciimanareaaddrtable.parent = self
+        self._children_name_map["ciimanareaaddrtable"] = "ciiManAreaAddrTable"
+        self._children_yang_names.add("ciiManAreaAddrTable")
+
         self.ciipacketcountertable = CiscoIetfIsisMib.Ciipacketcountertable()
         self.ciipacketcountertable.parent = self
+        self._children_name_map["ciipacketcountertable"] = "ciiPacketCounterTable"
+        self._children_yang_names.add("ciiPacketCounterTable")
+
         self.ciiratable = CiscoIetfIsisMib.Ciiratable()
         self.ciiratable.parent = self
+        self._children_name_map["ciiratable"] = "ciiRATable"
+        self._children_yang_names.add("ciiRATable")
+
         self.ciiredistributeaddrtable = CiscoIetfIsisMib.Ciiredistributeaddrtable()
         self.ciiredistributeaddrtable.parent = self
+        self._children_name_map["ciiredistributeaddrtable"] = "ciiRedistributeAddrTable"
+        self._children_yang_names.add("ciiRedistributeAddrTable")
+
         self.ciiroutertable = CiscoIetfIsisMib.Ciiroutertable()
         self.ciiroutertable.parent = self
+        self._children_name_map["ciiroutertable"] = "ciiRouterTable"
+        self._children_yang_names.add("ciiRouterTable")
+
         self.ciisummaddrtable = CiscoIetfIsisMib.Ciisummaddrtable()
         self.ciisummaddrtable.parent = self
+        self._children_name_map["ciisummaddrtable"] = "ciiSummAddrTable"
+        self._children_yang_names.add("ciiSummAddrTable")
+
         self.ciisysleveltable = CiscoIetfIsisMib.Ciisysleveltable()
         self.ciisysleveltable.parent = self
+        self._children_name_map["ciisysleveltable"] = "ciiSysLevelTable"
+        self._children_yang_names.add("ciiSysLevelTable")
+
         self.ciisysobject = CiscoIetfIsisMib.Ciisysobject()
         self.ciisysobject.parent = self
+        self._children_name_map["ciisysobject"] = "ciiSysObject"
+        self._children_yang_names.add("ciiSysObject")
+
         self.ciisysprotsupptable = CiscoIetfIsisMib.Ciisysprotsupptable()
         self.ciisysprotsupptable.parent = self
+        self._children_name_map["ciisysprotsupptable"] = "ciiSysProtSuppTable"
+        self._children_yang_names.add("ciiSysProtSuppTable")
+
         self.ciisystemcountertable = CiscoIetfIsisMib.Ciisystemcountertable()
         self.ciisystemcountertable.parent = self
+        self._children_name_map["ciisystemcountertable"] = "ciiSystemCounterTable"
+        self._children_yang_names.add("ciiSystemCounterTable")
 
 
-    class Ciisysobject(object):
+    class Ciisysobject(Entity):
         """
         
         
         .. attribute:: ciisysadminstate
         
         	The administrative state of this Intermediate System.  Setting this object to the value 'on' when its current value is 'off' enables the Intermediate System
-        	**type**\:   :py:class:`CiiadminstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiadminstateEnum>`
+        	**type**\:   :py:class:`Ciiadminstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiadminstate>`
         
         .. attribute:: ciisysid
         
@@ -420,12 +449,12 @@ class CiscoIetfIsisMib(object):
         .. attribute:: ciisystype
         
         	At which levels is the Intermediate System running? This object follows the replaceOnlyWhileDisabled behavior
-        	**type**\:   :py:class:`CiisystypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysobject.CiisystypeEnum>`
+        	**type**\:   :py:class:`Ciisystype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysobject.Ciisystype>`
         
         .. attribute:: ciisysversion
         
         	The version number of the IS\-IS protocol that is implemented
-        	**type**\:   :py:class:`CiisysversionEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysobject.CiisysversionEnum>`
+        	**type**\:   :py:class:`Ciisysversion <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysobject.Ciisysversion>`
         
         .. attribute:: ciisyswaittime
         
@@ -444,22 +473,70 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciisysadminstate = None
-            self.ciisysid = None
-            self.ciisysl2tol1leaking = None
-            self.ciisysmaxage = None
-            self.ciisysmaxlspgenint = None
-            self.ciisysmaxpathsplits = None
-            self.ciisyspolleshellorate = None
-            self.ciisysreceivelspbuffersize = None
-            self.ciisystype = None
-            self.ciisysversion = None
-            self.ciisyswaittime = None
+            super(CiscoIetfIsisMib.Ciisysobject, self).__init__()
 
-        class CiisystypeEnum(Enum):
+            self.yang_name = "ciiSysObject"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciisysadminstate = YLeaf(YType.enumeration, "ciiSysAdminState")
+
+            self.ciisysid = YLeaf(YType.str, "ciiSysID")
+
+            self.ciisysl2tol1leaking = YLeaf(YType.boolean, "ciiSysL2toL1Leaking")
+
+            self.ciisysmaxage = YLeaf(YType.uint32, "ciiSysMaxAge")
+
+            self.ciisysmaxlspgenint = YLeaf(YType.int32, "ciiSysMaxLSPGenInt")
+
+            self.ciisysmaxpathsplits = YLeaf(YType.int32, "ciiSysMaxPathSplits")
+
+            self.ciisyspolleshellorate = YLeaf(YType.uint32, "ciiSysPollESHelloRate")
+
+            self.ciisysreceivelspbuffersize = YLeaf(YType.uint32, "ciiSysReceiveLSPBufferSize")
+
+            self.ciisystype = YLeaf(YType.enumeration, "ciiSysType")
+
+            self.ciisysversion = YLeaf(YType.enumeration, "ciiSysVersion")
+
+            self.ciisyswaittime = YLeaf(YType.uint32, "ciiSysWaitTime")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciisysadminstate",
+                            "ciisysid",
+                            "ciisysl2tol1leaking",
+                            "ciisysmaxage",
+                            "ciisysmaxlspgenint",
+                            "ciisysmaxpathsplits",
+                            "ciisyspolleshellorate",
+                            "ciisysreceivelspbuffersize",
+                            "ciisystype",
+                            "ciisysversion",
+                            "ciisyswaittime") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciisysobject, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciisysobject, self).__setattr__(name, value)
+
+        class Ciisystype(Enum):
             """
-            CiisystypeEnum
+            Ciisystype
 
             At which levels is the Intermediate System
 
@@ -475,22 +552,16 @@ class CiscoIetfIsisMib(object):
 
             """
 
-            level1IS = 1
+            level1IS = Enum.YLeaf(1, "level1IS")
 
-            level2IS = 2
+            level2IS = Enum.YLeaf(2, "level2IS")
 
-            level1L2IS = 3
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisysobject.CiisystypeEnum']
+            level1L2IS = Enum.YLeaf(3, "level1L2IS")
 
 
-        class CiisysversionEnum(Enum):
+        class Ciisysversion(Enum):
             """
-            CiisysversionEnum
+            Ciisysversion
 
             The version number of the IS\-IS protocol that
 
@@ -502,69 +573,140 @@ class CiscoIetfIsisMib(object):
 
             """
 
-            unknown = 0
+            unknown = Enum.YLeaf(0, "unknown")
 
-            one = 1
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisysobject.CiisysversionEnum']
+            one = Enum.YLeaf(1, "one")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.ciisysadminstate.is_set or
+                self.ciisysid.is_set or
+                self.ciisysl2tol1leaking.is_set or
+                self.ciisysmaxage.is_set or
+                self.ciisysmaxlspgenint.is_set or
+                self.ciisysmaxpathsplits.is_set or
+                self.ciisyspolleshellorate.is_set or
+                self.ciisysreceivelspbuffersize.is_set or
+                self.ciisystype.is_set or
+                self.ciisysversion.is_set or
+                self.ciisyswaittime.is_set)
 
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSysObject'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciisysadminstate.yfilter != YFilter.not_set or
+                self.ciisysid.yfilter != YFilter.not_set or
+                self.ciisysl2tol1leaking.yfilter != YFilter.not_set or
+                self.ciisysmaxage.yfilter != YFilter.not_set or
+                self.ciisysmaxlspgenint.yfilter != YFilter.not_set or
+                self.ciisysmaxpathsplits.yfilter != YFilter.not_set or
+                self.ciisyspolleshellorate.yfilter != YFilter.not_set or
+                self.ciisysreceivelspbuffersize.yfilter != YFilter.not_set or
+                self.ciisystype.yfilter != YFilter.not_set or
+                self.ciisysversion.yfilter != YFilter.not_set or
+                self.ciisyswaittime.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiSysObject" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciisysadminstate.is_set or self.ciisysadminstate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysadminstate.get_name_leafdata())
+            if (self.ciisysid.is_set or self.ciisysid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysid.get_name_leafdata())
+            if (self.ciisysl2tol1leaking.is_set or self.ciisysl2tol1leaking.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysl2tol1leaking.get_name_leafdata())
+            if (self.ciisysmaxage.is_set or self.ciisysmaxage.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysmaxage.get_name_leafdata())
+            if (self.ciisysmaxlspgenint.is_set or self.ciisysmaxlspgenint.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysmaxlspgenint.get_name_leafdata())
+            if (self.ciisysmaxpathsplits.is_set or self.ciisysmaxpathsplits.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysmaxpathsplits.get_name_leafdata())
+            if (self.ciisyspolleshellorate.is_set or self.ciisyspolleshellorate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisyspolleshellorate.get_name_leafdata())
+            if (self.ciisysreceivelspbuffersize.is_set or self.ciisysreceivelspbuffersize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysreceivelspbuffersize.get_name_leafdata())
+            if (self.ciisystype.is_set or self.ciisystype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisystype.get_name_leafdata())
+            if (self.ciisysversion.is_set or self.ciisysversion.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisysversion.get_name_leafdata())
+            if (self.ciisyswaittime.is_set or self.ciisyswaittime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciisyswaittime.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiSysAdminState" or name == "ciiSysID" or name == "ciiSysL2toL1Leaking" or name == "ciiSysMaxAge" or name == "ciiSysMaxLSPGenInt" or name == "ciiSysMaxPathSplits" or name == "ciiSysPollESHelloRate" or name == "ciiSysReceiveLSPBufferSize" or name == "ciiSysType" or name == "ciiSysVersion" or name == "ciiSysWaitTime"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ciisysadminstate is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ciiSysAdminState"):
+                self.ciisysadminstate = value
+                self.ciisysadminstate.value_namespace = name_space
+                self.ciisysadminstate.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysID"):
+                self.ciisysid = value
+                self.ciisysid.value_namespace = name_space
+                self.ciisysid.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysL2toL1Leaking"):
+                self.ciisysl2tol1leaking = value
+                self.ciisysl2tol1leaking.value_namespace = name_space
+                self.ciisysl2tol1leaking.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysMaxAge"):
+                self.ciisysmaxage = value
+                self.ciisysmaxage.value_namespace = name_space
+                self.ciisysmaxage.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysMaxLSPGenInt"):
+                self.ciisysmaxlspgenint = value
+                self.ciisysmaxlspgenint.value_namespace = name_space
+                self.ciisysmaxlspgenint.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysMaxPathSplits"):
+                self.ciisysmaxpathsplits = value
+                self.ciisysmaxpathsplits.value_namespace = name_space
+                self.ciisysmaxpathsplits.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysPollESHelloRate"):
+                self.ciisyspolleshellorate = value
+                self.ciisyspolleshellorate.value_namespace = name_space
+                self.ciisyspolleshellorate.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysReceiveLSPBufferSize"):
+                self.ciisysreceivelspbuffersize = value
+                self.ciisysreceivelspbuffersize.value_namespace = name_space
+                self.ciisysreceivelspbuffersize.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysType"):
+                self.ciisystype = value
+                self.ciisystype.value_namespace = name_space
+                self.ciisystype.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysVersion"):
+                self.ciisysversion = value
+                self.ciisysversion.value_namespace = name_space
+                self.ciisysversion.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciiSysWaitTime"):
+                self.ciisyswaittime = value
+                self.ciisyswaittime.value_namespace = name_space
+                self.ciisyswaittime.value_namespace_prefix = name_space_prefix
 
-            if self.ciisysid is not None:
-                return True
 
-            if self.ciisysl2tol1leaking is not None:
-                return True
-
-            if self.ciisysmaxage is not None:
-                return True
-
-            if self.ciisysmaxlspgenint is not None:
-                return True
-
-            if self.ciisysmaxpathsplits is not None:
-                return True
-
-            if self.ciisyspolleshellorate is not None:
-                return True
-
-            if self.ciisysreceivelspbuffersize is not None:
-                return True
-
-            if self.ciisystype is not None:
-                return True
-
-            if self.ciisysversion is not None:
-                return True
-
-            if self.ciisyswaittime is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciisysobject']['meta_info']
-
-
-    class Ciicirc(object):
+    class Ciicirc(Entity):
         """
         
         
@@ -583,31 +725,85 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciinextcircindex = None
+            super(CiscoIetfIsisMib.Ciicirc, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciiCirc"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
 
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCirc'
+            self.ciinextcircindex = YLeaf(YType.uint32, "ciiNextCircIndex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciinextcircindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciicirc, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciicirc, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ciinextcircindex is not None:
+        def has_data(self):
+            return self.ciinextcircindex.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciinextcircindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiCirc" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciinextcircindex.is_set or self.ciinextcircindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciinextcircindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiNextCircIndex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciicirc']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ciiNextCircIndex"):
+                self.ciinextcircindex = value
+                self.ciinextcircindex.value_namespace = name_space
+                self.ciinextcircindex.value_namespace_prefix = name_space_prefix
 
 
-    class Ciimanareaaddrtable(object):
+    class Ciimanareaaddrtable(Entity):
         """
         The set of manual area addresses configured on this
         Intermediate System.
@@ -625,13 +821,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciimanareaaddrentry = YList()
-            self.ciimanareaaddrentry.parent = self
-            self.ciimanareaaddrentry.name = 'ciimanareaaddrentry'
+            super(CiscoIetfIsisMib.Ciimanareaaddrtable, self).__init__()
+
+            self.yang_name = "ciiManAreaAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciimanareaaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciimanareaaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciimanareaaddrtable, self).__setattr__(name, value)
 
 
-        class Ciimanareaaddrentry(object):
+        class Ciimanareaaddrentry(Entity):
             """
             Each entry contains one area address manually configured
             on this system
@@ -646,7 +868,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciimanareaaddrexiststate
             
             	The state of the ciiManAreaAddrEntry. This object follows the Row Status behavior. If the ciiSysAdminState for this Intermediate System is 'on', and an attempt is made to set this object to the value 'destroy' or 'notInService' when this is the only ciiManAreaAddrEntry in state 'active' for this Intermediate System should return inconsistentValue
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -656,59 +878,154 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciimanareaaddr = None
-                self.ciimanareaaddrexiststate = None
+                super(CiscoIetfIsisMib.Ciimanareaaddrtable.Ciimanareaaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciimanareaaddr is None:
-                    raise YPYModelError('Key property ciimanareaaddr is None')
+                self.yang_name = "ciiManAreaAddrEntry"
+                self.yang_parent_name = "ciiManAreaAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiManAreaAddrTable/CISCO-IETF-ISIS-MIB:ciiManAreaAddrEntry[CISCO-IETF-ISIS-MIB:ciiManAreaAddr = ' + str(self.ciimanareaaddr) + ']'
+                self.ciimanareaaddr = YLeaf(YType.str, "ciiManAreaAddr")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciimanareaaddrexiststate = YLeaf(YType.enumeration, "ciiManAreaAddrExistState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciimanareaaddr",
+                                "ciimanareaaddrexiststate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciimanareaaddrtable.Ciimanareaaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciimanareaaddrtable.Ciimanareaaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciimanareaaddr.is_set or
+                    self.ciimanareaaddrexiststate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciimanareaaddr.yfilter != YFilter.not_set or
+                    self.ciimanareaaddrexiststate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiManAreaAddrEntry" + "[ciiManAreaAddr='" + self.ciimanareaaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiManAreaAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciimanareaaddr.is_set or self.ciimanareaaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciimanareaaddr.get_name_leafdata())
+                if (self.ciimanareaaddrexiststate.is_set or self.ciimanareaaddrexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciimanareaaddrexiststate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiManAreaAddr" or name == "ciiManAreaAddrExistState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciimanareaaddr is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiManAreaAddr"):
+                    self.ciimanareaaddr = value
+                    self.ciimanareaaddr.value_namespace = name_space
+                    self.ciimanareaaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiManAreaAddrExistState"):
+                    self.ciimanareaaddrexiststate = value
+                    self.ciimanareaaddrexiststate.value_namespace = name_space
+                    self.ciimanareaaddrexiststate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciimanareaaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciimanareaaddrexiststate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciimanareaaddrtable.Ciimanareaaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiManAreaAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciimanareaaddrentry is not None:
-                for child_ref in self.ciimanareaaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciimanareaaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiManAreaAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiManAreaAddrEntry"):
+                for c in self.ciimanareaaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciimanareaaddrtable.Ciimanareaaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciimanareaaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiManAreaAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciimanareaaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiareaaddrtable(object):
+    class Ciiareaaddrtable(Entity):
         """
         The union of the sets of area addresses reported in all
         Level 1 LSPs with fragment number zero generated by this
@@ -728,13 +1045,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiareaaddrentry = YList()
-            self.ciiareaaddrentry.parent = self
-            self.ciiareaaddrentry.name = 'ciiareaaddrentry'
+            super(CiscoIetfIsisMib.Ciiareaaddrtable, self).__init__()
+
+            self.yang_name = "ciiAreaAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiareaaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiareaaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiareaaddrtable, self).__setattr__(name, value)
 
 
-        class Ciiareaaddrentry(object):
+        class Ciiareaaddrentry(Entity):
             """
             Each entry contains one area address reported in a
             Level 1 LSP generated or received by this Intermediate
@@ -755,55 +1098,142 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciiareaaddr = None
+                super(CiscoIetfIsisMib.Ciiareaaddrtable.Ciiareaaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciiareaaddr is None:
-                    raise YPYModelError('Key property ciiareaaddr is None')
+                self.yang_name = "ciiAreaAddrEntry"
+                self.yang_parent_name = "ciiAreaAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiAreaAddrTable/CISCO-IETF-ISIS-MIB:ciiAreaAddrEntry[CISCO-IETF-ISIS-MIB:ciiAreaAddr = ' + str(self.ciiareaaddr) + ']'
+                self.ciiareaaddr = YLeaf(YType.str, "ciiAreaAddr")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciiareaaddr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiareaaddrtable.Ciiareaaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiareaaddrtable.Ciiareaaddrentry, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.ciiareaaddr is not None:
+            def has_data(self):
+                return self.ciiareaaddr.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciiareaaddr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiAreaAddrEntry" + "[ciiAreaAddr='" + self.ciiareaaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiAreaAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciiareaaddr.is_set or self.ciiareaaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiareaaddr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiAreaAddr"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiareaaddrtable.Ciiareaaddrentry']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiAreaAddr"):
+                    self.ciiareaaddr = value
+                    self.ciiareaaddr.value_namespace = name_space
+                    self.ciiareaaddr.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiAreaAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.ciiareaaddrentry:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.ciiareaaddrentry is not None:
-                for child_ref in self.ciiareaaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiareaaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiAreaAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiAreaAddrEntry"):
+                for c in self.ciiareaaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiareaaddrtable.Ciiareaaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiareaaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiAreaAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiareaaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciisysprotsupptable(object):
+    class Ciisysprotsupptable(Entity):
         """
         This table contains the manually configured set of
         protocols supported by this Intermediate System.
@@ -821,13 +1251,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciisysprotsuppentry = YList()
-            self.ciisysprotsuppentry.parent = self
-            self.ciisysprotsuppentry.name = 'ciisysprotsuppentry'
+            super(CiscoIetfIsisMib.Ciisysprotsupptable, self).__init__()
+
+            self.yang_name = "ciiSysProtSuppTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciisysprotsuppentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciisysprotsupptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciisysprotsupptable, self).__setattr__(name, value)
 
 
-        class Ciisysprotsuppentry(object):
+        class Ciisysprotsuppentry(Entity):
             """
             Each entry contains one protocol supported by
             this Intermediate System.
@@ -835,12 +1291,12 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciisysprotsuppprotocol  <key>
             
             	One supported protocol. This object follows the index behavior
-            	**type**\:   :py:class:`CiisupportedprotocolEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiisupportedprotocolEnum>`
+            	**type**\:   :py:class:`Ciisupportedprotocol <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciisupportedprotocol>`
             
             .. attribute:: ciisysprotsuppexiststate
             
             	The state of the ciiSysProtSuppEntry. This object follows the RowStatus behavior
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -850,59 +1306,154 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciisysprotsuppprotocol = None
-                self.ciisysprotsuppexiststate = None
+                super(CiscoIetfIsisMib.Ciisysprotsupptable.Ciisysprotsuppentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciisysprotsuppprotocol is None:
-                    raise YPYModelError('Key property ciisysprotsuppprotocol is None')
+                self.yang_name = "ciiSysProtSuppEntry"
+                self.yang_parent_name = "ciiSysProtSuppTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSysProtSuppTable/CISCO-IETF-ISIS-MIB:ciiSysProtSuppEntry[CISCO-IETF-ISIS-MIB:ciiSysProtSuppProtocol = ' + str(self.ciisysprotsuppprotocol) + ']'
+                self.ciisysprotsuppprotocol = YLeaf(YType.enumeration, "ciiSysProtSuppProtocol")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciisysprotsuppexiststate = YLeaf(YType.enumeration, "ciiSysProtSuppExistState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciisysprotsuppprotocol",
+                                "ciisysprotsuppexiststate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciisysprotsupptable.Ciisysprotsuppentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciisysprotsupptable.Ciisysprotsuppentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciisysprotsuppprotocol.is_set or
+                    self.ciisysprotsuppexiststate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciisysprotsuppprotocol.yfilter != YFilter.not_set or
+                    self.ciisysprotsuppexiststate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiSysProtSuppEntry" + "[ciiSysProtSuppProtocol='" + self.ciisysprotsuppprotocol.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysProtSuppTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciisysprotsuppprotocol.is_set or self.ciisysprotsuppprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysprotsuppprotocol.get_name_leafdata())
+                if (self.ciisysprotsuppexiststate.is_set or self.ciisysprotsuppexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysprotsuppexiststate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiSysProtSuppProtocol" or name == "ciiSysProtSuppExistState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciisysprotsuppprotocol is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiSysProtSuppProtocol"):
+                    self.ciisysprotsuppprotocol = value
+                    self.ciisysprotsuppprotocol.value_namespace = name_space
+                    self.ciisysprotsuppprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysProtSuppExistState"):
+                    self.ciisysprotsuppexiststate = value
+                    self.ciisysprotsuppexiststate.value_namespace = name_space
+                    self.ciisysprotsuppexiststate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciisysprotsuppentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciisysprotsuppexiststate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisysprotsupptable.Ciisysprotsuppentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSysProtSuppTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciisysprotsuppentry is not None:
-                for child_ref in self.ciisysprotsuppentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciisysprotsuppentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiSysProtSuppTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiSysProtSuppEntry"):
+                for c in self.ciisysprotsuppentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciisysprotsupptable.Ciisysprotsuppentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciisysprotsuppentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiSysProtSuppEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciisysprotsupptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciisummaddrtable(object):
+    class Ciisummaddrtable(Entity):
         """
         The set of IP summary addresses to use in forming
         summary TLVs originated by this Intermediate System.
@@ -926,20 +1477,46 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciisummaddrentry = YList()
-            self.ciisummaddrentry.parent = self
-            self.ciisummaddrentry.name = 'ciisummaddrentry'
+            super(CiscoIetfIsisMib.Ciisummaddrtable, self).__init__()
+
+            self.yang_name = "ciiSummAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciisummaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciisummaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciisummaddrtable, self).__setattr__(name, value)
 
 
-        class Ciisummaddrentry(object):
+        class Ciisummaddrentry(Entity):
             """
             Each entry contains one IP summary address.
             
             .. attribute:: ciisummaddresstype  <key>
             
             	The Type of IP address for this summary address. This object follows the index behavior
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciisummaddress  <key>
             
@@ -958,7 +1535,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciisummaddrexiststate
             
             	The existence state of this summary address. This object follows the row status behavior
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciisummaddrfullmetric
             
@@ -982,79 +1559,198 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciisummaddresstype = None
-                self.ciisummaddress = None
-                self.ciisummaddrprefixlen = None
-                self.ciisummaddrexiststate = None
-                self.ciisummaddrfullmetric = None
-                self.ciisummaddrmetric = None
+                super(CiscoIetfIsisMib.Ciisummaddrtable.Ciisummaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciisummaddresstype is None:
-                    raise YPYModelError('Key property ciisummaddresstype is None')
-                if self.ciisummaddress is None:
-                    raise YPYModelError('Key property ciisummaddress is None')
-                if self.ciisummaddrprefixlen is None:
-                    raise YPYModelError('Key property ciisummaddrprefixlen is None')
+                self.yang_name = "ciiSummAddrEntry"
+                self.yang_parent_name = "ciiSummAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSummAddrTable/CISCO-IETF-ISIS-MIB:ciiSummAddrEntry[CISCO-IETF-ISIS-MIB:ciiSummAddressType = ' + str(self.ciisummaddresstype) + '][CISCO-IETF-ISIS-MIB:ciiSummAddress = ' + str(self.ciisummaddress) + '][CISCO-IETF-ISIS-MIB:ciiSummAddrPrefixLen = ' + str(self.ciisummaddrprefixlen) + ']'
+                self.ciisummaddresstype = YLeaf(YType.enumeration, "ciiSummAddressType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciisummaddress = YLeaf(YType.str, "ciiSummAddress")
+
+                self.ciisummaddrprefixlen = YLeaf(YType.uint32, "ciiSummAddrPrefixLen")
+
+                self.ciisummaddrexiststate = YLeaf(YType.enumeration, "ciiSummAddrExistState")
+
+                self.ciisummaddrfullmetric = YLeaf(YType.uint32, "ciiSummAddrFullMetric")
+
+                self.ciisummaddrmetric = YLeaf(YType.int32, "ciiSummAddrMetric")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciisummaddresstype",
+                                "ciisummaddress",
+                                "ciisummaddrprefixlen",
+                                "ciisummaddrexiststate",
+                                "ciisummaddrfullmetric",
+                                "ciisummaddrmetric") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciisummaddrtable.Ciisummaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciisummaddrtable.Ciisummaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciisummaddresstype.is_set or
+                    self.ciisummaddress.is_set or
+                    self.ciisummaddrprefixlen.is_set or
+                    self.ciisummaddrexiststate.is_set or
+                    self.ciisummaddrfullmetric.is_set or
+                    self.ciisummaddrmetric.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciisummaddresstype.yfilter != YFilter.not_set or
+                    self.ciisummaddress.yfilter != YFilter.not_set or
+                    self.ciisummaddrprefixlen.yfilter != YFilter.not_set or
+                    self.ciisummaddrexiststate.yfilter != YFilter.not_set or
+                    self.ciisummaddrfullmetric.yfilter != YFilter.not_set or
+                    self.ciisummaddrmetric.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiSummAddrEntry" + "[ciiSummAddressType='" + self.ciisummaddresstype.get() + "']" + "[ciiSummAddress='" + self.ciisummaddress.get() + "']" + "[ciiSummAddrPrefixLen='" + self.ciisummaddrprefixlen.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSummAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciisummaddresstype.is_set or self.ciisummaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddresstype.get_name_leafdata())
+                if (self.ciisummaddress.is_set or self.ciisummaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddress.get_name_leafdata())
+                if (self.ciisummaddrprefixlen.is_set or self.ciisummaddrprefixlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddrprefixlen.get_name_leafdata())
+                if (self.ciisummaddrexiststate.is_set or self.ciisummaddrexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddrexiststate.get_name_leafdata())
+                if (self.ciisummaddrfullmetric.is_set or self.ciisummaddrfullmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddrfullmetric.get_name_leafdata())
+                if (self.ciisummaddrmetric.is_set or self.ciisummaddrmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisummaddrmetric.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiSummAddressType" or name == "ciiSummAddress" or name == "ciiSummAddrPrefixLen" or name == "ciiSummAddrExistState" or name == "ciiSummAddrFullMetric" or name == "ciiSummAddrMetric"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciisummaddresstype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiSummAddressType"):
+                    self.ciisummaddresstype = value
+                    self.ciisummaddresstype.value_namespace = name_space
+                    self.ciisummaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSummAddress"):
+                    self.ciisummaddress = value
+                    self.ciisummaddress.value_namespace = name_space
+                    self.ciisummaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSummAddrPrefixLen"):
+                    self.ciisummaddrprefixlen = value
+                    self.ciisummaddrprefixlen.value_namespace = name_space
+                    self.ciisummaddrprefixlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSummAddrExistState"):
+                    self.ciisummaddrexiststate = value
+                    self.ciisummaddrexiststate.value_namespace = name_space
+                    self.ciisummaddrexiststate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSummAddrFullMetric"):
+                    self.ciisummaddrfullmetric = value
+                    self.ciisummaddrfullmetric.value_namespace = name_space
+                    self.ciisummaddrfullmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSummAddrMetric"):
+                    self.ciisummaddrmetric = value
+                    self.ciisummaddrmetric.value_namespace = name_space
+                    self.ciisummaddrmetric.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciisummaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciisummaddress is not None:
-                    return True
-
-                if self.ciisummaddrprefixlen is not None:
-                    return True
-
-                if self.ciisummaddrexiststate is not None:
-                    return True
-
-                if self.ciisummaddrfullmetric is not None:
-                    return True
-
-                if self.ciisummaddrmetric is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisummaddrtable.Ciisummaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSummAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciisummaddrentry is not None:
-                for child_ref in self.ciisummaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciisummaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiSummAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiSummAddrEntry"):
+                for c in self.ciisummaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciisummaddrtable.Ciisummaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciisummaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiSummAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciisummaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiredistributeaddrtable(object):
+    class Ciiredistributeaddrtable(Entity):
         """
         This table provides criteria to decide if a route should
         be leaked from L2 to L1 when Domain Wide Prefix leaking is
@@ -1079,13 +1775,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiredistributeaddrentry = YList()
-            self.ciiredistributeaddrentry.parent = self
-            self.ciiredistributeaddrentry.name = 'ciiredistributeaddrentry'
+            super(CiscoIetfIsisMib.Ciiredistributeaddrtable, self).__init__()
+
+            self.yang_name = "ciiRedistributeAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiredistributeaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiredistributeaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiredistributeaddrtable, self).__setattr__(name, value)
 
 
-        class Ciiredistributeaddrentry(object):
+        class Ciiredistributeaddrentry(Entity):
             """
             Each entry contains one IP summary address to
             manage leaking L2 addresses into L1.
@@ -1093,7 +1815,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiredistributeaddrtype  <key>
             
             	The Type of IP address for this summary address. This object follows the index behavior
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciiredistributeaddraddress  <key>
             
@@ -1112,7 +1834,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiredistributeaddrexiststate
             
             	The existence state of this summary address. This object follows the row status behavior
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -1122,71 +1844,176 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciiredistributeaddrtype = None
-                self.ciiredistributeaddraddress = None
-                self.ciiredistributeaddrprefixlen = None
-                self.ciiredistributeaddrexiststate = None
+                super(CiscoIetfIsisMib.Ciiredistributeaddrtable.Ciiredistributeaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciiredistributeaddrtype is None:
-                    raise YPYModelError('Key property ciiredistributeaddrtype is None')
-                if self.ciiredistributeaddraddress is None:
-                    raise YPYModelError('Key property ciiredistributeaddraddress is None')
-                if self.ciiredistributeaddrprefixlen is None:
-                    raise YPYModelError('Key property ciiredistributeaddrprefixlen is None')
+                self.yang_name = "ciiRedistributeAddrEntry"
+                self.yang_parent_name = "ciiRedistributeAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRedistributeAddrTable/CISCO-IETF-ISIS-MIB:ciiRedistributeAddrEntry[CISCO-IETF-ISIS-MIB:ciiRedistributeAddrType = ' + str(self.ciiredistributeaddrtype) + '][CISCO-IETF-ISIS-MIB:ciiRedistributeAddrAddress = ' + str(self.ciiredistributeaddraddress) + '][CISCO-IETF-ISIS-MIB:ciiRedistributeAddrPrefixLen = ' + str(self.ciiredistributeaddrprefixlen) + ']'
+                self.ciiredistributeaddrtype = YLeaf(YType.enumeration, "ciiRedistributeAddrType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciiredistributeaddraddress = YLeaf(YType.str, "ciiRedistributeAddrAddress")
+
+                self.ciiredistributeaddrprefixlen = YLeaf(YType.uint32, "ciiRedistributeAddrPrefixLen")
+
+                self.ciiredistributeaddrexiststate = YLeaf(YType.enumeration, "ciiRedistributeAddrExistState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciiredistributeaddrtype",
+                                "ciiredistributeaddraddress",
+                                "ciiredistributeaddrprefixlen",
+                                "ciiredistributeaddrexiststate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiredistributeaddrtable.Ciiredistributeaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiredistributeaddrtable.Ciiredistributeaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciiredistributeaddrtype.is_set or
+                    self.ciiredistributeaddraddress.is_set or
+                    self.ciiredistributeaddrprefixlen.is_set or
+                    self.ciiredistributeaddrexiststate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciiredistributeaddrtype.yfilter != YFilter.not_set or
+                    self.ciiredistributeaddraddress.yfilter != YFilter.not_set or
+                    self.ciiredistributeaddrprefixlen.yfilter != YFilter.not_set or
+                    self.ciiredistributeaddrexiststate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiRedistributeAddrEntry" + "[ciiRedistributeAddrType='" + self.ciiredistributeaddrtype.get() + "']" + "[ciiRedistributeAddrAddress='" + self.ciiredistributeaddraddress.get() + "']" + "[ciiRedistributeAddrPrefixLen='" + self.ciiredistributeaddrprefixlen.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRedistributeAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciiredistributeaddrtype.is_set or self.ciiredistributeaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiredistributeaddrtype.get_name_leafdata())
+                if (self.ciiredistributeaddraddress.is_set or self.ciiredistributeaddraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiredistributeaddraddress.get_name_leafdata())
+                if (self.ciiredistributeaddrprefixlen.is_set or self.ciiredistributeaddrprefixlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiredistributeaddrprefixlen.get_name_leafdata())
+                if (self.ciiredistributeaddrexiststate.is_set or self.ciiredistributeaddrexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiredistributeaddrexiststate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiRedistributeAddrType" or name == "ciiRedistributeAddrAddress" or name == "ciiRedistributeAddrPrefixLen" or name == "ciiRedistributeAddrExistState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciiredistributeaddrtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiRedistributeAddrType"):
+                    self.ciiredistributeaddrtype = value
+                    self.ciiredistributeaddrtype.value_namespace = name_space
+                    self.ciiredistributeaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRedistributeAddrAddress"):
+                    self.ciiredistributeaddraddress = value
+                    self.ciiredistributeaddraddress.value_namespace = name_space
+                    self.ciiredistributeaddraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRedistributeAddrPrefixLen"):
+                    self.ciiredistributeaddrprefixlen = value
+                    self.ciiredistributeaddrprefixlen.value_namespace = name_space
+                    self.ciiredistributeaddrprefixlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRedistributeAddrExistState"):
+                    self.ciiredistributeaddrexiststate = value
+                    self.ciiredistributeaddrexiststate.value_namespace = name_space
+                    self.ciiredistributeaddrexiststate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiredistributeaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiredistributeaddraddress is not None:
-                    return True
-
-                if self.ciiredistributeaddrprefixlen is not None:
-                    return True
-
-                if self.ciiredistributeaddrexiststate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiredistributeaddrtable.Ciiredistributeaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRedistributeAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiredistributeaddrentry is not None:
-                for child_ref in self.ciiredistributeaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiredistributeaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiRedistributeAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiRedistributeAddrEntry"):
+                for c in self.ciiredistributeaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiredistributeaddrtable.Ciiredistributeaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiredistributeaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiRedistributeAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiredistributeaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiroutertable(object):
+    class Ciiroutertable(Entity):
         """
         The set of hostnames and router ID.
         
@@ -1203,13 +2030,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciirouterentry = YList()
-            self.ciirouterentry.parent = self
-            self.ciirouterentry.name = 'ciirouterentry'
+            super(CiscoIetfIsisMib.Ciiroutertable, self).__init__()
+
+            self.yang_name = "ciiRouterTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciirouterentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiroutertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiroutertable, self).__setattr__(name, value)
 
 
-        class Ciirouterentry(object):
+        class Ciirouterentry(Entity):
             """
             Each entry tracks information about one peer at
             one level.
@@ -1224,7 +2077,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciirouterlevel  <key>
             
             	The level of this Intermediate System
-            	**type**\:   :py:class:`CiiislevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiislevelEnum>`
+            	**type**\:   :py:class:`Ciiislevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiislevel>`
             
             .. attribute:: ciirouterhostname
             
@@ -1246,69 +2099,176 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciiroutersysid = None
-                self.ciirouterlevel = None
-                self.ciirouterhostname = None
-                self.ciirouterid = None
+                super(CiscoIetfIsisMib.Ciiroutertable.Ciirouterentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciiroutersysid is None:
-                    raise YPYModelError('Key property ciiroutersysid is None')
-                if self.ciirouterlevel is None:
-                    raise YPYModelError('Key property ciirouterlevel is None')
+                self.yang_name = "ciiRouterEntry"
+                self.yang_parent_name = "ciiRouterTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRouterTable/CISCO-IETF-ISIS-MIB:ciiRouterEntry[CISCO-IETF-ISIS-MIB:ciiRouterSysID = ' + str(self.ciiroutersysid) + '][CISCO-IETF-ISIS-MIB:ciiRouterLevel = ' + str(self.ciirouterlevel) + ']'
+                self.ciiroutersysid = YLeaf(YType.str, "ciiRouterSysID")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciirouterlevel = YLeaf(YType.enumeration, "ciiRouterLevel")
+
+                self.ciirouterhostname = YLeaf(YType.str, "ciiRouterHostName")
+
+                self.ciirouterid = YLeaf(YType.uint32, "ciiRouterID")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciiroutersysid",
+                                "ciirouterlevel",
+                                "ciirouterhostname",
+                                "ciirouterid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiroutertable.Ciirouterentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiroutertable.Ciirouterentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciiroutersysid.is_set or
+                    self.ciirouterlevel.is_set or
+                    self.ciirouterhostname.is_set or
+                    self.ciirouterid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciiroutersysid.yfilter != YFilter.not_set or
+                    self.ciirouterlevel.yfilter != YFilter.not_set or
+                    self.ciirouterhostname.yfilter != YFilter.not_set or
+                    self.ciirouterid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiRouterEntry" + "[ciiRouterSysID='" + self.ciiroutersysid.get() + "']" + "[ciiRouterLevel='" + self.ciirouterlevel.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRouterTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciiroutersysid.is_set or self.ciiroutersysid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiroutersysid.get_name_leafdata())
+                if (self.ciirouterlevel.is_set or self.ciirouterlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirouterlevel.get_name_leafdata())
+                if (self.ciirouterhostname.is_set or self.ciirouterhostname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirouterhostname.get_name_leafdata())
+                if (self.ciirouterid.is_set or self.ciirouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirouterid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiRouterSysID" or name == "ciiRouterLevel" or name == "ciiRouterHostName" or name == "ciiRouterID"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciiroutersysid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiRouterSysID"):
+                    self.ciiroutersysid = value
+                    self.ciiroutersysid.value_namespace = name_space
+                    self.ciiroutersysid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRouterLevel"):
+                    self.ciirouterlevel = value
+                    self.ciirouterlevel.value_namespace = name_space
+                    self.ciirouterlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRouterHostName"):
+                    self.ciirouterhostname = value
+                    self.ciirouterhostname.value_namespace = name_space
+                    self.ciirouterhostname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRouterID"):
+                    self.ciirouterid = value
+                    self.ciirouterid.value_namespace = name_space
+                    self.ciirouterid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciirouterentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciirouterlevel is not None:
-                    return True
-
-                if self.ciirouterhostname is not None:
-                    return True
-
-                if self.ciirouterid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiroutertable.Ciirouterentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRouterTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciirouterentry is not None:
-                for child_ref in self.ciirouterentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciirouterentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiRouterTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiRouterEntry"):
+                for c in self.ciirouterentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiroutertable.Ciirouterentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciirouterentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiRouterEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiroutertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciisysleveltable(object):
+    class Ciisysleveltable(Entity):
         """
         Level specific information about the System.
         
@@ -1325,25 +2285,51 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciisyslevelentry = YList()
-            self.ciisyslevelentry.parent = self
-            self.ciisyslevelentry.name = 'ciisyslevelentry'
+            super(CiscoIetfIsisMib.Ciisysleveltable, self).__init__()
+
+            self.yang_name = "ciiSysLevelTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciisyslevelentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciisysleveltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciisysleveltable, self).__setattr__(name, value)
 
 
-        class Ciisyslevelentry(object):
+        class Ciisyslevelentry(Entity):
             """
             Describe variables defined for Area or Domain.
             
             .. attribute:: ciisyslevelindex  <key>
             
             	The level that this entry describes
-            	**type**\:   :py:class:`CiisyslevelindexEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry.CiisyslevelindexEnum>`
+            	**type**\:   :py:class:`Ciisyslevelindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry.Ciisyslevelindex>`
             
             .. attribute:: ciisyslevelmetricstyle
             
             	Which style of Metric do we generate in our LSPs at this level? This object follows the replaceOnlyWhileDisabled behavior
-            	**type**\:   :py:class:`CiimetricstyleEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiimetricstyleEnum>`
+            	**type**\:   :py:class:`Ciimetricstyle <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciimetricstyle>`
             
             .. attribute:: ciisyslevelminlspgenint
             
@@ -1364,7 +2350,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciisysleveloverloadstate
             
             	The state of the database at this level. The value 'off' indicates that IS\-IS is not active at this level. The value 'on' indicates that IS\-IS is active at this level, and not overloaded. The value 'waiting' indicates a database that is low on an essential resource, such as memory. The administrator may force the state to 'overloaded' by setting the object ciiSysLevelSetOverload. If the state is 'waiting' or 'overloaded', we originate LSPs with the Overload bit set
-            	**type**\:   :py:class:`CiilevelstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiilevelstateEnum>`
+            	**type**\:   :py:class:`Ciilevelstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciilevelstate>`
             
             .. attribute:: ciisyslevelsetoverload
             
@@ -1381,7 +2367,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciisyslevelspfconsiders
             
             	Which style of Metric do we consider in our SPF computation at this level?
-            	**type**\:   :py:class:`CiimetricstyleEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiimetricstyleEnum>`
+            	**type**\:   :py:class:`Ciimetricstyle <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciimetricstyle>`
             
             .. attribute:: ciisyslevelteenabled
             
@@ -1396,20 +2382,64 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciisyslevelindex = None
-                self.ciisyslevelmetricstyle = None
-                self.ciisyslevelminlspgenint = None
-                self.ciisysleveloriglspbuffsize = None
-                self.ciisysleveloverloadstate = None
-                self.ciisyslevelsetoverload = None
-                self.ciisyslevelsetoverloaduntil = None
-                self.ciisyslevelspfconsiders = None
-                self.ciisyslevelteenabled = None
+                super(CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry, self).__init__()
 
-            class CiisyslevelindexEnum(Enum):
+                self.yang_name = "ciiSysLevelEntry"
+                self.yang_parent_name = "ciiSysLevelTable"
+
+                self.ciisyslevelindex = YLeaf(YType.enumeration, "ciiSysLevelIndex")
+
+                self.ciisyslevelmetricstyle = YLeaf(YType.enumeration, "ciiSysLevelMetricStyle")
+
+                self.ciisyslevelminlspgenint = YLeaf(YType.uint32, "ciiSysLevelMinLSPGenInt")
+
+                self.ciisysleveloriglspbuffsize = YLeaf(YType.int32, "ciiSysLevelOrigLSPBuffSize")
+
+                self.ciisysleveloverloadstate = YLeaf(YType.enumeration, "ciiSysLevelOverloadState")
+
+                self.ciisyslevelsetoverload = YLeaf(YType.boolean, "ciiSysLevelSetOverload")
+
+                self.ciisyslevelsetoverloaduntil = YLeaf(YType.uint32, "ciiSysLevelSetOverloadUntil")
+
+                self.ciisyslevelspfconsiders = YLeaf(YType.enumeration, "ciiSysLevelSPFConsiders")
+
+                self.ciisyslevelteenabled = YLeaf(YType.boolean, "ciiSysLevelTEEnabled")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciisyslevelindex",
+                                "ciisyslevelmetricstyle",
+                                "ciisyslevelminlspgenint",
+                                "ciisysleveloriglspbuffsize",
+                                "ciisysleveloverloadstate",
+                                "ciisyslevelsetoverload",
+                                "ciisyslevelsetoverloaduntil",
+                                "ciisyslevelspfconsiders",
+                                "ciisyslevelteenabled") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry, self).__setattr__(name, value)
+
+            class Ciisyslevelindex(Enum):
                 """
-                CiisyslevelindexEnum
+                Ciisyslevelindex
 
                 The level that this entry describes.
 
@@ -1419,87 +2449,181 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1IS = 1
+                level1IS = Enum.YLeaf(1, "level1IS")
 
-                level2IS = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry.CiisyslevelindexEnum']
+                level2IS = Enum.YLeaf(2, "level2IS")
 
 
-            @property
-            def _common_path(self):
-                if self.ciisyslevelindex is None:
-                    raise YPYModelError('Key property ciisyslevelindex is None')
+            def has_data(self):
+                return (
+                    self.ciisyslevelindex.is_set or
+                    self.ciisyslevelmetricstyle.is_set or
+                    self.ciisyslevelminlspgenint.is_set or
+                    self.ciisysleveloriglspbuffsize.is_set or
+                    self.ciisysleveloverloadstate.is_set or
+                    self.ciisyslevelsetoverload.is_set or
+                    self.ciisyslevelsetoverloaduntil.is_set or
+                    self.ciisyslevelspfconsiders.is_set or
+                    self.ciisyslevelteenabled.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSysLevelTable/CISCO-IETF-ISIS-MIB:ciiSysLevelEntry[CISCO-IETF-ISIS-MIB:ciiSysLevelIndex = ' + str(self.ciisyslevelindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciisyslevelindex.yfilter != YFilter.not_set or
+                    self.ciisyslevelmetricstyle.yfilter != YFilter.not_set or
+                    self.ciisyslevelminlspgenint.yfilter != YFilter.not_set or
+                    self.ciisysleveloriglspbuffsize.yfilter != YFilter.not_set or
+                    self.ciisysleveloverloadstate.yfilter != YFilter.not_set or
+                    self.ciisyslevelsetoverload.yfilter != YFilter.not_set or
+                    self.ciisyslevelsetoverloaduntil.yfilter != YFilter.not_set or
+                    self.ciisyslevelspfconsiders.yfilter != YFilter.not_set or
+                    self.ciisyslevelteenabled.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiSysLevelEntry" + "[ciiSysLevelIndex='" + self.ciisyslevelindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysLevelTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciisyslevelindex.is_set or self.ciisyslevelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelindex.get_name_leafdata())
+                if (self.ciisyslevelmetricstyle.is_set or self.ciisyslevelmetricstyle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelmetricstyle.get_name_leafdata())
+                if (self.ciisyslevelminlspgenint.is_set or self.ciisyslevelminlspgenint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelminlspgenint.get_name_leafdata())
+                if (self.ciisysleveloriglspbuffsize.is_set or self.ciisysleveloriglspbuffsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysleveloriglspbuffsize.get_name_leafdata())
+                if (self.ciisysleveloverloadstate.is_set or self.ciisysleveloverloadstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysleveloverloadstate.get_name_leafdata())
+                if (self.ciisyslevelsetoverload.is_set or self.ciisyslevelsetoverload.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelsetoverload.get_name_leafdata())
+                if (self.ciisyslevelsetoverloaduntil.is_set or self.ciisyslevelsetoverloaduntil.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelsetoverloaduntil.get_name_leafdata())
+                if (self.ciisyslevelspfconsiders.is_set or self.ciisyslevelspfconsiders.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelspfconsiders.get_name_leafdata())
+                if (self.ciisyslevelteenabled.is_set or self.ciisyslevelteenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisyslevelteenabled.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiSysLevelIndex" or name == "ciiSysLevelMetricStyle" or name == "ciiSysLevelMinLSPGenInt" or name == "ciiSysLevelOrigLSPBuffSize" or name == "ciiSysLevelOverloadState" or name == "ciiSysLevelSetOverload" or name == "ciiSysLevelSetOverloadUntil" or name == "ciiSysLevelSPFConsiders" or name == "ciiSysLevelTEEnabled"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciisyslevelindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiSysLevelIndex"):
+                    self.ciisyslevelindex = value
+                    self.ciisyslevelindex.value_namespace = name_space
+                    self.ciisyslevelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelMetricStyle"):
+                    self.ciisyslevelmetricstyle = value
+                    self.ciisyslevelmetricstyle.value_namespace = name_space
+                    self.ciisyslevelmetricstyle.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelMinLSPGenInt"):
+                    self.ciisyslevelminlspgenint = value
+                    self.ciisyslevelminlspgenint.value_namespace = name_space
+                    self.ciisyslevelminlspgenint.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelOrigLSPBuffSize"):
+                    self.ciisysleveloriglspbuffsize = value
+                    self.ciisysleveloriglspbuffsize.value_namespace = name_space
+                    self.ciisysleveloriglspbuffsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelOverloadState"):
+                    self.ciisysleveloverloadstate = value
+                    self.ciisysleveloverloadstate.value_namespace = name_space
+                    self.ciisysleveloverloadstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelSetOverload"):
+                    self.ciisyslevelsetoverload = value
+                    self.ciisyslevelsetoverload.value_namespace = name_space
+                    self.ciisyslevelsetoverload.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelSetOverloadUntil"):
+                    self.ciisyslevelsetoverloaduntil = value
+                    self.ciisyslevelsetoverloaduntil.value_namespace = name_space
+                    self.ciisyslevelsetoverloaduntil.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelSPFConsiders"):
+                    self.ciisyslevelspfconsiders = value
+                    self.ciisyslevelspfconsiders.value_namespace = name_space
+                    self.ciisyslevelspfconsiders.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysLevelTEEnabled"):
+                    self.ciisyslevelteenabled = value
+                    self.ciisyslevelteenabled.value_namespace = name_space
+                    self.ciisyslevelteenabled.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciisyslevelentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciisyslevelmetricstyle is not None:
-                    return True
-
-                if self.ciisyslevelminlspgenint is not None:
-                    return True
-
-                if self.ciisysleveloriglspbuffsize is not None:
-                    return True
-
-                if self.ciisysleveloverloadstate is not None:
-                    return True
-
-                if self.ciisyslevelsetoverload is not None:
-                    return True
-
-                if self.ciisyslevelsetoverloaduntil is not None:
-                    return True
-
-                if self.ciisyslevelspfconsiders is not None:
-                    return True
-
-                if self.ciisyslevelteenabled is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSysLevelTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciisyslevelentry is not None:
-                for child_ref in self.ciisyslevelentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciisyslevelentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiSysLevelTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiSysLevelEntry"):
+                for c in self.ciisyslevelentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciisysleveltable.Ciisyslevelentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciisyslevelentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiSysLevelEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciisysleveltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciicirctable(object):
+    class Ciicirctable(Entity):
         """
         The table of circuits used by this
         Intermediate System.
@@ -1517,13 +2641,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciicircentry = YList()
-            self.ciicircentry.parent = self
-            self.ciicircentry.name = 'ciicircentry'
+            super(CiscoIetfIsisMib.Ciicirctable, self).__init__()
+
+            self.yang_name = "ciiCircTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciicircentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciicirctable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciicirctable, self).__setattr__(name, value)
 
 
-        class Ciicircentry(object):
+        class Ciicircentry(Entity):
             """
             An ciiCircEntry exists for each circuit used by
             Integrated IS\-IS on this system.
@@ -1543,12 +2693,12 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicircadminstate
             
             	The administrative state of the circuit. This object follows the CiiAdminState behavior
-            	**type**\:   :py:class:`CiiadminstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiadminstateEnum>`
+            	**type**\:   :py:class:`Ciiadminstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiadminstate>`
             
             .. attribute:: ciicircexiststate
             
             	The existence state of this circuit. This object follows the RowStatus behavior.  Setting the state to 'notInService' halts the generation and processing of IS\-IS protocol PDUs on this circuit.  Setting the state to 'destroy' will also erase any configuration associated with the circuit
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciicircextdomain
             
@@ -1586,7 +2736,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicirclevel
             
             	Indicates which type of packets will be sent and accepted on this circuit. The values used will be modified by the settings of ciiSysType. This object follows the replaceOnlyWhileDisabled behavior
-            	**type**\:   :py:class:`CiicirclevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicirclevelEnum>`
+            	**type**\:   :py:class:`Ciicirclevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.Ciicirclevel>`
             
             .. attribute:: ciicircmeshgroup
             
@@ -1598,7 +2748,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicircmeshgroupenabled
             
             	Is this port a member of a mesh group, or blocked? Circuits in the same mesh group act as a virtual multiaccess network.  LSPs seen on one circuit in a mesh group will not be flooded to another circuit in the same mesh group
-            	**type**\:   :py:class:`CiicircmeshgroupenabledEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicircmeshgroupenabledEnum>`
+            	**type**\:   :py:class:`Ciicircmeshgroupenabled <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.Ciicircmeshgroupenabled>`
             
             .. attribute:: ciicircpassivecircuit
             
@@ -1613,7 +2763,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicirctype
             
             	The type of the circuit. This object follows the replaceOnlyWhileDisabled behavior. The type specified must be compatible with the type of the interface defined by the value of ciiCircIfIndex
-            	**type**\:   :py:class:`CiicirctypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicirctypeEnum>`
+            	**type**\:   :py:class:`Ciicirctype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicirctable.Ciicircentry.Ciicirctype>`
             
             
 
@@ -1623,26 +2773,82 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciicirc3wayenabled = None
-                self.ciicircadminstate = None
-                self.ciicircexiststate = None
-                self.ciicircextdomain = None
-                self.ciicircextendedcircid = None
-                self.ciicircifindex = None
-                self.ciicircifsubindex = None
-                self.ciicirclastuptime = None
-                self.ciicirclevel = None
-                self.ciicircmeshgroup = None
-                self.ciicircmeshgroupenabled = None
-                self.ciicircpassivecircuit = None
-                self.ciicircsmallhellos = None
-                self.ciicirctype = None
+                super(CiscoIetfIsisMib.Ciicirctable.Ciicircentry, self).__init__()
 
-            class CiicirclevelEnum(Enum):
+                self.yang_name = "ciiCircEntry"
+                self.yang_parent_name = "ciiCircTable"
+
+                self.ciicircindex = YLeaf(YType.int32, "ciiCircIndex")
+
+                self.ciicirc3wayenabled = YLeaf(YType.boolean, "ciiCirc3WayEnabled")
+
+                self.ciicircadminstate = YLeaf(YType.enumeration, "ciiCircAdminState")
+
+                self.ciicircexiststate = YLeaf(YType.enumeration, "ciiCircExistState")
+
+                self.ciicircextdomain = YLeaf(YType.boolean, "ciiCircExtDomain")
+
+                self.ciicircextendedcircid = YLeaf(YType.uint32, "ciiCircExtendedCircID")
+
+                self.ciicircifindex = YLeaf(YType.int32, "ciiCircIfIndex")
+
+                self.ciicircifsubindex = YLeaf(YType.int32, "ciiCircIfSubIndex")
+
+                self.ciicirclastuptime = YLeaf(YType.uint32, "ciiCircLastUpTime")
+
+                self.ciicirclevel = YLeaf(YType.enumeration, "ciiCircLevel")
+
+                self.ciicircmeshgroup = YLeaf(YType.uint32, "ciiCircMeshGroup")
+
+                self.ciicircmeshgroupenabled = YLeaf(YType.enumeration, "ciiCircMeshGroupEnabled")
+
+                self.ciicircpassivecircuit = YLeaf(YType.boolean, "ciiCircPassiveCircuit")
+
+                self.ciicircsmallhellos = YLeaf(YType.boolean, "ciiCircSmallHellos")
+
+                self.ciicirctype = YLeaf(YType.enumeration, "ciiCircType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciicirc3wayenabled",
+                                "ciicircadminstate",
+                                "ciicircexiststate",
+                                "ciicircextdomain",
+                                "ciicircextendedcircid",
+                                "ciicircifindex",
+                                "ciicircifsubindex",
+                                "ciicirclastuptime",
+                                "ciicirclevel",
+                                "ciicircmeshgroup",
+                                "ciicircmeshgroupenabled",
+                                "ciicircpassivecircuit",
+                                "ciicircsmallhellos",
+                                "ciicirctype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciicirctable.Ciicircentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciicirctable.Ciicircentry, self).__setattr__(name, value)
+
+            class Ciicirclevel(Enum):
                 """
-                CiicirclevelEnum
+                Ciicirclevel
 
                 Indicates which type of packets will be sent and
 
@@ -1660,22 +2866,16 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1 = 1
+                level1 = Enum.YLeaf(1, "level1")
 
-                level2 = 2
+                level2 = Enum.YLeaf(2, "level2")
 
-                level1L2 = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicirclevelEnum']
+                level1L2 = Enum.YLeaf(3, "level1L2")
 
 
-            class CiicircmeshgroupenabledEnum(Enum):
+            class Ciicircmeshgroupenabled(Enum):
                 """
-                CiicircmeshgroupenabledEnum
+                Ciicircmeshgroupenabled
 
                 Is this port a member of a mesh group, or blocked?
 
@@ -1695,22 +2895,16 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                inactive = 1
+                inactive = Enum.YLeaf(1, "inactive")
 
-                blocked = 2
+                blocked = Enum.YLeaf(2, "blocked")
 
-                set = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicircmeshgroupenabledEnum']
+                set = Enum.YLeaf(3, "set")
 
 
-            class CiicirctypeEnum(Enum):
+            class Ciicirctype(Enum):
                 """
-                CiicirctypeEnum
+                Ciicirctype
 
                 The type of the circuit. This object follows the
 
@@ -1732,111 +2926,235 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                broadcast = 1
+                broadcast = Enum.YLeaf(1, "broadcast")
 
-                ptToPt = 2
+                ptToPt = Enum.YLeaf(2, "ptToPt")
 
-                staticIn = 3
+                staticIn = Enum.YLeaf(3, "staticIn")
 
-                staticOut = 4
+                staticOut = Enum.YLeaf(4, "staticOut")
 
-                dA = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciicirctable.Ciicircentry.CiicirctypeEnum']
+                dA = Enum.YLeaf(5, "dA")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciicirc3wayenabled.is_set or
+                    self.ciicircadminstate.is_set or
+                    self.ciicircexiststate.is_set or
+                    self.ciicircextdomain.is_set or
+                    self.ciicircextendedcircid.is_set or
+                    self.ciicircifindex.is_set or
+                    self.ciicircifsubindex.is_set or
+                    self.ciicirclastuptime.is_set or
+                    self.ciicirclevel.is_set or
+                    self.ciicircmeshgroup.is_set or
+                    self.ciicircmeshgroupenabled.is_set or
+                    self.ciicircpassivecircuit.is_set or
+                    self.ciicircsmallhellos.is_set or
+                    self.ciicirctype.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircTable/CISCO-IETF-ISIS-MIB:ciiCircEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciicirc3wayenabled.yfilter != YFilter.not_set or
+                    self.ciicircadminstate.yfilter != YFilter.not_set or
+                    self.ciicircexiststate.yfilter != YFilter.not_set or
+                    self.ciicircextdomain.yfilter != YFilter.not_set or
+                    self.ciicircextendedcircid.yfilter != YFilter.not_set or
+                    self.ciicircifindex.yfilter != YFilter.not_set or
+                    self.ciicircifsubindex.yfilter != YFilter.not_set or
+                    self.ciicirclastuptime.yfilter != YFilter.not_set or
+                    self.ciicirclevel.yfilter != YFilter.not_set or
+                    self.ciicircmeshgroup.yfilter != YFilter.not_set or
+                    self.ciicircmeshgroupenabled.yfilter != YFilter.not_set or
+                    self.ciicircpassivecircuit.yfilter != YFilter.not_set or
+                    self.ciicircsmallhellos.yfilter != YFilter.not_set or
+                    self.ciicirctype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiCircEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciicirc3wayenabled.is_set or self.ciicirc3wayenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirc3wayenabled.get_name_leafdata())
+                if (self.ciicircadminstate.is_set or self.ciicircadminstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircadminstate.get_name_leafdata())
+                if (self.ciicircexiststate.is_set or self.ciicircexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircexiststate.get_name_leafdata())
+                if (self.ciicircextdomain.is_set or self.ciicircextdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircextdomain.get_name_leafdata())
+                if (self.ciicircextendedcircid.is_set or self.ciicircextendedcircid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircextendedcircid.get_name_leafdata())
+                if (self.ciicircifindex.is_set or self.ciicircifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircifindex.get_name_leafdata())
+                if (self.ciicircifsubindex.is_set or self.ciicircifsubindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircifsubindex.get_name_leafdata())
+                if (self.ciicirclastuptime.is_set or self.ciicirclastuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclastuptime.get_name_leafdata())
+                if (self.ciicirclevel.is_set or self.ciicirclevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevel.get_name_leafdata())
+                if (self.ciicircmeshgroup.is_set or self.ciicircmeshgroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircmeshgroup.get_name_leafdata())
+                if (self.ciicircmeshgroupenabled.is_set or self.ciicircmeshgroupenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircmeshgroupenabled.get_name_leafdata())
+                if (self.ciicircpassivecircuit.is_set or self.ciicircpassivecircuit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircpassivecircuit.get_name_leafdata())
+                if (self.ciicircsmallhellos.is_set or self.ciicircsmallhellos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircsmallhellos.get_name_leafdata())
+                if (self.ciicirctype.is_set or self.ciicirctype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirctype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiCirc3WayEnabled" or name == "ciiCircAdminState" or name == "ciiCircExistState" or name == "ciiCircExtDomain" or name == "ciiCircExtendedCircID" or name == "ciiCircIfIndex" or name == "ciiCircIfSubIndex" or name == "ciiCircLastUpTime" or name == "ciiCircLevel" or name == "ciiCircMeshGroup" or name == "ciiCircMeshGroupEnabled" or name == "ciiCircPassiveCircuit" or name == "ciiCircSmallHellos" or name == "ciiCircType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCirc3WayEnabled"):
+                    self.ciicirc3wayenabled = value
+                    self.ciicirc3wayenabled.value_namespace = name_space
+                    self.ciicirc3wayenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircAdminState"):
+                    self.ciicircadminstate = value
+                    self.ciicircadminstate.value_namespace = name_space
+                    self.ciicircadminstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircExistState"):
+                    self.ciicircexiststate = value
+                    self.ciicircexiststate.value_namespace = name_space
+                    self.ciicircexiststate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircExtDomain"):
+                    self.ciicircextdomain = value
+                    self.ciicircextdomain.value_namespace = name_space
+                    self.ciicircextdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircExtendedCircID"):
+                    self.ciicircextendedcircid = value
+                    self.ciicircextendedcircid.value_namespace = name_space
+                    self.ciicircextendedcircid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircIfIndex"):
+                    self.ciicircifindex = value
+                    self.ciicircifindex.value_namespace = name_space
+                    self.ciicircifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircIfSubIndex"):
+                    self.ciicircifsubindex = value
+                    self.ciicircifsubindex.value_namespace = name_space
+                    self.ciicircifsubindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLastUpTime"):
+                    self.ciicirclastuptime = value
+                    self.ciicirclastuptime.value_namespace = name_space
+                    self.ciicirclastuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevel"):
+                    self.ciicirclevel = value
+                    self.ciicirclevel.value_namespace = name_space
+                    self.ciicirclevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircMeshGroup"):
+                    self.ciicircmeshgroup = value
+                    self.ciicircmeshgroup.value_namespace = name_space
+                    self.ciicircmeshgroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircMeshGroupEnabled"):
+                    self.ciicircmeshgroupenabled = value
+                    self.ciicircmeshgroupenabled.value_namespace = name_space
+                    self.ciicircmeshgroupenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircPassiveCircuit"):
+                    self.ciicircpassivecircuit = value
+                    self.ciicircpassivecircuit.value_namespace = name_space
+                    self.ciicircpassivecircuit.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircSmallHellos"):
+                    self.ciicircsmallhellos = value
+                    self.ciicircsmallhellos.value_namespace = name_space
+                    self.ciicircsmallhellos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircType"):
+                    self.ciicirctype = value
+                    self.ciicirctype.value_namespace = name_space
+                    self.ciicirctype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciicircentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciicirc3wayenabled is not None:
-                    return True
-
-                if self.ciicircadminstate is not None:
-                    return True
-
-                if self.ciicircexiststate is not None:
-                    return True
-
-                if self.ciicircextdomain is not None:
-                    return True
-
-                if self.ciicircextendedcircid is not None:
-                    return True
-
-                if self.ciicircifindex is not None:
-                    return True
-
-                if self.ciicircifsubindex is not None:
-                    return True
-
-                if self.ciicirclastuptime is not None:
-                    return True
-
-                if self.ciicirclevel is not None:
-                    return True
-
-                if self.ciicircmeshgroup is not None:
-                    return True
-
-                if self.ciicircmeshgroupenabled is not None:
-                    return True
-
-                if self.ciicircpassivecircuit is not None:
-                    return True
-
-                if self.ciicircsmallhellos is not None:
-                    return True
-
-                if self.ciicirctype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciicirctable.Ciicircentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciicircentry is not None:
-                for child_ref in self.ciicircentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciicircentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiCircTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiCircEntry"):
+                for c in self.ciicircentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciicirctable.Ciicircentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciicircentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiCircEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciicirctable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciicircleveltable(object):
+    class Ciicircleveltable(Entity):
         """
         Level specific information about circuits used by IS\-IS
         
@@ -1853,13 +3171,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciicirclevelentry = YList()
-            self.ciicirclevelentry.parent = self
-            self.ciicirclevelentry.name = 'ciicirclevelentry'
+            super(CiscoIetfIsisMib.Ciicircleveltable, self).__init__()
+
+            self.yang_name = "ciiCircLevelTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciicirclevelentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciicircleveltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciicircleveltable, self).__setattr__(name, value)
 
 
-        class Ciicirclevelentry(object):
+        class Ciicirclevelentry(Entity):
             """
             An ciiCircLevelEntry exists for each level on
             each circuit used by Integrated IS\-IS on this system.
@@ -1876,7 +3220,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicirclevelindex  <key>
             
             	The level that this entry describes
-            	**type**\:   :py:class:`CiicirclevelindexEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry.CiicirclevelindexEnum>`
+            	**type**\:   :py:class:`Ciicirclevelindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry.Ciicirclevelindex>`
             
             .. attribute:: ciicirclevelcsnpinterval
             
@@ -1989,26 +3333,82 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciicirclevelindex = None
-                self.ciicirclevelcsnpinterval = None
-                self.ciicircleveldesis = None
-                self.ciicircleveldrhellotimer = None
-                self.ciicirclevelhellomultiplier = None
-                self.ciicirclevelhellotimer = None
-                self.ciicirclevelid = None
-                self.ciicirclevelidoctet = None
-                self.ciicirclevelispriority = None
-                self.ciicirclevellspthrottle = None
-                self.ciicirclevelmetric = None
-                self.ciicirclevelminlspretransint = None
-                self.ciicirclevelpartsnpinterval = None
-                self.ciicirclevelwidemetric = None
+                super(CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry, self).__init__()
 
-            class CiicirclevelindexEnum(Enum):
+                self.yang_name = "ciiCircLevelEntry"
+                self.yang_parent_name = "ciiCircLevelTable"
+
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
+
+                self.ciicirclevelindex = YLeaf(YType.enumeration, "ciiCircLevelIndex")
+
+                self.ciicirclevelcsnpinterval = YLeaf(YType.int32, "ciiCircLevelCSNPInterval")
+
+                self.ciicircleveldesis = YLeaf(YType.str, "ciiCircLevelDesIS")
+
+                self.ciicircleveldrhellotimer = YLeaf(YType.int32, "ciiCircLevelDRHelloTimer")
+
+                self.ciicirclevelhellomultiplier = YLeaf(YType.int32, "ciiCircLevelHelloMultiplier")
+
+                self.ciicirclevelhellotimer = YLeaf(YType.int32, "ciiCircLevelHelloTimer")
+
+                self.ciicirclevelid = YLeaf(YType.str, "ciiCircLevelID")
+
+                self.ciicirclevelidoctet = YLeaf(YType.int32, "ciiCircLevelIDOctet")
+
+                self.ciicirclevelispriority = YLeaf(YType.int32, "ciiCircLevelISPriority")
+
+                self.ciicirclevellspthrottle = YLeaf(YType.uint32, "ciiCircLevelLSPThrottle")
+
+                self.ciicirclevelmetric = YLeaf(YType.int32, "ciiCircLevelMetric")
+
+                self.ciicirclevelminlspretransint = YLeaf(YType.int32, "ciiCircLevelMinLSPRetransInt")
+
+                self.ciicirclevelpartsnpinterval = YLeaf(YType.int32, "ciiCircLevelPartSNPInterval")
+
+                self.ciicirclevelwidemetric = YLeaf(YType.uint32, "ciiCircLevelWideMetric")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciicirclevelindex",
+                                "ciicirclevelcsnpinterval",
+                                "ciicircleveldesis",
+                                "ciicircleveldrhellotimer",
+                                "ciicirclevelhellomultiplier",
+                                "ciicirclevelhellotimer",
+                                "ciicirclevelid",
+                                "ciicirclevelidoctet",
+                                "ciicirclevelispriority",
+                                "ciicirclevellspthrottle",
+                                "ciicirclevelmetric",
+                                "ciicirclevelminlspretransint",
+                                "ciicirclevelpartsnpinterval",
+                                "ciicirclevelwidemetric") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry, self).__setattr__(name, value)
+
+            class Ciicirclevelindex(Enum):
                 """
-                CiicirclevelindexEnum
+                Ciicirclevelindex
 
                 The level that this entry describes.
 
@@ -2018,107 +3418,229 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1IS = 1
+                level1IS = Enum.YLeaf(1, "level1IS")
 
-                level2IS = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry.CiicirclevelindexEnum']
+                level2IS = Enum.YLeaf(2, "level2IS")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciicirclevelindex is None:
-                    raise YPYModelError('Key property ciicirclevelindex is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciicirclevelindex.is_set or
+                    self.ciicirclevelcsnpinterval.is_set or
+                    self.ciicircleveldesis.is_set or
+                    self.ciicircleveldrhellotimer.is_set or
+                    self.ciicirclevelhellomultiplier.is_set or
+                    self.ciicirclevelhellotimer.is_set or
+                    self.ciicirclevelid.is_set or
+                    self.ciicirclevelidoctet.is_set or
+                    self.ciicirclevelispriority.is_set or
+                    self.ciicirclevellspthrottle.is_set or
+                    self.ciicirclevelmetric.is_set or
+                    self.ciicirclevelminlspretransint.is_set or
+                    self.ciicirclevelpartsnpinterval.is_set or
+                    self.ciicirclevelwidemetric.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircLevelTable/CISCO-IETF-ISIS-MIB:ciiCircLevelEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiCircLevelIndex = ' + str(self.ciicirclevelindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciicirclevelindex.yfilter != YFilter.not_set or
+                    self.ciicirclevelcsnpinterval.yfilter != YFilter.not_set or
+                    self.ciicircleveldesis.yfilter != YFilter.not_set or
+                    self.ciicircleveldrhellotimer.yfilter != YFilter.not_set or
+                    self.ciicirclevelhellomultiplier.yfilter != YFilter.not_set or
+                    self.ciicirclevelhellotimer.yfilter != YFilter.not_set or
+                    self.ciicirclevelid.yfilter != YFilter.not_set or
+                    self.ciicirclevelidoctet.yfilter != YFilter.not_set or
+                    self.ciicirclevelispriority.yfilter != YFilter.not_set or
+                    self.ciicirclevellspthrottle.yfilter != YFilter.not_set or
+                    self.ciicirclevelmetric.yfilter != YFilter.not_set or
+                    self.ciicirclevelminlspretransint.yfilter != YFilter.not_set or
+                    self.ciicirclevelpartsnpinterval.yfilter != YFilter.not_set or
+                    self.ciicirclevelwidemetric.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiCircLevelEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiCircLevelIndex='" + self.ciicirclevelindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircLevelTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciicirclevelindex.is_set or self.ciicirclevelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelindex.get_name_leafdata())
+                if (self.ciicirclevelcsnpinterval.is_set or self.ciicirclevelcsnpinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelcsnpinterval.get_name_leafdata())
+                if (self.ciicircleveldesis.is_set or self.ciicircleveldesis.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircleveldesis.get_name_leafdata())
+                if (self.ciicircleveldrhellotimer.is_set or self.ciicircleveldrhellotimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircleveldrhellotimer.get_name_leafdata())
+                if (self.ciicirclevelhellomultiplier.is_set or self.ciicirclevelhellomultiplier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelhellomultiplier.get_name_leafdata())
+                if (self.ciicirclevelhellotimer.is_set or self.ciicirclevelhellotimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelhellotimer.get_name_leafdata())
+                if (self.ciicirclevelid.is_set or self.ciicirclevelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelid.get_name_leafdata())
+                if (self.ciicirclevelidoctet.is_set or self.ciicirclevelidoctet.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelidoctet.get_name_leafdata())
+                if (self.ciicirclevelispriority.is_set or self.ciicirclevelispriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelispriority.get_name_leafdata())
+                if (self.ciicirclevellspthrottle.is_set or self.ciicirclevellspthrottle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevellspthrottle.get_name_leafdata())
+                if (self.ciicirclevelmetric.is_set or self.ciicirclevelmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelmetric.get_name_leafdata())
+                if (self.ciicirclevelminlspretransint.is_set or self.ciicirclevelminlspretransint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelminlspretransint.get_name_leafdata())
+                if (self.ciicirclevelpartsnpinterval.is_set or self.ciicirclevelpartsnpinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelpartsnpinterval.get_name_leafdata())
+                if (self.ciicirclevelwidemetric.is_set or self.ciicirclevelwidemetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclevelwidemetric.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiCircLevelIndex" or name == "ciiCircLevelCSNPInterval" or name == "ciiCircLevelDesIS" or name == "ciiCircLevelDRHelloTimer" or name == "ciiCircLevelHelloMultiplier" or name == "ciiCircLevelHelloTimer" or name == "ciiCircLevelID" or name == "ciiCircLevelIDOctet" or name == "ciiCircLevelISPriority" or name == "ciiCircLevelLSPThrottle" or name == "ciiCircLevelMetric" or name == "ciiCircLevelMinLSPRetransInt" or name == "ciiCircLevelPartSNPInterval" or name == "ciiCircLevelWideMetric"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelIndex"):
+                    self.ciicirclevelindex = value
+                    self.ciicirclevelindex.value_namespace = name_space
+                    self.ciicirclevelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelCSNPInterval"):
+                    self.ciicirclevelcsnpinterval = value
+                    self.ciicirclevelcsnpinterval.value_namespace = name_space
+                    self.ciicirclevelcsnpinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelDesIS"):
+                    self.ciicircleveldesis = value
+                    self.ciicircleveldesis.value_namespace = name_space
+                    self.ciicircleveldesis.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelDRHelloTimer"):
+                    self.ciicircleveldrhellotimer = value
+                    self.ciicircleveldrhellotimer.value_namespace = name_space
+                    self.ciicircleveldrhellotimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelHelloMultiplier"):
+                    self.ciicirclevelhellomultiplier = value
+                    self.ciicirclevelhellomultiplier.value_namespace = name_space
+                    self.ciicirclevelhellomultiplier.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelHelloTimer"):
+                    self.ciicirclevelhellotimer = value
+                    self.ciicirclevelhellotimer.value_namespace = name_space
+                    self.ciicirclevelhellotimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelID"):
+                    self.ciicirclevelid = value
+                    self.ciicirclevelid.value_namespace = name_space
+                    self.ciicirclevelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelIDOctet"):
+                    self.ciicirclevelidoctet = value
+                    self.ciicirclevelidoctet.value_namespace = name_space
+                    self.ciicirclevelidoctet.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelISPriority"):
+                    self.ciicirclevelispriority = value
+                    self.ciicirclevelispriority.value_namespace = name_space
+                    self.ciicirclevelispriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelLSPThrottle"):
+                    self.ciicirclevellspthrottle = value
+                    self.ciicirclevellspthrottle.value_namespace = name_space
+                    self.ciicirclevellspthrottle.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelMetric"):
+                    self.ciicirclevelmetric = value
+                    self.ciicirclevelmetric.value_namespace = name_space
+                    self.ciicirclevelmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelMinLSPRetransInt"):
+                    self.ciicirclevelminlspretransint = value
+                    self.ciicirclevelminlspretransint.value_namespace = name_space
+                    self.ciicirclevelminlspretransint.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelPartSNPInterval"):
+                    self.ciicirclevelpartsnpinterval = value
+                    self.ciicirclevelpartsnpinterval.value_namespace = name_space
+                    self.ciicirclevelpartsnpinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLevelWideMetric"):
+                    self.ciicirclevelwidemetric = value
+                    self.ciicirclevelwidemetric.value_namespace = name_space
+                    self.ciicirclevelwidemetric.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciicirclevelentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciicirclevelindex is not None:
-                    return True
-
-                if self.ciicirclevelcsnpinterval is not None:
-                    return True
-
-                if self.ciicircleveldesis is not None:
-                    return True
-
-                if self.ciicircleveldrhellotimer is not None:
-                    return True
-
-                if self.ciicirclevelhellomultiplier is not None:
-                    return True
-
-                if self.ciicirclevelhellotimer is not None:
-                    return True
-
-                if self.ciicirclevelid is not None:
-                    return True
-
-                if self.ciicirclevelidoctet is not None:
-                    return True
-
-                if self.ciicirclevelispriority is not None:
-                    return True
-
-                if self.ciicirclevellspthrottle is not None:
-                    return True
-
-                if self.ciicirclevelmetric is not None:
-                    return True
-
-                if self.ciicirclevelminlspretransint is not None:
-                    return True
-
-                if self.ciicirclevelpartsnpinterval is not None:
-                    return True
-
-                if self.ciicirclevelwidemetric is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircLevelTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciicirclevelentry is not None:
-                for child_ref in self.ciicirclevelentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciicirclevelentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiCircLevelTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiCircLevelEntry"):
+                for c in self.ciicirclevelentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciicircleveltable.Ciicirclevelentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciicirclevelentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiCircLevelEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciicircleveltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciisystemcountertable(object):
+    class Ciisystemcountertable(Entity):
         """
         System wide counters for this Intermediate System.
         
@@ -2135,20 +3657,46 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciisystemcounterentry = YList()
-            self.ciisystemcounterentry.parent = self
-            self.ciisystemcounterentry.name = 'ciisystemcounterentry'
+            super(CiscoIetfIsisMib.Ciisystemcountertable, self).__init__()
+
+            self.yang_name = "ciiSystemCounterTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciisystemcounterentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciisystemcountertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciisystemcountertable, self).__setattr__(name, value)
 
 
-        class Ciisystemcounterentry(object):
+        class Ciisystemcounterentry(Entity):
             """
             System\-wide IS\-IS counters.
             
             .. attribute:: ciisysstatlevel  <key>
             
             	The level that this entry describes
-            	**type**\:   :py:class:`CiisysstatlevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry.CiisysstatlevelEnum>`
+            	**type**\:   :py:class:`Ciisysstatlevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry.Ciisysstatlevel>`
             
             .. attribute:: ciisysstatattmpttoexmaxseqnums
             
@@ -2252,24 +3800,76 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciisysstatlevel = None
-                self.ciisysstatattmpttoexmaxseqnums = None
-                self.ciisysstatauthfails = None
-                self.ciisysstatauthtypefails = None
-                self.ciisysstatcorrlsps = None
-                self.ciisysstatidfieldlenmismatches = None
-                self.ciisysstatlspdbaseoloads = None
-                self.ciisysstatlsperrors = None
-                self.ciisysstatmanaddrdropfromareas = None
-                self.ciisysstatownlsppurges = None
-                self.ciisysstatpartchanges = None
-                self.ciisysstatseqnumskips = None
-                self.ciisysstatspfruns = None
+                super(CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry, self).__init__()
 
-            class CiisysstatlevelEnum(Enum):
+                self.yang_name = "ciiSystemCounterEntry"
+                self.yang_parent_name = "ciiSystemCounterTable"
+
+                self.ciisysstatlevel = YLeaf(YType.enumeration, "ciiSysStatLevel")
+
+                self.ciisysstatattmpttoexmaxseqnums = YLeaf(YType.uint32, "ciiSysStatAttmptToExMaxSeqNums")
+
+                self.ciisysstatauthfails = YLeaf(YType.uint32, "ciiSysStatAuthFails")
+
+                self.ciisysstatauthtypefails = YLeaf(YType.uint32, "ciiSysStatAuthTypeFails")
+
+                self.ciisysstatcorrlsps = YLeaf(YType.uint32, "ciiSysStatCorrLSPs")
+
+                self.ciisysstatidfieldlenmismatches = YLeaf(YType.uint32, "ciiSysStatIDFieldLenMismatches")
+
+                self.ciisysstatlspdbaseoloads = YLeaf(YType.uint32, "ciiSysStatLSPDbaseOloads")
+
+                self.ciisysstatlsperrors = YLeaf(YType.uint32, "ciiSysStatLSPErrors")
+
+                self.ciisysstatmanaddrdropfromareas = YLeaf(YType.uint32, "ciiSysStatManAddrDropFromAreas")
+
+                self.ciisysstatownlsppurges = YLeaf(YType.uint32, "ciiSysStatOwnLSPPurges")
+
+                self.ciisysstatpartchanges = YLeaf(YType.uint32, "ciiSysStatPartChanges")
+
+                self.ciisysstatseqnumskips = YLeaf(YType.uint32, "ciiSysStatSeqNumSkips")
+
+                self.ciisysstatspfruns = YLeaf(YType.uint32, "ciiSysStatSPFRuns")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciisysstatlevel",
+                                "ciisysstatattmpttoexmaxseqnums",
+                                "ciisysstatauthfails",
+                                "ciisysstatauthtypefails",
+                                "ciisysstatcorrlsps",
+                                "ciisysstatidfieldlenmismatches",
+                                "ciisysstatlspdbaseoloads",
+                                "ciisysstatlsperrors",
+                                "ciisysstatmanaddrdropfromareas",
+                                "ciisysstatownlsppurges",
+                                "ciisysstatpartchanges",
+                                "ciisysstatseqnumskips",
+                                "ciisysstatspfruns") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry, self).__setattr__(name, value)
+
+            class Ciisysstatlevel(Enum):
                 """
-                CiisysstatlevelEnum
+                Ciisysstatlevel
 
                 The level that this entry describes.
 
@@ -2279,99 +3879,213 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1IS = 1
+                level1IS = Enum.YLeaf(1, "level1IS")
 
-                level2IS = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry.CiisysstatlevelEnum']
+                level2IS = Enum.YLeaf(2, "level2IS")
 
 
-            @property
-            def _common_path(self):
-                if self.ciisysstatlevel is None:
-                    raise YPYModelError('Key property ciisysstatlevel is None')
+            def has_data(self):
+                return (
+                    self.ciisysstatlevel.is_set or
+                    self.ciisysstatattmpttoexmaxseqnums.is_set or
+                    self.ciisysstatauthfails.is_set or
+                    self.ciisysstatauthtypefails.is_set or
+                    self.ciisysstatcorrlsps.is_set or
+                    self.ciisysstatidfieldlenmismatches.is_set or
+                    self.ciisysstatlspdbaseoloads.is_set or
+                    self.ciisysstatlsperrors.is_set or
+                    self.ciisysstatmanaddrdropfromareas.is_set or
+                    self.ciisysstatownlsppurges.is_set or
+                    self.ciisysstatpartchanges.is_set or
+                    self.ciisysstatseqnumskips.is_set or
+                    self.ciisysstatspfruns.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSystemCounterTable/CISCO-IETF-ISIS-MIB:ciiSystemCounterEntry[CISCO-IETF-ISIS-MIB:ciiSysStatLevel = ' + str(self.ciisysstatlevel) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciisysstatlevel.yfilter != YFilter.not_set or
+                    self.ciisysstatattmpttoexmaxseqnums.yfilter != YFilter.not_set or
+                    self.ciisysstatauthfails.yfilter != YFilter.not_set or
+                    self.ciisysstatauthtypefails.yfilter != YFilter.not_set or
+                    self.ciisysstatcorrlsps.yfilter != YFilter.not_set or
+                    self.ciisysstatidfieldlenmismatches.yfilter != YFilter.not_set or
+                    self.ciisysstatlspdbaseoloads.yfilter != YFilter.not_set or
+                    self.ciisysstatlsperrors.yfilter != YFilter.not_set or
+                    self.ciisysstatmanaddrdropfromareas.yfilter != YFilter.not_set or
+                    self.ciisysstatownlsppurges.yfilter != YFilter.not_set or
+                    self.ciisysstatpartchanges.yfilter != YFilter.not_set or
+                    self.ciisysstatseqnumskips.yfilter != YFilter.not_set or
+                    self.ciisysstatspfruns.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiSystemCounterEntry" + "[ciiSysStatLevel='" + self.ciisysstatlevel.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSystemCounterTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciisysstatlevel.is_set or self.ciisysstatlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatlevel.get_name_leafdata())
+                if (self.ciisysstatattmpttoexmaxseqnums.is_set or self.ciisysstatattmpttoexmaxseqnums.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatattmpttoexmaxseqnums.get_name_leafdata())
+                if (self.ciisysstatauthfails.is_set or self.ciisysstatauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatauthfails.get_name_leafdata())
+                if (self.ciisysstatauthtypefails.is_set or self.ciisysstatauthtypefails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatauthtypefails.get_name_leafdata())
+                if (self.ciisysstatcorrlsps.is_set or self.ciisysstatcorrlsps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatcorrlsps.get_name_leafdata())
+                if (self.ciisysstatidfieldlenmismatches.is_set or self.ciisysstatidfieldlenmismatches.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatidfieldlenmismatches.get_name_leafdata())
+                if (self.ciisysstatlspdbaseoloads.is_set or self.ciisysstatlspdbaseoloads.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatlspdbaseoloads.get_name_leafdata())
+                if (self.ciisysstatlsperrors.is_set or self.ciisysstatlsperrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatlsperrors.get_name_leafdata())
+                if (self.ciisysstatmanaddrdropfromareas.is_set or self.ciisysstatmanaddrdropfromareas.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatmanaddrdropfromareas.get_name_leafdata())
+                if (self.ciisysstatownlsppurges.is_set or self.ciisysstatownlsppurges.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatownlsppurges.get_name_leafdata())
+                if (self.ciisysstatpartchanges.is_set or self.ciisysstatpartchanges.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatpartchanges.get_name_leafdata())
+                if (self.ciisysstatseqnumskips.is_set or self.ciisysstatseqnumskips.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatseqnumskips.get_name_leafdata())
+                if (self.ciisysstatspfruns.is_set or self.ciisysstatspfruns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciisysstatspfruns.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiSysStatLevel" or name == "ciiSysStatAttmptToExMaxSeqNums" or name == "ciiSysStatAuthFails" or name == "ciiSysStatAuthTypeFails" or name == "ciiSysStatCorrLSPs" or name == "ciiSysStatIDFieldLenMismatches" or name == "ciiSysStatLSPDbaseOloads" or name == "ciiSysStatLSPErrors" or name == "ciiSysStatManAddrDropFromAreas" or name == "ciiSysStatOwnLSPPurges" or name == "ciiSysStatPartChanges" or name == "ciiSysStatSeqNumSkips" or name == "ciiSysStatSPFRuns"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciisysstatlevel is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiSysStatLevel"):
+                    self.ciisysstatlevel = value
+                    self.ciisysstatlevel.value_namespace = name_space
+                    self.ciisysstatlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatAttmptToExMaxSeqNums"):
+                    self.ciisysstatattmpttoexmaxseqnums = value
+                    self.ciisysstatattmpttoexmaxseqnums.value_namespace = name_space
+                    self.ciisysstatattmpttoexmaxseqnums.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatAuthFails"):
+                    self.ciisysstatauthfails = value
+                    self.ciisysstatauthfails.value_namespace = name_space
+                    self.ciisysstatauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatAuthTypeFails"):
+                    self.ciisysstatauthtypefails = value
+                    self.ciisysstatauthtypefails.value_namespace = name_space
+                    self.ciisysstatauthtypefails.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatCorrLSPs"):
+                    self.ciisysstatcorrlsps = value
+                    self.ciisysstatcorrlsps.value_namespace = name_space
+                    self.ciisysstatcorrlsps.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatIDFieldLenMismatches"):
+                    self.ciisysstatidfieldlenmismatches = value
+                    self.ciisysstatidfieldlenmismatches.value_namespace = name_space
+                    self.ciisysstatidfieldlenmismatches.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatLSPDbaseOloads"):
+                    self.ciisysstatlspdbaseoloads = value
+                    self.ciisysstatlspdbaseoloads.value_namespace = name_space
+                    self.ciisysstatlspdbaseoloads.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatLSPErrors"):
+                    self.ciisysstatlsperrors = value
+                    self.ciisysstatlsperrors.value_namespace = name_space
+                    self.ciisysstatlsperrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatManAddrDropFromAreas"):
+                    self.ciisysstatmanaddrdropfromareas = value
+                    self.ciisysstatmanaddrdropfromareas.value_namespace = name_space
+                    self.ciisysstatmanaddrdropfromareas.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatOwnLSPPurges"):
+                    self.ciisysstatownlsppurges = value
+                    self.ciisysstatownlsppurges.value_namespace = name_space
+                    self.ciisysstatownlsppurges.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatPartChanges"):
+                    self.ciisysstatpartchanges = value
+                    self.ciisysstatpartchanges.value_namespace = name_space
+                    self.ciisysstatpartchanges.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatSeqNumSkips"):
+                    self.ciisysstatseqnumskips = value
+                    self.ciisysstatseqnumskips.value_namespace = name_space
+                    self.ciisysstatseqnumskips.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiSysStatSPFRuns"):
+                    self.ciisysstatspfruns = value
+                    self.ciisysstatspfruns.value_namespace = name_space
+                    self.ciisysstatspfruns.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciisystemcounterentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciisysstatattmpttoexmaxseqnums is not None:
-                    return True
-
-                if self.ciisysstatauthfails is not None:
-                    return True
-
-                if self.ciisysstatauthtypefails is not None:
-                    return True
-
-                if self.ciisysstatcorrlsps is not None:
-                    return True
-
-                if self.ciisysstatidfieldlenmismatches is not None:
-                    return True
-
-                if self.ciisysstatlspdbaseoloads is not None:
-                    return True
-
-                if self.ciisysstatlsperrors is not None:
-                    return True
-
-                if self.ciisysstatmanaddrdropfromareas is not None:
-                    return True
-
-                if self.ciisysstatownlsppurges is not None:
-                    return True
-
-                if self.ciisysstatpartchanges is not None:
-                    return True
-
-                if self.ciisysstatseqnumskips is not None:
-                    return True
-
-                if self.ciisysstatspfruns is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiSystemCounterTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciisystemcounterentry is not None:
-                for child_ref in self.ciisystemcounterentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciisystemcounterentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiSystemCounterTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiSystemCounterEntry"):
+                for c in self.ciisystemcounterentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciisystemcountertable.Ciisystemcounterentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciisystemcounterentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiSystemCounterEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciisystemcountertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciicircuitcountertable(object):
+    class Ciicircuitcountertable(Entity):
         """
         Circuit specific counters for this
         Intermediate System.
@@ -2389,13 +4103,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciicircuitcounterentry = YList()
-            self.ciicircuitcounterentry.parent = self
-            self.ciicircuitcounterentry.name = 'ciicircuitcounterentry'
+            super(CiscoIetfIsisMib.Ciicircuitcountertable, self).__init__()
+
+            self.yang_name = "ciiCircuitCounterTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciicircuitcounterentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciicircuitcountertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciicircuitcountertable, self).__setattr__(name, value)
 
 
-        class Ciicircuitcounterentry(object):
+        class Ciicircuitcounterentry(Entity):
             """
             An ciiCircuitCounterEntry exists for each circuit
             used by Integrated IS\-IS on this system.
@@ -2412,7 +4152,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciicircuittype  <key>
             
             	What type of circuit saw these counts?  The point to point Hello PDU includes both L1 and L2, and ISs form a single adjacency on point to point links. Thus we combine counts on point to point links into one group
-            	**type**\:   :py:class:`CiicircuittypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry.CiicircuittypeEnum>`
+            	**type**\:   :py:class:`Ciicircuittype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry.Ciicircuittype>`
             
             .. attribute:: ciicircadjchanges
             
@@ -2487,22 +4227,70 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciicircuittype = None
-                self.ciicircadjchanges = None
-                self.ciicircauthfails = None
-                self.ciicircauthtypefails = None
-                self.ciicircidfieldlenmismatches = None
-                self.ciicircinitfails = None
-                self.ciicirclandesischanges = None
-                self.ciicircmaxareaaddrmismatches = None
-                self.ciicircnumadj = None
-                self.ciicircrejadjs = None
+                super(CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry, self).__init__()
 
-            class CiicircuittypeEnum(Enum):
+                self.yang_name = "ciiCircuitCounterEntry"
+                self.yang_parent_name = "ciiCircuitCounterTable"
+
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
+
+                self.ciicircuittype = YLeaf(YType.enumeration, "ciiCircuitType")
+
+                self.ciicircadjchanges = YLeaf(YType.uint32, "ciiCircAdjChanges")
+
+                self.ciicircauthfails = YLeaf(YType.uint32, "ciiCircAuthFails")
+
+                self.ciicircauthtypefails = YLeaf(YType.uint32, "ciiCircAuthTypeFails")
+
+                self.ciicircidfieldlenmismatches = YLeaf(YType.uint32, "ciiCircIDFieldLenMismatches")
+
+                self.ciicircinitfails = YLeaf(YType.uint32, "ciiCircInitFails")
+
+                self.ciicirclandesischanges = YLeaf(YType.uint32, "ciiCircLANDesISChanges")
+
+                self.ciicircmaxareaaddrmismatches = YLeaf(YType.uint32, "ciiCircMaxAreaAddrMismatches")
+
+                self.ciicircnumadj = YLeaf(YType.uint32, "ciiCircNumAdj")
+
+                self.ciicircrejadjs = YLeaf(YType.uint32, "ciiCircRejAdjs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciicircuittype",
+                                "ciicircadjchanges",
+                                "ciicircauthfails",
+                                "ciicircauthtypefails",
+                                "ciicircidfieldlenmismatches",
+                                "ciicircinitfails",
+                                "ciicirclandesischanges",
+                                "ciicircmaxareaaddrmismatches",
+                                "ciicircnumadj",
+                                "ciicircrejadjs") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry, self).__setattr__(name, value)
+
+            class Ciicircuittype(Enum):
                 """
-                CiicircuittypeEnum
+                Ciicircuittype
 
                 What type of circuit saw these counts?
 
@@ -2524,97 +4312,199 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                lanlevel1 = 1
+                lanlevel1 = Enum.YLeaf(1, "lanlevel1")
 
-                lanlevel2 = 2
+                lanlevel2 = Enum.YLeaf(2, "lanlevel2")
 
-                p2pcircuit = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry.CiicircuittypeEnum']
+                p2pcircuit = Enum.YLeaf(3, "p2pcircuit")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciicircuittype is None:
-                    raise YPYModelError('Key property ciicircuittype is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciicircuittype.is_set or
+                    self.ciicircadjchanges.is_set or
+                    self.ciicircauthfails.is_set or
+                    self.ciicircauthtypefails.is_set or
+                    self.ciicircidfieldlenmismatches.is_set or
+                    self.ciicircinitfails.is_set or
+                    self.ciicirclandesischanges.is_set or
+                    self.ciicircmaxareaaddrmismatches.is_set or
+                    self.ciicircnumadj.is_set or
+                    self.ciicircrejadjs.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircuitCounterTable/CISCO-IETF-ISIS-MIB:ciiCircuitCounterEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiCircuitType = ' + str(self.ciicircuittype) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciicircuittype.yfilter != YFilter.not_set or
+                    self.ciicircadjchanges.yfilter != YFilter.not_set or
+                    self.ciicircauthfails.yfilter != YFilter.not_set or
+                    self.ciicircauthtypefails.yfilter != YFilter.not_set or
+                    self.ciicircidfieldlenmismatches.yfilter != YFilter.not_set or
+                    self.ciicircinitfails.yfilter != YFilter.not_set or
+                    self.ciicirclandesischanges.yfilter != YFilter.not_set or
+                    self.ciicircmaxareaaddrmismatches.yfilter != YFilter.not_set or
+                    self.ciicircnumadj.yfilter != YFilter.not_set or
+                    self.ciicircrejadjs.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiCircuitCounterEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiCircuitType='" + self.ciicircuittype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircuitCounterTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciicircuittype.is_set or self.ciicircuittype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircuittype.get_name_leafdata())
+                if (self.ciicircadjchanges.is_set or self.ciicircadjchanges.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircadjchanges.get_name_leafdata())
+                if (self.ciicircauthfails.is_set or self.ciicircauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircauthfails.get_name_leafdata())
+                if (self.ciicircauthtypefails.is_set or self.ciicircauthtypefails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircauthtypefails.get_name_leafdata())
+                if (self.ciicircidfieldlenmismatches.is_set or self.ciicircidfieldlenmismatches.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircidfieldlenmismatches.get_name_leafdata())
+                if (self.ciicircinitfails.is_set or self.ciicircinitfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircinitfails.get_name_leafdata())
+                if (self.ciicirclandesischanges.is_set or self.ciicirclandesischanges.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicirclandesischanges.get_name_leafdata())
+                if (self.ciicircmaxareaaddrmismatches.is_set or self.ciicircmaxareaaddrmismatches.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircmaxareaaddrmismatches.get_name_leafdata())
+                if (self.ciicircnumadj.is_set or self.ciicircnumadj.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircnumadj.get_name_leafdata())
+                if (self.ciicircrejadjs.is_set or self.ciicircrejadjs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircrejadjs.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiCircuitType" or name == "ciiCircAdjChanges" or name == "ciiCircAuthFails" or name == "ciiCircAuthTypeFails" or name == "ciiCircIDFieldLenMismatches" or name == "ciiCircInitFails" or name == "ciiCircLANDesISChanges" or name == "ciiCircMaxAreaAddrMismatches" or name == "ciiCircNumAdj" or name == "ciiCircRejAdjs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircuitType"):
+                    self.ciicircuittype = value
+                    self.ciicircuittype.value_namespace = name_space
+                    self.ciicircuittype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircAdjChanges"):
+                    self.ciicircadjchanges = value
+                    self.ciicircadjchanges.value_namespace = name_space
+                    self.ciicircadjchanges.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircAuthFails"):
+                    self.ciicircauthfails = value
+                    self.ciicircauthfails.value_namespace = name_space
+                    self.ciicircauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircAuthTypeFails"):
+                    self.ciicircauthtypefails = value
+                    self.ciicircauthtypefails.value_namespace = name_space
+                    self.ciicircauthtypefails.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircIDFieldLenMismatches"):
+                    self.ciicircidfieldlenmismatches = value
+                    self.ciicircidfieldlenmismatches.value_namespace = name_space
+                    self.ciicircidfieldlenmismatches.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircInitFails"):
+                    self.ciicircinitfails = value
+                    self.ciicircinitfails.value_namespace = name_space
+                    self.ciicircinitfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircLANDesISChanges"):
+                    self.ciicirclandesischanges = value
+                    self.ciicirclandesischanges.value_namespace = name_space
+                    self.ciicirclandesischanges.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircMaxAreaAddrMismatches"):
+                    self.ciicircmaxareaaddrmismatches = value
+                    self.ciicircmaxareaaddrmismatches.value_namespace = name_space
+                    self.ciicircmaxareaaddrmismatches.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircNumAdj"):
+                    self.ciicircnumadj = value
+                    self.ciicircnumadj.value_namespace = name_space
+                    self.ciicircnumadj.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiCircRejAdjs"):
+                    self.ciicircrejadjs = value
+                    self.ciicircrejadjs.value_namespace = name_space
+                    self.ciicircrejadjs.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciicircuitcounterentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciicircuittype is not None:
-                    return True
-
-                if self.ciicircadjchanges is not None:
-                    return True
-
-                if self.ciicircauthfails is not None:
-                    return True
-
-                if self.ciicircauthtypefails is not None:
-                    return True
-
-                if self.ciicircidfieldlenmismatches is not None:
-                    return True
-
-                if self.ciicircinitfails is not None:
-                    return True
-
-                if self.ciicirclandesischanges is not None:
-                    return True
-
-                if self.ciicircmaxareaaddrmismatches is not None:
-                    return True
-
-                if self.ciicircnumadj is not None:
-                    return True
-
-                if self.ciicircrejadjs is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiCircuitCounterTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciicircuitcounterentry is not None:
-                for child_ref in self.ciicircuitcounterentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciicircuitcounterentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiCircuitCounterTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiCircuitCounterEntry"):
+                for c in self.ciicircuitcounterentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciicircuitcountertable.Ciicircuitcounterentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciicircuitcounterentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiCircuitCounterEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciicircuitcountertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciipacketcountertable(object):
+    class Ciipacketcountertable(Entity):
         """
         Information about IS\-IS protocol traffic at one level
         on one circuit in one direction
@@ -2632,13 +4522,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciipacketcounterentry = YList()
-            self.ciipacketcounterentry.parent = self
-            self.ciipacketcounterentry.name = 'ciipacketcounterentry'
+            super(CiscoIetfIsisMib.Ciipacketcountertable, self).__init__()
+
+            self.yang_name = "ciiPacketCounterTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciipacketcounterentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciipacketcountertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciipacketcountertable, self).__setattr__(name, value)
 
 
-        class Ciipacketcounterentry(object):
+        class Ciipacketcounterentry(Entity):
             """
             Information about IS\-IS protocol traffic at one level
             on one circuit in one direction
@@ -2655,12 +4571,12 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciipacketcountlevel  <key>
             
             	The level at which these PDU counts have been collected
-            	**type**\:   :py:class:`CiipacketcountlevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.CiipacketcountlevelEnum>`
+            	**type**\:   :py:class:`Ciipacketcountlevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.Ciipacketcountlevel>`
             
             .. attribute:: ciipacketcountdirection  <key>
             
             	Were we sending or receiving these PDUs?
-            	**type**\:   :py:class:`CiipacketcountdirectionEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.CiipacketcountdirectionEnum>`
+            	**type**\:   :py:class:`Ciipacketcountdirection <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.Ciipacketcountdirection>`
             
             .. attribute:: ciipacketcountcsnps
             
@@ -2733,21 +4649,67 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciipacketcountlevel = None
-                self.ciipacketcountdirection = None
-                self.ciipacketcountcsnps = None
-                self.ciipacketcounteshellos = None
-                self.ciipacketcountiihellos = None
-                self.ciipacketcountishellos = None
-                self.ciipacketcountlsps = None
-                self.ciipacketcountpsnps = None
-                self.ciipacketcountunknowns = None
+                super(CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry, self).__init__()
 
-            class CiipacketcountdirectionEnum(Enum):
+                self.yang_name = "ciiPacketCounterEntry"
+                self.yang_parent_name = "ciiPacketCounterTable"
+
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
+
+                self.ciipacketcountlevel = YLeaf(YType.enumeration, "ciiPacketCountLevel")
+
+                self.ciipacketcountdirection = YLeaf(YType.enumeration, "ciiPacketCountDirection")
+
+                self.ciipacketcountcsnps = YLeaf(YType.uint32, "ciiPacketCountCSNPs")
+
+                self.ciipacketcounteshellos = YLeaf(YType.uint32, "ciiPacketCountESHellos")
+
+                self.ciipacketcountiihellos = YLeaf(YType.uint32, "ciiPacketCountIIHellos")
+
+                self.ciipacketcountishellos = YLeaf(YType.uint32, "ciiPacketCountISHellos")
+
+                self.ciipacketcountlsps = YLeaf(YType.uint32, "ciiPacketCountLSPs")
+
+                self.ciipacketcountpsnps = YLeaf(YType.uint32, "ciiPacketCountPSNPs")
+
+                self.ciipacketcountunknowns = YLeaf(YType.uint32, "ciiPacketCountUnknowns")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciipacketcountlevel",
+                                "ciipacketcountdirection",
+                                "ciipacketcountcsnps",
+                                "ciipacketcounteshellos",
+                                "ciipacketcountiihellos",
+                                "ciipacketcountishellos",
+                                "ciipacketcountlsps",
+                                "ciipacketcountpsnps",
+                                "ciipacketcountunknowns") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry, self).__setattr__(name, value)
+
+            class Ciipacketcountdirection(Enum):
                 """
-                CiipacketcountdirectionEnum
+                Ciipacketcountdirection
 
                 Were we sending or receiving these PDUs?
 
@@ -2757,20 +4719,14 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                sending = 1
+                sending = Enum.YLeaf(1, "sending")
 
-                receiving = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.CiipacketcountdirectionEnum']
+                receiving = Enum.YLeaf(2, "receiving")
 
 
-            class CiipacketcountlevelEnum(Enum):
+            class Ciipacketcountlevel(Enum):
                 """
-                CiipacketcountlevelEnum
+                Ciipacketcountlevel
 
                 The level at which these PDU counts have been collected.
 
@@ -2780,94 +4736,189 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1 = 1
+                level1 = Enum.YLeaf(1, "level1")
 
-                level2 = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry.CiipacketcountlevelEnum']
+                level2 = Enum.YLeaf(2, "level2")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciipacketcountlevel is None:
-                    raise YPYModelError('Key property ciipacketcountlevel is None')
-                if self.ciipacketcountdirection is None:
-                    raise YPYModelError('Key property ciipacketcountdirection is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciipacketcountlevel.is_set or
+                    self.ciipacketcountdirection.is_set or
+                    self.ciipacketcountcsnps.is_set or
+                    self.ciipacketcounteshellos.is_set or
+                    self.ciipacketcountiihellos.is_set or
+                    self.ciipacketcountishellos.is_set or
+                    self.ciipacketcountlsps.is_set or
+                    self.ciipacketcountpsnps.is_set or
+                    self.ciipacketcountunknowns.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiPacketCounterTable/CISCO-IETF-ISIS-MIB:ciiPacketCounterEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiPacketCountLevel = ' + str(self.ciipacketcountlevel) + '][CISCO-IETF-ISIS-MIB:ciiPacketCountDirection = ' + str(self.ciipacketcountdirection) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciipacketcountlevel.yfilter != YFilter.not_set or
+                    self.ciipacketcountdirection.yfilter != YFilter.not_set or
+                    self.ciipacketcountcsnps.yfilter != YFilter.not_set or
+                    self.ciipacketcounteshellos.yfilter != YFilter.not_set or
+                    self.ciipacketcountiihellos.yfilter != YFilter.not_set or
+                    self.ciipacketcountishellos.yfilter != YFilter.not_set or
+                    self.ciipacketcountlsps.yfilter != YFilter.not_set or
+                    self.ciipacketcountpsnps.yfilter != YFilter.not_set or
+                    self.ciipacketcountunknowns.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiPacketCounterEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiPacketCountLevel='" + self.ciipacketcountlevel.get() + "']" + "[ciiPacketCountDirection='" + self.ciipacketcountdirection.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiPacketCounterTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciipacketcountlevel.is_set or self.ciipacketcountlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountlevel.get_name_leafdata())
+                if (self.ciipacketcountdirection.is_set or self.ciipacketcountdirection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountdirection.get_name_leafdata())
+                if (self.ciipacketcountcsnps.is_set or self.ciipacketcountcsnps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountcsnps.get_name_leafdata())
+                if (self.ciipacketcounteshellos.is_set or self.ciipacketcounteshellos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcounteshellos.get_name_leafdata())
+                if (self.ciipacketcountiihellos.is_set or self.ciipacketcountiihellos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountiihellos.get_name_leafdata())
+                if (self.ciipacketcountishellos.is_set or self.ciipacketcountishellos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountishellos.get_name_leafdata())
+                if (self.ciipacketcountlsps.is_set or self.ciipacketcountlsps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountlsps.get_name_leafdata())
+                if (self.ciipacketcountpsnps.is_set or self.ciipacketcountpsnps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountpsnps.get_name_leafdata())
+                if (self.ciipacketcountunknowns.is_set or self.ciipacketcountunknowns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciipacketcountunknowns.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiPacketCountLevel" or name == "ciiPacketCountDirection" or name == "ciiPacketCountCSNPs" or name == "ciiPacketCountESHellos" or name == "ciiPacketCountIIHellos" or name == "ciiPacketCountISHellos" or name == "ciiPacketCountLSPs" or name == "ciiPacketCountPSNPs" or name == "ciiPacketCountUnknowns"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountLevel"):
+                    self.ciipacketcountlevel = value
+                    self.ciipacketcountlevel.value_namespace = name_space
+                    self.ciipacketcountlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountDirection"):
+                    self.ciipacketcountdirection = value
+                    self.ciipacketcountdirection.value_namespace = name_space
+                    self.ciipacketcountdirection.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountCSNPs"):
+                    self.ciipacketcountcsnps = value
+                    self.ciipacketcountcsnps.value_namespace = name_space
+                    self.ciipacketcountcsnps.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountESHellos"):
+                    self.ciipacketcounteshellos = value
+                    self.ciipacketcounteshellos.value_namespace = name_space
+                    self.ciipacketcounteshellos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountIIHellos"):
+                    self.ciipacketcountiihellos = value
+                    self.ciipacketcountiihellos.value_namespace = name_space
+                    self.ciipacketcountiihellos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountISHellos"):
+                    self.ciipacketcountishellos = value
+                    self.ciipacketcountishellos.value_namespace = name_space
+                    self.ciipacketcountishellos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountLSPs"):
+                    self.ciipacketcountlsps = value
+                    self.ciipacketcountlsps.value_namespace = name_space
+                    self.ciipacketcountlsps.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountPSNPs"):
+                    self.ciipacketcountpsnps = value
+                    self.ciipacketcountpsnps.value_namespace = name_space
+                    self.ciipacketcountpsnps.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiPacketCountUnknowns"):
+                    self.ciipacketcountunknowns = value
+                    self.ciipacketcountunknowns.value_namespace = name_space
+                    self.ciipacketcountunknowns.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciipacketcounterentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciipacketcountlevel is not None:
-                    return True
-
-                if self.ciipacketcountdirection is not None:
-                    return True
-
-                if self.ciipacketcountcsnps is not None:
-                    return True
-
-                if self.ciipacketcounteshellos is not None:
-                    return True
-
-                if self.ciipacketcountiihellos is not None:
-                    return True
-
-                if self.ciipacketcountishellos is not None:
-                    return True
-
-                if self.ciipacketcountlsps is not None:
-                    return True
-
-                if self.ciipacketcountpsnps is not None:
-                    return True
-
-                if self.ciipacketcountunknowns is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiPacketCounterTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciipacketcounterentry is not None:
-                for child_ref in self.ciipacketcounterentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciipacketcounterentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiPacketCounterTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiPacketCounterEntry"):
+                for c in self.ciipacketcounterentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciipacketcountertable.Ciipacketcounterentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciipacketcounterentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiPacketCounterEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciipacketcountertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiisadjtable(object):
+    class Ciiisadjtable(Entity):
         """
         The table of adjacencies to Intermediate Systems.
         
@@ -2884,13 +4935,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiisadjentry = YList()
-            self.ciiisadjentry.parent = self
-            self.ciiisadjentry.name = 'ciiisadjentry'
+            super(CiscoIetfIsisMib.Ciiisadjtable, self).__init__()
+
+            self.yang_name = "ciiISAdjTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiisadjentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiisadjtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiisadjtable, self).__setattr__(name, value)
 
 
-        class Ciiisadjentry(object):
+        class Ciiisadjentry(Entity):
             """
             Each entry corresponds to one adjacency to an
             Intermediate System on this system.
@@ -2914,7 +4991,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiisadj3waystate
             
             	The 3Way state of the adjacency.  These are picked to match the historical on\-the\-wire representation of the 3Way state, and are not intended to match ciiISAdjState
-            	**type**\:   :py:class:`Ciiisadj3WaystateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadj3WaystateEnum>`
+            	**type**\:   :py:class:`Ciiisadj3Waystate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadj3Waystate>`
             
             .. attribute:: ciiisadjholdtimer
             
@@ -2965,17 +5042,17 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiisadjneighsystype
             
             	The type of the neighboring system
-            	**type**\:   :py:class:`CiiisadjneighsystypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjneighsystypeEnum>`
+            	**type**\:   :py:class:`Ciiisadjneighsystype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadjneighsystype>`
             
             .. attribute:: ciiisadjstate
             
             	The state of the adjacency
-            	**type**\:   :py:class:`CiiisadjstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjstateEnum>`
+            	**type**\:   :py:class:`Ciiisadjstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadjstate>`
             
             .. attribute:: ciiisadjusage
             
             	How is the adjacency used?  On a point\-to\-point link, this might be level1and2, but on a LAN, the usage will be level1 on the adjacency between peers at L1, and level2 for the adjacency between peers at L2
-            	**type**\:   :py:class:`CiiisadjusageEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjusageEnum>`
+            	**type**\:   :py:class:`Ciiisadjusage <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadjusage>`
             
             
 
@@ -2985,23 +5062,73 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciiisadjindex = None
-                self.ciiisadj3waystate = None
-                self.ciiisadjholdtimer = None
-                self.ciiisadjlastuptime = None
-                self.ciiisadjnbrextendedcircid = None
-                self.ciiisadjneighpriority = None
-                self.ciiisadjneighsnpaaddress = None
-                self.ciiisadjneighsysid = None
-                self.ciiisadjneighsystype = None
-                self.ciiisadjstate = None
-                self.ciiisadjusage = None
+                super(CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry, self).__init__()
 
-            class Ciiisadj3WaystateEnum(Enum):
+                self.yang_name = "ciiISAdjEntry"
+                self.yang_parent_name = "ciiISAdjTable"
+
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
+
+                self.ciiisadjindex = YLeaf(YType.int32, "ciiISAdjIndex")
+
+                self.ciiisadj3waystate = YLeaf(YType.enumeration, "ciiISAdj3WayState")
+
+                self.ciiisadjholdtimer = YLeaf(YType.uint32, "ciiISAdjHoldTimer")
+
+                self.ciiisadjlastuptime = YLeaf(YType.uint32, "ciiISAdjLastUpTime")
+
+                self.ciiisadjnbrextendedcircid = YLeaf(YType.uint32, "ciiISAdjNbrExtendedCircID")
+
+                self.ciiisadjneighpriority = YLeaf(YType.int32, "ciiISAdjNeighPriority")
+
+                self.ciiisadjneighsnpaaddress = YLeaf(YType.str, "ciiISAdjNeighSNPAAddress")
+
+                self.ciiisadjneighsysid = YLeaf(YType.str, "ciiISAdjNeighSysID")
+
+                self.ciiisadjneighsystype = YLeaf(YType.enumeration, "ciiISAdjNeighSysType")
+
+                self.ciiisadjstate = YLeaf(YType.enumeration, "ciiISAdjState")
+
+                self.ciiisadjusage = YLeaf(YType.enumeration, "ciiISAdjUsage")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciiisadjindex",
+                                "ciiisadj3waystate",
+                                "ciiisadjholdtimer",
+                                "ciiisadjlastuptime",
+                                "ciiisadjnbrextendedcircid",
+                                "ciiisadjneighpriority",
+                                "ciiisadjneighsnpaaddress",
+                                "ciiisadjneighsysid",
+                                "ciiisadjneighsystype",
+                                "ciiisadjstate",
+                                "ciiisadjusage") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry, self).__setattr__(name, value)
+
+            class Ciiisadj3Waystate(Enum):
                 """
-                Ciiisadj3WaystateEnum
+                Ciiisadj3Waystate
 
                 The 3Way state of the adjacency.  These are picked
 
@@ -3021,24 +5148,18 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                up = 0
+                up = Enum.YLeaf(0, "up")
 
-                initializing = 1
+                initializing = Enum.YLeaf(1, "initializing")
 
-                down = 2
+                down = Enum.YLeaf(2, "down")
 
-                failed = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.Ciiisadj3WaystateEnum']
+                failed = Enum.YLeaf(3, "failed")
 
 
-            class CiiisadjneighsystypeEnum(Enum):
+            class Ciiisadjneighsystype(Enum):
                 """
-                CiiisadjneighsystypeEnum
+                Ciiisadjneighsystype
 
                 The type of the neighboring system.
 
@@ -3052,24 +5173,18 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                l1IntermediateSystem = 1
+                l1IntermediateSystem = Enum.YLeaf(1, "l1IntermediateSystem")
 
-                l2IntermediateSystem = 2
+                l2IntermediateSystem = Enum.YLeaf(2, "l2IntermediateSystem")
 
-                l1L2IntermediateSystem = 3
+                l1L2IntermediateSystem = Enum.YLeaf(3, "l1L2IntermediateSystem")
 
-                unknown = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjneighsystypeEnum']
+                unknown = Enum.YLeaf(4, "unknown")
 
 
-            class CiiisadjstateEnum(Enum):
+            class Ciiisadjstate(Enum):
                 """
-                CiiisadjstateEnum
+                Ciiisadjstate
 
                 The state of the adjacency
 
@@ -3083,24 +5198,18 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                initializing = 2
+                initializing = Enum.YLeaf(2, "initializing")
 
-                up = 3
+                up = Enum.YLeaf(3, "up")
 
-                failed = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjstateEnum']
+                failed = Enum.YLeaf(4, "failed")
 
 
-            class CiiisadjusageEnum(Enum):
+            class Ciiisadjusage(Enum):
                 """
-                CiiisadjusageEnum
+                Ciiisadjusage
 
                 How is the adjacency used?  On a point\-to\-point link,
 
@@ -3118,100 +5227,207 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                level1 = 1
+                level1 = Enum.YLeaf(1, "level1")
 
-                level2 = 2
+                level2 = Enum.YLeaf(2, "level2")
 
-                level1and2 = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry.CiiisadjusageEnum']
+                level1and2 = Enum.YLeaf(3, "level1and2")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciiisadjindex is None:
-                    raise YPYModelError('Key property ciiisadjindex is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciiisadjindex.is_set or
+                    self.ciiisadj3waystate.is_set or
+                    self.ciiisadjholdtimer.is_set or
+                    self.ciiisadjlastuptime.is_set or
+                    self.ciiisadjnbrextendedcircid.is_set or
+                    self.ciiisadjneighpriority.is_set or
+                    self.ciiisadjneighsnpaaddress.is_set or
+                    self.ciiisadjneighsysid.is_set or
+                    self.ciiisadjneighsystype.is_set or
+                    self.ciiisadjstate.is_set or
+                    self.ciiisadjusage.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjTable/CISCO-IETF-ISIS-MIB:ciiISAdjEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjIndex = ' + str(self.ciiisadjindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciiisadjindex.yfilter != YFilter.not_set or
+                    self.ciiisadj3waystate.yfilter != YFilter.not_set or
+                    self.ciiisadjholdtimer.yfilter != YFilter.not_set or
+                    self.ciiisadjlastuptime.yfilter != YFilter.not_set or
+                    self.ciiisadjnbrextendedcircid.yfilter != YFilter.not_set or
+                    self.ciiisadjneighpriority.yfilter != YFilter.not_set or
+                    self.ciiisadjneighsnpaaddress.yfilter != YFilter.not_set or
+                    self.ciiisadjneighsysid.yfilter != YFilter.not_set or
+                    self.ciiisadjneighsystype.yfilter != YFilter.not_set or
+                    self.ciiisadjstate.yfilter != YFilter.not_set or
+                    self.ciiisadjusage.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiISAdjEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciiisadjindex.is_set or self.ciiisadjindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjindex.get_name_leafdata())
+                if (self.ciiisadj3waystate.is_set or self.ciiisadj3waystate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadj3waystate.get_name_leafdata())
+                if (self.ciiisadjholdtimer.is_set or self.ciiisadjholdtimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjholdtimer.get_name_leafdata())
+                if (self.ciiisadjlastuptime.is_set or self.ciiisadjlastuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjlastuptime.get_name_leafdata())
+                if (self.ciiisadjnbrextendedcircid.is_set or self.ciiisadjnbrextendedcircid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjnbrextendedcircid.get_name_leafdata())
+                if (self.ciiisadjneighpriority.is_set or self.ciiisadjneighpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjneighpriority.get_name_leafdata())
+                if (self.ciiisadjneighsnpaaddress.is_set or self.ciiisadjneighsnpaaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjneighsnpaaddress.get_name_leafdata())
+                if (self.ciiisadjneighsysid.is_set or self.ciiisadjneighsysid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjneighsysid.get_name_leafdata())
+                if (self.ciiisadjneighsystype.is_set or self.ciiisadjneighsystype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjneighsystype.get_name_leafdata())
+                if (self.ciiisadjstate.is_set or self.ciiisadjstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjstate.get_name_leafdata())
+                if (self.ciiisadjusage.is_set or self.ciiisadjusage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjusage.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiISAdjIndex" or name == "ciiISAdj3WayState" or name == "ciiISAdjHoldTimer" or name == "ciiISAdjLastUpTime" or name == "ciiISAdjNbrExtendedCircID" or name == "ciiISAdjNeighPriority" or name == "ciiISAdjNeighSNPAAddress" or name == "ciiISAdjNeighSysID" or name == "ciiISAdjNeighSysType" or name == "ciiISAdjState" or name == "ciiISAdjUsage"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIndex"):
+                    self.ciiisadjindex = value
+                    self.ciiisadjindex.value_namespace = name_space
+                    self.ciiisadjindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdj3WayState"):
+                    self.ciiisadj3waystate = value
+                    self.ciiisadj3waystate.value_namespace = name_space
+                    self.ciiisadj3waystate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjHoldTimer"):
+                    self.ciiisadjholdtimer = value
+                    self.ciiisadjholdtimer.value_namespace = name_space
+                    self.ciiisadjholdtimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjLastUpTime"):
+                    self.ciiisadjlastuptime = value
+                    self.ciiisadjlastuptime.value_namespace = name_space
+                    self.ciiisadjlastuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjNbrExtendedCircID"):
+                    self.ciiisadjnbrextendedcircid = value
+                    self.ciiisadjnbrextendedcircid.value_namespace = name_space
+                    self.ciiisadjnbrextendedcircid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjNeighPriority"):
+                    self.ciiisadjneighpriority = value
+                    self.ciiisadjneighpriority.value_namespace = name_space
+                    self.ciiisadjneighpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjNeighSNPAAddress"):
+                    self.ciiisadjneighsnpaaddress = value
+                    self.ciiisadjneighsnpaaddress.value_namespace = name_space
+                    self.ciiisadjneighsnpaaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjNeighSysID"):
+                    self.ciiisadjneighsysid = value
+                    self.ciiisadjneighsysid.value_namespace = name_space
+                    self.ciiisadjneighsysid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjNeighSysType"):
+                    self.ciiisadjneighsystype = value
+                    self.ciiisadjneighsystype.value_namespace = name_space
+                    self.ciiisadjneighsystype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjState"):
+                    self.ciiisadjstate = value
+                    self.ciiisadjstate.value_namespace = name_space
+                    self.ciiisadjstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjUsage"):
+                    self.ciiisadjusage = value
+                    self.ciiisadjusage.value_namespace = name_space
+                    self.ciiisadjusage.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiisadjentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiisadjindex is not None:
-                    return True
-
-                if self.ciiisadj3waystate is not None:
-                    return True
-
-                if self.ciiisadjholdtimer is not None:
-                    return True
-
-                if self.ciiisadjlastuptime is not None:
-                    return True
-
-                if self.ciiisadjnbrextendedcircid is not None:
-                    return True
-
-                if self.ciiisadjneighpriority is not None:
-                    return True
-
-                if self.ciiisadjneighsnpaaddress is not None:
-                    return True
-
-                if self.ciiisadjneighsysid is not None:
-                    return True
-
-                if self.ciiisadjneighsystype is not None:
-                    return True
-
-                if self.ciiisadjstate is not None:
-                    return True
-
-                if self.ciiisadjusage is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiisadjentry is not None:
-                for child_ref in self.ciiisadjentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiisadjentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiISAdjTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiISAdjEntry"):
+                for c in self.ciiisadjentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiisadjtable.Ciiisadjentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiisadjentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiISAdjEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiisadjtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiisadjareaaddrtable(object):
+    class Ciiisadjareaaddrtable(Entity):
         """
         This table contains the set of Area Addresses of
         neighboring Intermediate Systems as reported in received
@@ -3230,13 +5446,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiisadjareaaddrentry = YList()
-            self.ciiisadjareaaddrentry.parent = self
-            self.ciiisadjareaaddrentry.name = 'ciiisadjareaaddrentry'
+            super(CiscoIetfIsisMib.Ciiisadjareaaddrtable, self).__init__()
+
+            self.yang_name = "ciiISAdjAreaAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiisadjareaaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiisadjareaaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiisadjareaaddrtable, self).__setattr__(name, value)
 
 
-        class Ciiisadjareaaddrentry(object):
+        class Ciiisadjareaaddrentry(Entity):
             """
             Each entry contains one Area Address reported by a
             neighboring Intermediate System in its IIH PDUs.
@@ -3281,71 +5523,176 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciiisadjindex = None
-                self.ciiisadjareaaddrindex = None
-                self.ciiisadjareaaddress = None
+                super(CiscoIetfIsisMib.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciiisadjindex is None:
-                    raise YPYModelError('Key property ciiisadjindex is None')
-                if self.ciiisadjareaaddrindex is None:
-                    raise YPYModelError('Key property ciiisadjareaaddrindex is None')
+                self.yang_name = "ciiISAdjAreaAddrEntry"
+                self.yang_parent_name = "ciiISAdjAreaAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjAreaAddrTable/CISCO-IETF-ISIS-MIB:ciiISAdjAreaAddrEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjIndex = ' + str(self.ciiisadjindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjAreaAddrIndex = ' + str(self.ciiisadjareaaddrindex) + ']'
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
+
+                self.ciiisadjareaaddrindex = YLeaf(YType.int32, "ciiISAdjAreaAddrIndex")
+
+                self.ciiisadjareaaddress = YLeaf(YType.str, "ciiISAdjAreaAddress")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciiisadjindex",
+                                "ciiisadjareaaddrindex",
+                                "ciiisadjareaaddress") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciiisadjindex.is_set or
+                    self.ciiisadjareaaddrindex.is_set or
+                    self.ciiisadjareaaddress.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciiisadjindex.yfilter != YFilter.not_set or
+                    self.ciiisadjareaaddrindex.yfilter != YFilter.not_set or
+                    self.ciiisadjareaaddress.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiISAdjAreaAddrEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjAreaAddrIndex='" + self.ciiisadjareaaddrindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjAreaAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciiisadjindex.is_set or self.ciiisadjindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjindex.get_name_leafdata())
+                if (self.ciiisadjareaaddrindex.is_set or self.ciiisadjareaaddrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjareaaddrindex.get_name_leafdata())
+                if (self.ciiisadjareaaddress.is_set or self.ciiisadjareaaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjareaaddress.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiISAdjIndex" or name == "ciiISAdjAreaAddrIndex" or name == "ciiISAdjAreaAddress"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIndex"):
+                    self.ciiisadjindex = value
+                    self.ciiisadjindex.value_namespace = name_space
+                    self.ciiisadjindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjAreaAddrIndex"):
+                    self.ciiisadjareaaddrindex = value
+                    self.ciiisadjareaaddrindex.value_namespace = name_space
+                    self.ciiisadjareaaddrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjAreaAddress"):
+                    self.ciiisadjareaaddress = value
+                    self.ciiisadjareaaddress.value_namespace = name_space
+                    self.ciiisadjareaaddress.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiisadjareaaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiisadjindex is not None:
-                    return True
-
-                if self.ciiisadjareaaddrindex is not None:
-                    return True
-
-                if self.ciiisadjareaaddress is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjAreaAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiisadjareaaddrentry is not None:
-                for child_ref in self.ciiisadjareaaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiisadjareaaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiISAdjAreaAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiISAdjAreaAddrEntry"):
+                for c in self.ciiisadjareaaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiisadjareaaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiISAdjAreaAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiisadjareaaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiisadjipaddrtable(object):
+    class Ciiisadjipaddrtable(Entity):
         """
         This table contains the set of IP Addresses of
         neighboring Intermediate Systems as reported in received
@@ -3364,13 +5711,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiisadjipaddrentry = YList()
-            self.ciiisadjipaddrentry.parent = self
-            self.ciiisadjipaddrentry.name = 'ciiisadjipaddrentry'
+            super(CiscoIetfIsisMib.Ciiisadjipaddrtable, self).__init__()
+
+            self.yang_name = "ciiISAdjIPAddrTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiisadjipaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiisadjipaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiisadjipaddrtable, self).__setattr__(name, value)
 
 
-        class Ciiisadjipaddrentry(object):
+        class Ciiisadjipaddrentry(Entity):
             """
             Each entry contains one IP Address reported by a
             neighboring Intermediate System in its IIH PDUs.
@@ -3410,7 +5783,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiisadjipaddrtype
             
             	The type of one IP Address as reported in IIH PDUs received from the neighbor
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -3420,75 +5793,187 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciiisadjindex = None
-                self.ciiisadjipaddrindex = None
-                self.ciiisadjipaddraddress = None
-                self.ciiisadjipaddrtype = None
+                super(CiscoIetfIsisMib.Ciiisadjipaddrtable.Ciiisadjipaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciiisadjindex is None:
-                    raise YPYModelError('Key property ciiisadjindex is None')
-                if self.ciiisadjipaddrindex is None:
-                    raise YPYModelError('Key property ciiisadjipaddrindex is None')
+                self.yang_name = "ciiISAdjIPAddrEntry"
+                self.yang_parent_name = "ciiISAdjIPAddrTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjIPAddrTable/CISCO-IETF-ISIS-MIB:ciiISAdjIPAddrEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjIndex = ' + str(self.ciiisadjindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjIPAddrIndex = ' + str(self.ciiisadjipaddrindex) + ']'
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
+
+                self.ciiisadjipaddrindex = YLeaf(YType.int32, "ciiISAdjIPAddrIndex")
+
+                self.ciiisadjipaddraddress = YLeaf(YType.str, "ciiISAdjIPAddrAddress")
+
+                self.ciiisadjipaddrtype = YLeaf(YType.enumeration, "ciiISAdjIPAddrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciiisadjindex",
+                                "ciiisadjipaddrindex",
+                                "ciiisadjipaddraddress",
+                                "ciiisadjipaddrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiisadjipaddrtable.Ciiisadjipaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiisadjipaddrtable.Ciiisadjipaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciiisadjindex.is_set or
+                    self.ciiisadjipaddrindex.is_set or
+                    self.ciiisadjipaddraddress.is_set or
+                    self.ciiisadjipaddrtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciiisadjindex.yfilter != YFilter.not_set or
+                    self.ciiisadjipaddrindex.yfilter != YFilter.not_set or
+                    self.ciiisadjipaddraddress.yfilter != YFilter.not_set or
+                    self.ciiisadjipaddrtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiISAdjIPAddrEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjIPAddrIndex='" + self.ciiisadjipaddrindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjIPAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciiisadjindex.is_set or self.ciiisadjindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjindex.get_name_leafdata())
+                if (self.ciiisadjipaddrindex.is_set or self.ciiisadjipaddrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjipaddrindex.get_name_leafdata())
+                if (self.ciiisadjipaddraddress.is_set or self.ciiisadjipaddraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjipaddraddress.get_name_leafdata())
+                if (self.ciiisadjipaddrtype.is_set or self.ciiisadjipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjipaddrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiISAdjIndex" or name == "ciiISAdjIPAddrIndex" or name == "ciiISAdjIPAddrAddress" or name == "ciiISAdjIPAddrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIndex"):
+                    self.ciiisadjindex = value
+                    self.ciiisadjindex.value_namespace = name_space
+                    self.ciiisadjindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIPAddrIndex"):
+                    self.ciiisadjipaddrindex = value
+                    self.ciiisadjipaddrindex.value_namespace = name_space
+                    self.ciiisadjipaddrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIPAddrAddress"):
+                    self.ciiisadjipaddraddress = value
+                    self.ciiisadjipaddraddress.value_namespace = name_space
+                    self.ciiisadjipaddraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIPAddrType"):
+                    self.ciiisadjipaddrtype = value
+                    self.ciiisadjipaddrtype.value_namespace = name_space
+                    self.ciiisadjipaddrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiisadjipaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiisadjindex is not None:
-                    return True
-
-                if self.ciiisadjipaddrindex is not None:
-                    return True
-
-                if self.ciiisadjipaddraddress is not None:
-                    return True
-
-                if self.ciiisadjipaddrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiisadjipaddrtable.Ciiisadjipaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjIPAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiisadjipaddrentry is not None:
-                for child_ref in self.ciiisadjipaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiisadjipaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiISAdjIPAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiISAdjIPAddrEntry"):
+                for c in self.ciiisadjipaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiisadjipaddrtable.Ciiisadjipaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiisadjipaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiISAdjIPAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiisadjipaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiisadjprotsupptable(object):
+    class Ciiisadjprotsupptable(Entity):
         """
         This table contains the set of protocols supported by
         neighboring Intermediate Systems as reported in received
@@ -3507,13 +5992,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiisadjprotsuppentry = YList()
-            self.ciiisadjprotsuppentry.parent = self
-            self.ciiisadjprotsuppentry.name = 'ciiisadjprotsuppentry'
+            super(CiscoIetfIsisMib.Ciiisadjprotsupptable, self).__init__()
+
+            self.yang_name = "ciiISAdjProtSuppTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiisadjprotsuppentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiisadjprotsupptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiisadjprotsupptable, self).__setattr__(name, value)
 
 
-        class Ciiisadjprotsuppentry(object):
+        class Ciiisadjprotsuppentry(Entity):
             """
             Each entry contains one protocol supported by a
             neighboring Intermediate System as reported in its IIH
@@ -3540,7 +6051,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiisadjprotsuppprotocol  <key>
             
             	One supported protocol as reported in IIH PDUs received from the neighbor
-            	**type**\:   :py:class:`CiisupportedprotocolEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiisupportedprotocolEnum>`
+            	**type**\:   :py:class:`Ciisupportedprotocol <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciisupportedprotocol>`
             
             
 
@@ -3550,67 +6061,165 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciiisadjindex = None
-                self.ciiisadjprotsuppprotocol = None
+                super(CiscoIetfIsisMib.Ciiisadjprotsupptable.Ciiisadjprotsuppentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciiisadjindex is None:
-                    raise YPYModelError('Key property ciiisadjindex is None')
-                if self.ciiisadjprotsuppprotocol is None:
-                    raise YPYModelError('Key property ciiisadjprotsuppprotocol is None')
+                self.yang_name = "ciiISAdjProtSuppEntry"
+                self.yang_parent_name = "ciiISAdjProtSuppTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjProtSuppTable/CISCO-IETF-ISIS-MIB:ciiISAdjProtSuppEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjIndex = ' + str(self.ciiisadjindex) + '][CISCO-IETF-ISIS-MIB:ciiISAdjProtSuppProtocol = ' + str(self.ciiisadjprotsuppprotocol) + ']'
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
+
+                self.ciiisadjprotsuppprotocol = YLeaf(YType.enumeration, "ciiISAdjProtSuppProtocol")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciiisadjindex",
+                                "ciiisadjprotsuppprotocol") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiisadjprotsupptable.Ciiisadjprotsuppentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiisadjprotsupptable.Ciiisadjprotsuppentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciiisadjindex.is_set or
+                    self.ciiisadjprotsuppprotocol.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciiisadjindex.yfilter != YFilter.not_set or
+                    self.ciiisadjprotsuppprotocol.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiISAdjProtSuppEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjProtSuppProtocol='" + self.ciiisadjprotsuppprotocol.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjProtSuppTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciiisadjindex.is_set or self.ciiisadjindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjindex.get_name_leafdata())
+                if (self.ciiisadjprotsuppprotocol.is_set or self.ciiisadjprotsuppprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiisadjprotsuppprotocol.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiISAdjIndex" or name == "ciiISAdjProtSuppProtocol"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjIndex"):
+                    self.ciiisadjindex = value
+                    self.ciiisadjindex.value_namespace = name_space
+                    self.ciiisadjindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiISAdjProtSuppProtocol"):
+                    self.ciiisadjprotsuppprotocol = value
+                    self.ciiisadjprotsuppprotocol.value_namespace = name_space
+                    self.ciiisadjprotsuppprotocol.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiisadjprotsuppentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiisadjindex is not None:
-                    return True
-
-                if self.ciiisadjprotsuppprotocol is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiisadjprotsupptable.Ciiisadjprotsuppentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiISAdjProtSuppTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiisadjprotsuppentry is not None:
-                for child_ref in self.ciiisadjprotsuppentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiisadjprotsuppentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiISAdjProtSuppTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiISAdjProtSuppEntry"):
+                for c in self.ciiisadjprotsuppentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiisadjprotsupptable.Ciiisadjprotsuppentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiisadjprotsuppentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiISAdjProtSuppEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiisadjprotsupptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiratable(object):
+    class Ciiratable(Entity):
         """
         The table of Reachable Addresses to NSAPs or Address
         Prefixes.
@@ -3628,13 +6237,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiraentry = YList()
-            self.ciiraentry.parent = self
-            self.ciiraentry.name = 'ciiraentry'
+            super(CiscoIetfIsisMib.Ciiratable, self).__init__()
+
+            self.yang_name = "ciiRATable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiraentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiratable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiratable, self).__setattr__(name, value)
 
 
-        class Ciiraentry(object):
+        class Ciiraentry(Entity):
             """
             Each entry defines a Reachable Address to a NSAP or
             Address Prefix.
@@ -3665,17 +6300,17 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiraadminstate
             
             	The administrative state of the Reachable Address. This object follows the CiiAdminState and ManualOrAutomatic behaviors
-            	**type**\:   :py:class:`CiiadminstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiadminstateEnum>`
+            	**type**\:   :py:class:`Ciiadminstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiadminstate>`
             
             .. attribute:: ciiraexiststate
             
             	The existence state of this Reachable Address. This object follows the ManualOrAutomatic behaviors
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciiramaptype
             
             	The type of mapping to be employed to ascertain the SNPA Address which should be used in forwarding PDUs for this Reachable Address prefix. This object follows the ManualOrAutomatic behavior. The following values of mapping type are defined\:      none\: The mapping is null because the neighbor SNPA is           implicit by nature of the subnetwork (e.g. a           point\-to\-point linkage).      explicit\: The subnetwork addresses in the object           ciiRASNPAAddress is to be used.      extractIDI\: The SNPA is embedded in the IDI of           the destination NSAP Address. The mapping           algorithm extracts the SNPA to be used           according to the format and encoding rules of           ISO8473/Add2. This SNPA extraction algorithm can           be used in conjunction with Reachable Address           prefixes from the X.121, F.69, E.163 and E.164           addressing subdomains.      extractDSP\: All, or a suffix, of the SNPA is embedded           in the DSP of the destination address. This SNPA           extraction algorithm extracts the embedded           subnetwork addressing information by performing a           logical AND of the ciiRASNPAMask object value           with the destination address. The part of the           SNPA extracted from the destination NSAP is           appended to the ciiRASNPAPrefix object value to           form the next hop subnetwork addressing           information
-            	**type**\:   :py:class:`CiiramaptypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiratable.Ciiraentry.CiiramaptypeEnum>`
+            	**type**\:   :py:class:`Ciiramaptype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiratable.Ciiraentry.Ciiramaptype>`
             
             .. attribute:: ciirametric
             
@@ -3687,7 +6322,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciirametrictype
             
             	Indicates whether the metric is internal or external. This object follows the ManualOrAutomatic behavior
-            	**type**\:   :py:class:`CiimetrictypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiimetrictypeEnum>`
+            	**type**\:   :py:class:`Ciimetrictype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciimetrictype>`
             
             .. attribute:: ciirasnpaaddress
             
@@ -3713,7 +6348,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiratype
             
             	The type of Reachable address. Those of type manual are created by the network manager. Those of type automatic are created through propagation of routing information from another routing protocol (eg. IDRP). 
-            	**type**\:   :py:class:`CiiratypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiratable.Ciiraentry.CiiratypeEnum>`
+            	**type**\:   :py:class:`Ciiratype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiratable.Ciiraentry.Ciiratype>`
             
             
 
@@ -3723,23 +6358,73 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciicircindex = None
-                self.ciiraindex = None
-                self.ciiraaddrprefix = None
-                self.ciiraadminstate = None
-                self.ciiraexiststate = None
-                self.ciiramaptype = None
-                self.ciirametric = None
-                self.ciirametrictype = None
-                self.ciirasnpaaddress = None
-                self.ciirasnpamask = None
-                self.ciirasnpaprefix = None
-                self.ciiratype = None
+                super(CiscoIetfIsisMib.Ciiratable.Ciiraentry, self).__init__()
 
-            class CiiramaptypeEnum(Enum):
+                self.yang_name = "ciiRAEntry"
+                self.yang_parent_name = "ciiRATable"
+
+                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
+
+                self.ciiraindex = YLeaf(YType.int32, "ciiRAIndex")
+
+                self.ciiraaddrprefix = YLeaf(YType.str, "ciiRAAddrPrefix")
+
+                self.ciiraadminstate = YLeaf(YType.enumeration, "ciiRAAdminState")
+
+                self.ciiraexiststate = YLeaf(YType.enumeration, "ciiRAExistState")
+
+                self.ciiramaptype = YLeaf(YType.enumeration, "ciiRAMapType")
+
+                self.ciirametric = YLeaf(YType.int32, "ciiRAMetric")
+
+                self.ciirametrictype = YLeaf(YType.enumeration, "ciiRAMetricType")
+
+                self.ciirasnpaaddress = YLeaf(YType.str, "ciiRASNPAAddress")
+
+                self.ciirasnpamask = YLeaf(YType.str, "ciiRASNPAMask")
+
+                self.ciirasnpaprefix = YLeaf(YType.str, "ciiRASNPAPrefix")
+
+                self.ciiratype = YLeaf(YType.enumeration, "ciiRAType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciicircindex",
+                                "ciiraindex",
+                                "ciiraaddrprefix",
+                                "ciiraadminstate",
+                                "ciiraexiststate",
+                                "ciiramaptype",
+                                "ciirametric",
+                                "ciirametrictype",
+                                "ciirasnpaaddress",
+                                "ciirasnpamask",
+                                "ciirasnpaprefix",
+                                "ciiratype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiratable.Ciiraentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiratable.Ciiraentry, self).__setattr__(name, value)
+
+            class Ciiramaptype(Enum):
                 """
-                CiiramaptypeEnum
+                Ciiramaptype
 
                 The type of mapping to be employed to ascertain the SNPA
 
@@ -3807,24 +6492,18 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                explicit = 2
+                explicit = Enum.YLeaf(2, "explicit")
 
-                extractIDI = 3
+                extractIDI = Enum.YLeaf(3, "extractIDI")
 
-                extractDSP = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiratable.Ciiraentry.CiiramaptypeEnum']
+                extractDSP = Enum.YLeaf(4, "extractDSP")
 
 
-            class CiiratypeEnum(Enum):
+            class Ciiratype(Enum):
                 """
-                CiiratypeEnum
+                Ciiratype
 
                 The type of Reachable address. Those of type
 
@@ -3842,98 +6521,205 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                manual = 1
+                manual = Enum.YLeaf(1, "manual")
 
-                automatic = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiratable.Ciiraentry.CiiratypeEnum']
+                automatic = Enum.YLeaf(2, "automatic")
 
 
-            @property
-            def _common_path(self):
-                if self.ciicircindex is None:
-                    raise YPYModelError('Key property ciicircindex is None')
-                if self.ciiraindex is None:
-                    raise YPYModelError('Key property ciiraindex is None')
+            def has_data(self):
+                return (
+                    self.ciicircindex.is_set or
+                    self.ciiraindex.is_set or
+                    self.ciiraaddrprefix.is_set or
+                    self.ciiraadminstate.is_set or
+                    self.ciiraexiststate.is_set or
+                    self.ciiramaptype.is_set or
+                    self.ciirametric.is_set or
+                    self.ciirametrictype.is_set or
+                    self.ciirasnpaaddress.is_set or
+                    self.ciirasnpamask.is_set or
+                    self.ciirasnpaprefix.is_set or
+                    self.ciiratype.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRATable/CISCO-IETF-ISIS-MIB:ciiRAEntry[CISCO-IETF-ISIS-MIB:ciiCircIndex = ' + str(self.ciicircindex) + '][CISCO-IETF-ISIS-MIB:ciiRAIndex = ' + str(self.ciiraindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciicircindex.yfilter != YFilter.not_set or
+                    self.ciiraindex.yfilter != YFilter.not_set or
+                    self.ciiraaddrprefix.yfilter != YFilter.not_set or
+                    self.ciiraadminstate.yfilter != YFilter.not_set or
+                    self.ciiraexiststate.yfilter != YFilter.not_set or
+                    self.ciiramaptype.yfilter != YFilter.not_set or
+                    self.ciirametric.yfilter != YFilter.not_set or
+                    self.ciirametrictype.yfilter != YFilter.not_set or
+                    self.ciirasnpaaddress.yfilter != YFilter.not_set or
+                    self.ciirasnpamask.yfilter != YFilter.not_set or
+                    self.ciirasnpaprefix.yfilter != YFilter.not_set or
+                    self.ciiratype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiRAEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiRAIndex='" + self.ciiraindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRATable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciicircindex.is_set or self.ciicircindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciicircindex.get_name_leafdata())
+                if (self.ciiraindex.is_set or self.ciiraindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiraindex.get_name_leafdata())
+                if (self.ciiraaddrprefix.is_set or self.ciiraaddrprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiraaddrprefix.get_name_leafdata())
+                if (self.ciiraadminstate.is_set or self.ciiraadminstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiraadminstate.get_name_leafdata())
+                if (self.ciiraexiststate.is_set or self.ciiraexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiraexiststate.get_name_leafdata())
+                if (self.ciiramaptype.is_set or self.ciiramaptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiramaptype.get_name_leafdata())
+                if (self.ciirametric.is_set or self.ciirametric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirametric.get_name_leafdata())
+                if (self.ciirametrictype.is_set or self.ciirametrictype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirametrictype.get_name_leafdata())
+                if (self.ciirasnpaaddress.is_set or self.ciirasnpaaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirasnpaaddress.get_name_leafdata())
+                if (self.ciirasnpamask.is_set or self.ciirasnpamask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirasnpamask.get_name_leafdata())
+                if (self.ciirasnpaprefix.is_set or self.ciirasnpaprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciirasnpaprefix.get_name_leafdata())
+                if (self.ciiratype.is_set or self.ciiratype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiratype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiCircIndex" or name == "ciiRAIndex" or name == "ciiRAAddrPrefix" or name == "ciiRAAdminState" or name == "ciiRAExistState" or name == "ciiRAMapType" or name == "ciiRAMetric" or name == "ciiRAMetricType" or name == "ciiRASNPAAddress" or name == "ciiRASNPAMask" or name == "ciiRASNPAPrefix" or name == "ciiRAType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciicircindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiCircIndex"):
+                    self.ciicircindex = value
+                    self.ciicircindex.value_namespace = name_space
+                    self.ciicircindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAIndex"):
+                    self.ciiraindex = value
+                    self.ciiraindex.value_namespace = name_space
+                    self.ciiraindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAAddrPrefix"):
+                    self.ciiraaddrprefix = value
+                    self.ciiraaddrprefix.value_namespace = name_space
+                    self.ciiraaddrprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAAdminState"):
+                    self.ciiraadminstate = value
+                    self.ciiraadminstate.value_namespace = name_space
+                    self.ciiraadminstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAExistState"):
+                    self.ciiraexiststate = value
+                    self.ciiraexiststate.value_namespace = name_space
+                    self.ciiraexiststate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAMapType"):
+                    self.ciiramaptype = value
+                    self.ciiramaptype.value_namespace = name_space
+                    self.ciiramaptype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAMetric"):
+                    self.ciirametric = value
+                    self.ciirametric.value_namespace = name_space
+                    self.ciirametric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAMetricType"):
+                    self.ciirametrictype = value
+                    self.ciirametrictype.value_namespace = name_space
+                    self.ciirametrictype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRASNPAAddress"):
+                    self.ciirasnpaaddress = value
+                    self.ciirasnpaaddress.value_namespace = name_space
+                    self.ciirasnpaaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRASNPAMask"):
+                    self.ciirasnpamask = value
+                    self.ciirasnpamask.value_namespace = name_space
+                    self.ciirasnpamask.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRASNPAPrefix"):
+                    self.ciirasnpaprefix = value
+                    self.ciirasnpaprefix.value_namespace = name_space
+                    self.ciirasnpaprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiRAType"):
+                    self.ciiratype = value
+                    self.ciiratype.value_namespace = name_space
+                    self.ciiratype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiraentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiraindex is not None:
-                    return True
-
-                if self.ciiraaddrprefix is not None:
-                    return True
-
-                if self.ciiraadminstate is not None:
-                    return True
-
-                if self.ciiraexiststate is not None:
-                    return True
-
-                if self.ciiramaptype is not None:
-                    return True
-
-                if self.ciirametric is not None:
-                    return True
-
-                if self.ciirametrictype is not None:
-                    return True
-
-                if self.ciirasnpaaddress is not None:
-                    return True
-
-                if self.ciirasnpamask is not None:
-                    return True
-
-                if self.ciirasnpaprefix is not None:
-                    return True
-
-                if self.ciiratype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiratable.Ciiraentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiRATable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiraentry is not None:
-                for child_ref in self.ciiraentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiraentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiRATable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiRAEntry"):
+                for c in self.ciiraentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiratable.Ciiraentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiraentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiRAEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiratable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciiipratable(object):
+    class Ciiipratable(Entity):
         """
         The table of IP Reachable Addresses to networks,
         subnetworks or hosts either manually configured or
@@ -3952,13 +6738,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciiipraentry = YList()
-            self.ciiipraentry.parent = self
-            self.ciiipraentry.name = 'ciiipraentry'
+            super(CiscoIetfIsisMib.Ciiipratable, self).__init__()
+
+            self.yang_name = "ciiIPRATable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciiipraentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciiipratable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciiipratable, self).__setattr__(name, value)
 
 
-        class Ciiipraentry(object):
+        class Ciiipraentry(Entity):
             """
             Each entry defines an IP Reachable Address to a network,
             subnetwork or host.
@@ -3969,7 +6781,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiipradesttype  <key>
             
             	The type of this IP Reachable Address.  This object follows the ManualOrAutomatic behavior
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciiipradest  <key>
             
@@ -3995,12 +6807,12 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiipraadminstate
             
             	The administrative state of the IP Reachable Address. This object follows the CiiAdminState and ManualOrAutomatic behaviors
-            	**type**\:   :py:class:`CiiadminstateEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiadminstateEnum>`
+            	**type**\:   :py:class:`Ciiadminstate <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiadminstate>`
             
             .. attribute:: ciiipraexiststate
             
             	The state of this IP Reachable Address. This object follows the ExistenceState and ManualOrAutomatic behaviors
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciiiprafullmetric
             
@@ -4019,7 +6831,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiiprametrictype
             
             	Indicates whether the metric is internal or external. This object follows the ManualOrAutomatic behavior
-            	**type**\:   :py:class:`CiimetrictypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiimetrictypeEnum>`
+            	**type**\:   :py:class:`Ciimetrictype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciimetrictype>`
             
             .. attribute:: ciiipranexthop
             
@@ -4031,7 +6843,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiipranexthoptype
             
             	The type of the IP next hop address
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciiiprasnpaaddress
             
@@ -4043,12 +6855,12 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciiiprasourcetype
             
             	The origin of this route
-            	**type**\:   :py:class:`CiiiprasourcetypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.CiiiprasourcetypeEnum>`
+            	**type**\:   :py:class:`Ciiiprasourcetype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.Ciiiprasourcetype>`
             
             .. attribute:: ciiipratype
             
             	The type of this IP Reachable Address. Those of type manual are created by the network manager. Those of type automatic are created through propagation of routing information from another routing protocol.  This object follows the ManualOrAutomatic behavior
-            	**type**\:   :py:class:`CiiipratypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.CiiipratypeEnum>`
+            	**type**\:   :py:class:`Ciiipratype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.Ciiipratype>`
             
             
 
@@ -4058,25 +6870,79 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciiipradesttype = None
-                self.ciiipradest = None
-                self.ciiipradestprefixlen = None
-                self.ciiipranexthopindex = None
-                self.ciiipraadminstate = None
-                self.ciiipraexiststate = None
-                self.ciiiprafullmetric = None
-                self.ciiiprametric = None
-                self.ciiiprametrictype = None
-                self.ciiipranexthop = None
-                self.ciiipranexthoptype = None
-                self.ciiiprasnpaaddress = None
-                self.ciiiprasourcetype = None
-                self.ciiipratype = None
+                super(CiscoIetfIsisMib.Ciiipratable.Ciiipraentry, self).__init__()
 
-            class CiiiprasourcetypeEnum(Enum):
+                self.yang_name = "ciiIPRAEntry"
+                self.yang_parent_name = "ciiIPRATable"
+
+                self.ciiipradesttype = YLeaf(YType.enumeration, "ciiIPRADestType")
+
+                self.ciiipradest = YLeaf(YType.str, "ciiIPRADest")
+
+                self.ciiipradestprefixlen = YLeaf(YType.uint32, "ciiIPRADestPrefixLen")
+
+                self.ciiipranexthopindex = YLeaf(YType.int32, "ciiIPRANextHopIndex")
+
+                self.ciiipraadminstate = YLeaf(YType.enumeration, "ciiIPRAAdminState")
+
+                self.ciiipraexiststate = YLeaf(YType.enumeration, "ciiIPRAExistState")
+
+                self.ciiiprafullmetric = YLeaf(YType.uint32, "ciiIPRAFullMetric")
+
+                self.ciiiprametric = YLeaf(YType.int32, "ciiIPRAMetric")
+
+                self.ciiiprametrictype = YLeaf(YType.enumeration, "ciiIPRAMetricType")
+
+                self.ciiipranexthop = YLeaf(YType.str, "ciiIPRANextHop")
+
+                self.ciiipranexthoptype = YLeaf(YType.enumeration, "ciiIPRANextHopType")
+
+                self.ciiiprasnpaaddress = YLeaf(YType.str, "ciiIPRASNPAAddress")
+
+                self.ciiiprasourcetype = YLeaf(YType.enumeration, "ciiIPRASourceType")
+
+                self.ciiipratype = YLeaf(YType.enumeration, "ciiIPRAType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciiipradesttype",
+                                "ciiipradest",
+                                "ciiipradestprefixlen",
+                                "ciiipranexthopindex",
+                                "ciiipraadminstate",
+                                "ciiipraexiststate",
+                                "ciiiprafullmetric",
+                                "ciiiprametric",
+                                "ciiiprametrictype",
+                                "ciiipranexthop",
+                                "ciiipranexthoptype",
+                                "ciiiprasnpaaddress",
+                                "ciiiprasourcetype",
+                                "ciiipratype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciiipratable.Ciiipraentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciiipratable.Ciiipraentry, self).__setattr__(name, value)
+
+            class Ciiiprasourcetype(Enum):
                 """
-                CiiiprasourcetypeEnum
+                Ciiiprasourcetype
 
                 The origin of this route.
 
@@ -4102,36 +6968,30 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                static = 1
+                static = Enum.YLeaf(1, "static")
 
-                direct = 2
+                direct = Enum.YLeaf(2, "direct")
 
-                ospfv2 = 3
+                ospfv2 = Enum.YLeaf(3, "ospfv2")
 
-                ospfv3 = 4
+                ospfv3 = Enum.YLeaf(4, "ospfv3")
 
-                isis = 5
+                isis = Enum.YLeaf(5, "isis")
 
-                rip = 6
+                rip = Enum.YLeaf(6, "rip")
 
-                igrp = 7
+                igrp = Enum.YLeaf(7, "igrp")
 
-                eigrp = 8
+                eigrp = Enum.YLeaf(8, "eigrp")
 
-                bgp = 9
+                bgp = Enum.YLeaf(9, "bgp")
 
-                other = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.CiiiprasourcetypeEnum']
+                other = Enum.YLeaf(10, "other")
 
 
-            class CiiipratypeEnum(Enum):
+            class Ciiipratype(Enum):
                 """
-                CiiipratypeEnum
+                Ciiipratype
 
                 The type of this IP Reachable Address. Those of type
 
@@ -4149,108 +7009,221 @@ class CiscoIetfIsisMib(object):
 
                 """
 
-                manual = 1
+                manual = Enum.YLeaf(1, "manual")
 
-                automatic = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                    return meta._meta_table['CiscoIetfIsisMib.Ciiipratable.Ciiipraentry.CiiipratypeEnum']
+                automatic = Enum.YLeaf(2, "automatic")
 
 
-            @property
-            def _common_path(self):
-                if self.ciiipradesttype is None:
-                    raise YPYModelError('Key property ciiipradesttype is None')
-                if self.ciiipradest is None:
-                    raise YPYModelError('Key property ciiipradest is None')
-                if self.ciiipradestprefixlen is None:
-                    raise YPYModelError('Key property ciiipradestprefixlen is None')
-                if self.ciiipranexthopindex is None:
-                    raise YPYModelError('Key property ciiipranexthopindex is None')
+            def has_data(self):
+                return (
+                    self.ciiipradesttype.is_set or
+                    self.ciiipradest.is_set or
+                    self.ciiipradestprefixlen.is_set or
+                    self.ciiipranexthopindex.is_set or
+                    self.ciiipraadminstate.is_set or
+                    self.ciiipraexiststate.is_set or
+                    self.ciiiprafullmetric.is_set or
+                    self.ciiiprametric.is_set or
+                    self.ciiiprametrictype.is_set or
+                    self.ciiipranexthop.is_set or
+                    self.ciiipranexthoptype.is_set or
+                    self.ciiiprasnpaaddress.is_set or
+                    self.ciiiprasourcetype.is_set or
+                    self.ciiipratype.is_set)
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiIPRATable/CISCO-IETF-ISIS-MIB:ciiIPRAEntry[CISCO-IETF-ISIS-MIB:ciiIPRADestType = ' + str(self.ciiipradesttype) + '][CISCO-IETF-ISIS-MIB:ciiIPRADest = ' + str(self.ciiipradest) + '][CISCO-IETF-ISIS-MIB:ciiIPRADestPrefixLen = ' + str(self.ciiipradestprefixlen) + '][CISCO-IETF-ISIS-MIB:ciiIPRANextHopIndex = ' + str(self.ciiipranexthopindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciiipradesttype.yfilter != YFilter.not_set or
+                    self.ciiipradest.yfilter != YFilter.not_set or
+                    self.ciiipradestprefixlen.yfilter != YFilter.not_set or
+                    self.ciiipranexthopindex.yfilter != YFilter.not_set or
+                    self.ciiipraadminstate.yfilter != YFilter.not_set or
+                    self.ciiipraexiststate.yfilter != YFilter.not_set or
+                    self.ciiiprafullmetric.yfilter != YFilter.not_set or
+                    self.ciiiprametric.yfilter != YFilter.not_set or
+                    self.ciiiprametrictype.yfilter != YFilter.not_set or
+                    self.ciiipranexthop.yfilter != YFilter.not_set or
+                    self.ciiipranexthoptype.yfilter != YFilter.not_set or
+                    self.ciiiprasnpaaddress.yfilter != YFilter.not_set or
+                    self.ciiiprasourcetype.yfilter != YFilter.not_set or
+                    self.ciiipratype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiIPRAEntry" + "[ciiIPRADestType='" + self.ciiipradesttype.get() + "']" + "[ciiIPRADest='" + self.ciiipradest.get() + "']" + "[ciiIPRADestPrefixLen='" + self.ciiipradestprefixlen.get() + "']" + "[ciiIPRANextHopIndex='" + self.ciiipranexthopindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiIPRATable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciiipradesttype.is_set or self.ciiipradesttype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipradesttype.get_name_leafdata())
+                if (self.ciiipradest.is_set or self.ciiipradest.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipradest.get_name_leafdata())
+                if (self.ciiipradestprefixlen.is_set or self.ciiipradestprefixlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipradestprefixlen.get_name_leafdata())
+                if (self.ciiipranexthopindex.is_set or self.ciiipranexthopindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipranexthopindex.get_name_leafdata())
+                if (self.ciiipraadminstate.is_set or self.ciiipraadminstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipraadminstate.get_name_leafdata())
+                if (self.ciiipraexiststate.is_set or self.ciiipraexiststate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipraexiststate.get_name_leafdata())
+                if (self.ciiiprafullmetric.is_set or self.ciiiprafullmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiiprafullmetric.get_name_leafdata())
+                if (self.ciiiprametric.is_set or self.ciiiprametric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiiprametric.get_name_leafdata())
+                if (self.ciiiprametrictype.is_set or self.ciiiprametrictype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiiprametrictype.get_name_leafdata())
+                if (self.ciiipranexthop.is_set or self.ciiipranexthop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipranexthop.get_name_leafdata())
+                if (self.ciiipranexthoptype.is_set or self.ciiipranexthoptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipranexthoptype.get_name_leafdata())
+                if (self.ciiiprasnpaaddress.is_set or self.ciiiprasnpaaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiiprasnpaaddress.get_name_leafdata())
+                if (self.ciiiprasourcetype.is_set or self.ciiiprasourcetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiiprasourcetype.get_name_leafdata())
+                if (self.ciiipratype.is_set or self.ciiipratype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciiipratype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiIPRADestType" or name == "ciiIPRADest" or name == "ciiIPRADestPrefixLen" or name == "ciiIPRANextHopIndex" or name == "ciiIPRAAdminState" or name == "ciiIPRAExistState" or name == "ciiIPRAFullMetric" or name == "ciiIPRAMetric" or name == "ciiIPRAMetricType" or name == "ciiIPRANextHop" or name == "ciiIPRANextHopType" or name == "ciiIPRASNPAAddress" or name == "ciiIPRASourceType" or name == "ciiIPRAType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciiipradesttype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiIPRADestType"):
+                    self.ciiipradesttype = value
+                    self.ciiipradesttype.value_namespace = name_space
+                    self.ciiipradesttype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRADest"):
+                    self.ciiipradest = value
+                    self.ciiipradest.value_namespace = name_space
+                    self.ciiipradest.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRADestPrefixLen"):
+                    self.ciiipradestprefixlen = value
+                    self.ciiipradestprefixlen.value_namespace = name_space
+                    self.ciiipradestprefixlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRANextHopIndex"):
+                    self.ciiipranexthopindex = value
+                    self.ciiipranexthopindex.value_namespace = name_space
+                    self.ciiipranexthopindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAAdminState"):
+                    self.ciiipraadminstate = value
+                    self.ciiipraadminstate.value_namespace = name_space
+                    self.ciiipraadminstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAExistState"):
+                    self.ciiipraexiststate = value
+                    self.ciiipraexiststate.value_namespace = name_space
+                    self.ciiipraexiststate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAFullMetric"):
+                    self.ciiiprafullmetric = value
+                    self.ciiiprafullmetric.value_namespace = name_space
+                    self.ciiiprafullmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAMetric"):
+                    self.ciiiprametric = value
+                    self.ciiiprametric.value_namespace = name_space
+                    self.ciiiprametric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAMetricType"):
+                    self.ciiiprametrictype = value
+                    self.ciiiprametrictype.value_namespace = name_space
+                    self.ciiiprametrictype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRANextHop"):
+                    self.ciiipranexthop = value
+                    self.ciiipranexthop.value_namespace = name_space
+                    self.ciiipranexthop.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRANextHopType"):
+                    self.ciiipranexthoptype = value
+                    self.ciiipranexthoptype.value_namespace = name_space
+                    self.ciiipranexthoptype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRASNPAAddress"):
+                    self.ciiiprasnpaaddress = value
+                    self.ciiiprasnpaaddress.value_namespace = name_space
+                    self.ciiiprasnpaaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRASourceType"):
+                    self.ciiiprasourcetype = value
+                    self.ciiiprasourcetype.value_namespace = name_space
+                    self.ciiiprasourcetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiIPRAType"):
+                    self.ciiipratype = value
+                    self.ciiipratype.value_namespace = name_space
+                    self.ciiipratype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciiipraentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciiipradest is not None:
-                    return True
-
-                if self.ciiipradestprefixlen is not None:
-                    return True
-
-                if self.ciiipranexthopindex is not None:
-                    return True
-
-                if self.ciiipraadminstate is not None:
-                    return True
-
-                if self.ciiipraexiststate is not None:
-                    return True
-
-                if self.ciiiprafullmetric is not None:
-                    return True
-
-                if self.ciiiprametric is not None:
-                    return True
-
-                if self.ciiiprametrictype is not None:
-                    return True
-
-                if self.ciiipranexthop is not None:
-                    return True
-
-                if self.ciiipranexthoptype is not None:
-                    return True
-
-                if self.ciiiprasnpaaddress is not None:
-                    return True
-
-                if self.ciiiprasourcetype is not None:
-                    return True
-
-                if self.ciiipratype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciiipratable.Ciiipraentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiIPRATable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciiipraentry is not None:
-                for child_ref in self.ciiipraentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciiipraentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiIPRATable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiIPRAEntry"):
+                for c in self.ciiipraentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciiipratable.Ciiipraentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciiipraentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiIPRAEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciiipratable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciilspsummarytable(object):
+    class Ciilspsummarytable(Entity):
         """
         The table of LSP Headers.
         
@@ -4267,13 +7240,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciilspsummaryentry = YList()
-            self.ciilspsummaryentry.parent = self
-            self.ciilspsummaryentry.name = 'ciilspsummaryentry'
+            super(CiscoIetfIsisMib.Ciilspsummarytable, self).__init__()
+
+            self.yang_name = "ciiLSPSummaryTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciilspsummaryentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciilspsummarytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciilspsummarytable, self).__setattr__(name, value)
 
 
-        class Ciilspsummaryentry(object):
+        class Ciilspsummaryentry(Entity):
             """
             Each entry provides a summary describing an
             LSP currently stored in the system.
@@ -4281,7 +7280,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciilsplevel  <key>
             
             	At which level does this LSP appear?
-            	**type**\:   :py:class:`CiiislevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiislevelEnum>`
+            	**type**\:   :py:class:`Ciiislevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiislevel>`
             
             .. attribute:: ciilspid  <key>
             
@@ -4340,85 +7339,220 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciilsplevel = None
-                self.ciilspid = None
-                self.ciilspattributes = None
-                self.ciilspchecksum = None
-                self.ciilsplifetimeremain = None
-                self.ciilsppdulength = None
-                self.ciilspseq = None
-                self.ciilspzerolife = None
+                super(CiscoIetfIsisMib.Ciilspsummarytable.Ciilspsummaryentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciilsplevel is None:
-                    raise YPYModelError('Key property ciilsplevel is None')
-                if self.ciilspid is None:
-                    raise YPYModelError('Key property ciilspid is None')
+                self.yang_name = "ciiLSPSummaryEntry"
+                self.yang_parent_name = "ciiLSPSummaryTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiLSPSummaryTable/CISCO-IETF-ISIS-MIB:ciiLSPSummaryEntry[CISCO-IETF-ISIS-MIB:ciiLSPLevel = ' + str(self.ciilsplevel) + '][CISCO-IETF-ISIS-MIB:ciiLSPID = ' + str(self.ciilspid) + ']'
+                self.ciilsplevel = YLeaf(YType.enumeration, "ciiLSPLevel")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciilspid = YLeaf(YType.str, "ciiLSPID")
+
+                self.ciilspattributes = YLeaf(YType.uint32, "ciiLSPAttributes")
+
+                self.ciilspchecksum = YLeaf(YType.uint32, "ciiLSPChecksum")
+
+                self.ciilsplifetimeremain = YLeaf(YType.uint32, "ciiLSPLifetimeRemain")
+
+                self.ciilsppdulength = YLeaf(YType.uint32, "ciiLSPPDULength")
+
+                self.ciilspseq = YLeaf(YType.uint32, "ciiLSPSeq")
+
+                self.ciilspzerolife = YLeaf(YType.boolean, "ciiLSPZeroLife")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciilsplevel",
+                                "ciilspid",
+                                "ciilspattributes",
+                                "ciilspchecksum",
+                                "ciilsplifetimeremain",
+                                "ciilsppdulength",
+                                "ciilspseq",
+                                "ciilspzerolife") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciilspsummarytable.Ciilspsummaryentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciilspsummarytable.Ciilspsummaryentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciilsplevel.is_set or
+                    self.ciilspid.is_set or
+                    self.ciilspattributes.is_set or
+                    self.ciilspchecksum.is_set or
+                    self.ciilsplifetimeremain.is_set or
+                    self.ciilsppdulength.is_set or
+                    self.ciilspseq.is_set or
+                    self.ciilspzerolife.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciilsplevel.yfilter != YFilter.not_set or
+                    self.ciilspid.yfilter != YFilter.not_set or
+                    self.ciilspattributes.yfilter != YFilter.not_set or
+                    self.ciilspchecksum.yfilter != YFilter.not_set or
+                    self.ciilsplifetimeremain.yfilter != YFilter.not_set or
+                    self.ciilsppdulength.yfilter != YFilter.not_set or
+                    self.ciilspseq.yfilter != YFilter.not_set or
+                    self.ciilspzerolife.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiLSPSummaryEntry" + "[ciiLSPLevel='" + self.ciilsplevel.get() + "']" + "[ciiLSPID='" + self.ciilspid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPSummaryTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciilsplevel.is_set or self.ciilsplevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsplevel.get_name_leafdata())
+                if (self.ciilspid.is_set or self.ciilspid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspid.get_name_leafdata())
+                if (self.ciilspattributes.is_set or self.ciilspattributes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspattributes.get_name_leafdata())
+                if (self.ciilspchecksum.is_set or self.ciilspchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspchecksum.get_name_leafdata())
+                if (self.ciilsplifetimeremain.is_set or self.ciilsplifetimeremain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsplifetimeremain.get_name_leafdata())
+                if (self.ciilsppdulength.is_set or self.ciilsppdulength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsppdulength.get_name_leafdata())
+                if (self.ciilspseq.is_set or self.ciilspseq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspseq.get_name_leafdata())
+                if (self.ciilspzerolife.is_set or self.ciilspzerolife.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspzerolife.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiLSPLevel" or name == "ciiLSPID" or name == "ciiLSPAttributes" or name == "ciiLSPChecksum" or name == "ciiLSPLifetimeRemain" or name == "ciiLSPPDULength" or name == "ciiLSPSeq" or name == "ciiLSPZeroLife"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciilsplevel is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiLSPLevel"):
+                    self.ciilsplevel = value
+                    self.ciilsplevel.value_namespace = name_space
+                    self.ciilsplevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPID"):
+                    self.ciilspid = value
+                    self.ciilspid.value_namespace = name_space
+                    self.ciilspid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPAttributes"):
+                    self.ciilspattributes = value
+                    self.ciilspattributes.value_namespace = name_space
+                    self.ciilspattributes.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPChecksum"):
+                    self.ciilspchecksum = value
+                    self.ciilspchecksum.value_namespace = name_space
+                    self.ciilspchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPLifetimeRemain"):
+                    self.ciilsplifetimeremain = value
+                    self.ciilsplifetimeremain.value_namespace = name_space
+                    self.ciilsplifetimeremain.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPPDULength"):
+                    self.ciilsppdulength = value
+                    self.ciilsppdulength.value_namespace = name_space
+                    self.ciilsppdulength.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPSeq"):
+                    self.ciilspseq = value
+                    self.ciilspseq.value_namespace = name_space
+                    self.ciilspseq.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPZeroLife"):
+                    self.ciilspzerolife = value
+                    self.ciilspzerolife.value_namespace = name_space
+                    self.ciilspzerolife.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciilspsummaryentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciilspid is not None:
-                    return True
-
-                if self.ciilspattributes is not None:
-                    return True
-
-                if self.ciilspchecksum is not None:
-                    return True
-
-                if self.ciilsplifetimeremain is not None:
-                    return True
-
-                if self.ciilsppdulength is not None:
-                    return True
-
-                if self.ciilspseq is not None:
-                    return True
-
-                if self.ciilspzerolife is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciilspsummarytable.Ciilspsummaryentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiLSPSummaryTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciilspsummaryentry is not None:
-                for child_ref in self.ciilspsummaryentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciilspsummaryentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiLSPSummaryTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiLSPSummaryEntry"):
+                for c in self.ciilspsummaryentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciilspsummarytable.Ciilspsummaryentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciilspsummaryentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiLSPSummaryEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciilspsummarytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciilsptlvtable(object):
+    class Ciilsptlvtable(Entity):
         """
         The contents of each LSP.
         
@@ -4435,13 +7569,39 @@ class CiscoIetfIsisMib(object):
         _revision = '2005-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.ciilsptlventry = YList()
-            self.ciilsptlventry.parent = self
-            self.ciilsptlventry.name = 'ciilsptlventry'
+            super(CiscoIetfIsisMib.Ciilsptlvtable, self).__init__()
+
+            self.yang_name = "ciiLSPTLVTable"
+            self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
+
+            self.ciilsptlventry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfIsisMib.Ciilsptlvtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfIsisMib.Ciilsptlvtable, self).__setattr__(name, value)
 
 
-        class Ciilsptlventry(object):
+        class Ciilsptlventry(Entity):
             """
             Each entry describes an LSP current stored in the
             system.
@@ -4449,7 +7609,7 @@ class CiscoIetfIsisMib(object):
             .. attribute:: ciilsplevel  <key>
             
             	
-            	**type**\:   :py:class:`CiiislevelEnum <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiislevelEnum>`
+            	**type**\:   :py:class:`Ciiislevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.Ciiislevel>`
             
             .. attribute:: ciilspid  <key>
             
@@ -4510,166 +7670,456 @@ class CiscoIetfIsisMib(object):
             _revision = '2005-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ciilsplevel = None
-                self.ciilspid = None
-                self.ciilsptlvindex = None
-                self.ciilsptlvchecksum = None
-                self.ciilsptlvlen = None
-                self.ciilsptlvseq = None
-                self.ciilsptlvtype = None
-                self.ciilsptlvvalue = None
+                super(CiscoIetfIsisMib.Ciilsptlvtable.Ciilsptlventry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciilsplevel is None:
-                    raise YPYModelError('Key property ciilsplevel is None')
-                if self.ciilspid is None:
-                    raise YPYModelError('Key property ciilspid is None')
-                if self.ciilsptlvindex is None:
-                    raise YPYModelError('Key property ciilsptlvindex is None')
+                self.yang_name = "ciiLSPTLVEntry"
+                self.yang_parent_name = "ciiLSPTLVTable"
 
-                return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiLSPTLVTable/CISCO-IETF-ISIS-MIB:ciiLSPTLVEntry[CISCO-IETF-ISIS-MIB:ciiLSPLevel = ' + str(self.ciilsplevel) + '][CISCO-IETF-ISIS-MIB:ciiLSPID = ' + str(self.ciilspid) + '][CISCO-IETF-ISIS-MIB:ciiLSPTLVIndex = ' + str(self.ciilsptlvindex) + ']'
+                self.ciilsplevel = YLeaf(YType.enumeration, "ciiLSPLevel")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciilspid = YLeaf(YType.str, "ciiLSPID")
+
+                self.ciilsptlvindex = YLeaf(YType.uint32, "ciiLSPTLVIndex")
+
+                self.ciilsptlvchecksum = YLeaf(YType.uint32, "ciiLSPTLVChecksum")
+
+                self.ciilsptlvlen = YLeaf(YType.uint32, "ciiLSPTLVLen")
+
+                self.ciilsptlvseq = YLeaf(YType.uint32, "ciiLSPTLVSeq")
+
+                self.ciilsptlvtype = YLeaf(YType.uint32, "ciiLSPTLVType")
+
+                self.ciilsptlvvalue = YLeaf(YType.str, "ciiLSPTLVValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciilsplevel",
+                                "ciilspid",
+                                "ciilsptlvindex",
+                                "ciilsptlvchecksum",
+                                "ciilsptlvlen",
+                                "ciilsptlvseq",
+                                "ciilsptlvtype",
+                                "ciilsptlvvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfIsisMib.Ciilsptlvtable.Ciilsptlventry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfIsisMib.Ciilsptlvtable.Ciilsptlventry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciilsplevel.is_set or
+                    self.ciilspid.is_set or
+                    self.ciilsptlvindex.is_set or
+                    self.ciilsptlvchecksum.is_set or
+                    self.ciilsptlvlen.is_set or
+                    self.ciilsptlvseq.is_set or
+                    self.ciilsptlvtype.is_set or
+                    self.ciilsptlvvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciilsplevel.yfilter != YFilter.not_set or
+                    self.ciilspid.yfilter != YFilter.not_set or
+                    self.ciilsptlvindex.yfilter != YFilter.not_set or
+                    self.ciilsptlvchecksum.yfilter != YFilter.not_set or
+                    self.ciilsptlvlen.yfilter != YFilter.not_set or
+                    self.ciilsptlvseq.yfilter != YFilter.not_set or
+                    self.ciilsptlvtype.yfilter != YFilter.not_set or
+                    self.ciilsptlvvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciiLSPTLVEntry" + "[ciiLSPLevel='" + self.ciilsplevel.get() + "']" + "[ciiLSPID='" + self.ciilspid.get() + "']" + "[ciiLSPTLVIndex='" + self.ciilsptlvindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPTLVTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciilsplevel.is_set or self.ciilsplevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsplevel.get_name_leafdata())
+                if (self.ciilspid.is_set or self.ciilspid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilspid.get_name_leafdata())
+                if (self.ciilsptlvindex.is_set or self.ciilsptlvindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvindex.get_name_leafdata())
+                if (self.ciilsptlvchecksum.is_set or self.ciilsptlvchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvchecksum.get_name_leafdata())
+                if (self.ciilsptlvlen.is_set or self.ciilsptlvlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvlen.get_name_leafdata())
+                if (self.ciilsptlvseq.is_set or self.ciilsptlvseq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvseq.get_name_leafdata())
+                if (self.ciilsptlvtype.is_set or self.ciilsptlvtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvtype.get_name_leafdata())
+                if (self.ciilsptlvvalue.is_set or self.ciilsptlvvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciilsptlvvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciiLSPLevel" or name == "ciiLSPID" or name == "ciiLSPTLVIndex" or name == "ciiLSPTLVChecksum" or name == "ciiLSPTLVLen" or name == "ciiLSPTLVSeq" or name == "ciiLSPTLVType" or name == "ciiLSPTLVValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciilsplevel is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciiLSPLevel"):
+                    self.ciilsplevel = value
+                    self.ciilsplevel.value_namespace = name_space
+                    self.ciilsplevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPID"):
+                    self.ciilspid = value
+                    self.ciilspid.value_namespace = name_space
+                    self.ciilspid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVIndex"):
+                    self.ciilsptlvindex = value
+                    self.ciilsptlvindex.value_namespace = name_space
+                    self.ciilsptlvindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVChecksum"):
+                    self.ciilsptlvchecksum = value
+                    self.ciilsptlvchecksum.value_namespace = name_space
+                    self.ciilsptlvchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVLen"):
+                    self.ciilsptlvlen = value
+                    self.ciilsptlvlen.value_namespace = name_space
+                    self.ciilsptlvlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVSeq"):
+                    self.ciilsptlvseq = value
+                    self.ciilsptlvseq.value_namespace = name_space
+                    self.ciilsptlvseq.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVType"):
+                    self.ciilsptlvtype = value
+                    self.ciilsptlvtype.value_namespace = name_space
+                    self.ciilsptlvtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciiLSPTLVValue"):
+                    self.ciilsptlvvalue = value
+                    self.ciilsptlvvalue.value_namespace = name_space
+                    self.ciilsptlvvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciilsptlventry:
+                if (c.has_data()):
                     return True
-
-                if self.ciilspid is not None:
-                    return True
-
-                if self.ciilsptlvindex is not None:
-                    return True
-
-                if self.ciilsptlvchecksum is not None:
-                    return True
-
-                if self.ciilsptlvlen is not None:
-                    return True
-
-                if self.ciilsptlvseq is not None:
-                    return True
-
-                if self.ciilsptlvtype is not None:
-                    return True
-
-                if self.ciilsptlvvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-                return meta._meta_table['CiscoIetfIsisMib.Ciilsptlvtable.Ciilsptlventry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/CISCO-IETF-ISIS-MIB:ciiLSPTLVTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciilsptlventry is not None:
-                for child_ref in self.ciilsptlventry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciilsptlventry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciiLSPTLVTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciiLSPTLVEntry"):
+                for c in self.ciilsptlventry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfIsisMib.Ciilsptlvtable.Ciilsptlventry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciilsptlventry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciiLSPTLVEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-            return meta._meta_table['CiscoIetfIsisMib.Ciilsptlvtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciiareaaddrtable is not None and self.ciiareaaddrtable.has_data()) or
+            (self.ciicirc is not None and self.ciicirc.has_data()) or
+            (self.ciicircleveltable is not None and self.ciicircleveltable.has_data()) or
+            (self.ciicirctable is not None and self.ciicirctable.has_data()) or
+            (self.ciicircuitcountertable is not None and self.ciicircuitcountertable.has_data()) or
+            (self.ciiipratable is not None and self.ciiipratable.has_data()) or
+            (self.ciiisadjareaaddrtable is not None and self.ciiisadjareaaddrtable.has_data()) or
+            (self.ciiisadjipaddrtable is not None and self.ciiisadjipaddrtable.has_data()) or
+            (self.ciiisadjprotsupptable is not None and self.ciiisadjprotsupptable.has_data()) or
+            (self.ciiisadjtable is not None and self.ciiisadjtable.has_data()) or
+            (self.ciilspsummarytable is not None and self.ciilspsummarytable.has_data()) or
+            (self.ciilsptlvtable is not None and self.ciilsptlvtable.has_data()) or
+            (self.ciimanareaaddrtable is not None and self.ciimanareaaddrtable.has_data()) or
+            (self.ciipacketcountertable is not None and self.ciipacketcountertable.has_data()) or
+            (self.ciiratable is not None and self.ciiratable.has_data()) or
+            (self.ciiredistributeaddrtable is not None and self.ciiredistributeaddrtable.has_data()) or
+            (self.ciiroutertable is not None and self.ciiroutertable.has_data()) or
+            (self.ciisummaddrtable is not None and self.ciisummaddrtable.has_data()) or
+            (self.ciisysleveltable is not None and self.ciisysleveltable.has_data()) or
+            (self.ciisysobject is not None and self.ciisysobject.has_data()) or
+            (self.ciisysprotsupptable is not None and self.ciisysprotsupptable.has_data()) or
+            (self.ciisystemcountertable is not None and self.ciisystemcountertable.has_data()))
 
-        return '/CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciiareaaddrtable is not None and self.ciiareaaddrtable.has_operation()) or
+            (self.ciicirc is not None and self.ciicirc.has_operation()) or
+            (self.ciicircleveltable is not None and self.ciicircleveltable.has_operation()) or
+            (self.ciicirctable is not None and self.ciicirctable.has_operation()) or
+            (self.ciicircuitcountertable is not None and self.ciicircuitcountertable.has_operation()) or
+            (self.ciiipratable is not None and self.ciiipratable.has_operation()) or
+            (self.ciiisadjareaaddrtable is not None and self.ciiisadjareaaddrtable.has_operation()) or
+            (self.ciiisadjipaddrtable is not None and self.ciiisadjipaddrtable.has_operation()) or
+            (self.ciiisadjprotsupptable is not None and self.ciiisadjprotsupptable.has_operation()) or
+            (self.ciiisadjtable is not None and self.ciiisadjtable.has_operation()) or
+            (self.ciilspsummarytable is not None and self.ciilspsummarytable.has_operation()) or
+            (self.ciilsptlvtable is not None and self.ciilsptlvtable.has_operation()) or
+            (self.ciimanareaaddrtable is not None and self.ciimanareaaddrtable.has_operation()) or
+            (self.ciipacketcountertable is not None and self.ciipacketcountertable.has_operation()) or
+            (self.ciiratable is not None and self.ciiratable.has_operation()) or
+            (self.ciiredistributeaddrtable is not None and self.ciiredistributeaddrtable.has_operation()) or
+            (self.ciiroutertable is not None and self.ciiroutertable.has_operation()) or
+            (self.ciisummaddrtable is not None and self.ciisummaddrtable.has_operation()) or
+            (self.ciisysleveltable is not None and self.ciisysleveltable.has_operation()) or
+            (self.ciisysobject is not None and self.ciisysobject.has_operation()) or
+            (self.ciisysprotsupptable is not None and self.ciisysprotsupptable.has_operation()) or
+            (self.ciisystemcountertable is not None and self.ciisystemcountertable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ciiAreaAddrTable"):
+            if (self.ciiareaaddrtable is None):
+                self.ciiareaaddrtable = CiscoIetfIsisMib.Ciiareaaddrtable()
+                self.ciiareaaddrtable.parent = self
+                self._children_name_map["ciiareaaddrtable"] = "ciiAreaAddrTable"
+            return self.ciiareaaddrtable
+
+        if (child_yang_name == "ciiCirc"):
+            if (self.ciicirc is None):
+                self.ciicirc = CiscoIetfIsisMib.Ciicirc()
+                self.ciicirc.parent = self
+                self._children_name_map["ciicirc"] = "ciiCirc"
+            return self.ciicirc
+
+        if (child_yang_name == "ciiCircLevelTable"):
+            if (self.ciicircleveltable is None):
+                self.ciicircleveltable = CiscoIetfIsisMib.Ciicircleveltable()
+                self.ciicircleveltable.parent = self
+                self._children_name_map["ciicircleveltable"] = "ciiCircLevelTable"
+            return self.ciicircleveltable
+
+        if (child_yang_name == "ciiCircTable"):
+            if (self.ciicirctable is None):
+                self.ciicirctable = CiscoIetfIsisMib.Ciicirctable()
+                self.ciicirctable.parent = self
+                self._children_name_map["ciicirctable"] = "ciiCircTable"
+            return self.ciicirctable
+
+        if (child_yang_name == "ciiCircuitCounterTable"):
+            if (self.ciicircuitcountertable is None):
+                self.ciicircuitcountertable = CiscoIetfIsisMib.Ciicircuitcountertable()
+                self.ciicircuitcountertable.parent = self
+                self._children_name_map["ciicircuitcountertable"] = "ciiCircuitCounterTable"
+            return self.ciicircuitcountertable
+
+        if (child_yang_name == "ciiIPRATable"):
+            if (self.ciiipratable is None):
+                self.ciiipratable = CiscoIetfIsisMib.Ciiipratable()
+                self.ciiipratable.parent = self
+                self._children_name_map["ciiipratable"] = "ciiIPRATable"
+            return self.ciiipratable
+
+        if (child_yang_name == "ciiISAdjAreaAddrTable"):
+            if (self.ciiisadjareaaddrtable is None):
+                self.ciiisadjareaaddrtable = CiscoIetfIsisMib.Ciiisadjareaaddrtable()
+                self.ciiisadjareaaddrtable.parent = self
+                self._children_name_map["ciiisadjareaaddrtable"] = "ciiISAdjAreaAddrTable"
+            return self.ciiisadjareaaddrtable
+
+        if (child_yang_name == "ciiISAdjIPAddrTable"):
+            if (self.ciiisadjipaddrtable is None):
+                self.ciiisadjipaddrtable = CiscoIetfIsisMib.Ciiisadjipaddrtable()
+                self.ciiisadjipaddrtable.parent = self
+                self._children_name_map["ciiisadjipaddrtable"] = "ciiISAdjIPAddrTable"
+            return self.ciiisadjipaddrtable
+
+        if (child_yang_name == "ciiISAdjProtSuppTable"):
+            if (self.ciiisadjprotsupptable is None):
+                self.ciiisadjprotsupptable = CiscoIetfIsisMib.Ciiisadjprotsupptable()
+                self.ciiisadjprotsupptable.parent = self
+                self._children_name_map["ciiisadjprotsupptable"] = "ciiISAdjProtSuppTable"
+            return self.ciiisadjprotsupptable
+
+        if (child_yang_name == "ciiISAdjTable"):
+            if (self.ciiisadjtable is None):
+                self.ciiisadjtable = CiscoIetfIsisMib.Ciiisadjtable()
+                self.ciiisadjtable.parent = self
+                self._children_name_map["ciiisadjtable"] = "ciiISAdjTable"
+            return self.ciiisadjtable
+
+        if (child_yang_name == "ciiLSPSummaryTable"):
+            if (self.ciilspsummarytable is None):
+                self.ciilspsummarytable = CiscoIetfIsisMib.Ciilspsummarytable()
+                self.ciilspsummarytable.parent = self
+                self._children_name_map["ciilspsummarytable"] = "ciiLSPSummaryTable"
+            return self.ciilspsummarytable
+
+        if (child_yang_name == "ciiLSPTLVTable"):
+            if (self.ciilsptlvtable is None):
+                self.ciilsptlvtable = CiscoIetfIsisMib.Ciilsptlvtable()
+                self.ciilsptlvtable.parent = self
+                self._children_name_map["ciilsptlvtable"] = "ciiLSPTLVTable"
+            return self.ciilsptlvtable
+
+        if (child_yang_name == "ciiManAreaAddrTable"):
+            if (self.ciimanareaaddrtable is None):
+                self.ciimanareaaddrtable = CiscoIetfIsisMib.Ciimanareaaddrtable()
+                self.ciimanareaaddrtable.parent = self
+                self._children_name_map["ciimanareaaddrtable"] = "ciiManAreaAddrTable"
+            return self.ciimanareaaddrtable
+
+        if (child_yang_name == "ciiPacketCounterTable"):
+            if (self.ciipacketcountertable is None):
+                self.ciipacketcountertable = CiscoIetfIsisMib.Ciipacketcountertable()
+                self.ciipacketcountertable.parent = self
+                self._children_name_map["ciipacketcountertable"] = "ciiPacketCounterTable"
+            return self.ciipacketcountertable
+
+        if (child_yang_name == "ciiRATable"):
+            if (self.ciiratable is None):
+                self.ciiratable = CiscoIetfIsisMib.Ciiratable()
+                self.ciiratable.parent = self
+                self._children_name_map["ciiratable"] = "ciiRATable"
+            return self.ciiratable
+
+        if (child_yang_name == "ciiRedistributeAddrTable"):
+            if (self.ciiredistributeaddrtable is None):
+                self.ciiredistributeaddrtable = CiscoIetfIsisMib.Ciiredistributeaddrtable()
+                self.ciiredistributeaddrtable.parent = self
+                self._children_name_map["ciiredistributeaddrtable"] = "ciiRedistributeAddrTable"
+            return self.ciiredistributeaddrtable
+
+        if (child_yang_name == "ciiRouterTable"):
+            if (self.ciiroutertable is None):
+                self.ciiroutertable = CiscoIetfIsisMib.Ciiroutertable()
+                self.ciiroutertable.parent = self
+                self._children_name_map["ciiroutertable"] = "ciiRouterTable"
+            return self.ciiroutertable
+
+        if (child_yang_name == "ciiSummAddrTable"):
+            if (self.ciisummaddrtable is None):
+                self.ciisummaddrtable = CiscoIetfIsisMib.Ciisummaddrtable()
+                self.ciisummaddrtable.parent = self
+                self._children_name_map["ciisummaddrtable"] = "ciiSummAddrTable"
+            return self.ciisummaddrtable
+
+        if (child_yang_name == "ciiSysLevelTable"):
+            if (self.ciisysleveltable is None):
+                self.ciisysleveltable = CiscoIetfIsisMib.Ciisysleveltable()
+                self.ciisysleveltable.parent = self
+                self._children_name_map["ciisysleveltable"] = "ciiSysLevelTable"
+            return self.ciisysleveltable
+
+        if (child_yang_name == "ciiSysObject"):
+            if (self.ciisysobject is None):
+                self.ciisysobject = CiscoIetfIsisMib.Ciisysobject()
+                self.ciisysobject.parent = self
+                self._children_name_map["ciisysobject"] = "ciiSysObject"
+            return self.ciisysobject
+
+        if (child_yang_name == "ciiSysProtSuppTable"):
+            if (self.ciisysprotsupptable is None):
+                self.ciisysprotsupptable = CiscoIetfIsisMib.Ciisysprotsupptable()
+                self.ciisysprotsupptable.parent = self
+                self._children_name_map["ciisysprotsupptable"] = "ciiSysProtSuppTable"
+            return self.ciisysprotsupptable
+
+        if (child_yang_name == "ciiSystemCounterTable"):
+            if (self.ciisystemcountertable is None):
+                self.ciisystemcountertable = CiscoIetfIsisMib.Ciisystemcountertable()
+                self.ciisystemcountertable.parent = self
+                self._children_name_map["ciisystemcountertable"] = "ciiSystemCounterTable"
+            return self.ciisystemcountertable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ciiAreaAddrTable" or name == "ciiCirc" or name == "ciiCircLevelTable" or name == "ciiCircTable" or name == "ciiCircuitCounterTable" or name == "ciiIPRATable" or name == "ciiISAdjAreaAddrTable" or name == "ciiISAdjIPAddrTable" or name == "ciiISAdjProtSuppTable" or name == "ciiISAdjTable" or name == "ciiLSPSummaryTable" or name == "ciiLSPTLVTable" or name == "ciiManAreaAddrTable" or name == "ciiPacketCounterTable" or name == "ciiRATable" or name == "ciiRedistributeAddrTable" or name == "ciiRouterTable" or name == "ciiSummAddrTable" or name == "ciiSysLevelTable" or name == "ciiSysObject" or name == "ciiSysProtSuppTable" or name == "ciiSystemCounterTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciiareaaddrtable is not None and self.ciiareaaddrtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ciicirc is not None and self.ciicirc._has_data():
-            return True
-
-        if self.ciicircleveltable is not None and self.ciicircleveltable._has_data():
-            return True
-
-        if self.ciicirctable is not None and self.ciicirctable._has_data():
-            return True
-
-        if self.ciicircuitcountertable is not None and self.ciicircuitcountertable._has_data():
-            return True
-
-        if self.ciiipratable is not None and self.ciiipratable._has_data():
-            return True
-
-        if self.ciiisadjareaaddrtable is not None and self.ciiisadjareaaddrtable._has_data():
-            return True
-
-        if self.ciiisadjipaddrtable is not None and self.ciiisadjipaddrtable._has_data():
-            return True
-
-        if self.ciiisadjprotsupptable is not None and self.ciiisadjprotsupptable._has_data():
-            return True
-
-        if self.ciiisadjtable is not None and self.ciiisadjtable._has_data():
-            return True
-
-        if self.ciilspsummarytable is not None and self.ciilspsummarytable._has_data():
-            return True
-
-        if self.ciilsptlvtable is not None and self.ciilsptlvtable._has_data():
-            return True
-
-        if self.ciimanareaaddrtable is not None and self.ciimanareaaddrtable._has_data():
-            return True
-
-        if self.ciipacketcountertable is not None and self.ciipacketcountertable._has_data():
-            return True
-
-        if self.ciiratable is not None and self.ciiratable._has_data():
-            return True
-
-        if self.ciiredistributeaddrtable is not None and self.ciiredistributeaddrtable._has_data():
-            return True
-
-        if self.ciiroutertable is not None and self.ciiroutertable._has_data():
-            return True
-
-        if self.ciisummaddrtable is not None and self.ciisummaddrtable._has_data():
-            return True
-
-        if self.ciisysleveltable is not None and self.ciisysleveltable._has_data():
-            return True
-
-        if self.ciisysobject is not None and self.ciisysobject._has_data():
-            return True
-
-        if self.ciisysprotsupptable is not None and self.ciisysprotsupptable._has_data():
-            return True
-
-        if self.ciisystemcountertable is not None and self.ciisystemcountertable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_ISIS_MIB as meta
-        return meta._meta_table['CiscoIetfIsisMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIetfIsisMib()
+        return self._top_entity
 

@@ -32,21 +32,15 @@ Authorization Client MIB, RFC\-4672, September 2006.
 Authorization Server MIB, RFC\-4673, September 2006.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoRadiusExtMib(object):
+class CiscoRadiusExtMib(Entity):
     """
     
     
@@ -73,15 +67,29 @@ class CiscoRadiusExtMib(object):
     _revision = '2010-05-25'
 
     def __init__(self):
+        super(CiscoRadiusExtMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-RADIUS-EXT-MIB"
+        self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
+
         self.creclientaccounting = CiscoRadiusExtMib.Creclientaccounting()
         self.creclientaccounting.parent = self
+        self._children_name_map["creclientaccounting"] = "creClientAccounting"
+        self._children_yang_names.add("creClientAccounting")
+
         self.creclientauthentication = CiscoRadiusExtMib.Creclientauthentication()
         self.creclientauthentication.parent = self
+        self._children_name_map["creclientauthentication"] = "creClientAuthentication"
+        self._children_yang_names.add("creClientAuthentication")
+
         self.creclientglobal = CiscoRadiusExtMib.Creclientglobal()
         self.creclientglobal.parent = self
+        self._children_name_map["creclientglobal"] = "creClientGlobal"
+        self._children_yang_names.add("creClientGlobal")
 
 
-    class Creclientglobal(object):
+    class Creclientglobal(Entity):
         """
         
         
@@ -164,63 +172,174 @@ class CiscoRadiusExtMib(object):
         _revision = '2010-05-25'
 
         def __init__(self):
-            self.parent = None
-            self.creclientlastusedsourceid = None
-            self.creclientlastusedsourceport = None
-            self.creclientsourceportrangeend = None
-            self.creclientsourceportrangestart = None
-            self.creclienttotalaccessrejects = None
-            self.creclienttotalaverageresponsedelay = None
-            self.creclienttotalmaxdoneqlength = None
-            self.creclienttotalmaxinqlength = None
-            self.creclienttotalmaxwaitqlength = None
+            super(CiscoRadiusExtMib.Creclientglobal, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "creClientGlobal"
+            self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
 
-            return '/CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/CISCO-RADIUS-EXT-MIB:creClientGlobal'
+            self.creclientlastusedsourceid = YLeaf(YType.uint32, "creClientLastUsedSourceId")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.creclientlastusedsourceport = YLeaf(YType.uint16, "creClientLastUsedSourcePort")
+
+            self.creclientsourceportrangeend = YLeaf(YType.uint16, "creClientSourcePortRangeEnd")
+
+            self.creclientsourceportrangestart = YLeaf(YType.uint16, "creClientSourcePortRangeStart")
+
+            self.creclienttotalaccessrejects = YLeaf(YType.uint32, "creClientTotalAccessRejects")
+
+            self.creclienttotalaverageresponsedelay = YLeaf(YType.int32, "creClientTotalAverageResponseDelay")
+
+            self.creclienttotalmaxdoneqlength = YLeaf(YType.uint32, "creClientTotalMaxDoneQLength")
+
+            self.creclienttotalmaxinqlength = YLeaf(YType.uint32, "creClientTotalMaxInQLength")
+
+            self.creclienttotalmaxwaitqlength = YLeaf(YType.uint32, "creClientTotalMaxWaitQLength")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("creclientlastusedsourceid",
+                            "creclientlastusedsourceport",
+                            "creclientsourceportrangeend",
+                            "creclientsourceportrangestart",
+                            "creclienttotalaccessrejects",
+                            "creclienttotalaverageresponsedelay",
+                            "creclienttotalmaxdoneqlength",
+                            "creclienttotalmaxinqlength",
+                            "creclienttotalmaxwaitqlength") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRadiusExtMib.Creclientglobal, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRadiusExtMib.Creclientglobal, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.creclientlastusedsourceid.is_set or
+                self.creclientlastusedsourceport.is_set or
+                self.creclientsourceportrangeend.is_set or
+                self.creclientsourceportrangestart.is_set or
+                self.creclienttotalaccessrejects.is_set or
+                self.creclienttotalaverageresponsedelay.is_set or
+                self.creclienttotalmaxdoneqlength.is_set or
+                self.creclienttotalmaxinqlength.is_set or
+                self.creclienttotalmaxwaitqlength.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.creclientlastusedsourceid.yfilter != YFilter.not_set or
+                self.creclientlastusedsourceport.yfilter != YFilter.not_set or
+                self.creclientsourceportrangeend.yfilter != YFilter.not_set or
+                self.creclientsourceportrangestart.yfilter != YFilter.not_set or
+                self.creclienttotalaccessrejects.yfilter != YFilter.not_set or
+                self.creclienttotalaverageresponsedelay.yfilter != YFilter.not_set or
+                self.creclienttotalmaxdoneqlength.yfilter != YFilter.not_set or
+                self.creclienttotalmaxinqlength.yfilter != YFilter.not_set or
+                self.creclienttotalmaxwaitqlength.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "creClientGlobal" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.creclientlastusedsourceid.is_set or self.creclientlastusedsourceid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclientlastusedsourceid.get_name_leafdata())
+            if (self.creclientlastusedsourceport.is_set or self.creclientlastusedsourceport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclientlastusedsourceport.get_name_leafdata())
+            if (self.creclientsourceportrangeend.is_set or self.creclientsourceportrangeend.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclientsourceportrangeend.get_name_leafdata())
+            if (self.creclientsourceportrangestart.is_set or self.creclientsourceportrangestart.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclientsourceportrangestart.get_name_leafdata())
+            if (self.creclienttotalaccessrejects.is_set or self.creclienttotalaccessrejects.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclienttotalaccessrejects.get_name_leafdata())
+            if (self.creclienttotalaverageresponsedelay.is_set or self.creclienttotalaverageresponsedelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclienttotalaverageresponsedelay.get_name_leafdata())
+            if (self.creclienttotalmaxdoneqlength.is_set or self.creclienttotalmaxdoneqlength.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclienttotalmaxdoneqlength.get_name_leafdata())
+            if (self.creclienttotalmaxinqlength.is_set or self.creclienttotalmaxinqlength.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclienttotalmaxinqlength.get_name_leafdata())
+            if (self.creclienttotalmaxwaitqlength.is_set or self.creclienttotalmaxwaitqlength.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creclienttotalmaxwaitqlength.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "creClientLastUsedSourceId" or name == "creClientLastUsedSourcePort" or name == "creClientSourcePortRangeEnd" or name == "creClientSourcePortRangeStart" or name == "creClientTotalAccessRejects" or name == "creClientTotalAverageResponseDelay" or name == "creClientTotalMaxDoneQLength" or name == "creClientTotalMaxInQLength" or name == "creClientTotalMaxWaitQLength"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.creclientlastusedsourceid is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "creClientLastUsedSourceId"):
+                self.creclientlastusedsourceid = value
+                self.creclientlastusedsourceid.value_namespace = name_space
+                self.creclientlastusedsourceid.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientLastUsedSourcePort"):
+                self.creclientlastusedsourceport = value
+                self.creclientlastusedsourceport.value_namespace = name_space
+                self.creclientlastusedsourceport.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientSourcePortRangeEnd"):
+                self.creclientsourceportrangeend = value
+                self.creclientsourceportrangeend.value_namespace = name_space
+                self.creclientsourceportrangeend.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientSourcePortRangeStart"):
+                self.creclientsourceportrangestart = value
+                self.creclientsourceportrangestart.value_namespace = name_space
+                self.creclientsourceportrangestart.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientTotalAccessRejects"):
+                self.creclienttotalaccessrejects = value
+                self.creclienttotalaccessrejects.value_namespace = name_space
+                self.creclienttotalaccessrejects.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientTotalAverageResponseDelay"):
+                self.creclienttotalaverageresponsedelay = value
+                self.creclienttotalaverageresponsedelay.value_namespace = name_space
+                self.creclienttotalaverageresponsedelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientTotalMaxDoneQLength"):
+                self.creclienttotalmaxdoneqlength = value
+                self.creclienttotalmaxdoneqlength.value_namespace = name_space
+                self.creclienttotalmaxdoneqlength.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientTotalMaxInQLength"):
+                self.creclienttotalmaxinqlength = value
+                self.creclienttotalmaxinqlength.value_namespace = name_space
+                self.creclienttotalmaxinqlength.value_namespace_prefix = name_space_prefix
+            if(value_path == "creClientTotalMaxWaitQLength"):
+                self.creclienttotalmaxwaitqlength = value
+                self.creclienttotalmaxwaitqlength.value_namespace = name_space
+                self.creclienttotalmaxwaitqlength.value_namespace_prefix = name_space_prefix
 
-            if self.creclientlastusedsourceport is not None:
-                return True
 
-            if self.creclientsourceportrangeend is not None:
-                return True
-
-            if self.creclientsourceportrangestart is not None:
-                return True
-
-            if self.creclienttotalaccessrejects is not None:
-                return True
-
-            if self.creclienttotalaverageresponsedelay is not None:
-                return True
-
-            if self.creclienttotalmaxdoneqlength is not None:
-                return True
-
-            if self.creclienttotalmaxinqlength is not None:
-                return True
-
-            if self.creclienttotalmaxwaitqlength is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RADIUS_EXT_MIB as meta
-            return meta._meta_table['CiscoRadiusExtMib.Creclientglobal']['meta_info']
-
-
-    class Creclientauthentication(object):
+    class Creclientauthentication(Entity):
         """
         
         
@@ -343,79 +462,218 @@ class CiscoRadiusExtMib(object):
         _revision = '2010-05-25'
 
         def __init__(self):
-            self.parent = None
-            self.creauthclientaverageresponsedelay = None
-            self.creauthclientbadauthenticators = None
-            self.creauthclientbufferallocfailures = None
-            self.creauthclientdupids = None
-            self.creauthclientlastusedsourceid = None
-            self.creauthclientmalformedresponses = None
-            self.creauthclientmaxbuffersize = None
-            self.creauthclientmaxresponsedelay = None
-            self.creauthclienttimeouts = None
-            self.creauthclienttotalpacketswithoutresponses = None
-            self.creauthclienttotalpacketswithresponses = None
-            self.creauthclienttotalresponses = None
-            self.creauthclientunknownresponses = None
+            super(CiscoRadiusExtMib.Creclientauthentication, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "creClientAuthentication"
+            self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
 
-            return '/CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/CISCO-RADIUS-EXT-MIB:creClientAuthentication'
+            self.creauthclientaverageresponsedelay = YLeaf(YType.int32, "creAuthClientAverageResponseDelay")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.creauthclientbadauthenticators = YLeaf(YType.uint32, "creAuthClientBadAuthenticators")
+
+            self.creauthclientbufferallocfailures = YLeaf(YType.uint32, "creAuthClientBufferAllocFailures")
+
+            self.creauthclientdupids = YLeaf(YType.uint32, "creAuthClientDupIDs")
+
+            self.creauthclientlastusedsourceid = YLeaf(YType.uint32, "creAuthClientLastUsedSourceId")
+
+            self.creauthclientmalformedresponses = YLeaf(YType.uint32, "creAuthClientMalformedResponses")
+
+            self.creauthclientmaxbuffersize = YLeaf(YType.uint32, "creAuthClientMaxBufferSize")
+
+            self.creauthclientmaxresponsedelay = YLeaf(YType.int32, "creAuthClientMaxResponseDelay")
+
+            self.creauthclienttimeouts = YLeaf(YType.uint32, "creAuthClientTimeouts")
+
+            self.creauthclienttotalpacketswithoutresponses = YLeaf(YType.uint32, "creAuthClientTotalPacketsWithoutResponses")
+
+            self.creauthclienttotalpacketswithresponses = YLeaf(YType.uint32, "creAuthClientTotalPacketsWithResponses")
+
+            self.creauthclienttotalresponses = YLeaf(YType.uint32, "creAuthClientTotalResponses")
+
+            self.creauthclientunknownresponses = YLeaf(YType.uint32, "creAuthClientUnknownResponses")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("creauthclientaverageresponsedelay",
+                            "creauthclientbadauthenticators",
+                            "creauthclientbufferallocfailures",
+                            "creauthclientdupids",
+                            "creauthclientlastusedsourceid",
+                            "creauthclientmalformedresponses",
+                            "creauthclientmaxbuffersize",
+                            "creauthclientmaxresponsedelay",
+                            "creauthclienttimeouts",
+                            "creauthclienttotalpacketswithoutresponses",
+                            "creauthclienttotalpacketswithresponses",
+                            "creauthclienttotalresponses",
+                            "creauthclientunknownresponses") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRadiusExtMib.Creclientauthentication, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRadiusExtMib.Creclientauthentication, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.creauthclientaverageresponsedelay.is_set or
+                self.creauthclientbadauthenticators.is_set or
+                self.creauthclientbufferallocfailures.is_set or
+                self.creauthclientdupids.is_set or
+                self.creauthclientlastusedsourceid.is_set or
+                self.creauthclientmalformedresponses.is_set or
+                self.creauthclientmaxbuffersize.is_set or
+                self.creauthclientmaxresponsedelay.is_set or
+                self.creauthclienttimeouts.is_set or
+                self.creauthclienttotalpacketswithoutresponses.is_set or
+                self.creauthclienttotalpacketswithresponses.is_set or
+                self.creauthclienttotalresponses.is_set or
+                self.creauthclientunknownresponses.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.creauthclientaverageresponsedelay.yfilter != YFilter.not_set or
+                self.creauthclientbadauthenticators.yfilter != YFilter.not_set or
+                self.creauthclientbufferallocfailures.yfilter != YFilter.not_set or
+                self.creauthclientdupids.yfilter != YFilter.not_set or
+                self.creauthclientlastusedsourceid.yfilter != YFilter.not_set or
+                self.creauthclientmalformedresponses.yfilter != YFilter.not_set or
+                self.creauthclientmaxbuffersize.yfilter != YFilter.not_set or
+                self.creauthclientmaxresponsedelay.yfilter != YFilter.not_set or
+                self.creauthclienttimeouts.yfilter != YFilter.not_set or
+                self.creauthclienttotalpacketswithoutresponses.yfilter != YFilter.not_set or
+                self.creauthclienttotalpacketswithresponses.yfilter != YFilter.not_set or
+                self.creauthclienttotalresponses.yfilter != YFilter.not_set or
+                self.creauthclientunknownresponses.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "creClientAuthentication" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.creauthclientaverageresponsedelay.is_set or self.creauthclientaverageresponsedelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientaverageresponsedelay.get_name_leafdata())
+            if (self.creauthclientbadauthenticators.is_set or self.creauthclientbadauthenticators.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientbadauthenticators.get_name_leafdata())
+            if (self.creauthclientbufferallocfailures.is_set or self.creauthclientbufferallocfailures.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientbufferallocfailures.get_name_leafdata())
+            if (self.creauthclientdupids.is_set or self.creauthclientdupids.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientdupids.get_name_leafdata())
+            if (self.creauthclientlastusedsourceid.is_set or self.creauthclientlastusedsourceid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientlastusedsourceid.get_name_leafdata())
+            if (self.creauthclientmalformedresponses.is_set or self.creauthclientmalformedresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientmalformedresponses.get_name_leafdata())
+            if (self.creauthclientmaxbuffersize.is_set or self.creauthclientmaxbuffersize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientmaxbuffersize.get_name_leafdata())
+            if (self.creauthclientmaxresponsedelay.is_set or self.creauthclientmaxresponsedelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientmaxresponsedelay.get_name_leafdata())
+            if (self.creauthclienttimeouts.is_set or self.creauthclienttimeouts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclienttimeouts.get_name_leafdata())
+            if (self.creauthclienttotalpacketswithoutresponses.is_set or self.creauthclienttotalpacketswithoutresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclienttotalpacketswithoutresponses.get_name_leafdata())
+            if (self.creauthclienttotalpacketswithresponses.is_set or self.creauthclienttotalpacketswithresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclienttotalpacketswithresponses.get_name_leafdata())
+            if (self.creauthclienttotalresponses.is_set or self.creauthclienttotalresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclienttotalresponses.get_name_leafdata())
+            if (self.creauthclientunknownresponses.is_set or self.creauthclientunknownresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creauthclientunknownresponses.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "creAuthClientAverageResponseDelay" or name == "creAuthClientBadAuthenticators" or name == "creAuthClientBufferAllocFailures" or name == "creAuthClientDupIDs" or name == "creAuthClientLastUsedSourceId" or name == "creAuthClientMalformedResponses" or name == "creAuthClientMaxBufferSize" or name == "creAuthClientMaxResponseDelay" or name == "creAuthClientTimeouts" or name == "creAuthClientTotalPacketsWithoutResponses" or name == "creAuthClientTotalPacketsWithResponses" or name == "creAuthClientTotalResponses" or name == "creAuthClientUnknownResponses"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.creauthclientaverageresponsedelay is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "creAuthClientAverageResponseDelay"):
+                self.creauthclientaverageresponsedelay = value
+                self.creauthclientaverageresponsedelay.value_namespace = name_space
+                self.creauthclientaverageresponsedelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientBadAuthenticators"):
+                self.creauthclientbadauthenticators = value
+                self.creauthclientbadauthenticators.value_namespace = name_space
+                self.creauthclientbadauthenticators.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientBufferAllocFailures"):
+                self.creauthclientbufferallocfailures = value
+                self.creauthclientbufferallocfailures.value_namespace = name_space
+                self.creauthclientbufferallocfailures.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientDupIDs"):
+                self.creauthclientdupids = value
+                self.creauthclientdupids.value_namespace = name_space
+                self.creauthclientdupids.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientLastUsedSourceId"):
+                self.creauthclientlastusedsourceid = value
+                self.creauthclientlastusedsourceid.value_namespace = name_space
+                self.creauthclientlastusedsourceid.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientMalformedResponses"):
+                self.creauthclientmalformedresponses = value
+                self.creauthclientmalformedresponses.value_namespace = name_space
+                self.creauthclientmalformedresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientMaxBufferSize"):
+                self.creauthclientmaxbuffersize = value
+                self.creauthclientmaxbuffersize.value_namespace = name_space
+                self.creauthclientmaxbuffersize.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientMaxResponseDelay"):
+                self.creauthclientmaxresponsedelay = value
+                self.creauthclientmaxresponsedelay.value_namespace = name_space
+                self.creauthclientmaxresponsedelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientTimeouts"):
+                self.creauthclienttimeouts = value
+                self.creauthclienttimeouts.value_namespace = name_space
+                self.creauthclienttimeouts.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientTotalPacketsWithoutResponses"):
+                self.creauthclienttotalpacketswithoutresponses = value
+                self.creauthclienttotalpacketswithoutresponses.value_namespace = name_space
+                self.creauthclienttotalpacketswithoutresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientTotalPacketsWithResponses"):
+                self.creauthclienttotalpacketswithresponses = value
+                self.creauthclienttotalpacketswithresponses.value_namespace = name_space
+                self.creauthclienttotalpacketswithresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientTotalResponses"):
+                self.creauthclienttotalresponses = value
+                self.creauthclienttotalresponses.value_namespace = name_space
+                self.creauthclienttotalresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAuthClientUnknownResponses"):
+                self.creauthclientunknownresponses = value
+                self.creauthclientunknownresponses.value_namespace = name_space
+                self.creauthclientunknownresponses.value_namespace_prefix = name_space_prefix
 
-            if self.creauthclientbadauthenticators is not None:
-                return True
 
-            if self.creauthclientbufferallocfailures is not None:
-                return True
-
-            if self.creauthclientdupids is not None:
-                return True
-
-            if self.creauthclientlastusedsourceid is not None:
-                return True
-
-            if self.creauthclientmalformedresponses is not None:
-                return True
-
-            if self.creauthclientmaxbuffersize is not None:
-                return True
-
-            if self.creauthclientmaxresponsedelay is not None:
-                return True
-
-            if self.creauthclienttimeouts is not None:
-                return True
-
-            if self.creauthclienttotalpacketswithoutresponses is not None:
-                return True
-
-            if self.creauthclienttotalpacketswithresponses is not None:
-                return True
-
-            if self.creauthclienttotalresponses is not None:
-                return True
-
-            if self.creauthclientunknownresponses is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RADIUS_EXT_MIB as meta
-            return meta._meta_table['CiscoRadiusExtMib.Creclientauthentication']['meta_info']
-
-
-    class Creclientaccounting(object):
+    class Creclientaccounting(Entity):
         """
         
         
@@ -538,101 +796,283 @@ class CiscoRadiusExtMib(object):
         _revision = '2010-05-25'
 
         def __init__(self):
-            self.parent = None
-            self.creacctclientaverageresponsedelay = None
-            self.creacctclientbadauthenticators = None
-            self.creacctclientbufferallocfailures = None
-            self.creacctclientdupids = None
-            self.creacctclientlastusedsourceid = None
-            self.creacctclientmalformedresponses = None
-            self.creacctclientmaxbuffersize = None
-            self.creacctclientmaxresponsedelay = None
-            self.creacctclienttimeouts = None
-            self.creacctclienttotalpacketswithoutresponses = None
-            self.creacctclienttotalpacketswithresponses = None
-            self.creacctclienttotalresponses = None
-            self.creacctclientunknownresponses = None
+            super(CiscoRadiusExtMib.Creclientaccounting, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "creClientAccounting"
+            self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
 
-            return '/CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/CISCO-RADIUS-EXT-MIB:creClientAccounting'
+            self.creacctclientaverageresponsedelay = YLeaf(YType.int32, "creAcctClientAverageResponseDelay")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.creacctclientbadauthenticators = YLeaf(YType.uint32, "creAcctClientBadAuthenticators")
+
+            self.creacctclientbufferallocfailures = YLeaf(YType.uint32, "creAcctClientBufferAllocFailures")
+
+            self.creacctclientdupids = YLeaf(YType.uint32, "creAcctClientDupIDs")
+
+            self.creacctclientlastusedsourceid = YLeaf(YType.uint32, "creAcctClientLastUsedSourceId")
+
+            self.creacctclientmalformedresponses = YLeaf(YType.uint32, "creAcctClientMalformedResponses")
+
+            self.creacctclientmaxbuffersize = YLeaf(YType.uint32, "creAcctClientMaxBufferSize")
+
+            self.creacctclientmaxresponsedelay = YLeaf(YType.int32, "creAcctClientMaxResponseDelay")
+
+            self.creacctclienttimeouts = YLeaf(YType.uint32, "creAcctClientTimeouts")
+
+            self.creacctclienttotalpacketswithoutresponses = YLeaf(YType.uint32, "creAcctClientTotalPacketsWithoutResponses")
+
+            self.creacctclienttotalpacketswithresponses = YLeaf(YType.uint32, "creAcctClientTotalPacketsWithResponses")
+
+            self.creacctclienttotalresponses = YLeaf(YType.uint32, "creAcctClientTotalResponses")
+
+            self.creacctclientunknownresponses = YLeaf(YType.uint32, "creAcctClientUnknownResponses")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("creacctclientaverageresponsedelay",
+                            "creacctclientbadauthenticators",
+                            "creacctclientbufferallocfailures",
+                            "creacctclientdupids",
+                            "creacctclientlastusedsourceid",
+                            "creacctclientmalformedresponses",
+                            "creacctclientmaxbuffersize",
+                            "creacctclientmaxresponsedelay",
+                            "creacctclienttimeouts",
+                            "creacctclienttotalpacketswithoutresponses",
+                            "creacctclienttotalpacketswithresponses",
+                            "creacctclienttotalresponses",
+                            "creacctclientunknownresponses") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRadiusExtMib.Creclientaccounting, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRadiusExtMib.Creclientaccounting, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.creacctclientaverageresponsedelay.is_set or
+                self.creacctclientbadauthenticators.is_set or
+                self.creacctclientbufferallocfailures.is_set or
+                self.creacctclientdupids.is_set or
+                self.creacctclientlastusedsourceid.is_set or
+                self.creacctclientmalformedresponses.is_set or
+                self.creacctclientmaxbuffersize.is_set or
+                self.creacctclientmaxresponsedelay.is_set or
+                self.creacctclienttimeouts.is_set or
+                self.creacctclienttotalpacketswithoutresponses.is_set or
+                self.creacctclienttotalpacketswithresponses.is_set or
+                self.creacctclienttotalresponses.is_set or
+                self.creacctclientunknownresponses.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.creacctclientaverageresponsedelay.yfilter != YFilter.not_set or
+                self.creacctclientbadauthenticators.yfilter != YFilter.not_set or
+                self.creacctclientbufferallocfailures.yfilter != YFilter.not_set or
+                self.creacctclientdupids.yfilter != YFilter.not_set or
+                self.creacctclientlastusedsourceid.yfilter != YFilter.not_set or
+                self.creacctclientmalformedresponses.yfilter != YFilter.not_set or
+                self.creacctclientmaxbuffersize.yfilter != YFilter.not_set or
+                self.creacctclientmaxresponsedelay.yfilter != YFilter.not_set or
+                self.creacctclienttimeouts.yfilter != YFilter.not_set or
+                self.creacctclienttotalpacketswithoutresponses.yfilter != YFilter.not_set or
+                self.creacctclienttotalpacketswithresponses.yfilter != YFilter.not_set or
+                self.creacctclienttotalresponses.yfilter != YFilter.not_set or
+                self.creacctclientunknownresponses.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "creClientAccounting" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.creacctclientaverageresponsedelay.is_set or self.creacctclientaverageresponsedelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientaverageresponsedelay.get_name_leafdata())
+            if (self.creacctclientbadauthenticators.is_set or self.creacctclientbadauthenticators.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientbadauthenticators.get_name_leafdata())
+            if (self.creacctclientbufferallocfailures.is_set or self.creacctclientbufferallocfailures.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientbufferallocfailures.get_name_leafdata())
+            if (self.creacctclientdupids.is_set or self.creacctclientdupids.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientdupids.get_name_leafdata())
+            if (self.creacctclientlastusedsourceid.is_set or self.creacctclientlastusedsourceid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientlastusedsourceid.get_name_leafdata())
+            if (self.creacctclientmalformedresponses.is_set or self.creacctclientmalformedresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientmalformedresponses.get_name_leafdata())
+            if (self.creacctclientmaxbuffersize.is_set or self.creacctclientmaxbuffersize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientmaxbuffersize.get_name_leafdata())
+            if (self.creacctclientmaxresponsedelay.is_set or self.creacctclientmaxresponsedelay.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientmaxresponsedelay.get_name_leafdata())
+            if (self.creacctclienttimeouts.is_set or self.creacctclienttimeouts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclienttimeouts.get_name_leafdata())
+            if (self.creacctclienttotalpacketswithoutresponses.is_set or self.creacctclienttotalpacketswithoutresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclienttotalpacketswithoutresponses.get_name_leafdata())
+            if (self.creacctclienttotalpacketswithresponses.is_set or self.creacctclienttotalpacketswithresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclienttotalpacketswithresponses.get_name_leafdata())
+            if (self.creacctclienttotalresponses.is_set or self.creacctclienttotalresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclienttotalresponses.get_name_leafdata())
+            if (self.creacctclientunknownresponses.is_set or self.creacctclientunknownresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.creacctclientunknownresponses.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "creAcctClientAverageResponseDelay" or name == "creAcctClientBadAuthenticators" or name == "creAcctClientBufferAllocFailures" or name == "creAcctClientDupIDs" or name == "creAcctClientLastUsedSourceId" or name == "creAcctClientMalformedResponses" or name == "creAcctClientMaxBufferSize" or name == "creAcctClientMaxResponseDelay" or name == "creAcctClientTimeouts" or name == "creAcctClientTotalPacketsWithoutResponses" or name == "creAcctClientTotalPacketsWithResponses" or name == "creAcctClientTotalResponses" or name == "creAcctClientUnknownResponses"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.creacctclientaverageresponsedelay is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "creAcctClientAverageResponseDelay"):
+                self.creacctclientaverageresponsedelay = value
+                self.creacctclientaverageresponsedelay.value_namespace = name_space
+                self.creacctclientaverageresponsedelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientBadAuthenticators"):
+                self.creacctclientbadauthenticators = value
+                self.creacctclientbadauthenticators.value_namespace = name_space
+                self.creacctclientbadauthenticators.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientBufferAllocFailures"):
+                self.creacctclientbufferallocfailures = value
+                self.creacctclientbufferallocfailures.value_namespace = name_space
+                self.creacctclientbufferallocfailures.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientDupIDs"):
+                self.creacctclientdupids = value
+                self.creacctclientdupids.value_namespace = name_space
+                self.creacctclientdupids.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientLastUsedSourceId"):
+                self.creacctclientlastusedsourceid = value
+                self.creacctclientlastusedsourceid.value_namespace = name_space
+                self.creacctclientlastusedsourceid.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientMalformedResponses"):
+                self.creacctclientmalformedresponses = value
+                self.creacctclientmalformedresponses.value_namespace = name_space
+                self.creacctclientmalformedresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientMaxBufferSize"):
+                self.creacctclientmaxbuffersize = value
+                self.creacctclientmaxbuffersize.value_namespace = name_space
+                self.creacctclientmaxbuffersize.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientMaxResponseDelay"):
+                self.creacctclientmaxresponsedelay = value
+                self.creacctclientmaxresponsedelay.value_namespace = name_space
+                self.creacctclientmaxresponsedelay.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientTimeouts"):
+                self.creacctclienttimeouts = value
+                self.creacctclienttimeouts.value_namespace = name_space
+                self.creacctclienttimeouts.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientTotalPacketsWithoutResponses"):
+                self.creacctclienttotalpacketswithoutresponses = value
+                self.creacctclienttotalpacketswithoutresponses.value_namespace = name_space
+                self.creacctclienttotalpacketswithoutresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientTotalPacketsWithResponses"):
+                self.creacctclienttotalpacketswithresponses = value
+                self.creacctclienttotalpacketswithresponses.value_namespace = name_space
+                self.creacctclienttotalpacketswithresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientTotalResponses"):
+                self.creacctclienttotalresponses = value
+                self.creacctclienttotalresponses.value_namespace = name_space
+                self.creacctclienttotalresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "creAcctClientUnknownResponses"):
+                self.creacctclientunknownresponses = value
+                self.creacctclientunknownresponses.value_namespace = name_space
+                self.creacctclientunknownresponses.value_namespace_prefix = name_space_prefix
 
-            if self.creacctclientbadauthenticators is not None:
-                return True
+    def has_data(self):
+        return (
+            (self.creclientaccounting is not None and self.creclientaccounting.has_data()) or
+            (self.creclientauthentication is not None and self.creclientauthentication.has_data()) or
+            (self.creclientglobal is not None and self.creclientglobal.has_data()))
 
-            if self.creacctclientbufferallocfailures is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.creclientaccounting is not None and self.creclientaccounting.has_operation()) or
+            (self.creclientauthentication is not None and self.creclientauthentication.has_operation()) or
+            (self.creclientglobal is not None and self.creclientglobal.has_operation()))
 
-            if self.creacctclientdupids is not None:
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB" + path_buffer
 
-            if self.creacctclientlastusedsourceid is not None:
-                return True
+        return path_buffer
 
-            if self.creacctclientmalformedresponses is not None:
-                return True
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-            if self.creacctclientmaxbuffersize is not None:
-                return True
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-            if self.creacctclientmaxresponsedelay is not None:
-                return True
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-            if self.creacctclienttimeouts is not None:
-                return True
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-            if self.creacctclienttotalpacketswithoutresponses is not None:
-                return True
+        if (child_yang_name == "creClientAccounting"):
+            if (self.creclientaccounting is None):
+                self.creclientaccounting = CiscoRadiusExtMib.Creclientaccounting()
+                self.creclientaccounting.parent = self
+                self._children_name_map["creclientaccounting"] = "creClientAccounting"
+            return self.creclientaccounting
 
-            if self.creacctclienttotalpacketswithresponses is not None:
-                return True
+        if (child_yang_name == "creClientAuthentication"):
+            if (self.creclientauthentication is None):
+                self.creclientauthentication = CiscoRadiusExtMib.Creclientauthentication()
+                self.creclientauthentication.parent = self
+                self._children_name_map["creclientauthentication"] = "creClientAuthentication"
+            return self.creclientauthentication
 
-            if self.creacctclienttotalresponses is not None:
-                return True
+        if (child_yang_name == "creClientGlobal"):
+            if (self.creclientglobal is None):
+                self.creclientglobal = CiscoRadiusExtMib.Creclientglobal()
+                self.creclientglobal.parent = self
+                self._children_name_map["creclientglobal"] = "creClientGlobal"
+            return self.creclientglobal
 
-            if self.creacctclientunknownresponses is not None:
-                return True
+        return None
 
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RADIUS_EXT_MIB as meta
-            return meta._meta_table['CiscoRadiusExtMib.Creclientaccounting']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "creClientAccounting" or name == "creClientAuthentication" or name == "creClientGlobal"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.creclientaccounting is not None and self.creclientaccounting._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.creclientauthentication is not None and self.creclientauthentication._has_data():
-            return True
-
-        if self.creclientglobal is not None and self.creclientglobal._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RADIUS_EXT_MIB as meta
-        return meta._meta_table['CiscoRadiusExtMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoRadiusExtMib()
+        return self._top_entity
 

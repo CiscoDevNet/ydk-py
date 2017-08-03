@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CryptoSamActionEnum(Enum):
+class CryptoSamAction(Enum):
     """
-    CryptoSamActionEnum
+    CryptoSamAction
 
     Crypto sam action
 
@@ -40,19 +34,13 @@ class CryptoSamActionEnum(Enum):
 
     """
 
-    proceed = 1
+    proceed = Enum.YLeaf(1, "proceed")
 
-    terminate = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-        return meta._meta_table['CryptoSamActionEnum']
+    terminate = Enum.YLeaf(2, "terminate")
 
 
 
-class Crypto(object):
+class Crypto(Entity):
     """
     Crypto configuration
     
@@ -74,13 +62,24 @@ class Crypto(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(Crypto, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "crypto"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-sam-cfg"
+
         self.sam = Crypto.Sam()
         self.sam.parent = self
+        self._children_name_map["sam"] = "sam"
+        self._children_yang_names.add("sam")
+
         self.ssh = Crypto.Ssh()
         self.ssh.parent = self
+        self._children_name_map["ssh"] = "ssh"
+        self._children_yang_names.add("ssh")
 
 
-    class Sam(object):
+    class Sam(Entity):
         """
         Software Authentication Manager (SAM) Config
         
@@ -99,18 +98,24 @@ class Crypto(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
+            super(Crypto.Sam, self).__init__()
+
+            self.yang_name = "sam"
+            self.yang_parent_name = "crypto"
+
             self.prompt_interval = None
+            self._children_name_map["prompt_interval"] = "prompt-interval"
+            self._children_yang_names.add("prompt-interval")
 
 
-        class PromptInterval(object):
+        class PromptInterval(Entity):
             """
             Set prompt interval at reboot time
             
             .. attribute:: action
             
             	Respond to SAM prompt either Proceed/Terminate
-            	**type**\:   :py:class:`CryptoSamActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamActionEnum>`
+            	**type**\:   :py:class:`CryptoSamAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamAction>`
             
             	**mandatory**\: True
             
@@ -125,11 +130,6 @@ class Crypto(object):
             
             	**units**\: second
             
-            .. attribute:: _is_presence
-            
-            	Is present if this instance represents presence container else not
-            	**type**\: bool
-            
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -140,58 +140,146 @@ class Crypto(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self._is_presence = True
-                self.action = None
-                self.prompt_time = None
+                super(Crypto.Sam.PromptInterval, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "prompt-interval"
+                self.yang_parent_name = "sam"
+                self.is_presence_container = True
 
-                return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-sam-cfg:sam/Cisco-IOS-XR-crypto-sam-cfg:prompt-interval'
+                self.action = YLeaf(YType.enumeration, "action")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.prompt_time = YLeaf(YType.uint32, "prompt-time")
 
-            def _has_data(self):
-                if self._is_presence:
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("action",
+                                "prompt_time") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Crypto.Sam.PromptInterval, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Crypto.Sam.PromptInterval, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.action.is_set or
+                    self.prompt_time.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.action.yfilter != YFilter.not_set or
+                    self.prompt_time.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prompt-interval" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/sam/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.action.is_set or self.action.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.action.get_name_leafdata())
+                if (self.prompt_time.is_set or self.prompt_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.prompt_time.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "action" or name == "prompt-time"):
                     return True
-                if self.action is not None:
-                    return True
-
-                if self.prompt_time is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                return meta._meta_table['Crypto.Sam.PromptInterval']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "action"):
+                    self.action = value
+                    self.action.value_namespace = name_space
+                    self.action.value_namespace_prefix = name_space_prefix
+                if(value_path == "prompt-time"):
+                    self.prompt_time = value
+                    self.prompt_time.value_namespace = name_space
+                    self.prompt_time.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.prompt_interval is not None)
 
-            return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-sam-cfg:sam'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.prompt_interval is not None and self.prompt_interval.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sam" + path_buffer
 
-        def _has_data(self):
-            if self.prompt_interval is not None and self.prompt_interval._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "prompt-interval"):
+                if (self.prompt_interval is None):
+                    self.prompt_interval = Crypto.Sam.PromptInterval()
+                    self.prompt_interval.parent = self
+                    self._children_name_map["prompt_interval"] = "prompt-interval"
+                return self.prompt_interval
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "prompt-interval"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-            return meta._meta_table['Crypto.Sam']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ssh(object):
+    class Ssh(Entity):
         """
         Secure Shell configuration
         
@@ -213,14 +301,23 @@ class Crypto(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
+            super(Crypto.Ssh, self).__init__()
+
+            self.yang_name = "ssh"
+            self.yang_parent_name = "crypto"
+
             self.client = Crypto.Ssh.Client()
             self.client.parent = self
+            self._children_name_map["client"] = "client"
+            self._children_yang_names.add("client")
+
             self.server = Crypto.Ssh.Server()
             self.server.parent = self
+            self._children_name_map["server"] = "server"
+            self._children_yang_names.add("server")
 
 
-        class Client(object):
+        class Client(Entity):
             """
             Provide SSH client service
             
@@ -258,45 +355,126 @@ class Crypto(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.client_vrf = None
-                self.dscp = None
-                self.host_public_key = None
-                self.source_interface = None
+                super(Crypto.Ssh.Client, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "client"
+                self.yang_parent_name = "ssh"
 
-                return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:client'
+                self.client_vrf = YLeaf(YType.str, "client-vrf")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.dscp = YLeaf(YType.uint32, "dscp")
 
-            def _has_data(self):
-                if self.client_vrf is not None:
+                self.host_public_key = YLeaf(YType.str, "host-public-key")
+
+                self.source_interface = YLeaf(YType.str, "source-interface")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("client_vrf",
+                                "dscp",
+                                "host_public_key",
+                                "source_interface") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Crypto.Ssh.Client, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Crypto.Ssh.Client, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.client_vrf.is_set or
+                    self.dscp.is_set or
+                    self.host_public_key.is_set or
+                    self.source_interface.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.client_vrf.yfilter != YFilter.not_set or
+                    self.dscp.yfilter != YFilter.not_set or
+                    self.host_public_key.yfilter != YFilter.not_set or
+                    self.source_interface.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "client" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.client_vrf.is_set or self.client_vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.client_vrf.get_name_leafdata())
+                if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dscp.get_name_leafdata())
+                if (self.host_public_key.is_set or self.host_public_key.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.host_public_key.get_name_leafdata())
+                if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "client-vrf" or name == "dscp" or name == "host-public-key" or name == "source-interface"):
                     return True
-
-                if self.dscp is not None:
-                    return True
-
-                if self.host_public_key is not None:
-                    return True
-
-                if self.source_interface is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                return meta._meta_table['Crypto.Ssh.Client']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "client-vrf"):
+                    self.client_vrf = value
+                    self.client_vrf.value_namespace = name_space
+                    self.client_vrf.value_namespace_prefix = name_space_prefix
+                if(value_path == "dscp"):
+                    self.dscp = value
+                    self.dscp.value_namespace = name_space
+                    self.dscp.value_namespace_prefix = name_space_prefix
+                if(value_path == "host-public-key"):
+                    self.host_public_key = value
+                    self.host_public_key.value_namespace = name_space
+                    self.host_public_key.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-interface"):
+                    self.source_interface = value
+                    self.source_interface.value_namespace = name_space
+                    self.source_interface.value_namespace_prefix = name_space_prefix
 
 
-        class Server(object):
+        class Server(Entity):
             """
             Provide SSH server service
+            
+            .. attribute:: capability
+            
+            	Capability
+            	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Capability>`
             
             .. attribute:: disable
             
@@ -390,25 +568,83 @@ class Crypto(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
+                super(Crypto.Ssh.Server, self).__init__()
+
+                self.yang_name = "server"
+                self.yang_parent_name = "ssh"
+
+                self.dscp = YLeaf(YType.uint32, "dscp")
+
+                self.logging = YLeaf(YType.empty, "logging")
+
+                self.netconf = YLeaf(YType.uint32, "netconf")
+
+                self.rate_limit = YLeaf(YType.uint32, "rate-limit")
+
+                self.rekey_time = YLeaf(YType.uint32, "rekey-time")
+
+                self.rekey_volume = YLeaf(YType.uint32, "rekey-volume")
+
+                self.session_limit = YLeaf(YType.uint32, "session-limit")
+
+                self.timeout = YLeaf(YType.uint32, "timeout")
+
+                self.v2 = YLeaf(YType.empty, "v2")
+
+                self.capability = Crypto.Ssh.Server.Capability()
+                self.capability.parent = self
+                self._children_name_map["capability"] = "capability"
+                self._children_yang_names.add("capability")
+
                 self.disable = Crypto.Ssh.Server.Disable()
                 self.disable.parent = self
-                self.dscp = None
-                self.logging = None
-                self.netconf = None
+                self._children_name_map["disable"] = "disable"
+                self._children_yang_names.add("disable")
+
                 self.netconf_vrf_table = Crypto.Ssh.Server.NetconfVrfTable()
                 self.netconf_vrf_table.parent = self
-                self.rate_limit = None
-                self.rekey_time = None
-                self.rekey_volume = None
-                self.session_limit = None
-                self.timeout = None
-                self.v2 = None
+                self._children_name_map["netconf_vrf_table"] = "netconf-vrf-table"
+                self._children_yang_names.add("netconf-vrf-table")
+
                 self.vrf_table = Crypto.Ssh.Server.VrfTable()
                 self.vrf_table.parent = self
+                self._children_name_map["vrf_table"] = "vrf-table"
+                self._children_yang_names.add("vrf-table")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dscp",
+                                "logging",
+                                "netconf",
+                                "rate_limit",
+                                "rekey_time",
+                                "rekey_volume",
+                                "session_limit",
+                                "timeout",
+                                "v2") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Crypto.Ssh.Server, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Crypto.Ssh.Server, self).__setattr__(name, value)
 
 
-            class Disable(object):
+            class Disable(Entity):
                 """
                 disable
                 
@@ -425,12 +661,18 @@ class Crypto(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Crypto.Ssh.Server.Disable, self).__init__()
+
+                    self.yang_name = "disable"
+                    self.yang_parent_name = "server"
+
                     self.hmac = Crypto.Ssh.Server.Disable.Hmac()
                     self.hmac.parent = self
+                    self._children_name_map["hmac"] = "hmac"
+                    self._children_yang_names.add("hmac")
 
 
-                class Hmac(object):
+                class Hmac(Entity):
                     """
                     hmac
                     
@@ -449,51 +691,133 @@ class Crypto(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.hmac_sha512 = None
+                        super(Crypto.Ssh.Server.Disable.Hmac, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "hmac"
+                        self.yang_parent_name = "disable"
 
-                        return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:disable/Cisco-IOS-XR-crypto-ssh-cfg:hmac'
+                        self.hmac_sha512 = YLeaf(YType.boolean, "hmac-sha512")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("hmac_sha512") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Crypto.Ssh.Server.Disable.Hmac, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Crypto.Ssh.Server.Disable.Hmac, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.hmac_sha512 is not None:
+                    def has_data(self):
+                        return self.hmac_sha512.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.hmac_sha512.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "hmac" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/disable/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.hmac_sha512.is_set or self.hmac_sha512.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hmac_sha512.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "hmac-sha512"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                        return meta._meta_table['Crypto.Ssh.Server.Disable.Hmac']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "hmac-sha512"):
+                            self.hmac_sha512 = value
+                            self.hmac_sha512.value_namespace = name_space
+                            self.hmac_sha512.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
+                def has_data(self):
+                    return (self.hmac is not None and self.hmac.has_data())
 
-                    return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:disable'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.hmac is not None and self.hmac.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "disable" + path_buffer
 
-                def _has_data(self):
-                    if self.hmac is not None and self.hmac._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "hmac"):
+                        if (self.hmac is None):
+                            self.hmac = Crypto.Ssh.Server.Disable.Hmac()
+                            self.hmac.parent = self
+                            self._children_name_map["hmac"] = "hmac"
+                        return self.hmac
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "hmac"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                    return meta._meta_table['Crypto.Ssh.Server.Disable']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class VrfTable(object):
+            class VrfTable(Entity):
                 """
                 Cisco sshd VRF name
                 
@@ -510,13 +834,39 @@ class Crypto(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf = YList()
-                    self.vrf.parent = self
-                    self.vrf.name = 'vrf'
+                    super(Crypto.Ssh.Server.VrfTable, self).__init__()
+
+                    self.yang_name = "vrf-table"
+                    self.yang_parent_name = "server"
+
+                    self.vrf = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Crypto.Ssh.Server.VrfTable, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Crypto.Ssh.Server.VrfTable, self).__setattr__(name, value)
 
 
-                class Vrf(object):
+                class Vrf(Entity):
                     """
                     Enter VRF name
                     
@@ -556,67 +906,273 @@ class Crypto(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.vrf_name = None
-                        self.enable = None
-                        self.ipv4_access_list = None
-                        self.ipv6_access_list = None
+                        super(Crypto.Ssh.Server.VrfTable.Vrf, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYModelError('Key property vrf_name is None')
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "vrf-table"
 
-                        return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:vrf-table/Cisco-IOS-XR-crypto-ssh-cfg:vrf[Cisco-IOS-XR-crypto-ssh-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.enable = YLeaf(YType.empty, "enable")
 
-                    def _has_data(self):
-                        if self.vrf_name is not None:
+                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
+
+                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("vrf_name",
+                                        "enable",
+                                        "ipv4_access_list",
+                                        "ipv6_access_list") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Crypto.Ssh.Server.VrfTable.Vrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Crypto.Ssh.Server.VrfTable.Vrf, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.vrf_name.is_set or
+                            self.enable.is_set or
+                            self.ipv4_access_list.is_set or
+                            self.ipv6_access_list.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.enable.yfilter != YFilter.not_set or
+                            self.ipv4_access_list.yfilter != YFilter.not_set or
+                            self.ipv6_access_list.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/vrf-table/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enable.get_name_leafdata())
+                        if (self.ipv4_access_list.is_set or self.ipv4_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_access_list.get_name_leafdata())
+                        if (self.ipv6_access_list.is_set or self.ipv6_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_access_list.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "vrf-name" or name == "enable" or name == "ipv4-access-list" or name == "ipv6-access-list"):
                             return True
-
-                        if self.enable is not None:
-                            return True
-
-                        if self.ipv4_access_list is not None:
-                            return True
-
-                        if self.ipv6_access_list is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                        return meta._meta_table['Crypto.Ssh.Server.VrfTable.Vrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "enable"):
+                            self.enable = value
+                            self.enable.value_namespace = name_space
+                            self.enable.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-access-list"):
+                            self.ipv4_access_list = value
+                            self.ipv4_access_list.value_namespace = name_space
+                            self.ipv4_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-access-list"):
+                            self.ipv6_access_list = value
+                            self.ipv6_access_list.value_namespace = name_space
+                            self.ipv6_access_list.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:vrf-table'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.vrf is not None:
-                        for child_ref in self.vrf:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.vrf:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                    return meta._meta_table['Crypto.Ssh.Server.VrfTable']['meta_info']
+                def has_operation(self):
+                    for c in self.vrf:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrf-table" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "vrf"):
+                        for c in self.vrf:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Crypto.Ssh.Server.VrfTable.Vrf()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.vrf.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "vrf"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class NetconfVrfTable(object):
+            class Capability(Entity):
+                """
+                Capability
+                
+                .. attribute:: netconf_xml
+                
+                	Enable Netconf\-XML stack on port 22
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    super(Crypto.Ssh.Server.Capability, self).__init__()
+
+                    self.yang_name = "capability"
+                    self.yang_parent_name = "server"
+
+                    self.netconf_xml = YLeaf(YType.boolean, "netconf-xml")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("netconf_xml") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Crypto.Ssh.Server.Capability, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Crypto.Ssh.Server.Capability, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return self.netconf_xml.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.netconf_xml.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "capability" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.netconf_xml.is_set or self.netconf_xml.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.netconf_xml.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "netconf-xml"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "netconf-xml"):
+                        self.netconf_xml = value
+                        self.netconf_xml.value_namespace = name_space
+                        self.netconf_xml.value_namespace_prefix = name_space_prefix
+
+
+            class NetconfVrfTable(Entity):
                 """
                 Cisco sshd Netconf VRF name
                 
@@ -633,13 +1189,39 @@ class Crypto(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf = YList()
-                    self.vrf.parent = self
-                    self.vrf.name = 'vrf'
+                    super(Crypto.Ssh.Server.NetconfVrfTable, self).__init__()
+
+                    self.yang_name = "netconf-vrf-table"
+                    self.yang_parent_name = "server"
+
+                    self.vrf = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Crypto.Ssh.Server.NetconfVrfTable, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Crypto.Ssh.Server.NetconfVrfTable, self).__setattr__(name, value)
 
 
-                class Vrf(object):
+                class Vrf(Entity):
                     """
                     Enter VRF name
                     
@@ -679,162 +1261,437 @@ class Crypto(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.vrf_name = None
-                        self.enable = None
-                        self.ipv4_access_list = None
-                        self.ipv6_access_list = None
+                        super(Crypto.Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYModelError('Key property vrf_name is None')
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "netconf-vrf-table"
 
-                        return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:netconf-vrf-table/Cisco-IOS-XR-crypto-ssh-cfg:vrf[Cisco-IOS-XR-crypto-ssh-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.enable = YLeaf(YType.empty, "enable")
 
-                    def _has_data(self):
-                        if self.vrf_name is not None:
+                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
+
+                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("vrf_name",
+                                        "enable",
+                                        "ipv4_access_list",
+                                        "ipv6_access_list") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Crypto.Ssh.Server.NetconfVrfTable.Vrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Crypto.Ssh.Server.NetconfVrfTable.Vrf, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.vrf_name.is_set or
+                            self.enable.is_set or
+                            self.ipv4_access_list.is_set or
+                            self.ipv6_access_list.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.enable.yfilter != YFilter.not_set or
+                            self.ipv4_access_list.yfilter != YFilter.not_set or
+                            self.ipv6_access_list.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/netconf-vrf-table/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enable.get_name_leafdata())
+                        if (self.ipv4_access_list.is_set or self.ipv4_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_access_list.get_name_leafdata())
+                        if (self.ipv6_access_list.is_set or self.ipv6_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_access_list.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "vrf-name" or name == "enable" or name == "ipv4-access-list" or name == "ipv6-access-list"):
                             return True
-
-                        if self.enable is not None:
-                            return True
-
-                        if self.ipv4_access_list is not None:
-                            return True
-
-                        if self.ipv6_access_list is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                        return meta._meta_table['Crypto.Ssh.Server.NetconfVrfTable.Vrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "enable"):
+                            self.enable = value
+                            self.enable.value_namespace = name_space
+                            self.enable.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-access-list"):
+                            self.ipv4_access_list = value
+                            self.ipv4_access_list.value_namespace = name_space
+                            self.ipv4_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-access-list"):
+                            self.ipv6_access_list = value
+                            self.ipv6_access_list.value_namespace = name_space
+                            self.ipv6_access_list.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:netconf-vrf-table'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.vrf is not None:
-                        for child_ref in self.vrf:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.vrf:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                    return meta._meta_table['Crypto.Ssh.Server.NetconfVrfTable']['meta_info']
+                def has_operation(self):
+                    for c in self.vrf:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "netconf-vrf-table" + path_buffer
 
-                return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.disable is not None and self.disable._has_data():
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "vrf"):
+                        for c in self.vrf:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Crypto.Ssh.Server.NetconfVrfTable.Vrf()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.vrf.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "vrf"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.dscp.is_set or
+                    self.logging.is_set or
+                    self.netconf.is_set or
+                    self.rate_limit.is_set or
+                    self.rekey_time.is_set or
+                    self.rekey_volume.is_set or
+                    self.session_limit.is_set or
+                    self.timeout.is_set or
+                    self.v2.is_set or
+                    (self.capability is not None and self.capability.has_data()) or
+                    (self.disable is not None and self.disable.has_data()) or
+                    (self.netconf_vrf_table is not None and self.netconf_vrf_table.has_data()) or
+                    (self.vrf_table is not None and self.vrf_table.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dscp.yfilter != YFilter.not_set or
+                    self.logging.yfilter != YFilter.not_set or
+                    self.netconf.yfilter != YFilter.not_set or
+                    self.rate_limit.yfilter != YFilter.not_set or
+                    self.rekey_time.yfilter != YFilter.not_set or
+                    self.rekey_volume.yfilter != YFilter.not_set or
+                    self.session_limit.yfilter != YFilter.not_set or
+                    self.timeout.yfilter != YFilter.not_set or
+                    self.v2.yfilter != YFilter.not_set or
+                    (self.capability is not None and self.capability.has_operation()) or
+                    (self.disable is not None and self.disable.has_operation()) or
+                    (self.netconf_vrf_table is not None and self.netconf_vrf_table.has_operation()) or
+                    (self.vrf_table is not None and self.vrf_table.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "server" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dscp.get_name_leafdata())
+                if (self.logging.is_set or self.logging.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.logging.get_name_leafdata())
+                if (self.netconf.is_set or self.netconf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.netconf.get_name_leafdata())
+                if (self.rate_limit.is_set or self.rate_limit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rate_limit.get_name_leafdata())
+                if (self.rekey_time.is_set or self.rekey_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rekey_time.get_name_leafdata())
+                if (self.rekey_volume.is_set or self.rekey_volume.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rekey_volume.get_name_leafdata())
+                if (self.session_limit.is_set or self.session_limit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.session_limit.get_name_leafdata())
+                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.timeout.get_name_leafdata())
+                if (self.v2.is_set or self.v2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.v2.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "capability"):
+                    if (self.capability is None):
+                        self.capability = Crypto.Ssh.Server.Capability()
+                        self.capability.parent = self
+                        self._children_name_map["capability"] = "capability"
+                    return self.capability
+
+                if (child_yang_name == "disable"):
+                    if (self.disable is None):
+                        self.disable = Crypto.Ssh.Server.Disable()
+                        self.disable.parent = self
+                        self._children_name_map["disable"] = "disable"
+                    return self.disable
+
+                if (child_yang_name == "netconf-vrf-table"):
+                    if (self.netconf_vrf_table is None):
+                        self.netconf_vrf_table = Crypto.Ssh.Server.NetconfVrfTable()
+                        self.netconf_vrf_table.parent = self
+                        self._children_name_map["netconf_vrf_table"] = "netconf-vrf-table"
+                    return self.netconf_vrf_table
+
+                if (child_yang_name == "vrf-table"):
+                    if (self.vrf_table is None):
+                        self.vrf_table = Crypto.Ssh.Server.VrfTable()
+                        self.vrf_table.parent = self
+                        self._children_name_map["vrf_table"] = "vrf-table"
+                    return self.vrf_table
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "capability" or name == "disable" or name == "netconf-vrf-table" or name == "vrf-table" or name == "dscp" or name == "logging" or name == "netconf" or name == "rate-limit" or name == "rekey-time" or name == "rekey-volume" or name == "session-limit" or name == "timeout" or name == "v2"):
                     return True
-
-                if self.dscp is not None:
-                    return True
-
-                if self.logging is not None:
-                    return True
-
-                if self.netconf is not None:
-                    return True
-
-                if self.netconf_vrf_table is not None and self.netconf_vrf_table._has_data():
-                    return True
-
-                if self.rate_limit is not None:
-                    return True
-
-                if self.rekey_time is not None:
-                    return True
-
-                if self.rekey_volume is not None:
-                    return True
-
-                if self.session_limit is not None:
-                    return True
-
-                if self.timeout is not None:
-                    return True
-
-                if self.v2 is not None:
-                    return True
-
-                if self.vrf_table is not None and self.vrf_table._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-                return meta._meta_table['Crypto.Ssh.Server']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dscp"):
+                    self.dscp = value
+                    self.dscp.value_namespace = name_space
+                    self.dscp.value_namespace_prefix = name_space_prefix
+                if(value_path == "logging"):
+                    self.logging = value
+                    self.logging.value_namespace = name_space
+                    self.logging.value_namespace_prefix = name_space_prefix
+                if(value_path == "netconf"):
+                    self.netconf = value
+                    self.netconf.value_namespace = name_space
+                    self.netconf.value_namespace_prefix = name_space_prefix
+                if(value_path == "rate-limit"):
+                    self.rate_limit = value
+                    self.rate_limit.value_namespace = name_space
+                    self.rate_limit.value_namespace_prefix = name_space_prefix
+                if(value_path == "rekey-time"):
+                    self.rekey_time = value
+                    self.rekey_time.value_namespace = name_space
+                    self.rekey_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "rekey-volume"):
+                    self.rekey_volume = value
+                    self.rekey_volume.value_namespace = name_space
+                    self.rekey_volume.value_namespace_prefix = name_space_prefix
+                if(value_path == "session-limit"):
+                    self.session_limit = value
+                    self.session_limit.value_namespace = name_space
+                    self.session_limit.value_namespace_prefix = name_space_prefix
+                if(value_path == "timeout"):
+                    self.timeout = value
+                    self.timeout.value_namespace = name_space
+                    self.timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "v2"):
+                    self.v2 = value
+                    self.v2.value_namespace = name_space
+                    self.v2.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.client is not None and self.client.has_data()) or
+                (self.server is not None and self.server.has_data()))
 
-            return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.client is not None and self.client.has_operation()) or
+                (self.server is not None and self.server.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-crypto-ssh-cfg:ssh" + path_buffer
 
-        def _has_data(self):
-            if self.client is not None and self.client._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "client"):
+                if (self.client is None):
+                    self.client = Crypto.Ssh.Client()
+                    self.client.parent = self
+                    self._children_name_map["client"] = "client"
+                return self.client
+
+            if (child_yang_name == "server"):
+                if (self.server is None):
+                    self.server = Crypto.Ssh.Server()
+                    self.server.parent = self
+                    self._children_name_map["server"] = "server"
+                return self.server
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "client" or name == "server"):
                 return True
-
-            if self.server is not None and self.server._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-            return meta._meta_table['Crypto.Ssh']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.sam is not None and self.sam.has_data()) or
+            (self.ssh is not None and self.ssh.has_data()))
 
-        return '/Cisco-IOS-XR-crypto-sam-cfg:crypto'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.sam is not None and self.sam.has_operation()) or
+            (self.ssh is not None and self.ssh.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-sam-cfg:crypto" + path_buffer
 
-    def _has_data(self):
-        if self.sam is not None and self.sam._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "sam"):
+            if (self.sam is None):
+                self.sam = Crypto.Sam()
+                self.sam.parent = self
+                self._children_name_map["sam"] = "sam"
+            return self.sam
+
+        if (child_yang_name == "ssh"):
+            if (self.ssh is None):
+                self.ssh = Crypto.Ssh()
+                self.ssh.parent = self
+                self._children_name_map["ssh"] = "ssh"
+            return self.ssh
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "sam" or name == "ssh"):
             return True
-
-        if self.ssh is not None and self.ssh._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-        return meta._meta_table['Crypto']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Crypto()
+        return self._top_entity
 

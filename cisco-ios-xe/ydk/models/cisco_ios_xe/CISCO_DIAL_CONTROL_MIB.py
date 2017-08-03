@@ -4,21 +4,15 @@ The MIB module to describe call history information for
 demand access and possibly other kinds of interfaces.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoDialControlMib(object):
+class CiscoDialControlMib(Entity):
     """
     
     
@@ -45,22 +39,36 @@ class CiscoDialControlMib(object):
     _revision = '2005-05-26'
 
     def __init__(self):
+        super(CiscoDialControlMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-DIAL-CONTROL-MIB"
+        self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
+
         self.ccallhistoryiectable = CiscoDialControlMib.Ccallhistoryiectable()
         self.ccallhistoryiectable.parent = self
+        self._children_name_map["ccallhistoryiectable"] = "cCallHistoryIecTable"
+        self._children_yang_names.add("cCallHistoryIecTable")
+
         self.ccallhistorytable = CiscoDialControlMib.Ccallhistorytable()
         self.ccallhistorytable.parent = self
+        self._children_name_map["ccallhistorytable"] = "cCallHistoryTable"
+        self._children_yang_names.add("cCallHistoryTable")
+
         self.cpeerglobalconfiguration = CiscoDialControlMib.Cpeerglobalconfiguration()
         self.cpeerglobalconfiguration.parent = self
+        self._children_name_map["cpeerglobalconfiguration"] = "cPeerGlobalConfiguration"
+        self._children_yang_names.add("cPeerGlobalConfiguration")
 
 
-    class Cpeerglobalconfiguration(object):
+    class Cpeerglobalconfiguration(Entity):
         """
         
         
         .. attribute:: cpeersearchtype
         
         	Specifies the peer search preference based on the type of peers in an universal/integrated port platform.  none      \- both voice and data peers are searched            in same preference. datavoice \- search data peers first. If no data peers            are found, the voice peers are searched. voicedata \- search voice peers first. If no voice peers            are found, the data peers are searched
-        	**type**\:   :py:class:`CpeersearchtypeEnum <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Cpeerglobalconfiguration.CpeersearchtypeEnum>`
+        	**type**\:   :py:class:`Cpeersearchtype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Cpeerglobalconfiguration.Cpeersearchtype>`
         
         
 
@@ -70,12 +78,40 @@ class CiscoDialControlMib(object):
         _revision = '2005-05-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpeersearchtype = None
+            super(CiscoDialControlMib.Cpeerglobalconfiguration, self).__init__()
 
-        class CpeersearchtypeEnum(Enum):
+            self.yang_name = "cPeerGlobalConfiguration"
+            self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
+
+            self.cpeersearchtype = YLeaf(YType.enumeration, "cPeerSearchType")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cpeersearchtype") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDialControlMib.Cpeerglobalconfiguration, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDialControlMib.Cpeerglobalconfiguration, self).__setattr__(name, value)
+
+        class Cpeersearchtype(Enum):
             """
-            CpeersearchtypeEnum
+            Cpeersearchtype
 
             Specifies the peer search preference based on the
 
@@ -103,41 +139,61 @@ class CiscoDialControlMib(object):
 
             """
 
-            none = 1
+            none = Enum.YLeaf(1, "none")
 
-            datavoice = 2
+            datavoice = Enum.YLeaf(2, "datavoice")
 
-            voicedata = 3
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoDialControlMib.Cpeerglobalconfiguration.CpeersearchtypeEnum']
+            voicedata = Enum.YLeaf(3, "voicedata")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return self.cpeersearchtype.is_set
 
-            return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/CISCO-DIAL-CONTROL-MIB:cPeerGlobalConfiguration'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cpeersearchtype.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPeerGlobalConfiguration" + path_buffer
 
-        def _has_data(self):
-            if self.cpeersearchtype is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cpeersearchtype.is_set or self.cpeersearchtype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpeersearchtype.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPeerSearchType"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoDialControlMib.Cpeerglobalconfiguration']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cPeerSearchType"):
+                self.cpeersearchtype = value
+                self.cpeersearchtype.value_namespace = name_space
+                self.cpeersearchtype.value_namespace_prefix = name_space_prefix
 
 
-    class Ccallhistorytable(object):
+    class Ccallhistorytable(Entity):
         """
         A table containing information about specific
         calls to a specific destination.
@@ -155,13 +211,39 @@ class CiscoDialControlMib(object):
         _revision = '2005-05-26'
 
         def __init__(self):
-            self.parent = None
-            self.ccallhistoryentry = YList()
-            self.ccallhistoryentry.parent = self
-            self.ccallhistoryentry.name = 'ccallhistoryentry'
+            super(CiscoDialControlMib.Ccallhistorytable, self).__init__()
+
+            self.yang_name = "cCallHistoryTable"
+            self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
+
+            self.ccallhistoryentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDialControlMib.Ccallhistorytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDialControlMib.Ccallhistorytable, self).__setattr__(name, value)
 
 
-        class Ccallhistoryentry(object):
+        class Ccallhistoryentry(Entity):
             """
             The information regarding a single Connection.
             
@@ -175,7 +257,7 @@ class CiscoDialControlMib(object):
             .. attribute:: ccallhistorycallorigin
             
             	The call origin
-            	**type**\:   :py:class:`CcallhistorycalloriginEnum <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistorycalloriginEnum>`
+            	**type**\:   :py:class:`Ccallhistorycallorigin <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.Ccallhistorycallorigin>`
             
             .. attribute:: ccallhistorychargedunits
             
@@ -213,7 +295,7 @@ class CiscoDialControlMib(object):
             .. attribute:: ccallhistoryinfotype
             
             	The information type for this call
-            	**type**\:   :py:class:`CcallhistoryinfotypeEnum <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryinfotypeEnum>`
+            	**type**\:   :py:class:`Ccallhistoryinfotype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryinfotype>`
             
             .. attribute:: ccallhistorylogicalifindex
             
@@ -263,14 +345,14 @@ class CiscoDialControlMib(object):
             .. attribute:: ccallhistoryreleasesource
             
             	Originator of the call release
-            	**type**\:   :py:class:`CcallhistoryreleasesourceEnum <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryreleasesourceEnum>`
+            	**type**\:   :py:class:`Ccallhistoryreleasesource <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesource>`
             
             	**status**\: deprecated
             
             .. attribute:: ccallhistoryreleasesrc
             
             	Originator of the call release. Indicates the source of  the call release as follows \:  1) callingPartyInPstn \: Calling party in PSTN. 2) callingPartyInVoip \: Calling party in VoIP. 3) calledPartyInPstn \: Called party in PSTN. 4) calledPartyInVoip \: Called party in VoIP. 5) internalReleaseInPotsLeg \: Due to an internal error     in Telephony call leg. 6) internalReleaseInVoipLeg \: Due to an internal error    in VoIP call leg. 7) internalCallControlApp \: Due to an internal error    in Session Application or Tcl or VXML script originated    release.  8) internalReleaseInVoipAAA \: Due to an internal error    in VoIP AAA module. 9) consoleCommand \: Due to CLI or MML. 10) externalRadiusServer \: Call failed during authorization     , authentication or due to receipt of POD from the      RADIUS server. 11) externalNmsApp \: Due to SNMP request to clear      the call. 12) externalCallControlAgent \: External Call Control Agent     initiated clear. 13) gatekeeper \: Gatekeeper initiated clear due to receipt     of Admission Reject, Disengage Request message. 14) externalGKTMPServer \: External GKTMP server initiated     clear due to receipt of Admission Reject message from     the gatekeeper, triggered by RESPONSE.ARJ message from     the GKTMP server
-            	**type**\:   :py:class:`CcallhistoryreleasesrcEnum <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryreleasesrcEnum>`
+            	**type**\:   :py:class:`Ccallhistoryreleasesrc <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesrc>`
             
             .. attribute:: ccallhistorysetuptime
             
@@ -301,31 +383,97 @@ class CiscoDialControlMib(object):
             _revision = '2005-05-26'
 
             def __init__(self):
-                self.parent = None
-                self.ccallhistoryindex = None
-                self.ccallhistorycallorigin = None
-                self.ccallhistorychargedunits = None
-                self.ccallhistoryconnecttime = None
-                self.ccallhistorydisconnectcause = None
-                self.ccallhistorydisconnecttext = None
-                self.ccallhistorydisconnecttime = None
-                self.ccallhistoryinfotype = None
-                self.ccallhistorylogicalifindex = None
-                self.ccallhistorypeeraddress = None
-                self.ccallhistorypeerid = None
-                self.ccallhistorypeerifindex = None
-                self.ccallhistorypeersubaddress = None
-                self.ccallhistoryreceivebytes = None
-                self.ccallhistoryreceivepackets = None
-                self.ccallhistoryreleasesource = None
-                self.ccallhistoryreleasesrc = None
-                self.ccallhistorysetuptime = None
-                self.ccallhistorytransmitbytes = None
-                self.ccallhistorytransmitpackets = None
+                super(CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry, self).__init__()
 
-            class CcallhistorycalloriginEnum(Enum):
+                self.yang_name = "cCallHistoryEntry"
+                self.yang_parent_name = "cCallHistoryTable"
+
+                self.ccallhistoryindex = YLeaf(YType.uint32, "cCallHistoryIndex")
+
+                self.ccallhistorycallorigin = YLeaf(YType.enumeration, "cCallHistoryCallOrigin")
+
+                self.ccallhistorychargedunits = YLeaf(YType.uint32, "cCallHistoryChargedUnits")
+
+                self.ccallhistoryconnecttime = YLeaf(YType.uint32, "cCallHistoryConnectTime")
+
+                self.ccallhistorydisconnectcause = YLeaf(YType.str, "cCallHistoryDisconnectCause")
+
+                self.ccallhistorydisconnecttext = YLeaf(YType.str, "cCallHistoryDisconnectText")
+
+                self.ccallhistorydisconnecttime = YLeaf(YType.uint32, "cCallHistoryDisconnectTime")
+
+                self.ccallhistoryinfotype = YLeaf(YType.enumeration, "cCallHistoryInfoType")
+
+                self.ccallhistorylogicalifindex = YLeaf(YType.int32, "cCallHistoryLogicalIfIndex")
+
+                self.ccallhistorypeeraddress = YLeaf(YType.str, "cCallHistoryPeerAddress")
+
+                self.ccallhistorypeerid = YLeaf(YType.int32, "cCallHistoryPeerId")
+
+                self.ccallhistorypeerifindex = YLeaf(YType.int32, "cCallHistoryPeerIfIndex")
+
+                self.ccallhistorypeersubaddress = YLeaf(YType.str, "cCallHistoryPeerSubAddress")
+
+                self.ccallhistoryreceivebytes = YLeaf(YType.uint32, "cCallHistoryReceiveBytes")
+
+                self.ccallhistoryreceivepackets = YLeaf(YType.uint32, "cCallHistoryReceivePackets")
+
+                self.ccallhistoryreleasesource = YLeaf(YType.enumeration, "cCallHistoryReleaseSource")
+
+                self.ccallhistoryreleasesrc = YLeaf(YType.enumeration, "cCallHistoryReleaseSrc")
+
+                self.ccallhistorysetuptime = YLeaf(YType.uint32, "cCallHistorySetupTime")
+
+                self.ccallhistorytransmitbytes = YLeaf(YType.uint32, "cCallHistoryTransmitBytes")
+
+                self.ccallhistorytransmitpackets = YLeaf(YType.uint32, "cCallHistoryTransmitPackets")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccallhistoryindex",
+                                "ccallhistorycallorigin",
+                                "ccallhistorychargedunits",
+                                "ccallhistoryconnecttime",
+                                "ccallhistorydisconnectcause",
+                                "ccallhistorydisconnecttext",
+                                "ccallhistorydisconnecttime",
+                                "ccallhistoryinfotype",
+                                "ccallhistorylogicalifindex",
+                                "ccallhistorypeeraddress",
+                                "ccallhistorypeerid",
+                                "ccallhistorypeerifindex",
+                                "ccallhistorypeersubaddress",
+                                "ccallhistoryreceivebytes",
+                                "ccallhistoryreceivepackets",
+                                "ccallhistoryreleasesource",
+                                "ccallhistoryreleasesrc",
+                                "ccallhistorysetuptime",
+                                "ccallhistorytransmitbytes",
+                                "ccallhistorytransmitpackets") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry, self).__setattr__(name, value)
+
+            class Ccallhistorycallorigin(Enum):
                 """
-                CcallhistorycalloriginEnum
+                Ccallhistorycallorigin
 
                 The call origin.
 
@@ -337,22 +485,16 @@ class CiscoDialControlMib(object):
 
                 """
 
-                originate = 1
+                originate = Enum.YLeaf(1, "originate")
 
-                answer = 2
+                answer = Enum.YLeaf(2, "answer")
 
-                callback = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistorycalloriginEnum']
+                callback = Enum.YLeaf(3, "callback")
 
 
-            class CcallhistoryinfotypeEnum(Enum):
+            class Ccallhistoryinfotype(Enum):
                 """
-                CcallhistoryinfotypeEnum
+                Ccallhistoryinfotype
 
                 The information type for this call.
 
@@ -378,36 +520,30 @@ class CiscoDialControlMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                speech = 2
+                speech = Enum.YLeaf(2, "speech")
 
-                unrestrictedDigital = 3
+                unrestrictedDigital = Enum.YLeaf(3, "unrestrictedDigital")
 
-                unrestrictedDigital56 = 4
+                unrestrictedDigital56 = Enum.YLeaf(4, "unrestrictedDigital56")
 
-                restrictedDigital = 5
+                restrictedDigital = Enum.YLeaf(5, "restrictedDigital")
 
-                audio31 = 6
+                audio31 = Enum.YLeaf(6, "audio31")
 
-                audio7 = 7
+                audio7 = Enum.YLeaf(7, "audio7")
 
-                video = 8
+                video = Enum.YLeaf(8, "video")
 
-                packetSwitched = 9
+                packetSwitched = Enum.YLeaf(9, "packetSwitched")
 
-                fax = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryinfotypeEnum']
+                fax = Enum.YLeaf(10, "fax")
 
 
-            class CcallhistoryreleasesourceEnum(Enum):
+            class Ccallhistoryreleasesource(Enum):
                 """
-                CcallhistoryreleasesourceEnum
+                Ccallhistoryreleasesource
 
                 Originator of the call release.
 
@@ -433,36 +569,30 @@ class CiscoDialControlMib(object):
 
                 """
 
-                callingPartyInPstn = 1
+                callingPartyInPstn = Enum.YLeaf(1, "callingPartyInPstn")
 
-                callingPartyInVoip = 2
+                callingPartyInVoip = Enum.YLeaf(2, "callingPartyInVoip")
 
-                calledPartyInPstn = 3
+                calledPartyInPstn = Enum.YLeaf(3, "calledPartyInPstn")
 
-                calledPartyInVoip = 4
+                calledPartyInVoip = Enum.YLeaf(4, "calledPartyInVoip")
 
-                internalRelease = 5
+                internalRelease = Enum.YLeaf(5, "internalRelease")
 
-                internalCallControlApp = 6
+                internalCallControlApp = Enum.YLeaf(6, "internalCallControlApp")
 
-                consoleCommand = 7
+                consoleCommand = Enum.YLeaf(7, "consoleCommand")
 
-                externalRadiusServer = 8
+                externalRadiusServer = Enum.YLeaf(8, "externalRadiusServer")
 
-                externalNmsApp = 9
+                externalNmsApp = Enum.YLeaf(9, "externalNmsApp")
 
-                externalCallControlAgent = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryreleasesourceEnum']
+                externalCallControlAgent = Enum.YLeaf(10, "externalCallControlAgent")
 
 
-            class CcallhistoryreleasesrcEnum(Enum):
+            class Ccallhistoryreleasesrc(Enum):
                 """
-                CcallhistoryreleasesrcEnum
+                Ccallhistoryreleasesrc
 
                 Originator of the call release. Indicates the source of 
 
@@ -552,144 +682,293 @@ class CiscoDialControlMib(object):
 
                 """
 
-                callingPartyInPstn = 1
+                callingPartyInPstn = Enum.YLeaf(1, "callingPartyInPstn")
 
-                callingPartyInVoip = 2
+                callingPartyInVoip = Enum.YLeaf(2, "callingPartyInVoip")
 
-                calledPartyInPstn = 3
+                calledPartyInPstn = Enum.YLeaf(3, "calledPartyInPstn")
 
-                calledPartyInVoip = 4
+                calledPartyInVoip = Enum.YLeaf(4, "calledPartyInVoip")
 
-                internalReleaseInPotsLeg = 5
+                internalReleaseInPotsLeg = Enum.YLeaf(5, "internalReleaseInPotsLeg")
 
-                internalReleaseInVoipLeg = 6
+                internalReleaseInVoipLeg = Enum.YLeaf(6, "internalReleaseInVoipLeg")
 
-                internalCallControlApp = 7
+                internalCallControlApp = Enum.YLeaf(7, "internalCallControlApp")
 
-                internalReleaseInVoipAAA = 8
+                internalReleaseInVoipAAA = Enum.YLeaf(8, "internalReleaseInVoipAAA")
 
-                consoleCommand = 9
+                consoleCommand = Enum.YLeaf(9, "consoleCommand")
 
-                externalRadiusServer = 10
+                externalRadiusServer = Enum.YLeaf(10, "externalRadiusServer")
 
-                externalNmsApp = 11
+                externalNmsApp = Enum.YLeaf(11, "externalNmsApp")
 
-                externalCallControlAgent = 12
+                externalCallControlAgent = Enum.YLeaf(12, "externalCallControlAgent")
 
-                gatekeeper = 13
+                gatekeeper = Enum.YLeaf(13, "gatekeeper")
 
-                externalGKTMPServer = 14
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry.CcallhistoryreleasesrcEnum']
+                externalGKTMPServer = Enum.YLeaf(14, "externalGKTMPServer")
 
 
-            @property
-            def _common_path(self):
-                if self.ccallhistoryindex is None:
-                    raise YPYModelError('Key property ccallhistoryindex is None')
+            def has_data(self):
+                return (
+                    self.ccallhistoryindex.is_set or
+                    self.ccallhistorycallorigin.is_set or
+                    self.ccallhistorychargedunits.is_set or
+                    self.ccallhistoryconnecttime.is_set or
+                    self.ccallhistorydisconnectcause.is_set or
+                    self.ccallhistorydisconnecttext.is_set or
+                    self.ccallhistorydisconnecttime.is_set or
+                    self.ccallhistoryinfotype.is_set or
+                    self.ccallhistorylogicalifindex.is_set or
+                    self.ccallhistorypeeraddress.is_set or
+                    self.ccallhistorypeerid.is_set or
+                    self.ccallhistorypeerifindex.is_set or
+                    self.ccallhistorypeersubaddress.is_set or
+                    self.ccallhistoryreceivebytes.is_set or
+                    self.ccallhistoryreceivepackets.is_set or
+                    self.ccallhistoryreleasesource.is_set or
+                    self.ccallhistoryreleasesrc.is_set or
+                    self.ccallhistorysetuptime.is_set or
+                    self.ccallhistorytransmitbytes.is_set or
+                    self.ccallhistorytransmitpackets.is_set)
 
-                return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/CISCO-DIAL-CONTROL-MIB:cCallHistoryTable/CISCO-DIAL-CONTROL-MIB:cCallHistoryEntry[CISCO-DIAL-CONTROL-MIB:cCallHistoryIndex = ' + str(self.ccallhistoryindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccallhistoryindex.yfilter != YFilter.not_set or
+                    self.ccallhistorycallorigin.yfilter != YFilter.not_set or
+                    self.ccallhistorychargedunits.yfilter != YFilter.not_set or
+                    self.ccallhistoryconnecttime.yfilter != YFilter.not_set or
+                    self.ccallhistorydisconnectcause.yfilter != YFilter.not_set or
+                    self.ccallhistorydisconnecttext.yfilter != YFilter.not_set or
+                    self.ccallhistorydisconnecttime.yfilter != YFilter.not_set or
+                    self.ccallhistoryinfotype.yfilter != YFilter.not_set or
+                    self.ccallhistorylogicalifindex.yfilter != YFilter.not_set or
+                    self.ccallhistorypeeraddress.yfilter != YFilter.not_set or
+                    self.ccallhistorypeerid.yfilter != YFilter.not_set or
+                    self.ccallhistorypeerifindex.yfilter != YFilter.not_set or
+                    self.ccallhistorypeersubaddress.yfilter != YFilter.not_set or
+                    self.ccallhistoryreceivebytes.yfilter != YFilter.not_set or
+                    self.ccallhistoryreceivepackets.yfilter != YFilter.not_set or
+                    self.ccallhistoryreleasesource.yfilter != YFilter.not_set or
+                    self.ccallhistoryreleasesrc.yfilter != YFilter.not_set or
+                    self.ccallhistorysetuptime.yfilter != YFilter.not_set or
+                    self.ccallhistorytransmitbytes.yfilter != YFilter.not_set or
+                    self.ccallhistorytransmitpackets.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccallhistoryindex.is_set or self.ccallhistoryindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryindex.get_name_leafdata())
+                if (self.ccallhistorycallorigin.is_set or self.ccallhistorycallorigin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorycallorigin.get_name_leafdata())
+                if (self.ccallhistorychargedunits.is_set or self.ccallhistorychargedunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorychargedunits.get_name_leafdata())
+                if (self.ccallhistoryconnecttime.is_set or self.ccallhistoryconnecttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryconnecttime.get_name_leafdata())
+                if (self.ccallhistorydisconnectcause.is_set or self.ccallhistorydisconnectcause.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorydisconnectcause.get_name_leafdata())
+                if (self.ccallhistorydisconnecttext.is_set or self.ccallhistorydisconnecttext.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorydisconnecttext.get_name_leafdata())
+                if (self.ccallhistorydisconnecttime.is_set or self.ccallhistorydisconnecttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorydisconnecttime.get_name_leafdata())
+                if (self.ccallhistoryinfotype.is_set or self.ccallhistoryinfotype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryinfotype.get_name_leafdata())
+                if (self.ccallhistorylogicalifindex.is_set or self.ccallhistorylogicalifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorylogicalifindex.get_name_leafdata())
+                if (self.ccallhistorypeeraddress.is_set or self.ccallhistorypeeraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorypeeraddress.get_name_leafdata())
+                if (self.ccallhistorypeerid.is_set or self.ccallhistorypeerid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorypeerid.get_name_leafdata())
+                if (self.ccallhistorypeerifindex.is_set or self.ccallhistorypeerifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorypeerifindex.get_name_leafdata())
+                if (self.ccallhistorypeersubaddress.is_set or self.ccallhistorypeersubaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorypeersubaddress.get_name_leafdata())
+                if (self.ccallhistoryreceivebytes.is_set or self.ccallhistoryreceivebytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryreceivebytes.get_name_leafdata())
+                if (self.ccallhistoryreceivepackets.is_set or self.ccallhistoryreceivepackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryreceivepackets.get_name_leafdata())
+                if (self.ccallhistoryreleasesource.is_set or self.ccallhistoryreleasesource.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryreleasesource.get_name_leafdata())
+                if (self.ccallhistoryreleasesrc.is_set or self.ccallhistoryreleasesrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryreleasesrc.get_name_leafdata())
+                if (self.ccallhistorysetuptime.is_set or self.ccallhistorysetuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorysetuptime.get_name_leafdata())
+                if (self.ccallhistorytransmitbytes.is_set or self.ccallhistorytransmitbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorytransmitbytes.get_name_leafdata())
+                if (self.ccallhistorytransmitpackets.is_set or self.ccallhistorytransmitpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistorytransmitpackets.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cCallHistoryIndex" or name == "cCallHistoryCallOrigin" or name == "cCallHistoryChargedUnits" or name == "cCallHistoryConnectTime" or name == "cCallHistoryDisconnectCause" or name == "cCallHistoryDisconnectText" or name == "cCallHistoryDisconnectTime" or name == "cCallHistoryInfoType" or name == "cCallHistoryLogicalIfIndex" or name == "cCallHistoryPeerAddress" or name == "cCallHistoryPeerId" or name == "cCallHistoryPeerIfIndex" or name == "cCallHistoryPeerSubAddress" or name == "cCallHistoryReceiveBytes" or name == "cCallHistoryReceivePackets" or name == "cCallHistoryReleaseSource" or name == "cCallHistoryReleaseSrc" or name == "cCallHistorySetupTime" or name == "cCallHistoryTransmitBytes" or name == "cCallHistoryTransmitPackets"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccallhistoryindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cCallHistoryIndex"):
+                    self.ccallhistoryindex = value
+                    self.ccallhistoryindex.value_namespace = name_space
+                    self.ccallhistoryindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryCallOrigin"):
+                    self.ccallhistorycallorigin = value
+                    self.ccallhistorycallorigin.value_namespace = name_space
+                    self.ccallhistorycallorigin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryChargedUnits"):
+                    self.ccallhistorychargedunits = value
+                    self.ccallhistorychargedunits.value_namespace = name_space
+                    self.ccallhistorychargedunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryConnectTime"):
+                    self.ccallhistoryconnecttime = value
+                    self.ccallhistoryconnecttime.value_namespace = name_space
+                    self.ccallhistoryconnecttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryDisconnectCause"):
+                    self.ccallhistorydisconnectcause = value
+                    self.ccallhistorydisconnectcause.value_namespace = name_space
+                    self.ccallhistorydisconnectcause.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryDisconnectText"):
+                    self.ccallhistorydisconnecttext = value
+                    self.ccallhistorydisconnecttext.value_namespace = name_space
+                    self.ccallhistorydisconnecttext.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryDisconnectTime"):
+                    self.ccallhistorydisconnecttime = value
+                    self.ccallhistorydisconnecttime.value_namespace = name_space
+                    self.ccallhistorydisconnecttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryInfoType"):
+                    self.ccallhistoryinfotype = value
+                    self.ccallhistoryinfotype.value_namespace = name_space
+                    self.ccallhistoryinfotype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryLogicalIfIndex"):
+                    self.ccallhistorylogicalifindex = value
+                    self.ccallhistorylogicalifindex.value_namespace = name_space
+                    self.ccallhistorylogicalifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryPeerAddress"):
+                    self.ccallhistorypeeraddress = value
+                    self.ccallhistorypeeraddress.value_namespace = name_space
+                    self.ccallhistorypeeraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryPeerId"):
+                    self.ccallhistorypeerid = value
+                    self.ccallhistorypeerid.value_namespace = name_space
+                    self.ccallhistorypeerid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryPeerIfIndex"):
+                    self.ccallhistorypeerifindex = value
+                    self.ccallhistorypeerifindex.value_namespace = name_space
+                    self.ccallhistorypeerifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryPeerSubAddress"):
+                    self.ccallhistorypeersubaddress = value
+                    self.ccallhistorypeersubaddress.value_namespace = name_space
+                    self.ccallhistorypeersubaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryReceiveBytes"):
+                    self.ccallhistoryreceivebytes = value
+                    self.ccallhistoryreceivebytes.value_namespace = name_space
+                    self.ccallhistoryreceivebytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryReceivePackets"):
+                    self.ccallhistoryreceivepackets = value
+                    self.ccallhistoryreceivepackets.value_namespace = name_space
+                    self.ccallhistoryreceivepackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryReleaseSource"):
+                    self.ccallhistoryreleasesource = value
+                    self.ccallhistoryreleasesource.value_namespace = name_space
+                    self.ccallhistoryreleasesource.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryReleaseSrc"):
+                    self.ccallhistoryreleasesrc = value
+                    self.ccallhistoryreleasesrc.value_namespace = name_space
+                    self.ccallhistoryreleasesrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistorySetupTime"):
+                    self.ccallhistorysetuptime = value
+                    self.ccallhistorysetuptime.value_namespace = name_space
+                    self.ccallhistorysetuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryTransmitBytes"):
+                    self.ccallhistorytransmitbytes = value
+                    self.ccallhistorytransmitbytes.value_namespace = name_space
+                    self.ccallhistorytransmitbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryTransmitPackets"):
+                    self.ccallhistorytransmitpackets = value
+                    self.ccallhistorytransmitpackets.value_namespace = name_space
+                    self.ccallhistorytransmitpackets.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccallhistoryentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccallhistorycallorigin is not None:
-                    return True
-
-                if self.ccallhistorychargedunits is not None:
-                    return True
-
-                if self.ccallhistoryconnecttime is not None:
-                    return True
-
-                if self.ccallhistorydisconnectcause is not None:
-                    return True
-
-                if self.ccallhistorydisconnecttext is not None:
-                    return True
-
-                if self.ccallhistorydisconnecttime is not None:
-                    return True
-
-                if self.ccallhistoryinfotype is not None:
-                    return True
-
-                if self.ccallhistorylogicalifindex is not None:
-                    return True
-
-                if self.ccallhistorypeeraddress is not None:
-                    return True
-
-                if self.ccallhistorypeerid is not None:
-                    return True
-
-                if self.ccallhistorypeerifindex is not None:
-                    return True
-
-                if self.ccallhistorypeersubaddress is not None:
-                    return True
-
-                if self.ccallhistoryreceivebytes is not None:
-                    return True
-
-                if self.ccallhistoryreceivepackets is not None:
-                    return True
-
-                if self.ccallhistoryreleasesource is not None:
-                    return True
-
-                if self.ccallhistoryreleasesrc is not None:
-                    return True
-
-                if self.ccallhistorysetuptime is not None:
-                    return True
-
-                if self.ccallhistorytransmitbytes is not None:
-                    return True
-
-                if self.ccallhistorytransmitpackets is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/CISCO-DIAL-CONTROL-MIB:cCallHistoryTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccallhistoryentry is not None:
-                for child_ref in self.ccallhistoryentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccallhistoryentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cCallHistoryTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cCallHistoryEntry"):
+                for c in self.ccallhistoryentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDialControlMib.Ccallhistorytable.Ccallhistoryentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccallhistoryentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cCallHistoryEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoDialControlMib.Ccallhistorytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ccallhistoryiectable(object):
+    class Ccallhistoryiectable(Entity):
         """
         This table contains information about Internal Error
         Code(s) (IEC) which caused the call to fail.
@@ -707,13 +986,39 @@ class CiscoDialControlMib(object):
         _revision = '2005-05-26'
 
         def __init__(self):
-            self.parent = None
-            self.ccallhistoryiecentry = YList()
-            self.ccallhistoryiecentry.parent = self
-            self.ccallhistoryiecentry.name = 'ccallhistoryiecentry'
+            super(CiscoDialControlMib.Ccallhistoryiectable, self).__init__()
+
+            self.yang_name = "cCallHistoryIecTable"
+            self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
+
+            self.ccallhistoryiecentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDialControlMib.Ccallhistoryiectable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDialControlMib.Ccallhistoryiectable, self).__setattr__(name, value)
 
 
-        class Ccallhistoryiecentry(object):
+        class Ccallhistoryiecentry(Entity):
             """
             The IEC information regarding a single call.
             
@@ -746,87 +1051,230 @@ class CiscoDialControlMib(object):
             _revision = '2005-05-26'
 
             def __init__(self):
-                self.parent = None
-                self.ccallhistoryindex = None
-                self.ccallhistoryiecindex = None
-                self.ccallhistoryiec = None
+                super(CiscoDialControlMib.Ccallhistoryiectable.Ccallhistoryiecentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccallhistoryindex is None:
-                    raise YPYModelError('Key property ccallhistoryindex is None')
-                if self.ccallhistoryiecindex is None:
-                    raise YPYModelError('Key property ccallhistoryiecindex is None')
+                self.yang_name = "cCallHistoryIecEntry"
+                self.yang_parent_name = "cCallHistoryIecTable"
 
-                return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/CISCO-DIAL-CONTROL-MIB:cCallHistoryIecTable/CISCO-DIAL-CONTROL-MIB:cCallHistoryIecEntry[CISCO-DIAL-CONTROL-MIB:cCallHistoryIndex = ' + str(self.ccallhistoryindex) + '][CISCO-DIAL-CONTROL-MIB:cCallHistoryIecIndex = ' + str(self.ccallhistoryiecindex) + ']'
+                self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccallhistoryiecindex = YLeaf(YType.uint32, "cCallHistoryIecIndex")
+
+                self.ccallhistoryiec = YLeaf(YType.str, "cCallHistoryIec")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccallhistoryindex",
+                                "ccallhistoryiecindex",
+                                "ccallhistoryiec") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDialControlMib.Ccallhistoryiectable.Ccallhistoryiecentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDialControlMib.Ccallhistoryiectable.Ccallhistoryiecentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccallhistoryindex.is_set or
+                    self.ccallhistoryiecindex.is_set or
+                    self.ccallhistoryiec.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccallhistoryindex.yfilter != YFilter.not_set or
+                    self.ccallhistoryiecindex.yfilter != YFilter.not_set or
+                    self.ccallhistoryiec.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cCallHistoryIecEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']" + "[cCallHistoryIecIndex='" + self.ccallhistoryiecindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryIecTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccallhistoryindex.is_set or self.ccallhistoryindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryindex.get_name_leafdata())
+                if (self.ccallhistoryiecindex.is_set or self.ccallhistoryiecindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryiecindex.get_name_leafdata())
+                if (self.ccallhistoryiec.is_set or self.ccallhistoryiec.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryiec.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cCallHistoryIndex" or name == "cCallHistoryIecIndex" or name == "cCallHistoryIec"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccallhistoryindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cCallHistoryIndex"):
+                    self.ccallhistoryindex = value
+                    self.ccallhistoryindex.value_namespace = name_space
+                    self.ccallhistoryindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryIecIndex"):
+                    self.ccallhistoryiecindex = value
+                    self.ccallhistoryiecindex.value_namespace = name_space
+                    self.ccallhistoryiecindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cCallHistoryIec"):
+                    self.ccallhistoryiec = value
+                    self.ccallhistoryiec.value_namespace = name_space
+                    self.ccallhistoryiec.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccallhistoryiecentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccallhistoryiecindex is not None:
-                    return True
-
-                if self.ccallhistoryiec is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoDialControlMib.Ccallhistoryiectable.Ccallhistoryiecentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/CISCO-DIAL-CONTROL-MIB:cCallHistoryIecTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccallhistoryiecentry is not None:
-                for child_ref in self.ccallhistoryiecentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccallhistoryiecentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cCallHistoryIecTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cCallHistoryIecEntry"):
+                for c in self.ccallhistoryiecentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDialControlMib.Ccallhistoryiectable.Ccallhistoryiecentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccallhistoryiecentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cCallHistoryIecEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoDialControlMib.Ccallhistoryiectable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ccallhistoryiectable is not None and self.ccallhistoryiectable.has_data()) or
+            (self.ccallhistorytable is not None and self.ccallhistorytable.has_data()) or
+            (self.cpeerglobalconfiguration is not None and self.cpeerglobalconfiguration.has_data()))
 
-        return '/CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ccallhistoryiectable is not None and self.ccallhistoryiectable.has_operation()) or
+            (self.ccallhistorytable is not None and self.ccallhistorytable.has_operation()) or
+            (self.cpeerglobalconfiguration is not None and self.cpeerglobalconfiguration.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cCallHistoryIecTable"):
+            if (self.ccallhistoryiectable is None):
+                self.ccallhistoryiectable = CiscoDialControlMib.Ccallhistoryiectable()
+                self.ccallhistoryiectable.parent = self
+                self._children_name_map["ccallhistoryiectable"] = "cCallHistoryIecTable"
+            return self.ccallhistoryiectable
+
+        if (child_yang_name == "cCallHistoryTable"):
+            if (self.ccallhistorytable is None):
+                self.ccallhistorytable = CiscoDialControlMib.Ccallhistorytable()
+                self.ccallhistorytable.parent = self
+                self._children_name_map["ccallhistorytable"] = "cCallHistoryTable"
+            return self.ccallhistorytable
+
+        if (child_yang_name == "cPeerGlobalConfiguration"):
+            if (self.cpeerglobalconfiguration is None):
+                self.cpeerglobalconfiguration = CiscoDialControlMib.Cpeerglobalconfiguration()
+                self.cpeerglobalconfiguration.parent = self
+                self._children_name_map["cpeerglobalconfiguration"] = "cPeerGlobalConfiguration"
+            return self.cpeerglobalconfiguration
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cCallHistoryIecTable" or name == "cCallHistoryTable" or name == "cPeerGlobalConfiguration"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ccallhistoryiectable is not None and self.ccallhistoryiectable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ccallhistorytable is not None and self.ccallhistorytable._has_data():
-            return True
-
-        if self.cpeerglobalconfiguration is not None and self.cpeerglobalconfiguration._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CiscoDialControlMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoDialControlMib()
+        return self._top_entity
 

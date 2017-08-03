@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EthernetAutoNegotiationEnum(Enum):
+class EthernetAutoNegotiation(Enum):
     """
-    EthernetAutoNegotiationEnum
+    EthernetAutoNegotiation
 
     Ethernet auto negotiation
 
@@ -40,20 +34,14 @@ class EthernetAutoNegotiationEnum(Enum):
 
     """
 
-    true = 1
+    true = Enum.YLeaf(1, "true")
 
-    override = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetAutoNegotiationEnum']
+    override = Enum.YLeaf(2, "override")
 
 
-class EthernetDuplexEnum(Enum):
+class EthernetDuplex(Enum):
     """
-    EthernetDuplexEnum
+    EthernetDuplex
 
     Ethernet duplex
 
@@ -67,20 +55,14 @@ class EthernetDuplexEnum(Enum):
 
     """
 
-    full = 0
+    full = Enum.YLeaf(0, "full")
 
-    half = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetDuplexEnum']
+    half = Enum.YLeaf(1, "half")
 
 
-class EthernetFecEnum(Enum):
+class EthernetFec(Enum):
     """
-    EthernetFecEnum
+    EthernetFec
 
     Ethernet fec
 
@@ -94,20 +76,14 @@ class EthernetFecEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    standard = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetFecEnum']
+    standard = Enum.YLeaf(1, "standard")
 
 
-class EthernetFlowCtrlEnum(Enum):
+class EthernetFlowCtrl(Enum):
     """
-    EthernetFlowCtrlEnum
+    EthernetFlowCtrl
 
     Ethernet flow ctrl
 
@@ -125,22 +101,16 @@ class EthernetFlowCtrlEnum(Enum):
 
     """
 
-    ingress = 0
+    ingress = Enum.YLeaf(0, "ingress")
 
-    egress = 1
+    egress = Enum.YLeaf(1, "egress")
 
-    bidirectional = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetFlowCtrlEnum']
+    bidirectional = Enum.YLeaf(2, "bidirectional")
 
 
-class EthernetIpgEnum(Enum):
+class EthernetIpg(Enum):
     """
-    EthernetIpgEnum
+    EthernetIpg
 
     Ethernet ipg
 
@@ -150,18 +120,12 @@ class EthernetIpgEnum(Enum):
 
     """
 
-    non_standard = 16
+    non_standard = Enum.YLeaf(16, "non-standard")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetIpgEnum']
-
-
-class EthernetLoopbackEnum(Enum):
+class EthernetLoopback(Enum):
     """
-    EthernetLoopbackEnum
+    EthernetLoopback
 
     Ethernet loopback
 
@@ -179,22 +143,16 @@ class EthernetLoopbackEnum(Enum):
 
     """
 
-    external = 0
+    external = Enum.YLeaf(0, "external")
 
-    internal = 1
+    internal = Enum.YLeaf(1, "internal")
 
-    line = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetLoopbackEnum']
+    line = Enum.YLeaf(2, "line")
 
 
-class EthernetPfcEnum(Enum):
+class EthernetPfc(Enum):
     """
-    EthernetPfcEnum
+    EthernetPfc
 
     Ethernet pfc
 
@@ -204,18 +162,12 @@ class EthernetPfcEnum(Enum):
 
     """
 
-    on = 1
+    on = Enum.YLeaf(1, "on")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetPfcEnum']
-
-
-class EthernetSpeedEnum(Enum):
+class EthernetSpeed(Enum):
     """
-    EthernetSpeedEnum
+    EthernetSpeed
 
     Ethernet speed
 
@@ -233,17 +185,11 @@ class EthernetSpeedEnum(Enum):
 
     """
 
-    Y_10 = 10
+    Y_10 = Enum.YLeaf(10, "10")
 
-    Y_100 = 100
+    Y_100 = Enum.YLeaf(100, "100")
 
-    Y_1000 = 1000
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetSpeedEnum']
+    Y_1000 = Enum.YLeaf(1000, "1000")
 
 
 

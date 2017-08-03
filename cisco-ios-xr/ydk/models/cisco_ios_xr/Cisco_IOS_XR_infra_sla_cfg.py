@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Sla(object):
+class Sla(Entity):
     """
     SLA prtocol and profile Configuration
     
@@ -42,11 +36,19 @@ class Sla(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Sla, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sla"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-sla-cfg"
+
         self.protocols = Sla.Protocols()
         self.protocols.parent = self
+        self._children_name_map["protocols"] = "protocols"
+        self._children_yang_names.add("protocols")
 
 
-    class Protocols(object):
+    class Protocols(Entity):
         """
         Table of all SLA protocols
         
@@ -63,12 +65,18 @@ class Sla(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Sla.Protocols, self).__init__()
+
+            self.yang_name = "protocols"
+            self.yang_parent_name = "sla"
+
             self.ethernet = Sla.Protocols.Ethernet()
             self.ethernet.parent = self
+            self._children_name_map["ethernet"] = "ethernet"
+            self._children_yang_names.add("ethernet")
 
 
-        class Ethernet(object):
+        class Ethernet(Entity):
             """
             The Ethernet SLA protocol
             
@@ -85,12 +93,18 @@ class Sla(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Sla.Protocols.Ethernet, self).__init__()
+
+                self.yang_name = "ethernet"
+                self.yang_parent_name = "protocols"
+
                 self.profiles = Sla.Protocols.Ethernet.Profiles()
                 self.profiles.parent = self
+                self._children_name_map["profiles"] = "profiles"
+                self._children_yang_names.add("profiles")
 
 
-            class Profiles(object):
+            class Profiles(Entity):
                 """
                 Table of SLA profiles on the protocol
                 
@@ -107,13 +121,39 @@ class Sla(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.profile = YList()
-                    self.profile.parent = self
-                    self.profile.name = 'profile'
+                    super(Sla.Protocols.Ethernet.Profiles, self).__init__()
+
+                    self.yang_name = "profiles"
+                    self.yang_parent_name = "ethernet"
+
+                    self.profile = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Sla.Protocols.Ethernet.Profiles, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Sla.Protocols.Ethernet.Profiles, self).__setattr__(name, value)
 
 
-                class Profile(object):
+                class Profile(Entity):
                     """
                     Name of the profile
                     
@@ -154,17 +194,56 @@ class Sla(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.profile_name = None
-                        self.packet_type = None
+                        super(Sla.Protocols.Ethernet.Profiles.Profile, self).__init__()
+
+                        self.yang_name = "profile"
+                        self.yang_parent_name = "profiles"
+
+                        self.profile_name = YLeaf(YType.str, "profile-name")
+
+                        self.packet_type = YLeaf(YType.str, "packet-type")
+
                         self.probe = Sla.Protocols.Ethernet.Profiles.Profile.Probe()
                         self.probe.parent = self
+                        self._children_name_map["probe"] = "probe"
+                        self._children_yang_names.add("probe")
+
                         self.schedule = None
+                        self._children_name_map["schedule"] = "schedule"
+                        self._children_yang_names.add("schedule")
+
                         self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
                         self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                        self._children_yang_names.add("statistics")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("profile_name",
+                                        "packet_type") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Sla.Protocols.Ethernet.Profiles.Profile, self).__setattr__(name, value)
 
 
-                    class Statistics(object):
+                    class Statistics(Entity):
                         """
                         Statistics configuration for the SLA profile
                         
@@ -181,20 +260,46 @@ class Sla(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.statistic = YList()
-                            self.statistic.parent = self
-                            self.statistic.name = 'statistic'
+                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__init__()
+
+                            self.yang_name = "statistics"
+                            self.yang_parent_name = "profile"
+
+                            self.statistic = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__setattr__(name, value)
 
 
-                        class Statistic(object):
+                        class Statistic(Entity):
                             """
                             Type of statistic
                             
                             .. attribute:: statistic_name  <key>
                             
                             	The type of statistic to measure
-                            	**type**\:   :py:class:`SlaStatisticTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnumEnum>`
+                            	**type**\:   :py:class:`SlaStatisticTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnum>`
                             
                             .. attribute:: aggregation
                             
@@ -230,15 +335,53 @@ class Sla(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.statistic_name = None
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__init__()
+
+                                self.yang_name = "statistic"
+                                self.yang_parent_name = "statistics"
+
+                                self.statistic_name = YLeaf(YType.enumeration, "statistic-name")
+
+                                self.buckets_archive = YLeaf(YType.uint32, "buckets-archive")
+
+                                self.enable = YLeaf(YType.empty, "enable")
+
                                 self.aggregation = None
-                                self.buckets_archive = None
+                                self._children_name_map["aggregation"] = "aggregation"
+                                self._children_yang_names.add("aggregation")
+
                                 self.buckets_size = None
-                                self.enable = None
+                                self._children_name_map["buckets_size"] = "buckets-size"
+                                self._children_yang_names.add("buckets-size")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("statistic_name",
+                                                "buckets_archive",
+                                                "enable") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__setattr__(name, value)
 
 
-                            class BucketsSize(object):
+                            class BucketsSize(Entity):
                                 """
                                 Size of the buckets into which statistics
                                 are collected
@@ -255,14 +398,9 @@ class Sla(object):
                                 .. attribute:: buckets_size_unit
                                 
                                 	Unit associated with the BucketsSize
-                                	**type**\:   :py:class:`SlaBucketsSizeUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnumEnum>`
+                                	**type**\:   :py:class:`SlaBucketsSizeUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnum>`
                                 
                                 	**mandatory**\: True
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
                                 
                                 
 
@@ -274,40 +412,98 @@ class Sla(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.buckets_size = None
-                                    self.buckets_size_unit = None
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "buckets-size"
+                                    self.yang_parent_name = "statistic"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:buckets-size'
+                                    self.buckets_size = YLeaf(YType.uint32, "buckets-size")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.buckets_size_unit = YLeaf(YType.enumeration, "buckets-size-unit")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("buckets_size",
+                                                    "buckets_size_unit") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.buckets_size.is_set or
+                                        self.buckets_size_unit.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.buckets_size.yfilter != YFilter.not_set or
+                                        self.buckets_size_unit.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "buckets-size" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.buckets_size.is_set or self.buckets_size.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.buckets_size.get_name_leafdata())
+                                    if (self.buckets_size_unit.is_set or self.buckets_size_unit.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.buckets_size_unit.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "buckets-size" or name == "buckets-size-unit"):
                                         return True
-                                    if self.buckets_size is not None:
-                                        return True
-
-                                    if self.buckets_size_unit is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "buckets-size"):
+                                        self.buckets_size = value
+                                        self.buckets_size.value_namespace = name_space
+                                        self.buckets_size.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "buckets-size-unit"):
+                                        self.buckets_size_unit = value
+                                        self.buckets_size_unit.value_namespace = name_space
+                                        self.buckets_size_unit.value_namespace_prefix = name_space_prefix
 
 
-                            class Aggregation(object):
+                            class Aggregation(Entity):
                                 """
                                 Aggregation to apply to results for the
                                 statistic
@@ -335,11 +531,6 @@ class Sla(object):
                                 
                                 	**range:** 0..9
                                 
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -350,104 +541,247 @@ class Sla(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.bins_count = None
-                                    self.bins_width = None
-                                    self.bins_width_tenths = None
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "aggregation"
+                                    self.yang_parent_name = "statistic"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:aggregation'
+                                    self.bins_count = YLeaf(YType.uint32, "bins-count")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.bins_width = YLeaf(YType.uint32, "bins-width")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                    self.bins_width_tenths = YLeaf(YType.uint32, "bins-width-tenths")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("bins_count",
+                                                    "bins_width",
+                                                    "bins_width_tenths") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.bins_count.is_set or
+                                        self.bins_width.is_set or
+                                        self.bins_width_tenths.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.bins_count.yfilter != YFilter.not_set or
+                                        self.bins_width.yfilter != YFilter.not_set or
+                                        self.bins_width_tenths.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "aggregation" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.bins_count.is_set or self.bins_count.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.bins_count.get_name_leafdata())
+                                    if (self.bins_width.is_set or self.bins_width.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.bins_width.get_name_leafdata())
+                                    if (self.bins_width_tenths.is_set or self.bins_width_tenths.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.bins_width_tenths.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "bins-count" or name == "bins-width" or name == "bins-width-tenths"):
                                         return True
-                                    if self.bins_count is not None:
-                                        return True
-
-                                    if self.bins_width is not None:
-                                        return True
-
-                                    if self.bins_width_tenths is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "bins-count"):
+                                        self.bins_count = value
+                                        self.bins_count.value_namespace = name_space
+                                        self.bins_count.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "bins-width"):
+                                        self.bins_width = value
+                                        self.bins_width.value_namespace = name_space
+                                        self.bins_width.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "bins-width-tenths"):
+                                        self.bins_width_tenths = value
+                                        self.bins_width_tenths.value_namespace = name_space
+                                        self.bins_width_tenths.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.statistic_name is None:
-                                    raise YPYModelError('Key property statistic_name is None')
+                            def has_data(self):
+                                return (
+                                    self.statistic_name.is_set or
+                                    self.buckets_archive.is_set or
+                                    self.enable.is_set or
+                                    (self.aggregation is not None) or
+                                    (self.buckets_size is not None))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:statistic[Cisco-IOS-XR-ethernet-cfm-cfg:statistic-name = ' + str(self.statistic_name) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.statistic_name.yfilter != YFilter.not_set or
+                                    self.buckets_archive.yfilter != YFilter.not_set or
+                                    self.enable.yfilter != YFilter.not_set or
+                                    (self.aggregation is not None and self.aggregation.has_operation()) or
+                                    (self.buckets_size is not None and self.buckets_size.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "statistic" + "[statistic-name='" + self.statistic_name.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.statistic_name is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.statistic_name.is_set or self.statistic_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.statistic_name.get_name_leafdata())
+                                if (self.buckets_archive.is_set or self.buckets_archive.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.buckets_archive.get_name_leafdata())
+                                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "aggregation"):
+                                    if (self.aggregation is None):
+                                        self.aggregation = Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation()
+                                        self.aggregation.parent = self
+                                        self._children_name_map["aggregation"] = "aggregation"
+                                    return self.aggregation
+
+                                if (child_yang_name == "buckets-size"):
+                                    if (self.buckets_size is None):
+                                        self.buckets_size = Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize()
+                                        self.buckets_size.parent = self
+                                        self._children_name_map["buckets_size"] = "buckets-size"
+                                    return self.buckets_size
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "aggregation" or name == "buckets-size" or name == "statistic-name" or name == "buckets-archive" or name == "enable"):
                                     return True
-
-                                if self.aggregation is not None and self.aggregation._has_data():
-                                    return True
-
-                                if self.buckets_archive is not None:
-                                    return True
-
-                                if self.buckets_size is not None and self.buckets_size._has_data():
-                                    return True
-
-                                if self.enable is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "statistic-name"):
+                                    self.statistic_name = value
+                                    self.statistic_name.value_namespace = name_space
+                                    self.statistic_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "buckets-archive"):
+                                    self.buckets_archive = value
+                                    self.buckets_archive.value_namespace = name_space
+                                    self.buckets_archive.value_namespace_prefix = name_space_prefix
+                                if(value_path == "enable"):
+                                    self.enable = value
+                                    self.enable.value_namespace = name_space
+                                    self.enable.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:statistics'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.statistic is not None:
-                                for child_ref in self.statistic:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.statistic:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics']['meta_info']
+                        def has_operation(self):
+                            for c in self.statistic:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "statistics" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "statistic"):
+                                for c in self.statistic:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.statistic.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "statistic"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Schedule(object):
+                    class Schedule(Entity):
                         """
                         Schedule to use for probes within an
                         operation
@@ -462,7 +796,7 @@ class Sla(object):
                         .. attribute:: probe_duration_unit
                         
                         	Time unit associated with the ProbeDuration. The value must not be 'Once'
-                        	**type**\:   :py:class:`SlaProbeDurationUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnumEnum>`
+                        	**type**\:   :py:class:`SlaProbeDurationUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnum>`
                         
                         .. attribute:: probe_interval
                         
@@ -474,12 +808,12 @@ class Sla(object):
                         .. attribute:: probe_interval_day
                         
                         	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
-                        	**type**\:   :py:class:`SlaProbeIntervalDayEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnumEnum>`
+                        	**type**\:   :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
                         
                         .. attribute:: probe_interval_unit
                         
                         	Time unit associated with the ProbeInterval. The value must not be 'Once'.  If 'Week' or 'Day' is specified, probes are scheduled weekly or daily respectively
-                        	**type**\:   :py:class:`SlaProbeIntervalUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnumEnum>`
+                        	**type**\:   :py:class:`SlaProbeIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnum>`
                         
                         	**mandatory**\: True
                         
@@ -504,11 +838,6 @@ class Sla(object):
                         
                         	**range:** 0..59
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -519,64 +848,164 @@ class Sla(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.probe_duration = None
-                            self.probe_duration_unit = None
-                            self.probe_interval = None
-                            self.probe_interval_day = None
-                            self.probe_interval_unit = None
-                            self.start_time_hour = None
-                            self.start_time_minute = None
-                            self.start_time_second = None
+                            super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "schedule"
+                            self.yang_parent_name = "profile"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:schedule'
+                            self.probe_duration = YLeaf(YType.uint32, "probe-duration")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.probe_duration_unit = YLeaf(YType.enumeration, "probe-duration-unit")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.probe_interval = YLeaf(YType.uint32, "probe-interval")
+
+                            self.probe_interval_day = YLeaf(YType.enumeration, "probe-interval-day")
+
+                            self.probe_interval_unit = YLeaf(YType.enumeration, "probe-interval-unit")
+
+                            self.start_time_hour = YLeaf(YType.uint32, "start-time-hour")
+
+                            self.start_time_minute = YLeaf(YType.uint32, "start-time-minute")
+
+                            self.start_time_second = YLeaf(YType.uint32, "start-time-second")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("probe_duration",
+                                            "probe_duration_unit",
+                                            "probe_interval",
+                                            "probe_interval_day",
+                                            "probe_interval_unit",
+                                            "start_time_hour",
+                                            "start_time_minute",
+                                            "start_time_second") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.probe_duration.is_set or
+                                self.probe_duration_unit.is_set or
+                                self.probe_interval.is_set or
+                                self.probe_interval_day.is_set or
+                                self.probe_interval_unit.is_set or
+                                self.start_time_hour.is_set or
+                                self.start_time_minute.is_set or
+                                self.start_time_second.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.probe_duration.yfilter != YFilter.not_set or
+                                self.probe_duration_unit.yfilter != YFilter.not_set or
+                                self.probe_interval.yfilter != YFilter.not_set or
+                                self.probe_interval_day.yfilter != YFilter.not_set or
+                                self.probe_interval_unit.yfilter != YFilter.not_set or
+                                self.start_time_hour.yfilter != YFilter.not_set or
+                                self.start_time_minute.yfilter != YFilter.not_set or
+                                self.start_time_second.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "schedule" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.probe_duration.is_set or self.probe_duration.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.probe_duration.get_name_leafdata())
+                            if (self.probe_duration_unit.is_set or self.probe_duration_unit.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.probe_duration_unit.get_name_leafdata())
+                            if (self.probe_interval.is_set or self.probe_interval.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.probe_interval.get_name_leafdata())
+                            if (self.probe_interval_day.is_set or self.probe_interval_day.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.probe_interval_day.get_name_leafdata())
+                            if (self.probe_interval_unit.is_set or self.probe_interval_unit.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.probe_interval_unit.get_name_leafdata())
+                            if (self.start_time_hour.is_set or self.start_time_hour.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.start_time_hour.get_name_leafdata())
+                            if (self.start_time_minute.is_set or self.start_time_minute.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.start_time_minute.get_name_leafdata())
+                            if (self.start_time_second.is_set or self.start_time_second.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.start_time_second.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "probe-duration" or name == "probe-duration-unit" or name == "probe-interval" or name == "probe-interval-day" or name == "probe-interval-unit" or name == "start-time-hour" or name == "start-time-minute" or name == "start-time-second"):
                                 return True
-                            if self.probe_duration is not None:
-                                return True
-
-                            if self.probe_duration_unit is not None:
-                                return True
-
-                            if self.probe_interval is not None:
-                                return True
-
-                            if self.probe_interval_day is not None:
-                                return True
-
-                            if self.probe_interval_unit is not None:
-                                return True
-
-                            if self.start_time_hour is not None:
-                                return True
-
-                            if self.start_time_minute is not None:
-                                return True
-
-                            if self.start_time_second is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Schedule']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "probe-duration"):
+                                self.probe_duration = value
+                                self.probe_duration.value_namespace = name_space
+                                self.probe_duration.value_namespace_prefix = name_space_prefix
+                            if(value_path == "probe-duration-unit"):
+                                self.probe_duration_unit = value
+                                self.probe_duration_unit.value_namespace = name_space
+                                self.probe_duration_unit.value_namespace_prefix = name_space_prefix
+                            if(value_path == "probe-interval"):
+                                self.probe_interval = value
+                                self.probe_interval.value_namespace = name_space
+                                self.probe_interval.value_namespace_prefix = name_space_prefix
+                            if(value_path == "probe-interval-day"):
+                                self.probe_interval_day = value
+                                self.probe_interval_day.value_namespace = name_space
+                                self.probe_interval_day.value_namespace_prefix = name_space_prefix
+                            if(value_path == "probe-interval-unit"):
+                                self.probe_interval_unit = value
+                                self.probe_interval_unit.value_namespace = name_space
+                                self.probe_interval_unit.value_namespace_prefix = name_space_prefix
+                            if(value_path == "start-time-hour"):
+                                self.start_time_hour = value
+                                self.start_time_hour.value_namespace = name_space
+                                self.start_time_hour.value_namespace_prefix = name_space_prefix
+                            if(value_path == "start-time-minute"):
+                                self.start_time_minute = value
+                                self.start_time_minute.value_namespace = name_space
+                                self.start_time_minute.value_namespace_prefix = name_space_prefix
+                            if(value_path == "start-time-second"):
+                                self.start_time_second = value
+                                self.start_time_second.value_namespace = name_space
+                                self.start_time_second.value_namespace_prefix = name_space_prefix
 
 
-                    class Probe(object):
+                    class Probe(Entity):
                         """
                         Probe configuration for the SLA profile
                         
@@ -616,14 +1045,50 @@ class Sla(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__init__()
+
+                            self.yang_name = "probe"
+                            self.yang_parent_name = "profile"
+
+                            self.priority = YLeaf(YType.uint32, "priority")
+
+                            self.synthetic_loss_calculation_packets = YLeaf(YType.uint32, "synthetic-loss-calculation-packets")
+
                             self.packet_size_and_padding = None
-                            self.priority = None
+                            self._children_name_map["packet_size_and_padding"] = "packet-size-and-padding"
+                            self._children_yang_names.add("packet-size-and-padding")
+
                             self.send = None
-                            self.synthetic_loss_calculation_packets = None
+                            self._children_name_map["send"] = "send"
+                            self._children_yang_names.add("send")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("priority",
+                                            "synthetic_loss_calculation_packets") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__setattr__(name, value)
 
 
-                        class Send(object):
+                        class Send(Entity):
                             """
                             Schedule to use for packets within a burst. 
                             The default value is to send a single packet
@@ -639,7 +1104,7 @@ class Sla(object):
                             .. attribute:: burst_interval_unit
                             
                             	Time unit associated with the BurstInterval .  This must be specified if, and only if, SendType is 'Burst'
-                            	**type**\:   :py:class:`SlaBurstIntervalUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnumEnum>`
+                            	**type**\:   :py:class:`SlaBurstIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnum>`
                             
                             .. attribute:: packet_count
                             
@@ -658,21 +1123,16 @@ class Sla(object):
                             .. attribute:: packet_interval_unit
                             
                             	Time unit associated with the PacketInterval
-                            	**type**\:   :py:class:`SlaPacketIntervalUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnumEnum>`
+                            	**type**\:   :py:class:`SlaPacketIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnum>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: send_type
                             
                             	The packet distribution\: single packets or bursts of packets.  If 'Burst' is specified , PacketCount and BurstInterval must be specified
-                            	**type**\:   :py:class:`SlaSendEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaSendEnum>`
+                            	**type**\:   :py:class:`SlaSend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaSend>`
                             
                             	**mandatory**\: True
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
                             
                             
 
@@ -684,63 +1144,149 @@ class Sla(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.burst_interval = None
-                                self.burst_interval_unit = None
-                                self.packet_count = None
-                                self.packet_interval = None
-                                self.packet_interval_unit = None
-                                self.send_type = None
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "send"
+                                self.yang_parent_name = "probe"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:send'
+                                self.burst_interval = YLeaf(YType.uint32, "burst-interval")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.burst_interval_unit = YLeaf(YType.enumeration, "burst-interval-unit")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                                self.packet_count = YLeaf(YType.uint32, "packet-count")
+
+                                self.packet_interval = YLeaf(YType.uint32, "packet-interval")
+
+                                self.packet_interval_unit = YLeaf(YType.enumeration, "packet-interval-unit")
+
+                                self.send_type = YLeaf(YType.enumeration, "send-type")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("burst_interval",
+                                                "burst_interval_unit",
+                                                "packet_count",
+                                                "packet_interval",
+                                                "packet_interval_unit",
+                                                "send_type") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.burst_interval.is_set or
+                                    self.burst_interval_unit.is_set or
+                                    self.packet_count.is_set or
+                                    self.packet_interval.is_set or
+                                    self.packet_interval_unit.is_set or
+                                    self.send_type.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.burst_interval.yfilter != YFilter.not_set or
+                                    self.burst_interval_unit.yfilter != YFilter.not_set or
+                                    self.packet_count.yfilter != YFilter.not_set or
+                                    self.packet_interval.yfilter != YFilter.not_set or
+                                    self.packet_interval_unit.yfilter != YFilter.not_set or
+                                    self.send_type.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "send" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.burst_interval.is_set or self.burst_interval.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.burst_interval.get_name_leafdata())
+                                if (self.burst_interval_unit.is_set or self.burst_interval_unit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.burst_interval_unit.get_name_leafdata())
+                                if (self.packet_count.is_set or self.packet_count.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.packet_count.get_name_leafdata())
+                                if (self.packet_interval.is_set or self.packet_interval.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.packet_interval.get_name_leafdata())
+                                if (self.packet_interval_unit.is_set or self.packet_interval_unit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.packet_interval_unit.get_name_leafdata())
+                                if (self.send_type.is_set or self.send_type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.send_type.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "burst-interval" or name == "burst-interval-unit" or name == "packet-count" or name == "packet-interval" or name == "packet-interval-unit" or name == "send-type"):
                                     return True
-                                if self.burst_interval is not None:
-                                    return True
-
-                                if self.burst_interval_unit is not None:
-                                    return True
-
-                                if self.packet_count is not None:
-                                    return True
-
-                                if self.packet_interval is not None:
-                                    return True
-
-                                if self.packet_interval_unit is not None:
-                                    return True
-
-                                if self.send_type is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "burst-interval"):
+                                    self.burst_interval = value
+                                    self.burst_interval.value_namespace = name_space
+                                    self.burst_interval.value_namespace_prefix = name_space_prefix
+                                if(value_path == "burst-interval-unit"):
+                                    self.burst_interval_unit = value
+                                    self.burst_interval_unit.value_namespace = name_space
+                                    self.burst_interval_unit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "packet-count"):
+                                    self.packet_count = value
+                                    self.packet_count.value_namespace = name_space
+                                    self.packet_count.value_namespace_prefix = name_space_prefix
+                                if(value_path == "packet-interval"):
+                                    self.packet_interval = value
+                                    self.packet_interval.value_namespace = name_space
+                                    self.packet_interval.value_namespace_prefix = name_space_prefix
+                                if(value_path == "packet-interval-unit"):
+                                    self.packet_interval_unit = value
+                                    self.packet_interval_unit.value_namespace = name_space
+                                    self.packet_interval_unit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "send-type"):
+                                    self.send_type = value
+                                    self.send_type.value_namespace = name_space
+                                    self.send_type.value_namespace_prefix = name_space_prefix
 
 
-                        class PacketSizeAndPadding(object):
+                        class PacketSizeAndPadding(Entity):
                             """
                             Minimum size to pad outgoing packet to
                             
                             .. attribute:: padding_type
                             
                             	Type of padding to be used for the packet
-                            	**type**\:   :py:class:`SlaPaddingPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPatternEnum>`
+                            	**type**\:   :py:class:`SlaPaddingPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPattern>`
                             
                             .. attribute:: padding_value
                             
@@ -758,11 +1304,6 @@ class Sla(object):
                             
                             	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -773,187 +1314,463 @@ class Sla(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.padding_type = None
-                                self.padding_value = None
-                                self.size = None
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "packet-size-and-padding"
+                                self.yang_parent_name = "probe"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:packet-size-and-padding'
+                                self.padding_type = YLeaf(YType.enumeration, "padding-type")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.padding_value = YLeaf(YType.str, "padding-value")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                                self.size = YLeaf(YType.uint32, "size")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("padding_type",
+                                                "padding_value",
+                                                "size") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.padding_type.is_set or
+                                    self.padding_value.is_set or
+                                    self.size.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.padding_type.yfilter != YFilter.not_set or
+                                    self.padding_value.yfilter != YFilter.not_set or
+                                    self.size.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "packet-size-and-padding" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.padding_type.is_set or self.padding_type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.padding_type.get_name_leafdata())
+                                if (self.padding_value.is_set or self.padding_value.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.padding_value.get_name_leafdata())
+                                if (self.size.is_set or self.size.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.size.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "padding-type" or name == "padding-value" or name == "size"):
                                     return True
-                                if self.padding_type is not None:
-                                    return True
-
-                                if self.padding_value is not None:
-                                    return True
-
-                                if self.size is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "padding-type"):
+                                    self.padding_type = value
+                                    self.padding_type.value_namespace = name_space
+                                    self.padding_type.value_namespace_prefix = name_space_prefix
+                                if(value_path == "padding-value"):
+                                    self.padding_value = value
+                                    self.padding_value.value_namespace = name_space
+                                    self.padding_value.value_namespace_prefix = name_space_prefix
+                                if(value_path == "size"):
+                                    self.size = value
+                                    self.size.value_namespace = name_space
+                                    self.size.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                self.priority.is_set or
+                                self.synthetic_loss_calculation_packets.is_set or
+                                (self.packet_size_and_padding is not None) or
+                                (self.send is not None))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:probe'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.priority.yfilter != YFilter.not_set or
+                                self.synthetic_loss_calculation_packets.yfilter != YFilter.not_set or
+                                (self.packet_size_and_padding is not None and self.packet_size_and_padding.has_operation()) or
+                                (self.send is not None and self.send.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "probe" + path_buffer
 
-                        def _has_data(self):
-                            if self.packet_size_and_padding is not None and self.packet_size_and_padding._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.priority.get_name_leafdata())
+                            if (self.synthetic_loss_calculation_packets.is_set or self.synthetic_loss_calculation_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.synthetic_loss_calculation_packets.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "packet-size-and-padding"):
+                                if (self.packet_size_and_padding is None):
+                                    self.packet_size_and_padding = Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding()
+                                    self.packet_size_and_padding.parent = self
+                                    self._children_name_map["packet_size_and_padding"] = "packet-size-and-padding"
+                                return self.packet_size_and_padding
+
+                            if (child_yang_name == "send"):
+                                if (self.send is None):
+                                    self.send = Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send()
+                                    self.send.parent = self
+                                    self._children_name_map["send"] = "send"
+                                return self.send
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "packet-size-and-padding" or name == "send" or name == "priority" or name == "synthetic-loss-calculation-packets"):
                                 return True
-
-                            if self.priority is not None:
-                                return True
-
-                            if self.send is not None and self.send._has_data():
-                                return True
-
-                            if self.synthetic_loss_calculation_packets is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "priority"):
+                                self.priority = value
+                                self.priority.value_namespace = name_space
+                                self.priority.value_namespace_prefix = name_space_prefix
+                            if(value_path == "synthetic-loss-calculation-packets"):
+                                self.synthetic_loss_calculation_packets = value
+                                self.synthetic_loss_calculation_packets.value_namespace = name_space
+                                self.synthetic_loss_calculation_packets.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.profile_name is None:
-                            raise YPYModelError('Key property profile_name is None')
+                    def has_data(self):
+                        return (
+                            self.profile_name.is_set or
+                            self.packet_type.is_set or
+                            (self.probe is not None and self.probe.has_data()) or
+                            (self.statistics is not None and self.statistics.has_data()) or
+                            (self.schedule is not None))
 
-                        return '/Cisco-IOS-XR-infra-sla-cfg:sla/Cisco-IOS-XR-infra-sla-cfg:protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/Cisco-IOS-XR-ethernet-cfm-cfg:profiles/Cisco-IOS-XR-ethernet-cfm-cfg:profile[Cisco-IOS-XR-ethernet-cfm-cfg:profile-name = ' + str(self.profile_name) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.profile_name.yfilter != YFilter.not_set or
+                            self.packet_type.yfilter != YFilter.not_set or
+                            (self.probe is not None and self.probe.has_operation()) or
+                            (self.schedule is not None and self.schedule.has_operation()) or
+                            (self.statistics is not None and self.statistics.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "profile" + "[profile-name='" + self.profile_name.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.profile_name is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.profile_name.is_set or self.profile_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.profile_name.get_name_leafdata())
+                        if (self.packet_type.is_set or self.packet_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packet_type.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "probe"):
+                            if (self.probe is None):
+                                self.probe = Sla.Protocols.Ethernet.Profiles.Profile.Probe()
+                                self.probe.parent = self
+                                self._children_name_map["probe"] = "probe"
+                            return self.probe
+
+                        if (child_yang_name == "schedule"):
+                            if (self.schedule is None):
+                                self.schedule = Sla.Protocols.Ethernet.Profiles.Profile.Schedule()
+                                self.schedule.parent = self
+                                self._children_name_map["schedule"] = "schedule"
+                            return self.schedule
+
+                        if (child_yang_name == "statistics"):
+                            if (self.statistics is None):
+                                self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
+                                self.statistics.parent = self
+                                self._children_name_map["statistics"] = "statistics"
+                            return self.statistics
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "probe" or name == "schedule" or name == "statistics" or name == "profile-name" or name == "packet-type"):
                             return True
-
-                        if self.packet_type is not None:
-                            return True
-
-                        if self.probe is not None and self.probe._has_data():
-                            return True
-
-                        if self.schedule is not None and self.schedule._has_data():
-                            return True
-
-                        if self.statistics is not None and self.statistics._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                        return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "profile-name"):
+                            self.profile_name = value
+                            self.profile_name.value_namespace = name_space
+                            self.profile_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packet-type"):
+                            self.packet_type = value
+                            self.packet_type.value_namespace = name_space
+                            self.packet_type.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-infra-sla-cfg:sla/Cisco-IOS-XR-infra-sla-cfg:protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/Cisco-IOS-XR-ethernet-cfm-cfg:profiles'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.profile is not None:
-                        for child_ref in self.profile:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.profile:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles']['meta_info']
+                def has_operation(self):
+                    for c in self.profile:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "profiles" + path_buffer
 
-                return '/Cisco-IOS-XR-infra-sla-cfg:sla/Cisco-IOS-XR-infra-sla-cfg:protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.profiles is not None and self.profiles._has_data():
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "profile"):
+                        for c in self.profile:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Sla.Protocols.Ethernet.Profiles.Profile()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.profile.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "profile"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (self.profiles is not None and self.profiles.has_data())
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.profiles is not None and self.profiles.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "profiles"):
+                    if (self.profiles is None):
+                        self.profiles = Sla.Protocols.Ethernet.Profiles()
+                        self.profiles.parent = self
+                        self._children_name_map["profiles"] = "profiles"
+                    return self.profiles
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "profiles"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-                return meta._meta_table['Sla.Protocols.Ethernet']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.ethernet is not None and self.ethernet.has_data())
 
-            return '/Cisco-IOS-XR-infra-sla-cfg:sla/Cisco-IOS-XR-infra-sla-cfg:protocols'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.ethernet is not None and self.ethernet.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "protocols" + path_buffer
 
-        def _has_data(self):
-            if self.ethernet is not None and self.ethernet._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-sla-cfg:sla/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ethernet"):
+                if (self.ethernet is None):
+                    self.ethernet = Sla.Protocols.Ethernet()
+                    self.ethernet.parent = self
+                    self._children_name_map["ethernet"] = "ethernet"
+                return self.ethernet
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ethernet"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-            return meta._meta_table['Sla.Protocols']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.protocols is not None and self.protocols.has_data())
 
-        return '/Cisco-IOS-XR-infra-sla-cfg:sla'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.protocols is not None and self.protocols.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-sla-cfg:sla" + path_buffer
 
-    def _has_data(self):
-        if self.protocols is not None and self.protocols._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "protocols"):
+            if (self.protocols is None):
+                self.protocols = Sla.Protocols()
+                self.protocols.parent = self
+                self._children_name_map["protocols"] = "protocols"
+            return self.protocols
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "protocols"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
-        return meta._meta_table['Sla']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Sla()
+        return self._top_entity
 

@@ -7,21 +7,15 @@ Techniques in RSVP\-TE, draft\-ietf\-mpls\-rsvp\-lsp\-fastreroute\-
 00.txt, January 2002.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIetfFrrMib(object):
+class CiscoIetfFrrMib(Entity):
     """
     
     
@@ -53,17 +47,34 @@ class CiscoIetfFrrMib(object):
     _revision = '2008-04-29'
 
     def __init__(self):
+        super(CiscoIetfFrrMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IETF-FRR-MIB"
+        self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+
         self.cmplsfrrconsttable = CiscoIetfFrrMib.Cmplsfrrconsttable()
         self.cmplsfrrconsttable.parent = self
+        self._children_name_map["cmplsfrrconsttable"] = "cmplsFrrConstTable"
+        self._children_yang_names.add("cmplsFrrConstTable")
+
         self.cmplsfrrfacroutedbtable = CiscoIetfFrrMib.Cmplsfrrfacroutedbtable()
         self.cmplsfrrfacroutedbtable.parent = self
+        self._children_name_map["cmplsfrrfacroutedbtable"] = "cmplsFrrFacRouteDBTable"
+        self._children_yang_names.add("cmplsFrrFacRouteDBTable")
+
         self.cmplsfrrlogtable = CiscoIetfFrrMib.Cmplsfrrlogtable()
         self.cmplsfrrlogtable.parent = self
+        self._children_name_map["cmplsfrrlogtable"] = "cmplsFrrLogTable"
+        self._children_yang_names.add("cmplsFrrLogTable")
+
         self.cmplsfrrscalars = CiscoIetfFrrMib.Cmplsfrrscalars()
         self.cmplsfrrscalars.parent = self
+        self._children_name_map["cmplsfrrscalars"] = "cmplsFrrScalars"
+        self._children_yang_names.add("cmplsFrrScalars")
 
 
-    class Cmplsfrrscalars(object):
+    class Cmplsfrrscalars(Entity):
         """
         
         
@@ -98,7 +109,7 @@ class CiscoIetfFrrMib(object):
         .. attribute:: cmplsfrrconstprotectionmethod
         
         	Indicates which protection method is to be used for fast reroute. Some devices may require a reboot of their routing processors if this variable is changed. An agent which does not wish to reboot or modify its FRR mode  MUST return an inconsistentValue error. Please  consult the device's agent capability statement  for more details
-        	**type**\:   :py:class:`CmplsfrrconstprotectionmethodEnum <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrscalars.CmplsfrrconstprotectionmethodEnum>`
+        	**type**\:   :py:class:`Cmplsfrrconstprotectionmethod <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrscalars.Cmplsfrrconstprotectionmethod>`
         
         .. attribute:: cmplsfrrdetourincoming
         
@@ -169,25 +180,79 @@ class CiscoIetfFrrMib(object):
         _revision = '2008-04-29'
 
         def __init__(self):
-            self.parent = None
-            self.cmplsfrractprotectedifs = None
-            self.cmplsfrractprotectedlsps = None
-            self.cmplsfrractprotectedtuns = None
-            self.cmplsfrrconfprotectingtuns = None
-            self.cmplsfrrconstprotectionmethod = None
-            self.cmplsfrrdetourincoming = None
-            self.cmplsfrrdetouroriginating = None
-            self.cmplsfrrdetouroutgoing = None
-            self.cmplsfrrlogtablecurrentries = None
-            self.cmplsfrrlogtablemaxentries = None
-            self.cmplsfrrnotifmaxrate = None
-            self.cmplsfrrnotifsenabled = None
-            self.cmplsfrrnumofconfifs = None
-            self.cmplsfrrswitchover = None
+            super(CiscoIetfFrrMib.Cmplsfrrscalars, self).__init__()
 
-        class CmplsfrrconstprotectionmethodEnum(Enum):
+            self.yang_name = "cmplsFrrScalars"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+
+            self.cmplsfrractprotectedifs = YLeaf(YType.uint32, "cmplsFrrActProtectedIfs")
+
+            self.cmplsfrractprotectedlsps = YLeaf(YType.uint32, "cmplsFrrActProtectedLSPs")
+
+            self.cmplsfrractprotectedtuns = YLeaf(YType.uint32, "cmplsFrrActProtectedTuns")
+
+            self.cmplsfrrconfprotectingtuns = YLeaf(YType.uint32, "cmplsFrrConfProtectingTuns")
+
+            self.cmplsfrrconstprotectionmethod = YLeaf(YType.enumeration, "cmplsFrrConstProtectionMethod")
+
+            self.cmplsfrrdetourincoming = YLeaf(YType.uint32, "cmplsFrrDetourIncoming")
+
+            self.cmplsfrrdetouroriginating = YLeaf(YType.uint32, "cmplsFrrDetourOriginating")
+
+            self.cmplsfrrdetouroutgoing = YLeaf(YType.uint32, "cmplsFrrDetourOutgoing")
+
+            self.cmplsfrrlogtablecurrentries = YLeaf(YType.uint32, "cmplsFrrLogTableCurrEntries")
+
+            self.cmplsfrrlogtablemaxentries = YLeaf(YType.uint32, "cmplsFrrLogTableMaxEntries")
+
+            self.cmplsfrrnotifmaxrate = YLeaf(YType.uint32, "cmplsFrrNotifMaxRate")
+
+            self.cmplsfrrnotifsenabled = YLeaf(YType.boolean, "cmplsFrrNotifsEnabled")
+
+            self.cmplsfrrnumofconfifs = YLeaf(YType.uint32, "cmplsFrrNumOfConfIfs")
+
+            self.cmplsfrrswitchover = YLeaf(YType.uint32, "cmplsFrrSwitchover")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cmplsfrractprotectedifs",
+                            "cmplsfrractprotectedlsps",
+                            "cmplsfrractprotectedtuns",
+                            "cmplsfrrconfprotectingtuns",
+                            "cmplsfrrconstprotectionmethod",
+                            "cmplsfrrdetourincoming",
+                            "cmplsfrrdetouroriginating",
+                            "cmplsfrrdetouroutgoing",
+                            "cmplsfrrlogtablecurrentries",
+                            "cmplsfrrlogtablemaxentries",
+                            "cmplsfrrnotifmaxrate",
+                            "cmplsfrrnotifsenabled",
+                            "cmplsfrrnumofconfifs",
+                            "cmplsfrrswitchover") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfFrrMib.Cmplsfrrscalars, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfFrrMib.Cmplsfrrscalars, self).__setattr__(name, value)
+
+        class Cmplsfrrconstprotectionmethod(Enum):
             """
-            CmplsfrrconstprotectionmethodEnum
+            Cmplsfrrconstprotectionmethod
 
             Indicates which protection method is to be used for fast
 
@@ -209,78 +274,164 @@ class CiscoIetfFrrMib(object):
 
             """
 
-            oneToOneBackup = 0
+            oneToOneBackup = Enum.YLeaf(0, "oneToOneBackup")
 
-            facilityBackup = 1
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrscalars.CmplsfrrconstprotectionmethodEnum']
+            facilityBackup = Enum.YLeaf(1, "facilityBackup")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.cmplsfrractprotectedifs.is_set or
+                self.cmplsfrractprotectedlsps.is_set or
+                self.cmplsfrractprotectedtuns.is_set or
+                self.cmplsfrrconfprotectingtuns.is_set or
+                self.cmplsfrrconstprotectionmethod.is_set or
+                self.cmplsfrrdetourincoming.is_set or
+                self.cmplsfrrdetouroriginating.is_set or
+                self.cmplsfrrdetouroutgoing.is_set or
+                self.cmplsfrrlogtablecurrentries.is_set or
+                self.cmplsfrrlogtablemaxentries.is_set or
+                self.cmplsfrrnotifmaxrate.is_set or
+                self.cmplsfrrnotifsenabled.is_set or
+                self.cmplsfrrnumofconfifs.is_set or
+                self.cmplsfrrswitchover.is_set)
 
-            return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrScalars'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cmplsfrractprotectedifs.yfilter != YFilter.not_set or
+                self.cmplsfrractprotectedlsps.yfilter != YFilter.not_set or
+                self.cmplsfrractprotectedtuns.yfilter != YFilter.not_set or
+                self.cmplsfrrconfprotectingtuns.yfilter != YFilter.not_set or
+                self.cmplsfrrconstprotectionmethod.yfilter != YFilter.not_set or
+                self.cmplsfrrdetourincoming.yfilter != YFilter.not_set or
+                self.cmplsfrrdetouroriginating.yfilter != YFilter.not_set or
+                self.cmplsfrrdetouroutgoing.yfilter != YFilter.not_set or
+                self.cmplsfrrlogtablecurrentries.yfilter != YFilter.not_set or
+                self.cmplsfrrlogtablemaxentries.yfilter != YFilter.not_set or
+                self.cmplsfrrnotifmaxrate.yfilter != YFilter.not_set or
+                self.cmplsfrrnotifsenabled.yfilter != YFilter.not_set or
+                self.cmplsfrrnumofconfifs.yfilter != YFilter.not_set or
+                self.cmplsfrrswitchover.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cmplsFrrScalars" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cmplsfrractprotectedifs.is_set or self.cmplsfrractprotectedifs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrractprotectedifs.get_name_leafdata())
+            if (self.cmplsfrractprotectedlsps.is_set or self.cmplsfrractprotectedlsps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrractprotectedlsps.get_name_leafdata())
+            if (self.cmplsfrractprotectedtuns.is_set or self.cmplsfrractprotectedtuns.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrractprotectedtuns.get_name_leafdata())
+            if (self.cmplsfrrconfprotectingtuns.is_set or self.cmplsfrrconfprotectingtuns.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrconfprotectingtuns.get_name_leafdata())
+            if (self.cmplsfrrconstprotectionmethod.is_set or self.cmplsfrrconstprotectionmethod.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrconstprotectionmethod.get_name_leafdata())
+            if (self.cmplsfrrdetourincoming.is_set or self.cmplsfrrdetourincoming.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrdetourincoming.get_name_leafdata())
+            if (self.cmplsfrrdetouroriginating.is_set or self.cmplsfrrdetouroriginating.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrdetouroriginating.get_name_leafdata())
+            if (self.cmplsfrrdetouroutgoing.is_set or self.cmplsfrrdetouroutgoing.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrdetouroutgoing.get_name_leafdata())
+            if (self.cmplsfrrlogtablecurrentries.is_set or self.cmplsfrrlogtablecurrentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrlogtablecurrentries.get_name_leafdata())
+            if (self.cmplsfrrlogtablemaxentries.is_set or self.cmplsfrrlogtablemaxentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrlogtablemaxentries.get_name_leafdata())
+            if (self.cmplsfrrnotifmaxrate.is_set or self.cmplsfrrnotifmaxrate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrnotifmaxrate.get_name_leafdata())
+            if (self.cmplsfrrnotifsenabled.is_set or self.cmplsfrrnotifsenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrnotifsenabled.get_name_leafdata())
+            if (self.cmplsfrrnumofconfifs.is_set or self.cmplsfrrnumofconfifs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrnumofconfifs.get_name_leafdata())
+            if (self.cmplsfrrswitchover.is_set or self.cmplsfrrswitchover.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cmplsfrrswitchover.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cmplsFrrActProtectedIfs" or name == "cmplsFrrActProtectedLSPs" or name == "cmplsFrrActProtectedTuns" or name == "cmplsFrrConfProtectingTuns" or name == "cmplsFrrConstProtectionMethod" or name == "cmplsFrrDetourIncoming" or name == "cmplsFrrDetourOriginating" or name == "cmplsFrrDetourOutgoing" or name == "cmplsFrrLogTableCurrEntries" or name == "cmplsFrrLogTableMaxEntries" or name == "cmplsFrrNotifMaxRate" or name == "cmplsFrrNotifsEnabled" or name == "cmplsFrrNumOfConfIfs" or name == "cmplsFrrSwitchover"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cmplsfrractprotectedifs is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cmplsFrrActProtectedIfs"):
+                self.cmplsfrractprotectedifs = value
+                self.cmplsfrractprotectedifs.value_namespace = name_space
+                self.cmplsfrractprotectedifs.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrActProtectedLSPs"):
+                self.cmplsfrractprotectedlsps = value
+                self.cmplsfrractprotectedlsps.value_namespace = name_space
+                self.cmplsfrractprotectedlsps.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrActProtectedTuns"):
+                self.cmplsfrractprotectedtuns = value
+                self.cmplsfrractprotectedtuns.value_namespace = name_space
+                self.cmplsfrractprotectedtuns.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrConfProtectingTuns"):
+                self.cmplsfrrconfprotectingtuns = value
+                self.cmplsfrrconfprotectingtuns.value_namespace = name_space
+                self.cmplsfrrconfprotectingtuns.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrConstProtectionMethod"):
+                self.cmplsfrrconstprotectionmethod = value
+                self.cmplsfrrconstprotectionmethod.value_namespace = name_space
+                self.cmplsfrrconstprotectionmethod.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrDetourIncoming"):
+                self.cmplsfrrdetourincoming = value
+                self.cmplsfrrdetourincoming.value_namespace = name_space
+                self.cmplsfrrdetourincoming.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrDetourOriginating"):
+                self.cmplsfrrdetouroriginating = value
+                self.cmplsfrrdetouroriginating.value_namespace = name_space
+                self.cmplsfrrdetouroriginating.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrDetourOutgoing"):
+                self.cmplsfrrdetouroutgoing = value
+                self.cmplsfrrdetouroutgoing.value_namespace = name_space
+                self.cmplsfrrdetouroutgoing.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrLogTableCurrEntries"):
+                self.cmplsfrrlogtablecurrentries = value
+                self.cmplsfrrlogtablecurrentries.value_namespace = name_space
+                self.cmplsfrrlogtablecurrentries.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrLogTableMaxEntries"):
+                self.cmplsfrrlogtablemaxentries = value
+                self.cmplsfrrlogtablemaxentries.value_namespace = name_space
+                self.cmplsfrrlogtablemaxentries.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrNotifMaxRate"):
+                self.cmplsfrrnotifmaxrate = value
+                self.cmplsfrrnotifmaxrate.value_namespace = name_space
+                self.cmplsfrrnotifmaxrate.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrNotifsEnabled"):
+                self.cmplsfrrnotifsenabled = value
+                self.cmplsfrrnotifsenabled.value_namespace = name_space
+                self.cmplsfrrnotifsenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrNumOfConfIfs"):
+                self.cmplsfrrnumofconfifs = value
+                self.cmplsfrrnumofconfifs.value_namespace = name_space
+                self.cmplsfrrnumofconfifs.value_namespace_prefix = name_space_prefix
+            if(value_path == "cmplsFrrSwitchover"):
+                self.cmplsfrrswitchover = value
+                self.cmplsfrrswitchover.value_namespace = name_space
+                self.cmplsfrrswitchover.value_namespace_prefix = name_space_prefix
 
-            if self.cmplsfrractprotectedlsps is not None:
-                return True
 
-            if self.cmplsfrractprotectedtuns is not None:
-                return True
-
-            if self.cmplsfrrconfprotectingtuns is not None:
-                return True
-
-            if self.cmplsfrrconstprotectionmethod is not None:
-                return True
-
-            if self.cmplsfrrdetourincoming is not None:
-                return True
-
-            if self.cmplsfrrdetouroriginating is not None:
-                return True
-
-            if self.cmplsfrrdetouroutgoing is not None:
-                return True
-
-            if self.cmplsfrrlogtablecurrentries is not None:
-                return True
-
-            if self.cmplsfrrlogtablemaxentries is not None:
-                return True
-
-            if self.cmplsfrrnotifmaxrate is not None:
-                return True
-
-            if self.cmplsfrrnotifsenabled is not None:
-                return True
-
-            if self.cmplsfrrnumofconfifs is not None:
-                return True
-
-            if self.cmplsfrrswitchover is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-            return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrscalars']['meta_info']
-
-
-    class Cmplsfrrconsttable(object):
+    class Cmplsfrrconsttable(Entity):
         """
         This table shows detour setup constraints.
         
@@ -297,13 +448,39 @@ class CiscoIetfFrrMib(object):
         _revision = '2008-04-29'
 
         def __init__(self):
-            self.parent = None
-            self.cmplsfrrconstentry = YList()
-            self.cmplsfrrconstentry.parent = self
-            self.cmplsfrrconstentry.name = 'cmplsfrrconstentry'
+            super(CiscoIetfFrrMib.Cmplsfrrconsttable, self).__init__()
+
+            self.yang_name = "cmplsFrrConstTable"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+
+            self.cmplsfrrconstentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfFrrMib.Cmplsfrrconsttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfFrrMib.Cmplsfrrconsttable, self).__setattr__(name, value)
 
 
-        class Cmplsfrrconstentry(object):
+        class Cmplsfrrconstentry(Entity):
             """
             An entry in this table represents detour LSP or bypass tunnel 
             setup constraints for a tunnel instance to be protected by 
@@ -393,7 +570,7 @@ class CiscoIetfFrrMib(object):
             .. attribute:: cmplsfrrconstrowstatus
             
             	This object is used to create, modify, and/or delete a row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cmplsfrrconstsetupprio
             
@@ -410,107 +587,275 @@ class CiscoIetfFrrMib(object):
             _revision = '2008-04-29'
 
             def __init__(self):
-                self.parent = None
-                self.cmplsfrrconstifindex = None
-                self.cmplsfrrconsttunnelindex = None
-                self.cmplsfrrconsttunnelinstance = None
-                self.cmplsfrrconstbandwidth = None
-                self.cmplsfrrconstexclallaffinity = None
-                self.cmplsfrrconstholdingprio = None
-                self.cmplsfrrconsthoplimit = None
-                self.cmplsfrrconstinclallaffinity = None
-                self.cmplsfrrconstinclanyaffinity = None
-                self.cmplsfrrconstnumprotectedtunonif = None
-                self.cmplsfrrconstnumprotectingtunonif = None
-                self.cmplsfrrconstrowstatus = None
-                self.cmplsfrrconstsetupprio = None
+                super(CiscoIetfFrrMib.Cmplsfrrconsttable.Cmplsfrrconstentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cmplsfrrconstifindex is None:
-                    raise YPYModelError('Key property cmplsfrrconstifindex is None')
-                if self.cmplsfrrconsttunnelindex is None:
-                    raise YPYModelError('Key property cmplsfrrconsttunnelindex is None')
-                if self.cmplsfrrconsttunnelinstance is None:
-                    raise YPYModelError('Key property cmplsfrrconsttunnelinstance is None')
+                self.yang_name = "cmplsFrrConstEntry"
+                self.yang_parent_name = "cmplsFrrConstTable"
 
-                return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrConstTable/CISCO-IETF-FRR-MIB:cmplsFrrConstEntry[CISCO-IETF-FRR-MIB:cmplsFrrConstIfIndex = ' + str(self.cmplsfrrconstifindex) + '][CISCO-IETF-FRR-MIB:cmplsFrrConstTunnelIndex = ' + str(self.cmplsfrrconsttunnelindex) + '][CISCO-IETF-FRR-MIB:cmplsFrrConstTunnelInstance = ' + str(self.cmplsfrrconsttunnelinstance) + ']'
+                self.cmplsfrrconstifindex = YLeaf(YType.int32, "cmplsFrrConstIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cmplsfrrconsttunnelindex = YLeaf(YType.uint32, "cmplsFrrConstTunnelIndex")
+
+                self.cmplsfrrconsttunnelinstance = YLeaf(YType.uint32, "cmplsFrrConstTunnelInstance")
+
+                self.cmplsfrrconstbandwidth = YLeaf(YType.uint32, "cmplsFrrConstBandwidth")
+
+                self.cmplsfrrconstexclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstExclAllAffinity")
+
+                self.cmplsfrrconstholdingprio = YLeaf(YType.uint32, "cmplsFrrConstHoldingPrio")
+
+                self.cmplsfrrconsthoplimit = YLeaf(YType.uint32, "cmplsFrrConstHopLimit")
+
+                self.cmplsfrrconstinclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAllAffinity")
+
+                self.cmplsfrrconstinclanyaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAnyAffinity")
+
+                self.cmplsfrrconstnumprotectedtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectedTunOnIf")
+
+                self.cmplsfrrconstnumprotectingtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectingTunOnIf")
+
+                self.cmplsfrrconstrowstatus = YLeaf(YType.enumeration, "cmplsFrrConstRowStatus")
+
+                self.cmplsfrrconstsetupprio = YLeaf(YType.uint32, "cmplsFrrConstSetupPrio")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cmplsfrrconstifindex",
+                                "cmplsfrrconsttunnelindex",
+                                "cmplsfrrconsttunnelinstance",
+                                "cmplsfrrconstbandwidth",
+                                "cmplsfrrconstexclallaffinity",
+                                "cmplsfrrconstholdingprio",
+                                "cmplsfrrconsthoplimit",
+                                "cmplsfrrconstinclallaffinity",
+                                "cmplsfrrconstinclanyaffinity",
+                                "cmplsfrrconstnumprotectedtunonif",
+                                "cmplsfrrconstnumprotectingtunonif",
+                                "cmplsfrrconstrowstatus",
+                                "cmplsfrrconstsetupprio") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfFrrMib.Cmplsfrrconsttable.Cmplsfrrconstentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfFrrMib.Cmplsfrrconsttable.Cmplsfrrconstentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cmplsfrrconstifindex.is_set or
+                    self.cmplsfrrconsttunnelindex.is_set or
+                    self.cmplsfrrconsttunnelinstance.is_set or
+                    self.cmplsfrrconstbandwidth.is_set or
+                    self.cmplsfrrconstexclallaffinity.is_set or
+                    self.cmplsfrrconstholdingprio.is_set or
+                    self.cmplsfrrconsthoplimit.is_set or
+                    self.cmplsfrrconstinclallaffinity.is_set or
+                    self.cmplsfrrconstinclanyaffinity.is_set or
+                    self.cmplsfrrconstnumprotectedtunonif.is_set or
+                    self.cmplsfrrconstnumprotectingtunonif.is_set or
+                    self.cmplsfrrconstrowstatus.is_set or
+                    self.cmplsfrrconstsetupprio.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstifindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrconsttunnelindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrconsttunnelinstance.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstbandwidth.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstexclallaffinity.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstholdingprio.yfilter != YFilter.not_set or
+                    self.cmplsfrrconsthoplimit.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstinclallaffinity.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstinclanyaffinity.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstnumprotectedtunonif.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstnumprotectingtunonif.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstrowstatus.yfilter != YFilter.not_set or
+                    self.cmplsfrrconstsetupprio.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + self.cmplsfrrconstifindex.get() + "']" + "[cmplsFrrConstTunnelIndex='" + self.cmplsfrrconsttunnelindex.get() + "']" + "[cmplsFrrConstTunnelInstance='" + self.cmplsfrrconsttunnelinstance.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrConstTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cmplsfrrconstifindex.is_set or self.cmplsfrrconstifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstifindex.get_name_leafdata())
+                if (self.cmplsfrrconsttunnelindex.is_set or self.cmplsfrrconsttunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconsttunnelindex.get_name_leafdata())
+                if (self.cmplsfrrconsttunnelinstance.is_set or self.cmplsfrrconsttunnelinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconsttunnelinstance.get_name_leafdata())
+                if (self.cmplsfrrconstbandwidth.is_set or self.cmplsfrrconstbandwidth.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstbandwidth.get_name_leafdata())
+                if (self.cmplsfrrconstexclallaffinity.is_set or self.cmplsfrrconstexclallaffinity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstexclallaffinity.get_name_leafdata())
+                if (self.cmplsfrrconstholdingprio.is_set or self.cmplsfrrconstholdingprio.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstholdingprio.get_name_leafdata())
+                if (self.cmplsfrrconsthoplimit.is_set or self.cmplsfrrconsthoplimit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconsthoplimit.get_name_leafdata())
+                if (self.cmplsfrrconstinclallaffinity.is_set or self.cmplsfrrconstinclallaffinity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstinclallaffinity.get_name_leafdata())
+                if (self.cmplsfrrconstinclanyaffinity.is_set or self.cmplsfrrconstinclanyaffinity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstinclanyaffinity.get_name_leafdata())
+                if (self.cmplsfrrconstnumprotectedtunonif.is_set or self.cmplsfrrconstnumprotectedtunonif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstnumprotectedtunonif.get_name_leafdata())
+                if (self.cmplsfrrconstnumprotectingtunonif.is_set or self.cmplsfrrconstnumprotectingtunonif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstnumprotectingtunonif.get_name_leafdata())
+                if (self.cmplsfrrconstrowstatus.is_set or self.cmplsfrrconstrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstrowstatus.get_name_leafdata())
+                if (self.cmplsfrrconstsetupprio.is_set or self.cmplsfrrconstsetupprio.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrconstsetupprio.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cmplsFrrConstIfIndex" or name == "cmplsFrrConstTunnelIndex" or name == "cmplsFrrConstTunnelInstance" or name == "cmplsFrrConstBandwidth" or name == "cmplsFrrConstExclAllAffinity" or name == "cmplsFrrConstHoldingPrio" or name == "cmplsFrrConstHopLimit" or name == "cmplsFrrConstInclAllAffinity" or name == "cmplsFrrConstInclAnyAffinity" or name == "cmplsFrrConstNumProtectedTunOnIf" or name == "cmplsFrrConstNumProtectingTunOnIf" or name == "cmplsFrrConstRowStatus" or name == "cmplsFrrConstSetupPrio"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cmplsfrrconstifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cmplsFrrConstIfIndex"):
+                    self.cmplsfrrconstifindex = value
+                    self.cmplsfrrconstifindex.value_namespace = name_space
+                    self.cmplsfrrconstifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstTunnelIndex"):
+                    self.cmplsfrrconsttunnelindex = value
+                    self.cmplsfrrconsttunnelindex.value_namespace = name_space
+                    self.cmplsfrrconsttunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstTunnelInstance"):
+                    self.cmplsfrrconsttunnelinstance = value
+                    self.cmplsfrrconsttunnelinstance.value_namespace = name_space
+                    self.cmplsfrrconsttunnelinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstBandwidth"):
+                    self.cmplsfrrconstbandwidth = value
+                    self.cmplsfrrconstbandwidth.value_namespace = name_space
+                    self.cmplsfrrconstbandwidth.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstExclAllAffinity"):
+                    self.cmplsfrrconstexclallaffinity = value
+                    self.cmplsfrrconstexclallaffinity.value_namespace = name_space
+                    self.cmplsfrrconstexclallaffinity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstHoldingPrio"):
+                    self.cmplsfrrconstholdingprio = value
+                    self.cmplsfrrconstholdingprio.value_namespace = name_space
+                    self.cmplsfrrconstholdingprio.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstHopLimit"):
+                    self.cmplsfrrconsthoplimit = value
+                    self.cmplsfrrconsthoplimit.value_namespace = name_space
+                    self.cmplsfrrconsthoplimit.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstInclAllAffinity"):
+                    self.cmplsfrrconstinclallaffinity = value
+                    self.cmplsfrrconstinclallaffinity.value_namespace = name_space
+                    self.cmplsfrrconstinclallaffinity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstInclAnyAffinity"):
+                    self.cmplsfrrconstinclanyaffinity = value
+                    self.cmplsfrrconstinclanyaffinity.value_namespace = name_space
+                    self.cmplsfrrconstinclanyaffinity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstNumProtectedTunOnIf"):
+                    self.cmplsfrrconstnumprotectedtunonif = value
+                    self.cmplsfrrconstnumprotectedtunonif.value_namespace = name_space
+                    self.cmplsfrrconstnumprotectedtunonif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstNumProtectingTunOnIf"):
+                    self.cmplsfrrconstnumprotectingtunonif = value
+                    self.cmplsfrrconstnumprotectingtunonif.value_namespace = name_space
+                    self.cmplsfrrconstnumprotectingtunonif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstRowStatus"):
+                    self.cmplsfrrconstrowstatus = value
+                    self.cmplsfrrconstrowstatus.value_namespace = name_space
+                    self.cmplsfrrconstrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrConstSetupPrio"):
+                    self.cmplsfrrconstsetupprio = value
+                    self.cmplsfrrconstsetupprio.value_namespace = name_space
+                    self.cmplsfrrconstsetupprio.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cmplsfrrconstentry:
+                if (c.has_data()):
                     return True
-
-                if self.cmplsfrrconsttunnelindex is not None:
-                    return True
-
-                if self.cmplsfrrconsttunnelinstance is not None:
-                    return True
-
-                if self.cmplsfrrconstbandwidth is not None:
-                    return True
-
-                if self.cmplsfrrconstexclallaffinity is not None:
-                    return True
-
-                if self.cmplsfrrconstholdingprio is not None:
-                    return True
-
-                if self.cmplsfrrconsthoplimit is not None:
-                    return True
-
-                if self.cmplsfrrconstinclallaffinity is not None:
-                    return True
-
-                if self.cmplsfrrconstinclanyaffinity is not None:
-                    return True
-
-                if self.cmplsfrrconstnumprotectedtunonif is not None:
-                    return True
-
-                if self.cmplsfrrconstnumprotectingtunonif is not None:
-                    return True
-
-                if self.cmplsfrrconstrowstatus is not None:
-                    return True
-
-                if self.cmplsfrrconstsetupprio is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrconsttable.Cmplsfrrconstentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrConstTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cmplsfrrconstentry is not None:
-                for child_ref in self.cmplsfrrconstentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cmplsfrrconstentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cmplsFrrConstTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cmplsFrrConstEntry"):
+                for c in self.cmplsfrrconstentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfFrrMib.Cmplsfrrconsttable.Cmplsfrrconstentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cmplsfrrconstentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cmplsFrrConstEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-            return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrconsttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cmplsfrrlogtable(object):
+    class Cmplsfrrlogtable(Entity):
         """
         The fast reroute log table records fast reroute events such
         as protected links going up or down or the FRR feature
@@ -529,13 +874,39 @@ class CiscoIetfFrrMib(object):
         _revision = '2008-04-29'
 
         def __init__(self):
-            self.parent = None
-            self.cmplsfrrlogentry = YList()
-            self.cmplsfrrlogentry.parent = self
-            self.cmplsfrrlogentry.name = 'cmplsfrrlogentry'
+            super(CiscoIetfFrrMib.Cmplsfrrlogtable, self).__init__()
+
+            self.yang_name = "cmplsFrrLogTable"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+
+            self.cmplsfrrlogentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfFrrMib.Cmplsfrrlogtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfFrrMib.Cmplsfrrlogtable, self).__setattr__(name, value)
 
 
-        class Cmplsfrrlogentry(object):
+        class Cmplsfrrlogentry(Entity):
             """
             An entry in this table is created to describe one fast
             reroute event.  Entries in this table are only created and
@@ -573,7 +944,7 @@ class CiscoIetfFrrMib(object):
             .. attribute:: cmplsfrrlogeventtype
             
             	This object describes what type of fast reroute event occured
-            	**type**\:   :py:class:`CmplsfrrlogeventtypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry.CmplsfrrlogeventtypeEnum>`
+            	**type**\:   :py:class:`Cmplsfrrlogeventtype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry.Cmplsfrrlogeventtype>`
             
             .. attribute:: cmplsfrrloginterface
             
@@ -590,17 +961,55 @@ class CiscoIetfFrrMib(object):
             _revision = '2008-04-29'
 
             def __init__(self):
-                self.parent = None
-                self.cmplsfrrlogindex = None
-                self.cmplsfrrlogeventduration = None
-                self.cmplsfrrlogeventreasonstring = None
-                self.cmplsfrrlogeventtime = None
-                self.cmplsfrrlogeventtype = None
-                self.cmplsfrrloginterface = None
+                super(CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry, self).__init__()
 
-            class CmplsfrrlogeventtypeEnum(Enum):
+                self.yang_name = "cmplsFrrLogEntry"
+                self.yang_parent_name = "cmplsFrrLogTable"
+
+                self.cmplsfrrlogindex = YLeaf(YType.uint32, "cmplsFrrLogIndex")
+
+                self.cmplsfrrlogeventduration = YLeaf(YType.uint32, "cmplsFrrLogEventDuration")
+
+                self.cmplsfrrlogeventreasonstring = YLeaf(YType.str, "cmplsFrrLogEventReasonString")
+
+                self.cmplsfrrlogeventtime = YLeaf(YType.uint32, "cmplsFrrLogEventTime")
+
+                self.cmplsfrrlogeventtype = YLeaf(YType.enumeration, "cmplsFrrLogEventType")
+
+                self.cmplsfrrloginterface = YLeaf(YType.int32, "cmplsFrrLogInterface")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cmplsfrrlogindex",
+                                "cmplsfrrlogeventduration",
+                                "cmplsfrrlogeventreasonstring",
+                                "cmplsfrrlogeventtime",
+                                "cmplsfrrlogeventtype",
+                                "cmplsfrrloginterface") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry, self).__setattr__(name, value)
+
+            class Cmplsfrrlogeventtype(Enum):
                 """
-                CmplsfrrlogeventtypeEnum
+                Cmplsfrrlogeventtype
 
                 This object describes what type of fast reroute event
 
@@ -612,78 +1021,157 @@ class CiscoIetfFrrMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                protected = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                    return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry.CmplsfrrlogeventtypeEnum']
+                protected = Enum.YLeaf(2, "protected")
 
 
-            @property
-            def _common_path(self):
-                if self.cmplsfrrlogindex is None:
-                    raise YPYModelError('Key property cmplsfrrlogindex is None')
+            def has_data(self):
+                return (
+                    self.cmplsfrrlogindex.is_set or
+                    self.cmplsfrrlogeventduration.is_set or
+                    self.cmplsfrrlogeventreasonstring.is_set or
+                    self.cmplsfrrlogeventtime.is_set or
+                    self.cmplsfrrlogeventtype.is_set or
+                    self.cmplsfrrloginterface.is_set)
 
-                return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrLogTable/CISCO-IETF-FRR-MIB:cmplsFrrLogEntry[CISCO-IETF-FRR-MIB:cmplsFrrLogIndex = ' + str(self.cmplsfrrlogindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cmplsfrrlogindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrlogeventduration.yfilter != YFilter.not_set or
+                    self.cmplsfrrlogeventreasonstring.yfilter != YFilter.not_set or
+                    self.cmplsfrrlogeventtime.yfilter != YFilter.not_set or
+                    self.cmplsfrrlogeventtype.yfilter != YFilter.not_set or
+                    self.cmplsfrrloginterface.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + self.cmplsfrrlogindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cmplsfrrlogindex.is_set or self.cmplsfrrlogindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrlogindex.get_name_leafdata())
+                if (self.cmplsfrrlogeventduration.is_set or self.cmplsfrrlogeventduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrlogeventduration.get_name_leafdata())
+                if (self.cmplsfrrlogeventreasonstring.is_set or self.cmplsfrrlogeventreasonstring.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrlogeventreasonstring.get_name_leafdata())
+                if (self.cmplsfrrlogeventtime.is_set or self.cmplsfrrlogeventtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrlogeventtime.get_name_leafdata())
+                if (self.cmplsfrrlogeventtype.is_set or self.cmplsfrrlogeventtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrlogeventtype.get_name_leafdata())
+                if (self.cmplsfrrloginterface.is_set or self.cmplsfrrloginterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrloginterface.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cmplsFrrLogIndex" or name == "cmplsFrrLogEventDuration" or name == "cmplsFrrLogEventReasonString" or name == "cmplsFrrLogEventTime" or name == "cmplsFrrLogEventType" or name == "cmplsFrrLogInterface"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cmplsfrrlogindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cmplsFrrLogIndex"):
+                    self.cmplsfrrlogindex = value
+                    self.cmplsfrrlogindex.value_namespace = name_space
+                    self.cmplsfrrlogindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrLogEventDuration"):
+                    self.cmplsfrrlogeventduration = value
+                    self.cmplsfrrlogeventduration.value_namespace = name_space
+                    self.cmplsfrrlogeventduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrLogEventReasonString"):
+                    self.cmplsfrrlogeventreasonstring = value
+                    self.cmplsfrrlogeventreasonstring.value_namespace = name_space
+                    self.cmplsfrrlogeventreasonstring.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrLogEventTime"):
+                    self.cmplsfrrlogeventtime = value
+                    self.cmplsfrrlogeventtime.value_namespace = name_space
+                    self.cmplsfrrlogeventtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrLogEventType"):
+                    self.cmplsfrrlogeventtype = value
+                    self.cmplsfrrlogeventtype.value_namespace = name_space
+                    self.cmplsfrrlogeventtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrLogInterface"):
+                    self.cmplsfrrloginterface = value
+                    self.cmplsfrrloginterface.value_namespace = name_space
+                    self.cmplsfrrloginterface.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cmplsfrrlogentry:
+                if (c.has_data()):
                     return True
-
-                if self.cmplsfrrlogeventduration is not None:
-                    return True
-
-                if self.cmplsfrrlogeventreasonstring is not None:
-                    return True
-
-                if self.cmplsfrrlogeventtime is not None:
-                    return True
-
-                if self.cmplsfrrlogeventtype is not None:
-                    return True
-
-                if self.cmplsfrrloginterface is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrLogTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cmplsfrrlogentry is not None:
-                for child_ref in self.cmplsfrrlogentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cmplsfrrlogentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cmplsFrrLogTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cmplsFrrLogEntry"):
+                for c in self.cmplsfrrlogentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfFrrMib.Cmplsfrrlogtable.Cmplsfrrlogentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cmplsfrrlogentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cmplsFrrLogEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-            return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrlogtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cmplsfrrfacroutedbtable(object):
+    class Cmplsfrrfacroutedbtable(Entity):
         """
         The mplsFrrFacRouteDBTable provides information about the 
         fast reroute database.  Each entry belongs to an interface,
@@ -716,13 +1204,39 @@ class CiscoIetfFrrMib(object):
         _revision = '2008-04-29'
 
         def __init__(self):
-            self.parent = None
-            self.cmplsfrrfacroutedbentry = YList()
-            self.cmplsfrrfacroutedbentry.parent = self
-            self.cmplsfrrfacroutedbentry.name = 'cmplsfrrfacroutedbentry'
+            super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable, self).__init__()
+
+            self.yang_name = "cmplsFrrFacRouteDBTable"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+
+            self.cmplsfrrfacroutedbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable, self).__setattr__(name, value)
 
 
-        class Cmplsfrrfacroutedbentry(object):
+        class Cmplsfrrfacroutedbentry(Entity):
             """
             An entry in the mplsFrrDBTable represents a single protected
             LSP, protected by a backup tunnel and defined for a specific
@@ -777,12 +1291,12 @@ class CiscoIetfFrrMib(object):
             .. attribute:: cmplsfrrfacrouteprotectedtunstatus
             
             	Specifies the state of the protected tunnel.  active  This tunnel's label has been placed in the          LFIB and is ready to be applied to incoming          packets.           ready \-  This tunnel's label entry has been created but is          not yet in the LFIB.           partial \- This tunnel's label entry as not been fully           created
-            	**type**\:   :py:class:`CmplsfrrfacrouteprotectedtunstatusEnum <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.CmplsfrrfacrouteprotectedtunstatusEnum>`
+            	**type**\:   :py:class:`Cmplsfrrfacrouteprotectedtunstatus <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunstatus>`
             
             .. attribute:: cmplsfrrfacrouteprotectingtunprotectiontype
             
             	Indicates type of the resource protection
-            	**type**\:   :py:class:`CmplsfrrfacrouteprotectingtunprotectiontypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.CmplsfrrfacrouteprotectingtunprotectiontypeEnum>`
+            	**type**\:   :py:class:`Cmplsfrrfacrouteprotectingtunprotectiontype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunprotectiontype>`
             
             .. attribute:: cmplsfrrfacrouteprotectingtunresvbw
             
@@ -799,20 +1313,64 @@ class CiscoIetfFrrMib(object):
             _revision = '2008-04-29'
 
             def __init__(self):
-                self.parent = None
-                self.cmplsfrrfacrouteprotectedifindex = None
-                self.cmplsfrrfacrouteprotectingtunindex = None
-                self.cmplsfrrfacrouteprotectedtunindex = None
-                self.cmplsfrrfacrouteprotectedtuninstance = None
-                self.cmplsfrrfacrouteprotectedtuningresslsrid = None
-                self.cmplsfrrfacrouteprotectedtunegresslsrid = None
-                self.cmplsfrrfacrouteprotectedtunstatus = None
-                self.cmplsfrrfacrouteprotectingtunprotectiontype = None
-                self.cmplsfrrfacrouteprotectingtunresvbw = None
+                super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry, self).__init__()
 
-            class CmplsfrrfacrouteprotectedtunstatusEnum(Enum):
+                self.yang_name = "cmplsFrrFacRouteDBEntry"
+                self.yang_parent_name = "cmplsFrrFacRouteDBTable"
+
+                self.cmplsfrrfacrouteprotectedifindex = YLeaf(YType.int32, "cmplsFrrFacRouteProtectedIfIndex")
+
+                self.cmplsfrrfacrouteprotectingtunindex = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectingTunIndex")
+
+                self.cmplsfrrfacrouteprotectedtunindex = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectedTunIndex")
+
+                self.cmplsfrrfacrouteprotectedtuninstance = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectedTunInstance")
+
+                self.cmplsfrrfacrouteprotectedtuningresslsrid = YLeaf(YType.str, "cmplsFrrFacRouteProtectedTunIngressLSRId")
+
+                self.cmplsfrrfacrouteprotectedtunegresslsrid = YLeaf(YType.str, "cmplsFrrFacRouteProtectedTunEgressLSRId")
+
+                self.cmplsfrrfacrouteprotectedtunstatus = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectedTunStatus")
+
+                self.cmplsfrrfacrouteprotectingtunprotectiontype = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectingTunProtectionType")
+
+                self.cmplsfrrfacrouteprotectingtunresvbw = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectingTunResvBw")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cmplsfrrfacrouteprotectedifindex",
+                                "cmplsfrrfacrouteprotectingtunindex",
+                                "cmplsfrrfacrouteprotectedtunindex",
+                                "cmplsfrrfacrouteprotectedtuninstance",
+                                "cmplsfrrfacrouteprotectedtuningresslsrid",
+                                "cmplsfrrfacrouteprotectedtunegresslsrid",
+                                "cmplsfrrfacrouteprotectedtunstatus",
+                                "cmplsfrrfacrouteprotectingtunprotectiontype",
+                                "cmplsfrrfacrouteprotectingtunresvbw") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry, self).__setattr__(name, value)
+
+            class Cmplsfrrfacrouteprotectedtunstatus(Enum):
                 """
-                CmplsfrrfacrouteprotectedtunstatusEnum
+                Cmplsfrrfacrouteprotectedtunstatus
 
                 Specifies the state of the protected tunnel.
 
@@ -838,22 +1396,16 @@ class CiscoIetfFrrMib(object):
 
                 """
 
-                active = 1
+                active = Enum.YLeaf(1, "active")
 
-                ready = 2
+                ready = Enum.YLeaf(2, "ready")
 
-                partial = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                    return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.CmplsfrrfacrouteprotectedtunstatusEnum']
+                partial = Enum.YLeaf(3, "partial")
 
 
-            class CmplsfrrfacrouteprotectingtunprotectiontypeEnum(Enum):
+            class Cmplsfrrfacrouteprotectingtunprotectiontype(Enum):
                 """
-                CmplsfrrfacrouteprotectingtunprotectiontypeEnum
+                Cmplsfrrfacrouteprotectingtunprotectiontype
 
                 Indicates type of the resource protection.
 
@@ -863,122 +1415,255 @@ class CiscoIetfFrrMib(object):
 
                 """
 
-                linkProtection = 0
+                linkProtection = Enum.YLeaf(0, "linkProtection")
 
-                nodeProtection = 1
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                    return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.CmplsfrrfacrouteprotectingtunprotectiontypeEnum']
+                nodeProtection = Enum.YLeaf(1, "nodeProtection")
 
 
-            @property
-            def _common_path(self):
-                if self.cmplsfrrfacrouteprotectedifindex is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectedifindex is None')
-                if self.cmplsfrrfacrouteprotectingtunindex is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectingtunindex is None')
-                if self.cmplsfrrfacrouteprotectedtunindex is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectedtunindex is None')
-                if self.cmplsfrrfacrouteprotectedtuninstance is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectedtuninstance is None')
-                if self.cmplsfrrfacrouteprotectedtuningresslsrid is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectedtuningresslsrid is None')
-                if self.cmplsfrrfacrouteprotectedtunegresslsrid is None:
-                    raise YPYModelError('Key property cmplsfrrfacrouteprotectedtunegresslsrid is None')
+            def has_data(self):
+                return (
+                    self.cmplsfrrfacrouteprotectedifindex.is_set or
+                    self.cmplsfrrfacrouteprotectingtunindex.is_set or
+                    self.cmplsfrrfacrouteprotectedtunindex.is_set or
+                    self.cmplsfrrfacrouteprotectedtuninstance.is_set or
+                    self.cmplsfrrfacrouteprotectedtuningresslsrid.is_set or
+                    self.cmplsfrrfacrouteprotectedtunegresslsrid.is_set or
+                    self.cmplsfrrfacrouteprotectedtunstatus.is_set or
+                    self.cmplsfrrfacrouteprotectingtunprotectiontype.is_set or
+                    self.cmplsfrrfacrouteprotectingtunresvbw.is_set)
 
-                return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrFacRouteDBTable/CISCO-IETF-FRR-MIB:cmplsFrrFacRouteDBEntry[CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectedIfIndex = ' + str(self.cmplsfrrfacrouteprotectedifindex) + '][CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectingTunIndex = ' + str(self.cmplsfrrfacrouteprotectingtunindex) + '][CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectedTunIndex = ' + str(self.cmplsfrrfacrouteprotectedtunindex) + '][CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectedTunInstance = ' + str(self.cmplsfrrfacrouteprotectedtuninstance) + '][CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectedTunIngressLSRId = ' + str(self.cmplsfrrfacrouteprotectedtuningresslsrid) + '][CISCO-IETF-FRR-MIB:cmplsFrrFacRouteProtectedTunEgressLSRId = ' + str(self.cmplsfrrfacrouteprotectedtunegresslsrid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedifindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectingtunindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedtunindex.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedtuninstance.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedtuningresslsrid.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedtunegresslsrid.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectedtunstatus.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectingtunprotectiontype.yfilter != YFilter.not_set or
+                    self.cmplsfrrfacrouteprotectingtunresvbw.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + self.cmplsfrrfacrouteprotectedifindex.get() + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + self.cmplsfrrfacrouteprotectingtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + self.cmplsfrrfacrouteprotectedtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + self.cmplsfrrfacrouteprotectedtuninstance.get() + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + self.cmplsfrrfacrouteprotectedtuningresslsrid.get() + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + self.cmplsfrrfacrouteprotectedtunegresslsrid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrFacRouteDBTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cmplsfrrfacrouteprotectedifindex.is_set or self.cmplsfrrfacrouteprotectedifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedifindex.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectingtunindex.is_set or self.cmplsfrrfacrouteprotectingtunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectingtunindex.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectedtunindex.is_set or self.cmplsfrrfacrouteprotectedtunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedtunindex.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectedtuninstance.is_set or self.cmplsfrrfacrouteprotectedtuninstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedtuninstance.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectedtuningresslsrid.is_set or self.cmplsfrrfacrouteprotectedtuningresslsrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedtuningresslsrid.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectedtunegresslsrid.is_set or self.cmplsfrrfacrouteprotectedtunegresslsrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedtunegresslsrid.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectedtunstatus.is_set or self.cmplsfrrfacrouteprotectedtunstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectedtunstatus.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectingtunprotectiontype.is_set or self.cmplsfrrfacrouteprotectingtunprotectiontype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectingtunprotectiontype.get_name_leafdata())
+                if (self.cmplsfrrfacrouteprotectingtunresvbw.is_set or self.cmplsfrrfacrouteprotectingtunresvbw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmplsfrrfacrouteprotectingtunresvbw.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cmplsFrrFacRouteProtectedIfIndex" or name == "cmplsFrrFacRouteProtectingTunIndex" or name == "cmplsFrrFacRouteProtectedTunIndex" or name == "cmplsFrrFacRouteProtectedTunInstance" or name == "cmplsFrrFacRouteProtectedTunIngressLSRId" or name == "cmplsFrrFacRouteProtectedTunEgressLSRId" or name == "cmplsFrrFacRouteProtectedTunStatus" or name == "cmplsFrrFacRouteProtectingTunProtectionType" or name == "cmplsFrrFacRouteProtectingTunResvBw"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cmplsfrrfacrouteprotectedifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cmplsFrrFacRouteProtectedIfIndex"):
+                    self.cmplsfrrfacrouteprotectedifindex = value
+                    self.cmplsfrrfacrouteprotectedifindex.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectingTunIndex"):
+                    self.cmplsfrrfacrouteprotectingtunindex = value
+                    self.cmplsfrrfacrouteprotectingtunindex.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectingtunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectedTunIndex"):
+                    self.cmplsfrrfacrouteprotectedtunindex = value
+                    self.cmplsfrrfacrouteprotectedtunindex.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedtunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectedTunInstance"):
+                    self.cmplsfrrfacrouteprotectedtuninstance = value
+                    self.cmplsfrrfacrouteprotectedtuninstance.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedtuninstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectedTunIngressLSRId"):
+                    self.cmplsfrrfacrouteprotectedtuningresslsrid = value
+                    self.cmplsfrrfacrouteprotectedtuningresslsrid.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedtuningresslsrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectedTunEgressLSRId"):
+                    self.cmplsfrrfacrouteprotectedtunegresslsrid = value
+                    self.cmplsfrrfacrouteprotectedtunegresslsrid.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedtunegresslsrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectedTunStatus"):
+                    self.cmplsfrrfacrouteprotectedtunstatus = value
+                    self.cmplsfrrfacrouteprotectedtunstatus.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectedtunstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectingTunProtectionType"):
+                    self.cmplsfrrfacrouteprotectingtunprotectiontype = value
+                    self.cmplsfrrfacrouteprotectingtunprotectiontype.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectingtunprotectiontype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cmplsFrrFacRouteProtectingTunResvBw"):
+                    self.cmplsfrrfacrouteprotectingtunresvbw = value
+                    self.cmplsfrrfacrouteprotectingtunresvbw.value_namespace = name_space
+                    self.cmplsfrrfacrouteprotectingtunresvbw.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cmplsfrrfacroutedbentry:
+                if (c.has_data()):
                     return True
-
-                if self.cmplsfrrfacrouteprotectingtunindex is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectedtunindex is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectedtuninstance is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectedtuningresslsrid is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectedtunegresslsrid is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectedtunstatus is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectingtunprotectiontype is not None:
-                    return True
-
-                if self.cmplsfrrfacrouteprotectingtunresvbw is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-                return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/CISCO-IETF-FRR-MIB:cmplsFrrFacRouteDBTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cmplsfrrfacroutedbentry is not None:
-                for child_ref in self.cmplsfrrfacroutedbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cmplsfrrfacroutedbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cmplsFrrFacRouteDBTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cmplsFrrFacRouteDBEntry"):
+                for c in self.cmplsfrrfacroutedbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfFrrMib.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cmplsfrrfacroutedbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cmplsFrrFacRouteDBEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-            return meta._meta_table['CiscoIetfFrrMib.Cmplsfrrfacroutedbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cmplsfrrconsttable is not None and self.cmplsfrrconsttable.has_data()) or
+            (self.cmplsfrrfacroutedbtable is not None and self.cmplsfrrfacroutedbtable.has_data()) or
+            (self.cmplsfrrlogtable is not None and self.cmplsfrrlogtable.has_data()) or
+            (self.cmplsfrrscalars is not None and self.cmplsfrrscalars.has_data()))
 
-        return '/CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cmplsfrrconsttable is not None and self.cmplsfrrconsttable.has_operation()) or
+            (self.cmplsfrrfacroutedbtable is not None and self.cmplsfrrfacroutedbtable.has_operation()) or
+            (self.cmplsfrrlogtable is not None and self.cmplsfrrlogtable.has_operation()) or
+            (self.cmplsfrrscalars is not None and self.cmplsfrrscalars.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cmplsFrrConstTable"):
+            if (self.cmplsfrrconsttable is None):
+                self.cmplsfrrconsttable = CiscoIetfFrrMib.Cmplsfrrconsttable()
+                self.cmplsfrrconsttable.parent = self
+                self._children_name_map["cmplsfrrconsttable"] = "cmplsFrrConstTable"
+            return self.cmplsfrrconsttable
+
+        if (child_yang_name == "cmplsFrrFacRouteDBTable"):
+            if (self.cmplsfrrfacroutedbtable is None):
+                self.cmplsfrrfacroutedbtable = CiscoIetfFrrMib.Cmplsfrrfacroutedbtable()
+                self.cmplsfrrfacroutedbtable.parent = self
+                self._children_name_map["cmplsfrrfacroutedbtable"] = "cmplsFrrFacRouteDBTable"
+            return self.cmplsfrrfacroutedbtable
+
+        if (child_yang_name == "cmplsFrrLogTable"):
+            if (self.cmplsfrrlogtable is None):
+                self.cmplsfrrlogtable = CiscoIetfFrrMib.Cmplsfrrlogtable()
+                self.cmplsfrrlogtable.parent = self
+                self._children_name_map["cmplsfrrlogtable"] = "cmplsFrrLogTable"
+            return self.cmplsfrrlogtable
+
+        if (child_yang_name == "cmplsFrrScalars"):
+            if (self.cmplsfrrscalars is None):
+                self.cmplsfrrscalars = CiscoIetfFrrMib.Cmplsfrrscalars()
+                self.cmplsfrrscalars.parent = self
+                self._children_name_map["cmplsfrrscalars"] = "cmplsFrrScalars"
+            return self.cmplsfrrscalars
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cmplsFrrConstTable" or name == "cmplsFrrFacRouteDBTable" or name == "cmplsFrrLogTable" or name == "cmplsFrrScalars"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cmplsfrrconsttable is not None and self.cmplsfrrconsttable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cmplsfrrfacroutedbtable is not None and self.cmplsfrrfacroutedbtable._has_data():
-            return True
-
-        if self.cmplsfrrlogtable is not None and self.cmplsfrrlogtable._has_data():
-            return True
-
-        if self.cmplsfrrscalars is not None and self.cmplsfrrscalars._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_FRR_MIB as meta
-        return meta._meta_table['CiscoIetfFrrMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIetfFrrMib()
+        return self._top_entity
 

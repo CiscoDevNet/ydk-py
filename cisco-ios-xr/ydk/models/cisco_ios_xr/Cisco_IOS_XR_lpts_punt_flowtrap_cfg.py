@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class LptsPuntFlowtrapProtoIdEnum(Enum):
+class LptsPuntFlowtrapProtoId(Enum):
     """
-    LptsPuntFlowtrapProtoIdEnum
+    LptsPuntFlowtrapProtoId
 
     Lpts punt flowtrap proto id
 
@@ -80,35 +74,29 @@ class LptsPuntFlowtrapProtoIdEnum(Enum):
 
     """
 
-    arp = 1
+    arp = Enum.YLeaf(1, "arp")
 
-    icmp = 2
+    icmp = Enum.YLeaf(2, "icmp")
 
-    dhcp = 3
+    dhcp = Enum.YLeaf(3, "dhcp")
 
-    pppoe = 4
+    pppoe = Enum.YLeaf(4, "pppoe")
 
-    ppp = 5
+    ppp = Enum.YLeaf(5, "ppp")
 
-    igmp = 6
+    igmp = Enum.YLeaf(6, "igmp")
 
-    ipv4 = 7
+    ipv4 = Enum.YLeaf(7, "ipv4")
 
-    l2tp = 8
+    l2tp = Enum.YLeaf(8, "l2tp")
 
-    unclassified = 9
+    unclassified = Enum.YLeaf(9, "unclassified")
 
-    ospf = 10
+    ospf = Enum.YLeaf(10, "ospf")
 
-    bgp = 11
+    bgp = Enum.YLeaf(11, "bgp")
 
-    default = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_punt_flowtrap_cfg as meta
-        return meta._meta_table['LptsPuntFlowtrapProtoIdEnum']
+    default = Enum.YLeaf(12, "default")
 
 
 

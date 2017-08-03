@@ -5,21 +5,15 @@ but independent of the specific multicast routing protocol
 in use.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIpmrouteMib(object):
+class CiscoIpmrouteMib(Entity):
     """
     
     
@@ -41,13 +35,24 @@ class CiscoIpmrouteMib(object):
     _revision = '2005-03-07'
 
     def __init__(self):
+        super(CiscoIpmrouteMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IPMROUTE-MIB"
+        self.yang_parent_name = "CISCO-IPMROUTE-MIB"
+
         self.ciscoipmroute = CiscoIpmrouteMib.Ciscoipmroute()
         self.ciscoipmroute.parent = self
+        self._children_name_map["ciscoipmroute"] = "ciscoIpMRoute"
+        self._children_yang_names.add("ciscoIpMRoute")
+
         self.ciscoipmrouteheartbeattable = CiscoIpmrouteMib.Ciscoipmrouteheartbeattable()
         self.ciscoipmrouteheartbeattable.parent = self
+        self._children_name_map["ciscoipmrouteheartbeattable"] = "ciscoIpMRouteHeartBeatTable"
+        self._children_yang_names.add("ciscoIpMRouteHeartBeatTable")
 
 
-    class Ciscoipmroute(object):
+    class Ciscoipmroute(Entity):
         """
         
         
@@ -66,31 +71,85 @@ class CiscoIpmrouteMib(object):
         _revision = '2005-03-07'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoipmroutenumberofentries = None
+            super(CiscoIpmrouteMib.Ciscoipmroute, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciscoIpMRoute"
+            self.yang_parent_name = "CISCO-IPMROUTE-MIB"
 
-            return '/CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/CISCO-IPMROUTE-MIB:ciscoIpMRoute'
+            self.ciscoipmroutenumberofentries = YLeaf(YType.uint32, "ciscoIpMRouteNumberOfEntries")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciscoipmroutenumberofentries") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpmrouteMib.Ciscoipmroute, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpmrouteMib.Ciscoipmroute, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ciscoipmroutenumberofentries is not None:
+        def has_data(self):
+            return self.ciscoipmroutenumberofentries.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciscoipmroutenumberofentries.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoIpMRoute" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciscoipmroutenumberofentries.is_set or self.ciscoipmroutenumberofentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciscoipmroutenumberofentries.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoIpMRouteNumberOfEntries"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPMROUTE_MIB as meta
-            return meta._meta_table['CiscoIpmrouteMib.Ciscoipmroute']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ciscoIpMRouteNumberOfEntries"):
+                self.ciscoipmroutenumberofentries = value
+                self.ciscoipmroutenumberofentries.value_namespace = name_space
+                self.ciscoipmroutenumberofentries.value_namespace_prefix = name_space_prefix
 
 
-    class Ciscoipmrouteheartbeattable(object):
+    class Ciscoipmrouteheartbeattable(Entity):
         """
         The (conceptual) table listing sets of IP Multicast
         heartbeat parameters.  If no IP Multicast heartbeat is
@@ -109,13 +168,39 @@ class CiscoIpmrouteMib(object):
         _revision = '2005-03-07'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoipmrouteheartbeatentry = YList()
-            self.ciscoipmrouteheartbeatentry.parent = self
-            self.ciscoipmrouteheartbeatentry.name = 'ciscoipmrouteheartbeatentry'
+            super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable, self).__init__()
+
+            self.yang_name = "ciscoIpMRouteHeartBeatTable"
+            self.yang_parent_name = "CISCO-IPMROUTE-MIB"
+
+            self.ciscoipmrouteheartbeatentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable, self).__setattr__(name, value)
 
 
-        class Ciscoipmrouteheartbeatentry(object):
+        class Ciscoipmrouteheartbeatentry(Entity):
             """
             An entry (conceptual row) representing a set of IP
             Multicast heartbeat parameters.
@@ -167,7 +252,7 @@ class CiscoIpmrouteMib(object):
             .. attribute:: ciscoipmrouteheartbeatstatus
             
             	This object is used to create a new row or delete an existing row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciscoipmrouteheartbeatwindowsize
             
@@ -184,102 +269,276 @@ class CiscoIpmrouteMib(object):
             _revision = '2005-03-07'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoipmrouteheartbeatgroupaddr = None
-                self.ciscoipmrouteheartbeatalerttime = None
-                self.ciscoipmrouteheartbeatcount = None
-                self.ciscoipmrouteheartbeatinterval = None
-                self.ciscoipmrouteheartbeatminimum = None
-                self.ciscoipmrouteheartbeatsourceaddr = None
-                self.ciscoipmrouteheartbeatstatus = None
-                self.ciscoipmrouteheartbeatwindowsize = None
+                super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciscoipmrouteheartbeatgroupaddr is None:
-                    raise YPYModelError('Key property ciscoipmrouteheartbeatgroupaddr is None')
+                self.yang_name = "ciscoIpMRouteHeartBeatEntry"
+                self.yang_parent_name = "ciscoIpMRouteHeartBeatTable"
 
-                return '/CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/CISCO-IPMROUTE-MIB:ciscoIpMRouteHeartBeatTable/CISCO-IPMROUTE-MIB:ciscoIpMRouteHeartBeatEntry[CISCO-IPMROUTE-MIB:ciscoIpMRouteHeartBeatGroupAddr = ' + str(self.ciscoipmrouteheartbeatgroupaddr) + ']'
+                self.ciscoipmrouteheartbeatgroupaddr = YLeaf(YType.str, "ciscoIpMRouteHeartBeatGroupAddr")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciscoipmrouteheartbeatalerttime = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatAlertTime")
+
+                self.ciscoipmrouteheartbeatcount = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatCount")
+
+                self.ciscoipmrouteheartbeatinterval = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatInterval")
+
+                self.ciscoipmrouteheartbeatminimum = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatMinimum")
+
+                self.ciscoipmrouteheartbeatsourceaddr = YLeaf(YType.str, "ciscoIpMRouteHeartBeatSourceAddr")
+
+                self.ciscoipmrouteheartbeatstatus = YLeaf(YType.enumeration, "ciscoIpMRouteHeartBeatStatus")
+
+                self.ciscoipmrouteheartbeatwindowsize = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatWindowSize")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoipmrouteheartbeatgroupaddr",
+                                "ciscoipmrouteheartbeatalerttime",
+                                "ciscoipmrouteheartbeatcount",
+                                "ciscoipmrouteheartbeatinterval",
+                                "ciscoipmrouteheartbeatminimum",
+                                "ciscoipmrouteheartbeatsourceaddr",
+                                "ciscoipmrouteheartbeatstatus",
+                                "ciscoipmrouteheartbeatwindowsize") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpmrouteMib.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciscoipmrouteheartbeatgroupaddr.is_set or
+                    self.ciscoipmrouteheartbeatalerttime.is_set or
+                    self.ciscoipmrouteheartbeatcount.is_set or
+                    self.ciscoipmrouteheartbeatinterval.is_set or
+                    self.ciscoipmrouteheartbeatminimum.is_set or
+                    self.ciscoipmrouteheartbeatsourceaddr.is_set or
+                    self.ciscoipmrouteheartbeatstatus.is_set or
+                    self.ciscoipmrouteheartbeatwindowsize.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatgroupaddr.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatalerttime.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatcount.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatinterval.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatminimum.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatsourceaddr.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatstatus.yfilter != YFilter.not_set or
+                    self.ciscoipmrouteheartbeatwindowsize.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoIpMRouteHeartBeatEntry" + "[ciscoIpMRouteHeartBeatGroupAddr='" + self.ciscoipmrouteheartbeatgroupaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/ciscoIpMRouteHeartBeatTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoipmrouteheartbeatgroupaddr.is_set or self.ciscoipmrouteheartbeatgroupaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatgroupaddr.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatalerttime.is_set or self.ciscoipmrouteheartbeatalerttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatalerttime.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatcount.is_set or self.ciscoipmrouteheartbeatcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatcount.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatinterval.is_set or self.ciscoipmrouteheartbeatinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatinterval.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatminimum.is_set or self.ciscoipmrouteheartbeatminimum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatminimum.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatsourceaddr.is_set or self.ciscoipmrouteheartbeatsourceaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatsourceaddr.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatstatus.is_set or self.ciscoipmrouteheartbeatstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatstatus.get_name_leafdata())
+                if (self.ciscoipmrouteheartbeatwindowsize.is_set or self.ciscoipmrouteheartbeatwindowsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoipmrouteheartbeatwindowsize.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoIpMRouteHeartBeatGroupAddr" or name == "ciscoIpMRouteHeartBeatAlertTime" or name == "ciscoIpMRouteHeartBeatCount" or name == "ciscoIpMRouteHeartBeatInterval" or name == "ciscoIpMRouteHeartBeatMinimum" or name == "ciscoIpMRouteHeartBeatSourceAddr" or name == "ciscoIpMRouteHeartBeatStatus" or name == "ciscoIpMRouteHeartBeatWindowSize"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoipmrouteheartbeatgroupaddr is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoIpMRouteHeartBeatGroupAddr"):
+                    self.ciscoipmrouteheartbeatgroupaddr = value
+                    self.ciscoipmrouteheartbeatgroupaddr.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatgroupaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatAlertTime"):
+                    self.ciscoipmrouteheartbeatalerttime = value
+                    self.ciscoipmrouteheartbeatalerttime.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatalerttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatCount"):
+                    self.ciscoipmrouteheartbeatcount = value
+                    self.ciscoipmrouteheartbeatcount.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatInterval"):
+                    self.ciscoipmrouteheartbeatinterval = value
+                    self.ciscoipmrouteheartbeatinterval.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatMinimum"):
+                    self.ciscoipmrouteheartbeatminimum = value
+                    self.ciscoipmrouteheartbeatminimum.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatminimum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatSourceAddr"):
+                    self.ciscoipmrouteheartbeatsourceaddr = value
+                    self.ciscoipmrouteheartbeatsourceaddr.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatsourceaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatStatus"):
+                    self.ciscoipmrouteheartbeatstatus = value
+                    self.ciscoipmrouteheartbeatstatus.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoIpMRouteHeartBeatWindowSize"):
+                    self.ciscoipmrouteheartbeatwindowsize = value
+                    self.ciscoipmrouteheartbeatwindowsize.value_namespace = name_space
+                    self.ciscoipmrouteheartbeatwindowsize.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoipmrouteheartbeatentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoipmrouteheartbeatalerttime is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatcount is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatinterval is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatminimum is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatsourceaddr is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatstatus is not None:
-                    return True
-
-                if self.ciscoipmrouteheartbeatwindowsize is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPMROUTE_MIB as meta
-                return meta._meta_table['CiscoIpmrouteMib.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/CISCO-IPMROUTE-MIB:ciscoIpMRouteHeartBeatTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoipmrouteheartbeatentry is not None:
-                for child_ref in self.ciscoipmrouteheartbeatentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoipmrouteheartbeatentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoIpMRouteHeartBeatTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoIpMRouteHeartBeatEntry"):
+                for c in self.ciscoipmrouteheartbeatentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpmrouteMib.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoipmrouteheartbeatentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoIpMRouteHeartBeatEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPMROUTE_MIB as meta
-            return meta._meta_table['CiscoIpmrouteMib.Ciscoipmrouteheartbeattable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciscoipmroute is not None and self.ciscoipmroute.has_data()) or
+            (self.ciscoipmrouteheartbeattable is not None and self.ciscoipmrouteheartbeattable.has_data()))
 
-        return '/CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciscoipmroute is not None and self.ciscoipmroute.has_operation()) or
+            (self.ciscoipmrouteheartbeattable is not None and self.ciscoipmrouteheartbeattable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ciscoIpMRoute"):
+            if (self.ciscoipmroute is None):
+                self.ciscoipmroute = CiscoIpmrouteMib.Ciscoipmroute()
+                self.ciscoipmroute.parent = self
+                self._children_name_map["ciscoipmroute"] = "ciscoIpMRoute"
+            return self.ciscoipmroute
+
+        if (child_yang_name == "ciscoIpMRouteHeartBeatTable"):
+            if (self.ciscoipmrouteheartbeattable is None):
+                self.ciscoipmrouteheartbeattable = CiscoIpmrouteMib.Ciscoipmrouteheartbeattable()
+                self.ciscoipmrouteheartbeattable.parent = self
+                self._children_name_map["ciscoipmrouteheartbeattable"] = "ciscoIpMRouteHeartBeatTable"
+            return self.ciscoipmrouteheartbeattable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ciscoIpMRoute" or name == "ciscoIpMRouteHeartBeatTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciscoipmroute is not None and self.ciscoipmroute._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ciscoipmrouteheartbeattable is not None and self.ciscoipmrouteheartbeattable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPMROUTE_MIB as meta
-        return meta._meta_table['CiscoIpmrouteMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIpmrouteMib()
+        return self._top_entity
 

@@ -13,22 +13,16 @@ PIM Dense Mode (PIM\-DM)
 Auto\-RP \- Cisco\-propriatary
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MrouteProtocolTypeEnum(Enum):
+class MrouteProtocolType(Enum):
     """
-    MrouteProtocolTypeEnum
+    MrouteProtocolType
 
     The multicast routing protocol.  Inclusion of values for
 
@@ -62,40 +56,34 @@ class MrouteProtocolTypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    netmgmt = 3
+    netmgmt = Enum.YLeaf(3, "netmgmt")
 
-    dvmrp = 4
+    dvmrp = Enum.YLeaf(4, "dvmrp")
 
-    mospf = 5
+    mospf = Enum.YLeaf(5, "mospf")
 
-    pimSparseDense = 6
+    pimSparseDense = Enum.YLeaf(6, "pimSparseDense")
 
-    cbt = 7
+    cbt = Enum.YLeaf(7, "cbt")
 
-    pimSparseMode = 8
+    pimSparseMode = Enum.YLeaf(8, "pimSparseMode")
 
-    pimDenseMode = 9
+    pimDenseMode = Enum.YLeaf(9, "pimDenseMode")
 
-    igmpOnly = 10
+    igmpOnly = Enum.YLeaf(10, "igmpOnly")
 
-    bgmp = 11
+    bgmp = Enum.YLeaf(11, "bgmp")
 
-    msdp = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['MrouteProtocolTypeEnum']
+    msdp = Enum.YLeaf(12, "msdp")
 
 
-class OriginEnum(Enum):
+class Origin(Enum):
     """
-    OriginEnum
+    Origin
 
     This type  verify all uses of origin in model describes where a state was learned.
 
@@ -159,36 +147,30 @@ class OriginEnum(Enum):
 
     """
 
-    other_origin = 1
+    other_origin = Enum.YLeaf(1, "other-origin")
 
-    pim_request = 2
+    pim_request = Enum.YLeaf(2, "pim-request")
 
-    ssm_request = 3
+    ssm_request = Enum.YLeaf(3, "ssm-request")
 
-    fixed = 4
+    fixed = Enum.YLeaf(4, "fixed")
 
-    embedded = 5
+    embedded = Enum.YLeaf(5, "embedded")
 
-    static = 6
+    static = Enum.YLeaf(6, "static")
 
-    config_ssm = 7
+    config_ssm = Enum.YLeaf(7, "config-ssm")
 
-    auto_rp = 8
+    auto_rp = Enum.YLeaf(8, "auto-rp")
 
-    bsr = 9
+    bsr = Enum.YLeaf(9, "bsr")
 
-    msdp = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['OriginEnum']
+    msdp = Enum.YLeaf(10, "msdp")
 
 
-class PimModeEnum(Enum):
+class PimMode(Enum):
     """
-    PimModeEnum
+    PimMode
 
     PIM mode active on an interface.
 
@@ -214,26 +196,20 @@ class PimModeEnum(Enum):
 
     """
 
-    sparse = 1
+    sparse = Enum.YLeaf(1, "sparse")
 
-    dense = 2
+    dense = Enum.YLeaf(2, "dense")
 
-    sparse_dense = 3
+    sparse_dense = Enum.YLeaf(3, "sparse-dense")
 
-    dm_proxy = 4
+    dm_proxy = Enum.YLeaf(4, "dm-proxy")
 
-    none = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['PimModeEnum']
+    none = Enum.YLeaf(5, "none")
 
 
-class RouteProtocolTypeEnum(Enum):
+class RouteProtocolType(Enum):
     """
-    RouteProtocolTypeEnum
+    RouteProtocolType
 
     A mechanism for learning routes.  Inclusion of values for
 
@@ -277,49 +253,43 @@ class RouteProtocolTypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    netmgmt = 3
+    netmgmt = Enum.YLeaf(3, "netmgmt")
 
-    icmp = 4
+    icmp = Enum.YLeaf(4, "icmp")
 
-    egp = 5
+    egp = Enum.YLeaf(5, "egp")
 
-    ggp = 6
+    ggp = Enum.YLeaf(6, "ggp")
 
-    hello = 7
+    hello = Enum.YLeaf(7, "hello")
 
-    rip = 8
+    rip = Enum.YLeaf(8, "rip")
 
-    isIs = 9
+    isIs = Enum.YLeaf(9, "isIs")
 
-    esIs = 10
+    esIs = Enum.YLeaf(10, "esIs")
 
-    ciscoIgrp = 11
+    ciscoIgrp = Enum.YLeaf(11, "ciscoIgrp")
 
-    bbnSpfIgp = 12
+    bbnSpfIgp = Enum.YLeaf(12, "bbnSpfIgp")
 
-    ospf = 13
+    ospf = Enum.YLeaf(13, "ospf")
 
-    bgp = 14
+    bgp = Enum.YLeaf(14, "bgp")
 
-    idpr = 15
+    idpr = Enum.YLeaf(15, "idpr")
 
-    ciscoEigrp = 16
+    ciscoEigrp = Enum.YLeaf(16, "ciscoEigrp")
 
-    dvmrp = 17
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['RouteProtocolTypeEnum']
+    dvmrp = Enum.YLeaf(17, "dvmrp")
 
 
 
-class GroupToRpMappingModeIdentity(object):
+class GroupToRpMappingMode(Identity):
     """
     The base\-type for a PIM\-mode giving context to a group\-to\-rp\-mapping.
     
@@ -331,15 +301,10 @@ class GroupToRpMappingModeIdentity(object):
     _revision = '2014-06-27'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['GroupToRpMappingModeIdentity']['meta_info']
+        super(GroupToRpMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:group-to-rp-mapping-mode")
 
 
-class SmMappingModeIdentity(GroupToRpMappingModeIdentity):
+class SmMappingMode(Identity):
     """
     The mapping is for Sparse Mode.
     
@@ -351,15 +316,10 @@ class SmMappingModeIdentity(GroupToRpMappingModeIdentity):
     _revision = '2014-06-27'
 
     def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['SmMappingModeIdentity']['meta_info']
+        super(SmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:sm-mapping-mode")
 
 
-class DmMappingModeIdentity(GroupToRpMappingModeIdentity):
+class DmMappingMode(Identity):
     """
     The mapping is for Dense Mode.
     
@@ -371,35 +331,10 @@ class DmMappingModeIdentity(GroupToRpMappingModeIdentity):
     _revision = '2014-06-27'
 
     def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['DmMappingModeIdentity']['meta_info']
+        super(DmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:dm-mapping-mode")
 
 
-class PimBidirMappingModeIdentity(GroupToRpMappingModeIdentity):
-    """
-    The mapping is for Bidirectional PIM.
-    
-    
-
-    """
-
-    _prefix = 'pim'
-    _revision = '2014-06-27'
-
-    def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['PimBidirMappingModeIdentity']['meta_info']
-
-
-class SsmMappingModeIdentity(GroupToRpMappingModeIdentity):
+class SsmMappingMode(Identity):
     """
     The mapping is for Source Specific Mode.
     
@@ -411,15 +346,25 @@ class SsmMappingModeIdentity(GroupToRpMappingModeIdentity):
     _revision = '2014-06-27'
 
     def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['SsmMappingModeIdentity']['meta_info']
+        super(SsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:ssm-mapping-mode")
 
 
-class OtherMappingModeIdentity(GroupToRpMappingModeIdentity):
+class PimBidirMappingMode(Identity):
+    """
+    The mapping is for Bidirectional PIM.
+    
+    
+
+    """
+
+    _prefix = 'pim'
+    _revision = '2014-06-27'
+
+    def __init__(self):
+        super(PimBidirMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:pim-bidir-mapping-mode")
+
+
+class OtherMappingMode(Identity):
     """
     None of the available modes.
     
@@ -431,15 +376,10 @@ class OtherMappingModeIdentity(GroupToRpMappingModeIdentity):
     _revision = '2014-06-27'
 
     def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['OtherMappingModeIdentity']['meta_info']
+        super(OtherMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:other-mapping-mode")
 
 
-class AsmMappingModeIdentity(GroupToRpMappingModeIdentity):
+class AsmMappingMode(Identity):
     """
     The mapping is for Any\-Source Multicast (ASM) with PIM Sparse Mode.
     
@@ -451,11 +391,6 @@ class AsmMappingModeIdentity(GroupToRpMappingModeIdentity):
     _revision = '2014-06-27'
 
     def __init__(self):
-        GroupToRpMappingModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _pim as meta
-        return meta._meta_table['AsmMappingModeIdentity']['meta_info']
+        super(AsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:asm-mapping-mode")
 
 

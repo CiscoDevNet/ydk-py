@@ -6,22 +6,16 @@ pertaining to configuration, status and activity
 of firewalls.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CfwapplicationprotocolEnum(Enum):
+class Cfwapplicationprotocol(Enum):
     """
-    CfwapplicationprotocolEnum
+    Cfwapplicationprotocol
 
     This type denotes the application (OSI Layer 7)
 
@@ -381,356 +375,350 @@ class CfwapplicationprotocolEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    ftp = 3
+    ftp = Enum.YLeaf(3, "ftp")
 
-    telnet = 4
+    telnet = Enum.YLeaf(4, "telnet")
 
-    smtp = 5
+    smtp = Enum.YLeaf(5, "smtp")
 
-    http = 6
+    http = Enum.YLeaf(6, "http")
 
-    tacacs = 7
+    tacacs = Enum.YLeaf(7, "tacacs")
 
-    dns = 8
+    dns = Enum.YLeaf(8, "dns")
 
-    sqlnet = 9
+    sqlnet = Enum.YLeaf(9, "sqlnet")
 
-    https = 10
+    https = Enum.YLeaf(10, "https")
 
-    tftp = 11
+    tftp = Enum.YLeaf(11, "tftp")
 
-    gopher = 12
+    gopher = Enum.YLeaf(12, "gopher")
 
-    finger = 13
+    finger = Enum.YLeaf(13, "finger")
 
-    kerberos = 14
+    kerberos = Enum.YLeaf(14, "kerberos")
 
-    pop2 = 15
+    pop2 = Enum.YLeaf(15, "pop2")
 
-    pop3 = 16
+    pop3 = Enum.YLeaf(16, "pop3")
 
-    sunRpc = 17
+    sunRpc = Enum.YLeaf(17, "sunRpc")
 
-    msRpc = 18
+    msRpc = Enum.YLeaf(18, "msRpc")
 
-    nntp = 19
+    nntp = Enum.YLeaf(19, "nntp")
 
-    snmp = 20
+    snmp = Enum.YLeaf(20, "snmp")
 
-    imap = 21
+    imap = Enum.YLeaf(21, "imap")
 
-    ldap = 22
+    ldap = Enum.YLeaf(22, "ldap")
 
-    exec_ = 23
+    exec_ = Enum.YLeaf(23, "exec")
 
-    login = 24
+    login = Enum.YLeaf(24, "login")
 
-    shell = 25
+    shell = Enum.YLeaf(25, "shell")
 
-    msSql = 26
+    msSql = Enum.YLeaf(26, "msSql")
 
-    sybaseSql = 27
+    sybaseSql = Enum.YLeaf(27, "sybaseSql")
 
-    nfs = 28
+    nfs = Enum.YLeaf(28, "nfs")
 
-    lotusnote = 29
+    lotusnote = Enum.YLeaf(29, "lotusnote")
 
-    h323 = 30
+    h323 = Enum.YLeaf(30, "h323")
 
-    cuseeme = 31
+    cuseeme = Enum.YLeaf(31, "cuseeme")
 
-    realmedia = 32
+    realmedia = Enum.YLeaf(32, "realmedia")
 
-    netshow = 33
+    netshow = Enum.YLeaf(33, "netshow")
 
-    streamworks = 34
+    streamworks = Enum.YLeaf(34, "streamworks")
 
-    vdolive = 35
+    vdolive = Enum.YLeaf(35, "vdolive")
 
-    sap = 36
+    sap = Enum.YLeaf(36, "sap")
 
-    sip = 37
+    sip = Enum.YLeaf(37, "sip")
 
-    mgcp = 38
+    mgcp = Enum.YLeaf(38, "mgcp")
 
-    rtsp = 39
+    rtsp = Enum.YLeaf(39, "rtsp")
 
-    skinny = 40
+    skinny = Enum.YLeaf(40, "skinny")
 
-    gtpV0 = 41
+    gtpV0 = Enum.YLeaf(41, "gtpV0")
 
-    gtpV1 = 42
+    gtpV1 = Enum.YLeaf(42, "gtpV1")
 
-    echo = 43
+    echo = Enum.YLeaf(43, "echo")
 
-    discard = 44
+    discard = Enum.YLeaf(44, "discard")
 
-    daytime = 45
+    daytime = Enum.YLeaf(45, "daytime")
 
-    netstat = 46
+    netstat = Enum.YLeaf(46, "netstat")
 
-    ssh = 47
+    ssh = Enum.YLeaf(47, "ssh")
 
-    time = 48
+    time = Enum.YLeaf(48, "time")
 
-    tacacsDs = 49
+    tacacsDs = Enum.YLeaf(49, "tacacsDs")
 
-    bootps = 50
+    bootps = Enum.YLeaf(50, "bootps")
 
-    bootpc = 51
+    bootpc = Enum.YLeaf(51, "bootpc")
 
-    dnsix = 52
+    dnsix = Enum.YLeaf(52, "dnsix")
 
-    rtelnet = 53
+    rtelnet = Enum.YLeaf(53, "rtelnet")
 
-    ident = 54
+    ident = Enum.YLeaf(54, "ident")
 
-    sqlServ = 55
+    sqlServ = Enum.YLeaf(55, "sqlServ")
 
-    ntp = 56
+    ntp = Enum.YLeaf(56, "ntp")
 
-    pwdgen = 57
+    pwdgen = Enum.YLeaf(57, "pwdgen")
 
-    ciscoFna = 58
+    ciscoFna = Enum.YLeaf(58, "ciscoFna")
 
-    ciscoTna = 59
+    ciscoTna = Enum.YLeaf(59, "ciscoTna")
 
-    ciscoSys = 60
+    ciscoSys = Enum.YLeaf(60, "ciscoSys")
 
-    netbiosNs = 61
+    netbiosNs = Enum.YLeaf(61, "netbiosNs")
 
-    netbiosDgm = 62
+    netbiosDgm = Enum.YLeaf(62, "netbiosDgm")
 
-    netbiosSsn = 63
+    netbiosSsn = Enum.YLeaf(63, "netbiosSsn")
 
-    sqlSrv = 64
+    sqlSrv = Enum.YLeaf(64, "sqlSrv")
 
-    snmpTrap = 65
+    snmpTrap = Enum.YLeaf(65, "snmpTrap")
 
-    rsvd = 66
+    rsvd = Enum.YLeaf(66, "rsvd")
 
-    send = 67
+    send = Enum.YLeaf(67, "send")
 
-    xdmcp = 68
+    xdmcp = Enum.YLeaf(68, "xdmcp")
 
-    bgp = 69
+    bgp = Enum.YLeaf(69, "bgp")
 
-    irc = 70
+    irc = Enum.YLeaf(70, "irc")
 
-    qmtp = 71
+    qmtp = Enum.YLeaf(71, "qmtp")
 
-    ipx = 72
+    ipx = Enum.YLeaf(72, "ipx")
 
-    dbase = 73
+    dbase = Enum.YLeaf(73, "dbase")
 
-    imap3 = 74
+    imap3 = Enum.YLeaf(74, "imap3")
 
-    rsvpTunnel = 75
+    rsvpTunnel = Enum.YLeaf(75, "rsvpTunnel")
 
-    hpCollector = 76
+    hpCollector = Enum.YLeaf(76, "hpCollector")
 
-    hpManagedNode = 77
+    hpManagedNode = Enum.YLeaf(77, "hpManagedNode")
 
-    hpAlarmMgr = 78
+    hpAlarmMgr = Enum.YLeaf(78, "hpAlarmMgr")
 
-    microsoftDs = 79
+    microsoftDs = Enum.YLeaf(79, "microsoftDs")
 
-    creativeServer = 80
+    creativeServer = Enum.YLeaf(80, "creativeServer")
 
-    creativePartnr = 81
+    creativePartnr = Enum.YLeaf(81, "creativePartnr")
 
-    appleQtc = 82
+    appleQtc = Enum.YLeaf(82, "appleQtc")
 
-    igmpV3Lite = 83
+    igmpV3Lite = Enum.YLeaf(83, "igmpV3Lite")
 
-    isakmp = 84
+    isakmp = Enum.YLeaf(84, "isakmp")
 
-    biff = 85
+    biff = Enum.YLeaf(85, "biff")
 
-    who = 86
+    who = Enum.YLeaf(86, "who")
 
-    syslog = 87
+    syslog = Enum.YLeaf(87, "syslog")
 
-    router = 88
+    router = Enum.YLeaf(88, "router")
 
-    ncp = 89
+    ncp = Enum.YLeaf(89, "ncp")
 
-    timed = 90
+    timed = Enum.YLeaf(90, "timed")
 
-    ircServ = 91
+    ircServ = Enum.YLeaf(91, "ircServ")
 
-    uucp = 92
+    uucp = Enum.YLeaf(92, "uucp")
 
-    syslogConn = 93
+    syslogConn = Enum.YLeaf(93, "syslogConn")
 
-    sshell = 94
+    sshell = Enum.YLeaf(94, "sshell")
 
-    ldaps = 95
+    ldaps = Enum.YLeaf(95, "ldaps")
 
-    dhcpFailover = 96
+    dhcpFailover = Enum.YLeaf(96, "dhcpFailover")
 
-    msexchRouting = 97
+    msexchRouting = Enum.YLeaf(97, "msexchRouting")
 
-    entrustSvcs = 98
+    entrustSvcs = Enum.YLeaf(98, "entrustSvcs")
 
-    entrustSvcHandler = 99
+    entrustSvcHandler = Enum.YLeaf(99, "entrustSvcHandler")
 
-    ciscoTdp = 100
+    ciscoTdp = Enum.YLeaf(100, "ciscoTdp")
 
-    webster = 101
+    webster = Enum.YLeaf(101, "webster")
 
-    gdoi = 102
+    gdoi = Enum.YLeaf(102, "gdoi")
 
-    iscsi = 103
+    iscsi = Enum.YLeaf(103, "iscsi")
 
-    cddbp = 104
+    cddbp = Enum.YLeaf(104, "cddbp")
 
-    ftps = 105
+    ftps = Enum.YLeaf(105, "ftps")
 
-    telnets = 106
+    telnets = Enum.YLeaf(106, "telnets")
 
-    imaps = 107
+    imaps = Enum.YLeaf(107, "imaps")
 
-    ircs = 108
+    ircs = Enum.YLeaf(108, "ircs")
 
-    pop3s = 109
+    pop3s = Enum.YLeaf(109, "pop3s")
 
-    socks = 110
+    socks = Enum.YLeaf(110, "socks")
 
-    kazaa = 111
+    kazaa = Enum.YLeaf(111, "kazaa")
 
-    msSqlM = 112
+    msSqlM = Enum.YLeaf(112, "msSqlM")
 
-    msSna = 113
+    msSna = Enum.YLeaf(113, "msSna")
 
-    wins = 114
+    wins = Enum.YLeaf(114, "wins")
 
-    ica = 115
+    ica = Enum.YLeaf(115, "ica")
 
-    orasrv = 116
+    orasrv = Enum.YLeaf(116, "orasrv")
 
-    rdbDbsDisp = 117
+    rdbDbsDisp = Enum.YLeaf(117, "rdbDbsDisp")
 
-    vqp = 118
+    vqp = Enum.YLeaf(118, "vqp")
 
-    icabrowser = 119
+    icabrowser = Enum.YLeaf(119, "icabrowser")
 
-    kermit = 120
+    kermit = Enum.YLeaf(120, "kermit")
 
-    rsvpEncap = 121
+    rsvpEncap = Enum.YLeaf(121, "rsvpEncap")
 
-    l2tp = 122
+    l2tp = Enum.YLeaf(122, "l2tp")
 
-    pptp = 123
+    pptp = Enum.YLeaf(123, "pptp")
 
-    h323Gatestat = 124
+    h323Gatestat = Enum.YLeaf(124, "h323Gatestat")
 
-    rWinsock = 125
+    rWinsock = Enum.YLeaf(125, "rWinsock")
 
-    radius = 126
+    radius = Enum.YLeaf(126, "radius")
 
-    hsrp = 127
+    hsrp = Enum.YLeaf(127, "hsrp")
 
-    net8Cman = 128
+    net8Cman = Enum.YLeaf(128, "net8Cman")
 
-    oracleEmVp = 129
+    oracleEmVp = Enum.YLeaf(129, "oracleEmVp")
 
-    oracleNames = 130
+    oracleNames = Enum.YLeaf(130, "oracleNames")
 
-    oracle = 131
+    oracle = Enum.YLeaf(131, "oracle")
 
-    ciscoSvcs = 132
+    ciscoSvcs = Enum.YLeaf(132, "ciscoSvcs")
 
-    ciscoNetMgmt = 133
+    ciscoNetMgmt = Enum.YLeaf(133, "ciscoNetMgmt")
 
-    stun = 134
+    stun = Enum.YLeaf(134, "stun")
 
-    trRsrb = 135
+    trRsrb = Enum.YLeaf(135, "trRsrb")
 
-    ddnsV3 = 136
+    ddnsV3 = Enum.YLeaf(136, "ddnsV3")
 
-    aceSvr = 137
+    aceSvr = Enum.YLeaf(137, "aceSvr")
 
-    giop = 138
+    giop = Enum.YLeaf(138, "giop")
 
-    ttc = 139
+    ttc = Enum.YLeaf(139, "ttc")
 
-    ipass = 140
+    ipass = Enum.YLeaf(140, "ipass")
 
-    clp = 141
+    clp = Enum.YLeaf(141, "clp")
 
-    citrixImaClient = 142
+    citrixImaClient = Enum.YLeaf(142, "citrixImaClient")
 
-    sms = 143
+    sms = Enum.YLeaf(143, "sms")
 
-    citrix = 144
+    citrix = Enum.YLeaf(144, "citrix")
 
-    realSecure = 145
+    realSecure = Enum.YLeaf(145, "realSecure")
 
-    lotusMtap = 146
+    lotusMtap = Enum.YLeaf(146, "lotusMtap")
 
-    cifs = 147
+    cifs = Enum.YLeaf(147, "cifs")
 
-    msDotnetster = 148
+    msDotnetster = Enum.YLeaf(148, "msDotnetster")
 
-    tarantella = 149
+    tarantella = Enum.YLeaf(149, "tarantella")
 
-    fcipPort = 150
+    fcipPort = Enum.YLeaf(150, "fcipPort")
 
-    ssp = 151
+    ssp = Enum.YLeaf(151, "ssp")
 
-    iscsiTarget = 152
+    iscsiTarget = Enum.YLeaf(152, "iscsiTarget")
 
-    mySql = 153
+    mySql = Enum.YLeaf(153, "mySql")
 
-    msClusterNet = 154
+    msClusterNet = Enum.YLeaf(154, "msClusterNet")
 
-    ldapAdmin = 155
+    ldapAdmin = Enum.YLeaf(155, "ldapAdmin")
 
-    ieee80211Iapp = 156
+    ieee80211Iapp = Enum.YLeaf(156, "ieee80211Iapp")
 
-    oemAgent = 157
+    oemAgent = Enum.YLeaf(157, "oemAgent")
 
-    rtcPmPort = 158
+    rtcPmPort = Enum.YLeaf(158, "rtcPmPort")
 
-    dbControlAgent = 159
+    dbControlAgent = Enum.YLeaf(159, "dbControlAgent")
 
-    ipsecMsft = 160
+    ipsecMsft = Enum.YLeaf(160, "ipsecMsft")
 
-    sipTls = 161
+    sipTls = Enum.YLeaf(161, "sipTls")
 
-    aim = 162
+    aim = Enum.YLeaf(162, "aim")
 
-    pcAnyWhereData = 163
+    pcAnyWhereData = Enum.YLeaf(163, "pcAnyWhereData")
 
-    pcAnyWhereStat = 164
+    pcAnyWhereStat = Enum.YLeaf(164, "pcAnyWhereStat")
 
-    x11 = 165
+    x11 = Enum.YLeaf(165, "x11")
 
-    ircu = 166
+    ircu = Enum.YLeaf(166, "ircu")
 
-    n2h2Server = 167
+    n2h2Server = Enum.YLeaf(167, "n2h2Server")
 
-    h323CallSigAlt = 168
+    h323CallSigAlt = Enum.YLeaf(168, "h323CallSigAlt")
 
-    yahooMsgr = 169
+    yahooMsgr = Enum.YLeaf(169, "yahooMsgr")
 
-    msnMsgr = 170
+    msnMsgr = Enum.YLeaf(170, "msnMsgr")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FIREWALL_TC as meta
-        return meta._meta_table['CfwapplicationprotocolEnum']
-
-
-class CfwnetworkprotocolEnum(Enum):
+class Cfwnetworkprotocol(Enum):
     """
-    CfwnetworkprotocolEnum
+    Cfwnetworkprotocol
 
     This type denotes protocols operating at 
 
@@ -788,30 +776,24 @@ class CfwnetworkprotocolEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    ip = 3
+    ip = Enum.YLeaf(3, "ip")
 
-    icmp = 4
+    icmp = Enum.YLeaf(4, "icmp")
 
-    gre = 5
+    gre = Enum.YLeaf(5, "gre")
 
-    udp = 6
+    udp = Enum.YLeaf(6, "udp")
 
-    tcp = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FIREWALL_TC as meta
-        return meta._meta_table['CfwnetworkprotocolEnum']
+    tcp = Enum.YLeaf(7, "tcp")
 
 
-class CfwpolicytargettypeEnum(Enum):
+class Cfwpolicytargettype(Enum):
     """
-    CfwpolicytargettypeEnum
+    Cfwpolicytargettype
 
     This type is used to represent the type of 
 
@@ -911,32 +893,26 @@ class CfwpolicytargettypeEnum(Enum):
 
     """
 
-    all = 1
+    all = Enum.YLeaf(1, "all")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    interface = 3
+    interface = Enum.YLeaf(3, "interface")
 
-    zone = 4
+    zone = Enum.YLeaf(4, "zone")
 
-    zonepair = 5
+    zonepair = Enum.YLeaf(5, "zonepair")
 
-    user = 6
+    user = Enum.YLeaf(6, "user")
 
-    usergroup = 7
+    usergroup = Enum.YLeaf(7, "usergroup")
 
-    context = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FIREWALL_TC as meta
-        return meta._meta_table['CfwpolicytargettypeEnum']
+    context = Enum.YLeaf(8, "context")
 
 
-class CfwurlfvendoridEnum(Enum):
+class Cfwurlfvendorid(Enum):
     """
-    CfwurlfvendoridEnum
+    Cfwurlfvendorid
 
     This type denotes the vendor of a URL filtering
 
@@ -988,22 +964,16 @@ class CfwurlfvendoridEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    websense = 2
+    websense = Enum.YLeaf(2, "websense")
 
-    n2h2 = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FIREWALL_TC as meta
-        return meta._meta_table['CfwurlfvendoridEnum']
+    n2h2 = Enum.YLeaf(3, "n2h2")
 
 
-class CfwurlserverstatusEnum(Enum):
+class Cfwurlserverstatus(Enum):
     """
-    CfwurlserverstatusEnum
+    Cfwurlserverstatus
 
     This type denotes the status of the URL filtering 
 
@@ -1035,17 +1005,11 @@ class CfwurlserverstatusEnum(Enum):
 
     """
 
-    online = 1
+    online = Enum.YLeaf(1, "online")
 
-    offline = 2
+    offline = Enum.YLeaf(2, "offline")
 
-    indeterminate = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FIREWALL_TC as meta
-        return meta._meta_table['CfwurlserverstatusEnum']
+    indeterminate = Enum.YLeaf(3, "indeterminate")
 
 
 

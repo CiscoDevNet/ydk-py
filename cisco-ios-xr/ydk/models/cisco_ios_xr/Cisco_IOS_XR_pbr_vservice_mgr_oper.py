@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class VsNshStatsEnum(Enum):
+class VsNshStats(Enum):
     """
-    VsNshStatsEnum
+    VsNshStats
 
     Vs nsh stats
 
@@ -65,31 +59,25 @@ class VsNshStatsEnum(Enum):
 
     """
 
-    vs_nsh_stats_spi_si = 0
+    vs_nsh_stats_spi_si = Enum.YLeaf(0, "vs-nsh-stats-spi-si")
 
-    vs_nsh_stats_ter_min_ate = 1
+    vs_nsh_stats_ter_min_ate = Enum.YLeaf(1, "vs-nsh-stats-ter-min-ate")
 
-    vs_nsh_stats_sf = 2
+    vs_nsh_stats_sf = Enum.YLeaf(2, "vs-nsh-stats-sf")
 
-    vs_nsh_stats_sff = 3
+    vs_nsh_stats_sff = Enum.YLeaf(3, "vs-nsh-stats-sff")
 
-    vs_nsh_stats_sff_local = 4
+    vs_nsh_stats_sff_local = Enum.YLeaf(4, "vs-nsh-stats-sff-local")
 
-    vs_nsh_stats_sfp = 5
+    vs_nsh_stats_sfp = Enum.YLeaf(5, "vs-nsh-stats-sfp")
 
-    vs_nsh_stats_sfp_detail = 6
+    vs_nsh_stats_sfp_detail = Enum.YLeaf(6, "vs-nsh-stats-sfp-detail")
 
-    vs_nsh_stats_max = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-        return meta._meta_table['VsNshStatsEnum']
+    vs_nsh_stats_max = Enum.YLeaf(7, "vs-nsh-stats-max")
 
 
 
-class GlobalServiceFunctionChaining(object):
+class GlobalServiceFunctionChaining(Entity):
     """
     NSH Service Function Chaining global operational
     data
@@ -117,15 +105,29 @@ class GlobalServiceFunctionChaining(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(GlobalServiceFunctionChaining, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "global-service-function-chaining"
+        self.yang_parent_name = "Cisco-IOS-XR-pbr-vservice-mgr-oper"
+
         self.service_function = GlobalServiceFunctionChaining.ServiceFunction()
         self.service_function.parent = self
+        self._children_name_map["service_function"] = "service-function"
+        self._children_yang_names.add("service-function")
+
         self.service_function_forwarder = GlobalServiceFunctionChaining.ServiceFunctionForwarder()
         self.service_function_forwarder.parent = self
+        self._children_name_map["service_function_forwarder"] = "service-function-forwarder"
+        self._children_yang_names.add("service-function-forwarder")
+
         self.service_function_path = GlobalServiceFunctionChaining.ServiceFunctionPath()
         self.service_function_path.parent = self
+        self._children_name_map["service_function_path"] = "service-function-path"
+        self._children_yang_names.add("service-function-path")
 
 
-    class ServiceFunctionPath(object):
+    class ServiceFunctionPath(Entity):
         """
         Service Function Path operational data
         
@@ -142,12 +144,18 @@ class GlobalServiceFunctionChaining(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(GlobalServiceFunctionChaining.ServiceFunctionPath, self).__init__()
+
+            self.yang_name = "service-function-path"
+            self.yang_parent_name = "global-service-function-chaining"
+
             self.path_ids = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds()
             self.path_ids.parent = self
+            self._children_name_map["path_ids"] = "path-ids"
+            self._children_yang_names.add("path-ids")
 
 
-        class PathIds(object):
+        class PathIds(Entity):
             """
             Service Function Path Id 
             
@@ -164,13 +172,39 @@ class GlobalServiceFunctionChaining(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.path_id = YList()
-                self.path_id.parent = self
-                self.path_id.name = 'path_id'
+                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__init__()
+
+                self.yang_name = "path-ids"
+                self.yang_parent_name = "service-function-path"
+
+                self.path_id = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__setattr__(name, value)
 
 
-            class PathId(object):
+            class PathId(Entity):
                 """
                 Specific Service\-Function\-Path identifier 
                 
@@ -199,15 +233,49 @@ class GlobalServiceFunctionChaining(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.id = None
+                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__init__()
+
+                    self.yang_name = "path-id"
+                    self.yang_parent_name = "path-ids"
+
+                    self.id = YLeaf(YType.uint32, "id")
+
                     self.service_indexes = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes()
                     self.service_indexes.parent = self
+                    self._children_name_map["service_indexes"] = "service-indexes"
+                    self._children_yang_names.add("service-indexes")
+
                     self.stats = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats()
                     self.stats.parent = self
+                    self._children_name_map["stats"] = "stats"
+                    self._children_yang_names.add("stats")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("id") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__setattr__(name, value)
 
 
-                class Stats(object):
+                class Stats(Entity):
                     """
                     SFP Statistics
                     
@@ -229,14 +297,23 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, self).__init__()
+
+                        self.yang_name = "stats"
+                        self.yang_parent_name = "path-id"
+
                         self.detail = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail()
                         self.detail.parent = self
+                        self._children_name_map["detail"] = "detail"
+                        self._children_yang_names.add("detail")
+
                         self.summarized = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized()
                         self.summarized.parent = self
+                        self._children_name_map["summarized"] = "summarized"
+                        self._children_yang_names.add("summarized")
 
 
-                    class Detail(object):
+                    class Detail(Entity):
                         """
                         Detail statistics per service index 
                         
@@ -258,15 +335,44 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__init__()
+
+                            self.yang_name = "detail"
+                            self.yang_parent_name = "stats"
+
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data()
                             self.data.parent = self
-                            self.si_arr = YList()
-                            self.si_arr.parent = self
-                            self.si_arr.name = 'si_arr'
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__setattr__(name, value)
 
 
-                        class Data(object):
+                        class Data(Entity):
                             """
                             Statistics data
                             
@@ -303,7 +409,7 @@ class GlobalServiceFunctionChaining(object):
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -313,23 +419,69 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "detail"
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf()
                                 self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff()
                                 self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal()
                                 self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp()
                                 self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi()
                                 self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term()
                                 self.term.parent = self
-                                self.type = None
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("type") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__setattr__(name, value)
 
 
-                            class Sfp(object):
+                            class Sfp(Entity):
                                 """
                                 SFP stats
                                 
@@ -351,14 +503,23 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term()
                                     self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     Service index counters
                                     
@@ -386,37 +547,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate counters
                                     
@@ -444,62 +665,155 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sfp" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
-
-                                    if self.term is not None and self.term._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class SpiSi(object):
+                            class SpiSi(Entity):
                                 """
                                 SPI SI stats
                                 
@@ -527,37 +841,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "spi-si" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Term(object):
+                            class Term(Entity):
                                 """
                                 Terminate stats
                                 
@@ -585,37 +959,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.terminated_bytes = None
-                                    self.terminated_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("terminated_bytes",
+                                                    "terminated_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.terminated_bytes.is_set or
+                                        self.terminated_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.terminated_bytes.yfilter != YFilter.not_set or
+                                        self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "term" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                    if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.terminated_bytes is not None:
-                                        return True
-
-                                    if self.terminated_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "terminated-bytes"):
+                                        self.terminated_bytes = value
+                                        self.terminated_bytes.value_namespace = name_space
+                                        self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "terminated-pkts"):
+                                        self.terminated_pkts = value
+                                        self.terminated_pkts.value_namespace = name_space
+                                        self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sf(object):
+                            class Sf(Entity):
                                 """
                                 Service function stats
                                 
@@ -643,37 +1077,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sf" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sff(object):
+                            class Sff(Entity):
                                 """
                                 Service function forwarder stats
                                 
@@ -701,37 +1195,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class SffLocal(object):
+                            class SffLocal(Entity):
                                 """
                                 Local service function forwarder stats
                                 
@@ -775,85 +1329,220 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.lookup_err_bytes = None
-                                    self.lookup_err_pkts = None
-                                    self.malformed_err_bytes = None
-                                    self.malformed_err_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("lookup_err_bytes",
+                                                    "lookup_err_pkts",
+                                                    "malformed_err_bytes",
+                                                    "malformed_err_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.lookup_err_bytes.is_set or
+                                        self.lookup_err_pkts.is_set or
+                                        self.malformed_err_bytes.is_set or
+                                        self.malformed_err_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                        self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                        self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                        self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff-local" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                                    if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                                    if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                                    if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.lookup_err_bytes is not None:
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "lookup-err-bytes"):
+                                        self.lookup_err_bytes = value
+                                        self.lookup_err_bytes.value_namespace = name_space
+                                        self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "lookup-err-pkts"):
+                                        self.lookup_err_pkts = value
+                                        self.lookup_err_pkts.value_namespace = name_space
+                                        self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-bytes"):
+                                        self.malformed_err_bytes = value
+                                        self.malformed_err_bytes.value_namespace = name_space
+                                        self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-pkts"):
+                                        self.malformed_err_pkts = value
+                                        self.malformed_err_pkts.value_namespace = name_space
+                                        self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                                    if self.lookup_err_pkts is not None:
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.type.is_set or
+                                    (self.sf is not None and self.sf.has_data()) or
+                                    (self.sff is not None and self.sff.has_data()) or
+                                    (self.sff_local is not None and self.sff_local.has_data()) or
+                                    (self.sfp is not None and self.sfp.has_data()) or
+                                    (self.spi_si is not None and self.spi_si.has_data()) or
+                                    (self.term is not None and self.term.has_data()))
 
-                                    if self.malformed_err_bytes is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.type.yfilter != YFilter.not_set or
+                                    (self.sf is not None and self.sf.has_operation()) or
+                                    (self.sff is not None and self.sff.has_operation()) or
+                                    (self.sff_local is not None and self.sff_local.has_operation()) or
+                                    (self.sfp is not None and self.sfp.has_operation()) or
+                                    (self.spi_si is not None and self.spi_si.has_operation()) or
+                                    (self.term is not None and self.term.has_operation()))
 
-                                    if self.malformed_err_pkts is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "data" + path_buffer
 
-                                    return False
+                                return path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal']['meta_info']
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                leaf_name_data = LeafDataList()
+                                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.type.get_name_leafdata())
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "sf"):
+                                    if (self.sf is None):
+                                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf()
+                                        self.sf.parent = self
+                                        self._children_name_map["sf"] = "sf"
+                                    return self.sf
+
+                                if (child_yang_name == "sff"):
+                                    if (self.sff is None):
+                                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff()
+                                        self.sff.parent = self
+                                        self._children_name_map["sff"] = "sff"
+                                    return self.sff
+
+                                if (child_yang_name == "sff-local"):
+                                    if (self.sff_local is None):
+                                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal()
+                                        self.sff_local.parent = self
+                                        self._children_name_map["sff_local"] = "sff-local"
+                                    return self.sff_local
+
+                                if (child_yang_name == "sfp"):
+                                    if (self.sfp is None):
+                                        self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp()
+                                        self.sfp.parent = self
+                                        self._children_name_map["sfp"] = "sfp"
+                                    return self.sfp
+
+                                if (child_yang_name == "spi-si"):
+                                    if (self.spi_si is None):
+                                        self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi()
+                                        self.spi_si.parent = self
+                                        self._children_name_map["spi_si"] = "spi-si"
+                                    return self.spi_si
+
+                                if (child_yang_name == "term"):
+                                    if (self.term is None):
+                                        self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term()
+                                        self.term.parent = self
+                                        self._children_name_map["term"] = "term"
+                                    return self.term
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.sf is not None and self.sf._has_data():
-                                    return True
-
-                                if self.sff is not None and self.sff._has_data():
-                                    return True
-
-                                if self.sff_local is not None and self.sff_local._has_data():
-                                    return True
-
-                                if self.sfp is not None and self.sfp._has_data():
-                                    return True
-
-                                if self.spi_si is not None and self.spi_si._has_data():
-                                    return True
-
-                                if self.term is not None and self.term._has_data():
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "type"):
+                                    self.type = value
+                                    self.type.value_namespace = name_space
+                                    self.type.value_namespace_prefix = name_space_prefix
 
 
-                        class SiArr(object):
+                        class SiArr(Entity):
                             """
                             SI array in case of detail stats
                             
@@ -877,13 +1566,44 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "detail"
+
+                                self.si = YLeaf(YType.uint8, "si")
+
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data()
                                 self.data.parent = self
-                                self.si = None
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("si") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__setattr__(name, value)
 
 
-                            class Data(object):
+                            class Data(Entity):
                                 """
                                 Stats counter for this index
                                 
@@ -900,7 +1620,7 @@ class GlobalServiceFunctionChaining(object):
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -910,15 +1630,49 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term()
                                     self.term.parent = self
-                                    self.type = None
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("type") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__setattr__(name, value)
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     SF/SFF stats
                                     
@@ -946,37 +1700,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate stats
                                     
@@ -1004,117 +1818,284 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.type.is_set or
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.type.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "data" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+                                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.type.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term" or name == "type"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "type"):
+                                        self.type = value
+                                        self.type.value_namespace = name_space
+                                        self.type.value_namespace_prefix = name_space_prefix
 
-                                    if self.term is not None and self.term._has_data():
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.si.is_set or
+                                    (self.data is not None and self.data.has_data()))
 
-                                    if self.type is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.si.yfilter != YFilter.not_set or
+                                    (self.data is not None and self.data.has_operation()))
 
-                                    return False
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "si-arr" + path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data']['meta_info']
+                                return path_buffer
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                                leaf_name_data = LeafDataList()
+                                if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.si.get_name_leafdata())
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "data"):
+                                    if (self.data is None):
+                                        self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data()
+                                        self.data.parent = self
+                                        self._children_name_map["data"] = "data"
+                                    return self.data
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "data" or name == "si"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.data is not None and self.data._has_data():
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "si"):
+                                    self.si = value
+                                    self.si.value_namespace = name_space
+                                    self.si.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.si_arr:
+                                if (c.has_data()):
                                     return True
+                            return (self.data is not None and self.data.has_data())
 
-                                if self.si is not None:
+                        def has_operation(self):
+                            for c in self.si_arr:
+                                if (c.has_operation()):
                                     return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.data is not None and self.data.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "detail" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:detail'
+                            leaf_name_data = LeafDataList()
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        def _has_data(self):
-                            if self.data is not None and self.data._has_data():
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "data"):
+                                if (self.data is None):
+                                    self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data()
+                                    self.data.parent = self
+                                    self._children_name_map["data"] = "data"
+                                return self.data
+
+                            if (child_yang_name == "si-arr"):
+                                for c in self.si_arr:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.si_arr.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "data" or name == "si-arr"):
                                 return True
-
-                            if self.si_arr is not None:
-                                for child_ref in self.si_arr:
-                                    if child_ref._has_data():
-                                        return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Summarized(object):
+                    class Summarized(Entity):
                         """
                         Combined statistics of all service index in
                         service functionpath
@@ -1137,15 +2118,44 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__init__()
+
+                            self.yang_name = "summarized"
+                            self.yang_parent_name = "stats"
+
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data()
                             self.data.parent = self
-                            self.si_arr = YList()
-                            self.si_arr.parent = self
-                            self.si_arr.name = 'si_arr'
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__setattr__(name, value)
 
 
-                        class Data(object):
+                        class Data(Entity):
                             """
                             Statistics data
                             
@@ -1182,7 +2192,7 @@ class GlobalServiceFunctionChaining(object):
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -1192,23 +2202,69 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "summarized"
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf()
                                 self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff()
                                 self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal()
                                 self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp()
                                 self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi()
                                 self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term()
                                 self.term.parent = self
-                                self.type = None
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("type") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__setattr__(name, value)
 
 
-                            class Sfp(object):
+                            class Sfp(Entity):
                                 """
                                 SFP stats
                                 
@@ -1230,14 +2286,23 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term()
                                     self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     Service index counters
                                     
@@ -1265,37 +2330,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate counters
                                     
@@ -1323,62 +2448,155 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sfp" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
-
-                                    if self.term is not None and self.term._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class SpiSi(object):
+                            class SpiSi(Entity):
                                 """
                                 SPI SI stats
                                 
@@ -1406,37 +2624,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "spi-si" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Term(object):
+                            class Term(Entity):
                                 """
                                 Terminate stats
                                 
@@ -1464,37 +2742,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.terminated_bytes = None
-                                    self.terminated_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("terminated_bytes",
+                                                    "terminated_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.terminated_bytes.is_set or
+                                        self.terminated_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.terminated_bytes.yfilter != YFilter.not_set or
+                                        self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "term" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                    if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.terminated_bytes is not None:
-                                        return True
-
-                                    if self.terminated_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "terminated-bytes"):
+                                        self.terminated_bytes = value
+                                        self.terminated_bytes.value_namespace = name_space
+                                        self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "terminated-pkts"):
+                                        self.terminated_pkts = value
+                                        self.terminated_pkts.value_namespace = name_space
+                                        self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sf(object):
+                            class Sf(Entity):
                                 """
                                 Service function stats
                                 
@@ -1522,37 +2860,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sf" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sff(object):
+                            class Sff(Entity):
                                 """
                                 Service function forwarder stats
                                 
@@ -1580,37 +2978,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class SffLocal(object):
+                            class SffLocal(Entity):
                                 """
                                 Local service function forwarder stats
                                 
@@ -1654,85 +3112,220 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.lookup_err_bytes = None
-                                    self.lookup_err_pkts = None
-                                    self.malformed_err_bytes = None
-                                    self.malformed_err_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("lookup_err_bytes",
+                                                    "lookup_err_pkts",
+                                                    "malformed_err_bytes",
+                                                    "malformed_err_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.lookup_err_bytes.is_set or
+                                        self.lookup_err_pkts.is_set or
+                                        self.malformed_err_bytes.is_set or
+                                        self.malformed_err_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                        self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                        self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                        self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff-local" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                                    if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                                    if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                                    if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.lookup_err_bytes is not None:
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "lookup-err-bytes"):
+                                        self.lookup_err_bytes = value
+                                        self.lookup_err_bytes.value_namespace = name_space
+                                        self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "lookup-err-pkts"):
+                                        self.lookup_err_pkts = value
+                                        self.lookup_err_pkts.value_namespace = name_space
+                                        self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-bytes"):
+                                        self.malformed_err_bytes = value
+                                        self.malformed_err_bytes.value_namespace = name_space
+                                        self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-pkts"):
+                                        self.malformed_err_pkts = value
+                                        self.malformed_err_pkts.value_namespace = name_space
+                                        self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                                    if self.lookup_err_pkts is not None:
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.type.is_set or
+                                    (self.sf is not None and self.sf.has_data()) or
+                                    (self.sff is not None and self.sff.has_data()) or
+                                    (self.sff_local is not None and self.sff_local.has_data()) or
+                                    (self.sfp is not None and self.sfp.has_data()) or
+                                    (self.spi_si is not None and self.spi_si.has_data()) or
+                                    (self.term is not None and self.term.has_data()))
 
-                                    if self.malformed_err_bytes is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.type.yfilter != YFilter.not_set or
+                                    (self.sf is not None and self.sf.has_operation()) or
+                                    (self.sff is not None and self.sff.has_operation()) or
+                                    (self.sff_local is not None and self.sff_local.has_operation()) or
+                                    (self.sfp is not None and self.sfp.has_operation()) or
+                                    (self.spi_si is not None and self.spi_si.has_operation()) or
+                                    (self.term is not None and self.term.has_operation()))
 
-                                    if self.malformed_err_pkts is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "data" + path_buffer
 
-                                    return False
+                                return path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal']['meta_info']
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                leaf_name_data = LeafDataList()
+                                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.type.get_name_leafdata())
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "sf"):
+                                    if (self.sf is None):
+                                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf()
+                                        self.sf.parent = self
+                                        self._children_name_map["sf"] = "sf"
+                                    return self.sf
+
+                                if (child_yang_name == "sff"):
+                                    if (self.sff is None):
+                                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff()
+                                        self.sff.parent = self
+                                        self._children_name_map["sff"] = "sff"
+                                    return self.sff
+
+                                if (child_yang_name == "sff-local"):
+                                    if (self.sff_local is None):
+                                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal()
+                                        self.sff_local.parent = self
+                                        self._children_name_map["sff_local"] = "sff-local"
+                                    return self.sff_local
+
+                                if (child_yang_name == "sfp"):
+                                    if (self.sfp is None):
+                                        self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp()
+                                        self.sfp.parent = self
+                                        self._children_name_map["sfp"] = "sfp"
+                                    return self.sfp
+
+                                if (child_yang_name == "spi-si"):
+                                    if (self.spi_si is None):
+                                        self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi()
+                                        self.spi_si.parent = self
+                                        self._children_name_map["spi_si"] = "spi-si"
+                                    return self.spi_si
+
+                                if (child_yang_name == "term"):
+                                    if (self.term is None):
+                                        self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term()
+                                        self.term.parent = self
+                                        self._children_name_map["term"] = "term"
+                                    return self.term
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.sf is not None and self.sf._has_data():
-                                    return True
-
-                                if self.sff is not None and self.sff._has_data():
-                                    return True
-
-                                if self.sff_local is not None and self.sff_local._has_data():
-                                    return True
-
-                                if self.sfp is not None and self.sfp._has_data():
-                                    return True
-
-                                if self.spi_si is not None and self.spi_si._has_data():
-                                    return True
-
-                                if self.term is not None and self.term._has_data():
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "type"):
+                                    self.type = value
+                                    self.type.value_namespace = name_space
+                                    self.type.value_namespace_prefix = name_space_prefix
 
 
-                        class SiArr(object):
+                        class SiArr(Entity):
                             """
                             SI array in case of detail stats
                             
@@ -1756,13 +3349,44 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "summarized"
+
+                                self.si = YLeaf(YType.uint8, "si")
+
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data()
                                 self.data.parent = self
-                                self.si = None
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("si") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__setattr__(name, value)
 
 
-                            class Data(object):
+                            class Data(Entity):
                                 """
                                 Stats counter for this index
                                 
@@ -1779,7 +3403,7 @@ class GlobalServiceFunctionChaining(object):
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -1789,15 +3413,49 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term()
                                     self.term.parent = self
-                                    self.type = None
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("type") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__setattr__(name, value)
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     SF/SFF stats
                                     
@@ -1825,37 +3483,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate stats
                                     
@@ -1883,142 +3601,342 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.type.is_set or
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.type.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "data" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+                                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.type.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term" or name == "type"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "type"):
+                                        self.type = value
+                                        self.type.value_namespace = name_space
+                                        self.type.value_namespace_prefix = name_space_prefix
 
-                                    if self.term is not None and self.term._has_data():
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.si.is_set or
+                                    (self.data is not None and self.data.has_data()))
 
-                                    if self.type is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.si.yfilter != YFilter.not_set or
+                                    (self.data is not None and self.data.has_operation()))
 
-                                    return False
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "si-arr" + path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data']['meta_info']
+                                return path_buffer
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                                leaf_name_data = LeafDataList()
+                                if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.si.get_name_leafdata())
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "data"):
+                                    if (self.data is None):
+                                        self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data()
+                                        self.data.parent = self
+                                        self._children_name_map["data"] = "data"
+                                    return self.data
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "data" or name == "si"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.data is not None and self.data._has_data():
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "si"):
+                                    self.si = value
+                                    self.si.value_namespace = name_space
+                                    self.si.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.si_arr:
+                                if (c.has_data()):
                                     return True
+                            return (self.data is not None and self.data.has_data())
 
-                                if self.si is not None:
+                        def has_operation(self):
+                            for c in self.si_arr:
+                                if (c.has_operation()):
                                     return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.data is not None and self.data.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "summarized" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:summarized'
+                            leaf_name_data = LeafDataList()
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        def _has_data(self):
-                            if self.data is not None and self.data._has_data():
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "data"):
+                                if (self.data is None):
+                                    self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data()
+                                    self.data.parent = self
+                                    self._children_name_map["data"] = "data"
+                                return self.data
+
+                            if (child_yang_name == "si-arr"):
+                                for c in self.si_arr:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.si_arr.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "data" or name == "si-arr"):
                                 return True
-
-                            if self.si_arr is not None:
-                                for child_ref in self.si_arr:
-                                    if child_ref._has_data():
-                                        return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.detail is not None and self.detail.has_data()) or
+                            (self.summarized is not None and self.summarized.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:stats'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.detail is not None and self.detail.has_operation()) or
+                            (self.summarized is not None and self.summarized.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "stats" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "detail"):
+                            if (self.detail is None):
+                                self.detail = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail()
+                                self.detail.parent = self
+                                self._children_name_map["detail"] = "detail"
+                            return self.detail
+
+                        if (child_yang_name == "summarized"):
+                            if (self.summarized is None):
+                                self.summarized = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized()
+                                self.summarized.parent = self
+                                self._children_name_map["summarized"] = "summarized"
+                            return self.summarized
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "detail" or name == "summarized"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.detail is not None and self.detail._has_data():
-                            return True
-
-                        if self.summarized is not None and self.summarized._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class ServiceIndexes(object):
+                class ServiceIndexes(Entity):
                     """
                     Service Index Belonging to Path
                     
@@ -2035,13 +3953,39 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.service_index = YList()
-                        self.service_index.parent = self
-                        self.service_index.name = 'service_index'
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__init__()
+
+                        self.yang_name = "service-indexes"
+                        self.yang_parent_name = "path-id"
+
+                        self.service_index = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__setattr__(name, value)
 
 
-                    class ServiceIndex(object):
+                    class ServiceIndex(Entity):
                         """
                         Service index operational data belonging to
                         this path
@@ -2071,16 +4015,46 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.index = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__init__()
+
+                            self.yang_name = "service-index"
+                            self.yang_parent_name = "service-indexes"
+
+                            self.index = YLeaf(YType.uint32, "index")
+
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data()
                             self.data.parent = self
-                            self.si_arr = YList()
-                            self.si_arr.parent = self
-                            self.si_arr.name = 'si_arr'
+                            self._children_name_map["data"] = "data"
+                            self._children_yang_names.add("data")
+
+                            self.si_arr = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("index") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__setattr__(name, value)
 
 
-                        class Data(object):
+                        class Data(Entity):
                             """
                             Statistics data
                             
@@ -2117,7 +4091,7 @@ class GlobalServiceFunctionChaining(object):
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -2127,23 +4101,69 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__init__()
+
+                                self.yang_name = "data"
+                                self.yang_parent_name = "service-index"
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf()
                                 self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                                self._children_yang_names.add("sf")
+
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff()
                                 self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                                self._children_yang_names.add("sff")
+
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal()
                                 self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                                self._children_yang_names.add("sff-local")
+
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp()
                                 self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                                self._children_yang_names.add("sfp")
+
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi()
                                 self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                                self._children_yang_names.add("spi-si")
+
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term()
                                 self.term.parent = self
-                                self.type = None
+                                self._children_name_map["term"] = "term"
+                                self._children_yang_names.add("term")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("type") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__setattr__(name, value)
 
 
-                            class Sfp(object):
+                            class Sfp(Entity):
                                 """
                                 SFP stats
                                 
@@ -2165,14 +4185,23 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, self).__init__()
+
+                                    self.yang_name = "sfp"
+                                    self.yang_parent_name = "data"
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term()
                                     self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     Service index counters
                                     
@@ -2200,37 +4229,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate counters
                                     
@@ -2258,62 +4347,155 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "sfp"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sfp" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
-
-                                    if self.term is not None and self.term._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class SpiSi(object):
+                            class SpiSi(Entity):
                                 """
                                 SPI SI stats
                                 
@@ -2341,37 +4523,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "spi-si"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "spi-si" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Term(object):
+                            class Term(Entity):
                                 """
                                 Terminate stats
                                 
@@ -2399,37 +4641,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.terminated_bytes = None
-                                    self.terminated_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "term"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                    self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("terminated_bytes",
+                                                    "terminated_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.terminated_bytes.is_set or
+                                        self.terminated_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.terminated_bytes.yfilter != YFilter.not_set or
+                                        self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "term" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                    if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.terminated_bytes is not None:
-                                        return True
-
-                                    if self.terminated_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "terminated-bytes"):
+                                        self.terminated_bytes = value
+                                        self.terminated_bytes.value_namespace = name_space
+                                        self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "terminated-pkts"):
+                                        self.terminated_pkts = value
+                                        self.terminated_pkts.value_namespace = name_space
+                                        self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sf(object):
+                            class Sf(Entity):
                                 """
                                 Service function stats
                                 
@@ -2457,37 +4759,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sf"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sf" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class Sff(object):
+                            class Sff(Entity):
                                 """
                                 Service function forwarder stats
                                 
@@ -2515,37 +4877,97 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.processed_bytes = None
-                                    self.processed_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                                    self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("processed_bytes",
+                                                    "processed_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.processed_bytes.is_set or
+                                        self.processed_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.processed_bytes.yfilter != YFilter.not_set or
+                                        self.processed_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                    if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "processed-bytes" or name == "processed-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.processed_bytes is not None:
-                                        return True
-
-                                    if self.processed_pkts is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "processed-bytes"):
+                                        self.processed_bytes = value
+                                        self.processed_bytes.value_namespace = name_space
+                                        self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "processed-pkts"):
+                                        self.processed_pkts = value
+                                        self.processed_pkts.value_namespace = name_space
+                                        self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                            class SffLocal(object):
+                            class SffLocal(Entity):
                                 """
                                 Local service function forwarder stats
                                 
@@ -2589,85 +5011,220 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.lookup_err_bytes = None
-                                    self.lookup_err_pkts = None
-                                    self.malformed_err_bytes = None
-                                    self.malformed_err_pkts = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "sff-local"
+                                    self.yang_parent_name = "data"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                                    self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                                    self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                                    self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("lookup_err_bytes",
+                                                    "lookup_err_pkts",
+                                                    "malformed_err_bytes",
+                                                    "malformed_err_pkts") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.lookup_err_bytes.is_set or
+                                        self.lookup_err_pkts.is_set or
+                                        self.malformed_err_bytes.is_set or
+                                        self.malformed_err_pkts.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                        self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                        self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                        self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sff-local" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                                    if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                                    if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                                    if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.lookup_err_bytes is not None:
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "lookup-err-bytes"):
+                                        self.lookup_err_bytes = value
+                                        self.lookup_err_bytes.value_namespace = name_space
+                                        self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "lookup-err-pkts"):
+                                        self.lookup_err_pkts = value
+                                        self.lookup_err_pkts.value_namespace = name_space
+                                        self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-bytes"):
+                                        self.malformed_err_bytes = value
+                                        self.malformed_err_bytes.value_namespace = name_space
+                                        self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "malformed-err-pkts"):
+                                        self.malformed_err_pkts = value
+                                        self.malformed_err_pkts.value_namespace = name_space
+                                        self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                                    if self.lookup_err_pkts is not None:
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.type.is_set or
+                                    (self.sf is not None and self.sf.has_data()) or
+                                    (self.sff is not None and self.sff.has_data()) or
+                                    (self.sff_local is not None and self.sff_local.has_data()) or
+                                    (self.sfp is not None and self.sfp.has_data()) or
+                                    (self.spi_si is not None and self.spi_si.has_data()) or
+                                    (self.term is not None and self.term.has_data()))
 
-                                    if self.malformed_err_bytes is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.type.yfilter != YFilter.not_set or
+                                    (self.sf is not None and self.sf.has_operation()) or
+                                    (self.sff is not None and self.sff.has_operation()) or
+                                    (self.sff_local is not None and self.sff_local.has_operation()) or
+                                    (self.sfp is not None and self.sfp.has_operation()) or
+                                    (self.spi_si is not None and self.spi_si.has_operation()) or
+                                    (self.term is not None and self.term.has_operation()))
 
-                                    if self.malformed_err_pkts is not None:
-                                        return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "data" + path_buffer
 
-                                    return False
+                                return path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal']['meta_info']
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                leaf_name_data = LeafDataList()
+                                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.type.get_name_leafdata())
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "sf"):
+                                    if (self.sf is None):
+                                        self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf()
+                                        self.sf.parent = self
+                                        self._children_name_map["sf"] = "sf"
+                                    return self.sf
+
+                                if (child_yang_name == "sff"):
+                                    if (self.sff is None):
+                                        self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff()
+                                        self.sff.parent = self
+                                        self._children_name_map["sff"] = "sff"
+                                    return self.sff
+
+                                if (child_yang_name == "sff-local"):
+                                    if (self.sff_local is None):
+                                        self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal()
+                                        self.sff_local.parent = self
+                                        self._children_name_map["sff_local"] = "sff-local"
+                                    return self.sff_local
+
+                                if (child_yang_name == "sfp"):
+                                    if (self.sfp is None):
+                                        self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp()
+                                        self.sfp.parent = self
+                                        self._children_name_map["sfp"] = "sfp"
+                                    return self.sfp
+
+                                if (child_yang_name == "spi-si"):
+                                    if (self.spi_si is None):
+                                        self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi()
+                                        self.spi_si.parent = self
+                                        self._children_name_map["spi_si"] = "spi-si"
+                                    return self.spi_si
+
+                                if (child_yang_name == "term"):
+                                    if (self.term is None):
+                                        self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term()
+                                        self.term.parent = self
+                                        self._children_name_map["term"] = "term"
+                                    return self.term
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.sf is not None and self.sf._has_data():
-                                    return True
-
-                                if self.sff is not None and self.sff._has_data():
-                                    return True
-
-                                if self.sff_local is not None and self.sff_local._has_data():
-                                    return True
-
-                                if self.sfp is not None and self.sfp._has_data():
-                                    return True
-
-                                if self.spi_si is not None and self.spi_si._has_data():
-                                    return True
-
-                                if self.term is not None and self.term._has_data():
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "type"):
+                                    self.type = value
+                                    self.type.value_namespace = name_space
+                                    self.type.value_namespace_prefix = name_space_prefix
 
 
-                        class SiArr(object):
+                        class SiArr(Entity):
                             """
                             SI array in case of detail stats
                             
@@ -2691,13 +5248,44 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__init__()
+
+                                self.yang_name = "si-arr"
+                                self.yang_parent_name = "service-index"
+
+                                self.si = YLeaf(YType.uint8, "si")
+
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data()
                                 self.data.parent = self
-                                self.si = None
+                                self._children_name_map["data"] = "data"
+                                self._children_yang_names.add("data")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("si") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__setattr__(name, value)
 
 
-                            class Data(object):
+                            class Data(Entity):
                                 """
                                 Stats counter for this index
                                 
@@ -2714,7 +5302,7 @@ class GlobalServiceFunctionChaining(object):
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -2724,15 +5312,49 @@ class GlobalServiceFunctionChaining(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__init__()
+
+                                    self.yang_name = "data"
+                                    self.yang_parent_name = "si-arr"
+
+                                    self.type = YLeaf(YType.enumeration, "type")
+
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                    self._children_yang_names.add("spi-si")
+
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term()
                                     self.term.parent = self
-                                    self.type = None
+                                    self._children_name_map["term"] = "term"
+                                    self._children_yang_names.add("term")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("type") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__setattr__(name, value)
 
 
-                                class SpiSi(object):
+                                class SpiSi(Entity):
                                     """
                                     SF/SFF stats
                                     
@@ -2760,37 +5382,97 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.processed_bytes = None
-                                        self.processed_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "spi-si"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                        self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("processed_bytes",
+                                                        "processed_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.processed_bytes.is_set or
+                                            self.processed_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.processed_bytes.yfilter != YFilter.not_set or
+                                            self.processed_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "spi-si" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                        if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "processed-bytes" or name == "processed-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.processed_bytes is not None:
-                                            return True
-
-                                        if self.processed_pkts is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "processed-bytes"):
+                                            self.processed_bytes = value
+                                            self.processed_bytes.value_namespace = name_space
+                                            self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "processed-pkts"):
+                                            self.processed_pkts = value
+                                            self.processed_pkts.value_namespace = name_space
+                                            self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                                class Term(object):
+                                class Term(Entity):
                                     """
                                     Terminate stats
                                     
@@ -2818,216 +5500,519 @@ class GlobalServiceFunctionChaining(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.terminated_bytes = None
-                                        self.terminated_pkts = None
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "term"
+                                        self.yang_parent_name = "data"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                        self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("terminated_bytes",
+                                                        "terminated_pkts") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.terminated_bytes.is_set or
+                                            self.terminated_pkts.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.terminated_bytes.yfilter != YFilter.not_set or
+                                            self.terminated_pkts.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "term" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                        if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.terminated_bytes is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "terminated-bytes"):
+                                            self.terminated_bytes = value
+                                            self.terminated_bytes.value_namespace = name_space
+                                            self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "terminated-pkts"):
+                                            self.terminated_pkts = value
+                                            self.terminated_pkts.value_namespace = name_space
+                                            self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                        if self.terminated_pkts is not None:
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.type.is_set or
+                                        (self.spi_si is not None and self.spi_si.has_data()) or
+                                        (self.term is not None and self.term.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.type.yfilter != YFilter.not_set or
+                                        (self.spi_si is not None and self.spi_si.has_operation()) or
+                                        (self.term is not None and self.term.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "data" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+                                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.type.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "spi-si"):
+                                        if (self.spi_si is None):
+                                            self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi()
+                                            self.spi_si.parent = self
+                                            self._children_name_map["spi_si"] = "spi-si"
+                                        return self.spi_si
+
+                                    if (child_yang_name == "term"):
+                                        if (self.term is None):
+                                            self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term()
+                                            self.term.parent = self
+                                            self._children_name_map["term"] = "term"
+                                        return self.term
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "spi-si" or name == "term" or name == "type"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.spi_si is not None and self.spi_si._has_data():
-                                        return True
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "type"):
+                                        self.type = value
+                                        self.type.value_namespace = name_space
+                                        self.type.value_namespace_prefix = name_space_prefix
 
-                                    if self.term is not None and self.term._has_data():
-                                        return True
+                            def has_data(self):
+                                return (
+                                    self.si.is_set or
+                                    (self.data is not None and self.data.has_data()))
 
-                                    if self.type is not None:
-                                        return True
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.si.yfilter != YFilter.not_set or
+                                    (self.data is not None and self.data.has_operation()))
 
-                                    return False
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "si-arr" + path_buffer
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data']['meta_info']
+                                return path_buffer
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                                leaf_name_data = LeafDataList()
+                                if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.si.get_name_leafdata())
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "data"):
+                                    if (self.data is None):
+                                        self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data()
+                                        self.data.parent = self
+                                        self._children_name_map["data"] = "data"
+                                    return self.data
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "data" or name == "si"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.data is not None and self.data._has_data():
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "si"):
+                                    self.si = value
+                                    self.si.value_namespace = name_space
+                                    self.si.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.si_arr:
+                                if (c.has_data()):
                                     return True
+                            return (
+                                self.index.is_set or
+                                (self.data is not None and self.data.has_data()))
 
-                                if self.si is not None:
+                        def has_operation(self):
+                            for c in self.si_arr:
+                                if (c.has_operation()):
                                     return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.index.yfilter != YFilter.not_set or
+                                (self.data is not None and self.data.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "service-index" + "[index='" + self.index.get() + "']" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.index is None:
-                                raise YPYModelError('Key property index is None')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-index[Cisco-IOS-XR-pbr-vservice-mgr-oper:index = ' + str(self.index) + ']'
+                            leaf_name_data = LeafDataList()
+                            if (self.index.is_set or self.index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.index.get_name_leafdata())
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "data"):
+                                if (self.data is None):
+                                    self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data()
+                                    self.data.parent = self
+                                    self._children_name_map["data"] = "data"
+                                return self.data
+
+                            if (child_yang_name == "si-arr"):
+                                for c in self.si_arr:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.si_arr.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "data" or name == "si-arr" or name == "index"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.index is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "index"):
+                                self.index = value
+                                self.index.value_namespace = name_space
+                                self.index.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.service_index:
+                            if (c.has_data()):
                                 return True
-
-                            if self.data is not None and self.data._has_data():
-                                return True
-
-                            if self.si_arr is not None:
-                                for child_ref in self.si_arr:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-indexes'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.service_index is not None:
-                            for child_ref in self.service_index:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.service_index:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-indexes" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes']['meta_info']
+                        return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.id is None:
-                        raise YPYModelError('Key property id is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-path/Cisco-IOS-XR-pbr-vservice-mgr-oper:path-ids/Cisco-IOS-XR-pbr-vservice-mgr-oper:path-id[Cisco-IOS-XR-pbr-vservice-mgr-oper:id = ' + str(self.id) + ']'
+                        leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                def _has_data(self):
-                    if self.id is not None:
-                        return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    if self.service_indexes is not None and self.service_indexes._has_data():
-                        return True
+                        if (child_yang_name == "service-index"):
+                            for c in self.service_index:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.service_index.append(c)
+                            return c
 
-                    if self.stats is not None and self.stats._has_data():
-                        return True
+                        return None
 
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-path/Cisco-IOS-XR-pbr-vservice-mgr-oper:path-ids'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.path_id is not None:
-                    for child_ref in self.path_id:
-                        if child_ref._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "service-index"):
                             return True
+                        return False
 
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.id.is_set or
+                        (self.service_indexes is not None and self.service_indexes.has_data()) or
+                        (self.stats is not None and self.stats.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.id.yfilter != YFilter.not_set or
+                        (self.service_indexes is not None and self.service_indexes.has_operation()) or
+                        (self.stats is not None and self.stats.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "path-id" + "[id='" + self.id.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/path-ids/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.id.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "service-indexes"):
+                        if (self.service_indexes is None):
+                            self.service_indexes = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes()
+                            self.service_indexes.parent = self
+                            self._children_name_map["service_indexes"] = "service-indexes"
+                        return self.service_indexes
+
+                    if (child_yang_name == "stats"):
+                        if (self.stats is None):
+                            self.stats = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats()
+                            self.stats.parent = self
+                            self._children_name_map["stats"] = "stats"
+                        return self.stats
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service-indexes" or name == "stats" or name == "id"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "id"):
+                        self.id = value
+                        self.id.value_namespace = name_space
+                        self.id.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.path_id:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds']['meta_info']
+            def has_operation(self):
+                for c in self.path_id:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "path-ids" + path_buffer
 
-            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-path'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.path_ids is not None and self.path_ids._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "path-id"):
+                    for c in self.path_id:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.path_id.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "path-id"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.path_ids is not None and self.path_ids.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.path_ids is not None and self.path_ids.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function-path" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "path-ids"):
+                if (self.path_ids is None):
+                    self.path_ids = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds()
+                    self.path_ids.parent = self
+                    self._children_name_map["path_ids"] = "path-ids"
+                return self.path_ids
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "path-ids"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ServiceFunction(object):
+    class ServiceFunction(Entity):
         """
         Service Function operational data
         
@@ -3044,12 +6029,18 @@ class GlobalServiceFunctionChaining(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(GlobalServiceFunctionChaining.ServiceFunction, self).__init__()
+
+            self.yang_name = "service-function"
+            self.yang_parent_name = "global-service-function-chaining"
+
             self.sf_names = GlobalServiceFunctionChaining.ServiceFunction.SfNames()
             self.sf_names.parent = self
+            self._children_name_map["sf_names"] = "sf-names"
+            self._children_yang_names.add("sf-names")
 
 
-        class SfNames(object):
+        class SfNames(Entity):
             """
             List of Service Function Names
             
@@ -3066,13 +6057,39 @@ class GlobalServiceFunctionChaining(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.sf_name = YList()
-                self.sf_name.parent = self
-                self.sf_name.name = 'sf_name'
+                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames, self).__init__()
+
+                self.yang_name = "sf-names"
+                self.yang_parent_name = "service-function"
+
+                self.sf_name = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames, self).__setattr__(name, value)
 
 
-            class SfName(object):
+            class SfName(Entity):
                 """
                 Name of Service Function
                 
@@ -3101,16 +6118,46 @@ class GlobalServiceFunctionChaining(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
+                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, self).__init__()
+
+                    self.yang_name = "sf-name"
+                    self.yang_parent_name = "sf-names"
+
+                    self.name = YLeaf(YType.str, "name")
+
                     self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data()
                     self.data.parent = self
-                    self.si_arr = YList()
-                    self.si_arr.parent = self
-                    self.si_arr.name = 'si_arr'
+                    self._children_name_map["data"] = "data"
+                    self._children_yang_names.add("data")
+
+                    self.si_arr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, self).__setattr__(name, value)
 
 
-                class Data(object):
+                class Data(Entity):
                     """
                     Statistics data
                     
@@ -3147,7 +6194,7 @@ class GlobalServiceFunctionChaining(object):
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -3157,23 +6204,69 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, self).__init__()
+
+                        self.yang_name = "data"
+                        self.yang_parent_name = "sf-name"
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
                         self.sf = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf()
                         self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
                         self.sff = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff()
                         self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal()
                         self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
+
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp()
                         self.sfp.parent = self
+                        self._children_name_map["sfp"] = "sfp"
+                        self._children_yang_names.add("sfp")
+
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi()
                         self.spi_si.parent = self
+                        self._children_name_map["spi_si"] = "spi-si"
+                        self._children_yang_names.add("spi-si")
+
                         self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term()
                         self.term.parent = self
-                        self.type = None
+                        self._children_name_map["term"] = "term"
+                        self._children_yang_names.add("term")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("type") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, self).__setattr__(name, value)
 
 
-                    class Sfp(object):
+                    class Sfp(Entity):
                         """
                         SFP stats
                         
@@ -3195,14 +6288,23 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp, self).__init__()
+
+                            self.yang_name = "sfp"
+                            self.yang_parent_name = "data"
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term()
                             self.term.parent = self
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             Service index counters
                             
@@ -3230,37 +6332,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "sfp"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate counters
                             
@@ -3288,62 +6450,155 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "term"
+                                self.yang_parent_name = "sfp"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sfp" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
-
-                            if self.term is not None and self.term._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class SpiSi(object):
+                    class SpiSi(Entity):
                         """
                         SPI SI stats
                         
@@ -3371,37 +6626,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "spi-si"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "spi-si" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Term(object):
+                    class Term(Entity):
                         """
                         Terminate stats
                         
@@ -3429,37 +6744,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.terminated_bytes = None
-                            self.terminated_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "term"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("terminated_bytes",
+                                            "terminated_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.terminated_bytes.is_set or
+                                self.terminated_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.terminated_bytes.yfilter != YFilter.not_set or
+                                self.terminated_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "term" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                            if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.terminated_bytes is not None:
-                                return True
-
-                            if self.terminated_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "terminated-bytes"):
+                                self.terminated_bytes = value
+                                self.terminated_bytes.value_namespace = name_space
+                                self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminated-pkts"):
+                                self.terminated_pkts = value
+                                self.terminated_pkts.value_namespace = name_space
+                                self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sf(object):
+                    class Sf(Entity):
                         """
                         Service function stats
                         
@@ -3487,37 +6862,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sff(object):
+                    class Sff(Entity):
                         """
                         Service function forwarder stats
                         
@@ -3545,37 +6980,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class SffLocal(object):
+                    class SffLocal(Entity):
                         """
                         Local service function forwarder stats
                         
@@ -3619,85 +7114,220 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.lookup_err_bytes = None
-                            self.lookup_err_pkts = None
-                            self.malformed_err_bytes = None
-                            self.malformed_err_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("lookup_err_bytes",
+                                            "lookup_err_pkts",
+                                            "malformed_err_bytes",
+                                            "malformed_err_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.lookup_err_bytes.is_set or
+                                self.lookup_err_pkts.is_set or
+                                self.malformed_err_bytes.is_set or
+                                self.malformed_err_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff-local" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                            if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                            if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                            if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.lookup_err_bytes is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "lookup-err-bytes"):
+                                self.lookup_err_bytes = value
+                                self.lookup_err_bytes.value_namespace = name_space
+                                self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "lookup-err-pkts"):
+                                self.lookup_err_pkts = value
+                                self.lookup_err_pkts.value_namespace = name_space
+                                self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-bytes"):
+                                self.malformed_err_bytes = value
+                                self.malformed_err_bytes.value_namespace = name_space
+                                self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-pkts"):
+                                self.malformed_err_pkts = value
+                                self.malformed_err_pkts.value_namespace = name_space
+                                self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                            if self.lookup_err_pkts is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.type.is_set or
+                            (self.sf is not None and self.sf.has_data()) or
+                            (self.sff is not None and self.sff.has_data()) or
+                            (self.sff_local is not None and self.sff_local.has_data()) or
+                            (self.sfp is not None and self.sfp.has_data()) or
+                            (self.spi_si is not None and self.spi_si.has_data()) or
+                            (self.term is not None and self.term.has_data()))
 
-                            if self.malformed_err_bytes is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.type.yfilter != YFilter.not_set or
+                            (self.sf is not None and self.sf.has_operation()) or
+                            (self.sff is not None and self.sff.has_operation()) or
+                            (self.sff_local is not None and self.sff_local.has_operation()) or
+                            (self.sfp is not None and self.sfp.has_operation()) or
+                            (self.spi_si is not None and self.spi_si.has_operation()) or
+                            (self.term is not None and self.term.has_operation()))
 
-                            if self.malformed_err_pkts is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.type.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "sf"):
+                            if (self.sf is None):
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                            return self.sf
+
+                        if (child_yang_name == "sff"):
+                            if (self.sff is None):
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                            return self.sff
+
+                        if (child_yang_name == "sff-local"):
+                            if (self.sff_local is None):
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                            return self.sff_local
+
+                        if (child_yang_name == "sfp"):
+                            if (self.sfp is None):
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                            return self.sfp
+
+                        if (child_yang_name == "spi-si"):
+                            if (self.spi_si is None):
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                            return self.spi_si
+
+                        if (child_yang_name == "term"):
+                            if (self.term is None):
+                                self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                            return self.term
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.sf is not None and self.sf._has_data():
-                            return True
-
-                        if self.sff is not None and self.sff._has_data():
-                            return True
-
-                        if self.sff_local is not None and self.sff_local._has_data():
-                            return True
-
-                        if self.sfp is not None and self.sfp._has_data():
-                            return True
-
-                        if self.spi_si is not None and self.spi_si._has_data():
-                            return True
-
-                        if self.term is not None and self.term._has_data():
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "type"):
+                            self.type = value
+                            self.type.value_namespace = name_space
+                            self.type.value_namespace_prefix = name_space_prefix
 
 
-                class SiArr(object):
+                class SiArr(Entity):
                     """
                     SI array in case of detail stats
                     
@@ -3721,13 +7351,44 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, self).__init__()
+
+                        self.yang_name = "si-arr"
+                        self.yang_parent_name = "sf-name"
+
+                        self.si = YLeaf(YType.uint8, "si")
+
                         self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data()
                         self.data.parent = self
-                        self.si = None
+                        self._children_name_map["data"] = "data"
+                        self._children_yang_names.add("data")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("si") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, self).__setattr__(name, value)
 
 
-                    class Data(object):
+                    class Data(Entity):
                         """
                         Stats counter for this index
                         
@@ -3744,7 +7405,7 @@ class GlobalServiceFunctionChaining(object):
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -3754,15 +7415,49 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, self).__init__()
+
+                            self.yang_name = "data"
+                            self.yang_parent_name = "si-arr"
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term()
                             self.term.parent = self
-                            self.type = None
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("type") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, self).__setattr__(name, value)
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             SF/SFF stats
                             
@@ -3790,37 +7485,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "data"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate stats
                             
@@ -3848,162 +7603,397 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "term"
+                                self.yang_parent_name = "data"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.type.is_set or
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.type.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "data" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.type.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term" or name == "type"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "type"):
+                                self.type = value
+                                self.type.value_namespace = name_space
+                                self.type.value_namespace_prefix = name_space_prefix
 
-                            if self.term is not None and self.term._has_data():
-                                return True
+                    def has_data(self):
+                        return (
+                            self.si.is_set or
+                            (self.data is not None and self.data.has_data()))
 
-                            if self.type is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.si.yfilter != YFilter.not_set or
+                            (self.data is not None and self.data.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "si-arr" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                        leaf_name_data = LeafDataList()
+                        if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.si.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "data"):
+                            if (self.data is None):
+                                self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                            return self.data
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "data" or name == "si"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.data is not None and self.data._has_data():
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "si"):
+                            self.si = value
+                            self.si.value_namespace = name_space
+                            self.si.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.si_arr:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.name.is_set or
+                        (self.data is not None and self.data.has_data()))
 
-                        if self.si is not None:
+                def has_operation(self):
+                    for c in self.si_arr:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        (self.data is not None and self.data.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sf-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function/sf-names/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf-names/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf-name[Cisco-IOS-XR-pbr-vservice-mgr-oper:name = ' + str(self.name) + ']'
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "data"):
+                        if (self.data is None):
+                            self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                        return self.data
+
+                    if (child_yang_name == "si-arr"):
+                        for c in self.si_arr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.si_arr.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data" or name == "si-arr" or name == "name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.sf_name:
+                    if (c.has_data()):
                         return True
-
-                    if self.data is not None and self.data._has_data():
-                        return True
-
-                    if self.si_arr is not None:
-                        for child_ref in self.si_arr:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf-names'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.sf_name is not None:
-                    for child_ref in self.sf_name:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.sf_name:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sf-names" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sf-name"):
+                    for c in self.sf_name:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.sf_name.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sf-name"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.sf_names is not None and self.sf_names.has_data())
 
-            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.sf_names is not None and self.sf_names.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function" + path_buffer
 
-        def _has_data(self):
-            if self.sf_names is not None and self.sf_names._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sf-names"):
+                if (self.sf_names is None):
+                    self.sf_names = GlobalServiceFunctionChaining.ServiceFunction.SfNames()
+                    self.sf_names.parent = self
+                    self._children_name_map["sf_names"] = "sf-names"
+                return self.sf_names
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sf-names"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ServiceFunctionForwarder(object):
+    class ServiceFunctionForwarder(Entity):
         """
         Service Function Forwarder operational data
         
@@ -4025,14 +8015,23 @@ class GlobalServiceFunctionChaining(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder, self).__init__()
+
+            self.yang_name = "service-function-forwarder"
+            self.yang_parent_name = "global-service-function-chaining"
+
             self.local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local()
             self.local.parent = self
+            self._children_name_map["local"] = "local"
+            self._children_yang_names.add("local")
+
             self.sff_names = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames()
             self.sff_names.parent = self
+            self._children_name_map["sff_names"] = "sff-names"
+            self._children_yang_names.add("sff-names")
 
 
-        class SffNames(object):
+        class SffNames(Entity):
             """
             List of Service Function Forwarder Names
             
@@ -4049,13 +8048,39 @@ class GlobalServiceFunctionChaining(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.sff_name = YList()
-                self.sff_name.parent = self
-                self.sff_name.name = 'sff_name'
+                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__init__()
+
+                self.yang_name = "sff-names"
+                self.yang_parent_name = "service-function-forwarder"
+
+                self.sff_name = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__setattr__(name, value)
 
 
-            class SffName(object):
+            class SffName(Entity):
                 """
                 Name of Service Function Forwarder
                 
@@ -4084,16 +8109,46 @@ class GlobalServiceFunctionChaining(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
+                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__init__()
+
+                    self.yang_name = "sff-name"
+                    self.yang_parent_name = "sff-names"
+
+                    self.name = YLeaf(YType.str, "name")
+
                     self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data()
                     self.data.parent = self
-                    self.si_arr = YList()
-                    self.si_arr.parent = self
-                    self.si_arr.name = 'si_arr'
+                    self._children_name_map["data"] = "data"
+                    self._children_yang_names.add("data")
+
+                    self.si_arr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__setattr__(name, value)
 
 
-                class Data(object):
+                class Data(Entity):
                     """
                     Statistics data
                     
@@ -4130,7 +8185,7 @@ class GlobalServiceFunctionChaining(object):
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -4140,23 +8195,69 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__init__()
+
+                        self.yang_name = "data"
+                        self.yang_parent_name = "sff-name"
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
                         self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf()
                         self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
                         self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff()
                         self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal()
                         self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
+
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp()
                         self.sfp.parent = self
+                        self._children_name_map["sfp"] = "sfp"
+                        self._children_yang_names.add("sfp")
+
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi()
                         self.spi_si.parent = self
+                        self._children_name_map["spi_si"] = "spi-si"
+                        self._children_yang_names.add("spi-si")
+
                         self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term()
                         self.term.parent = self
-                        self.type = None
+                        self._children_name_map["term"] = "term"
+                        self._children_yang_names.add("term")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("type") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__setattr__(name, value)
 
 
-                    class Sfp(object):
+                    class Sfp(Entity):
                         """
                         SFP stats
                         
@@ -4178,14 +8279,23 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, self).__init__()
+
+                            self.yang_name = "sfp"
+                            self.yang_parent_name = "data"
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term()
                             self.term.parent = self
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             Service index counters
                             
@@ -4213,37 +8323,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "sfp"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate counters
                             
@@ -4271,62 +8441,155 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "term"
+                                self.yang_parent_name = "sfp"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sfp" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
-
-                            if self.term is not None and self.term._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class SpiSi(object):
+                    class SpiSi(Entity):
                         """
                         SPI SI stats
                         
@@ -4354,37 +8617,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "spi-si"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "spi-si" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Term(object):
+                    class Term(Entity):
                         """
                         Terminate stats
                         
@@ -4412,37 +8735,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.terminated_bytes = None
-                            self.terminated_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "term"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("terminated_bytes",
+                                            "terminated_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.terminated_bytes.is_set or
+                                self.terminated_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.terminated_bytes.yfilter != YFilter.not_set or
+                                self.terminated_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "term" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                            if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.terminated_bytes is not None:
-                                return True
-
-                            if self.terminated_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "terminated-bytes"):
+                                self.terminated_bytes = value
+                                self.terminated_bytes.value_namespace = name_space
+                                self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminated-pkts"):
+                                self.terminated_pkts = value
+                                self.terminated_pkts.value_namespace = name_space
+                                self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sf(object):
+                    class Sf(Entity):
                         """
                         Service function stats
                         
@@ -4470,37 +8853,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sff(object):
+                    class Sff(Entity):
                         """
                         Service function forwarder stats
                         
@@ -4528,37 +8971,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class SffLocal(object):
+                    class SffLocal(Entity):
                         """
                         Local service function forwarder stats
                         
@@ -4602,85 +9105,220 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.lookup_err_bytes = None
-                            self.lookup_err_pkts = None
-                            self.malformed_err_bytes = None
-                            self.malformed_err_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("lookup_err_bytes",
+                                            "lookup_err_pkts",
+                                            "malformed_err_bytes",
+                                            "malformed_err_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.lookup_err_bytes.is_set or
+                                self.lookup_err_pkts.is_set or
+                                self.malformed_err_bytes.is_set or
+                                self.malformed_err_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff-local" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                            if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                            if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                            if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.lookup_err_bytes is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "lookup-err-bytes"):
+                                self.lookup_err_bytes = value
+                                self.lookup_err_bytes.value_namespace = name_space
+                                self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "lookup-err-pkts"):
+                                self.lookup_err_pkts = value
+                                self.lookup_err_pkts.value_namespace = name_space
+                                self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-bytes"):
+                                self.malformed_err_bytes = value
+                                self.malformed_err_bytes.value_namespace = name_space
+                                self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-pkts"):
+                                self.malformed_err_pkts = value
+                                self.malformed_err_pkts.value_namespace = name_space
+                                self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                            if self.lookup_err_pkts is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.type.is_set or
+                            (self.sf is not None and self.sf.has_data()) or
+                            (self.sff is not None and self.sff.has_data()) or
+                            (self.sff_local is not None and self.sff_local.has_data()) or
+                            (self.sfp is not None and self.sfp.has_data()) or
+                            (self.spi_si is not None and self.spi_si.has_data()) or
+                            (self.term is not None and self.term.has_data()))
 
-                            if self.malformed_err_bytes is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.type.yfilter != YFilter.not_set or
+                            (self.sf is not None and self.sf.has_operation()) or
+                            (self.sff is not None and self.sff.has_operation()) or
+                            (self.sff_local is not None and self.sff_local.has_operation()) or
+                            (self.sfp is not None and self.sfp.has_operation()) or
+                            (self.spi_si is not None and self.spi_si.has_operation()) or
+                            (self.term is not None and self.term.has_operation()))
 
-                            if self.malformed_err_pkts is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.type.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "sf"):
+                            if (self.sf is None):
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                            return self.sf
+
+                        if (child_yang_name == "sff"):
+                            if (self.sff is None):
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                            return self.sff
+
+                        if (child_yang_name == "sff-local"):
+                            if (self.sff_local is None):
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                            return self.sff_local
+
+                        if (child_yang_name == "sfp"):
+                            if (self.sfp is None):
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                            return self.sfp
+
+                        if (child_yang_name == "spi-si"):
+                            if (self.spi_si is None):
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                            return self.spi_si
+
+                        if (child_yang_name == "term"):
+                            if (self.term is None):
+                                self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                            return self.term
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.sf is not None and self.sf._has_data():
-                            return True
-
-                        if self.sff is not None and self.sff._has_data():
-                            return True
-
-                        if self.sff_local is not None and self.sff_local._has_data():
-                            return True
-
-                        if self.sfp is not None and self.sfp._has_data():
-                            return True
-
-                        if self.spi_si is not None and self.spi_si._has_data():
-                            return True
-
-                        if self.term is not None and self.term._has_data():
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "type"):
+                            self.type = value
+                            self.type.value_namespace = name_space
+                            self.type.value_namespace_prefix = name_space_prefix
 
 
-                class SiArr(object):
+                class SiArr(Entity):
                     """
                     SI array in case of detail stats
                     
@@ -4704,13 +9342,44 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__init__()
+
+                        self.yang_name = "si-arr"
+                        self.yang_parent_name = "sff-name"
+
+                        self.si = YLeaf(YType.uint8, "si")
+
                         self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data()
                         self.data.parent = self
-                        self.si = None
+                        self._children_name_map["data"] = "data"
+                        self._children_yang_names.add("data")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("si") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__setattr__(name, value)
 
 
-                    class Data(object):
+                    class Data(Entity):
                         """
                         Stats counter for this index
                         
@@ -4727,7 +9396,7 @@ class GlobalServiceFunctionChaining(object):
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -4737,15 +9406,49 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__init__()
+
+                            self.yang_name = "data"
+                            self.yang_parent_name = "si-arr"
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term()
                             self.term.parent = self
-                            self.type = None
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("type") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__setattr__(name, value)
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             SF/SFF stats
                             
@@ -4773,37 +9476,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "data"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate stats
                             
@@ -4831,142 +9594,349 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "term"
+                                self.yang_parent_name = "data"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.type.is_set or
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.type.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "data" + path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            return path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.type.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term" or name == "type"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "type"):
+                                self.type = value
+                                self.type.value_namespace = name_space
+                                self.type.value_namespace_prefix = name_space_prefix
 
-                            if self.term is not None and self.term._has_data():
-                                return True
+                    def has_data(self):
+                        return (
+                            self.si.is_set or
+                            (self.data is not None and self.data.has_data()))
 
-                            if self.type is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.si.yfilter != YFilter.not_set or
+                            (self.data is not None and self.data.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "si-arr" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                        leaf_name_data = LeafDataList()
+                        if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.si.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "data"):
+                            if (self.data is None):
+                                self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                            return self.data
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "data" or name == "si"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.data is not None and self.data._has_data():
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "si"):
+                            self.si = value
+                            self.si.value_namespace = name_space
+                            self.si.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.si_arr:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.name.is_set or
+                        (self.data is not None and self.data.has_data()))
 
-                        if self.si is not None:
+                def has_operation(self):
+                    for c in self.si_arr:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        (self.data is not None and self.data.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sff-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/sff-names/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-names/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-name[Cisco-IOS-XR-pbr-vservice-mgr-oper:name = ' + str(self.name) + ']'
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "data"):
+                        if (self.data is None):
+                            self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                        return self.data
+
+                    if (child_yang_name == "si-arr"):
+                        for c in self.si_arr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.si_arr.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data" or name == "si-arr" or name == "name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.sff_name:
+                    if (c.has_data()):
                         return True
-
-                    if self.data is not None and self.data._has_data():
-                        return True
-
-                    if self.si_arr is not None:
-                        for child_ref in self.si_arr:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-names'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.sff_name is not None:
-                    for child_ref in self.sff_name:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.sff_name:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sff-names" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sff-name"):
+                    for c in self.sff_name:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.sff_name.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sff-name"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Local(object):
+        class Local(Entity):
             """
             Local Service Function Forwarder operational
             data
@@ -4984,12 +9954,18 @@ class GlobalServiceFunctionChaining(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local, self).__init__()
+
+                self.yang_name = "local"
+                self.yang_parent_name = "service-function-forwarder"
+
                 self.error = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error()
                 self.error.parent = self
+                self._children_name_map["error"] = "error"
+                self._children_yang_names.add("error")
 
 
-            class Error(object):
+            class Error(Entity):
                 """
                 Error Statistics for local service function
                 forwarder
@@ -5012,15 +9988,44 @@ class GlobalServiceFunctionChaining(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, self).__init__()
+
+                    self.yang_name = "error"
+                    self.yang_parent_name = "local"
+
                     self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data()
                     self.data.parent = self
-                    self.si_arr = YList()
-                    self.si_arr.parent = self
-                    self.si_arr.name = 'si_arr'
+                    self._children_name_map["data"] = "data"
+                    self._children_yang_names.add("data")
+
+                    self.si_arr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, self).__setattr__(name, value)
 
 
-                class Data(object):
+                class Data(Entity):
                     """
                     Statistics data
                     
@@ -5057,7 +10062,7 @@ class GlobalServiceFunctionChaining(object):
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -5067,23 +10072,69 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, self).__init__()
+
+                        self.yang_name = "data"
+                        self.yang_parent_name = "error"
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
                         self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf()
                         self.sf.parent = self
+                        self._children_name_map["sf"] = "sf"
+                        self._children_yang_names.add("sf")
+
                         self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff()
                         self.sff.parent = self
+                        self._children_name_map["sff"] = "sff"
+                        self._children_yang_names.add("sff")
+
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal()
                         self.sff_local.parent = self
+                        self._children_name_map["sff_local"] = "sff-local"
+                        self._children_yang_names.add("sff-local")
+
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp()
                         self.sfp.parent = self
+                        self._children_name_map["sfp"] = "sfp"
+                        self._children_yang_names.add("sfp")
+
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi()
                         self.spi_si.parent = self
+                        self._children_name_map["spi_si"] = "spi-si"
+                        self._children_yang_names.add("spi-si")
+
                         self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term()
                         self.term.parent = self
-                        self.type = None
+                        self._children_name_map["term"] = "term"
+                        self._children_yang_names.add("term")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("type") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, self).__setattr__(name, value)
 
 
-                    class Sfp(object):
+                    class Sfp(Entity):
                         """
                         SFP stats
                         
@@ -5105,14 +10156,23 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp, self).__init__()
+
+                            self.yang_name = "sfp"
+                            self.yang_parent_name = "data"
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term()
                             self.term.parent = self
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             Service index counters
                             
@@ -5140,35 +10200,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "sfp"
 
-                                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/sfp/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate counters
                             
@@ -5196,58 +10318,155 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "term"
+                                self.yang_parent_name = "sfp"
 
-                                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/sfp/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sfp" + path_buffer
 
-                        @property
-                        def _common_path(self):
+                            return path_buffer
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sfp'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
-
-                            if self.term is not None and self.term._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class SpiSi(object):
+                    class SpiSi(Entity):
                         """
                         SPI SI stats
                         
@@ -5275,35 +10494,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "spi-si"
+                            self.yang_parent_name = "data"
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "spi-si" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Term(object):
+                    class Term(Entity):
                         """
                         Terminate stats
                         
@@ -5331,35 +10612,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.terminated_bytes = None
-                            self.terminated_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "term"
+                            self.yang_parent_name = "data"
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                            self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("terminated_bytes",
+                                            "terminated_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.terminated_bytes.is_set or
+                                self.terminated_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.terminated_bytes.yfilter != YFilter.not_set or
+                                self.terminated_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "term" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                            if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.terminated_bytes is not None:
-                                return True
-
-                            if self.terminated_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "terminated-bytes"):
+                                self.terminated_bytes = value
+                                self.terminated_bytes.value_namespace = name_space
+                                self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminated-pkts"):
+                                self.terminated_pkts = value
+                                self.terminated_pkts.value_namespace = name_space
+                                self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sf(object):
+                    class Sf(Entity):
                         """
                         Service function stats
                         
@@ -5387,35 +10730,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "sf"
+                            self.yang_parent_name = "data"
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sf'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class Sff(object):
+                    class Sff(Entity):
                         """
                         Service function forwarder stats
                         
@@ -5443,35 +10848,97 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.processed_bytes = None
-                            self.processed_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "sff"
+                            self.yang_parent_name = "data"
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff'
+                            self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("processed_bytes",
+                                            "processed_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.processed_bytes.is_set or
+                                self.processed_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.processed_bytes.yfilter != YFilter.not_set or
+                                self.processed_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                            if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "processed-bytes" or name == "processed-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.processed_bytes is not None:
-                                return True
-
-                            if self.processed_pkts is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "processed-bytes"):
+                                self.processed_bytes = value
+                                self.processed_bytes.value_namespace = name_space
+                                self.processed_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "processed-pkts"):
+                                self.processed_pkts = value
+                                self.processed_pkts.value_namespace = name_space
+                                self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                    class SffLocal(object):
+                    class SffLocal(Entity):
                         """
                         Local service function forwarder stats
                         
@@ -5515,81 +10982,220 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.lookup_err_bytes = None
-                            self.lookup_err_pkts = None
-                            self.malformed_err_bytes = None
-                            self.malformed_err_pkts = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "sff-local"
+                            self.yang_parent_name = "data"
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:sff-local'
+                            self.lookup_err_bytes = YLeaf(YType.uint64, "lookup-err-bytes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.lookup_err_pkts = YLeaf(YType.uint64, "lookup-err-pkts")
+
+                            self.malformed_err_bytes = YLeaf(YType.uint64, "malformed-err-bytes")
+
+                            self.malformed_err_pkts = YLeaf(YType.uint64, "malformed-err-pkts")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("lookup_err_bytes",
+                                            "lookup_err_pkts",
+                                            "malformed_err_bytes",
+                                            "malformed_err_pkts") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.lookup_err_bytes.is_set or
+                                self.lookup_err_pkts.is_set or
+                                self.malformed_err_bytes.is_set or
+                                self.malformed_err_pkts.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.lookup_err_bytes.yfilter != YFilter.not_set or
+                                self.lookup_err_pkts.yfilter != YFilter.not_set or
+                                self.malformed_err_bytes.yfilter != YFilter.not_set or
+                                self.malformed_err_pkts.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sff-local" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.lookup_err_bytes.is_set or self.lookup_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_bytes.get_name_leafdata())
+                            if (self.lookup_err_pkts.is_set or self.lookup_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.lookup_err_pkts.get_name_leafdata())
+                            if (self.malformed_err_bytes.is_set or self.malformed_err_bytes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_bytes.get_name_leafdata())
+                            if (self.malformed_err_pkts.is_set or self.malformed_err_pkts.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.malformed_err_pkts.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "lookup-err-bytes" or name == "lookup-err-pkts" or name == "malformed-err-bytes" or name == "malformed-err-pkts"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.lookup_err_bytes is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "lookup-err-bytes"):
+                                self.lookup_err_bytes = value
+                                self.lookup_err_bytes.value_namespace = name_space
+                                self.lookup_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "lookup-err-pkts"):
+                                self.lookup_err_pkts = value
+                                self.lookup_err_pkts.value_namespace = name_space
+                                self.lookup_err_pkts.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-bytes"):
+                                self.malformed_err_bytes = value
+                                self.malformed_err_bytes.value_namespace = name_space
+                                self.malformed_err_bytes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "malformed-err-pkts"):
+                                self.malformed_err_pkts = value
+                                self.malformed_err_pkts.value_namespace = name_space
+                                self.malformed_err_pkts.value_namespace_prefix = name_space_prefix
 
-                            if self.lookup_err_pkts is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.type.is_set or
+                            (self.sf is not None and self.sf.has_data()) or
+                            (self.sff is not None and self.sff.has_data()) or
+                            (self.sff_local is not None and self.sff_local.has_data()) or
+                            (self.sfp is not None and self.sfp.has_data()) or
+                            (self.spi_si is not None and self.spi_si.has_data()) or
+                            (self.term is not None and self.term.has_data()))
 
-                            if self.malformed_err_bytes is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.type.yfilter != YFilter.not_set or
+                            (self.sf is not None and self.sf.has_operation()) or
+                            (self.sff is not None and self.sff.has_operation()) or
+                            (self.sff_local is not None and self.sff_local.has_operation()) or
+                            (self.sfp is not None and self.sfp.has_operation()) or
+                            (self.spi_si is not None and self.spi_si.has_operation()) or
+                            (self.term is not None and self.term.has_operation()))
 
-                            if self.malformed_err_pkts is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
+                        leaf_name_data = LeafDataList()
+                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.type.get_name_leafdata())
 
-                        return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "sf"):
+                            if (self.sf is None):
+                                self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf()
+                                self.sf.parent = self
+                                self._children_name_map["sf"] = "sf"
+                            return self.sf
+
+                        if (child_yang_name == "sff"):
+                            if (self.sff is None):
+                                self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff()
+                                self.sff.parent = self
+                                self._children_name_map["sff"] = "sff"
+                            return self.sff
+
+                        if (child_yang_name == "sff-local"):
+                            if (self.sff_local is None):
+                                self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal()
+                                self.sff_local.parent = self
+                                self._children_name_map["sff_local"] = "sff-local"
+                            return self.sff_local
+
+                        if (child_yang_name == "sfp"):
+                            if (self.sfp is None):
+                                self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp()
+                                self.sfp.parent = self
+                                self._children_name_map["sfp"] = "sfp"
+                            return self.sfp
+
+                        if (child_yang_name == "spi-si"):
+                            if (self.spi_si is None):
+                                self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi()
+                                self.spi_si.parent = self
+                                self._children_name_map["spi_si"] = "spi-si"
+                            return self.spi_si
+
+                        if (child_yang_name == "term"):
+                            if (self.term is None):
+                                self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term()
+                                self.term.parent = self
+                                self._children_name_map["term"] = "term"
+                            return self.term
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "sf" or name == "sff" or name == "sff-local" or name == "sfp" or name == "spi-si" or name == "term" or name == "type"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.sf is not None and self.sf._has_data():
-                            return True
-
-                        if self.sff is not None and self.sff._has_data():
-                            return True
-
-                        if self.sff_local is not None and self.sff_local._has_data():
-                            return True
-
-                        if self.sfp is not None and self.sfp._has_data():
-                            return True
-
-                        if self.spi_si is not None and self.spi_si._has_data():
-                            return True
-
-                        if self.term is not None and self.term._has_data():
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "type"):
+                            self.type = value
+                            self.type.value_namespace = name_space
+                            self.type.value_namespace_prefix = name_space_prefix
 
 
-                class SiArr(object):
+                class SiArr(Entity):
                     """
                     SI array in case of detail stats
                     
@@ -5613,13 +11219,44 @@ class GlobalServiceFunctionChaining(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, self).__init__()
+
+                        self.yang_name = "si-arr"
+                        self.yang_parent_name = "error"
+
+                        self.si = YLeaf(YType.uint8, "si")
+
                         self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data()
                         self.data.parent = self
-                        self.si = None
+                        self._children_name_map["data"] = "data"
+                        self._children_yang_names.add("data")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("si") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, self).__setattr__(name, value)
 
 
-                    class Data(object):
+                    class Data(Entity):
                         """
                         Stats counter for this index
                         
@@ -5636,7 +11273,7 @@ class GlobalServiceFunctionChaining(object):
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStatsEnum>`
+                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -5646,15 +11283,49 @@ class GlobalServiceFunctionChaining(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, self).__init__()
+
+                            self.yang_name = "data"
+                            self.yang_parent_name = "si-arr"
+
+                            self.type = YLeaf(YType.enumeration, "type")
+
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
+                            self._children_name_map["spi_si"] = "spi-si"
+                            self._children_yang_names.add("spi-si")
+
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term()
                             self.term.parent = self
-                            self.type = None
+                            self._children_name_map["term"] = "term"
+                            self._children_yang_names.add("term")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("type") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, self).__setattr__(name, value)
 
 
-                        class SpiSi(object):
+                        class SpiSi(Entity):
                             """
                             SF/SFF stats
                             
@@ -5682,35 +11353,97 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.processed_bytes = None
-                                self.processed_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "spi-si"
+                                self.yang_parent_name = "data"
 
-                                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:spi-si'
+                                self.processed_bytes = YLeaf(YType.uint64, "processed-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.processed_pkts = YLeaf(YType.uint64, "processed-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("processed_bytes",
+                                                "processed_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.processed_bytes.is_set or
+                                    self.processed_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.processed_bytes.yfilter != YFilter.not_set or
+                                    self.processed_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "spi-si" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/data/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.processed_bytes.is_set or self.processed_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_bytes.get_name_leafdata())
+                                if (self.processed_pkts.is_set or self.processed_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.processed_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "processed-bytes" or name == "processed-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.processed_bytes is not None:
-                                    return True
-
-                                if self.processed_pkts is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "processed-bytes"):
+                                    self.processed_bytes = value
+                                    self.processed_bytes.value_namespace = name_space
+                                    self.processed_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "processed-pkts"):
+                                    self.processed_pkts = value
+                                    self.processed_pkts.value_namespace = name_space
+                                    self.processed_pkts.value_namespace_prefix = name_space_prefix
 
 
-                        class Term(object):
+                        class Term(Entity):
                             """
                             Terminate stats
                             
@@ -5738,174 +11471,455 @@ class GlobalServiceFunctionChaining(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.terminated_bytes = None
-                                self.terminated_pkts = None
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, self).__init__()
 
-                            @property
-                            def _common_path(self):
+                                self.yang_name = "term"
+                                self.yang_parent_name = "data"
 
-                                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr/Cisco-IOS-XR-pbr-vservice-mgr-oper:data/Cisco-IOS-XR-pbr-vservice-mgr-oper:term'
+                                self.terminated_bytes = YLeaf(YType.uint64, "terminated-bytes")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.terminated_pkts = YLeaf(YType.uint64, "terminated-pkts")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("terminated_bytes",
+                                                "terminated_pkts") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.terminated_bytes.is_set or
+                                    self.terminated_pkts.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.terminated_bytes.yfilter != YFilter.not_set or
+                                    self.terminated_pkts.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "term" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/data/%s" % self.get_segment_path()
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.terminated_bytes.is_set or self.terminated_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_bytes.get_name_leafdata())
+                                if (self.terminated_pkts.is_set or self.terminated_pkts.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.terminated_pkts.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "terminated-bytes" or name == "terminated-pkts"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.terminated_bytes is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "terminated-bytes"):
+                                    self.terminated_bytes = value
+                                    self.terminated_bytes.value_namespace = name_space
+                                    self.terminated_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "terminated-pkts"):
+                                    self.terminated_pkts = value
+                                    self.terminated_pkts.value_namespace = name_space
+                                    self.terminated_pkts.value_namespace_prefix = name_space_prefix
 
-                                if self.terminated_pkts is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.type.is_set or
+                                (self.spi_si is not None and self.spi_si.has_data()) or
+                                (self.term is not None and self.term.has_data()))
 
-                                return False
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.type.yfilter != YFilter.not_set or
+                                (self.spi_si is not None and self.spi_si.has_operation()) or
+                                (self.term is not None and self.term.has_operation()))
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term']['meta_info']
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "data" + path_buffer
 
-                        @property
-                        def _common_path(self):
+                            return path_buffer
 
-                            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr/Cisco-IOS-XR-pbr-vservice-mgr-oper:data'
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            leaf_name_data = LeafDataList()
+                            if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.type.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "spi-si"):
+                                if (self.spi_si is None):
+                                    self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi()
+                                    self.spi_si.parent = self
+                                    self._children_name_map["spi_si"] = "spi-si"
+                                return self.spi_si
+
+                            if (child_yang_name == "term"):
+                                if (self.term is None):
+                                    self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term()
+                                    self.term.parent = self
+                                    self._children_name_map["term"] = "term"
+                                return self.term
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "spi-si" or name == "term" or name == "type"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.spi_si is not None and self.spi_si._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "type"):
+                                self.type = value
+                                self.type.value_namespace = name_space
+                                self.type.value_namespace_prefix = name_space_prefix
 
-                            if self.term is not None and self.term._has_data():
-                                return True
+                    def has_data(self):
+                        return (
+                            self.si.is_set or
+                            (self.data is not None and self.data.has_data()))
 
-                            if self.type is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.si.yfilter != YFilter.not_set or
+                            (self.data is not None and self.data.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "si-arr" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error/Cisco-IOS-XR-pbr-vservice-mgr-oper:si-arr'
+                        leaf_name_data = LeafDataList()
+                        if (self.si.is_set or self.si.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.si.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "data"):
+                            if (self.data is None):
+                                self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data()
+                                self.data.parent = self
+                                self._children_name_map["data"] = "data"
+                            return self.data
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "data" or name == "si"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.data is not None and self.data._has_data():
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "si"):
+                            self.si = value
+                            self.si.value_namespace = name_space
+                            self.si.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.si_arr:
+                        if (c.has_data()):
                             return True
+                    return (self.data is not None and self.data.has_data())
 
-                        if self.si is not None:
+                def has_operation(self):
+                    for c in self.si_arr:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.data is not None and self.data.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "error" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local/Cisco-IOS-XR-pbr-vservice-mgr-oper:error'
+                    leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def _has_data(self):
-                    if self.data is not None and self.data._has_data():
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "data"):
+                        if (self.data is None):
+                            self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data()
+                            self.data.parent = self
+                            self._children_name_map["data"] = "data"
+                        return self.data
+
+                    if (child_yang_name == "si-arr"):
+                        for c in self.si_arr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.si_arr.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data" or name == "si-arr"):
                         return True
-
-                    if self.si_arr is not None:
-                        for child_ref in self.si_arr:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.error is not None and self.error.has_data())
 
-                return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder/Cisco-IOS-XR-pbr-vservice-mgr-oper:local'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.error is not None and self.error.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "local" + path_buffer
 
-            def _has_data(self):
-                if self.error is not None and self.error._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "error"):
+                    if (self.error is None):
+                        self.error = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error()
+                        self.error.parent = self
+                        self._children_name_map["error"] = "error"
+                    return self.error
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "error"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.local is not None and self.local.has_data()) or
+                (self.sff_names is not None and self.sff_names.has_data()))
 
-            return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/Cisco-IOS-XR-pbr-vservice-mgr-oper:service-function-forwarder'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.local is not None and self.local.has_operation()) or
+                (self.sff_names is not None and self.sff_names.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-function-forwarder" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "local"):
+                if (self.local is None):
+                    self.local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local()
+                    self.local.parent = self
+                    self._children_name_map["local"] = "local"
+                return self.local
+
+            if (child_yang_name == "sff-names"):
+                if (self.sff_names is None):
+                    self.sff_names = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames()
+                    self.sff_names.parent = self
+                    self._children_name_map["sff_names"] = "sff-names"
+                return self.sff_names
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "local" or name == "sff-names"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.local is not None and self.local._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.sff_names is not None and self.sff_names._has_data():
-                return True
+    def has_data(self):
+        return (
+            (self.service_function is not None and self.service_function.has_data()) or
+            (self.service_function_forwarder is not None and self.service_function_forwarder.has_data()) or
+            (self.service_function_path is not None and self.service_function_path.has_data()))
 
-            return False
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.service_function is not None and self.service_function.has_operation()) or
+            (self.service_function_forwarder is not None and self.service_function_forwarder.has_operation()) or
+            (self.service_function_path is not None and self.service_function_path.has_operation()))
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder']['meta_info']
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining" + path_buffer
 
-    @property
-    def _common_path(self):
+        return path_buffer
 
-        return '/Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining'
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "service-function"):
+            if (self.service_function is None):
+                self.service_function = GlobalServiceFunctionChaining.ServiceFunction()
+                self.service_function.parent = self
+                self._children_name_map["service_function"] = "service-function"
+            return self.service_function
+
+        if (child_yang_name == "service-function-forwarder"):
+            if (self.service_function_forwarder is None):
+                self.service_function_forwarder = GlobalServiceFunctionChaining.ServiceFunctionForwarder()
+                self.service_function_forwarder.parent = self
+                self._children_name_map["service_function_forwarder"] = "service-function-forwarder"
+            return self.service_function_forwarder
+
+        if (child_yang_name == "service-function-path"):
+            if (self.service_function_path is None):
+                self.service_function_path = GlobalServiceFunctionChaining.ServiceFunctionPath()
+                self.service_function_path.parent = self
+                self._children_name_map["service_function_path"] = "service-function-path"
+            return self.service_function_path
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "service-function" or name == "service-function-forwarder" or name == "service-function-path"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.service_function is not None and self.service_function._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.service_function_forwarder is not None and self.service_function_forwarder._has_data():
-            return True
-
-        if self.service_function_path is not None and self.service_function_path._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
-        return meta._meta_table['GlobalServiceFunctionChaining']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = GlobalServiceFunctionChaining()
+        return self._top_entity
 

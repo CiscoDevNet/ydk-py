@@ -400,22 +400,16 @@ reference. Throughout the MIB various secions from the standard
 are referenced
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class ClockmechanismtypeEnum(Enum):
+class Clockmechanismtype(Enum):
     """
-    ClockmechanismtypeEnum
+    Clockmechanismtype
 
     The clock type based on whether End to End or peer to peer
 
@@ -447,22 +441,16 @@ class ClockmechanismtypeEnum(Enum):
 
     """
 
-    e2e = 1
+    e2e = Enum.YLeaf(1, "e2e")
 
-    p2p = 2
+    p2p = Enum.YLeaf(2, "p2p")
 
-    disabled = 254
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockmechanismtypeEnum']
+    disabled = Enum.YLeaf(254, "disabled")
 
 
-class ClockportstateEnum(Enum):
+class Clockportstate(Enum):
     """
-    ClockportstateEnum
+    Clockportstate
 
     This is the value of the current state of the protocol engine
 
@@ -552,34 +540,28 @@ class ClockportstateEnum(Enum):
 
     """
 
-    initializing = 1
+    initializing = Enum.YLeaf(1, "initializing")
 
-    faulty = 2
+    faulty = Enum.YLeaf(2, "faulty")
 
-    disabled = 3
+    disabled = Enum.YLeaf(3, "disabled")
 
-    listening = 4
+    listening = Enum.YLeaf(4, "listening")
 
-    preMaster = 5
+    preMaster = Enum.YLeaf(5, "preMaster")
 
-    master = 6
+    master = Enum.YLeaf(6, "master")
 
-    passive = 7
+    passive = Enum.YLeaf(7, "passive")
 
-    uncalibrated = 8
+    uncalibrated = Enum.YLeaf(8, "uncalibrated")
 
-    slave = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockportstateEnum']
+    slave = Enum.YLeaf(9, "slave")
 
 
-class ClockprofiletypeEnum(Enum):
+class Clockprofiletype(Enum):
     """
-    ClockprofiletypeEnum
+    Clockprofiletype
 
     Clock Profile used. From [1] section 3.1.30, Profile is the set
 
@@ -595,22 +577,16 @@ class ClockprofiletypeEnum(Enum):
 
     """
 
-    default = 1
+    default = Enum.YLeaf(1, "default")
 
-    telecom = 2
+    telecom = Enum.YLeaf(2, "telecom")
 
-    vendorspecific = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockprofiletypeEnum']
+    vendorspecific = Enum.YLeaf(3, "vendorspecific")
 
 
-class ClockqualityaccuracytypeEnum(Enum):
+class Clockqualityaccuracytype(Enum):
     """
-    ClockqualityaccuracytypeEnum
+    Clockqualityaccuracytype
 
     The ClockQuality as specified in section 5.3.7, 7.6.2.5 and
 
@@ -674,58 +650,52 @@ class ClockqualityaccuracytypeEnum(Enum):
 
     """
 
-    reserved00 = 1
+    reserved00 = Enum.YLeaf(1, "reserved00")
 
-    nanoSecond25 = 32
+    nanoSecond25 = Enum.YLeaf(32, "nanoSecond25")
 
-    nanoSecond100 = 33
+    nanoSecond100 = Enum.YLeaf(33, "nanoSecond100")
 
-    nanoSecond250 = 34
+    nanoSecond250 = Enum.YLeaf(34, "nanoSecond250")
 
-    microSec1 = 35
+    microSec1 = Enum.YLeaf(35, "microSec1")
 
-    microSec2dot5 = 36
+    microSec2dot5 = Enum.YLeaf(36, "microSec2dot5")
 
-    microSec10 = 37
+    microSec10 = Enum.YLeaf(37, "microSec10")
 
-    microSec25 = 38
+    microSec25 = Enum.YLeaf(38, "microSec25")
 
-    microSec100 = 39
+    microSec100 = Enum.YLeaf(39, "microSec100")
 
-    microSec250 = 40
+    microSec250 = Enum.YLeaf(40, "microSec250")
 
-    milliSec1 = 41
+    milliSec1 = Enum.YLeaf(41, "milliSec1")
 
-    milliSec2dot5 = 42
+    milliSec2dot5 = Enum.YLeaf(42, "milliSec2dot5")
 
-    milliSec10 = 43
+    milliSec10 = Enum.YLeaf(43, "milliSec10")
 
-    milliSec25 = 44
+    milliSec25 = Enum.YLeaf(44, "milliSec25")
 
-    milliSec100 = 45
+    milliSec100 = Enum.YLeaf(45, "milliSec100")
 
-    milliSec250 = 46
+    milliSec250 = Enum.YLeaf(46, "milliSec250")
 
-    second1 = 47
+    second1 = Enum.YLeaf(47, "second1")
 
-    second10 = 48
+    second10 = Enum.YLeaf(48, "second10")
 
-    secondGreater10 = 49
+    secondGreater10 = Enum.YLeaf(49, "secondGreater10")
 
-    unknown = 254
+    unknown = Enum.YLeaf(254, "unknown")
 
-    reserved255 = 255
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockqualityaccuracytypeEnum']
+    reserved255 = Enum.YLeaf(255, "reserved255")
 
 
-class ClockroletypeEnum(Enum):
+class Clockroletype(Enum):
     """
-    ClockroletypeEnum
+    Clockroletype
 
     The Clock Role. The protocol generates a Master Slave
 
@@ -751,20 +721,14 @@ class ClockroletypeEnum(Enum):
 
     """
 
-    master = 1
+    master = Enum.YLeaf(1, "master")
 
-    slave = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockroletypeEnum']
+    slave = Enum.YLeaf(2, "slave")
 
 
-class ClockstatetypeEnum(Enum):
+class Clockstatetype(Enum):
     """
-    ClockstatetypeEnum
+    Clockstatetype
 
     The clock state returned by PTP engine.
 
@@ -836,26 +800,20 @@ class ClockstatetypeEnum(Enum):
 
     """
 
-    freerun = 1
+    freerun = Enum.YLeaf(1, "freerun")
 
-    holdover = 2
+    holdover = Enum.YLeaf(2, "holdover")
 
-    acquiring = 3
+    acquiring = Enum.YLeaf(3, "acquiring")
 
-    frequencyLocked = 4
+    frequencyLocked = Enum.YLeaf(4, "frequencyLocked")
 
-    phaseAligned = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClockstatetypeEnum']
+    phaseAligned = Enum.YLeaf(5, "phaseAligned")
 
 
-class ClocktimesourcetypeEnum(Enum):
+class Clocktimesourcetype(Enum):
     """
-    ClocktimesourcetypeEnum
+    Clocktimesourcetype
 
     The ClockQuality as specified in section 5.3.7, 7.6.2.6 and
 
@@ -893,32 +851,26 @@ class ClocktimesourcetypeEnum(Enum):
 
     """
 
-    atomicClock = 16
+    atomicClock = Enum.YLeaf(16, "atomicClock")
 
-    gps = 32
+    gps = Enum.YLeaf(32, "gps")
 
-    terrestrialRadio = 48
+    terrestrialRadio = Enum.YLeaf(48, "terrestrialRadio")
 
-    ptp = 64
+    ptp = Enum.YLeaf(64, "ptp")
 
-    ntp = 80
+    ntp = Enum.YLeaf(80, "ntp")
 
-    handSet = 96
+    handSet = Enum.YLeaf(96, "handSet")
 
-    other = 144
+    other = Enum.YLeaf(144, "other")
 
-    internalOsillator = 160
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClocktimesourcetypeEnum']
+    internalOsillator = Enum.YLeaf(160, "internalOsillator")
 
 
-class ClocktxmodetypeEnum(Enum):
+class Clocktxmodetype(Enum):
     """
-    ClocktxmodetypeEnum
+    Clocktxmodetype
 
     Transmission mode.
 
@@ -936,22 +888,16 @@ class ClocktxmodetypeEnum(Enum):
 
     """
 
-    unicast = 1
+    unicast = Enum.YLeaf(1, "unicast")
 
-    multicast = 2
+    multicast = Enum.YLeaf(2, "multicast")
 
-    multicastmix = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClocktxmodetypeEnum']
+    multicastmix = Enum.YLeaf(3, "multicastmix")
 
 
-class ClocktypeEnum(Enum):
+class Clocktype(Enum):
     """
-    ClocktypeEnum
+    Clocktype
 
     The clock types as defined in the MIB module description.
 
@@ -965,23 +911,17 @@ class ClocktypeEnum(Enum):
 
     """
 
-    ordinaryClock = 1
+    ordinaryClock = Enum.YLeaf(1, "ordinaryClock")
 
-    boundaryClock = 2
+    boundaryClock = Enum.YLeaf(2, "boundaryClock")
 
-    transparentClock = 3
+    transparentClock = Enum.YLeaf(3, "transparentClock")
 
-    boundaryNode = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['ClocktypeEnum']
+    boundaryNode = Enum.YLeaf(4, "boundaryNode")
 
 
 
-class CiscoPtpMib(object):
+class CiscoPtpMib(Entity):
     """
     
     
@@ -1068,46 +1008,96 @@ class CiscoPtpMib(object):
     _revision = '2011-01-28'
 
     def __init__(self):
+        super(CiscoPtpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-PTP-MIB"
+        self.yang_parent_name = "CISCO-PTP-MIB"
+
         self.ciscoptpmibsysteminfo = CiscoPtpMib.Ciscoptpmibsysteminfo()
         self.ciscoptpmibsysteminfo.parent = self
+        self._children_name_map["ciscoptpmibsysteminfo"] = "ciscoPtpMIBSystemInfo"
+        self._children_yang_names.add("ciscoPtpMIBSystemInfo")
+
         self.cptpclockcurrentdstable = CiscoPtpMib.Cptpclockcurrentdstable()
         self.cptpclockcurrentdstable.parent = self
+        self._children_name_map["cptpclockcurrentdstable"] = "cPtpClockCurrentDSTable"
+        self._children_yang_names.add("cPtpClockCurrentDSTable")
+
         self.cptpclockdefaultdstable = CiscoPtpMib.Cptpclockdefaultdstable()
         self.cptpclockdefaultdstable.parent = self
+        self._children_name_map["cptpclockdefaultdstable"] = "cPtpClockDefaultDSTable"
+        self._children_yang_names.add("cPtpClockDefaultDSTable")
+
         self.cptpclocknodetable = CiscoPtpMib.Cptpclocknodetable()
         self.cptpclocknodetable.parent = self
+        self._children_name_map["cptpclocknodetable"] = "cPtpClockNodeTable"
+        self._children_yang_names.add("cPtpClockNodeTable")
+
         self.cptpclockparentdstable = CiscoPtpMib.Cptpclockparentdstable()
         self.cptpclockparentdstable.parent = self
+        self._children_name_map["cptpclockparentdstable"] = "cPtpClockParentDSTable"
+        self._children_yang_names.add("cPtpClockParentDSTable")
+
         self.cptpclockportassociatetable = CiscoPtpMib.Cptpclockportassociatetable()
         self.cptpclockportassociatetable.parent = self
+        self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
+        self._children_yang_names.add("cPtpClockPortAssociateTable")
+
         self.cptpclockportdstable = CiscoPtpMib.Cptpclockportdstable()
         self.cptpclockportdstable.parent = self
+        self._children_name_map["cptpclockportdstable"] = "cPtpClockPortDSTable"
+        self._children_yang_names.add("cPtpClockPortDSTable")
+
         self.cptpclockportrunningtable = CiscoPtpMib.Cptpclockportrunningtable()
         self.cptpclockportrunningtable.parent = self
+        self._children_name_map["cptpclockportrunningtable"] = "cPtpClockPortRunningTable"
+        self._children_yang_names.add("cPtpClockPortRunningTable")
+
         self.cptpclockporttable = CiscoPtpMib.Cptpclockporttable()
         self.cptpclockporttable.parent = self
+        self._children_name_map["cptpclockporttable"] = "cPtpClockPortTable"
+        self._children_yang_names.add("cPtpClockPortTable")
+
         self.cptpclockporttransdstable = CiscoPtpMib.Cptpclockporttransdstable()
         self.cptpclockporttransdstable.parent = self
+        self._children_name_map["cptpclockporttransdstable"] = "cPtpClockPortTransDSTable"
+        self._children_yang_names.add("cPtpClockPortTransDSTable")
+
         self.cptpclockrunningtable = CiscoPtpMib.Cptpclockrunningtable()
         self.cptpclockrunningtable.parent = self
+        self._children_name_map["cptpclockrunningtable"] = "cPtpClockRunningTable"
+        self._children_yang_names.add("cPtpClockRunningTable")
+
         self.cptpclocktimepropertiesdstable = CiscoPtpMib.Cptpclocktimepropertiesdstable()
         self.cptpclocktimepropertiesdstable.parent = self
+        self._children_name_map["cptpclocktimepropertiesdstable"] = "cPtpClockTimePropertiesDSTable"
+        self._children_yang_names.add("cPtpClockTimePropertiesDSTable")
+
         self.cptpclocktransdefaultdstable = CiscoPtpMib.Cptpclocktransdefaultdstable()
         self.cptpclocktransdefaultdstable.parent = self
+        self._children_name_map["cptpclocktransdefaultdstable"] = "cPtpClockTransDefaultDSTable"
+        self._children_yang_names.add("cPtpClockTransDefaultDSTable")
+
         self.cptpsystemdomaintable = CiscoPtpMib.Cptpsystemdomaintable()
         self.cptpsystemdomaintable.parent = self
+        self._children_name_map["cptpsystemdomaintable"] = "cPtpSystemDomainTable"
+        self._children_yang_names.add("cPtpSystemDomainTable")
+
         self.cptpsystemtable = CiscoPtpMib.Cptpsystemtable()
         self.cptpsystemtable.parent = self
+        self._children_name_map["cptpsystemtable"] = "cPtpSystemTable"
+        self._children_yang_names.add("cPtpSystemTable")
 
 
-    class Ciscoptpmibsysteminfo(object):
+    class Ciscoptpmibsysteminfo(Entity):
         """
         
         
         .. attribute:: cptpsystemprofile
         
         	This object specifies the PTP Profile implemented on the system
-        	**type**\:   :py:class:`ClockprofiletypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockprofiletypeEnum>`
+        	**type**\:   :py:class:`Clockprofiletype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockprofiletype>`
         
         
 
@@ -1117,31 +1107,85 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpsystemprofile = None
+            super(CiscoPtpMib.Ciscoptpmibsysteminfo, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciscoPtpMIBSystemInfo"
+            self.yang_parent_name = "CISCO-PTP-MIB"
 
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:ciscoPtpMIBSystemInfo'
+            self.cptpsystemprofile = YLeaf(YType.enumeration, "cPtpSystemProfile")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cptpsystemprofile") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Ciscoptpmibsysteminfo, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Ciscoptpmibsysteminfo, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.cptpsystemprofile is not None:
+        def has_data(self):
+            return self.cptpsystemprofile.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cptpsystemprofile.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoPtpMIBSystemInfo" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cptpsystemprofile.is_set or self.cptpsystemprofile.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cptpsystemprofile.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpSystemProfile"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Ciscoptpmibsysteminfo']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cPtpSystemProfile"):
+                self.cptpsystemprofile = value
+                self.cptpsystemprofile.value_namespace = name_space
+                self.cptpsystemprofile.value_namespace_prefix = name_space_prefix
 
 
-    class Cptpsystemtable(object):
+    class Cptpsystemtable(Entity):
         """
         Table of count information about the PTP system for all
         domains.
@@ -1159,13 +1203,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpsystementry = YList()
-            self.cptpsystementry.parent = self
-            self.cptpsystementry.name = 'cptpsystementry'
+            super(CiscoPtpMib.Cptpsystemtable, self).__init__()
+
+            self.yang_name = "cPtpSystemTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpsystementry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpsystemtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpsystemtable, self).__setattr__(name, value)
 
 
-        class Cptpsystementry(object):
+        class Cptpsystementry(Entity):
             """
             An entry in the table, containing count information about a
             single domain. New row entries are added when the PTP clock for
@@ -1212,69 +1282,176 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpdomainindex = None
-                self.cptpinstanceindex = None
-                self.cptpdomainclockportphysicalinterfacestotal = None
-                self.cptpdomainclockportstotal = None
+                super(CiscoPtpMib.Cptpsystemtable.Cptpsystementry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpdomainindex is None:
-                    raise YPYModelError('Key property cptpdomainindex is None')
-                if self.cptpinstanceindex is None:
-                    raise YPYModelError('Key property cptpinstanceindex is None')
+                self.yang_name = "cPtpSystemEntry"
+                self.yang_parent_name = "cPtpSystemTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpSystemTable/CISCO-PTP-MIB:cPtpSystemEntry[CISCO-PTP-MIB:cPtpDomainIndex = ' + str(self.cptpdomainindex) + '][CISCO-PTP-MIB:cPtpInstanceIndex = ' + str(self.cptpinstanceindex) + ']'
+                self.cptpdomainindex = YLeaf(YType.uint32, "cPtpDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpinstanceindex = YLeaf(YType.uint32, "cPtpInstanceIndex")
+
+                self.cptpdomainclockportphysicalinterfacestotal = YLeaf(YType.uint32, "cPtpDomainClockPortPhysicalInterfacesTotal")
+
+                self.cptpdomainclockportstotal = YLeaf(YType.uint32, "cPtpDomainClockPortsTotal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpdomainindex",
+                                "cptpinstanceindex",
+                                "cptpdomainclockportphysicalinterfacestotal",
+                                "cptpdomainclockportstotal") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpsystemtable.Cptpsystementry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpsystemtable.Cptpsystementry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpdomainindex.is_set or
+                    self.cptpinstanceindex.is_set or
+                    self.cptpdomainclockportphysicalinterfacestotal.is_set or
+                    self.cptpdomainclockportstotal.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpdomainindex.yfilter != YFilter.not_set or
+                    self.cptpinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpdomainclockportphysicalinterfacestotal.yfilter != YFilter.not_set or
+                    self.cptpdomainclockportstotal.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpSystemEntry" + "[cPtpDomainIndex='" + self.cptpdomainindex.get() + "']" + "[cPtpInstanceIndex='" + self.cptpinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpdomainindex.is_set or self.cptpdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpdomainindex.get_name_leafdata())
+                if (self.cptpinstanceindex.is_set or self.cptpinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpinstanceindex.get_name_leafdata())
+                if (self.cptpdomainclockportphysicalinterfacestotal.is_set or self.cptpdomainclockportphysicalinterfacestotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpdomainclockportphysicalinterfacestotal.get_name_leafdata())
+                if (self.cptpdomainclockportstotal.is_set or self.cptpdomainclockportstotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpdomainclockportstotal.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpDomainIndex" or name == "cPtpInstanceIndex" or name == "cPtpDomainClockPortPhysicalInterfacesTotal" or name == "cPtpDomainClockPortsTotal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpDomainIndex"):
+                    self.cptpdomainindex = value
+                    self.cptpdomainindex.value_namespace = name_space
+                    self.cptpdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpInstanceIndex"):
+                    self.cptpinstanceindex = value
+                    self.cptpinstanceindex.value_namespace = name_space
+                    self.cptpinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpDomainClockPortPhysicalInterfacesTotal"):
+                    self.cptpdomainclockportphysicalinterfacestotal = value
+                    self.cptpdomainclockportphysicalinterfacestotal.value_namespace = name_space
+                    self.cptpdomainclockportphysicalinterfacestotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpDomainClockPortsTotal"):
+                    self.cptpdomainclockportstotal = value
+                    self.cptpdomainclockportstotal.value_namespace = name_space
+                    self.cptpdomainclockportstotal.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpsystementry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpinstanceindex is not None:
-                    return True
-
-                if self.cptpdomainclockportphysicalinterfacestotal is not None:
-                    return True
-
-                if self.cptpdomainclockportstotal is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpsystemtable.Cptpsystementry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpSystemTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpsystementry is not None:
-                for child_ref in self.cptpsystementry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpsystementry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpSystemTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpSystemEntry"):
+                for c in self.cptpsystementry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpsystemtable.Cptpsystementry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpsystementry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpSystemEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpsystemtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpsystemdomaintable(object):
+    class Cptpsystemdomaintable(Entity):
         """
         Table of information about the PTP system for all clock modes
         \-\- ordinary, boundary or transparent.
@@ -1292,13 +1469,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpsystemdomainentry = YList()
-            self.cptpsystemdomainentry.parent = self
-            self.cptpsystemdomainentry.name = 'cptpsystemdomainentry'
+            super(CiscoPtpMib.Cptpsystemdomaintable, self).__init__()
+
+            self.yang_name = "cPtpSystemDomainTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpsystemdomainentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpsystemdomaintable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpsystemdomaintable, self).__setattr__(name, value)
 
 
-        class Cptpsystemdomainentry(object):
+        class Cptpsystemdomainentry(Entity):
             """
             An entry in the table, containing information about a single
             clock mode for the PTP system. A row entry gets added when PTP
@@ -1307,7 +1510,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpsystemdomainclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpsystemdomaintotals
             
@@ -1326,59 +1529,154 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpsystemdomainclocktypeindex = None
-                self.cptpsystemdomaintotals = None
+                super(CiscoPtpMib.Cptpsystemdomaintable.Cptpsystemdomainentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpsystemdomainclocktypeindex is None:
-                    raise YPYModelError('Key property cptpsystemdomainclocktypeindex is None')
+                self.yang_name = "cPtpSystemDomainEntry"
+                self.yang_parent_name = "cPtpSystemDomainTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpSystemDomainTable/CISCO-PTP-MIB:cPtpSystemDomainEntry[CISCO-PTP-MIB:cPtpSystemDomainClockTypeIndex = ' + str(self.cptpsystemdomainclocktypeindex) + ']'
+                self.cptpsystemdomainclocktypeindex = YLeaf(YType.enumeration, "cPtpSystemDomainClockTypeIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpsystemdomaintotals = YLeaf(YType.uint32, "cPtpSystemDomainTotals")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpsystemdomainclocktypeindex",
+                                "cptpsystemdomaintotals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpsystemdomaintable.Cptpsystemdomainentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpsystemdomaintable.Cptpsystemdomainentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpsystemdomainclocktypeindex.is_set or
+                    self.cptpsystemdomaintotals.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpsystemdomainclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpsystemdomaintotals.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpSystemDomainEntry" + "[cPtpSystemDomainClockTypeIndex='" + self.cptpsystemdomainclocktypeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemDomainTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpsystemdomainclocktypeindex.is_set or self.cptpsystemdomainclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpsystemdomainclocktypeindex.get_name_leafdata())
+                if (self.cptpsystemdomaintotals.is_set or self.cptpsystemdomaintotals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpsystemdomaintotals.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpSystemDomainClockTypeIndex" or name == "cPtpSystemDomainTotals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpsystemdomainclocktypeindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpSystemDomainClockTypeIndex"):
+                    self.cptpsystemdomainclocktypeindex = value
+                    self.cptpsystemdomainclocktypeindex.value_namespace = name_space
+                    self.cptpsystemdomainclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpSystemDomainTotals"):
+                    self.cptpsystemdomaintotals = value
+                    self.cptpsystemdomaintotals.value_namespace = name_space
+                    self.cptpsystemdomaintotals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpsystemdomainentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpsystemdomaintotals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpsystemdomaintable.Cptpsystemdomainentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpSystemDomainTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpsystemdomainentry is not None:
-                for child_ref in self.cptpsystemdomainentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpsystemdomainentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpSystemDomainTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpSystemDomainEntry"):
+                for c in self.cptpsystemdomainentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpsystemdomaintable.Cptpsystemdomainentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpsystemdomainentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpSystemDomainEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpsystemdomaintable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclocknodetable(object):
+    class Cptpclocknodetable(Entity):
         """
         Table of information about the PTP system for a given domain.
         
@@ -1395,13 +1693,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclocknodeentry = YList()
-            self.cptpclocknodeentry.parent = self
-            self.cptpclocknodeentry.name = 'cptpclocknodeentry'
+            super(CiscoPtpMib.Cptpclocknodetable, self).__init__()
+
+            self.yang_name = "cPtpClockNodeTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclocknodeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclocknodetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclocknodetable, self).__setattr__(name, value)
 
 
-        class Cptpclocknodeentry(object):
+        class Cptpclocknodeentry(Entity):
             """
             An entry in the table, containing information about a single
             domain. A entry is added when a new PTP clock domain is
@@ -1417,7 +1741,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockinstanceindex  <key>
             
@@ -1486,107 +1810,275 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockdomainindex = None
-                self.cptpclocktypeindex = None
-                self.cptpclockinstanceindex = None
-                self.cptpclockinput1ppsenabled = None
-                self.cptpclockinput1ppsinterface = None
-                self.cptpclockinputfrequencyenabled = None
-                self.cptpclockoutput1ppsenabled = None
-                self.cptpclockoutput1ppsinterface = None
-                self.cptpclockoutput1ppsoffsetenabled = None
-                self.cptpclockoutput1ppsoffsetnegative = None
-                self.cptpclockoutput1ppsoffsetvalue = None
-                self.cptpclocktodenabled = None
-                self.cptpclocktodinterface = None
+                super(CiscoPtpMib.Cptpclocknodetable.Cptpclocknodeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockdomainindex is None:
-                    raise YPYModelError('Key property cptpclockdomainindex is None')
-                if self.cptpclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclocktypeindex is None')
-                if self.cptpclockinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockinstanceindex is None')
+                self.yang_name = "cPtpClockNodeEntry"
+                self.yang_parent_name = "cPtpClockNodeTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockNodeTable/CISCO-PTP-MIB:cPtpClockNodeEntry[CISCO-PTP-MIB:cPtpClockDomainIndex = ' + str(self.cptpclockdomainindex) + '][CISCO-PTP-MIB:cPtpClockTypeIndex = ' + str(self.cptpclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockInstanceIndex = ' + str(self.cptpclockinstanceindex) + ']'
+                self.cptpclockdomainindex = YLeaf(YType.uint32, "cPtpClockDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTypeIndex")
+
+                self.cptpclockinstanceindex = YLeaf(YType.uint32, "cPtpClockInstanceIndex")
+
+                self.cptpclockinput1ppsenabled = YLeaf(YType.boolean, "cPtpClockInput1ppsEnabled")
+
+                self.cptpclockinput1ppsinterface = YLeaf(YType.str, "cPtpClockInput1ppsInterface")
+
+                self.cptpclockinputfrequencyenabled = YLeaf(YType.boolean, "cPtpClockInputFrequencyEnabled")
+
+                self.cptpclockoutput1ppsenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsEnabled")
+
+                self.cptpclockoutput1ppsinterface = YLeaf(YType.str, "cPtpClockOutput1ppsInterface")
+
+                self.cptpclockoutput1ppsoffsetenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetEnabled")
+
+                self.cptpclockoutput1ppsoffsetnegative = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetNegative")
+
+                self.cptpclockoutput1ppsoffsetvalue = YLeaf(YType.uint32, "cPtpClockOutput1ppsOffsetValue")
+
+                self.cptpclocktodenabled = YLeaf(YType.boolean, "cPtpClockTODEnabled")
+
+                self.cptpclocktodinterface = YLeaf(YType.str, "cPtpClockTODInterface")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockdomainindex",
+                                "cptpclocktypeindex",
+                                "cptpclockinstanceindex",
+                                "cptpclockinput1ppsenabled",
+                                "cptpclockinput1ppsinterface",
+                                "cptpclockinputfrequencyenabled",
+                                "cptpclockoutput1ppsenabled",
+                                "cptpclockoutput1ppsinterface",
+                                "cptpclockoutput1ppsoffsetenabled",
+                                "cptpclockoutput1ppsoffsetnegative",
+                                "cptpclockoutput1ppsoffsetvalue",
+                                "cptpclocktodenabled",
+                                "cptpclocktodinterface") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclocknodetable.Cptpclocknodeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclocknodetable.Cptpclocknodeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockdomainindex.is_set or
+                    self.cptpclocktypeindex.is_set or
+                    self.cptpclockinstanceindex.is_set or
+                    self.cptpclockinput1ppsenabled.is_set or
+                    self.cptpclockinput1ppsinterface.is_set or
+                    self.cptpclockinputfrequencyenabled.is_set or
+                    self.cptpclockoutput1ppsenabled.is_set or
+                    self.cptpclockoutput1ppsinterface.is_set or
+                    self.cptpclockoutput1ppsoffsetenabled.is_set or
+                    self.cptpclockoutput1ppsoffsetnegative.is_set or
+                    self.cptpclockoutput1ppsoffsetvalue.is_set or
+                    self.cptpclocktodenabled.is_set or
+                    self.cptpclocktodinterface.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockinput1ppsenabled.yfilter != YFilter.not_set or
+                    self.cptpclockinput1ppsinterface.yfilter != YFilter.not_set or
+                    self.cptpclockinputfrequencyenabled.yfilter != YFilter.not_set or
+                    self.cptpclockoutput1ppsenabled.yfilter != YFilter.not_set or
+                    self.cptpclockoutput1ppsinterface.yfilter != YFilter.not_set or
+                    self.cptpclockoutput1ppsoffsetenabled.yfilter != YFilter.not_set or
+                    self.cptpclockoutput1ppsoffsetnegative.yfilter != YFilter.not_set or
+                    self.cptpclockoutput1ppsoffsetvalue.yfilter != YFilter.not_set or
+                    self.cptpclocktodenabled.yfilter != YFilter.not_set or
+                    self.cptpclocktodinterface.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockNodeEntry" + "[cPtpClockDomainIndex='" + self.cptpclockdomainindex.get() + "']" + "[cPtpClockTypeIndex='" + self.cptpclocktypeindex.get() + "']" + "[cPtpClockInstanceIndex='" + self.cptpclockinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockdomainindex.is_set or self.cptpclockdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdomainindex.get_name_leafdata())
+                if (self.cptpclocktypeindex.is_set or self.cptpclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktypeindex.get_name_leafdata())
+                if (self.cptpclockinstanceindex.is_set or self.cptpclockinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockinstanceindex.get_name_leafdata())
+                if (self.cptpclockinput1ppsenabled.is_set or self.cptpclockinput1ppsenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockinput1ppsenabled.get_name_leafdata())
+                if (self.cptpclockinput1ppsinterface.is_set or self.cptpclockinput1ppsinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockinput1ppsinterface.get_name_leafdata())
+                if (self.cptpclockinputfrequencyenabled.is_set or self.cptpclockinputfrequencyenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockinputfrequencyenabled.get_name_leafdata())
+                if (self.cptpclockoutput1ppsenabled.is_set or self.cptpclockoutput1ppsenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockoutput1ppsenabled.get_name_leafdata())
+                if (self.cptpclockoutput1ppsinterface.is_set or self.cptpclockoutput1ppsinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockoutput1ppsinterface.get_name_leafdata())
+                if (self.cptpclockoutput1ppsoffsetenabled.is_set or self.cptpclockoutput1ppsoffsetenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockoutput1ppsoffsetenabled.get_name_leafdata())
+                if (self.cptpclockoutput1ppsoffsetnegative.is_set or self.cptpclockoutput1ppsoffsetnegative.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockoutput1ppsoffsetnegative.get_name_leafdata())
+                if (self.cptpclockoutput1ppsoffsetvalue.is_set or self.cptpclockoutput1ppsoffsetvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockoutput1ppsoffsetvalue.get_name_leafdata())
+                if (self.cptpclocktodenabled.is_set or self.cptpclocktodenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktodenabled.get_name_leafdata())
+                if (self.cptpclocktodinterface.is_set or self.cptpclocktodinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktodinterface.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockDomainIndex" or name == "cPtpClockTypeIndex" or name == "cPtpClockInstanceIndex" or name == "cPtpClockInput1ppsEnabled" or name == "cPtpClockInput1ppsInterface" or name == "cPtpClockInputFrequencyEnabled" or name == "cPtpClockOutput1ppsEnabled" or name == "cPtpClockOutput1ppsInterface" or name == "cPtpClockOutput1ppsOffsetEnabled" or name == "cPtpClockOutput1ppsOffsetNegative" or name == "cPtpClockOutput1ppsOffsetValue" or name == "cPtpClockTODEnabled" or name == "cPtpClockTODInterface"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockDomainIndex"):
+                    self.cptpclockdomainindex = value
+                    self.cptpclockdomainindex.value_namespace = name_space
+                    self.cptpclockdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTypeIndex"):
+                    self.cptpclocktypeindex = value
+                    self.cptpclocktypeindex.value_namespace = name_space
+                    self.cptpclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockInstanceIndex"):
+                    self.cptpclockinstanceindex = value
+                    self.cptpclockinstanceindex.value_namespace = name_space
+                    self.cptpclockinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockInput1ppsEnabled"):
+                    self.cptpclockinput1ppsenabled = value
+                    self.cptpclockinput1ppsenabled.value_namespace = name_space
+                    self.cptpclockinput1ppsenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockInput1ppsInterface"):
+                    self.cptpclockinput1ppsinterface = value
+                    self.cptpclockinput1ppsinterface.value_namespace = name_space
+                    self.cptpclockinput1ppsinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockInputFrequencyEnabled"):
+                    self.cptpclockinputfrequencyenabled = value
+                    self.cptpclockinputfrequencyenabled.value_namespace = name_space
+                    self.cptpclockinputfrequencyenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockOutput1ppsEnabled"):
+                    self.cptpclockoutput1ppsenabled = value
+                    self.cptpclockoutput1ppsenabled.value_namespace = name_space
+                    self.cptpclockoutput1ppsenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockOutput1ppsInterface"):
+                    self.cptpclockoutput1ppsinterface = value
+                    self.cptpclockoutput1ppsinterface.value_namespace = name_space
+                    self.cptpclockoutput1ppsinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockOutput1ppsOffsetEnabled"):
+                    self.cptpclockoutput1ppsoffsetenabled = value
+                    self.cptpclockoutput1ppsoffsetenabled.value_namespace = name_space
+                    self.cptpclockoutput1ppsoffsetenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockOutput1ppsOffsetNegative"):
+                    self.cptpclockoutput1ppsoffsetnegative = value
+                    self.cptpclockoutput1ppsoffsetnegative.value_namespace = name_space
+                    self.cptpclockoutput1ppsoffsetnegative.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockOutput1ppsOffsetValue"):
+                    self.cptpclockoutput1ppsoffsetvalue = value
+                    self.cptpclockoutput1ppsoffsetvalue.value_namespace = name_space
+                    self.cptpclockoutput1ppsoffsetvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTODEnabled"):
+                    self.cptpclocktodenabled = value
+                    self.cptpclocktodenabled.value_namespace = name_space
+                    self.cptpclocktodenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTODInterface"):
+                    self.cptpclocktodinterface = value
+                    self.cptpclocktodinterface.value_namespace = name_space
+                    self.cptpclocktodinterface.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclocknodeentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockinstanceindex is not None:
-                    return True
-
-                if self.cptpclockinput1ppsenabled is not None:
-                    return True
-
-                if self.cptpclockinput1ppsinterface is not None:
-                    return True
-
-                if self.cptpclockinputfrequencyenabled is not None:
-                    return True
-
-                if self.cptpclockoutput1ppsenabled is not None:
-                    return True
-
-                if self.cptpclockoutput1ppsinterface is not None:
-                    return True
-
-                if self.cptpclockoutput1ppsoffsetenabled is not None:
-                    return True
-
-                if self.cptpclockoutput1ppsoffsetnegative is not None:
-                    return True
-
-                if self.cptpclockoutput1ppsoffsetvalue is not None:
-                    return True
-
-                if self.cptpclocktodenabled is not None:
-                    return True
-
-                if self.cptpclocktodinterface is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclocknodetable.Cptpclocknodeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockNodeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclocknodeentry is not None:
-                for child_ref in self.cptpclocknodeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclocknodeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockNodeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockNodeEntry"):
+                for c in self.cptpclocknodeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclocknodetable.Cptpclocknodeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclocknodeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockNodeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclocknodetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockcurrentdstable(object):
+    class Cptpclockcurrentdstable(Entity):
         """
         Table of information about the PTP clock Current Datasets for
         all domains.
@@ -1604,13 +2096,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockcurrentdsentry = YList()
-            self.cptpclockcurrentdsentry.parent = self
-            self.cptpclockcurrentdsentry.name = 'cptpclockcurrentdsentry'
+            super(CiscoPtpMib.Cptpclockcurrentdstable, self).__init__()
+
+            self.yang_name = "cPtpClockCurrentDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockcurrentdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockcurrentdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockcurrentdstable, self).__setattr__(name, value)
 
 
-        class Cptpclockcurrentdsentry(object):
+        class Cptpclockcurrentdsentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Current Datasets for a domain.
@@ -1625,7 +2143,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockcurrentdsclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockcurrentdsinstanceindex  <key>
             
@@ -1667,79 +2185,198 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockcurrentdsdomainindex = None
-                self.cptpclockcurrentdsclocktypeindex = None
-                self.cptpclockcurrentdsinstanceindex = None
-                self.cptpclockcurrentdsmeanpathdelay = None
-                self.cptpclockcurrentdsoffsetfrommaster = None
-                self.cptpclockcurrentdsstepsremoved = None
+                super(CiscoPtpMib.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockcurrentdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclockcurrentdsdomainindex is None')
-                if self.cptpclockcurrentdsclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockcurrentdsclocktypeindex is None')
-                if self.cptpclockcurrentdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockcurrentdsinstanceindex is None')
+                self.yang_name = "cPtpClockCurrentDSEntry"
+                self.yang_parent_name = "cPtpClockCurrentDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockCurrentDSTable/CISCO-PTP-MIB:cPtpClockCurrentDSEntry[CISCO-PTP-MIB:cPtpClockCurrentDSDomainIndex = ' + str(self.cptpclockcurrentdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockCurrentDSClockTypeIndex = ' + str(self.cptpclockcurrentdsclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockCurrentDSInstanceIndex = ' + str(self.cptpclockcurrentdsinstanceindex) + ']'
+                self.cptpclockcurrentdsdomainindex = YLeaf(YType.uint32, "cPtpClockCurrentDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockcurrentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockCurrentDSClockTypeIndex")
+
+                self.cptpclockcurrentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockCurrentDSInstanceIndex")
+
+                self.cptpclockcurrentdsmeanpathdelay = YLeaf(YType.str, "cPtpClockCurrentDSMeanPathDelay")
+
+                self.cptpclockcurrentdsoffsetfrommaster = YLeaf(YType.str, "cPtpClockCurrentDSOffsetFromMaster")
+
+                self.cptpclockcurrentdsstepsremoved = YLeaf(YType.uint32, "cPtpClockCurrentDSStepsRemoved")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockcurrentdsdomainindex",
+                                "cptpclockcurrentdsclocktypeindex",
+                                "cptpclockcurrentdsinstanceindex",
+                                "cptpclockcurrentdsmeanpathdelay",
+                                "cptpclockcurrentdsoffsetfrommaster",
+                                "cptpclockcurrentdsstepsremoved") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockcurrentdsdomainindex.is_set or
+                    self.cptpclockcurrentdsclocktypeindex.is_set or
+                    self.cptpclockcurrentdsinstanceindex.is_set or
+                    self.cptpclockcurrentdsmeanpathdelay.is_set or
+                    self.cptpclockcurrentdsoffsetfrommaster.is_set or
+                    self.cptpclockcurrentdsstepsremoved.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsmeanpathdelay.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsoffsetfrommaster.yfilter != YFilter.not_set or
+                    self.cptpclockcurrentdsstepsremoved.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + self.cptpclockcurrentdsdomainindex.get() + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + self.cptpclockcurrentdsclocktypeindex.get() + "']" + "[cPtpClockCurrentDSInstanceIndex='" + self.cptpclockcurrentdsinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockcurrentdsdomainindex.is_set or self.cptpclockcurrentdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsdomainindex.get_name_leafdata())
+                if (self.cptpclockcurrentdsclocktypeindex.is_set or self.cptpclockcurrentdsclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsclocktypeindex.get_name_leafdata())
+                if (self.cptpclockcurrentdsinstanceindex.is_set or self.cptpclockcurrentdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsinstanceindex.get_name_leafdata())
+                if (self.cptpclockcurrentdsmeanpathdelay.is_set or self.cptpclockcurrentdsmeanpathdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsmeanpathdelay.get_name_leafdata())
+                if (self.cptpclockcurrentdsoffsetfrommaster.is_set or self.cptpclockcurrentdsoffsetfrommaster.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsoffsetfrommaster.get_name_leafdata())
+                if (self.cptpclockcurrentdsstepsremoved.is_set or self.cptpclockcurrentdsstepsremoved.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockcurrentdsstepsremoved.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockCurrentDSDomainIndex" or name == "cPtpClockCurrentDSClockTypeIndex" or name == "cPtpClockCurrentDSInstanceIndex" or name == "cPtpClockCurrentDSMeanPathDelay" or name == "cPtpClockCurrentDSOffsetFromMaster" or name == "cPtpClockCurrentDSStepsRemoved"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockcurrentdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockCurrentDSDomainIndex"):
+                    self.cptpclockcurrentdsdomainindex = value
+                    self.cptpclockcurrentdsdomainindex.value_namespace = name_space
+                    self.cptpclockcurrentdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockCurrentDSClockTypeIndex"):
+                    self.cptpclockcurrentdsclocktypeindex = value
+                    self.cptpclockcurrentdsclocktypeindex.value_namespace = name_space
+                    self.cptpclockcurrentdsclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockCurrentDSInstanceIndex"):
+                    self.cptpclockcurrentdsinstanceindex = value
+                    self.cptpclockcurrentdsinstanceindex.value_namespace = name_space
+                    self.cptpclockcurrentdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockCurrentDSMeanPathDelay"):
+                    self.cptpclockcurrentdsmeanpathdelay = value
+                    self.cptpclockcurrentdsmeanpathdelay.value_namespace = name_space
+                    self.cptpclockcurrentdsmeanpathdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockCurrentDSOffsetFromMaster"):
+                    self.cptpclockcurrentdsoffsetfrommaster = value
+                    self.cptpclockcurrentdsoffsetfrommaster.value_namespace = name_space
+                    self.cptpclockcurrentdsoffsetfrommaster.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockCurrentDSStepsRemoved"):
+                    self.cptpclockcurrentdsstepsremoved = value
+                    self.cptpclockcurrentdsstepsremoved.value_namespace = name_space
+                    self.cptpclockcurrentdsstepsremoved.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockcurrentdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockcurrentdsclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockcurrentdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclockcurrentdsmeanpathdelay is not None:
-                    return True
-
-                if self.cptpclockcurrentdsoffsetfrommaster is not None:
-                    return True
-
-                if self.cptpclockcurrentdsstepsremoved is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockcurrentdstable.Cptpclockcurrentdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockCurrentDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockcurrentdsentry is not None:
-                for child_ref in self.cptpclockcurrentdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockcurrentdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockCurrentDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockCurrentDSEntry"):
+                for c in self.cptpclockcurrentdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockcurrentdstable.Cptpclockcurrentdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockcurrentdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockCurrentDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockcurrentdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockparentdstable(object):
+    class Cptpclockparentdstable(Entity):
         """
         Table of information about the PTP clock Parent Datasets for
         all domains.
@@ -1757,13 +2394,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockparentdsentry = YList()
-            self.cptpclockparentdsentry.parent = self
-            self.cptpclockparentdsentry.name = 'cptpclockparentdsentry'
+            super(CiscoPtpMib.Cptpclockparentdstable, self).__init__()
+
+            self.yang_name = "cPtpClockParentDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockparentdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockparentdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockparentdstable, self).__setattr__(name, value)
 
 
-        class Cptpclockparentdsentry(object):
+        class Cptpclockparentdsentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Parent Datasets for a domain.
@@ -1778,7 +2441,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockparentdsclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockparentdsinstanceindex  <key>
             
@@ -1818,7 +2481,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockparentdsgmclockqualityaccuracy
             
             	This object specifies the parent dataset grandmaster clock quality accuracy
-            	**type**\:   :py:class:`ClockqualityaccuracytypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockqualityaccuracytypeEnum>`
+            	**type**\:   :py:class:`Clockqualityaccuracytype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockqualityaccuracytype>`
             
             .. attribute:: cptpclockparentdsgmclockqualityclass
             
@@ -1859,107 +2522,275 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockparentdsdomainindex = None
-                self.cptpclockparentdsclocktypeindex = None
-                self.cptpclockparentdsinstanceindex = None
-                self.cptpclockparentdsclockphchrate = None
-                self.cptpclockparentdsgmclockidentity = None
-                self.cptpclockparentdsgmclockpriority1 = None
-                self.cptpclockparentdsgmclockpriority2 = None
-                self.cptpclockparentdsgmclockqualityaccuracy = None
-                self.cptpclockparentdsgmclockqualityclass = None
-                self.cptpclockparentdsgmclockqualityoffset = None
-                self.cptpclockparentdsoffset = None
-                self.cptpclockparentdsparentportidentity = None
-                self.cptpclockparentdsparentstats = None
+                super(CiscoPtpMib.Cptpclockparentdstable.Cptpclockparentdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockparentdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclockparentdsdomainindex is None')
-                if self.cptpclockparentdsclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockparentdsclocktypeindex is None')
-                if self.cptpclockparentdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockparentdsinstanceindex is None')
+                self.yang_name = "cPtpClockParentDSEntry"
+                self.yang_parent_name = "cPtpClockParentDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockParentDSTable/CISCO-PTP-MIB:cPtpClockParentDSEntry[CISCO-PTP-MIB:cPtpClockParentDSDomainIndex = ' + str(self.cptpclockparentdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockParentDSClockTypeIndex = ' + str(self.cptpclockparentdsclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockParentDSInstanceIndex = ' + str(self.cptpclockparentdsinstanceindex) + ']'
+                self.cptpclockparentdsdomainindex = YLeaf(YType.uint32, "cPtpClockParentDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockparentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockParentDSClockTypeIndex")
+
+                self.cptpclockparentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockParentDSInstanceIndex")
+
+                self.cptpclockparentdsclockphchrate = YLeaf(YType.int32, "cPtpClockParentDSClockPhChRate")
+
+                self.cptpclockparentdsgmclockidentity = YLeaf(YType.str, "cPtpClockParentDSGMClockIdentity")
+
+                self.cptpclockparentdsgmclockpriority1 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority1")
+
+                self.cptpclockparentdsgmclockpriority2 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority2")
+
+                self.cptpclockparentdsgmclockqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockParentDSGMClockQualityAccuracy")
+
+                self.cptpclockparentdsgmclockqualityclass = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityClass")
+
+                self.cptpclockparentdsgmclockqualityoffset = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityOffset")
+
+                self.cptpclockparentdsoffset = YLeaf(YType.int32, "cPtpClockParentDSOffset")
+
+                self.cptpclockparentdsparentportidentity = YLeaf(YType.str, "cPtpClockParentDSParentPortIdentity")
+
+                self.cptpclockparentdsparentstats = YLeaf(YType.boolean, "cPtpClockParentDSParentStats")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockparentdsdomainindex",
+                                "cptpclockparentdsclocktypeindex",
+                                "cptpclockparentdsinstanceindex",
+                                "cptpclockparentdsclockphchrate",
+                                "cptpclockparentdsgmclockidentity",
+                                "cptpclockparentdsgmclockpriority1",
+                                "cptpclockparentdsgmclockpriority2",
+                                "cptpclockparentdsgmclockqualityaccuracy",
+                                "cptpclockparentdsgmclockqualityclass",
+                                "cptpclockparentdsgmclockqualityoffset",
+                                "cptpclockparentdsoffset",
+                                "cptpclockparentdsparentportidentity",
+                                "cptpclockparentdsparentstats") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockparentdstable.Cptpclockparentdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockparentdstable.Cptpclockparentdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockparentdsdomainindex.is_set or
+                    self.cptpclockparentdsclocktypeindex.is_set or
+                    self.cptpclockparentdsinstanceindex.is_set or
+                    self.cptpclockparentdsclockphchrate.is_set or
+                    self.cptpclockparentdsgmclockidentity.is_set or
+                    self.cptpclockparentdsgmclockpriority1.is_set or
+                    self.cptpclockparentdsgmclockpriority2.is_set or
+                    self.cptpclockparentdsgmclockqualityaccuracy.is_set or
+                    self.cptpclockparentdsgmclockqualityclass.is_set or
+                    self.cptpclockparentdsgmclockqualityoffset.is_set or
+                    self.cptpclockparentdsoffset.is_set or
+                    self.cptpclockparentdsparentportidentity.is_set or
+                    self.cptpclockparentdsparentstats.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsclockphchrate.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockidentity.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockpriority1.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockpriority2.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockqualityaccuracy.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockqualityclass.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsgmclockqualityoffset.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsoffset.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsparentportidentity.yfilter != YFilter.not_set or
+                    self.cptpclockparentdsparentstats.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockParentDSEntry" + "[cPtpClockParentDSDomainIndex='" + self.cptpclockparentdsdomainindex.get() + "']" + "[cPtpClockParentDSClockTypeIndex='" + self.cptpclockparentdsclocktypeindex.get() + "']" + "[cPtpClockParentDSInstanceIndex='" + self.cptpclockparentdsinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockparentdsdomainindex.is_set or self.cptpclockparentdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsdomainindex.get_name_leafdata())
+                if (self.cptpclockparentdsclocktypeindex.is_set or self.cptpclockparentdsclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsclocktypeindex.get_name_leafdata())
+                if (self.cptpclockparentdsinstanceindex.is_set or self.cptpclockparentdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsinstanceindex.get_name_leafdata())
+                if (self.cptpclockparentdsclockphchrate.is_set or self.cptpclockparentdsclockphchrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsclockphchrate.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockidentity.is_set or self.cptpclockparentdsgmclockidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockidentity.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockpriority1.is_set or self.cptpclockparentdsgmclockpriority1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockpriority1.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockpriority2.is_set or self.cptpclockparentdsgmclockpriority2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockpriority2.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockqualityaccuracy.is_set or self.cptpclockparentdsgmclockqualityaccuracy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockqualityaccuracy.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockqualityclass.is_set or self.cptpclockparentdsgmclockqualityclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockqualityclass.get_name_leafdata())
+                if (self.cptpclockparentdsgmclockqualityoffset.is_set or self.cptpclockparentdsgmclockqualityoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsgmclockqualityoffset.get_name_leafdata())
+                if (self.cptpclockparentdsoffset.is_set or self.cptpclockparentdsoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsoffset.get_name_leafdata())
+                if (self.cptpclockparentdsparentportidentity.is_set or self.cptpclockparentdsparentportidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsparentportidentity.get_name_leafdata())
+                if (self.cptpclockparentdsparentstats.is_set or self.cptpclockparentdsparentstats.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockparentdsparentstats.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockParentDSDomainIndex" or name == "cPtpClockParentDSClockTypeIndex" or name == "cPtpClockParentDSInstanceIndex" or name == "cPtpClockParentDSClockPhChRate" or name == "cPtpClockParentDSGMClockIdentity" or name == "cPtpClockParentDSGMClockPriority1" or name == "cPtpClockParentDSGMClockPriority2" or name == "cPtpClockParentDSGMClockQualityAccuracy" or name == "cPtpClockParentDSGMClockQualityClass" or name == "cPtpClockParentDSGMClockQualityOffset" or name == "cPtpClockParentDSOffset" or name == "cPtpClockParentDSParentPortIdentity" or name == "cPtpClockParentDSParentStats"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockparentdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockParentDSDomainIndex"):
+                    self.cptpclockparentdsdomainindex = value
+                    self.cptpclockparentdsdomainindex.value_namespace = name_space
+                    self.cptpclockparentdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSClockTypeIndex"):
+                    self.cptpclockparentdsclocktypeindex = value
+                    self.cptpclockparentdsclocktypeindex.value_namespace = name_space
+                    self.cptpclockparentdsclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSInstanceIndex"):
+                    self.cptpclockparentdsinstanceindex = value
+                    self.cptpclockparentdsinstanceindex.value_namespace = name_space
+                    self.cptpclockparentdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSClockPhChRate"):
+                    self.cptpclockparentdsclockphchrate = value
+                    self.cptpclockparentdsclockphchrate.value_namespace = name_space
+                    self.cptpclockparentdsclockphchrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockIdentity"):
+                    self.cptpclockparentdsgmclockidentity = value
+                    self.cptpclockparentdsgmclockidentity.value_namespace = name_space
+                    self.cptpclockparentdsgmclockidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockPriority1"):
+                    self.cptpclockparentdsgmclockpriority1 = value
+                    self.cptpclockparentdsgmclockpriority1.value_namespace = name_space
+                    self.cptpclockparentdsgmclockpriority1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockPriority2"):
+                    self.cptpclockparentdsgmclockpriority2 = value
+                    self.cptpclockparentdsgmclockpriority2.value_namespace = name_space
+                    self.cptpclockparentdsgmclockpriority2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockQualityAccuracy"):
+                    self.cptpclockparentdsgmclockqualityaccuracy = value
+                    self.cptpclockparentdsgmclockqualityaccuracy.value_namespace = name_space
+                    self.cptpclockparentdsgmclockqualityaccuracy.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockQualityClass"):
+                    self.cptpclockparentdsgmclockqualityclass = value
+                    self.cptpclockparentdsgmclockqualityclass.value_namespace = name_space
+                    self.cptpclockparentdsgmclockqualityclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSGMClockQualityOffset"):
+                    self.cptpclockparentdsgmclockqualityoffset = value
+                    self.cptpclockparentdsgmclockqualityoffset.value_namespace = name_space
+                    self.cptpclockparentdsgmclockqualityoffset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSOffset"):
+                    self.cptpclockparentdsoffset = value
+                    self.cptpclockparentdsoffset.value_namespace = name_space
+                    self.cptpclockparentdsoffset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSParentPortIdentity"):
+                    self.cptpclockparentdsparentportidentity = value
+                    self.cptpclockparentdsparentportidentity.value_namespace = name_space
+                    self.cptpclockparentdsparentportidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockParentDSParentStats"):
+                    self.cptpclockparentdsparentstats = value
+                    self.cptpclockparentdsparentstats.value_namespace = name_space
+                    self.cptpclockparentdsparentstats.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockparentdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockparentdsclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockparentdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclockparentdsclockphchrate is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockidentity is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockpriority1 is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockpriority2 is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockqualityaccuracy is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockqualityclass is not None:
-                    return True
-
-                if self.cptpclockparentdsgmclockqualityoffset is not None:
-                    return True
-
-                if self.cptpclockparentdsoffset is not None:
-                    return True
-
-                if self.cptpclockparentdsparentportidentity is not None:
-                    return True
-
-                if self.cptpclockparentdsparentstats is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockparentdstable.Cptpclockparentdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockParentDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockparentdsentry is not None:
-                for child_ref in self.cptpclockparentdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockparentdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockParentDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockParentDSEntry"):
+                for c in self.cptpclockparentdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockparentdstable.Cptpclockparentdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockparentdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockParentDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockparentdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockdefaultdstable(object):
+    class Cptpclockdefaultdstable(Entity):
         """
         Table of information about the PTP clock Default Datasets for
         all domains.
@@ -1977,13 +2808,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockdefaultdsentry = YList()
-            self.cptpclockdefaultdsentry.parent = self
-            self.cptpclockdefaultdsentry.name = 'cptpclockdefaultdsentry'
+            super(CiscoPtpMib.Cptpclockdefaultdstable, self).__init__()
+
+            self.yang_name = "cPtpClockDefaultDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockdefaultdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockdefaultdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockdefaultdstable, self).__setattr__(name, value)
 
 
-        class Cptpclockdefaultdsentry(object):
+        class Cptpclockdefaultdsentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Default Datasets for a domain.
@@ -1998,7 +2855,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockdefaultdsclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockdefaultdsinstanceindex  <key>
             
@@ -2031,7 +2888,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockdefaultdsqualityaccuracy
             
             	This object specifies the default dataset Quality Accurarcy
-            	**type**\:   :py:class:`ClockqualityaccuracytypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockqualityaccuracytypeEnum>`
+            	**type**\:   :py:class:`Clockqualityaccuracytype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockqualityaccuracytype>`
             
             .. attribute:: cptpclockdefaultdsqualityclass
             
@@ -2065,99 +2922,253 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockdefaultdsdomainindex = None
-                self.cptpclockdefaultdsclocktypeindex = None
-                self.cptpclockdefaultdsinstanceindex = None
-                self.cptpclockdefaultdsclockidentity = None
-                self.cptpclockdefaultdspriority1 = None
-                self.cptpclockdefaultdspriority2 = None
-                self.cptpclockdefaultdsqualityaccuracy = None
-                self.cptpclockdefaultdsqualityclass = None
-                self.cptpclockdefaultdsqualityoffset = None
-                self.cptpclockdefaultdsslaveonly = None
-                self.cptpclockdefaultdstwostepflag = None
+                super(CiscoPtpMib.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockdefaultdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclockdefaultdsdomainindex is None')
-                if self.cptpclockdefaultdsclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockdefaultdsclocktypeindex is None')
-                if self.cptpclockdefaultdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockdefaultdsinstanceindex is None')
+                self.yang_name = "cPtpClockDefaultDSEntry"
+                self.yang_parent_name = "cPtpClockDefaultDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockDefaultDSTable/CISCO-PTP-MIB:cPtpClockDefaultDSEntry[CISCO-PTP-MIB:cPtpClockDefaultDSDomainIndex = ' + str(self.cptpclockdefaultdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockDefaultDSClockTypeIndex = ' + str(self.cptpclockdefaultdsclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockDefaultDSInstanceIndex = ' + str(self.cptpclockdefaultdsinstanceindex) + ']'
+                self.cptpclockdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockDefaultDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockdefaultdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockDefaultDSClockTypeIndex")
+
+                self.cptpclockdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockDefaultDSInstanceIndex")
+
+                self.cptpclockdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockDefaultDSClockIdentity")
+
+                self.cptpclockdefaultdspriority1 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority1")
+
+                self.cptpclockdefaultdspriority2 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority2")
+
+                self.cptpclockdefaultdsqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockDefaultDSQualityAccuracy")
+
+                self.cptpclockdefaultdsqualityclass = YLeaf(YType.uint32, "cPtpClockDefaultDSQualityClass")
+
+                self.cptpclockdefaultdsqualityoffset = YLeaf(YType.int32, "cPtpClockDefaultDSQualityOffset")
+
+                self.cptpclockdefaultdsslaveonly = YLeaf(YType.boolean, "cPtpClockDefaultDSSlaveOnly")
+
+                self.cptpclockdefaultdstwostepflag = YLeaf(YType.boolean, "cPtpClockDefaultDSTwoStepFlag")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockdefaultdsdomainindex",
+                                "cptpclockdefaultdsclocktypeindex",
+                                "cptpclockdefaultdsinstanceindex",
+                                "cptpclockdefaultdsclockidentity",
+                                "cptpclockdefaultdspriority1",
+                                "cptpclockdefaultdspriority2",
+                                "cptpclockdefaultdsqualityaccuracy",
+                                "cptpclockdefaultdsqualityclass",
+                                "cptpclockdefaultdsqualityoffset",
+                                "cptpclockdefaultdsslaveonly",
+                                "cptpclockdefaultdstwostepflag") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockdefaultdsdomainindex.is_set or
+                    self.cptpclockdefaultdsclocktypeindex.is_set or
+                    self.cptpclockdefaultdsinstanceindex.is_set or
+                    self.cptpclockdefaultdsclockidentity.is_set or
+                    self.cptpclockdefaultdspriority1.is_set or
+                    self.cptpclockdefaultdspriority2.is_set or
+                    self.cptpclockdefaultdsqualityaccuracy.is_set or
+                    self.cptpclockdefaultdsqualityclass.is_set or
+                    self.cptpclockdefaultdsqualityoffset.is_set or
+                    self.cptpclockdefaultdsslaveonly.is_set or
+                    self.cptpclockdefaultdstwostepflag.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsclockidentity.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdspriority1.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdspriority2.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsqualityaccuracy.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsqualityclass.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsqualityoffset.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdsslaveonly.yfilter != YFilter.not_set or
+                    self.cptpclockdefaultdstwostepflag.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockDefaultDSEntry" + "[cPtpClockDefaultDSDomainIndex='" + self.cptpclockdefaultdsdomainindex.get() + "']" + "[cPtpClockDefaultDSClockTypeIndex='" + self.cptpclockdefaultdsclocktypeindex.get() + "']" + "[cPtpClockDefaultDSInstanceIndex='" + self.cptpclockdefaultdsinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockdefaultdsdomainindex.is_set or self.cptpclockdefaultdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsdomainindex.get_name_leafdata())
+                if (self.cptpclockdefaultdsclocktypeindex.is_set or self.cptpclockdefaultdsclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsclocktypeindex.get_name_leafdata())
+                if (self.cptpclockdefaultdsinstanceindex.is_set or self.cptpclockdefaultdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsinstanceindex.get_name_leafdata())
+                if (self.cptpclockdefaultdsclockidentity.is_set or self.cptpclockdefaultdsclockidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsclockidentity.get_name_leafdata())
+                if (self.cptpclockdefaultdspriority1.is_set or self.cptpclockdefaultdspriority1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdspriority1.get_name_leafdata())
+                if (self.cptpclockdefaultdspriority2.is_set or self.cptpclockdefaultdspriority2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdspriority2.get_name_leafdata())
+                if (self.cptpclockdefaultdsqualityaccuracy.is_set or self.cptpclockdefaultdsqualityaccuracy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsqualityaccuracy.get_name_leafdata())
+                if (self.cptpclockdefaultdsqualityclass.is_set or self.cptpclockdefaultdsqualityclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsqualityclass.get_name_leafdata())
+                if (self.cptpclockdefaultdsqualityoffset.is_set or self.cptpclockdefaultdsqualityoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsqualityoffset.get_name_leafdata())
+                if (self.cptpclockdefaultdsslaveonly.is_set or self.cptpclockdefaultdsslaveonly.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdsslaveonly.get_name_leafdata())
+                if (self.cptpclockdefaultdstwostepflag.is_set or self.cptpclockdefaultdstwostepflag.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockdefaultdstwostepflag.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockDefaultDSDomainIndex" or name == "cPtpClockDefaultDSClockTypeIndex" or name == "cPtpClockDefaultDSInstanceIndex" or name == "cPtpClockDefaultDSClockIdentity" or name == "cPtpClockDefaultDSPriority1" or name == "cPtpClockDefaultDSPriority2" or name == "cPtpClockDefaultDSQualityAccuracy" or name == "cPtpClockDefaultDSQualityClass" or name == "cPtpClockDefaultDSQualityOffset" or name == "cPtpClockDefaultDSSlaveOnly" or name == "cPtpClockDefaultDSTwoStepFlag"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockdefaultdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockDefaultDSDomainIndex"):
+                    self.cptpclockdefaultdsdomainindex = value
+                    self.cptpclockdefaultdsdomainindex.value_namespace = name_space
+                    self.cptpclockdefaultdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSClockTypeIndex"):
+                    self.cptpclockdefaultdsclocktypeindex = value
+                    self.cptpclockdefaultdsclocktypeindex.value_namespace = name_space
+                    self.cptpclockdefaultdsclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSInstanceIndex"):
+                    self.cptpclockdefaultdsinstanceindex = value
+                    self.cptpclockdefaultdsinstanceindex.value_namespace = name_space
+                    self.cptpclockdefaultdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSClockIdentity"):
+                    self.cptpclockdefaultdsclockidentity = value
+                    self.cptpclockdefaultdsclockidentity.value_namespace = name_space
+                    self.cptpclockdefaultdsclockidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSPriority1"):
+                    self.cptpclockdefaultdspriority1 = value
+                    self.cptpclockdefaultdspriority1.value_namespace = name_space
+                    self.cptpclockdefaultdspriority1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSPriority2"):
+                    self.cptpclockdefaultdspriority2 = value
+                    self.cptpclockdefaultdspriority2.value_namespace = name_space
+                    self.cptpclockdefaultdspriority2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSQualityAccuracy"):
+                    self.cptpclockdefaultdsqualityaccuracy = value
+                    self.cptpclockdefaultdsqualityaccuracy.value_namespace = name_space
+                    self.cptpclockdefaultdsqualityaccuracy.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSQualityClass"):
+                    self.cptpclockdefaultdsqualityclass = value
+                    self.cptpclockdefaultdsqualityclass.value_namespace = name_space
+                    self.cptpclockdefaultdsqualityclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSQualityOffset"):
+                    self.cptpclockdefaultdsqualityoffset = value
+                    self.cptpclockdefaultdsqualityoffset.value_namespace = name_space
+                    self.cptpclockdefaultdsqualityoffset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSSlaveOnly"):
+                    self.cptpclockdefaultdsslaveonly = value
+                    self.cptpclockdefaultdsslaveonly.value_namespace = name_space
+                    self.cptpclockdefaultdsslaveonly.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockDefaultDSTwoStepFlag"):
+                    self.cptpclockdefaultdstwostepflag = value
+                    self.cptpclockdefaultdstwostepflag.value_namespace = name_space
+                    self.cptpclockdefaultdstwostepflag.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockdefaultdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockdefaultdsclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockdefaultdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclockdefaultdsclockidentity is not None:
-                    return True
-
-                if self.cptpclockdefaultdspriority1 is not None:
-                    return True
-
-                if self.cptpclockdefaultdspriority2 is not None:
-                    return True
-
-                if self.cptpclockdefaultdsqualityaccuracy is not None:
-                    return True
-
-                if self.cptpclockdefaultdsqualityclass is not None:
-                    return True
-
-                if self.cptpclockdefaultdsqualityoffset is not None:
-                    return True
-
-                if self.cptpclockdefaultdsslaveonly is not None:
-                    return True
-
-                if self.cptpclockdefaultdstwostepflag is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockdefaultdstable.Cptpclockdefaultdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockDefaultDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockdefaultdsentry is not None:
-                for child_ref in self.cptpclockdefaultdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockdefaultdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockDefaultDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockDefaultDSEntry"):
+                for c in self.cptpclockdefaultdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockdefaultdstable.Cptpclockdefaultdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockdefaultdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockDefaultDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockdefaultdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockrunningtable(object):
+    class Cptpclockrunningtable(Entity):
         """
         Table of information about the PTP clock Running Datasets for
         all domains.
@@ -2175,13 +3186,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockrunningentry = YList()
-            self.cptpclockrunningentry.parent = self
-            self.cptpclockrunningentry.name = 'cptpclockrunningentry'
+            super(CiscoPtpMib.Cptpclockrunningtable, self).__init__()
+
+            self.yang_name = "cPtpClockRunningTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockrunningentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockrunningtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockrunningtable, self).__setattr__(name, value)
 
 
-        class Cptpclockrunningentry(object):
+        class Cptpclockrunningentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock running Datasets for a domain.
@@ -2196,7 +3233,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockrunningclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockrunninginstanceindex  <key>
             
@@ -2222,7 +3259,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockrunningstate
             
             	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a slave device that is not locked to a master. This is the initial state a slave starts out with when it is not getting any PTP packets from the master or because of some other input error (erroneous packets, etc).  Holdover state. In this state the slave device is locked to a master but communication with the master is lost or the timestamps in the ptp packets are incorrect. But since the slave was locked to the master, it can run with the same accuracy for sometime. The slave can continue to operate in this state for some time. If communication with the master is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The slave device is receiving packets from a master and is trying to acquire a lock.  Freq\_locked state. Slave device is locked to the Master with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the master with respect to frequency and phase
-            	**type**\:   :py:class:`ClockstatetypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockstatetypeEnum>`
+            	**type**\:   :py:class:`Clockstatetype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockstatetype>`
             
             
 
@@ -2232,79 +3269,198 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockrunningdomainindex = None
-                self.cptpclockrunningclocktypeindex = None
-                self.cptpclockrunninginstanceindex = None
-                self.cptpclockrunningpacketsreceived = None
-                self.cptpclockrunningpacketssent = None
-                self.cptpclockrunningstate = None
+                super(CiscoPtpMib.Cptpclockrunningtable.Cptpclockrunningentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockrunningdomainindex is None:
-                    raise YPYModelError('Key property cptpclockrunningdomainindex is None')
-                if self.cptpclockrunningclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockrunningclocktypeindex is None')
-                if self.cptpclockrunninginstanceindex is None:
-                    raise YPYModelError('Key property cptpclockrunninginstanceindex is None')
+                self.yang_name = "cPtpClockRunningEntry"
+                self.yang_parent_name = "cPtpClockRunningTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockRunningTable/CISCO-PTP-MIB:cPtpClockRunningEntry[CISCO-PTP-MIB:cPtpClockRunningDomainIndex = ' + str(self.cptpclockrunningdomainindex) + '][CISCO-PTP-MIB:cPtpClockRunningClockTypeIndex = ' + str(self.cptpclockrunningclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockRunningInstanceIndex = ' + str(self.cptpclockrunninginstanceindex) + ']'
+                self.cptpclockrunningdomainindex = YLeaf(YType.uint32, "cPtpClockRunningDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockRunningClockTypeIndex")
+
+                self.cptpclockrunninginstanceindex = YLeaf(YType.uint32, "cPtpClockRunningInstanceIndex")
+
+                self.cptpclockrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockRunningPacketsReceived")
+
+                self.cptpclockrunningpacketssent = YLeaf(YType.uint64, "cPtpClockRunningPacketsSent")
+
+                self.cptpclockrunningstate = YLeaf(YType.enumeration, "cPtpClockRunningState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockrunningdomainindex",
+                                "cptpclockrunningclocktypeindex",
+                                "cptpclockrunninginstanceindex",
+                                "cptpclockrunningpacketsreceived",
+                                "cptpclockrunningpacketssent",
+                                "cptpclockrunningstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockrunningtable.Cptpclockrunningentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockrunningtable.Cptpclockrunningentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockrunningdomainindex.is_set or
+                    self.cptpclockrunningclocktypeindex.is_set or
+                    self.cptpclockrunninginstanceindex.is_set or
+                    self.cptpclockrunningpacketsreceived.is_set or
+                    self.cptpclockrunningpacketssent.is_set or
+                    self.cptpclockrunningstate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockrunningdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockrunningclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockrunninginstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockrunningpacketsreceived.yfilter != YFilter.not_set or
+                    self.cptpclockrunningpacketssent.yfilter != YFilter.not_set or
+                    self.cptpclockrunningstate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockRunningEntry" + "[cPtpClockRunningDomainIndex='" + self.cptpclockrunningdomainindex.get() + "']" + "[cPtpClockRunningClockTypeIndex='" + self.cptpclockrunningclocktypeindex.get() + "']" + "[cPtpClockRunningInstanceIndex='" + self.cptpclockrunninginstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockrunningdomainindex.is_set or self.cptpclockrunningdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunningdomainindex.get_name_leafdata())
+                if (self.cptpclockrunningclocktypeindex.is_set or self.cptpclockrunningclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunningclocktypeindex.get_name_leafdata())
+                if (self.cptpclockrunninginstanceindex.is_set or self.cptpclockrunninginstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunninginstanceindex.get_name_leafdata())
+                if (self.cptpclockrunningpacketsreceived.is_set or self.cptpclockrunningpacketsreceived.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunningpacketsreceived.get_name_leafdata())
+                if (self.cptpclockrunningpacketssent.is_set or self.cptpclockrunningpacketssent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunningpacketssent.get_name_leafdata())
+                if (self.cptpclockrunningstate.is_set or self.cptpclockrunningstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockrunningstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockRunningDomainIndex" or name == "cPtpClockRunningClockTypeIndex" or name == "cPtpClockRunningInstanceIndex" or name == "cPtpClockRunningPacketsReceived" or name == "cPtpClockRunningPacketsSent" or name == "cPtpClockRunningState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockrunningdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockRunningDomainIndex"):
+                    self.cptpclockrunningdomainindex = value
+                    self.cptpclockrunningdomainindex.value_namespace = name_space
+                    self.cptpclockrunningdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockRunningClockTypeIndex"):
+                    self.cptpclockrunningclocktypeindex = value
+                    self.cptpclockrunningclocktypeindex.value_namespace = name_space
+                    self.cptpclockrunningclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockRunningInstanceIndex"):
+                    self.cptpclockrunninginstanceindex = value
+                    self.cptpclockrunninginstanceindex.value_namespace = name_space
+                    self.cptpclockrunninginstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockRunningPacketsReceived"):
+                    self.cptpclockrunningpacketsreceived = value
+                    self.cptpclockrunningpacketsreceived.value_namespace = name_space
+                    self.cptpclockrunningpacketsreceived.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockRunningPacketsSent"):
+                    self.cptpclockrunningpacketssent = value
+                    self.cptpclockrunningpacketssent.value_namespace = name_space
+                    self.cptpclockrunningpacketssent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockRunningState"):
+                    self.cptpclockrunningstate = value
+                    self.cptpclockrunningstate.value_namespace = name_space
+                    self.cptpclockrunningstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockrunningentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockrunningclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockrunninginstanceindex is not None:
-                    return True
-
-                if self.cptpclockrunningpacketsreceived is not None:
-                    return True
-
-                if self.cptpclockrunningpacketssent is not None:
-                    return True
-
-                if self.cptpclockrunningstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockrunningtable.Cptpclockrunningentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockRunningTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockrunningentry is not None:
-                for child_ref in self.cptpclockrunningentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockrunningentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockRunningTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockRunningEntry"):
+                for c in self.cptpclockrunningentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockrunningtable.Cptpclockrunningentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockrunningentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockRunningEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockrunningtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclocktimepropertiesdstable(object):
+    class Cptpclocktimepropertiesdstable(Entity):
         """
         Table of information about the PTP clock Timeproperties
         Datasets for all domains.
@@ -2322,13 +3478,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclocktimepropertiesdsentry = YList()
-            self.cptpclocktimepropertiesdsentry.parent = self
-            self.cptpclocktimepropertiesdsentry.name = 'cptpclocktimepropertiesdsentry'
+            super(CiscoPtpMib.Cptpclocktimepropertiesdstable, self).__init__()
+
+            self.yang_name = "cPtpClockTimePropertiesDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclocktimepropertiesdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclocktimepropertiesdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclocktimepropertiesdstable, self).__setattr__(name, value)
 
 
-        class Cptpclocktimepropertiesdsentry(object):
+        class Cptpclocktimepropertiesdsentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock timeproperties Datasets for a domain.
@@ -2343,7 +3525,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclocktimepropertiesdsclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclocktimepropertiesdsinstanceindex  <key>
             
@@ -2387,7 +3569,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclocktimepropertiesdssource
             
             	This object specifies the Timesource value in the clock Current Dataset
-            	**type**\:   :py:class:`ClocktimesourcetypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktimesourcetypeEnum>`
+            	**type**\:   :py:class:`Clocktimesourcetype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktimesourcetype>`
             
             .. attribute:: cptpclocktimepropertiesdstimetraceable
             
@@ -2402,99 +3584,253 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclocktimepropertiesdsdomainindex = None
-                self.cptpclocktimepropertiesdsclocktypeindex = None
-                self.cptpclocktimepropertiesdsinstanceindex = None
-                self.cptpclocktimepropertiesdscurrentutcoffset = None
-                self.cptpclocktimepropertiesdscurrentutcoffsetvalid = None
-                self.cptpclocktimepropertiesdsfreqtraceable = None
-                self.cptpclocktimepropertiesdsleap59 = None
-                self.cptpclocktimepropertiesdsleap61 = None
-                self.cptpclocktimepropertiesdsptptimescale = None
-                self.cptpclocktimepropertiesdssource = None
-                self.cptpclocktimepropertiesdstimetraceable = None
+                super(CiscoPtpMib.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclocktimepropertiesdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclocktimepropertiesdsdomainindex is None')
-                if self.cptpclocktimepropertiesdsclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclocktimepropertiesdsclocktypeindex is None')
-                if self.cptpclocktimepropertiesdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclocktimepropertiesdsinstanceindex is None')
+                self.yang_name = "cPtpClockTimePropertiesDSEntry"
+                self.yang_parent_name = "cPtpClockTimePropertiesDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockTimePropertiesDSTable/CISCO-PTP-MIB:cPtpClockTimePropertiesDSEntry[CISCO-PTP-MIB:cPtpClockTimePropertiesDSDomainIndex = ' + str(self.cptpclocktimepropertiesdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockTimePropertiesDSClockTypeIndex = ' + str(self.cptpclocktimepropertiesdsclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockTimePropertiesDSInstanceIndex = ' + str(self.cptpclocktimepropertiesdsinstanceindex) + ']'
+                self.cptpclocktimepropertiesdsdomainindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclocktimepropertiesdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSClockTypeIndex")
+
+                self.cptpclocktimepropertiesdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSInstanceIndex")
+
+                self.cptpclocktimepropertiesdscurrentutcoffset = YLeaf(YType.int32, "cPtpClockTimePropertiesDSCurrentUTCOffset")
+
+                self.cptpclocktimepropertiesdscurrentutcoffsetvalid = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSCurrentUTCOffsetValid")
+
+                self.cptpclocktimepropertiesdsfreqtraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSFreqTraceable")
+
+                self.cptpclocktimepropertiesdsleap59 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap59")
+
+                self.cptpclocktimepropertiesdsleap61 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap61")
+
+                self.cptpclocktimepropertiesdsptptimescale = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSPTPTimescale")
+
+                self.cptpclocktimepropertiesdssource = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSSource")
+
+                self.cptpclocktimepropertiesdstimetraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSTimeTraceable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclocktimepropertiesdsdomainindex",
+                                "cptpclocktimepropertiesdsclocktypeindex",
+                                "cptpclocktimepropertiesdsinstanceindex",
+                                "cptpclocktimepropertiesdscurrentutcoffset",
+                                "cptpclocktimepropertiesdscurrentutcoffsetvalid",
+                                "cptpclocktimepropertiesdsfreqtraceable",
+                                "cptpclocktimepropertiesdsleap59",
+                                "cptpclocktimepropertiesdsleap61",
+                                "cptpclocktimepropertiesdsptptimescale",
+                                "cptpclocktimepropertiesdssource",
+                                "cptpclocktimepropertiesdstimetraceable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclocktimepropertiesdsdomainindex.is_set or
+                    self.cptpclocktimepropertiesdsclocktypeindex.is_set or
+                    self.cptpclocktimepropertiesdsinstanceindex.is_set or
+                    self.cptpclocktimepropertiesdscurrentutcoffset.is_set or
+                    self.cptpclocktimepropertiesdscurrentutcoffsetvalid.is_set or
+                    self.cptpclocktimepropertiesdsfreqtraceable.is_set or
+                    self.cptpclocktimepropertiesdsleap59.is_set or
+                    self.cptpclocktimepropertiesdsleap61.is_set or
+                    self.cptpclocktimepropertiesdsptptimescale.is_set or
+                    self.cptpclocktimepropertiesdssource.is_set or
+                    self.cptpclocktimepropertiesdstimetraceable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdscurrentutcoffset.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdscurrentutcoffsetvalid.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsfreqtraceable.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsleap59.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsleap61.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdsptptimescale.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdssource.yfilter != YFilter.not_set or
+                    self.cptpclocktimepropertiesdstimetraceable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockTimePropertiesDSEntry" + "[cPtpClockTimePropertiesDSDomainIndex='" + self.cptpclocktimepropertiesdsdomainindex.get() + "']" + "[cPtpClockTimePropertiesDSClockTypeIndex='" + self.cptpclocktimepropertiesdsclocktypeindex.get() + "']" + "[cPtpClockTimePropertiesDSInstanceIndex='" + self.cptpclocktimepropertiesdsinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclocktimepropertiesdsdomainindex.is_set or self.cptpclocktimepropertiesdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsdomainindex.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsclocktypeindex.is_set or self.cptpclocktimepropertiesdsclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsclocktypeindex.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsinstanceindex.is_set or self.cptpclocktimepropertiesdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsinstanceindex.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdscurrentutcoffset.is_set or self.cptpclocktimepropertiesdscurrentutcoffset.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdscurrentutcoffset.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdscurrentutcoffsetvalid.is_set or self.cptpclocktimepropertiesdscurrentutcoffsetvalid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdscurrentutcoffsetvalid.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsfreqtraceable.is_set or self.cptpclocktimepropertiesdsfreqtraceable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsfreqtraceable.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsleap59.is_set or self.cptpclocktimepropertiesdsleap59.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsleap59.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsleap61.is_set or self.cptpclocktimepropertiesdsleap61.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsleap61.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdsptptimescale.is_set or self.cptpclocktimepropertiesdsptptimescale.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdsptptimescale.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdssource.is_set or self.cptpclocktimepropertiesdssource.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdssource.get_name_leafdata())
+                if (self.cptpclocktimepropertiesdstimetraceable.is_set or self.cptpclocktimepropertiesdstimetraceable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktimepropertiesdstimetraceable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockTimePropertiesDSDomainIndex" or name == "cPtpClockTimePropertiesDSClockTypeIndex" or name == "cPtpClockTimePropertiesDSInstanceIndex" or name == "cPtpClockTimePropertiesDSCurrentUTCOffset" or name == "cPtpClockTimePropertiesDSCurrentUTCOffsetValid" or name == "cPtpClockTimePropertiesDSFreqTraceable" or name == "cPtpClockTimePropertiesDSLeap59" or name == "cPtpClockTimePropertiesDSLeap61" or name == "cPtpClockTimePropertiesDSPTPTimescale" or name == "cPtpClockTimePropertiesDSSource" or name == "cPtpClockTimePropertiesDSTimeTraceable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclocktimepropertiesdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockTimePropertiesDSDomainIndex"):
+                    self.cptpclocktimepropertiesdsdomainindex = value
+                    self.cptpclocktimepropertiesdsdomainindex.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSClockTypeIndex"):
+                    self.cptpclocktimepropertiesdsclocktypeindex = value
+                    self.cptpclocktimepropertiesdsclocktypeindex.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSInstanceIndex"):
+                    self.cptpclocktimepropertiesdsinstanceindex = value
+                    self.cptpclocktimepropertiesdsinstanceindex.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSCurrentUTCOffset"):
+                    self.cptpclocktimepropertiesdscurrentutcoffset = value
+                    self.cptpclocktimepropertiesdscurrentutcoffset.value_namespace = name_space
+                    self.cptpclocktimepropertiesdscurrentutcoffset.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSCurrentUTCOffsetValid"):
+                    self.cptpclocktimepropertiesdscurrentutcoffsetvalid = value
+                    self.cptpclocktimepropertiesdscurrentutcoffsetvalid.value_namespace = name_space
+                    self.cptpclocktimepropertiesdscurrentutcoffsetvalid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSFreqTraceable"):
+                    self.cptpclocktimepropertiesdsfreqtraceable = value
+                    self.cptpclocktimepropertiesdsfreqtraceable.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsfreqtraceable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSLeap59"):
+                    self.cptpclocktimepropertiesdsleap59 = value
+                    self.cptpclocktimepropertiesdsleap59.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsleap59.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSLeap61"):
+                    self.cptpclocktimepropertiesdsleap61 = value
+                    self.cptpclocktimepropertiesdsleap61.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsleap61.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSPTPTimescale"):
+                    self.cptpclocktimepropertiesdsptptimescale = value
+                    self.cptpclocktimepropertiesdsptptimescale.value_namespace = name_space
+                    self.cptpclocktimepropertiesdsptptimescale.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSSource"):
+                    self.cptpclocktimepropertiesdssource = value
+                    self.cptpclocktimepropertiesdssource.value_namespace = name_space
+                    self.cptpclocktimepropertiesdssource.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTimePropertiesDSTimeTraceable"):
+                    self.cptpclocktimepropertiesdstimetraceable = value
+                    self.cptpclocktimepropertiesdstimetraceable.value_namespace = name_space
+                    self.cptpclocktimepropertiesdstimetraceable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclocktimepropertiesdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclocktimepropertiesdsclocktypeindex is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdscurrentutcoffset is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdscurrentutcoffsetvalid is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdsfreqtraceable is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdsleap59 is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdsleap61 is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdsptptimescale is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdssource is not None:
-                    return True
-
-                if self.cptpclocktimepropertiesdstimetraceable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockTimePropertiesDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclocktimepropertiesdsentry is not None:
-                for child_ref in self.cptpclocktimepropertiesdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclocktimepropertiesdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockTimePropertiesDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockTimePropertiesDSEntry"):
+                for c in self.cptpclocktimepropertiesdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclocktimepropertiesdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockTimePropertiesDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclocktimepropertiesdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclocktransdefaultdstable(object):
+    class Cptpclocktransdefaultdstable(Entity):
         """
         Table of information about the PTP Transparent clock Default
         Datasets for all domains.
@@ -2512,13 +3848,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclocktransdefaultdsentry = YList()
-            self.cptpclocktransdefaultdsentry.parent = self
-            self.cptpclocktransdefaultdsentry.name = 'cptpclocktransdefaultdsentry'
+            super(CiscoPtpMib.Cptpclocktransdefaultdstable, self).__init__()
+
+            self.yang_name = "cPtpClockTransDefaultDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclocktransdefaultdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclocktransdefaultdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclocktransdefaultdstable, self).__setattr__(name, value)
 
 
-        class Cptpclocktransdefaultdsentry(object):
+        class Cptpclocktransdefaultdsentry(Entity):
             """
             An entry in the table, containing information about a single
             PTP Transparent clock Default Datasets for a domain.
@@ -2547,7 +3909,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclocktransdefaultdsdelay
             
             	This object, if the transparent clock is an end\-to\-end transparent clock, has the value shall be E2E; If the transparent clock is a peer\-to\-peer transparent clock, the value shall be P2P
-            	**type**\:   :py:class:`ClockmechanismtypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockmechanismtypeEnum>`
+            	**type**\:   :py:class:`Clockmechanismtype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockmechanismtype>`
             
             .. attribute:: cptpclocktransdefaultdsnumofports
             
@@ -2571,77 +3933,198 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclocktransdefaultdsdomainindex = None
-                self.cptpclocktransdefaultdsinstanceindex = None
-                self.cptpclocktransdefaultdsclockidentity = None
-                self.cptpclocktransdefaultdsdelay = None
-                self.cptpclocktransdefaultdsnumofports = None
-                self.cptpclocktransdefaultdsprimarydomain = None
+                super(CiscoPtpMib.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclocktransdefaultdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclocktransdefaultdsdomainindex is None')
-                if self.cptpclocktransdefaultdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclocktransdefaultdsinstanceindex is None')
+                self.yang_name = "cPtpClockTransDefaultDSEntry"
+                self.yang_parent_name = "cPtpClockTransDefaultDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockTransDefaultDSTable/CISCO-PTP-MIB:cPtpClockTransDefaultDSEntry[CISCO-PTP-MIB:cPtpClockTransDefaultDSDomainIndex = ' + str(self.cptpclocktransdefaultdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockTransDefaultDSInstanceIndex = ' + str(self.cptpclocktransdefaultdsinstanceindex) + ']'
+                self.cptpclocktransdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclocktransdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSInstanceIndex")
+
+                self.cptpclocktransdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockTransDefaultDSClockIdentity")
+
+                self.cptpclocktransdefaultdsdelay = YLeaf(YType.enumeration, "cPtpClockTransDefaultDSDelay")
+
+                self.cptpclocktransdefaultdsnumofports = YLeaf(YType.uint32, "cPtpClockTransDefaultDSNumOfPorts")
+
+                self.cptpclocktransdefaultdsprimarydomain = YLeaf(YType.int32, "cPtpClockTransDefaultDSPrimaryDomain")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclocktransdefaultdsdomainindex",
+                                "cptpclocktransdefaultdsinstanceindex",
+                                "cptpclocktransdefaultdsclockidentity",
+                                "cptpclocktransdefaultdsdelay",
+                                "cptpclocktransdefaultdsnumofports",
+                                "cptpclocktransdefaultdsprimarydomain") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclocktransdefaultdsdomainindex.is_set or
+                    self.cptpclocktransdefaultdsinstanceindex.is_set or
+                    self.cptpclocktransdefaultdsclockidentity.is_set or
+                    self.cptpclocktransdefaultdsdelay.is_set or
+                    self.cptpclocktransdefaultdsnumofports.is_set or
+                    self.cptpclocktransdefaultdsprimarydomain.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsclockidentity.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsdelay.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsnumofports.yfilter != YFilter.not_set or
+                    self.cptpclocktransdefaultdsprimarydomain.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockTransDefaultDSEntry" + "[cPtpClockTransDefaultDSDomainIndex='" + self.cptpclocktransdefaultdsdomainindex.get() + "']" + "[cPtpClockTransDefaultDSInstanceIndex='" + self.cptpclocktransdefaultdsinstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclocktransdefaultdsdomainindex.is_set or self.cptpclocktransdefaultdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsdomainindex.get_name_leafdata())
+                if (self.cptpclocktransdefaultdsinstanceindex.is_set or self.cptpclocktransdefaultdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsinstanceindex.get_name_leafdata())
+                if (self.cptpclocktransdefaultdsclockidentity.is_set or self.cptpclocktransdefaultdsclockidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsclockidentity.get_name_leafdata())
+                if (self.cptpclocktransdefaultdsdelay.is_set or self.cptpclocktransdefaultdsdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsdelay.get_name_leafdata())
+                if (self.cptpclocktransdefaultdsnumofports.is_set or self.cptpclocktransdefaultdsnumofports.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsnumofports.get_name_leafdata())
+                if (self.cptpclocktransdefaultdsprimarydomain.is_set or self.cptpclocktransdefaultdsprimarydomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclocktransdefaultdsprimarydomain.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockTransDefaultDSDomainIndex" or name == "cPtpClockTransDefaultDSInstanceIndex" or name == "cPtpClockTransDefaultDSClockIdentity" or name == "cPtpClockTransDefaultDSDelay" or name == "cPtpClockTransDefaultDSNumOfPorts" or name == "cPtpClockTransDefaultDSPrimaryDomain"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclocktransdefaultdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockTransDefaultDSDomainIndex"):
+                    self.cptpclocktransdefaultdsdomainindex = value
+                    self.cptpclocktransdefaultdsdomainindex.value_namespace = name_space
+                    self.cptpclocktransdefaultdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTransDefaultDSInstanceIndex"):
+                    self.cptpclocktransdefaultdsinstanceindex = value
+                    self.cptpclocktransdefaultdsinstanceindex.value_namespace = name_space
+                    self.cptpclocktransdefaultdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTransDefaultDSClockIdentity"):
+                    self.cptpclocktransdefaultdsclockidentity = value
+                    self.cptpclocktransdefaultdsclockidentity.value_namespace = name_space
+                    self.cptpclocktransdefaultdsclockidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTransDefaultDSDelay"):
+                    self.cptpclocktransdefaultdsdelay = value
+                    self.cptpclocktransdefaultdsdelay.value_namespace = name_space
+                    self.cptpclocktransdefaultdsdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTransDefaultDSNumOfPorts"):
+                    self.cptpclocktransdefaultdsnumofports = value
+                    self.cptpclocktransdefaultdsnumofports.value_namespace = name_space
+                    self.cptpclocktransdefaultdsnumofports.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockTransDefaultDSPrimaryDomain"):
+                    self.cptpclocktransdefaultdsprimarydomain = value
+                    self.cptpclocktransdefaultdsprimarydomain.value_namespace = name_space
+                    self.cptpclocktransdefaultdsprimarydomain.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclocktransdefaultdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclocktransdefaultdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclocktransdefaultdsclockidentity is not None:
-                    return True
-
-                if self.cptpclocktransdefaultdsdelay is not None:
-                    return True
-
-                if self.cptpclocktransdefaultdsnumofports is not None:
-                    return True
-
-                if self.cptpclocktransdefaultdsprimarydomain is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockTransDefaultDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclocktransdefaultdsentry is not None:
-                for child_ref in self.cptpclocktransdefaultdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclocktransdefaultdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockTransDefaultDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockTransDefaultDSEntry"):
+                for c in self.cptpclocktransdefaultdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclocktransdefaultdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockTransDefaultDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclocktransdefaultdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockporttable(object):
+    class Cptpclockporttable(Entity):
         """
         Table of information about the clock ports for a particular
         domain.
@@ -2659,13 +4142,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockportentry = YList()
-            self.cptpclockportentry.parent = self
-            self.cptpclockportentry.name = 'cptpclockportentry'
+            super(CiscoPtpMib.Cptpclockporttable, self).__init__()
+
+            self.yang_name = "cPtpClockPortTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockportentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockporttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockporttable, self).__setattr__(name, value)
 
 
-        class Cptpclockportentry(object):
+        class Cptpclockportentry(Entity):
             """
             An entry in the table, containing information about a single
             clock port.
@@ -2680,7 +4189,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockportclockinstanceindex  <key>
             
@@ -2706,7 +4215,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportcurrentpeeraddresstype
             
             	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cptpclockportname
             
@@ -2725,7 +4234,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportrole
             
             	This object describes the current role (slave/master) of the port
-            	**type**\:   :py:class:`ClockroletypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockroletypeEnum>`
+            	**type**\:   :py:class:`Clockroletype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockroletype>`
             
             .. attribute:: cptpclockportsynconestep
             
@@ -2740,97 +4249,242 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockportdomainindex = None
-                self.cptpclockportclocktypeindex = None
-                self.cptpclockportclockinstanceindex = None
-                self.cptpclockporttableportnumberindex = None
-                self.cptpclockportcurrentpeeraddress = None
-                self.cptpclockportcurrentpeeraddresstype = None
-                self.cptpclockportname = None
-                self.cptpclockportnumofassociatedports = None
-                self.cptpclockportrole = None
-                self.cptpclockportsynconestep = None
+                super(CiscoPtpMib.Cptpclockporttable.Cptpclockportentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockportdomainindex is None:
-                    raise YPYModelError('Key property cptpclockportdomainindex is None')
-                if self.cptpclockportclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockportclocktypeindex is None')
-                if self.cptpclockportclockinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockportclockinstanceindex is None')
-                if self.cptpclockporttableportnumberindex is None:
-                    raise YPYModelError('Key property cptpclockporttableportnumberindex is None')
+                self.yang_name = "cPtpClockPortEntry"
+                self.yang_parent_name = "cPtpClockPortTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortTable/CISCO-PTP-MIB:cPtpClockPortEntry[CISCO-PTP-MIB:cPtpClockPortDomainIndex = ' + str(self.cptpclockportdomainindex) + '][CISCO-PTP-MIB:cPtpClockPortClockTypeIndex = ' + str(self.cptpclockportclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockPortClockInstanceIndex = ' + str(self.cptpclockportclockinstanceindex) + '][CISCO-PTP-MIB:cPtpClockPortTablePortNumberIndex = ' + str(self.cptpclockporttableportnumberindex) + ']'
+                self.cptpclockportdomainindex = YLeaf(YType.uint32, "cPtpClockPortDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockportclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortClockTypeIndex")
+
+                self.cptpclockportclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortClockInstanceIndex")
+
+                self.cptpclockporttableportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTablePortNumberIndex")
+
+                self.cptpclockportcurrentpeeraddress = YLeaf(YType.str, "cPtpClockPortCurrentPeerAddress")
+
+                self.cptpclockportcurrentpeeraddresstype = YLeaf(YType.enumeration, "cPtpClockPortCurrentPeerAddressType")
+
+                self.cptpclockportname = YLeaf(YType.str, "cPtpClockPortName")
+
+                self.cptpclockportnumofassociatedports = YLeaf(YType.uint32, "cPtpClockPortNumOfAssociatedPorts")
+
+                self.cptpclockportrole = YLeaf(YType.enumeration, "cPtpClockPortRole")
+
+                self.cptpclockportsynconestep = YLeaf(YType.boolean, "cPtpClockPortSyncOneStep")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockportdomainindex",
+                                "cptpclockportclocktypeindex",
+                                "cptpclockportclockinstanceindex",
+                                "cptpclockporttableportnumberindex",
+                                "cptpclockportcurrentpeeraddress",
+                                "cptpclockportcurrentpeeraddresstype",
+                                "cptpclockportname",
+                                "cptpclockportnumofassociatedports",
+                                "cptpclockportrole",
+                                "cptpclockportsynconestep") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockporttable.Cptpclockportentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockporttable.Cptpclockportentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockportdomainindex.is_set or
+                    self.cptpclockportclocktypeindex.is_set or
+                    self.cptpclockportclockinstanceindex.is_set or
+                    self.cptpclockporttableportnumberindex.is_set or
+                    self.cptpclockportcurrentpeeraddress.is_set or
+                    self.cptpclockportcurrentpeeraddresstype.is_set or
+                    self.cptpclockportname.is_set or
+                    self.cptpclockportnumofassociatedports.is_set or
+                    self.cptpclockportrole.is_set or
+                    self.cptpclockportsynconestep.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockportdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockportclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockportclockinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockporttableportnumberindex.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentpeeraddress.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentpeeraddresstype.yfilter != YFilter.not_set or
+                    self.cptpclockportname.yfilter != YFilter.not_set or
+                    self.cptpclockportnumofassociatedports.yfilter != YFilter.not_set or
+                    self.cptpclockportrole.yfilter != YFilter.not_set or
+                    self.cptpclockportsynconestep.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockPortEntry" + "[cPtpClockPortDomainIndex='" + self.cptpclockportdomainindex.get() + "']" + "[cPtpClockPortClockTypeIndex='" + self.cptpclockportclocktypeindex.get() + "']" + "[cPtpClockPortClockInstanceIndex='" + self.cptpclockportclockinstanceindex.get() + "']" + "[cPtpClockPortTablePortNumberIndex='" + self.cptpclockporttableportnumberindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockportdomainindex.is_set or self.cptpclockportdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdomainindex.get_name_leafdata())
+                if (self.cptpclockportclocktypeindex.is_set or self.cptpclockportclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportclocktypeindex.get_name_leafdata())
+                if (self.cptpclockportclockinstanceindex.is_set or self.cptpclockportclockinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportclockinstanceindex.get_name_leafdata())
+                if (self.cptpclockporttableportnumberindex.is_set or self.cptpclockporttableportnumberindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttableportnumberindex.get_name_leafdata())
+                if (self.cptpclockportcurrentpeeraddress.is_set or self.cptpclockportcurrentpeeraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentpeeraddress.get_name_leafdata())
+                if (self.cptpclockportcurrentpeeraddresstype.is_set or self.cptpclockportcurrentpeeraddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentpeeraddresstype.get_name_leafdata())
+                if (self.cptpclockportname.is_set or self.cptpclockportname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportname.get_name_leafdata())
+                if (self.cptpclockportnumofassociatedports.is_set or self.cptpclockportnumofassociatedports.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportnumofassociatedports.get_name_leafdata())
+                if (self.cptpclockportrole.is_set or self.cptpclockportrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrole.get_name_leafdata())
+                if (self.cptpclockportsynconestep.is_set or self.cptpclockportsynconestep.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportsynconestep.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockPortDomainIndex" or name == "cPtpClockPortClockTypeIndex" or name == "cPtpClockPortClockInstanceIndex" or name == "cPtpClockPortTablePortNumberIndex" or name == "cPtpClockPortCurrentPeerAddress" or name == "cPtpClockPortCurrentPeerAddressType" or name == "cPtpClockPortName" or name == "cPtpClockPortNumOfAssociatedPorts" or name == "cPtpClockPortRole" or name == "cPtpClockPortSyncOneStep"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockportdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockPortDomainIndex"):
+                    self.cptpclockportdomainindex = value
+                    self.cptpclockportdomainindex.value_namespace = name_space
+                    self.cptpclockportdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortClockTypeIndex"):
+                    self.cptpclockportclocktypeindex = value
+                    self.cptpclockportclocktypeindex.value_namespace = name_space
+                    self.cptpclockportclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortClockInstanceIndex"):
+                    self.cptpclockportclockinstanceindex = value
+                    self.cptpclockportclockinstanceindex.value_namespace = name_space
+                    self.cptpclockportclockinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTablePortNumberIndex"):
+                    self.cptpclockporttableportnumberindex = value
+                    self.cptpclockporttableportnumberindex.value_namespace = name_space
+                    self.cptpclockporttableportnumberindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortCurrentPeerAddress"):
+                    self.cptpclockportcurrentpeeraddress = value
+                    self.cptpclockportcurrentpeeraddress.value_namespace = name_space
+                    self.cptpclockportcurrentpeeraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortCurrentPeerAddressType"):
+                    self.cptpclockportcurrentpeeraddresstype = value
+                    self.cptpclockportcurrentpeeraddresstype.value_namespace = name_space
+                    self.cptpclockportcurrentpeeraddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortName"):
+                    self.cptpclockportname = value
+                    self.cptpclockportname.value_namespace = name_space
+                    self.cptpclockportname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortNumOfAssociatedPorts"):
+                    self.cptpclockportnumofassociatedports = value
+                    self.cptpclockportnumofassociatedports.value_namespace = name_space
+                    self.cptpclockportnumofassociatedports.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRole"):
+                    self.cptpclockportrole = value
+                    self.cptpclockportrole.value_namespace = name_space
+                    self.cptpclockportrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortSyncOneStep"):
+                    self.cptpclockportsynconestep = value
+                    self.cptpclockportsynconestep.value_namespace = name_space
+                    self.cptpclockportsynconestep.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockportentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockportclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockportclockinstanceindex is not None:
-                    return True
-
-                if self.cptpclockporttableportnumberindex is not None:
-                    return True
-
-                if self.cptpclockportcurrentpeeraddress is not None:
-                    return True
-
-                if self.cptpclockportcurrentpeeraddresstype is not None:
-                    return True
-
-                if self.cptpclockportname is not None:
-                    return True
-
-                if self.cptpclockportnumofassociatedports is not None:
-                    return True
-
-                if self.cptpclockportrole is not None:
-                    return True
-
-                if self.cptpclockportsynconestep is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockporttable.Cptpclockportentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockportentry is not None:
-                for child_ref in self.cptpclockportentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockportentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockPortTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockPortEntry"):
+                for c in self.cptpclockportentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockporttable.Cptpclockportentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockportentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockPortEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockporttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockportdstable(object):
+    class Cptpclockportdstable(Entity):
         """
         Table of information about the clock ports dataset for a
         particular domain.
@@ -2848,13 +4502,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockportdsentry = YList()
-            self.cptpclockportdsentry.parent = self
-            self.cptpclockportdsentry.name = 'cptpclockportdsentry'
+            super(CiscoPtpMib.Cptpclockportdstable, self).__init__()
+
+            self.yang_name = "cPtpClockPortDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockportdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockportdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockportdstable, self).__setattr__(name, value)
 
 
-        class Cptpclockportdsentry(object):
+        class Cptpclockportdsentry(Entity):
             """
             An entry in the table, containing port dataset information for
             a single clock port.
@@ -2869,7 +4549,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportdsclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockportdsclockinstanceindex  <key>
             
@@ -2902,7 +4582,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportdsdelaymech
             
             	This object specifies the delay mechanism used. If the clock is an end\-to\-end clock, the value of the is e2e, else if the clock is a peer to\-peer clock, the value shall be p2p
-            	**type**\:   :py:class:`ClockmechanismtypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockmechanismtypeEnum>`
+            	**type**\:   :py:class:`Clockmechanismtype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockmechanismtype>`
             
             .. attribute:: cptpclockportdsgrantduration
             
@@ -2966,117 +4646,297 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockportdsdomainindex = None
-                self.cptpclockportdsclocktypeindex = None
-                self.cptpclockportdsclockinstanceindex = None
-                self.cptpclockportdsportnumberindex = None
-                self.cptpclockportdsannouncementinterval = None
-                self.cptpclockportdsannouncercttimeout = None
-                self.cptpclockportdsdelaymech = None
-                self.cptpclockportdsgrantduration = None
-                self.cptpclockportdsmindelayreqinterval = None
-                self.cptpclockportdsname = None
-                self.cptpclockportdspeerdelayreqinterval = None
-                self.cptpclockportdspeermeanpathdelay = None
-                self.cptpclockportdsportidentity = None
-                self.cptpclockportdsptpversion = None
-                self.cptpclockportdssyncinterval = None
+                super(CiscoPtpMib.Cptpclockportdstable.Cptpclockportdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockportdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclockportdsdomainindex is None')
-                if self.cptpclockportdsclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockportdsclocktypeindex is None')
-                if self.cptpclockportdsclockinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockportdsclockinstanceindex is None')
-                if self.cptpclockportdsportnumberindex is None:
-                    raise YPYModelError('Key property cptpclockportdsportnumberindex is None')
+                self.yang_name = "cPtpClockPortDSEntry"
+                self.yang_parent_name = "cPtpClockPortDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortDSTable/CISCO-PTP-MIB:cPtpClockPortDSEntry[CISCO-PTP-MIB:cPtpClockPortDSDomainIndex = ' + str(self.cptpclockportdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockPortDSClockTypeIndex = ' + str(self.cptpclockportdsclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockPortDSClockInstanceIndex = ' + str(self.cptpclockportdsclockinstanceindex) + '][CISCO-PTP-MIB:cPtpClockPortDSPortNumberIndex = ' + str(self.cptpclockportdsportnumberindex) + ']'
+                self.cptpclockportdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockportdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortDSClockTypeIndex")
+
+                self.cptpclockportdsclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortDSClockInstanceIndex")
+
+                self.cptpclockportdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortDSPortNumberIndex")
+
+                self.cptpclockportdsannouncementinterval = YLeaf(YType.int32, "cPtpClockPortDSAnnouncementInterval")
+
+                self.cptpclockportdsannouncercttimeout = YLeaf(YType.int32, "cPtpClockPortDSAnnounceRctTimeout")
+
+                self.cptpclockportdsdelaymech = YLeaf(YType.enumeration, "cPtpClockPortDSDelayMech")
+
+                self.cptpclockportdsgrantduration = YLeaf(YType.uint32, "cPtpClockPortDSGrantDuration")
+
+                self.cptpclockportdsmindelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSMinDelayReqInterval")
+
+                self.cptpclockportdsname = YLeaf(YType.str, "cPtpClockPortDSName")
+
+                self.cptpclockportdspeerdelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSPeerDelayReqInterval")
+
+                self.cptpclockportdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortDSPeerMeanPathDelay")
+
+                self.cptpclockportdsportidentity = YLeaf(YType.str, "cPtpClockPortDSPortIdentity")
+
+                self.cptpclockportdsptpversion = YLeaf(YType.int32, "cPtpClockPortDSPTPVersion")
+
+                self.cptpclockportdssyncinterval = YLeaf(YType.int32, "cPtpClockPortDSSyncInterval")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockportdsdomainindex",
+                                "cptpclockportdsclocktypeindex",
+                                "cptpclockportdsclockinstanceindex",
+                                "cptpclockportdsportnumberindex",
+                                "cptpclockportdsannouncementinterval",
+                                "cptpclockportdsannouncercttimeout",
+                                "cptpclockportdsdelaymech",
+                                "cptpclockportdsgrantduration",
+                                "cptpclockportdsmindelayreqinterval",
+                                "cptpclockportdsname",
+                                "cptpclockportdspeerdelayreqinterval",
+                                "cptpclockportdspeermeanpathdelay",
+                                "cptpclockportdsportidentity",
+                                "cptpclockportdsptpversion",
+                                "cptpclockportdssyncinterval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockportdstable.Cptpclockportdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockportdstable.Cptpclockportdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockportdsdomainindex.is_set or
+                    self.cptpclockportdsclocktypeindex.is_set or
+                    self.cptpclockportdsclockinstanceindex.is_set or
+                    self.cptpclockportdsportnumberindex.is_set or
+                    self.cptpclockportdsannouncementinterval.is_set or
+                    self.cptpclockportdsannouncercttimeout.is_set or
+                    self.cptpclockportdsdelaymech.is_set or
+                    self.cptpclockportdsgrantduration.is_set or
+                    self.cptpclockportdsmindelayreqinterval.is_set or
+                    self.cptpclockportdsname.is_set or
+                    self.cptpclockportdspeerdelayreqinterval.is_set or
+                    self.cptpclockportdspeermeanpathdelay.is_set or
+                    self.cptpclockportdsportidentity.is_set or
+                    self.cptpclockportdsptpversion.is_set or
+                    self.cptpclockportdssyncinterval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockportdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockportdsclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockportdsclockinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockportdsportnumberindex.yfilter != YFilter.not_set or
+                    self.cptpclockportdsannouncementinterval.yfilter != YFilter.not_set or
+                    self.cptpclockportdsannouncercttimeout.yfilter != YFilter.not_set or
+                    self.cptpclockportdsdelaymech.yfilter != YFilter.not_set or
+                    self.cptpclockportdsgrantduration.yfilter != YFilter.not_set or
+                    self.cptpclockportdsmindelayreqinterval.yfilter != YFilter.not_set or
+                    self.cptpclockportdsname.yfilter != YFilter.not_set or
+                    self.cptpclockportdspeerdelayreqinterval.yfilter != YFilter.not_set or
+                    self.cptpclockportdspeermeanpathdelay.yfilter != YFilter.not_set or
+                    self.cptpclockportdsportidentity.yfilter != YFilter.not_set or
+                    self.cptpclockportdsptpversion.yfilter != YFilter.not_set or
+                    self.cptpclockportdssyncinterval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockPortDSEntry" + "[cPtpClockPortDSDomainIndex='" + self.cptpclockportdsdomainindex.get() + "']" + "[cPtpClockPortDSClockTypeIndex='" + self.cptpclockportdsclocktypeindex.get() + "']" + "[cPtpClockPortDSClockInstanceIndex='" + self.cptpclockportdsclockinstanceindex.get() + "']" + "[cPtpClockPortDSPortNumberIndex='" + self.cptpclockportdsportnumberindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockportdsdomainindex.is_set or self.cptpclockportdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsdomainindex.get_name_leafdata())
+                if (self.cptpclockportdsclocktypeindex.is_set or self.cptpclockportdsclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsclocktypeindex.get_name_leafdata())
+                if (self.cptpclockportdsclockinstanceindex.is_set or self.cptpclockportdsclockinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsclockinstanceindex.get_name_leafdata())
+                if (self.cptpclockportdsportnumberindex.is_set or self.cptpclockportdsportnumberindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsportnumberindex.get_name_leafdata())
+                if (self.cptpclockportdsannouncementinterval.is_set or self.cptpclockportdsannouncementinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsannouncementinterval.get_name_leafdata())
+                if (self.cptpclockportdsannouncercttimeout.is_set or self.cptpclockportdsannouncercttimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsannouncercttimeout.get_name_leafdata())
+                if (self.cptpclockportdsdelaymech.is_set or self.cptpclockportdsdelaymech.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsdelaymech.get_name_leafdata())
+                if (self.cptpclockportdsgrantduration.is_set or self.cptpclockportdsgrantduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsgrantduration.get_name_leafdata())
+                if (self.cptpclockportdsmindelayreqinterval.is_set or self.cptpclockportdsmindelayreqinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsmindelayreqinterval.get_name_leafdata())
+                if (self.cptpclockportdsname.is_set or self.cptpclockportdsname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsname.get_name_leafdata())
+                if (self.cptpclockportdspeerdelayreqinterval.is_set or self.cptpclockportdspeerdelayreqinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdspeerdelayreqinterval.get_name_leafdata())
+                if (self.cptpclockportdspeermeanpathdelay.is_set or self.cptpclockportdspeermeanpathdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdspeermeanpathdelay.get_name_leafdata())
+                if (self.cptpclockportdsportidentity.is_set or self.cptpclockportdsportidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsportidentity.get_name_leafdata())
+                if (self.cptpclockportdsptpversion.is_set or self.cptpclockportdsptpversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdsptpversion.get_name_leafdata())
+                if (self.cptpclockportdssyncinterval.is_set or self.cptpclockportdssyncinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportdssyncinterval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockPortDSDomainIndex" or name == "cPtpClockPortDSClockTypeIndex" or name == "cPtpClockPortDSClockInstanceIndex" or name == "cPtpClockPortDSPortNumberIndex" or name == "cPtpClockPortDSAnnouncementInterval" or name == "cPtpClockPortDSAnnounceRctTimeout" or name == "cPtpClockPortDSDelayMech" or name == "cPtpClockPortDSGrantDuration" or name == "cPtpClockPortDSMinDelayReqInterval" or name == "cPtpClockPortDSName" or name == "cPtpClockPortDSPeerDelayReqInterval" or name == "cPtpClockPortDSPeerMeanPathDelay" or name == "cPtpClockPortDSPortIdentity" or name == "cPtpClockPortDSPTPVersion" or name == "cPtpClockPortDSSyncInterval"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockportdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockPortDSDomainIndex"):
+                    self.cptpclockportdsdomainindex = value
+                    self.cptpclockportdsdomainindex.value_namespace = name_space
+                    self.cptpclockportdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSClockTypeIndex"):
+                    self.cptpclockportdsclocktypeindex = value
+                    self.cptpclockportdsclocktypeindex.value_namespace = name_space
+                    self.cptpclockportdsclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSClockInstanceIndex"):
+                    self.cptpclockportdsclockinstanceindex = value
+                    self.cptpclockportdsclockinstanceindex.value_namespace = name_space
+                    self.cptpclockportdsclockinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSPortNumberIndex"):
+                    self.cptpclockportdsportnumberindex = value
+                    self.cptpclockportdsportnumberindex.value_namespace = name_space
+                    self.cptpclockportdsportnumberindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSAnnouncementInterval"):
+                    self.cptpclockportdsannouncementinterval = value
+                    self.cptpclockportdsannouncementinterval.value_namespace = name_space
+                    self.cptpclockportdsannouncementinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSAnnounceRctTimeout"):
+                    self.cptpclockportdsannouncercttimeout = value
+                    self.cptpclockportdsannouncercttimeout.value_namespace = name_space
+                    self.cptpclockportdsannouncercttimeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSDelayMech"):
+                    self.cptpclockportdsdelaymech = value
+                    self.cptpclockportdsdelaymech.value_namespace = name_space
+                    self.cptpclockportdsdelaymech.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSGrantDuration"):
+                    self.cptpclockportdsgrantduration = value
+                    self.cptpclockportdsgrantduration.value_namespace = name_space
+                    self.cptpclockportdsgrantduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSMinDelayReqInterval"):
+                    self.cptpclockportdsmindelayreqinterval = value
+                    self.cptpclockportdsmindelayreqinterval.value_namespace = name_space
+                    self.cptpclockportdsmindelayreqinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSName"):
+                    self.cptpclockportdsname = value
+                    self.cptpclockportdsname.value_namespace = name_space
+                    self.cptpclockportdsname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSPeerDelayReqInterval"):
+                    self.cptpclockportdspeerdelayreqinterval = value
+                    self.cptpclockportdspeerdelayreqinterval.value_namespace = name_space
+                    self.cptpclockportdspeerdelayreqinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSPeerMeanPathDelay"):
+                    self.cptpclockportdspeermeanpathdelay = value
+                    self.cptpclockportdspeermeanpathdelay.value_namespace = name_space
+                    self.cptpclockportdspeermeanpathdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSPortIdentity"):
+                    self.cptpclockportdsportidentity = value
+                    self.cptpclockportdsportidentity.value_namespace = name_space
+                    self.cptpclockportdsportidentity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSPTPVersion"):
+                    self.cptpclockportdsptpversion = value
+                    self.cptpclockportdsptpversion.value_namespace = name_space
+                    self.cptpclockportdsptpversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortDSSyncInterval"):
+                    self.cptpclockportdssyncinterval = value
+                    self.cptpclockportdssyncinterval.value_namespace = name_space
+                    self.cptpclockportdssyncinterval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockportdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockportdsclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockportdsclockinstanceindex is not None:
-                    return True
-
-                if self.cptpclockportdsportnumberindex is not None:
-                    return True
-
-                if self.cptpclockportdsannouncementinterval is not None:
-                    return True
-
-                if self.cptpclockportdsannouncercttimeout is not None:
-                    return True
-
-                if self.cptpclockportdsdelaymech is not None:
-                    return True
-
-                if self.cptpclockportdsgrantduration is not None:
-                    return True
-
-                if self.cptpclockportdsmindelayreqinterval is not None:
-                    return True
-
-                if self.cptpclockportdsname is not None:
-                    return True
-
-                if self.cptpclockportdspeerdelayreqinterval is not None:
-                    return True
-
-                if self.cptpclockportdspeermeanpathdelay is not None:
-                    return True
-
-                if self.cptpclockportdsportidentity is not None:
-                    return True
-
-                if self.cptpclockportdsptpversion is not None:
-                    return True
-
-                if self.cptpclockportdssyncinterval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockportdstable.Cptpclockportdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockportdsentry is not None:
-                for child_ref in self.cptpclockportdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockportdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockPortDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockPortDSEntry"):
+                for c in self.cptpclockportdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockportdstable.Cptpclockportdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockportdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockPortDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockportdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockportrunningtable(object):
+    class Cptpclockportrunningtable(Entity):
         """
         Table of information about the clock ports running dataset for
         a particular domain.
@@ -3094,13 +4954,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockportrunningentry = YList()
-            self.cptpclockportrunningentry.parent = self
-            self.cptpclockportrunningentry.name = 'cptpclockportrunningentry'
+            super(CiscoPtpMib.Cptpclockportrunningtable, self).__init__()
+
+            self.yang_name = "cPtpClockPortRunningTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockportrunningentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockportrunningtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockportrunningtable, self).__setattr__(name, value)
 
 
-        class Cptpclockportrunningentry(object):
+        class Cptpclockportrunningentry(Entity):
             """
             An entry in the table, containing runing dataset information
             about a single clock port.
@@ -3115,7 +5001,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportrunningclocktypeindex  <key>
             
             	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockportrunningclockinstanceindex  <key>
             
@@ -3180,22 +5066,22 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportrunningrole
             
             	This object specifies the Clock Role
-            	**type**\:   :py:class:`ClockroletypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockroletypeEnum>`
+            	**type**\:   :py:class:`Clockroletype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockroletype>`
             
             .. attribute:: cptpclockportrunningrxmode
             
             	This object specifie the clock receive mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
-            	**type**\:   :py:class:`ClocktxmodetypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktxmodetypeEnum>`
+            	**type**\:   :py:class:`Clocktxmodetype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktxmodetype>`
             
             .. attribute:: cptpclockportrunningstate
             
             	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a master. preMaster    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. master       \- The port is behaving as a master port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the master port. slave        \- The port is synchronizing to the                selected master port
-            	**type**\:   :py:class:`ClockportstateEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockportstateEnum>`
+            	**type**\:   :py:class:`Clockportstate <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clockportstate>`
             
             .. attribute:: cptpclockportrunningtxmode
             
             	This object specifies the clock transmission mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
-            	**type**\:   :py:class:`ClocktxmodetypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktxmodetypeEnum>`
+            	**type**\:   :py:class:`Clocktxmodetype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktxmodetype>`
             
             
 
@@ -3205,113 +5091,286 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockportrunningdomainindex = None
-                self.cptpclockportrunningclocktypeindex = None
-                self.cptpclockportrunningclockinstanceindex = None
-                self.cptpclockportrunningportnumberindex = None
-                self.cptpclockportrunningencapsulationtype = None
-                self.cptpclockportrunninginterfaceindex = None
-                self.cptpclockportrunningipversion = None
-                self.cptpclockportrunningname = None
-                self.cptpclockportrunningpacketsreceived = None
-                self.cptpclockportrunningpacketssent = None
-                self.cptpclockportrunningrole = None
-                self.cptpclockportrunningrxmode = None
-                self.cptpclockportrunningstate = None
-                self.cptpclockportrunningtxmode = None
+                super(CiscoPtpMib.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockportrunningdomainindex is None:
-                    raise YPYModelError('Key property cptpclockportrunningdomainindex is None')
-                if self.cptpclockportrunningclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockportrunningclocktypeindex is None')
-                if self.cptpclockportrunningclockinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockportrunningclockinstanceindex is None')
-                if self.cptpclockportrunningportnumberindex is None:
-                    raise YPYModelError('Key property cptpclockportrunningportnumberindex is None')
+                self.yang_name = "cPtpClockPortRunningEntry"
+                self.yang_parent_name = "cPtpClockPortRunningTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortRunningTable/CISCO-PTP-MIB:cPtpClockPortRunningEntry[CISCO-PTP-MIB:cPtpClockPortRunningDomainIndex = ' + str(self.cptpclockportrunningdomainindex) + '][CISCO-PTP-MIB:cPtpClockPortRunningClockTypeIndex = ' + str(self.cptpclockportrunningclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockPortRunningClockInstanceIndex = ' + str(self.cptpclockportrunningclockinstanceindex) + '][CISCO-PTP-MIB:cPtpClockPortRunningPortNumberIndex = ' + str(self.cptpclockportrunningportnumberindex) + ']'
+                self.cptpclockportrunningdomainindex = YLeaf(YType.uint32, "cPtpClockPortRunningDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockportrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortRunningClockTypeIndex")
+
+                self.cptpclockportrunningclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortRunningClockInstanceIndex")
+
+                self.cptpclockportrunningportnumberindex = YLeaf(YType.uint32, "cPtpClockPortRunningPortNumberIndex")
+
+                self.cptpclockportrunningencapsulationtype = YLeaf(YType.int32, "cPtpClockPortRunningEncapsulationType")
+
+                self.cptpclockportrunninginterfaceindex = YLeaf(YType.int32, "cPtpClockPortRunningInterfaceIndex")
+
+                self.cptpclockportrunningipversion = YLeaf(YType.int32, "cPtpClockPortRunningIPversion")
+
+                self.cptpclockportrunningname = YLeaf(YType.str, "cPtpClockPortRunningName")
+
+                self.cptpclockportrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsReceived")
+
+                self.cptpclockportrunningpacketssent = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsSent")
+
+                self.cptpclockportrunningrole = YLeaf(YType.enumeration, "cPtpClockPortRunningRole")
+
+                self.cptpclockportrunningrxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningRxMode")
+
+                self.cptpclockportrunningstate = YLeaf(YType.enumeration, "cPtpClockPortRunningState")
+
+                self.cptpclockportrunningtxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningTxMode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockportrunningdomainindex",
+                                "cptpclockportrunningclocktypeindex",
+                                "cptpclockportrunningclockinstanceindex",
+                                "cptpclockportrunningportnumberindex",
+                                "cptpclockportrunningencapsulationtype",
+                                "cptpclockportrunninginterfaceindex",
+                                "cptpclockportrunningipversion",
+                                "cptpclockportrunningname",
+                                "cptpclockportrunningpacketsreceived",
+                                "cptpclockportrunningpacketssent",
+                                "cptpclockportrunningrole",
+                                "cptpclockportrunningrxmode",
+                                "cptpclockportrunningstate",
+                                "cptpclockportrunningtxmode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockportrunningdomainindex.is_set or
+                    self.cptpclockportrunningclocktypeindex.is_set or
+                    self.cptpclockportrunningclockinstanceindex.is_set or
+                    self.cptpclockportrunningportnumberindex.is_set or
+                    self.cptpclockportrunningencapsulationtype.is_set or
+                    self.cptpclockportrunninginterfaceindex.is_set or
+                    self.cptpclockportrunningipversion.is_set or
+                    self.cptpclockportrunningname.is_set or
+                    self.cptpclockportrunningpacketsreceived.is_set or
+                    self.cptpclockportrunningpacketssent.is_set or
+                    self.cptpclockportrunningrole.is_set or
+                    self.cptpclockportrunningrxmode.is_set or
+                    self.cptpclockportrunningstate.is_set or
+                    self.cptpclockportrunningtxmode.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningclockinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningportnumberindex.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningencapsulationtype.yfilter != YFilter.not_set or
+                    self.cptpclockportrunninginterfaceindex.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningipversion.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningname.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningpacketsreceived.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningpacketssent.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningrole.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningrxmode.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningstate.yfilter != YFilter.not_set or
+                    self.cptpclockportrunningtxmode.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockPortRunningEntry" + "[cPtpClockPortRunningDomainIndex='" + self.cptpclockportrunningdomainindex.get() + "']" + "[cPtpClockPortRunningClockTypeIndex='" + self.cptpclockportrunningclocktypeindex.get() + "']" + "[cPtpClockPortRunningClockInstanceIndex='" + self.cptpclockportrunningclockinstanceindex.get() + "']" + "[cPtpClockPortRunningPortNumberIndex='" + self.cptpclockportrunningportnumberindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockportrunningdomainindex.is_set or self.cptpclockportrunningdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningdomainindex.get_name_leafdata())
+                if (self.cptpclockportrunningclocktypeindex.is_set or self.cptpclockportrunningclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningclocktypeindex.get_name_leafdata())
+                if (self.cptpclockportrunningclockinstanceindex.is_set or self.cptpclockportrunningclockinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningclockinstanceindex.get_name_leafdata())
+                if (self.cptpclockportrunningportnumberindex.is_set or self.cptpclockportrunningportnumberindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningportnumberindex.get_name_leafdata())
+                if (self.cptpclockportrunningencapsulationtype.is_set or self.cptpclockportrunningencapsulationtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningencapsulationtype.get_name_leafdata())
+                if (self.cptpclockportrunninginterfaceindex.is_set or self.cptpclockportrunninginterfaceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunninginterfaceindex.get_name_leafdata())
+                if (self.cptpclockportrunningipversion.is_set or self.cptpclockportrunningipversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningipversion.get_name_leafdata())
+                if (self.cptpclockportrunningname.is_set or self.cptpclockportrunningname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningname.get_name_leafdata())
+                if (self.cptpclockportrunningpacketsreceived.is_set or self.cptpclockportrunningpacketsreceived.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningpacketsreceived.get_name_leafdata())
+                if (self.cptpclockportrunningpacketssent.is_set or self.cptpclockportrunningpacketssent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningpacketssent.get_name_leafdata())
+                if (self.cptpclockportrunningrole.is_set or self.cptpclockportrunningrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningrole.get_name_leafdata())
+                if (self.cptpclockportrunningrxmode.is_set or self.cptpclockportrunningrxmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningrxmode.get_name_leafdata())
+                if (self.cptpclockportrunningstate.is_set or self.cptpclockportrunningstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningstate.get_name_leafdata())
+                if (self.cptpclockportrunningtxmode.is_set or self.cptpclockportrunningtxmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportrunningtxmode.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockPortRunningDomainIndex" or name == "cPtpClockPortRunningClockTypeIndex" or name == "cPtpClockPortRunningClockInstanceIndex" or name == "cPtpClockPortRunningPortNumberIndex" or name == "cPtpClockPortRunningEncapsulationType" or name == "cPtpClockPortRunningInterfaceIndex" or name == "cPtpClockPortRunningIPversion" or name == "cPtpClockPortRunningName" or name == "cPtpClockPortRunningPacketsReceived" or name == "cPtpClockPortRunningPacketsSent" or name == "cPtpClockPortRunningRole" or name == "cPtpClockPortRunningRxMode" or name == "cPtpClockPortRunningState" or name == "cPtpClockPortRunningTxMode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockportrunningdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockPortRunningDomainIndex"):
+                    self.cptpclockportrunningdomainindex = value
+                    self.cptpclockportrunningdomainindex.value_namespace = name_space
+                    self.cptpclockportrunningdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningClockTypeIndex"):
+                    self.cptpclockportrunningclocktypeindex = value
+                    self.cptpclockportrunningclocktypeindex.value_namespace = name_space
+                    self.cptpclockportrunningclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningClockInstanceIndex"):
+                    self.cptpclockportrunningclockinstanceindex = value
+                    self.cptpclockportrunningclockinstanceindex.value_namespace = name_space
+                    self.cptpclockportrunningclockinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningPortNumberIndex"):
+                    self.cptpclockportrunningportnumberindex = value
+                    self.cptpclockportrunningportnumberindex.value_namespace = name_space
+                    self.cptpclockportrunningportnumberindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningEncapsulationType"):
+                    self.cptpclockportrunningencapsulationtype = value
+                    self.cptpclockportrunningencapsulationtype.value_namespace = name_space
+                    self.cptpclockportrunningencapsulationtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningInterfaceIndex"):
+                    self.cptpclockportrunninginterfaceindex = value
+                    self.cptpclockportrunninginterfaceindex.value_namespace = name_space
+                    self.cptpclockportrunninginterfaceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningIPversion"):
+                    self.cptpclockportrunningipversion = value
+                    self.cptpclockportrunningipversion.value_namespace = name_space
+                    self.cptpclockportrunningipversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningName"):
+                    self.cptpclockportrunningname = value
+                    self.cptpclockportrunningname.value_namespace = name_space
+                    self.cptpclockportrunningname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningPacketsReceived"):
+                    self.cptpclockportrunningpacketsreceived = value
+                    self.cptpclockportrunningpacketsreceived.value_namespace = name_space
+                    self.cptpclockportrunningpacketsreceived.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningPacketsSent"):
+                    self.cptpclockportrunningpacketssent = value
+                    self.cptpclockportrunningpacketssent.value_namespace = name_space
+                    self.cptpclockportrunningpacketssent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningRole"):
+                    self.cptpclockportrunningrole = value
+                    self.cptpclockportrunningrole.value_namespace = name_space
+                    self.cptpclockportrunningrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningRxMode"):
+                    self.cptpclockportrunningrxmode = value
+                    self.cptpclockportrunningrxmode.value_namespace = name_space
+                    self.cptpclockportrunningrxmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningState"):
+                    self.cptpclockportrunningstate = value
+                    self.cptpclockportrunningstate.value_namespace = name_space
+                    self.cptpclockportrunningstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortRunningTxMode"):
+                    self.cptpclockportrunningtxmode = value
+                    self.cptpclockportrunningtxmode.value_namespace = name_space
+                    self.cptpclockportrunningtxmode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockportrunningentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockportrunningclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockportrunningclockinstanceindex is not None:
-                    return True
-
-                if self.cptpclockportrunningportnumberindex is not None:
-                    return True
-
-                if self.cptpclockportrunningencapsulationtype is not None:
-                    return True
-
-                if self.cptpclockportrunninginterfaceindex is not None:
-                    return True
-
-                if self.cptpclockportrunningipversion is not None:
-                    return True
-
-                if self.cptpclockportrunningname is not None:
-                    return True
-
-                if self.cptpclockportrunningpacketsreceived is not None:
-                    return True
-
-                if self.cptpclockportrunningpacketssent is not None:
-                    return True
-
-                if self.cptpclockportrunningrole is not None:
-                    return True
-
-                if self.cptpclockportrunningrxmode is not None:
-                    return True
-
-                if self.cptpclockportrunningstate is not None:
-                    return True
-
-                if self.cptpclockportrunningtxmode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockportrunningtable.Cptpclockportrunningentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortRunningTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockportrunningentry is not None:
-                for child_ref in self.cptpclockportrunningentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockportrunningentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockPortRunningTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockPortRunningEntry"):
+                for c in self.cptpclockportrunningentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockportrunningtable.Cptpclockportrunningentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockportrunningentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockPortRunningEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockportrunningtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockporttransdstable(object):
+    class Cptpclockporttransdstable(Entity):
         """
         Table of information about the Transparent clock ports running
         dataset for a particular domain.
@@ -3329,13 +5388,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockporttransdsentry = YList()
-            self.cptpclockporttransdsentry.parent = self
-            self.cptpclockporttransdsentry.name = 'cptpclockporttransdsentry'
+            super(CiscoPtpMib.Cptpclockporttransdstable, self).__init__()
+
+            self.yang_name = "cPtpClockPortTransDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockporttransdsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockporttransdstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockporttransdstable, self).__setattr__(name, value)
 
 
-        class Cptpclockporttransdsentry(object):
+        class Cptpclockporttransdsentry(Entity):
             """
             An entry in the table, containing clock port Transparent
             dataset information about a single clock port
@@ -3395,83 +5480,209 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockporttransdsdomainindex = None
-                self.cptpclockporttransdsinstanceindex = None
-                self.cptpclockporttransdsportnumberindex = None
-                self.cptpclockporttransdsfaultyflag = None
-                self.cptpclockporttransdslogminpdelayreqint = None
-                self.cptpclockporttransdspeermeanpathdelay = None
-                self.cptpclockporttransdsportidentity = None
+                super(CiscoPtpMib.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockporttransdsdomainindex is None:
-                    raise YPYModelError('Key property cptpclockporttransdsdomainindex is None')
-                if self.cptpclockporttransdsinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockporttransdsinstanceindex is None')
-                if self.cptpclockporttransdsportnumberindex is None:
-                    raise YPYModelError('Key property cptpclockporttransdsportnumberindex is None')
+                self.yang_name = "cPtpClockPortTransDSEntry"
+                self.yang_parent_name = "cPtpClockPortTransDSTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortTransDSTable/CISCO-PTP-MIB:cPtpClockPortTransDSEntry[CISCO-PTP-MIB:cPtpClockPortTransDSDomainIndex = ' + str(self.cptpclockporttransdsdomainindex) + '][CISCO-PTP-MIB:cPtpClockPortTransDSInstanceIndex = ' + str(self.cptpclockporttransdsinstanceindex) + '][CISCO-PTP-MIB:cPtpClockPortTransDSPortNumberIndex = ' + str(self.cptpclockporttransdsportnumberindex) + ']'
+                self.cptpclockporttransdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortTransDSDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockporttransdsinstanceindex = YLeaf(YType.uint32, "cPtpClockPortTransDSInstanceIndex")
+
+                self.cptpclockporttransdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTransDSPortNumberIndex")
+
+                self.cptpclockporttransdsfaultyflag = YLeaf(YType.boolean, "cPtpClockPortTransDSFaultyFlag")
+
+                self.cptpclockporttransdslogminpdelayreqint = YLeaf(YType.int32, "cPtpClockPortTransDSlogMinPdelayReqInt")
+
+                self.cptpclockporttransdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortTransDSPeerMeanPathDelay")
+
+                self.cptpclockporttransdsportidentity = YLeaf(YType.str, "cPtpClockPortTransDSPortIdentity")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockporttransdsdomainindex",
+                                "cptpclockporttransdsinstanceindex",
+                                "cptpclockporttransdsportnumberindex",
+                                "cptpclockporttransdsfaultyflag",
+                                "cptpclockporttransdslogminpdelayreqint",
+                                "cptpclockporttransdspeermeanpathdelay",
+                                "cptpclockporttransdsportidentity") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockporttransdsdomainindex.is_set or
+                    self.cptpclockporttransdsinstanceindex.is_set or
+                    self.cptpclockporttransdsportnumberindex.is_set or
+                    self.cptpclockporttransdsfaultyflag.is_set or
+                    self.cptpclockporttransdslogminpdelayreqint.is_set or
+                    self.cptpclockporttransdspeermeanpathdelay.is_set or
+                    self.cptpclockporttransdsportidentity.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdsdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdsinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdsportnumberindex.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdsfaultyflag.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdslogminpdelayreqint.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdspeermeanpathdelay.yfilter != YFilter.not_set or
+                    self.cptpclockporttransdsportidentity.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockPortTransDSEntry" + "[cPtpClockPortTransDSDomainIndex='" + self.cptpclockporttransdsdomainindex.get() + "']" + "[cPtpClockPortTransDSInstanceIndex='" + self.cptpclockporttransdsinstanceindex.get() + "']" + "[cPtpClockPortTransDSPortNumberIndex='" + self.cptpclockporttransdsportnumberindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockporttransdsdomainindex.is_set or self.cptpclockporttransdsdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdsdomainindex.get_name_leafdata())
+                if (self.cptpclockporttransdsinstanceindex.is_set or self.cptpclockporttransdsinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdsinstanceindex.get_name_leafdata())
+                if (self.cptpclockporttransdsportnumberindex.is_set or self.cptpclockporttransdsportnumberindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdsportnumberindex.get_name_leafdata())
+                if (self.cptpclockporttransdsfaultyflag.is_set or self.cptpclockporttransdsfaultyflag.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdsfaultyflag.get_name_leafdata())
+                if (self.cptpclockporttransdslogminpdelayreqint.is_set or self.cptpclockporttransdslogminpdelayreqint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdslogminpdelayreqint.get_name_leafdata())
+                if (self.cptpclockporttransdspeermeanpathdelay.is_set or self.cptpclockporttransdspeermeanpathdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdspeermeanpathdelay.get_name_leafdata())
+                if (self.cptpclockporttransdsportidentity.is_set or self.cptpclockporttransdsportidentity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockporttransdsportidentity.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockPortTransDSDomainIndex" or name == "cPtpClockPortTransDSInstanceIndex" or name == "cPtpClockPortTransDSPortNumberIndex" or name == "cPtpClockPortTransDSFaultyFlag" or name == "cPtpClockPortTransDSlogMinPdelayReqInt" or name == "cPtpClockPortTransDSPeerMeanPathDelay" or name == "cPtpClockPortTransDSPortIdentity"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockporttransdsdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockPortTransDSDomainIndex"):
+                    self.cptpclockporttransdsdomainindex = value
+                    self.cptpclockporttransdsdomainindex.value_namespace = name_space
+                    self.cptpclockporttransdsdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSInstanceIndex"):
+                    self.cptpclockporttransdsinstanceindex = value
+                    self.cptpclockporttransdsinstanceindex.value_namespace = name_space
+                    self.cptpclockporttransdsinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSPortNumberIndex"):
+                    self.cptpclockporttransdsportnumberindex = value
+                    self.cptpclockporttransdsportnumberindex.value_namespace = name_space
+                    self.cptpclockporttransdsportnumberindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSFaultyFlag"):
+                    self.cptpclockporttransdsfaultyflag = value
+                    self.cptpclockporttransdsfaultyflag.value_namespace = name_space
+                    self.cptpclockporttransdsfaultyflag.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSlogMinPdelayReqInt"):
+                    self.cptpclockporttransdslogminpdelayreqint = value
+                    self.cptpclockporttransdslogminpdelayreqint.value_namespace = name_space
+                    self.cptpclockporttransdslogminpdelayreqint.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSPeerMeanPathDelay"):
+                    self.cptpclockporttransdspeermeanpathdelay = value
+                    self.cptpclockporttransdspeermeanpathdelay.value_namespace = name_space
+                    self.cptpclockporttransdspeermeanpathdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortTransDSPortIdentity"):
+                    self.cptpclockporttransdsportidentity = value
+                    self.cptpclockporttransdsportidentity.value_namespace = name_space
+                    self.cptpclockporttransdsportidentity.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockporttransdsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockporttransdsinstanceindex is not None:
-                    return True
-
-                if self.cptpclockporttransdsportnumberindex is not None:
-                    return True
-
-                if self.cptpclockporttransdsfaultyflag is not None:
-                    return True
-
-                if self.cptpclockporttransdslogminpdelayreqint is not None:
-                    return True
-
-                if self.cptpclockporttransdspeermeanpathdelay is not None:
-                    return True
-
-                if self.cptpclockporttransdsportidentity is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockporttransdstable.Cptpclockporttransdsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortTransDSTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockporttransdsentry is not None:
-                for child_ref in self.cptpclockporttransdsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockporttransdsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockPortTransDSTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockPortTransDSEntry"):
+                for c in self.cptpclockporttransdsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockporttransdstable.Cptpclockporttransdsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockporttransdsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockPortTransDSEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockporttransdstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cptpclockportassociatetable(object):
+    class Cptpclockportassociatetable(Entity):
         """
         Table of information about a given port's associated ports.
         
@@ -3496,13 +5707,39 @@ class CiscoPtpMib(object):
         _revision = '2011-01-28'
 
         def __init__(self):
-            self.parent = None
-            self.cptpclockportassociateentry = YList()
-            self.cptpclockportassociateentry.parent = self
-            self.cptpclockportassociateentry.name = 'cptpclockportassociateentry'
+            super(CiscoPtpMib.Cptpclockportassociatetable, self).__init__()
+
+            self.yang_name = "cPtpClockPortAssociateTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+
+            self.cptpclockportassociateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoPtpMib.Cptpclockportassociatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoPtpMib.Cptpclockportassociatetable, self).__setattr__(name, value)
 
 
-        class Cptpclockportassociateentry(object):
+        class Cptpclockportassociateentry(Entity):
             """
             An entry in the table, containing information about a single
             associated port for the given clockport.
@@ -3517,7 +5754,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportcurrentclocktypeindex  <key>
             
             	This object specifies the given port's clock type
-            	**type**\:   :py:class:`ClocktypeEnum <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClocktypeEnum>`
+            	**type**\:   :py:class:`Clocktype <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.Clocktype>`
             
             .. attribute:: cptpclockportcurrentclockinstanceindex  <key>
             
@@ -3550,7 +5787,7 @@ class CiscoPtpMib(object):
             .. attribute:: cptpclockportassociateaddresstype
             
             	This object specifies the peer port's network address type used for PTP communication
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cptpclockportassociateinerrors
             
@@ -3596,161 +5833,426 @@ class CiscoPtpMib(object):
             _revision = '2011-01-28'
 
             def __init__(self):
-                self.parent = None
-                self.cptpclockportcurrentdomainindex = None
-                self.cptpclockportcurrentclocktypeindex = None
-                self.cptpclockportcurrentclockinstanceindex = None
-                self.cptpclockportcurrentportnumberindex = None
-                self.cptpclockportassociateportindex = None
-                self.cptpclockportassociateaddress = None
-                self.cptpclockportassociateaddresstype = None
-                self.cptpclockportassociateinerrors = None
-                self.cptpclockportassociateouterrors = None
-                self.cptpclockportassociatepacketsreceived = None
-                self.cptpclockportassociatepacketssent = None
+                super(CiscoPtpMib.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cptpclockportcurrentdomainindex is None:
-                    raise YPYModelError('Key property cptpclockportcurrentdomainindex is None')
-                if self.cptpclockportcurrentclocktypeindex is None:
-                    raise YPYModelError('Key property cptpclockportcurrentclocktypeindex is None')
-                if self.cptpclockportcurrentclockinstanceindex is None:
-                    raise YPYModelError('Key property cptpclockportcurrentclockinstanceindex is None')
-                if self.cptpclockportcurrentportnumberindex is None:
-                    raise YPYModelError('Key property cptpclockportcurrentportnumberindex is None')
-                if self.cptpclockportassociateportindex is None:
-                    raise YPYModelError('Key property cptpclockportassociateportindex is None')
+                self.yang_name = "cPtpClockPortAssociateEntry"
+                self.yang_parent_name = "cPtpClockPortAssociateTable"
 
-                return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortAssociateTable/CISCO-PTP-MIB:cPtpClockPortAssociateEntry[CISCO-PTP-MIB:cPtpClockPortCurrentDomainIndex = ' + str(self.cptpclockportcurrentdomainindex) + '][CISCO-PTP-MIB:cPtpClockPortCurrentClockTypeIndex = ' + str(self.cptpclockportcurrentclocktypeindex) + '][CISCO-PTP-MIB:cPtpClockPortCurrentClockInstanceIndex = ' + str(self.cptpclockportcurrentclockinstanceindex) + '][CISCO-PTP-MIB:cPtpClockPortCurrentPortNumberIndex = ' + str(self.cptpclockportcurrentportnumberindex) + '][CISCO-PTP-MIB:cPtpClockPortAssociatePortIndex = ' + str(self.cptpclockportassociateportindex) + ']'
+                self.cptpclockportcurrentdomainindex = YLeaf(YType.uint32, "cPtpClockPortCurrentDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cptpclockportcurrentclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortCurrentClockTypeIndex")
+
+                self.cptpclockportcurrentclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortCurrentClockInstanceIndex")
+
+                self.cptpclockportcurrentportnumberindex = YLeaf(YType.uint32, "cPtpClockPortCurrentPortNumberIndex")
+
+                self.cptpclockportassociateportindex = YLeaf(YType.uint32, "cPtpClockPortAssociatePortIndex")
+
+                self.cptpclockportassociateaddress = YLeaf(YType.str, "cPtpClockPortAssociateAddress")
+
+                self.cptpclockportassociateaddresstype = YLeaf(YType.enumeration, "cPtpClockPortAssociateAddressType")
+
+                self.cptpclockportassociateinerrors = YLeaf(YType.uint64, "cPtpClockPortAssociateInErrors")
+
+                self.cptpclockportassociateouterrors = YLeaf(YType.uint64, "cPtpClockPortAssociateOutErrors")
+
+                self.cptpclockportassociatepacketsreceived = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsReceived")
+
+                self.cptpclockportassociatepacketssent = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsSent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cptpclockportcurrentdomainindex",
+                                "cptpclockportcurrentclocktypeindex",
+                                "cptpclockportcurrentclockinstanceindex",
+                                "cptpclockportcurrentportnumberindex",
+                                "cptpclockportassociateportindex",
+                                "cptpclockportassociateaddress",
+                                "cptpclockportassociateaddresstype",
+                                "cptpclockportassociateinerrors",
+                                "cptpclockportassociateouterrors",
+                                "cptpclockportassociatepacketsreceived",
+                                "cptpclockportassociatepacketssent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoPtpMib.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoPtpMib.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cptpclockportcurrentdomainindex.is_set or
+                    self.cptpclockportcurrentclocktypeindex.is_set or
+                    self.cptpclockportcurrentclockinstanceindex.is_set or
+                    self.cptpclockportcurrentportnumberindex.is_set or
+                    self.cptpclockportassociateportindex.is_set or
+                    self.cptpclockportassociateaddress.is_set or
+                    self.cptpclockportassociateaddresstype.is_set or
+                    self.cptpclockportassociateinerrors.is_set or
+                    self.cptpclockportassociateouterrors.is_set or
+                    self.cptpclockportassociatepacketsreceived.is_set or
+                    self.cptpclockportassociatepacketssent.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentdomainindex.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentclocktypeindex.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentclockinstanceindex.yfilter != YFilter.not_set or
+                    self.cptpclockportcurrentportnumberindex.yfilter != YFilter.not_set or
+                    self.cptpclockportassociateportindex.yfilter != YFilter.not_set or
+                    self.cptpclockportassociateaddress.yfilter != YFilter.not_set or
+                    self.cptpclockportassociateaddresstype.yfilter != YFilter.not_set or
+                    self.cptpclockportassociateinerrors.yfilter != YFilter.not_set or
+                    self.cptpclockportassociateouterrors.yfilter != YFilter.not_set or
+                    self.cptpclockportassociatepacketsreceived.yfilter != YFilter.not_set or
+                    self.cptpclockportassociatepacketssent.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cPtpClockPortAssociateEntry" + "[cPtpClockPortCurrentDomainIndex='" + self.cptpclockportcurrentdomainindex.get() + "']" + "[cPtpClockPortCurrentClockTypeIndex='" + self.cptpclockportcurrentclocktypeindex.get() + "']" + "[cPtpClockPortCurrentClockInstanceIndex='" + self.cptpclockportcurrentclockinstanceindex.get() + "']" + "[cPtpClockPortCurrentPortNumberIndex='" + self.cptpclockportcurrentportnumberindex.get() + "']" + "[cPtpClockPortAssociatePortIndex='" + self.cptpclockportassociateportindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cptpclockportcurrentdomainindex.is_set or self.cptpclockportcurrentdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentdomainindex.get_name_leafdata())
+                if (self.cptpclockportcurrentclocktypeindex.is_set or self.cptpclockportcurrentclocktypeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentclocktypeindex.get_name_leafdata())
+                if (self.cptpclockportcurrentclockinstanceindex.is_set or self.cptpclockportcurrentclockinstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentclockinstanceindex.get_name_leafdata())
+                if (self.cptpclockportcurrentportnumberindex.is_set or self.cptpclockportcurrentportnumberindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportcurrentportnumberindex.get_name_leafdata())
+                if (self.cptpclockportassociateportindex.is_set or self.cptpclockportassociateportindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociateportindex.get_name_leafdata())
+                if (self.cptpclockportassociateaddress.is_set or self.cptpclockportassociateaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociateaddress.get_name_leafdata())
+                if (self.cptpclockportassociateaddresstype.is_set or self.cptpclockportassociateaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociateaddresstype.get_name_leafdata())
+                if (self.cptpclockportassociateinerrors.is_set or self.cptpclockportassociateinerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociateinerrors.get_name_leafdata())
+                if (self.cptpclockportassociateouterrors.is_set or self.cptpclockportassociateouterrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociateouterrors.get_name_leafdata())
+                if (self.cptpclockportassociatepacketsreceived.is_set or self.cptpclockportassociatepacketsreceived.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociatepacketsreceived.get_name_leafdata())
+                if (self.cptpclockportassociatepacketssent.is_set or self.cptpclockportassociatepacketssent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cptpclockportassociatepacketssent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cPtpClockPortCurrentDomainIndex" or name == "cPtpClockPortCurrentClockTypeIndex" or name == "cPtpClockPortCurrentClockInstanceIndex" or name == "cPtpClockPortCurrentPortNumberIndex" or name == "cPtpClockPortAssociatePortIndex" or name == "cPtpClockPortAssociateAddress" or name == "cPtpClockPortAssociateAddressType" or name == "cPtpClockPortAssociateInErrors" or name == "cPtpClockPortAssociateOutErrors" or name == "cPtpClockPortAssociatePacketsReceived" or name == "cPtpClockPortAssociatePacketsSent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cptpclockportcurrentdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cPtpClockPortCurrentDomainIndex"):
+                    self.cptpclockportcurrentdomainindex = value
+                    self.cptpclockportcurrentdomainindex.value_namespace = name_space
+                    self.cptpclockportcurrentdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortCurrentClockTypeIndex"):
+                    self.cptpclockportcurrentclocktypeindex = value
+                    self.cptpclockportcurrentclocktypeindex.value_namespace = name_space
+                    self.cptpclockportcurrentclocktypeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortCurrentClockInstanceIndex"):
+                    self.cptpclockportcurrentclockinstanceindex = value
+                    self.cptpclockportcurrentclockinstanceindex.value_namespace = name_space
+                    self.cptpclockportcurrentclockinstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortCurrentPortNumberIndex"):
+                    self.cptpclockportcurrentportnumberindex = value
+                    self.cptpclockportcurrentportnumberindex.value_namespace = name_space
+                    self.cptpclockportcurrentportnumberindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociatePortIndex"):
+                    self.cptpclockportassociateportindex = value
+                    self.cptpclockportassociateportindex.value_namespace = name_space
+                    self.cptpclockportassociateportindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociateAddress"):
+                    self.cptpclockportassociateaddress = value
+                    self.cptpclockportassociateaddress.value_namespace = name_space
+                    self.cptpclockportassociateaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociateAddressType"):
+                    self.cptpclockportassociateaddresstype = value
+                    self.cptpclockportassociateaddresstype.value_namespace = name_space
+                    self.cptpclockportassociateaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociateInErrors"):
+                    self.cptpclockportassociateinerrors = value
+                    self.cptpclockportassociateinerrors.value_namespace = name_space
+                    self.cptpclockportassociateinerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociateOutErrors"):
+                    self.cptpclockportassociateouterrors = value
+                    self.cptpclockportassociateouterrors.value_namespace = name_space
+                    self.cptpclockportassociateouterrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociatePacketsReceived"):
+                    self.cptpclockportassociatepacketsreceived = value
+                    self.cptpclockportassociatepacketsreceived.value_namespace = name_space
+                    self.cptpclockportassociatepacketsreceived.value_namespace_prefix = name_space_prefix
+                if(value_path == "cPtpClockPortAssociatePacketsSent"):
+                    self.cptpclockportassociatepacketssent = value
+                    self.cptpclockportassociatepacketssent.value_namespace = name_space
+                    self.cptpclockportassociatepacketssent.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cptpclockportassociateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cptpclockportcurrentclocktypeindex is not None:
-                    return True
-
-                if self.cptpclockportcurrentclockinstanceindex is not None:
-                    return True
-
-                if self.cptpclockportcurrentportnumberindex is not None:
-                    return True
-
-                if self.cptpclockportassociateportindex is not None:
-                    return True
-
-                if self.cptpclockportassociateaddress is not None:
-                    return True
-
-                if self.cptpclockportassociateaddresstype is not None:
-                    return True
-
-                if self.cptpclockportassociateinerrors is not None:
-                    return True
-
-                if self.cptpclockportassociateouterrors is not None:
-                    return True
-
-                if self.cptpclockportassociatepacketsreceived is not None:
-                    return True
-
-                if self.cptpclockportassociatepacketssent is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-                return meta._meta_table['CiscoPtpMib.Cptpclockportassociatetable.Cptpclockportassociateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-PTP-MIB:CISCO-PTP-MIB/CISCO-PTP-MIB:cPtpClockPortAssociateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cptpclockportassociateentry is not None:
-                for child_ref in self.cptpclockportassociateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cptpclockportassociateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cPtpClockPortAssociateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cPtpClockPortAssociateEntry"):
+                for c in self.cptpclockportassociateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoPtpMib.Cptpclockportassociatetable.Cptpclockportassociateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cptpclockportassociateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cPtpClockPortAssociateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-            return meta._meta_table['CiscoPtpMib.Cptpclockportassociatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciscoptpmibsysteminfo is not None and self.ciscoptpmibsysteminfo.has_data()) or
+            (self.cptpclockcurrentdstable is not None and self.cptpclockcurrentdstable.has_data()) or
+            (self.cptpclockdefaultdstable is not None and self.cptpclockdefaultdstable.has_data()) or
+            (self.cptpclocknodetable is not None and self.cptpclocknodetable.has_data()) or
+            (self.cptpclockparentdstable is not None and self.cptpclockparentdstable.has_data()) or
+            (self.cptpclockportassociatetable is not None and self.cptpclockportassociatetable.has_data()) or
+            (self.cptpclockportdstable is not None and self.cptpclockportdstable.has_data()) or
+            (self.cptpclockportrunningtable is not None and self.cptpclockportrunningtable.has_data()) or
+            (self.cptpclockporttable is not None and self.cptpclockporttable.has_data()) or
+            (self.cptpclockporttransdstable is not None and self.cptpclockporttransdstable.has_data()) or
+            (self.cptpclockrunningtable is not None and self.cptpclockrunningtable.has_data()) or
+            (self.cptpclocktimepropertiesdstable is not None and self.cptpclocktimepropertiesdstable.has_data()) or
+            (self.cptpclocktransdefaultdstable is not None and self.cptpclocktransdefaultdstable.has_data()) or
+            (self.cptpsystemdomaintable is not None and self.cptpsystemdomaintable.has_data()) or
+            (self.cptpsystemtable is not None and self.cptpsystemtable.has_data()))
 
-        return '/CISCO-PTP-MIB:CISCO-PTP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciscoptpmibsysteminfo is not None and self.ciscoptpmibsysteminfo.has_operation()) or
+            (self.cptpclockcurrentdstable is not None and self.cptpclockcurrentdstable.has_operation()) or
+            (self.cptpclockdefaultdstable is not None and self.cptpclockdefaultdstable.has_operation()) or
+            (self.cptpclocknodetable is not None and self.cptpclocknodetable.has_operation()) or
+            (self.cptpclockparentdstable is not None and self.cptpclockparentdstable.has_operation()) or
+            (self.cptpclockportassociatetable is not None and self.cptpclockportassociatetable.has_operation()) or
+            (self.cptpclockportdstable is not None and self.cptpclockportdstable.has_operation()) or
+            (self.cptpclockportrunningtable is not None and self.cptpclockportrunningtable.has_operation()) or
+            (self.cptpclockporttable is not None and self.cptpclockporttable.has_operation()) or
+            (self.cptpclockporttransdstable is not None and self.cptpclockporttransdstable.has_operation()) or
+            (self.cptpclockrunningtable is not None and self.cptpclockrunningtable.has_operation()) or
+            (self.cptpclocktimepropertiesdstable is not None and self.cptpclocktimepropertiesdstable.has_operation()) or
+            (self.cptpclocktransdefaultdstable is not None and self.cptpclocktransdefaultdstable.has_operation()) or
+            (self.cptpsystemdomaintable is not None and self.cptpsystemdomaintable.has_operation()) or
+            (self.cptpsystemtable is not None and self.cptpsystemtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-PTP-MIB:CISCO-PTP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ciscoPtpMIBSystemInfo"):
+            if (self.ciscoptpmibsysteminfo is None):
+                self.ciscoptpmibsysteminfo = CiscoPtpMib.Ciscoptpmibsysteminfo()
+                self.ciscoptpmibsysteminfo.parent = self
+                self._children_name_map["ciscoptpmibsysteminfo"] = "ciscoPtpMIBSystemInfo"
+            return self.ciscoptpmibsysteminfo
+
+        if (child_yang_name == "cPtpClockCurrentDSTable"):
+            if (self.cptpclockcurrentdstable is None):
+                self.cptpclockcurrentdstable = CiscoPtpMib.Cptpclockcurrentdstable()
+                self.cptpclockcurrentdstable.parent = self
+                self._children_name_map["cptpclockcurrentdstable"] = "cPtpClockCurrentDSTable"
+            return self.cptpclockcurrentdstable
+
+        if (child_yang_name == "cPtpClockDefaultDSTable"):
+            if (self.cptpclockdefaultdstable is None):
+                self.cptpclockdefaultdstable = CiscoPtpMib.Cptpclockdefaultdstable()
+                self.cptpclockdefaultdstable.parent = self
+                self._children_name_map["cptpclockdefaultdstable"] = "cPtpClockDefaultDSTable"
+            return self.cptpclockdefaultdstable
+
+        if (child_yang_name == "cPtpClockNodeTable"):
+            if (self.cptpclocknodetable is None):
+                self.cptpclocknodetable = CiscoPtpMib.Cptpclocknodetable()
+                self.cptpclocknodetable.parent = self
+                self._children_name_map["cptpclocknodetable"] = "cPtpClockNodeTable"
+            return self.cptpclocknodetable
+
+        if (child_yang_name == "cPtpClockParentDSTable"):
+            if (self.cptpclockparentdstable is None):
+                self.cptpclockparentdstable = CiscoPtpMib.Cptpclockparentdstable()
+                self.cptpclockparentdstable.parent = self
+                self._children_name_map["cptpclockparentdstable"] = "cPtpClockParentDSTable"
+            return self.cptpclockparentdstable
+
+        if (child_yang_name == "cPtpClockPortAssociateTable"):
+            if (self.cptpclockportassociatetable is None):
+                self.cptpclockportassociatetable = CiscoPtpMib.Cptpclockportassociatetable()
+                self.cptpclockportassociatetable.parent = self
+                self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
+            return self.cptpclockportassociatetable
+
+        if (child_yang_name == "cPtpClockPortDSTable"):
+            if (self.cptpclockportdstable is None):
+                self.cptpclockportdstable = CiscoPtpMib.Cptpclockportdstable()
+                self.cptpclockportdstable.parent = self
+                self._children_name_map["cptpclockportdstable"] = "cPtpClockPortDSTable"
+            return self.cptpclockportdstable
+
+        if (child_yang_name == "cPtpClockPortRunningTable"):
+            if (self.cptpclockportrunningtable is None):
+                self.cptpclockportrunningtable = CiscoPtpMib.Cptpclockportrunningtable()
+                self.cptpclockportrunningtable.parent = self
+                self._children_name_map["cptpclockportrunningtable"] = "cPtpClockPortRunningTable"
+            return self.cptpclockportrunningtable
+
+        if (child_yang_name == "cPtpClockPortTable"):
+            if (self.cptpclockporttable is None):
+                self.cptpclockporttable = CiscoPtpMib.Cptpclockporttable()
+                self.cptpclockporttable.parent = self
+                self._children_name_map["cptpclockporttable"] = "cPtpClockPortTable"
+            return self.cptpclockporttable
+
+        if (child_yang_name == "cPtpClockPortTransDSTable"):
+            if (self.cptpclockporttransdstable is None):
+                self.cptpclockporttransdstable = CiscoPtpMib.Cptpclockporttransdstable()
+                self.cptpclockporttransdstable.parent = self
+                self._children_name_map["cptpclockporttransdstable"] = "cPtpClockPortTransDSTable"
+            return self.cptpclockporttransdstable
+
+        if (child_yang_name == "cPtpClockRunningTable"):
+            if (self.cptpclockrunningtable is None):
+                self.cptpclockrunningtable = CiscoPtpMib.Cptpclockrunningtable()
+                self.cptpclockrunningtable.parent = self
+                self._children_name_map["cptpclockrunningtable"] = "cPtpClockRunningTable"
+            return self.cptpclockrunningtable
+
+        if (child_yang_name == "cPtpClockTimePropertiesDSTable"):
+            if (self.cptpclocktimepropertiesdstable is None):
+                self.cptpclocktimepropertiesdstable = CiscoPtpMib.Cptpclocktimepropertiesdstable()
+                self.cptpclocktimepropertiesdstable.parent = self
+                self._children_name_map["cptpclocktimepropertiesdstable"] = "cPtpClockTimePropertiesDSTable"
+            return self.cptpclocktimepropertiesdstable
+
+        if (child_yang_name == "cPtpClockTransDefaultDSTable"):
+            if (self.cptpclocktransdefaultdstable is None):
+                self.cptpclocktransdefaultdstable = CiscoPtpMib.Cptpclocktransdefaultdstable()
+                self.cptpclocktransdefaultdstable.parent = self
+                self._children_name_map["cptpclocktransdefaultdstable"] = "cPtpClockTransDefaultDSTable"
+            return self.cptpclocktransdefaultdstable
+
+        if (child_yang_name == "cPtpSystemDomainTable"):
+            if (self.cptpsystemdomaintable is None):
+                self.cptpsystemdomaintable = CiscoPtpMib.Cptpsystemdomaintable()
+                self.cptpsystemdomaintable.parent = self
+                self._children_name_map["cptpsystemdomaintable"] = "cPtpSystemDomainTable"
+            return self.cptpsystemdomaintable
+
+        if (child_yang_name == "cPtpSystemTable"):
+            if (self.cptpsystemtable is None):
+                self.cptpsystemtable = CiscoPtpMib.Cptpsystemtable()
+                self.cptpsystemtable.parent = self
+                self._children_name_map["cptpsystemtable"] = "cPtpSystemTable"
+            return self.cptpsystemtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ciscoPtpMIBSystemInfo" or name == "cPtpClockCurrentDSTable" or name == "cPtpClockDefaultDSTable" or name == "cPtpClockNodeTable" or name == "cPtpClockParentDSTable" or name == "cPtpClockPortAssociateTable" or name == "cPtpClockPortDSTable" or name == "cPtpClockPortRunningTable" or name == "cPtpClockPortTable" or name == "cPtpClockPortTransDSTable" or name == "cPtpClockRunningTable" or name == "cPtpClockTimePropertiesDSTable" or name == "cPtpClockTransDefaultDSTable" or name == "cPtpSystemDomainTable" or name == "cPtpSystemTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciscoptpmibsysteminfo is not None and self.ciscoptpmibsysteminfo._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cptpclockcurrentdstable is not None and self.cptpclockcurrentdstable._has_data():
-            return True
-
-        if self.cptpclockdefaultdstable is not None and self.cptpclockdefaultdstable._has_data():
-            return True
-
-        if self.cptpclocknodetable is not None and self.cptpclocknodetable._has_data():
-            return True
-
-        if self.cptpclockparentdstable is not None and self.cptpclockparentdstable._has_data():
-            return True
-
-        if self.cptpclockportassociatetable is not None and self.cptpclockportassociatetable._has_data():
-            return True
-
-        if self.cptpclockportdstable is not None and self.cptpclockportdstable._has_data():
-            return True
-
-        if self.cptpclockportrunningtable is not None and self.cptpclockportrunningtable._has_data():
-            return True
-
-        if self.cptpclockporttable is not None and self.cptpclockporttable._has_data():
-            return True
-
-        if self.cptpclockporttransdstable is not None and self.cptpclockporttransdstable._has_data():
-            return True
-
-        if self.cptpclockrunningtable is not None and self.cptpclockrunningtable._has_data():
-            return True
-
-        if self.cptpclocktimepropertiesdstable is not None and self.cptpclocktimepropertiesdstable._has_data():
-            return True
-
-        if self.cptpclocktransdefaultdstable is not None and self.cptpclocktransdefaultdstable._has_data():
-            return True
-
-        if self.cptpsystemdomaintable is not None and self.cptpsystemdomaintable._has_data():
-            return True
-
-        if self.cptpsystemtable is not None and self.cptpsystemtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_PTP_MIB as meta
-        return meta._meta_table['CiscoPtpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoPtpMib()
+        return self._top_entity
 

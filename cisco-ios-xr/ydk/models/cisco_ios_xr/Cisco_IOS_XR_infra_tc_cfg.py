@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CollectIonIntervalEnum(Enum):
+class CollectIonInterval(Enum):
     """
-    CollectIonIntervalEnum
+    CollectIonInterval
 
     Collect ion interval
 
@@ -81,40 +75,34 @@ class CollectIonIntervalEnum(Enum):
 
     """
 
-    Y_1_minute = 1
+    Y_1_minute = Enum.YLeaf(1, "1-minute")
 
-    Y_2_minutes = 2
+    Y_2_minutes = Enum.YLeaf(2, "2-minutes")
 
-    Y_3_minutes = 3
+    Y_3_minutes = Enum.YLeaf(3, "3-minutes")
 
-    Y_4_minutes = 4
+    Y_4_minutes = Enum.YLeaf(4, "4-minutes")
 
-    Y_5_minutes = 5
+    Y_5_minutes = Enum.YLeaf(5, "5-minutes")
 
-    Y_6_minutes = 6
+    Y_6_minutes = Enum.YLeaf(6, "6-minutes")
 
-    Y_10_minutes = 10
+    Y_10_minutes = Enum.YLeaf(10, "10-minutes")
 
-    Y_12_minutes = 12
+    Y_12_minutes = Enum.YLeaf(12, "12-minutes")
 
-    Y_15_minutes = 15
+    Y_15_minutes = Enum.YLeaf(15, "15-minutes")
 
-    Y_20_minutes = 20
+    Y_20_minutes = Enum.YLeaf(20, "20-minutes")
 
-    Y_30_minutes = 30
+    Y_30_minutes = Enum.YLeaf(30, "30-minutes")
 
-    Y_60_minutes = 60
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-        return meta._meta_table['CollectIonIntervalEnum']
+    Y_60_minutes = Enum.YLeaf(60, "60-minutes")
 
 
-class HistorySizeEnum(Enum):
+class HistorySize(Enum):
     """
-    HistorySizeEnum
+    HistorySize
 
     History size
 
@@ -124,18 +112,12 @@ class HistorySizeEnum(Enum):
 
     """
 
-    max = 10
+    max = Enum.YLeaf(10, "max")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-        return meta._meta_table['HistorySizeEnum']
-
-
-class HistoryTimeoutEnum(Enum):
+class HistoryTimeout(Enum):
     """
-    HistoryTimeoutEnum
+    HistoryTimeout
 
     History timeout
 
@@ -145,17 +127,11 @@ class HistoryTimeoutEnum(Enum):
 
     """
 
-    max = 720
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-        return meta._meta_table['HistoryTimeoutEnum']
+    max = Enum.YLeaf(720, "max")
 
 
 
-class TrafficCollector(object):
+class TrafficCollector(Entity):
     """
     Global Traffic Collector configuration commands
     
@@ -182,14 +158,50 @@ class TrafficCollector(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.enable_traffic_collector = None
+        super(TrafficCollector, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "traffic-collector"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-tc-cfg"
+
+        self.enable_traffic_collector = YLeaf(YType.empty, "enable-traffic-collector")
+
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
+        self._children_name_map["external_interfaces"] = "external-interfaces"
+        self._children_yang_names.add("external-interfaces")
+
         self.statistics = TrafficCollector.Statistics()
         self.statistics.parent = self
+        self._children_name_map["statistics"] = "statistics"
+        self._children_yang_names.add("statistics")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("enable_traffic_collector") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(TrafficCollector, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(TrafficCollector, self).__setattr__(name, value)
 
 
-    class ExternalInterfaces(object):
+    class ExternalInterfaces(Entity):
         """
         Configure external interfaces
         
@@ -206,13 +218,39 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.external_interface = YList()
-            self.external_interface.parent = self
-            self.external_interface.name = 'external_interface'
+            super(TrafficCollector.ExternalInterfaces, self).__init__()
+
+            self.yang_name = "external-interfaces"
+            self.yang_parent_name = "traffic-collector"
+
+            self.external_interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TrafficCollector.ExternalInterfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TrafficCollector.ExternalInterfaces, self).__setattr__(name, value)
 
 
-        class ExternalInterface(object):
+        class ExternalInterface(Entity):
             """
             Configure an external internface
             
@@ -236,66 +274,161 @@ class TrafficCollector(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.enable = None
+                super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                self.yang_name = "external-interface"
+                self.yang_parent_name = "external-interfaces"
 
-                return '/Cisco-IOS-XR-infra-tc-cfg:traffic-collector/Cisco-IOS-XR-infra-tc-cfg:external-interfaces/Cisco-IOS-XR-infra-tc-cfg:external-interface[Cisco-IOS-XR-infra-tc-cfg:interface-name = ' + str(self.interface_name) + ']'
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.enable = YLeaf(YType.empty, "enable")
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "enable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.enable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "external-interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/external-interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-name" or name == "enable"):
                     return True
-
-                if self.enable is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-                return meta._meta_table['TrafficCollector.ExternalInterfaces.ExternalInterface']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-tc-cfg:traffic-collector/Cisco-IOS-XR-infra-tc-cfg:external-interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.external_interface is not None:
-                for child_ref in self.external_interface:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.external_interface:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-            return meta._meta_table['TrafficCollector.ExternalInterfaces']['meta_info']
+        def has_operation(self):
+            for c in self.external_interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "external-interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "external-interface"):
+                for c in self.external_interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TrafficCollector.ExternalInterfaces.ExternalInterface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.external_interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "external-interface"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Statistics(object):
+    class Statistics(Entity):
         """
         Configure statistics related parameters
         
         .. attribute:: collection_interval
         
         	Configure statistics collection interval
-        	**type**\:   :py:class:`CollectIonIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonIntervalEnum>`
+        	**type**\:   :py:class:`CollectIonInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonInterval>`
         
         .. attribute:: enable_traffic_collector_statistics
         
@@ -307,7 +440,7 @@ class TrafficCollector(object):
         	Configure statistics history size
         	**type**\: one of the below types:
         
-        	**type**\:   :py:class:`HistorySizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySizeEnum>`
+        	**type**\:   :py:class:`HistorySize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySize>`
         
         
         ----
@@ -322,7 +455,7 @@ class TrafficCollector(object):
         	Configure statistics history timeout interval
         	**type**\: one of the below types:
         
-        	**type**\:   :py:class:`HistoryTimeoutEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeoutEnum>`
+        	**type**\:   :py:class:`HistoryTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeout>`
         
         
         ----
@@ -340,65 +473,182 @@ class TrafficCollector(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.collection_interval = None
-            self.enable_traffic_collector_statistics = None
-            self.history_size = None
-            self.history_timeout = None
+            super(TrafficCollector.Statistics, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "statistics"
+            self.yang_parent_name = "traffic-collector"
 
-            return '/Cisco-IOS-XR-infra-tc-cfg:traffic-collector/Cisco-IOS-XR-infra-tc-cfg:statistics'
+            self.collection_interval = YLeaf(YType.enumeration, "collection-interval")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.enable_traffic_collector_statistics = YLeaf(YType.empty, "enable-traffic-collector-statistics")
 
-        def _has_data(self):
-            if self.collection_interval is not None:
+            self.history_size = YLeaf(YType.str, "history-size")
+
+            self.history_timeout = YLeaf(YType.str, "history-timeout")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("collection_interval",
+                            "enable_traffic_collector_statistics",
+                            "history_size",
+                            "history_timeout") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TrafficCollector.Statistics, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TrafficCollector.Statistics, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.collection_interval.is_set or
+                self.enable_traffic_collector_statistics.is_set or
+                self.history_size.is_set or
+                self.history_timeout.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.collection_interval.yfilter != YFilter.not_set or
+                self.enable_traffic_collector_statistics.yfilter != YFilter.not_set or
+                self.history_size.yfilter != YFilter.not_set or
+                self.history_timeout.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "statistics" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.collection_interval.is_set or self.collection_interval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.collection_interval.get_name_leafdata())
+            if (self.enable_traffic_collector_statistics.is_set or self.enable_traffic_collector_statistics.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.enable_traffic_collector_statistics.get_name_leafdata())
+            if (self.history_size.is_set or self.history_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.history_size.get_name_leafdata())
+            if (self.history_timeout.is_set or self.history_timeout.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.history_timeout.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "collection-interval" or name == "enable-traffic-collector-statistics" or name == "history-size" or name == "history-timeout"):
                 return True
-
-            if self.enable_traffic_collector_statistics is not None:
-                return True
-
-            if self.history_size is not None:
-                return True
-
-            if self.history_timeout is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-            return meta._meta_table['TrafficCollector.Statistics']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "collection-interval"):
+                self.collection_interval = value
+                self.collection_interval.value_namespace = name_space
+                self.collection_interval.value_namespace_prefix = name_space_prefix
+            if(value_path == "enable-traffic-collector-statistics"):
+                self.enable_traffic_collector_statistics = value
+                self.enable_traffic_collector_statistics.value_namespace = name_space
+                self.enable_traffic_collector_statistics.value_namespace_prefix = name_space_prefix
+            if(value_path == "history-size"):
+                self.history_size = value
+                self.history_size.value_namespace = name_space
+                self.history_size.value_namespace_prefix = name_space_prefix
+            if(value_path == "history-timeout"):
+                self.history_timeout = value
+                self.history_timeout.value_namespace = name_space
+                self.history_timeout.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.enable_traffic_collector.is_set or
+            (self.external_interfaces is not None and self.external_interfaces.has_data()) or
+            (self.statistics is not None and self.statistics.has_data()))
 
-        return '/Cisco-IOS-XR-infra-tc-cfg:traffic-collector'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.enable_traffic_collector.yfilter != YFilter.not_set or
+            (self.external_interfaces is not None and self.external_interfaces.has_operation()) or
+            (self.statistics is not None and self.statistics.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector" + path_buffer
 
-    def _has_data(self):
-        if self.enable_traffic_collector is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.enable_traffic_collector.is_set or self.enable_traffic_collector.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable_traffic_collector.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "external-interfaces"):
+            if (self.external_interfaces is None):
+                self.external_interfaces = TrafficCollector.ExternalInterfaces()
+                self.external_interfaces.parent = self
+                self._children_name_map["external_interfaces"] = "external-interfaces"
+            return self.external_interfaces
+
+        if (child_yang_name == "statistics"):
+            if (self.statistics is None):
+                self.statistics = TrafficCollector.Statistics()
+                self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+            return self.statistics
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "external-interfaces" or name == "statistics" or name == "enable-traffic-collector"):
             return True
-
-        if self.external_interfaces is not None and self.external_interfaces._has_data():
-            return True
-
-        if self.statistics is not None and self.statistics._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
-        return meta._meta_table['TrafficCollector']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "enable-traffic-collector"):
+            self.enable_traffic_collector = value
+            self.enable_traffic_collector.value_namespace = name_space
+            self.enable_traffic_collector.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = TrafficCollector()
+        return self._top_entity
 

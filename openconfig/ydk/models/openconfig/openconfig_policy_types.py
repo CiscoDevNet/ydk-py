@@ -5,22 +5,16 @@ policy.  It can be imported by modules that contain protocol\-
 specific policy conditions and actions.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MatchSetOptionsRestrictedTypeEnum(Enum):
+class MatchSetOptionsRestrictedType(Enum):
     """
-    MatchSetOptionsRestrictedTypeEnum
+    MatchSetOptionsRestrictedType
 
     Options that govern the behavior of a match statement.  The
 
@@ -44,20 +38,14 @@ class MatchSetOptionsRestrictedTypeEnum(Enum):
 
     """
 
-    ANY = 0
+    ANY = Enum.YLeaf(0, "ANY")
 
-    INVERT = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['MatchSetOptionsRestrictedTypeEnum']
+    INVERT = Enum.YLeaf(1, "INVERT")
 
 
-class MatchSetOptionsTypeEnum(Enum):
+class MatchSetOptionsType(Enum):
     """
-    MatchSetOptionsTypeEnum
+    MatchSetOptionsType
 
     Options that govern the behavior of a match statement.  The
 
@@ -85,21 +73,15 @@ class MatchSetOptionsTypeEnum(Enum):
 
     """
 
-    ANY = 0
+    ANY = Enum.YLeaf(0, "ANY")
 
-    ALL = 1
+    ALL = Enum.YLeaf(1, "ALL")
 
-    INVERT = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['MatchSetOptionsTypeEnum']
+    INVERT = Enum.YLeaf(2, "INVERT")
 
 
 
-class AttributeComparisonIdentity(object):
+class Attribute_Comparison(Identity):
     """
     base type for supported comparison operators on route
     attributes
@@ -108,19 +90,14 @@ class AttributeComparisonIdentity(object):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['AttributeComparisonIdentity']['meta_info']
+        super(Attribute_Comparison, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_COMPARISON")
 
 
-class InstallProtocolTypeIdentity(object):
+class Install_Protocol_Type(Identity):
     """
     Base type for protocols which can install prefixes into the
     RIB
@@ -129,59 +106,14 @@ class InstallProtocolTypeIdentity(object):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['InstallProtocolTypeIdentity']['meta_info']
+        super(Install_Protocol_Type, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:INSTALL_PROTOCOL_TYPE")
 
 
-class AttributeLeIdentity(AttributeComparisonIdentity):
-    """
-    <= comparison
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AttributeComparisonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['AttributeLeIdentity']['meta_info']
-
-
-class DirectlyConnectedIdentity(InstallProtocolTypeIdentity):
-    """
-    A directly connected route
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['DirectlyConnectedIdentity']['meta_info']
-
-
-class AttributeEqIdentity(AttributeComparisonIdentity):
+class Attribute_Eq(Identity):
     """
     == comparison
     
@@ -189,59 +121,14 @@ class AttributeEqIdentity(AttributeComparisonIdentity):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        AttributeComparisonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['AttributeEqIdentity']['meta_info']
+        super(Attribute_Eq, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_EQ")
 
 
-class BgpIdentity(InstallProtocolTypeIdentity):
-    """
-    BGP
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['BgpIdentity']['meta_info']
-
-
-class AttributeGeIdentity(AttributeComparisonIdentity):
-    """
-    >= comparison
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AttributeComparisonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['AttributeGeIdentity']['meta_info']
-
-
-class OspfIdentity(InstallProtocolTypeIdentity):
+class Ospf(Identity):
     """
     OSPFv2
     
@@ -249,59 +136,14 @@ class OspfIdentity(InstallProtocolTypeIdentity):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['OspfIdentity']['meta_info']
+        super(Ospf, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:OSPF")
 
 
-class LocalAggregateIdentity(InstallProtocolTypeIdentity):
-    """
-    Locally defined aggregate route
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['LocalAggregateIdentity']['meta_info']
-
-
-class IsisIdentity(InstallProtocolTypeIdentity):
-    """
-    IS\-IS
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['IsisIdentity']['meta_info']
-
-
-class Ospf3Identity(InstallProtocolTypeIdentity):
+class Ospf3(Identity):
     """
     OSPFv3
     
@@ -309,19 +151,29 @@ class Ospf3Identity(InstallProtocolTypeIdentity):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['Ospf3Identity']['meta_info']
+        super(Ospf3, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:OSPF3")
 
 
-class StaticIdentity(InstallProtocolTypeIdentity):
+class Local_Aggregate(Identity):
+    """
+    Locally defined aggregate route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Local_Aggregate, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:LOCAL_AGGREGATE")
+
+
+class Static(Identity):
     """
     Locally\-installed static route
     
@@ -329,15 +181,85 @@ class StaticIdentity(InstallProtocolTypeIdentity):
 
     """
 
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
 
     def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
+        super(Static, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:STATIC")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['StaticIdentity']['meta_info']
+
+class Attribute_Ge(Identity):
+    """
+    >= comparison
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Attribute_Ge, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_GE")
+
+
+class Bgp(Identity):
+    """
+    BGP
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Bgp, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:BGP")
+
+
+class Isis(Identity):
+    """
+    IS\-IS
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Isis, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ISIS")
+
+
+class Attribute_Le(Identity):
+    """
+    <= comparison
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Attribute_Le, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ATTRIBUTE_LE")
+
+
+class Directly_Connected(Identity):
+    """
+    A directly connected route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(Directly_Connected, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:DIRECTLY_CONNECTED")
 
 

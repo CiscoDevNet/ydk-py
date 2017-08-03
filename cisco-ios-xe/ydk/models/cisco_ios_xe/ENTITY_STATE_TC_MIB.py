@@ -7,22 +7,16 @@ of this MIB module is part of RFC 4268;  see the RFC
 itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EntityadminstateEnum(Enum):
+class Entityadminstate(Enum):
     """
-    EntityadminstateEnum
+    Entityadminstate
 
      Represents the various possible administrative states.
 
@@ -50,24 +44,18 @@ class EntityadminstateEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    locked = 2
+    locked = Enum.YLeaf(2, "locked")
 
-    shuttingDown = 3
+    shuttingDown = Enum.YLeaf(3, "shuttingDown")
 
-    unlocked = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_STATE_TC_MIB as meta
-        return meta._meta_table['EntityadminstateEnum']
+    unlocked = Enum.YLeaf(4, "unlocked")
 
 
-class EntityoperstateEnum(Enum):
+class Entityoperstate(Enum):
     """
-    EntityoperstateEnum
+    Entityoperstate
 
      Represents the possible values of operational states.
 
@@ -95,24 +83,18 @@ class EntityoperstateEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    disabled = 2
+    disabled = Enum.YLeaf(2, "disabled")
 
-    enabled = 3
+    enabled = Enum.YLeaf(3, "enabled")
 
-    testing = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_STATE_TC_MIB as meta
-        return meta._meta_table['EntityoperstateEnum']
+    testing = Enum.YLeaf(4, "testing")
 
 
-class EntitystandbystatusEnum(Enum):
+class Entitystandbystatus(Enum):
     """
-    EntitystandbystatusEnum
+    Entitystandbystatus
 
      Represents the possible values of standby status.
 
@@ -152,24 +134,18 @@ class EntitystandbystatusEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    hotStandby = 2
+    hotStandby = Enum.YLeaf(2, "hotStandby")
 
-    coldStandby = 3
+    coldStandby = Enum.YLeaf(3, "coldStandby")
 
-    providingService = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_STATE_TC_MIB as meta
-        return meta._meta_table['EntitystandbystatusEnum']
+    providingService = Enum.YLeaf(4, "providingService")
 
 
-class EntityusagestateEnum(Enum):
+class Entityusagestate(Enum):
     """
-    EntityusagestateEnum
+    Entityusagestate
 
      Represents the possible values of usage states.
 
@@ -199,22 +175,16 @@ class EntityusagestateEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    idle = 2
+    idle = Enum.YLeaf(2, "idle")
 
-    active = 3
+    active = Enum.YLeaf(3, "active")
 
-    busy = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ENTITY_STATE_TC_MIB as meta
-        return meta._meta_table['EntityusagestateEnum']
+    busy = Enum.YLeaf(4, "busy")
 
 
-class Entityalarmstatus(FixedBitsDict):
+class Entityalarmstatus(Bits):
     """
     Entityalarmstatus
 
@@ -244,28 +214,11 @@ class Entityalarmstatus(FixedBitsDict):
     
     A value of 'unknown' means that this resource is
     unable to report alarm state.
-    Keys are:- indeterminate , critical , major , minor , warning , unknown , underRepair
+    Keys are:- critical , underRepair , minor , indeterminate , major , unknown , warning
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'indeterminate':False,
-            'critical':False,
-            'major':False,
-            'minor':False,
-            'warning':False,
-            'unknown':False,
-            'underRepair':False,
-        }
-        self._pos_map = { 
-            'indeterminate':6,
-            'critical':2,
-            'major':3,
-            'minor':4,
-            'warning':5,
-            'unknown':0,
-            'underRepair':1,
-        }
+        super(Entityalarmstatus, self).__init__()
 
 

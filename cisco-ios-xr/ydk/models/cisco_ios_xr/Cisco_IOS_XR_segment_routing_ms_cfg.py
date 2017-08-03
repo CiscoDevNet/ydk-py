@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SrmsMiFlagEnum(Enum):
+class SrmsMiFlag(Enum):
     """
-    SrmsMiFlagEnum
+    SrmsMiFlag
 
     Srms mi flag
 
@@ -40,19 +34,13 @@ class SrmsMiFlagEnum(Enum):
 
     """
 
-    disable = 0
+    disable = Enum.YLeaf(0, "disable")
 
-    enable = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-        return meta._meta_table['SrmsMiFlagEnum']
+    enable = Enum.YLeaf(1, "enable")
 
 
 
-class Sr(object):
+class Sr(Entity):
     """
     Segment Routing
     
@@ -81,13 +69,49 @@ class Sr(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.enable = None
+        super(Sr, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sr"
+        self.yang_parent_name = "Cisco-IOS-XR-segment-routing-ms-cfg"
+
+        self.enable = YLeaf(YType.empty, "enable")
+
         self.global_block = None
+        self._children_name_map["global_block"] = "global-block"
+        self._children_yang_names.add("global-block")
+
         self.mappings = Sr.Mappings()
         self.mappings.parent = self
+        self._children_name_map["mappings"] = "mappings"
+        self._children_yang_names.add("mappings")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("enable") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Sr, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Sr, self).__setattr__(name, value)
 
 
-    class GlobalBlock(object):
+    class GlobalBlock(Entity):
         """
         Global Block Segment Routing
         
@@ -109,11 +133,6 @@ class Sr(object):
         
         	**mandatory**\: True
         
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -124,38 +143,98 @@ class Sr(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self._is_presence = True
-            self.lower_bound = None
-            self.upper_bound = None
+            super(Sr.GlobalBlock, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "global-block"
+            self.yang_parent_name = "sr"
+            self.is_presence_container = True
 
-            return '/Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-segment-routing-ms-cfg:global-block'
+            self.lower_bound = YLeaf(YType.uint32, "lower-bound")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.upper_bound = YLeaf(YType.uint32, "upper-bound")
 
-        def _has_data(self):
-            if self._is_presence:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("lower_bound",
+                            "upper_bound") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Sr.GlobalBlock, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Sr.GlobalBlock, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.lower_bound.is_set or
+                self.upper_bound.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.lower_bound.yfilter != YFilter.not_set or
+                self.upper_bound.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "global-block" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.lower_bound.is_set or self.lower_bound.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.lower_bound.get_name_leafdata())
+            if (self.upper_bound.is_set or self.upper_bound.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.upper_bound.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "lower-bound" or name == "upper-bound"):
                 return True
-            if self.lower_bound is not None:
-                return True
-
-            if self.upper_bound is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-            return meta._meta_table['Sr.GlobalBlock']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "lower-bound"):
+                self.lower_bound = value
+                self.lower_bound.value_namespace = name_space
+                self.lower_bound.value_namespace_prefix = name_space_prefix
+            if(value_path == "upper-bound"):
+                self.upper_bound = value
+                self.upper_bound.value_namespace = name_space
+                self.upper_bound.value_namespace_prefix = name_space_prefix
 
 
-    class Mappings(object):
+    class Mappings(Entity):
         """
         Mapping Server
         
@@ -172,13 +251,39 @@ class Sr(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.mapping = YList()
-            self.mapping.parent = self
-            self.mapping.name = 'mapping'
+            super(Sr.Mappings, self).__init__()
+
+            self.yang_name = "mappings"
+            self.yang_parent_name = "sr"
+
+            self.mapping = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Sr.Mappings, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Sr.Mappings, self).__setattr__(name, value)
 
 
-        class Mapping(object):
+        class Mapping(Entity):
             """
             IP prefix to SID mapping
             
@@ -206,7 +311,7 @@ class Sr(object):
             .. attribute:: flag_attached
             
             	Enable/Disable Attached flag
-            	**type**\:   :py:class:`SrmsMiFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlagEnum>`
+            	**type**\:   :py:class:`SrmsMiFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag>`
             
             .. attribute:: sid_range
             
@@ -230,101 +335,261 @@ class Sr(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.af = None
-                self.ip = None
-                self.mask = None
-                self.flag_attached = None
-                self.sid_range = None
-                self.sid_start = None
+                super(Sr.Mappings.Mapping, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.af is None:
-                    raise YPYModelError('Key property af is None')
-                if self.ip is None:
-                    raise YPYModelError('Key property ip is None')
-                if self.mask is None:
-                    raise YPYModelError('Key property mask is None')
+                self.yang_name = "mapping"
+                self.yang_parent_name = "mappings"
 
-                return '/Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-segment-routing-ms-cfg:mappings/Cisco-IOS-XR-segment-routing-ms-cfg:mapping[Cisco-IOS-XR-segment-routing-ms-cfg:af = ' + str(self.af) + '][Cisco-IOS-XR-segment-routing-ms-cfg:ip = ' + str(self.ip) + '][Cisco-IOS-XR-segment-routing-ms-cfg:mask = ' + str(self.mask) + ']'
+                self.af = YLeaf(YType.str, "af")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.ip = YLeaf(YType.str, "ip")
 
-            def _has_data(self):
-                if self.af is not None:
+                self.mask = YLeaf(YType.int32, "mask")
+
+                self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+
+                self.sid_range = YLeaf(YType.int32, "sid-range")
+
+                self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("af",
+                                "ip",
+                                "mask",
+                                "flag_attached",
+                                "sid_range",
+                                "sid_start") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Sr.Mappings.Mapping, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Sr.Mappings.Mapping, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.af.is_set or
+                    self.ip.is_set or
+                    self.mask.is_set or
+                    self.flag_attached.is_set or
+                    self.sid_range.is_set or
+                    self.sid_start.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.af.yfilter != YFilter.not_set or
+                    self.ip.yfilter != YFilter.not_set or
+                    self.mask.yfilter != YFilter.not_set or
+                    self.flag_attached.yfilter != YFilter.not_set or
+                    self.sid_range.yfilter != YFilter.not_set or
+                    self.sid_start.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mapping" + "[af='" + self.af.get() + "']" + "[ip='" + self.ip.get() + "']" + "[mask='" + self.mask.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/mappings/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.af.is_set or self.af.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.af.get_name_leafdata())
+                if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip.get_name_leafdata())
+                if (self.mask.is_set or self.mask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mask.get_name_leafdata())
+                if (self.flag_attached.is_set or self.flag_attached.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flag_attached.get_name_leafdata())
+                if (self.sid_range.is_set or self.sid_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sid_range.get_name_leafdata())
+                if (self.sid_start.is_set or self.sid_start.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sid_start.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "af" or name == "ip" or name == "mask" or name == "flag-attached" or name == "sid-range" or name == "sid-start"):
                     return True
-
-                if self.ip is not None:
-                    return True
-
-                if self.mask is not None:
-                    return True
-
-                if self.flag_attached is not None:
-                    return True
-
-                if self.sid_range is not None:
-                    return True
-
-                if self.sid_start is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-                return meta._meta_table['Sr.Mappings.Mapping']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "af"):
+                    self.af = value
+                    self.af.value_namespace = name_space
+                    self.af.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip"):
+                    self.ip = value
+                    self.ip.value_namespace = name_space
+                    self.ip.value_namespace_prefix = name_space_prefix
+                if(value_path == "mask"):
+                    self.mask = value
+                    self.mask.value_namespace = name_space
+                    self.mask.value_namespace_prefix = name_space_prefix
+                if(value_path == "flag-attached"):
+                    self.flag_attached = value
+                    self.flag_attached.value_namespace = name_space
+                    self.flag_attached.value_namespace_prefix = name_space_prefix
+                if(value_path == "sid-range"):
+                    self.sid_range = value
+                    self.sid_range.value_namespace = name_space
+                    self.sid_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "sid-start"):
+                    self.sid_start = value
+                    self.sid_start.value_namespace = name_space
+                    self.sid_start.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-segment-routing-ms-cfg:mappings'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.mapping is not None:
-                for child_ref in self.mapping:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.mapping:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-            return meta._meta_table['Sr.Mappings']['meta_info']
+        def has_operation(self):
+            for c in self.mapping:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mappings" + path_buffer
 
-        return '/Cisco-IOS-XR-segment-routing-ms-cfg:sr'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.enable is not None:
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mapping"):
+                for c in self.mapping:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Sr.Mappings.Mapping()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mapping.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mapping"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            self.enable.is_set or
+            (self.mappings is not None and self.mappings.has_data()) or
+            (self.global_block is not None))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.enable.yfilter != YFilter.not_set or
+            (self.global_block is not None and self.global_block.has_operation()) or
+            (self.mappings is not None and self.mappings.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-segment-routing-ms-cfg:sr" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "global-block"):
+            if (self.global_block is None):
+                self.global_block = Sr.GlobalBlock()
+                self.global_block.parent = self
+                self._children_name_map["global_block"] = "global-block"
+            return self.global_block
+
+        if (child_yang_name == "mappings"):
+            if (self.mappings is None):
+                self.mappings = Sr.Mappings()
+                self.mappings.parent = self
+                self._children_name_map["mappings"] = "mappings"
+            return self.mappings
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "global-block" or name == "mappings" or name == "enable"):
             return True
-
-        if self.global_block is not None and self.global_block._has_data():
-            return True
-
-        if self.mappings is not None and self.mappings._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-        return meta._meta_table['Sr']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "enable"):
+            self.enable = value
+            self.enable.value_namespace = name_space
+            self.enable.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Sr()
+        return self._top_entity
 

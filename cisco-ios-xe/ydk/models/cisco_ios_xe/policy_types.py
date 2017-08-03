@@ -4,23 +4,16 @@ This module contains a collection of YANG groupings
 in filter configurations for policy model.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_diffserv_classifier import FilterTypeIdentity
-
-class DirectionEnum(Enum):
+class Direction(Enum):
     """
-    DirectionEnum
+    Direction
 
     This typedef defines directional enums used in c3pl.
 
@@ -34,20 +27,14 @@ class DirectionEnum(Enum):
 
     """
 
-    inbound = 0
+    inbound = Enum.YLeaf(0, "inbound")
 
-    outbound = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['DirectionEnum']
+    outbound = Enum.YLeaf(1, "outbound")
 
 
-class MetricEnum(Enum):
+class Metric(Enum):
     """
-    MetricEnum
+    Metric
 
     metric
 
@@ -69,32 +56,26 @@ class MetricEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    peta = 1
+    peta = Enum.YLeaf(1, "peta")
 
-    tera = 2
+    tera = Enum.YLeaf(2, "tera")
 
-    giga = 3
+    giga = Enum.YLeaf(3, "giga")
 
-    mega = 4
+    mega = Enum.YLeaf(4, "mega")
 
-    kilo = 5
+    kilo = Enum.YLeaf(5, "kilo")
 
-    milli = 6
+    milli = Enum.YLeaf(6, "milli")
 
-    nano = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['MetricEnum']
+    nano = Enum.YLeaf(7, "nano")
 
 
-class RateUnitEnum(Enum):
+class RateUnit(Enum):
     """
-    RateUnitEnum
+    RateUnit
 
     Unit for traffic rate\:
 
@@ -120,28 +101,22 @@ class RateUnitEnum(Enum):
 
     """
 
-    pps = 0
+    pps = Enum.YLeaf(0, "pps")
 
-    cps = 1
+    cps = Enum.YLeaf(1, "cps")
 
-    bps = 2
+    bps = Enum.YLeaf(2, "bps")
 
-    perc = 3
+    perc = Enum.YLeaf(3, "perc")
 
-    ratio = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['RateUnitEnum']
+    ratio = Enum.YLeaf(4, "ratio")
 
 
 
-class MplsExpTopIdentity(FilterTypeIdentity):
+class PolicyType(Identity):
     """
-    Multi Protocol Label Switching experimental 
-    topmost specific values
+     
+    This is identity of base policy\-type
     
     
 
@@ -151,17 +126,12 @@ class MplsExpTopIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['MplsExpTopIdentity']['meta_info']
+        super(PolicyType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:policy-type")
 
 
-class AtmVciIdentity(FilterTypeIdentity):
+class FlowRecord(Identity):
     """
-    ATM VCI number
+    FLow record
     
     
 
@@ -171,17 +141,12 @@ class AtmVciIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AtmVciIdentity']['meta_info']
+        super(FlowRecord, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-record")
 
 
-class PacketLengthIdentity(FilterTypeIdentity):
+class Vlan(Identity):
     """
-    Layer 3 packet length
+    Vlan
     
     
 
@@ -191,17 +156,12 @@ class PacketLengthIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PacketLengthIdentity']['meta_info']
+        super(Vlan, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan")
 
 
-class SecurityGroupNameIdentity(FilterTypeIdentity):
+class IpRtp(Identity):
     """
-    security group name
+    IP RTP port
     
     
 
@@ -211,15 +171,25 @@ class SecurityGroupNameIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['SecurityGroupNameIdentity']['meta_info']
+        super(IpRtp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ip-rtp")
 
 
-class FlowDlciIdentity(FilterTypeIdentity):
+class Vpls(Identity):
+    """
+    VPLS
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Vpls, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vpls")
+
+
+class FlowDlci(Identity):
     """
     Frame\-relay DLCI
     
@@ -231,15 +201,25 @@ class FlowDlciIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['FlowDlciIdentity']['meta_info']
+        super(FlowDlci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-dlci")
 
 
-class VlanInnerIdentity(FilterTypeIdentity):
+class DiscardClass(Identity):
+    """
+    Discard behavior identifier
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(DiscardClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:discard-class")
+
+
+class VlanInner(Identity):
     """
     Vlan\-inner
     
@@ -251,17 +231,12 @@ class VlanInnerIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['VlanInnerIdentity']['meta_info']
+        super(VlanInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan-inner")
 
 
-class Ipv4AclNameIdentity(FilterTypeIdentity):
+class WlanUserPriority(Identity):
     """
-    IPV4 access group list
+    WLAN user priority
     
     
 
@@ -271,15 +246,10 @@ class Ipv4AclNameIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['Ipv4AclNameIdentity']['meta_info']
+        super(WlanUserPriority, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:wlan-user-priority")
 
 
-class CosIdentity(FilterTypeIdentity):
+class Cos(Identity):
     """
     
     Filter\-type IEEE 802.1Q/ISL class of service/user 
@@ -293,17 +263,12 @@ class CosIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['CosIdentity']['meta_info']
+        super(Cos, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos")
 
 
-class SecurityGroupTagIdentity(FilterTypeIdentity):
+class Metadata(Identity):
     """
-    security group tag
+    metadata
     
     
 
@@ -313,17 +278,12 @@ class SecurityGroupTagIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['SecurityGroupTagIdentity']['meta_info']
+        super(Metadata, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:metadata")
 
 
-class ApplicationIdentity(FilterTypeIdentity):
+class Ipv4AclName(Identity):
     """
-    application
+    IPV4 access group list
     
     
 
@@ -333,17 +293,12 @@ class ApplicationIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ApplicationIdentity']['meta_info']
+        super(Ipv4AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl-name")
 
 
-class QosGroupIdentity(FilterTypeIdentity):
+class AtmClp(Identity):
     """
-    QOS group
+    ATM CLP bit
     
     
 
@@ -353,17 +308,12 @@ class QosGroupIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['QosGroupIdentity']['meta_info']
+        super(AtmClp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-clp")
 
 
-class VplsIdentity(FilterTypeIdentity):
+class DstMac(Identity):
     """
-    VPLS
+    Destination MAC address
     
     
 
@@ -373,15 +323,10 @@ class VplsIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['VplsIdentity']['meta_info']
+        super(DstMac, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dst-mac")
 
 
-class Ipv4AclIdentity(FilterTypeIdentity):
+class Ipv4Acl(Identity):
     """
     IPV4 access group Index
     
@@ -393,17 +338,12 @@ class Ipv4AclIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['Ipv4AclIdentity']['meta_info']
+        super(Ipv4Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl")
 
 
-class FlowRecordIdentity(FilterTypeIdentity):
+class ClassMap(Identity):
     """
-    FLow record
+    class\-map
     
     
 
@@ -413,17 +353,12 @@ class FlowRecordIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['FlowRecordIdentity']['meta_info']
+        super(ClassMap, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-map")
 
 
-class Ipv6AclNameIdentity(FilterTypeIdentity):
+class Prec(Identity):
     """
-    IPV6 access group list
+    IP precendence
     
     
 
@@ -433,17 +368,12 @@ class Ipv6AclNameIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['Ipv6AclNameIdentity']['meta_info']
+        super(Prec, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:prec")
 
 
-class VlanIdentity(FilterTypeIdentity):
+class AtmVci(Identity):
     """
-    Vlan
+    ATM VCI number
     
     
 
@@ -453,35 +383,10 @@ class VlanIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['VlanIdentity']['meta_info']
+        super(AtmVci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-vci")
 
 
-class FlowDeIdentity(FilterTypeIdentity):
-    """
-    Flow DE
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['FlowDeIdentity']['meta_info']
-
-
-class CosInnerIdentity(FilterTypeIdentity):
+class CosInner(Identity):
     """
     ATM VC configured as Access VC
     class of service/user priority values
@@ -494,17 +399,12 @@ class CosInnerIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['CosInnerIdentity']['meta_info']
+        super(CosInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos-inner")
 
 
-class IpRtpIdentity(FilterTypeIdentity):
+class Dei(Identity):
     """
-    IP RTP port
+    Frame\-relay DE bit
     
     
 
@@ -514,95 +414,10 @@ class IpRtpIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['IpRtpIdentity']['meta_info']
+        super(Dei, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei")
 
 
-class DiscardClassIdentity(FilterTypeIdentity):
-    """
-    Discard behavior identifier
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['DiscardClassIdentity']['meta_info']
-
-
-class DstMacIdentity(FilterTypeIdentity):
-    """
-    Destination MAC address
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['DstMacIdentity']['meta_info']
-
-
-class Ipv6AclIdentity(FilterTypeIdentity):
-    """
-    IPV6 access group Index
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['Ipv6AclIdentity']['meta_info']
-
-
-class MetadataIdentity(FilterTypeIdentity):
-    """
-    metadata
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['MetadataIdentity']['meta_info']
-
-
-class InputInterfaceIdentity(FilterTypeIdentity):
+class InputInterface(Identity):
     """
     Input interface
     
@@ -614,17 +429,12 @@ class InputInterfaceIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['InputInterfaceIdentity']['meta_info']
+        super(InputInterface, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:input-interface")
 
 
-class FlowIpIdentity(FilterTypeIdentity):
+class Ipv6Acl(Identity):
     """
-    Flow IP
+    IPV6 access group Index
     
     
 
@@ -634,35 +444,10 @@ class FlowIpIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['FlowIpIdentity']['meta_info']
+        super(Ipv6Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl")
 
 
-class WlanUserPriorityIdentity(FilterTypeIdentity):
-    """
-    WLAN user priority
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['WlanUserPriorityIdentity']['meta_info']
-
-
-class DeiInnerIdentity(FilterTypeIdentity):
+class DeiInner(Identity):
     """
     Frame\-relay inner DE bit
     
@@ -674,77 +459,10 @@ class DeiInnerIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['DeiInnerIdentity']['meta_info']
+        super(DeiInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei-inner")
 
 
-class ClassTypeIdentity(object):
-    """
-     
-    This is identity of base class\-type
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ClassTypeIdentity']['meta_info']
-
-
-class AtmClpIdentity(FilterTypeIdentity):
-    """
-    ATM CLP bit
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AtmClpIdentity']['meta_info']
-
-
-class PolicyTypeIdentity(object):
-    """
-     
-    This is identity of base policy\-type
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PolicyTypeIdentity']['meta_info']
-
-
-class MplsExpImpIdentity(FilterTypeIdentity):
+class MplsExpImp(Identity):
     """
     Multi Protocol Label Switching experimental 
     imposition specific values
@@ -757,15 +475,55 @@ class MplsExpImpIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['MplsExpImpIdentity']['meta_info']
+        super(MplsExpImp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-imp")
 
 
-class SrcMacIdentity(FilterTypeIdentity):
+class QosGroup(Identity):
+    """
+    QOS group
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(QosGroup, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-group")
+
+
+class FlowIp(Identity):
+    """
+    Flow IP
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(FlowIp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-ip")
+
+
+class PacketLength(Identity):
+    """
+    Layer 3 packet length
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(PacketLength, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-length")
+
+
+class SrcMac(Identity):
     """
     Source MAC address
     
@@ -777,17 +535,12 @@ class SrcMacIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['SrcMacIdentity']['meta_info']
+        super(SrcMac, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:src-mac")
 
 
-class ClassMapIdentity(FilterTypeIdentity):
+class SecurityGroupTag(Identity):
     """
-    class\-map
+    security group tag
     
     
 
@@ -797,17 +550,13 @@ class ClassMapIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ClassMapIdentity']['meta_info']
+        super(SecurityGroupTag, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:security-group-tag")
 
 
-class PrecIdentity(FilterTypeIdentity):
+class MplsExpTop(Identity):
     """
-    IP precendence
+    Multi Protocol Label Switching experimental 
+    topmost specific values
     
     
 
@@ -817,17 +566,13 @@ class PrecIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PrecIdentity']['meta_info']
+        super(MplsExpTop, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-top")
 
 
-class DeiIdentity(FilterTypeIdentity):
+class ClassType(Identity):
     """
-    Frame\-relay DE bit
+     
+    This is identity of base class\-type
     
     
 
@@ -837,18 +582,12 @@ class DeiIdentity(FilterTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['DeiIdentity']['meta_info']
+        super(ClassType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-type")
 
 
-class AppnavIdentity(PolicyTypeIdentity):
+class Ipv6AclName(Identity):
     """
-    
-    Policy\-type APPNAV Policy Map
+    IPV6 access group list
     
     
 
@@ -858,18 +597,12 @@ class AppnavIdentity(PolicyTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AppnavIdentity']['meta_info']
+        super(Ipv6AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl-name")
 
 
-class PacketServiceIdentity(PolicyTypeIdentity):
+class FlowDe(Identity):
     """
-    
-    Policy\-type Packet Service Policy Map
+    Flow DE
     
     
 
@@ -879,15 +612,40 @@ class PacketServiceIdentity(PolicyTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PacketServiceIdentity']['meta_info']
+        super(FlowDe, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-de")
 
 
-class ControlIdentity(PolicyTypeIdentity):
+class Application(Identity):
+    """
+    application
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Application, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:application")
+
+
+class SecurityGroupName(Identity):
+    """
+    security group name
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(SecurityGroupName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:security-group-name")
+
+
+class Control(Identity):
     """
     
     Policy\-type control policy\-map
@@ -900,225 +658,10 @@ class ControlIdentity(PolicyTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ControlIdentity']['meta_info']
+        super(Control, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control")
 
 
-class ControlClassIdentity(ClassTypeIdentity):
-    """
-    
-    Control policy class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        ClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ControlClassIdentity']['meta_info']
-
-
-class AccessControlIdentity(PolicyTypeIdentity):
-    """
-    
-    Policy\-type access\-control specific policy\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AccessControlIdentity']['meta_info']
-
-
-class InspectIdentity(PolicyTypeIdentity):
-    """
-    
-    Policy\-type Firewall Policy Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['InspectIdentity']['meta_info']
-
-
-class AccessControlClassIdentity(ClassTypeIdentity):
-    """
-    
-    Access\-control specific class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        ClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AccessControlClassIdentity']['meta_info']
-
-
-class AppnavClassIdentity(ClassTypeIdentity):
-    """
-    
-    APPNAV Class Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        ClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['AppnavClassIdentity']['meta_info']
-
-
-class ServiceIdentity(PolicyTypeIdentity):
-    """
-    
-    Policy\-type policymap service configuration
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['ServiceIdentity']['meta_info']
-
-
-class QosIdentity(PolicyTypeIdentity):
-    """
-    
-    Policy\-type QOS (quality of service)
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['QosIdentity']['meta_info']
-
-
-class InspectClassIdentity(ClassTypeIdentity):
-    """
-    
-    Firewall Class Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        ClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['InspectClassIdentity']['meta_info']
-
-
-class PbrIdentity(PolicyTypeIdentity):
-    """
-    
-    Policy\-type PBR (policy based routing)
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        PolicyTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PbrIdentity']['meta_info']
-
-
-class QosClassIdentity(ClassTypeIdentity):
-    """
-    
-    QOS class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        ClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['QosClassIdentity']['meta_info']
-
-
-class PerfMonIdentity(PolicyTypeIdentity):
+class PerfMon(Identity):
     """
     
     Policy\-type PERF\-MON (performance monitoring)
@@ -1131,11 +674,198 @@ class PerfMonIdentity(PolicyTypeIdentity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        PolicyTypeIdentity.__init__(self)
+        super(PerfMon, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:perf-mon")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _policy_types as meta
-        return meta._meta_table['PerfMonIdentity']['meta_info']
+
+class Appnav(Identity):
+    """
+    
+    Policy\-type APPNAV Policy Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Appnav, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:appnav")
+
+
+class AccessControlClass(Identity):
+    """
+    
+    Access\-control specific class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AccessControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:access-control-class")
+
+
+class Pbr(Identity):
+    """
+    
+    Policy\-type PBR (policy based routing)
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Pbr, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:pbr")
+
+
+class ControlClass(Identity):
+    """
+    
+    Control policy class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(ControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control-class")
+
+
+class AppnavClass(Identity):
+    """
+    
+    APPNAV Class Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AppnavClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:appnav-class")
+
+
+class AccessControl(Identity):
+    """
+    
+    Policy\-type access\-control specific policy\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AccessControl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:access-control")
+
+
+class Service(Identity):
+    """
+    
+    Policy\-type policymap service configuration
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Service, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:service")
+
+
+class Inspect(Identity):
+    """
+    
+    Policy\-type Firewall Policy Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Inspect, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:inspect")
+
+
+class Qos(Identity):
+    """
+    
+    Policy\-type QOS (quality of service)
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Qos, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos")
+
+
+class InspectClass(Identity):
+    """
+    
+    Firewall Class Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(InspectClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:inspect-class")
+
+
+class QosClass(Identity):
+    """
+    
+    QOS class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(QosClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-class")
+
+
+class PacketService(Identity):
+    """
+    
+    Policy\-type Packet Service Policy Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(PacketService, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-service")
 
 

@@ -3,22 +3,49 @@
 The MIB module for IEEE Token Ring entities.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentityIdentity
+
+class Dot5Testfullduplexloopback(Identity):
+    """
+    Invoking this test on a 802.5 interface causes the
+    interface to check the path from memory through the
+    chip set's internal logic and back to memory, thus
+    checking the proper functioning of the system's
+    interface to the chip set.
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self):
+        super(Dot5Testfullduplexloopback, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestFullDuplexLoopBack")
 
 
-class Dot5Chipsettitms380C16Identity(ObjectIdentityIdentity):
+class Dot5Chipsettitms380(Identity):
+    """
+    Texas Instruments' TMS 380 4Mbs chip\-set
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self):
+        super(Dot5Chipsettitms380, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380")
+
+
+class Dot5Chipsettitms380C16(Identity):
     """
     Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
     
@@ -30,15 +57,10 @@ class Dot5Chipsettitms380C16Identity(ObjectIdentityIdentity):
     _revision = '1994-10-23'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['Dot5Chipsettitms380C16Identity']['meta_info']
+        super(Dot5Chipsettitms380C16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380c16")
 
 
-class Dot5TestinsertfuncIdentity(ObjectIdentityIdentity):
+class Dot5Testinsertfunc(Identity):
     """
     Invoking this test causes the station to test the insert
     ring logic of the hardware if the station's lobe media
@@ -55,59 +77,10 @@ class Dot5TestinsertfuncIdentity(ObjectIdentityIdentity):
     _revision = '1994-10-23'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['Dot5TestinsertfuncIdentity']['meta_info']
+        super(Dot5Testinsertfunc, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestInsertFunc")
 
 
-class Dot5TestfullduplexloopbackIdentity(ObjectIdentityIdentity):
-    """
-    Invoking this test on a 802.5 interface causes the
-    interface to check the path from memory through the
-    chip set's internal logic and back to memory, thus
-    checking the proper functioning of the system's
-    interface to the chip set.
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['Dot5TestfullduplexloopbackIdentity']['meta_info']
-
-
-class Dot5Chipsettitms380Identity(ObjectIdentityIdentity):
-    """
-    Texas Instruments' TMS 380 4Mbs chip\-set
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['Dot5Chipsettitms380Identity']['meta_info']
-
-
-class Dot5Chipsetibm16Identity(ObjectIdentityIdentity):
+class Dot5Chipsetibm16(Identity):
     """
     IBM's 16/4 Mbs chip set.
     
@@ -119,15 +92,10 @@ class Dot5Chipsetibm16Identity(ObjectIdentityIdentity):
     _revision = '1994-10-23'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['Dot5Chipsetibm16Identity']['meta_info']
+        super(Dot5Chipsetibm16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetIBM16")
 
 
-class TokenringMib(object):
+class TokenringMib(Entity):
     """
     
     
@@ -156,15 +124,29 @@ class TokenringMib(object):
     _revision = '1994-10-23'
 
     def __init__(self):
+        super(TokenringMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "TOKENRING-MIB"
+        self.yang_parent_name = "TOKENRING-MIB"
+
         self.dot5statstable = TokenringMib.Dot5Statstable()
         self.dot5statstable.parent = self
+        self._children_name_map["dot5statstable"] = "dot5StatsTable"
+        self._children_yang_names.add("dot5StatsTable")
+
         self.dot5table = TokenringMib.Dot5Table()
         self.dot5table.parent = self
+        self._children_name_map["dot5table"] = "dot5Table"
+        self._children_yang_names.add("dot5Table")
+
         self.dot5timertable = TokenringMib.Dot5Timertable()
         self.dot5timertable.parent = self
+        self._children_name_map["dot5timertable"] = "dot5TimerTable"
+        self._children_yang_names.add("dot5TimerTable")
 
 
-    class Dot5Table(object):
+    class Dot5Table(Entity):
         """
         This table contains Token Ring interface
         parameters and state variables, one entry
@@ -183,13 +165,39 @@ class TokenringMib(object):
         _revision = '1994-10-23'
 
         def __init__(self):
-            self.parent = None
-            self.dot5entry = YList()
-            self.dot5entry.parent = self
-            self.dot5entry.name = 'dot5entry'
+            super(TokenringMib.Dot5Table, self).__init__()
+
+            self.yang_name = "dot5Table"
+            self.yang_parent_name = "TOKENRING-MIB"
+
+            self.dot5entry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TokenringMib.Dot5Table, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TokenringMib.Dot5Table, self).__setattr__(name, value)
 
 
-        class Dot5Entry(object):
+        class Dot5Entry(Entity):
             """
             A list of Token Ring status and parameter
             values for an 802.5 interface.
@@ -204,12 +212,12 @@ class TokenringMib(object):
             .. attribute:: dot5actmonparticipate
             
             	If this object has a value of true(1) then this interface will participate in the active monitor selection process.  If the value is false(2) then it will not. Setting this object does not take effect until the next Active Monitor election, and might not take effect until the next time the interface is opened
-            	**type**\:   :py:class:`Dot5ActmonparticipateEnum <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5ActmonparticipateEnum>`
+            	**type**\:   :py:class:`Dot5Actmonparticipate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5Actmonparticipate>`
             
             .. attribute:: dot5commands
             
             	When this object is set to the value of open(2), the station should go into the open state.  The progress and success of the open is given by the values of the objects dot5RingState and dot5RingOpenStatus.     When this object is set to the value of reset(3), then the station should do a reset.  On a reset, all MIB counters should retain their values, if possible. Other side affects are dependent on the hardware chip set.     When this object is set to the value of close(4), the station should go into the stopped state by removing itself from the ring.     Setting this object to a value of noop(1) has no effect.     When read, this object always has a value of noop(1).     The open(2) and close(4) values correspond to the up(1) and down(2) values of MIB\-II's ifAdminStatus and ifOperStatus, i.e., the setting of ifAdminStatus and   dot5Commands affects the values of both dot5Commands and ifOperStatus
-            	**type**\:   :py:class:`Dot5CommandsEnum <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5CommandsEnum>`
+            	**type**\:   :py:class:`Dot5Commands <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5Commands>`
             
             .. attribute:: dot5functional
             
@@ -228,17 +236,17 @@ class TokenringMib(object):
             .. attribute:: dot5ringopenstatus
             
             	This object indicates the success, or the reason for failure, of the station's most recent attempt to enter the ring
-            	**type**\:   :py:class:`Dot5RingopenstatusEnum <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5RingopenstatusEnum>`
+            	**type**\:   :py:class:`Dot5Ringopenstatus <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5Ringopenstatus>`
             
             .. attribute:: dot5ringspeed
             
             	The ring\-speed at the next insertion into the ring.  Note that this may or may not be different to the current ring\-speed which is given by MIB\-II's ifSpeed.  For interfaces which do not support changing ring\-speed, dot5RingSpeed can only be set to its current value.  When dot5RingSpeed has the value unknown(1), the ring's actual ring\-speed is to be used
-            	**type**\:   :py:class:`Dot5RingspeedEnum <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5RingspeedEnum>`
+            	**type**\:   :py:class:`Dot5Ringspeed <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5Ringspeed>`
             
             .. attribute:: dot5ringstate
             
             	The current interface state with respect to entering or leaving the ring
-            	**type**\:   :py:class:`Dot5RingstateEnum <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5RingstateEnum>`
+            	**type**\:   :py:class:`Dot5Ringstate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TokenringMib.Dot5Table.Dot5Entry.Dot5Ringstate>`
             
             .. attribute:: dot5ringstatus
             
@@ -262,21 +270,67 @@ class TokenringMib(object):
             _revision = '1994-10-23'
 
             def __init__(self):
-                self.parent = None
-                self.dot5ifindex = None
-                self.dot5actmonparticipate = None
-                self.dot5commands = None
-                self.dot5functional = None
-                self.dot5lastbeaconsent = None
-                self.dot5ringopenstatus = None
-                self.dot5ringspeed = None
-                self.dot5ringstate = None
-                self.dot5ringstatus = None
-                self.dot5upstream = None
+                super(TokenringMib.Dot5Table.Dot5Entry, self).__init__()
 
-            class Dot5ActmonparticipateEnum(Enum):
+                self.yang_name = "dot5Entry"
+                self.yang_parent_name = "dot5Table"
+
+                self.dot5ifindex = YLeaf(YType.int32, "dot5IfIndex")
+
+                self.dot5actmonparticipate = YLeaf(YType.enumeration, "dot5ActMonParticipate")
+
+                self.dot5commands = YLeaf(YType.enumeration, "dot5Commands")
+
+                self.dot5functional = YLeaf(YType.str, "dot5Functional")
+
+                self.dot5lastbeaconsent = YLeaf(YType.uint32, "dot5LastBeaconSent")
+
+                self.dot5ringopenstatus = YLeaf(YType.enumeration, "dot5RingOpenStatus")
+
+                self.dot5ringspeed = YLeaf(YType.enumeration, "dot5RingSpeed")
+
+                self.dot5ringstate = YLeaf(YType.enumeration, "dot5RingState")
+
+                self.dot5ringstatus = YLeaf(YType.int32, "dot5RingStatus")
+
+                self.dot5upstream = YLeaf(YType.str, "dot5UpStream")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dot5ifindex",
+                                "dot5actmonparticipate",
+                                "dot5commands",
+                                "dot5functional",
+                                "dot5lastbeaconsent",
+                                "dot5ringopenstatus",
+                                "dot5ringspeed",
+                                "dot5ringstate",
+                                "dot5ringstatus",
+                                "dot5upstream") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TokenringMib.Dot5Table.Dot5Entry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TokenringMib.Dot5Table.Dot5Entry, self).__setattr__(name, value)
+
+            class Dot5Actmonparticipate(Enum):
                 """
-                Dot5ActmonparticipateEnum
+                Dot5Actmonparticipate
 
                 If this object has a value of true(1) then
 
@@ -300,20 +354,14 @@ class TokenringMib(object):
 
                 """
 
-                true = 1
+                true = Enum.YLeaf(1, "true")
 
-                false = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                    return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry.Dot5ActmonparticipateEnum']
+                false = Enum.YLeaf(2, "false")
 
 
-            class Dot5CommandsEnum(Enum):
+            class Dot5Commands(Enum):
                 """
-                Dot5CommandsEnum
+                Dot5Commands
 
                 When this object is set to the value of
 
@@ -377,24 +425,18 @@ class TokenringMib(object):
 
                 """
 
-                noop = 1
+                noop = Enum.YLeaf(1, "noop")
 
-                open = 2
+                open = Enum.YLeaf(2, "open")
 
-                reset = 3
+                reset = Enum.YLeaf(3, "reset")
 
-                close = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                    return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry.Dot5CommandsEnum']
+                close = Enum.YLeaf(4, "close")
 
 
-            class Dot5RingopenstatusEnum(Enum):
+            class Dot5Ringopenstatus(Enum):
                 """
-                Dot5RingopenstatusEnum
+                Dot5Ringopenstatus
 
                 This object indicates the success, or the
 
@@ -426,38 +468,32 @@ class TokenringMib(object):
 
                 """
 
-                noOpen = 1
+                noOpen = Enum.YLeaf(1, "noOpen")
 
-                badParam = 2
+                badParam = Enum.YLeaf(2, "badParam")
 
-                lobeFailed = 3
+                lobeFailed = Enum.YLeaf(3, "lobeFailed")
 
-                signalLoss = 4
+                signalLoss = Enum.YLeaf(4, "signalLoss")
 
-                insertionTimeout = 5
+                insertionTimeout = Enum.YLeaf(5, "insertionTimeout")
 
-                ringFailed = 6
+                ringFailed = Enum.YLeaf(6, "ringFailed")
 
-                beaconing = 7
+                beaconing = Enum.YLeaf(7, "beaconing")
 
-                duplicateMAC = 8
+                duplicateMAC = Enum.YLeaf(8, "duplicateMAC")
 
-                requestFailed = 9
+                requestFailed = Enum.YLeaf(9, "requestFailed")
 
-                removeReceived = 10
+                removeReceived = Enum.YLeaf(10, "removeReceived")
 
-                open = 11
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                    return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry.Dot5RingopenstatusEnum']
+                open = Enum.YLeaf(11, "open")
 
 
-            class Dot5RingspeedEnum(Enum):
+            class Dot5Ringspeed(Enum):
                 """
-                Dot5RingspeedEnum
+                Dot5Ringspeed
 
                 The ring\-speed at the next insertion into
 
@@ -487,24 +523,18 @@ class TokenringMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                oneMegabit = 2
+                oneMegabit = Enum.YLeaf(2, "oneMegabit")
 
-                fourMegabit = 3
+                fourMegabit = Enum.YLeaf(3, "fourMegabit")
 
-                sixteenMegabit = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                    return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry.Dot5RingspeedEnum']
+                sixteenMegabit = Enum.YLeaf(4, "sixteenMegabit")
 
 
-            class Dot5RingstateEnum(Enum):
+            class Dot5Ringstate(Enum):
                 """
-                Dot5RingstateEnum
+                Dot5Ringstate
 
                 The current interface state with respect
 
@@ -524,98 +554,197 @@ class TokenringMib(object):
 
                 """
 
-                opened = 1
+                opened = Enum.YLeaf(1, "opened")
 
-                closed = 2
+                closed = Enum.YLeaf(2, "closed")
 
-                opening = 3
+                opening = Enum.YLeaf(3, "opening")
 
-                closing = 4
+                closing = Enum.YLeaf(4, "closing")
 
-                openFailure = 5
+                openFailure = Enum.YLeaf(5, "openFailure")
 
-                ringFailure = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                    return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry.Dot5RingstateEnum']
+                ringFailure = Enum.YLeaf(6, "ringFailure")
 
 
-            @property
-            def _common_path(self):
-                if self.dot5ifindex is None:
-                    raise YPYModelError('Key property dot5ifindex is None')
+            def has_data(self):
+                return (
+                    self.dot5ifindex.is_set or
+                    self.dot5actmonparticipate.is_set or
+                    self.dot5commands.is_set or
+                    self.dot5functional.is_set or
+                    self.dot5lastbeaconsent.is_set or
+                    self.dot5ringopenstatus.is_set or
+                    self.dot5ringspeed.is_set or
+                    self.dot5ringstate.is_set or
+                    self.dot5ringstatus.is_set or
+                    self.dot5upstream.is_set)
 
-                return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5Table/TOKENRING-MIB:dot5Entry[TOKENRING-MIB:dot5IfIndex = ' + str(self.dot5ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dot5ifindex.yfilter != YFilter.not_set or
+                    self.dot5actmonparticipate.yfilter != YFilter.not_set or
+                    self.dot5commands.yfilter != YFilter.not_set or
+                    self.dot5functional.yfilter != YFilter.not_set or
+                    self.dot5lastbeaconsent.yfilter != YFilter.not_set or
+                    self.dot5ringopenstatus.yfilter != YFilter.not_set or
+                    self.dot5ringspeed.yfilter != YFilter.not_set or
+                    self.dot5ringstate.yfilter != YFilter.not_set or
+                    self.dot5ringstatus.yfilter != YFilter.not_set or
+                    self.dot5upstream.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dot5Entry" + "[dot5IfIndex='" + self.dot5ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "TOKENRING-MIB:TOKENRING-MIB/dot5Table/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dot5ifindex.is_set or self.dot5ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5ifindex.get_name_leafdata())
+                if (self.dot5actmonparticipate.is_set or self.dot5actmonparticipate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5actmonparticipate.get_name_leafdata())
+                if (self.dot5commands.is_set or self.dot5commands.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5commands.get_name_leafdata())
+                if (self.dot5functional.is_set or self.dot5functional.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5functional.get_name_leafdata())
+                if (self.dot5lastbeaconsent.is_set or self.dot5lastbeaconsent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5lastbeaconsent.get_name_leafdata())
+                if (self.dot5ringopenstatus.is_set or self.dot5ringopenstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5ringopenstatus.get_name_leafdata())
+                if (self.dot5ringspeed.is_set or self.dot5ringspeed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5ringspeed.get_name_leafdata())
+                if (self.dot5ringstate.is_set or self.dot5ringstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5ringstate.get_name_leafdata())
+                if (self.dot5ringstatus.is_set or self.dot5ringstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5ringstatus.get_name_leafdata())
+                if (self.dot5upstream.is_set or self.dot5upstream.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5upstream.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dot5IfIndex" or name == "dot5ActMonParticipate" or name == "dot5Commands" or name == "dot5Functional" or name == "dot5LastBeaconSent" or name == "dot5RingOpenStatus" or name == "dot5RingSpeed" or name == "dot5RingState" or name == "dot5RingStatus" or name == "dot5UpStream"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dot5ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dot5IfIndex"):
+                    self.dot5ifindex = value
+                    self.dot5ifindex.value_namespace = name_space
+                    self.dot5ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5ActMonParticipate"):
+                    self.dot5actmonparticipate = value
+                    self.dot5actmonparticipate.value_namespace = name_space
+                    self.dot5actmonparticipate.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5Commands"):
+                    self.dot5commands = value
+                    self.dot5commands.value_namespace = name_space
+                    self.dot5commands.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5Functional"):
+                    self.dot5functional = value
+                    self.dot5functional.value_namespace = name_space
+                    self.dot5functional.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5LastBeaconSent"):
+                    self.dot5lastbeaconsent = value
+                    self.dot5lastbeaconsent.value_namespace = name_space
+                    self.dot5lastbeaconsent.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5RingOpenStatus"):
+                    self.dot5ringopenstatus = value
+                    self.dot5ringopenstatus.value_namespace = name_space
+                    self.dot5ringopenstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5RingSpeed"):
+                    self.dot5ringspeed = value
+                    self.dot5ringspeed.value_namespace = name_space
+                    self.dot5ringspeed.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5RingState"):
+                    self.dot5ringstate = value
+                    self.dot5ringstate.value_namespace = name_space
+                    self.dot5ringstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5RingStatus"):
+                    self.dot5ringstatus = value
+                    self.dot5ringstatus.value_namespace = name_space
+                    self.dot5ringstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5UpStream"):
+                    self.dot5upstream = value
+                    self.dot5upstream.value_namespace = name_space
+                    self.dot5upstream.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dot5entry:
+                if (c.has_data()):
                     return True
-
-                if self.dot5actmonparticipate is not None:
-                    return True
-
-                if self.dot5commands is not None:
-                    return True
-
-                if self.dot5functional is not None:
-                    return True
-
-                if self.dot5lastbeaconsent is not None:
-                    return True
-
-                if self.dot5ringopenstatus is not None:
-                    return True
-
-                if self.dot5ringspeed is not None:
-                    return True
-
-                if self.dot5ringstate is not None:
-                    return True
-
-                if self.dot5ringstatus is not None:
-                    return True
-
-                if self.dot5upstream is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                return meta._meta_table['TokenringMib.Dot5Table.Dot5Entry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5Table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dot5entry is not None:
-                for child_ref in self.dot5entry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dot5entry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dot5Table" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "TOKENRING-MIB:TOKENRING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dot5Entry"):
+                for c in self.dot5entry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TokenringMib.Dot5Table.Dot5Entry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dot5entry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dot5Entry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-            return meta._meta_table['TokenringMib.Dot5Table']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dot5Statstable(object):
+    class Dot5Statstable(Entity):
         """
         A table containing Token Ring statistics,
         one entry per 802.5 interface.
@@ -641,13 +770,39 @@ class TokenringMib(object):
         _revision = '1994-10-23'
 
         def __init__(self):
-            self.parent = None
-            self.dot5statsentry = YList()
-            self.dot5statsentry.parent = self
-            self.dot5statsentry.name = 'dot5statsentry'
+            super(TokenringMib.Dot5Statstable, self).__init__()
+
+            self.yang_name = "dot5StatsTable"
+            self.yang_parent_name = "TOKENRING-MIB"
+
+            self.dot5statsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TokenringMib.Dot5Statstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TokenringMib.Dot5Statstable, self).__setattr__(name, value)
 
 
-        class Dot5Statsentry(object):
+        class Dot5Statsentry(Entity):
             """
             An entry contains the 802.5 statistics
             for a particular interface.
@@ -793,127 +948,341 @@ class TokenringMib(object):
             _revision = '1994-10-23'
 
             def __init__(self):
-                self.parent = None
-                self.dot5statsifindex = None
-                self.dot5statsaborttranserrors = None
-                self.dot5statsacerrors = None
-                self.dot5statsbursterrors = None
-                self.dot5statsframecopiederrors = None
-                self.dot5statsfreqerrors = None
-                self.dot5statsharderrors = None
-                self.dot5statsinternalerrors = None
-                self.dot5statslineerrors = None
-                self.dot5statslobewires = None
-                self.dot5statslostframeerrors = None
-                self.dot5statsreceivecongestions = None
-                self.dot5statsrecoverys = None
-                self.dot5statsremoves = None
-                self.dot5statssignalloss = None
-                self.dot5statssingles = None
-                self.dot5statssofterrors = None
-                self.dot5statstokenerrors = None
-                self.dot5statstransmitbeacons = None
+                super(TokenringMib.Dot5Statstable.Dot5Statsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dot5statsifindex is None:
-                    raise YPYModelError('Key property dot5statsifindex is None')
+                self.yang_name = "dot5StatsEntry"
+                self.yang_parent_name = "dot5StatsTable"
 
-                return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5StatsTable/TOKENRING-MIB:dot5StatsEntry[TOKENRING-MIB:dot5StatsIfIndex = ' + str(self.dot5statsifindex) + ']'
+                self.dot5statsifindex = YLeaf(YType.int32, "dot5StatsIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dot5statsaborttranserrors = YLeaf(YType.uint32, "dot5StatsAbortTransErrors")
+
+                self.dot5statsacerrors = YLeaf(YType.uint32, "dot5StatsACErrors")
+
+                self.dot5statsbursterrors = YLeaf(YType.uint32, "dot5StatsBurstErrors")
+
+                self.dot5statsframecopiederrors = YLeaf(YType.uint32, "dot5StatsFrameCopiedErrors")
+
+                self.dot5statsfreqerrors = YLeaf(YType.uint32, "dot5StatsFreqErrors")
+
+                self.dot5statsharderrors = YLeaf(YType.uint32, "dot5StatsHardErrors")
+
+                self.dot5statsinternalerrors = YLeaf(YType.uint32, "dot5StatsInternalErrors")
+
+                self.dot5statslineerrors = YLeaf(YType.uint32, "dot5StatsLineErrors")
+
+                self.dot5statslobewires = YLeaf(YType.uint32, "dot5StatsLobeWires")
+
+                self.dot5statslostframeerrors = YLeaf(YType.uint32, "dot5StatsLostFrameErrors")
+
+                self.dot5statsreceivecongestions = YLeaf(YType.uint32, "dot5StatsReceiveCongestions")
+
+                self.dot5statsrecoverys = YLeaf(YType.uint32, "dot5StatsRecoverys")
+
+                self.dot5statsremoves = YLeaf(YType.uint32, "dot5StatsRemoves")
+
+                self.dot5statssignalloss = YLeaf(YType.uint32, "dot5StatsSignalLoss")
+
+                self.dot5statssingles = YLeaf(YType.uint32, "dot5StatsSingles")
+
+                self.dot5statssofterrors = YLeaf(YType.uint32, "dot5StatsSoftErrors")
+
+                self.dot5statstokenerrors = YLeaf(YType.uint32, "dot5StatsTokenErrors")
+
+                self.dot5statstransmitbeacons = YLeaf(YType.uint32, "dot5StatsTransmitBeacons")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dot5statsifindex",
+                                "dot5statsaborttranserrors",
+                                "dot5statsacerrors",
+                                "dot5statsbursterrors",
+                                "dot5statsframecopiederrors",
+                                "dot5statsfreqerrors",
+                                "dot5statsharderrors",
+                                "dot5statsinternalerrors",
+                                "dot5statslineerrors",
+                                "dot5statslobewires",
+                                "dot5statslostframeerrors",
+                                "dot5statsreceivecongestions",
+                                "dot5statsrecoverys",
+                                "dot5statsremoves",
+                                "dot5statssignalloss",
+                                "dot5statssingles",
+                                "dot5statssofterrors",
+                                "dot5statstokenerrors",
+                                "dot5statstransmitbeacons") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TokenringMib.Dot5Statstable.Dot5Statsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TokenringMib.Dot5Statstable.Dot5Statsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dot5statsifindex.is_set or
+                    self.dot5statsaborttranserrors.is_set or
+                    self.dot5statsacerrors.is_set or
+                    self.dot5statsbursterrors.is_set or
+                    self.dot5statsframecopiederrors.is_set or
+                    self.dot5statsfreqerrors.is_set or
+                    self.dot5statsharderrors.is_set or
+                    self.dot5statsinternalerrors.is_set or
+                    self.dot5statslineerrors.is_set or
+                    self.dot5statslobewires.is_set or
+                    self.dot5statslostframeerrors.is_set or
+                    self.dot5statsreceivecongestions.is_set or
+                    self.dot5statsrecoverys.is_set or
+                    self.dot5statsremoves.is_set or
+                    self.dot5statssignalloss.is_set or
+                    self.dot5statssingles.is_set or
+                    self.dot5statssofterrors.is_set or
+                    self.dot5statstokenerrors.is_set or
+                    self.dot5statstransmitbeacons.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dot5statsifindex.yfilter != YFilter.not_set or
+                    self.dot5statsaborttranserrors.yfilter != YFilter.not_set or
+                    self.dot5statsacerrors.yfilter != YFilter.not_set or
+                    self.dot5statsbursterrors.yfilter != YFilter.not_set or
+                    self.dot5statsframecopiederrors.yfilter != YFilter.not_set or
+                    self.dot5statsfreqerrors.yfilter != YFilter.not_set or
+                    self.dot5statsharderrors.yfilter != YFilter.not_set or
+                    self.dot5statsinternalerrors.yfilter != YFilter.not_set or
+                    self.dot5statslineerrors.yfilter != YFilter.not_set or
+                    self.dot5statslobewires.yfilter != YFilter.not_set or
+                    self.dot5statslostframeerrors.yfilter != YFilter.not_set or
+                    self.dot5statsreceivecongestions.yfilter != YFilter.not_set or
+                    self.dot5statsrecoverys.yfilter != YFilter.not_set or
+                    self.dot5statsremoves.yfilter != YFilter.not_set or
+                    self.dot5statssignalloss.yfilter != YFilter.not_set or
+                    self.dot5statssingles.yfilter != YFilter.not_set or
+                    self.dot5statssofterrors.yfilter != YFilter.not_set or
+                    self.dot5statstokenerrors.yfilter != YFilter.not_set or
+                    self.dot5statstransmitbeacons.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dot5StatsEntry" + "[dot5StatsIfIndex='" + self.dot5statsifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "TOKENRING-MIB:TOKENRING-MIB/dot5StatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dot5statsifindex.is_set or self.dot5statsifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsifindex.get_name_leafdata())
+                if (self.dot5statsaborttranserrors.is_set or self.dot5statsaborttranserrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsaborttranserrors.get_name_leafdata())
+                if (self.dot5statsacerrors.is_set or self.dot5statsacerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsacerrors.get_name_leafdata())
+                if (self.dot5statsbursterrors.is_set or self.dot5statsbursterrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsbursterrors.get_name_leafdata())
+                if (self.dot5statsframecopiederrors.is_set or self.dot5statsframecopiederrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsframecopiederrors.get_name_leafdata())
+                if (self.dot5statsfreqerrors.is_set or self.dot5statsfreqerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsfreqerrors.get_name_leafdata())
+                if (self.dot5statsharderrors.is_set or self.dot5statsharderrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsharderrors.get_name_leafdata())
+                if (self.dot5statsinternalerrors.is_set or self.dot5statsinternalerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsinternalerrors.get_name_leafdata())
+                if (self.dot5statslineerrors.is_set or self.dot5statslineerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statslineerrors.get_name_leafdata())
+                if (self.dot5statslobewires.is_set or self.dot5statslobewires.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statslobewires.get_name_leafdata())
+                if (self.dot5statslostframeerrors.is_set or self.dot5statslostframeerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statslostframeerrors.get_name_leafdata())
+                if (self.dot5statsreceivecongestions.is_set or self.dot5statsreceivecongestions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsreceivecongestions.get_name_leafdata())
+                if (self.dot5statsrecoverys.is_set or self.dot5statsrecoverys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsrecoverys.get_name_leafdata())
+                if (self.dot5statsremoves.is_set or self.dot5statsremoves.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statsremoves.get_name_leafdata())
+                if (self.dot5statssignalloss.is_set or self.dot5statssignalloss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statssignalloss.get_name_leafdata())
+                if (self.dot5statssingles.is_set or self.dot5statssingles.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statssingles.get_name_leafdata())
+                if (self.dot5statssofterrors.is_set or self.dot5statssofterrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statssofterrors.get_name_leafdata())
+                if (self.dot5statstokenerrors.is_set or self.dot5statstokenerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statstokenerrors.get_name_leafdata())
+                if (self.dot5statstransmitbeacons.is_set or self.dot5statstransmitbeacons.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5statstransmitbeacons.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dot5StatsIfIndex" or name == "dot5StatsAbortTransErrors" or name == "dot5StatsACErrors" or name == "dot5StatsBurstErrors" or name == "dot5StatsFrameCopiedErrors" or name == "dot5StatsFreqErrors" or name == "dot5StatsHardErrors" or name == "dot5StatsInternalErrors" or name == "dot5StatsLineErrors" or name == "dot5StatsLobeWires" or name == "dot5StatsLostFrameErrors" or name == "dot5StatsReceiveCongestions" or name == "dot5StatsRecoverys" or name == "dot5StatsRemoves" or name == "dot5StatsSignalLoss" or name == "dot5StatsSingles" or name == "dot5StatsSoftErrors" or name == "dot5StatsTokenErrors" or name == "dot5StatsTransmitBeacons"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dot5statsifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dot5StatsIfIndex"):
+                    self.dot5statsifindex = value
+                    self.dot5statsifindex.value_namespace = name_space
+                    self.dot5statsifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsAbortTransErrors"):
+                    self.dot5statsaborttranserrors = value
+                    self.dot5statsaborttranserrors.value_namespace = name_space
+                    self.dot5statsaborttranserrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsACErrors"):
+                    self.dot5statsacerrors = value
+                    self.dot5statsacerrors.value_namespace = name_space
+                    self.dot5statsacerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsBurstErrors"):
+                    self.dot5statsbursterrors = value
+                    self.dot5statsbursterrors.value_namespace = name_space
+                    self.dot5statsbursterrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsFrameCopiedErrors"):
+                    self.dot5statsframecopiederrors = value
+                    self.dot5statsframecopiederrors.value_namespace = name_space
+                    self.dot5statsframecopiederrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsFreqErrors"):
+                    self.dot5statsfreqerrors = value
+                    self.dot5statsfreqerrors.value_namespace = name_space
+                    self.dot5statsfreqerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsHardErrors"):
+                    self.dot5statsharderrors = value
+                    self.dot5statsharderrors.value_namespace = name_space
+                    self.dot5statsharderrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsInternalErrors"):
+                    self.dot5statsinternalerrors = value
+                    self.dot5statsinternalerrors.value_namespace = name_space
+                    self.dot5statsinternalerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsLineErrors"):
+                    self.dot5statslineerrors = value
+                    self.dot5statslineerrors.value_namespace = name_space
+                    self.dot5statslineerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsLobeWires"):
+                    self.dot5statslobewires = value
+                    self.dot5statslobewires.value_namespace = name_space
+                    self.dot5statslobewires.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsLostFrameErrors"):
+                    self.dot5statslostframeerrors = value
+                    self.dot5statslostframeerrors.value_namespace = name_space
+                    self.dot5statslostframeerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsReceiveCongestions"):
+                    self.dot5statsreceivecongestions = value
+                    self.dot5statsreceivecongestions.value_namespace = name_space
+                    self.dot5statsreceivecongestions.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsRecoverys"):
+                    self.dot5statsrecoverys = value
+                    self.dot5statsrecoverys.value_namespace = name_space
+                    self.dot5statsrecoverys.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsRemoves"):
+                    self.dot5statsremoves = value
+                    self.dot5statsremoves.value_namespace = name_space
+                    self.dot5statsremoves.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsSignalLoss"):
+                    self.dot5statssignalloss = value
+                    self.dot5statssignalloss.value_namespace = name_space
+                    self.dot5statssignalloss.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsSingles"):
+                    self.dot5statssingles = value
+                    self.dot5statssingles.value_namespace = name_space
+                    self.dot5statssingles.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsSoftErrors"):
+                    self.dot5statssofterrors = value
+                    self.dot5statssofterrors.value_namespace = name_space
+                    self.dot5statssofterrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsTokenErrors"):
+                    self.dot5statstokenerrors = value
+                    self.dot5statstokenerrors.value_namespace = name_space
+                    self.dot5statstokenerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5StatsTransmitBeacons"):
+                    self.dot5statstransmitbeacons = value
+                    self.dot5statstransmitbeacons.value_namespace = name_space
+                    self.dot5statstransmitbeacons.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dot5statsentry:
+                if (c.has_data()):
                     return True
-
-                if self.dot5statsaborttranserrors is not None:
-                    return True
-
-                if self.dot5statsacerrors is not None:
-                    return True
-
-                if self.dot5statsbursterrors is not None:
-                    return True
-
-                if self.dot5statsframecopiederrors is not None:
-                    return True
-
-                if self.dot5statsfreqerrors is not None:
-                    return True
-
-                if self.dot5statsharderrors is not None:
-                    return True
-
-                if self.dot5statsinternalerrors is not None:
-                    return True
-
-                if self.dot5statslineerrors is not None:
-                    return True
-
-                if self.dot5statslobewires is not None:
-                    return True
-
-                if self.dot5statslostframeerrors is not None:
-                    return True
-
-                if self.dot5statsreceivecongestions is not None:
-                    return True
-
-                if self.dot5statsrecoverys is not None:
-                    return True
-
-                if self.dot5statsremoves is not None:
-                    return True
-
-                if self.dot5statssignalloss is not None:
-                    return True
-
-                if self.dot5statssingles is not None:
-                    return True
-
-                if self.dot5statssofterrors is not None:
-                    return True
-
-                if self.dot5statstokenerrors is not None:
-                    return True
-
-                if self.dot5statstransmitbeacons is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                return meta._meta_table['TokenringMib.Dot5Statstable.Dot5Statsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5StatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dot5statsentry is not None:
-                for child_ref in self.dot5statsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dot5statsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dot5StatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "TOKENRING-MIB:TOKENRING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dot5StatsEntry"):
+                for c in self.dot5statsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TokenringMib.Dot5Statstable.Dot5Statsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dot5statsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dot5StatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-            return meta._meta_table['TokenringMib.Dot5Statstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Dot5Timertable(object):
+    class Dot5Timertable(Entity):
         """
         This table contains Token Ring interface
         timer values, one entry per 802.5
@@ -934,13 +1303,39 @@ class TokenringMib(object):
         _revision = '1994-10-23'
 
         def __init__(self):
-            self.parent = None
-            self.dot5timerentry = YList()
-            self.dot5timerentry.parent = self
-            self.dot5timerentry.name = 'dot5timerentry'
+            super(TokenringMib.Dot5Timertable, self).__init__()
+
+            self.yang_name = "dot5TimerTable"
+            self.yang_parent_name = "TOKENRING-MIB"
+
+            self.dot5timerentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TokenringMib.Dot5Timertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TokenringMib.Dot5Timertable, self).__setattr__(name, value)
 
 
-        class Dot5Timerentry(object):
+        class Dot5Timerentry(Entity):
             """
             A list of Token Ring timer values for an
             802.5 interface.
@@ -1052,117 +1447,318 @@ class TokenringMib(object):
             _revision = '1994-10-23'
 
             def __init__(self):
-                self.parent = None
-                self.dot5timerifindex = None
-                self.dot5timeractivemon = None
-                self.dot5timerbeaconreceive = None
-                self.dot5timerbeacontransmit = None
-                self.dot5timererrorreport = None
-                self.dot5timerholding = None
-                self.dot5timernotoken = None
-                self.dot5timerqueuepdu = None
-                self.dot5timerreturnrepeat = None
-                self.dot5timerstandbymon = None
-                self.dot5timervalidtransmit = None
+                super(TokenringMib.Dot5Timertable.Dot5Timerentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.dot5timerifindex is None:
-                    raise YPYModelError('Key property dot5timerifindex is None')
+                self.yang_name = "dot5TimerEntry"
+                self.yang_parent_name = "dot5TimerTable"
 
-                return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5TimerTable/TOKENRING-MIB:dot5TimerEntry[TOKENRING-MIB:dot5TimerIfIndex = ' + str(self.dot5timerifindex) + ']'
+                self.dot5timerifindex = YLeaf(YType.int32, "dot5TimerIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.dot5timeractivemon = YLeaf(YType.int32, "dot5TimerActiveMon")
+
+                self.dot5timerbeaconreceive = YLeaf(YType.int32, "dot5TimerBeaconReceive")
+
+                self.dot5timerbeacontransmit = YLeaf(YType.int32, "dot5TimerBeaconTransmit")
+
+                self.dot5timererrorreport = YLeaf(YType.int32, "dot5TimerErrorReport")
+
+                self.dot5timerholding = YLeaf(YType.int32, "dot5TimerHolding")
+
+                self.dot5timernotoken = YLeaf(YType.int32, "dot5TimerNoToken")
+
+                self.dot5timerqueuepdu = YLeaf(YType.int32, "dot5TimerQueuePDU")
+
+                self.dot5timerreturnrepeat = YLeaf(YType.int32, "dot5TimerReturnRepeat")
+
+                self.dot5timerstandbymon = YLeaf(YType.int32, "dot5TimerStandbyMon")
+
+                self.dot5timervalidtransmit = YLeaf(YType.int32, "dot5TimerValidTransmit")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("dot5timerifindex",
+                                "dot5timeractivemon",
+                                "dot5timerbeaconreceive",
+                                "dot5timerbeacontransmit",
+                                "dot5timererrorreport",
+                                "dot5timerholding",
+                                "dot5timernotoken",
+                                "dot5timerqueuepdu",
+                                "dot5timerreturnrepeat",
+                                "dot5timerstandbymon",
+                                "dot5timervalidtransmit") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TokenringMib.Dot5Timertable.Dot5Timerentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TokenringMib.Dot5Timertable.Dot5Timerentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.dot5timerifindex.is_set or
+                    self.dot5timeractivemon.is_set or
+                    self.dot5timerbeaconreceive.is_set or
+                    self.dot5timerbeacontransmit.is_set or
+                    self.dot5timererrorreport.is_set or
+                    self.dot5timerholding.is_set or
+                    self.dot5timernotoken.is_set or
+                    self.dot5timerqueuepdu.is_set or
+                    self.dot5timerreturnrepeat.is_set or
+                    self.dot5timerstandbymon.is_set or
+                    self.dot5timervalidtransmit.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.dot5timerifindex.yfilter != YFilter.not_set or
+                    self.dot5timeractivemon.yfilter != YFilter.not_set or
+                    self.dot5timerbeaconreceive.yfilter != YFilter.not_set or
+                    self.dot5timerbeacontransmit.yfilter != YFilter.not_set or
+                    self.dot5timererrorreport.yfilter != YFilter.not_set or
+                    self.dot5timerholding.yfilter != YFilter.not_set or
+                    self.dot5timernotoken.yfilter != YFilter.not_set or
+                    self.dot5timerqueuepdu.yfilter != YFilter.not_set or
+                    self.dot5timerreturnrepeat.yfilter != YFilter.not_set or
+                    self.dot5timerstandbymon.yfilter != YFilter.not_set or
+                    self.dot5timervalidtransmit.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "dot5TimerEntry" + "[dot5TimerIfIndex='" + self.dot5timerifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "TOKENRING-MIB:TOKENRING-MIB/dot5TimerTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.dot5timerifindex.is_set or self.dot5timerifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerifindex.get_name_leafdata())
+                if (self.dot5timeractivemon.is_set or self.dot5timeractivemon.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timeractivemon.get_name_leafdata())
+                if (self.dot5timerbeaconreceive.is_set or self.dot5timerbeaconreceive.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerbeaconreceive.get_name_leafdata())
+                if (self.dot5timerbeacontransmit.is_set or self.dot5timerbeacontransmit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerbeacontransmit.get_name_leafdata())
+                if (self.dot5timererrorreport.is_set or self.dot5timererrorreport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timererrorreport.get_name_leafdata())
+                if (self.dot5timerholding.is_set or self.dot5timerholding.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerholding.get_name_leafdata())
+                if (self.dot5timernotoken.is_set or self.dot5timernotoken.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timernotoken.get_name_leafdata())
+                if (self.dot5timerqueuepdu.is_set or self.dot5timerqueuepdu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerqueuepdu.get_name_leafdata())
+                if (self.dot5timerreturnrepeat.is_set or self.dot5timerreturnrepeat.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerreturnrepeat.get_name_leafdata())
+                if (self.dot5timerstandbymon.is_set or self.dot5timerstandbymon.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timerstandbymon.get_name_leafdata())
+                if (self.dot5timervalidtransmit.is_set or self.dot5timervalidtransmit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dot5timervalidtransmit.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "dot5TimerIfIndex" or name == "dot5TimerActiveMon" or name == "dot5TimerBeaconReceive" or name == "dot5TimerBeaconTransmit" or name == "dot5TimerErrorReport" or name == "dot5TimerHolding" or name == "dot5TimerNoToken" or name == "dot5TimerQueuePDU" or name == "dot5TimerReturnRepeat" or name == "dot5TimerStandbyMon" or name == "dot5TimerValidTransmit"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.dot5timerifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "dot5TimerIfIndex"):
+                    self.dot5timerifindex = value
+                    self.dot5timerifindex.value_namespace = name_space
+                    self.dot5timerifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerActiveMon"):
+                    self.dot5timeractivemon = value
+                    self.dot5timeractivemon.value_namespace = name_space
+                    self.dot5timeractivemon.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerBeaconReceive"):
+                    self.dot5timerbeaconreceive = value
+                    self.dot5timerbeaconreceive.value_namespace = name_space
+                    self.dot5timerbeaconreceive.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerBeaconTransmit"):
+                    self.dot5timerbeacontransmit = value
+                    self.dot5timerbeacontransmit.value_namespace = name_space
+                    self.dot5timerbeacontransmit.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerErrorReport"):
+                    self.dot5timererrorreport = value
+                    self.dot5timererrorreport.value_namespace = name_space
+                    self.dot5timererrorreport.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerHolding"):
+                    self.dot5timerholding = value
+                    self.dot5timerholding.value_namespace = name_space
+                    self.dot5timerholding.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerNoToken"):
+                    self.dot5timernotoken = value
+                    self.dot5timernotoken.value_namespace = name_space
+                    self.dot5timernotoken.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerQueuePDU"):
+                    self.dot5timerqueuepdu = value
+                    self.dot5timerqueuepdu.value_namespace = name_space
+                    self.dot5timerqueuepdu.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerReturnRepeat"):
+                    self.dot5timerreturnrepeat = value
+                    self.dot5timerreturnrepeat.value_namespace = name_space
+                    self.dot5timerreturnrepeat.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerStandbyMon"):
+                    self.dot5timerstandbymon = value
+                    self.dot5timerstandbymon.value_namespace = name_space
+                    self.dot5timerstandbymon.value_namespace_prefix = name_space_prefix
+                if(value_path == "dot5TimerValidTransmit"):
+                    self.dot5timervalidtransmit = value
+                    self.dot5timervalidtransmit.value_namespace = name_space
+                    self.dot5timervalidtransmit.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.dot5timerentry:
+                if (c.has_data()):
                     return True
-
-                if self.dot5timeractivemon is not None:
-                    return True
-
-                if self.dot5timerbeaconreceive is not None:
-                    return True
-
-                if self.dot5timerbeacontransmit is not None:
-                    return True
-
-                if self.dot5timererrorreport is not None:
-                    return True
-
-                if self.dot5timerholding is not None:
-                    return True
-
-                if self.dot5timernotoken is not None:
-                    return True
-
-                if self.dot5timerqueuepdu is not None:
-                    return True
-
-                if self.dot5timerreturnrepeat is not None:
-                    return True
-
-                if self.dot5timerstandbymon is not None:
-                    return True
-
-                if self.dot5timervalidtransmit is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-                return meta._meta_table['TokenringMib.Dot5Timertable.Dot5Timerentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/TOKENRING-MIB:TOKENRING-MIB/TOKENRING-MIB:dot5TimerTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.dot5timerentry is not None:
-                for child_ref in self.dot5timerentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.dot5timerentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "dot5TimerTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "TOKENRING-MIB:TOKENRING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "dot5TimerEntry"):
+                for c in self.dot5timerentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TokenringMib.Dot5Timertable.Dot5Timerentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.dot5timerentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dot5TimerEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-            return meta._meta_table['TokenringMib.Dot5Timertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.dot5statstable is not None and self.dot5statstable.has_data()) or
+            (self.dot5table is not None and self.dot5table.has_data()) or
+            (self.dot5timertable is not None and self.dot5timertable.has_data()))
 
-        return '/TOKENRING-MIB:TOKENRING-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.dot5statstable is not None and self.dot5statstable.has_operation()) or
+            (self.dot5table is not None and self.dot5table.has_operation()) or
+            (self.dot5timertable is not None and self.dot5timertable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "TOKENRING-MIB:TOKENRING-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "dot5StatsTable"):
+            if (self.dot5statstable is None):
+                self.dot5statstable = TokenringMib.Dot5Statstable()
+                self.dot5statstable.parent = self
+                self._children_name_map["dot5statstable"] = "dot5StatsTable"
+            return self.dot5statstable
+
+        if (child_yang_name == "dot5Table"):
+            if (self.dot5table is None):
+                self.dot5table = TokenringMib.Dot5Table()
+                self.dot5table.parent = self
+                self._children_name_map["dot5table"] = "dot5Table"
+            return self.dot5table
+
+        if (child_yang_name == "dot5TimerTable"):
+            if (self.dot5timertable is None):
+                self.dot5timertable = TokenringMib.Dot5Timertable()
+                self.dot5timertable.parent = self
+                self._children_name_map["dot5timertable"] = "dot5TimerTable"
+            return self.dot5timertable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "dot5StatsTable" or name == "dot5Table" or name == "dot5TimerTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.dot5statstable is not None and self.dot5statstable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.dot5table is not None and self.dot5table._has_data():
-            return True
-
-        if self.dot5timertable is not None and self.dot5timertable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _TOKENRING_MIB as meta
-        return meta._meta_table['TokenringMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = TokenringMib()
+        return self._top_entity
 

@@ -4,22 +4,16 @@ This MIB Module is a supplement to the
 CISCO\-IETF\-ATM2\-PVCTRAP\-MIB.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CatmoamfailuretypeEnum(Enum):
+class Catmoamfailuretype(Enum):
     """
-    CatmoamfailuretypeEnum
+    Catmoamfailuretype
 
     Enums to indicate different types of OAM recoveries .
 
@@ -49,24 +43,18 @@ class CatmoamfailuretypeEnum(Enum):
 
     """
 
-    catmLoopbackOAMFailure = 1
+    catmLoopbackOAMFailure = Enum.YLeaf(1, "catmLoopbackOAMFailure")
 
-    catmSegmentCCOAMFailure = 2
+    catmSegmentCCOAMFailure = Enum.YLeaf(2, "catmSegmentCCOAMFailure")
 
-    catmEndCCOAMFailure = 4
+    catmEndCCOAMFailure = Enum.YLeaf(4, "catmEndCCOAMFailure")
 
-    catmAISRDIOAMFailure = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-        return meta._meta_table['CatmoamfailuretypeEnum']
+    catmAISRDIOAMFailure = Enum.YLeaf(8, "catmAISRDIOAMFailure")
 
 
-class CatmoamrecoverytypeEnum(Enum):
+class Catmoamrecoverytype(Enum):
     """
-    CatmoamrecoverytypeEnum
+    Catmoamrecoverytype
 
     Enums to indicate different types of OAM recoveries .
 
@@ -96,23 +84,17 @@ class CatmoamrecoverytypeEnum(Enum):
 
     """
 
-    catmLoopbackOAMRecover = 1
+    catmLoopbackOAMRecover = Enum.YLeaf(1, "catmLoopbackOAMRecover")
 
-    catmSegmentCCOAMRecover = 2
+    catmSegmentCCOAMRecover = Enum.YLeaf(2, "catmSegmentCCOAMRecover")
 
-    catmEndCCOAMRecover = 4
+    catmEndCCOAMRecover = Enum.YLeaf(4, "catmEndCCOAMRecover")
 
-    catmAISRDIOAMRecover = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-        return meta._meta_table['CatmoamrecoverytypeEnum']
+    catmAISRDIOAMRecover = Enum.YLeaf(8, "catmAISRDIOAMRecover")
 
 
 
-class CiscoAtmPvctrapExtnMib(object):
+class CiscoAtmPvctrapExtnMib(Entity):
     """
     
     
@@ -184,33 +166,74 @@ class CiscoAtmPvctrapExtnMib(object):
     _revision = '2003-01-20'
 
     def __init__(self):
+        super(CiscoAtmPvctrapExtnMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+        self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
         self.catmaisrdistatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable()
         self.catmaisrdistatuschpvclrangetable.parent = self
+        self._children_name_map["catmaisrdistatuschpvclrangetable"] = "catmAISRDIStatusChPVclRangeTable"
+        self._children_yang_names.add("catmAISRDIStatusChPVclRangeTable")
+
         self.catmaisrdistatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable()
         self.catmaisrdistatusuppvclrangetable.parent = self
+        self._children_name_map["catmaisrdistatusuppvclrangetable"] = "catmAISRDIStatusUpPVclRangeTable"
+        self._children_yang_names.add("catmAISRDIStatusUpPVclRangeTable")
+
         self.catmcurstatchangepvcltable = CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable()
         self.catmcurstatchangepvcltable.parent = self
+        self._children_name_map["catmcurstatchangepvcltable"] = "catmCurStatChangePVclTable"
+        self._children_yang_names.add("catmCurStatChangePVclTable")
+
         self.catmcurstatusuppvcltable = CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable()
         self.catmcurstatusuppvcltable.parent = self
+        self._children_name_map["catmcurstatusuppvcltable"] = "catmCurStatusUpPVclTable"
+        self._children_yang_names.add("catmCurStatusUpPVclTable")
+
         self.catmdownpvclrangetable = CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable()
         self.catmdownpvclrangetable.parent = self
+        self._children_name_map["catmdownpvclrangetable"] = "catmDownPVclRangeTable"
+        self._children_yang_names.add("catmDownPVclRangeTable")
+
         self.catmendccstatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable()
         self.catmendccstatuschpvclrangetable.parent = self
+        self._children_name_map["catmendccstatuschpvclrangetable"] = "catmEndCCStatusChPVclRangeTable"
+        self._children_yang_names.add("catmEndCCStatusChPVclRangeTable")
+
         self.catmendccstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable()
         self.catmendccstatusuppvclrangetable.parent = self
+        self._children_name_map["catmendccstatusuppvclrangetable"] = "catmEndCCStatusUpPVclRangeTable"
+        self._children_yang_names.add("catmEndCCStatusUpPVclRangeTable")
+
         self.catmsegccstatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable()
         self.catmsegccstatuschpvclrangetable.parent = self
+        self._children_name_map["catmsegccstatuschpvclrangetable"] = "catmSegCCStatusChPVclRangeTable"
+        self._children_yang_names.add("catmSegCCStatusChPVclRangeTable")
+
         self.catmsegccstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable()
         self.catmsegccstatusuppvclrangetable.parent = self
+        self._children_name_map["catmsegccstatusuppvclrangetable"] = "catmSegCCStatusUpPVclRangeTable"
+        self._children_yang_names.add("catmSegCCStatusUpPVclRangeTable")
+
         self.catmstatuschangepvclrangetable = CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable()
         self.catmstatuschangepvclrangetable.parent = self
+        self._children_name_map["catmstatuschangepvclrangetable"] = "catmStatusChangePVclRangeTable"
+        self._children_yang_names.add("catmStatusChangePVclRangeTable")
+
         self.catmstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable()
         self.catmstatusuppvclrangetable.parent = self
+        self._children_name_map["catmstatusuppvclrangetable"] = "catmStatusUpPVclRangeTable"
+        self._children_yang_names.add("catmStatusUpPVclRangeTable")
+
         self.catmuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmuppvclrangetable()
         self.catmuppvclrangetable.parent = self
+        self._children_name_map["catmuppvclrangetable"] = "catmUpPVclRangeTable"
+        self._children_yang_names.add("catmUpPVclRangeTable")
 
 
-    class Catmcurstatchangepvcltable(object):
+    class Catmcurstatchangepvcltable(Entity):
         """
         A table indicating all VCLs for which there is an
         active row in the atmVclTable having an atmVclConnKind
@@ -230,13 +253,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmcurstatchangepvclentry = YList()
-            self.catmcurstatchangepvclentry.parent = self
-            self.catmcurstatchangepvclentry.name = 'catmcurstatchangepvclentry'
+            super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable, self).__init__()
+
+            self.yang_name = "catmCurStatChangePVclTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmcurstatchangepvclentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable, self).__setattr__(name, value)
 
 
-        class Catmcurstatchangepvclentry(object):
+        class Catmcurstatchangepvclentry(Entity):
             """
             Each entry in the table represents a VCL for which
             there is an active row in the atmVclTable having an
@@ -322,7 +371,7 @@ class CiscoAtmPvctrapExtnMib(object):
             .. attribute:: catmpvclfailurereason
             
             	Type of OAM failure
-            	**type**\:   :py:class:`CatmoamfailuretypeEnum <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmoamfailuretypeEnum>`
+            	**type**\:   :py:class:`Catmoamfailuretype <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.Catmoamfailuretype>`
             
             .. attribute:: catmpvclprevrecovertime
             
@@ -381,127 +430,330 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.atmvclvci = None
-                self.catmpvclaisrdistatuschangeend = None
-                self.catmpvclaisrdistatuschangestart = None
-                self.catmpvclaisrdistatustransition = None
-                self.catmpvclcurfailtime = None
-                self.catmpvclendccstatuschangeend = None
-                self.catmpvclendccstatuschangestart = None
-                self.catmpvclendccstatustransition = None
-                self.catmpvclfailurereason = None
-                self.catmpvclprevrecovertime = None
-                self.catmpvclsegccstatuschangeend = None
-                self.catmpvclsegccstatuschangestart = None
-                self.catmpvclsegccstatustransition = None
-                self.catmpvclstatuschangeend = None
-                self.catmpvclstatuschangestart = None
-                self.catmpvclstatustransition = None
+                super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable.Catmcurstatchangepvclentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.atmvclvci is None:
-                    raise YPYModelError('Key property atmvclvci is None')
+                self.yang_name = "catmCurStatChangePVclEntry"
+                self.yang_parent_name = "catmCurStatChangePVclTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatChangePVclTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatChangePVclEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVci = ' + str(self.atmvclvci) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.atmvclvci = YLeaf(YType.str, "atmVclVci")
+
+                self.catmpvclaisrdistatuschangeend = YLeaf(YType.uint32, "catmPVclAISRDIStatusChangeEnd")
+
+                self.catmpvclaisrdistatuschangestart = YLeaf(YType.uint32, "catmPVclAISRDIStatusChangeStart")
+
+                self.catmpvclaisrdistatustransition = YLeaf(YType.uint32, "catmPVclAISRDIStatusTransition")
+
+                self.catmpvclcurfailtime = YLeaf(YType.uint32, "catmPVclCurFailTime")
+
+                self.catmpvclendccstatuschangeend = YLeaf(YType.uint32, "catmPVclEndCCStatusChangeEnd")
+
+                self.catmpvclendccstatuschangestart = YLeaf(YType.uint32, "catmPVclEndCCStatusChangeStart")
+
+                self.catmpvclendccstatustransition = YLeaf(YType.uint32, "catmPVclEndCCStatusTransition")
+
+                self.catmpvclfailurereason = YLeaf(YType.enumeration, "catmPVclFailureReason")
+
+                self.catmpvclprevrecovertime = YLeaf(YType.uint32, "catmPVclPrevRecoverTime")
+
+                self.catmpvclsegccstatuschangeend = YLeaf(YType.uint32, "catmPVclSegCCStatusChangeEnd")
+
+                self.catmpvclsegccstatuschangestart = YLeaf(YType.uint32, "catmPVclSegCCStatusChangeStart")
+
+                self.catmpvclsegccstatustransition = YLeaf(YType.uint32, "catmPVclSegCCStatusTransition")
+
+                self.catmpvclstatuschangeend = YLeaf(YType.uint32, "catmPVclStatusChangeEnd")
+
+                self.catmpvclstatuschangestart = YLeaf(YType.uint32, "catmPVclStatusChangeStart")
+
+                self.catmpvclstatustransition = YLeaf(YType.uint32, "catmPVclStatusTransition")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "atmvclvci",
+                                "catmpvclaisrdistatuschangeend",
+                                "catmpvclaisrdistatuschangestart",
+                                "catmpvclaisrdistatustransition",
+                                "catmpvclcurfailtime",
+                                "catmpvclendccstatuschangeend",
+                                "catmpvclendccstatuschangestart",
+                                "catmpvclendccstatustransition",
+                                "catmpvclfailurereason",
+                                "catmpvclprevrecovertime",
+                                "catmpvclsegccstatuschangeend",
+                                "catmpvclsegccstatuschangestart",
+                                "catmpvclsegccstatustransition",
+                                "catmpvclstatuschangeend",
+                                "catmpvclstatuschangestart",
+                                "catmpvclstatustransition") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable.Catmcurstatchangepvclentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable.Catmcurstatchangepvclentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.atmvclvci.is_set or
+                    self.catmpvclaisrdistatuschangeend.is_set or
+                    self.catmpvclaisrdistatuschangestart.is_set or
+                    self.catmpvclaisrdistatustransition.is_set or
+                    self.catmpvclcurfailtime.is_set or
+                    self.catmpvclendccstatuschangeend.is_set or
+                    self.catmpvclendccstatuschangestart.is_set or
+                    self.catmpvclendccstatustransition.is_set or
+                    self.catmpvclfailurereason.is_set or
+                    self.catmpvclprevrecovertime.is_set or
+                    self.catmpvclsegccstatuschangeend.is_set or
+                    self.catmpvclsegccstatuschangestart.is_set or
+                    self.catmpvclsegccstatustransition.is_set or
+                    self.catmpvclstatuschangeend.is_set or
+                    self.catmpvclstatuschangestart.is_set or
+                    self.catmpvclstatustransition.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.atmvclvci.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatuschangeend.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatuschangestart.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatustransition.yfilter != YFilter.not_set or
+                    self.catmpvclcurfailtime.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatuschangeend.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatuschangestart.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatustransition.yfilter != YFilter.not_set or
+                    self.catmpvclfailurereason.yfilter != YFilter.not_set or
+                    self.catmpvclprevrecovertime.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatuschangeend.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatuschangestart.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatustransition.yfilter != YFilter.not_set or
+                    self.catmpvclstatuschangeend.yfilter != YFilter.not_set or
+                    self.catmpvclstatuschangestart.yfilter != YFilter.not_set or
+                    self.catmpvclstatustransition.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmCurStatChangePVclEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[atmVclVci='" + self.atmvclvci.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatChangePVclTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.atmvclvci.is_set or self.atmvclvci.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvci.get_name_leafdata())
+                if (self.catmpvclaisrdistatuschangeend.is_set or self.catmpvclaisrdistatuschangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatuschangeend.get_name_leafdata())
+                if (self.catmpvclaisrdistatuschangestart.is_set or self.catmpvclaisrdistatuschangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatuschangestart.get_name_leafdata())
+                if (self.catmpvclaisrdistatustransition.is_set or self.catmpvclaisrdistatustransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatustransition.get_name_leafdata())
+                if (self.catmpvclcurfailtime.is_set or self.catmpvclcurfailtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclcurfailtime.get_name_leafdata())
+                if (self.catmpvclendccstatuschangeend.is_set or self.catmpvclendccstatuschangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatuschangeend.get_name_leafdata())
+                if (self.catmpvclendccstatuschangestart.is_set or self.catmpvclendccstatuschangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatuschangestart.get_name_leafdata())
+                if (self.catmpvclendccstatustransition.is_set or self.catmpvclendccstatustransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatustransition.get_name_leafdata())
+                if (self.catmpvclfailurereason.is_set or self.catmpvclfailurereason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclfailurereason.get_name_leafdata())
+                if (self.catmpvclprevrecovertime.is_set or self.catmpvclprevrecovertime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclprevrecovertime.get_name_leafdata())
+                if (self.catmpvclsegccstatuschangeend.is_set or self.catmpvclsegccstatuschangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatuschangeend.get_name_leafdata())
+                if (self.catmpvclsegccstatuschangestart.is_set or self.catmpvclsegccstatuschangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatuschangestart.get_name_leafdata())
+                if (self.catmpvclsegccstatustransition.is_set or self.catmpvclsegccstatustransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatustransition.get_name_leafdata())
+                if (self.catmpvclstatuschangeend.is_set or self.catmpvclstatuschangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatuschangeend.get_name_leafdata())
+                if (self.catmpvclstatuschangestart.is_set or self.catmpvclstatuschangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatuschangestart.get_name_leafdata())
+                if (self.catmpvclstatustransition.is_set or self.catmpvclstatustransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatustransition.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "atmVclVci" or name == "catmPVclAISRDIStatusChangeEnd" or name == "catmPVclAISRDIStatusChangeStart" or name == "catmPVclAISRDIStatusTransition" or name == "catmPVclCurFailTime" or name == "catmPVclEndCCStatusChangeEnd" or name == "catmPVclEndCCStatusChangeStart" or name == "catmPVclEndCCStatusTransition" or name == "catmPVclFailureReason" or name == "catmPVclPrevRecoverTime" or name == "catmPVclSegCCStatusChangeEnd" or name == "catmPVclSegCCStatusChangeStart" or name == "catmPVclSegCCStatusTransition" or name == "catmPVclStatusChangeEnd" or name == "catmPVclStatusChangeStart" or name == "catmPVclStatusTransition"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVci"):
+                    self.atmvclvci = value
+                    self.atmvclvci.value_namespace = name_space
+                    self.atmvclvci.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusChangeEnd"):
+                    self.catmpvclaisrdistatuschangeend = value
+                    self.catmpvclaisrdistatuschangeend.value_namespace = name_space
+                    self.catmpvclaisrdistatuschangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusChangeStart"):
+                    self.catmpvclaisrdistatuschangestart = value
+                    self.catmpvclaisrdistatuschangestart.value_namespace = name_space
+                    self.catmpvclaisrdistatuschangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusTransition"):
+                    self.catmpvclaisrdistatustransition = value
+                    self.catmpvclaisrdistatustransition.value_namespace = name_space
+                    self.catmpvclaisrdistatustransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclCurFailTime"):
+                    self.catmpvclcurfailtime = value
+                    self.catmpvclcurfailtime.value_namespace = name_space
+                    self.catmpvclcurfailtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusChangeEnd"):
+                    self.catmpvclendccstatuschangeend = value
+                    self.catmpvclendccstatuschangeend.value_namespace = name_space
+                    self.catmpvclendccstatuschangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusChangeStart"):
+                    self.catmpvclendccstatuschangestart = value
+                    self.catmpvclendccstatuschangestart.value_namespace = name_space
+                    self.catmpvclendccstatuschangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusTransition"):
+                    self.catmpvclendccstatustransition = value
+                    self.catmpvclendccstatustransition.value_namespace = name_space
+                    self.catmpvclendccstatustransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclFailureReason"):
+                    self.catmpvclfailurereason = value
+                    self.catmpvclfailurereason.value_namespace = name_space
+                    self.catmpvclfailurereason.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclPrevRecoverTime"):
+                    self.catmpvclprevrecovertime = value
+                    self.catmpvclprevrecovertime.value_namespace = name_space
+                    self.catmpvclprevrecovertime.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusChangeEnd"):
+                    self.catmpvclsegccstatuschangeend = value
+                    self.catmpvclsegccstatuschangeend.value_namespace = name_space
+                    self.catmpvclsegccstatuschangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusChangeStart"):
+                    self.catmpvclsegccstatuschangestart = value
+                    self.catmpvclsegccstatuschangestart.value_namespace = name_space
+                    self.catmpvclsegccstatuschangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusTransition"):
+                    self.catmpvclsegccstatustransition = value
+                    self.catmpvclsegccstatustransition.value_namespace = name_space
+                    self.catmpvclsegccstatustransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusChangeEnd"):
+                    self.catmpvclstatuschangeend = value
+                    self.catmpvclstatuschangeend.value_namespace = name_space
+                    self.catmpvclstatuschangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusChangeStart"):
+                    self.catmpvclstatuschangestart = value
+                    self.catmpvclstatuschangestart.value_namespace = name_space
+                    self.catmpvclstatuschangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusTransition"):
+                    self.catmpvclstatustransition = value
+                    self.catmpvclstatustransition.value_namespace = name_space
+                    self.catmpvclstatustransition.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmcurstatchangepvclentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.atmvclvci is not None:
-                    return True
-
-                if self.catmpvclaisrdistatuschangeend is not None:
-                    return True
-
-                if self.catmpvclaisrdistatuschangestart is not None:
-                    return True
-
-                if self.catmpvclaisrdistatustransition is not None:
-                    return True
-
-                if self.catmpvclcurfailtime is not None:
-                    return True
-
-                if self.catmpvclendccstatuschangeend is not None:
-                    return True
-
-                if self.catmpvclendccstatuschangestart is not None:
-                    return True
-
-                if self.catmpvclendccstatustransition is not None:
-                    return True
-
-                if self.catmpvclfailurereason is not None:
-                    return True
-
-                if self.catmpvclprevrecovertime is not None:
-                    return True
-
-                if self.catmpvclsegccstatuschangeend is not None:
-                    return True
-
-                if self.catmpvclsegccstatuschangestart is not None:
-                    return True
-
-                if self.catmpvclsegccstatustransition is not None:
-                    return True
-
-                if self.catmpvclstatuschangeend is not None:
-                    return True
-
-                if self.catmpvclstatuschangestart is not None:
-                    return True
-
-                if self.catmpvclstatustransition is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable.Catmcurstatchangepvclentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatChangePVclTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmcurstatchangepvclentry is not None:
-                for child_ref in self.catmcurstatchangepvclentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmcurstatchangepvclentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmCurStatChangePVclTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmCurStatChangePVclEntry"):
+                for c in self.catmcurstatchangepvclentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable.Catmcurstatchangepvclentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmcurstatchangepvclentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmCurStatChangePVclEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmstatuschangepvclrangetable(object):
+    class Catmstatuschangepvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -522,13 +774,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmstatuschangepvclrangeentry = YList()
-            self.catmstatuschangepvclrangeentry.parent = self
-            self.catmstatuschangepvclrangeentry.name = 'catmstatuschangepvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable, self).__init__()
+
+            self.yang_name = "catmStatusChangePVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmstatuschangepvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmstatuschangepvclrangeentry(object):
+        class Catmstatuschangepvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -597,83 +875,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclhigherrangevalue = None
-                self.catmpvcllowerrangevalue = None
-                self.catmpvclrangestatuschangeend = None
-                self.catmpvclrangestatuschangestart = None
+                super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmStatusChangePVclRangeEntry"
+                self.yang_parent_name = "catmStatusChangePVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.int32, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclhigherrangevalue = YLeaf(YType.int32, "catmPVclHigherRangeValue")
+
+                self.catmpvcllowerrangevalue = YLeaf(YType.int32, "catmPVclLowerRangeValue")
+
+                self.catmpvclrangestatuschangeend = YLeaf(YType.uint32, "catmPVclRangeStatusChangeEnd")
+
+                self.catmpvclrangestatuschangestart = YLeaf(YType.uint32, "catmPVclRangeStatusChangeStart")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclhigherrangevalue",
+                                "catmpvcllowerrangevalue",
+                                "catmpvclrangestatuschangeend",
+                                "catmpvclrangestatuschangestart") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclhigherrangevalue.is_set or
+                    self.catmpvcllowerrangevalue.is_set or
+                    self.catmpvclrangestatuschangeend.is_set or
+                    self.catmpvclrangestatuschangestart.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclhigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvcllowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclrangestatuschangeend.yfilter != YFilter.not_set or
+                    self.catmpvclrangestatuschangestart.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmStatusChangePVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusChangePVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclhigherrangevalue.is_set or self.catmpvclhigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclhigherrangevalue.get_name_leafdata())
+                if (self.catmpvcllowerrangevalue.is_set or self.catmpvcllowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvcllowerrangevalue.get_name_leafdata())
+                if (self.catmpvclrangestatuschangeend.is_set or self.catmpvclrangestatuschangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangestatuschangeend.get_name_leafdata())
+                if (self.catmpvclrangestatuschangestart.is_set or self.catmpvclrangestatuschangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangestatuschangestart.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclHigherRangeValue" or name == "catmPVclLowerRangeValue" or name == "catmPVclRangeStatusChangeEnd" or name == "catmPVclRangeStatusChangeStart"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclHigherRangeValue"):
+                    self.catmpvclhigherrangevalue = value
+                    self.catmpvclhigherrangevalue.value_namespace = name_space
+                    self.catmpvclhigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclLowerRangeValue"):
+                    self.catmpvcllowerrangevalue = value
+                    self.catmpvcllowerrangevalue.value_namespace = name_space
+                    self.catmpvcllowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeStatusChangeEnd"):
+                    self.catmpvclrangestatuschangeend = value
+                    self.catmpvclrangestatuschangeend.value_namespace = name_space
+                    self.catmpvclrangestatuschangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeStatusChangeStart"):
+                    self.catmpvclrangestatuschangestart = value
+                    self.catmpvclrangestatuschangestart.value_namespace = name_space
+                    self.catmpvclrangestatuschangestart.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmstatuschangepvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclhigherrangevalue is not None:
-                    return True
-
-                if self.catmpvcllowerrangevalue is not None:
-                    return True
-
-                if self.catmpvclrangestatuschangeend is not None:
-                    return True
-
-                if self.catmpvclrangestatuschangestart is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmstatuschangepvclrangeentry is not None:
-                for child_ref in self.catmstatuschangepvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmstatuschangepvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmStatusChangePVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmStatusChangePVclRangeEntry"):
+                for c in self.catmstatuschangepvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmstatuschangepvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmStatusChangePVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmsegccstatuschpvclrangetable(object):
+    class Catmsegccstatuschpvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -695,13 +1099,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmsegccstatuschpvclrangeentry = YList()
-            self.catmsegccstatuschpvclrangeentry.parent = self
-            self.catmsegccstatuschpvclrangeentry.name = 'catmsegccstatuschpvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable, self).__init__()
+
+            self.yang_name = "catmSegCCStatusChPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmsegccstatuschpvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmsegccstatuschpvclrangeentry(object):
+        class Catmsegccstatuschpvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -772,83 +1202,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclsegcchigherrangevalue = None
-                self.catmpvclsegcclowerrangevalue = None
-                self.catmpvclsegccrangestatuschend = None
-                self.catmpvclsegccrangestatuschstart = None
+                super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmSegCCStatusChPVclRangeEntry"
+                self.yang_parent_name = "catmSegCCStatusChPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusChPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusChPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclsegcchigherrangevalue = YLeaf(YType.int32, "catmPVclSegCCHigherRangeValue")
+
+                self.catmpvclsegcclowerrangevalue = YLeaf(YType.int32, "catmPVclSegCCLowerRangeValue")
+
+                self.catmpvclsegccrangestatuschend = YLeaf(YType.uint32, "catmPVclSegCCRangeStatusChEnd")
+
+                self.catmpvclsegccrangestatuschstart = YLeaf(YType.uint32, "catmPVclSegCCRangeStatusChStart")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclsegcchigherrangevalue",
+                                "catmpvclsegcclowerrangevalue",
+                                "catmpvclsegccrangestatuschend",
+                                "catmpvclsegccrangestatuschstart") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclsegcchigherrangevalue.is_set or
+                    self.catmpvclsegcclowerrangevalue.is_set or
+                    self.catmpvclsegccrangestatuschend.is_set or
+                    self.catmpvclsegccrangestatuschstart.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclsegcchigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclsegcclowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclsegccrangestatuschend.yfilter != YFilter.not_set or
+                    self.catmpvclsegccrangestatuschstart.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmSegCCStatusChPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusChPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclsegcchigherrangevalue.is_set or self.catmpvclsegcchigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegcchigherrangevalue.get_name_leafdata())
+                if (self.catmpvclsegcclowerrangevalue.is_set or self.catmpvclsegcclowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegcclowerrangevalue.get_name_leafdata())
+                if (self.catmpvclsegccrangestatuschend.is_set or self.catmpvclsegccrangestatuschend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccrangestatuschend.get_name_leafdata())
+                if (self.catmpvclsegccrangestatuschstart.is_set or self.catmpvclsegccrangestatuschstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccrangestatuschstart.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclSegCCHigherRangeValue" or name == "catmPVclSegCCLowerRangeValue" or name == "catmPVclSegCCRangeStatusChEnd" or name == "catmPVclSegCCRangeStatusChStart"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCHigherRangeValue"):
+                    self.catmpvclsegcchigherrangevalue = value
+                    self.catmpvclsegcchigherrangevalue.value_namespace = name_space
+                    self.catmpvclsegcchigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCLowerRangeValue"):
+                    self.catmpvclsegcclowerrangevalue = value
+                    self.catmpvclsegcclowerrangevalue.value_namespace = name_space
+                    self.catmpvclsegcclowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCRangeStatusChEnd"):
+                    self.catmpvclsegccrangestatuschend = value
+                    self.catmpvclsegccrangestatuschend.value_namespace = name_space
+                    self.catmpvclsegccrangestatuschend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCRangeStatusChStart"):
+                    self.catmpvclsegccrangestatuschstart = value
+                    self.catmpvclsegccrangestatuschstart.value_namespace = name_space
+                    self.catmpvclsegccrangestatuschstart.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmsegccstatuschpvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclsegcchigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclsegcclowerrangevalue is not None:
-                    return True
-
-                if self.catmpvclsegccrangestatuschend is not None:
-                    return True
-
-                if self.catmpvclsegccrangestatuschstart is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusChPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmsegccstatuschpvclrangeentry is not None:
-                for child_ref in self.catmsegccstatuschpvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmsegccstatuschpvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmSegCCStatusChPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmSegCCStatusChPVclRangeEntry"):
+                for c in self.catmsegccstatuschpvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmsegccstatuschpvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmSegCCStatusChPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmendccstatuschpvclrangetable(object):
+    class Catmendccstatuschpvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -870,13 +1426,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmendccstatuschpvclrangeentry = YList()
-            self.catmendccstatuschpvclrangeentry.parent = self
-            self.catmendccstatuschpvclrangeentry.name = 'catmendccstatuschpvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable, self).__init__()
+
+            self.yang_name = "catmEndCCStatusChPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmendccstatuschpvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmendccstatuschpvclrangeentry(object):
+        class Catmendccstatuschpvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -947,83 +1529,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclendcchigherrangevalue = None
-                self.catmpvclendcclowerrangevalue = None
-                self.catmpvclendccrangestatuschend = None
-                self.catmpvclendccrangestatuschstart = None
+                super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmEndCCStatusChPVclRangeEntry"
+                self.yang_parent_name = "catmEndCCStatusChPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusChPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusChPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclendcchigherrangevalue = YLeaf(YType.int32, "catmPVclEndCCHigherRangeValue")
+
+                self.catmpvclendcclowerrangevalue = YLeaf(YType.int32, "catmPVclEndCCLowerRangeValue")
+
+                self.catmpvclendccrangestatuschend = YLeaf(YType.uint32, "catmPVclEndCCRangeStatusChEnd")
+
+                self.catmpvclendccrangestatuschstart = YLeaf(YType.uint32, "catmPVclEndCCRangeStatusChStart")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclendcchigherrangevalue",
+                                "catmpvclendcclowerrangevalue",
+                                "catmpvclendccrangestatuschend",
+                                "catmpvclendccrangestatuschstart") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclendcchigherrangevalue.is_set or
+                    self.catmpvclendcclowerrangevalue.is_set or
+                    self.catmpvclendccrangestatuschend.is_set or
+                    self.catmpvclendccrangestatuschstart.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclendcchigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclendcclowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclendccrangestatuschend.yfilter != YFilter.not_set or
+                    self.catmpvclendccrangestatuschstart.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmEndCCStatusChPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusChPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclendcchigherrangevalue.is_set or self.catmpvclendcchigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendcchigherrangevalue.get_name_leafdata())
+                if (self.catmpvclendcclowerrangevalue.is_set or self.catmpvclendcclowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendcclowerrangevalue.get_name_leafdata())
+                if (self.catmpvclendccrangestatuschend.is_set or self.catmpvclendccrangestatuschend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccrangestatuschend.get_name_leafdata())
+                if (self.catmpvclendccrangestatuschstart.is_set or self.catmpvclendccrangestatuschstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccrangestatuschstart.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclEndCCHigherRangeValue" or name == "catmPVclEndCCLowerRangeValue" or name == "catmPVclEndCCRangeStatusChEnd" or name == "catmPVclEndCCRangeStatusChStart"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCHigherRangeValue"):
+                    self.catmpvclendcchigherrangevalue = value
+                    self.catmpvclendcchigherrangevalue.value_namespace = name_space
+                    self.catmpvclendcchigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCLowerRangeValue"):
+                    self.catmpvclendcclowerrangevalue = value
+                    self.catmpvclendcclowerrangevalue.value_namespace = name_space
+                    self.catmpvclendcclowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCRangeStatusChEnd"):
+                    self.catmpvclendccrangestatuschend = value
+                    self.catmpvclendccrangestatuschend.value_namespace = name_space
+                    self.catmpvclendccrangestatuschend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCRangeStatusChStart"):
+                    self.catmpvclendccrangestatuschstart = value
+                    self.catmpvclendccrangestatuschstart.value_namespace = name_space
+                    self.catmpvclendccrangestatuschstart.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmendccstatuschpvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclendcchigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclendcclowerrangevalue is not None:
-                    return True
-
-                if self.catmpvclendccrangestatuschend is not None:
-                    return True
-
-                if self.catmpvclendccrangestatuschstart is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusChPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmendccstatuschpvclrangeentry is not None:
-                for child_ref in self.catmendccstatuschpvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmendccstatuschpvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmEndCCStatusChPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmEndCCStatusChPVclRangeEntry"):
+                for c in self.catmendccstatuschpvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmendccstatuschpvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmEndCCStatusChPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmaisrdistatuschpvclrangetable(object):
+    class Catmaisrdistatuschpvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -1045,13 +1753,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmaisrdistatuschpvclrangeentry = YList()
-            self.catmaisrdistatuschpvclrangeentry.parent = self
-            self.catmaisrdistatuschpvclrangeentry.name = 'catmaisrdistatuschpvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable, self).__init__()
+
+            self.yang_name = "catmAISRDIStatusChPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmaisrdistatuschpvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmaisrdistatuschpvclrangeentry(object):
+        class Catmaisrdistatuschpvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -1122,83 +1856,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclaisrdihigherrangevalue = None
-                self.catmpvclaisrdilowerrangevalue = None
-                self.catmpvclaisrdirangestatuschend = None
-                self.catmpvclaisrdirangestatuschstart = None
+                super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmAISRDIStatusChPVclRangeEntry"
+                self.yang_parent_name = "catmAISRDIStatusChPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusChPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusChPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclaisrdihigherrangevalue = YLeaf(YType.int32, "catmPVclAISRDIHigherRangeValue")
+
+                self.catmpvclaisrdilowerrangevalue = YLeaf(YType.int32, "catmPVclAISRDILowerRangeValue")
+
+                self.catmpvclaisrdirangestatuschend = YLeaf(YType.uint32, "catmPVclAISRDIRangeStatusChEnd")
+
+                self.catmpvclaisrdirangestatuschstart = YLeaf(YType.uint32, "catmPVclAISRDIRangeStatusChStart")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclaisrdihigherrangevalue",
+                                "catmpvclaisrdilowerrangevalue",
+                                "catmpvclaisrdirangestatuschend",
+                                "catmpvclaisrdirangestatuschstart") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclaisrdihigherrangevalue.is_set or
+                    self.catmpvclaisrdilowerrangevalue.is_set or
+                    self.catmpvclaisrdirangestatuschend.is_set or
+                    self.catmpvclaisrdirangestatuschstart.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdihigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdilowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdirangestatuschend.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdirangestatuschstart.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmAISRDIStatusChPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusChPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclaisrdihigherrangevalue.is_set or self.catmpvclaisrdihigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdihigherrangevalue.get_name_leafdata())
+                if (self.catmpvclaisrdilowerrangevalue.is_set or self.catmpvclaisrdilowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdilowerrangevalue.get_name_leafdata())
+                if (self.catmpvclaisrdirangestatuschend.is_set or self.catmpvclaisrdirangestatuschend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdirangestatuschend.get_name_leafdata())
+                if (self.catmpvclaisrdirangestatuschstart.is_set or self.catmpvclaisrdirangestatuschstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdirangestatuschstart.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclAISRDIHigherRangeValue" or name == "catmPVclAISRDILowerRangeValue" or name == "catmPVclAISRDIRangeStatusChEnd" or name == "catmPVclAISRDIRangeStatusChStart"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIHigherRangeValue"):
+                    self.catmpvclaisrdihigherrangevalue = value
+                    self.catmpvclaisrdihigherrangevalue.value_namespace = name_space
+                    self.catmpvclaisrdihigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDILowerRangeValue"):
+                    self.catmpvclaisrdilowerrangevalue = value
+                    self.catmpvclaisrdilowerrangevalue.value_namespace = name_space
+                    self.catmpvclaisrdilowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIRangeStatusChEnd"):
+                    self.catmpvclaisrdirangestatuschend = value
+                    self.catmpvclaisrdirangestatuschend.value_namespace = name_space
+                    self.catmpvclaisrdirangestatuschend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIRangeStatusChStart"):
+                    self.catmpvclaisrdirangestatuschstart = value
+                    self.catmpvclaisrdirangestatuschstart.value_namespace = name_space
+                    self.catmpvclaisrdirangestatuschstart.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmaisrdistatuschpvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclaisrdihigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclaisrdilowerrangevalue is not None:
-                    return True
-
-                if self.catmpvclaisrdirangestatuschend is not None:
-                    return True
-
-                if self.catmpvclaisrdirangestatuschstart is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusChPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmaisrdistatuschpvclrangeentry is not None:
-                for child_ref in self.catmaisrdistatuschpvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmaisrdistatuschpvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmAISRDIStatusChPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmAISRDIStatusChPVclRangeEntry"):
+                for c in self.catmaisrdistatuschpvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmaisrdistatuschpvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmAISRDIStatusChPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmdownpvclrangetable(object):
+    class Catmdownpvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -1219,13 +2079,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmdownpvclrangeentry = YList()
-            self.catmdownpvclrangeentry.parent = self
-            self.catmdownpvclrangeentry.name = 'catmdownpvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable, self).__init__()
+
+            self.yang_name = "catmDownPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmdownpvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmdownpvclrangeentry(object):
+        class Catmdownpvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -1305,7 +2191,7 @@ class CiscoAtmPvctrapExtnMib(object):
             .. attribute:: catmpvclrangefailurereason
             
             	Type of OAM failure
-            	**type**\:   :py:class:`CatmoamfailuretypeEnum <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmoamfailuretypeEnum>`
+            	**type**\:   :py:class:`Catmoamfailuretype <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.Catmoamfailuretype>`
             
             
 
@@ -1315,95 +2201,242 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmdownpvclhigherrangevalue = None
-                self.catmdownpvcllowerrangevalue = None
-                self.catmdownpvclrangeend = None
-                self.catmdownpvclrangestart = None
-                self.catmprevuppvclrangeend = None
-                self.catmprevuppvclrangestart = None
-                self.catmpvclrangefailurereason = None
+                super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable.Catmdownpvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmDownPVclRangeEntry"
+                self.yang_parent_name = "catmDownPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmDownPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmDownPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmdownpvclhigherrangevalue = YLeaf(YType.int32, "catmDownPVclHigherRangeValue")
+
+                self.catmdownpvcllowerrangevalue = YLeaf(YType.int32, "catmDownPVclLowerRangeValue")
+
+                self.catmdownpvclrangeend = YLeaf(YType.uint32, "catmDownPVclRangeEnd")
+
+                self.catmdownpvclrangestart = YLeaf(YType.uint32, "catmDownPVclRangeStart")
+
+                self.catmprevuppvclrangeend = YLeaf(YType.uint32, "catmPrevUpPVclRangeEnd")
+
+                self.catmprevuppvclrangestart = YLeaf(YType.uint32, "catmPrevUpPVclRangeStart")
+
+                self.catmpvclrangefailurereason = YLeaf(YType.enumeration, "catmPVclRangeFailureReason")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmdownpvclhigherrangevalue",
+                                "catmdownpvcllowerrangevalue",
+                                "catmdownpvclrangeend",
+                                "catmdownpvclrangestart",
+                                "catmprevuppvclrangeend",
+                                "catmprevuppvclrangestart",
+                                "catmpvclrangefailurereason") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable.Catmdownpvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable.Catmdownpvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmdownpvclhigherrangevalue.is_set or
+                    self.catmdownpvcllowerrangevalue.is_set or
+                    self.catmdownpvclrangeend.is_set or
+                    self.catmdownpvclrangestart.is_set or
+                    self.catmprevuppvclrangeend.is_set or
+                    self.catmprevuppvclrangestart.is_set or
+                    self.catmpvclrangefailurereason.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmdownpvclhigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmdownpvcllowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmdownpvclrangeend.yfilter != YFilter.not_set or
+                    self.catmdownpvclrangestart.yfilter != YFilter.not_set or
+                    self.catmprevuppvclrangeend.yfilter != YFilter.not_set or
+                    self.catmprevuppvclrangestart.yfilter != YFilter.not_set or
+                    self.catmpvclrangefailurereason.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmDownPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmDownPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmdownpvclhigherrangevalue.is_set or self.catmdownpvclhigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmdownpvclhigherrangevalue.get_name_leafdata())
+                if (self.catmdownpvcllowerrangevalue.is_set or self.catmdownpvcllowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmdownpvcllowerrangevalue.get_name_leafdata())
+                if (self.catmdownpvclrangeend.is_set or self.catmdownpvclrangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmdownpvclrangeend.get_name_leafdata())
+                if (self.catmdownpvclrangestart.is_set or self.catmdownpvclrangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmdownpvclrangestart.get_name_leafdata())
+                if (self.catmprevuppvclrangeend.is_set or self.catmprevuppvclrangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmprevuppvclrangeend.get_name_leafdata())
+                if (self.catmprevuppvclrangestart.is_set or self.catmprevuppvclrangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmprevuppvclrangestart.get_name_leafdata())
+                if (self.catmpvclrangefailurereason.is_set or self.catmpvclrangefailurereason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangefailurereason.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmDownPVclHigherRangeValue" or name == "catmDownPVclLowerRangeValue" or name == "catmDownPVclRangeEnd" or name == "catmDownPVclRangeStart" or name == "catmPrevUpPVclRangeEnd" or name == "catmPrevUpPVclRangeStart" or name == "catmPVclRangeFailureReason"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmDownPVclHigherRangeValue"):
+                    self.catmdownpvclhigherrangevalue = value
+                    self.catmdownpvclhigherrangevalue.value_namespace = name_space
+                    self.catmdownpvclhigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmDownPVclLowerRangeValue"):
+                    self.catmdownpvcllowerrangevalue = value
+                    self.catmdownpvcllowerrangevalue.value_namespace = name_space
+                    self.catmdownpvcllowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmDownPVclRangeEnd"):
+                    self.catmdownpvclrangeend = value
+                    self.catmdownpvclrangeend.value_namespace = name_space
+                    self.catmdownpvclrangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmDownPVclRangeStart"):
+                    self.catmdownpvclrangestart = value
+                    self.catmdownpvclrangestart.value_namespace = name_space
+                    self.catmdownpvclrangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPrevUpPVclRangeEnd"):
+                    self.catmprevuppvclrangeend = value
+                    self.catmprevuppvclrangeend.value_namespace = name_space
+                    self.catmprevuppvclrangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPrevUpPVclRangeStart"):
+                    self.catmprevuppvclrangestart = value
+                    self.catmprevuppvclrangestart.value_namespace = name_space
+                    self.catmprevuppvclrangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeFailureReason"):
+                    self.catmpvclrangefailurereason = value
+                    self.catmpvclrangefailurereason.value_namespace = name_space
+                    self.catmpvclrangefailurereason.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmdownpvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmdownpvclhigherrangevalue is not None:
-                    return True
-
-                if self.catmdownpvcllowerrangevalue is not None:
-                    return True
-
-                if self.catmdownpvclrangeend is not None:
-                    return True
-
-                if self.catmdownpvclrangestart is not None:
-                    return True
-
-                if self.catmprevuppvclrangeend is not None:
-                    return True
-
-                if self.catmprevuppvclrangestart is not None:
-                    return True
-
-                if self.catmpvclrangefailurereason is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable.Catmdownpvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmDownPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmdownpvclrangeentry is not None:
-                for child_ref in self.catmdownpvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmdownpvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmDownPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmDownPVclRangeEntry"):
+                for c in self.catmdownpvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable.Catmdownpvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmdownpvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmDownPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmcurstatusuppvcltable(object):
+    class Catmcurstatusuppvcltable(Entity):
         """
         A table indicating all VCLs for which there is an
         active row in the atmVclTable having an atmVclConnKind
@@ -1423,13 +2456,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmcurstatusuppvclentry = YList()
-            self.catmcurstatusuppvclentry.parent = self
-            self.catmcurstatusuppvclentry.name = 'catmcurstatusuppvclentry'
+            super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable, self).__init__()
+
+            self.yang_name = "catmCurStatusUpPVclTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmcurstatusuppvclentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable, self).__setattr__(name, value)
 
 
-        class Catmcurstatusuppvclentry(object):
+        class Catmcurstatusuppvclentry(Entity):
             """
             Each entry in the table represents a VCL for which
             there is an active row in the atmVclTable having an
@@ -1523,7 +2582,7 @@ class CiscoAtmPvctrapExtnMib(object):
             .. attribute:: catmpvclrecoveryreason
             
             	Type of OAM Recovered
-            	**type**\:   :py:class:`CatmoamrecoverytypeEnum <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmoamrecoverytypeEnum>`
+            	**type**\:   :py:class:`Catmoamrecoverytype <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.Catmoamrecoverytype>`
             
             .. attribute:: catmpvclsegccstatusupend
             
@@ -1575,127 +2634,330 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.atmvclvci = None
-                self.catmpvclaisrdistatusupend = None
-                self.catmpvclaisrdistatusupstart = None
-                self.catmpvclaisrdistatusuptransition = None
-                self.catmpvclcurrecovertime = None
-                self.catmpvclendccstatusupend = None
-                self.catmpvclendccstatusupstart = None
-                self.catmpvclendccstatusuptransition = None
-                self.catmpvclprevfailtime = None
-                self.catmpvclrecoveryreason = None
-                self.catmpvclsegccstatusupend = None
-                self.catmpvclsegccstatusupstart = None
-                self.catmpvclsegccstatusuptransition = None
-                self.catmpvclstatusupend = None
-                self.catmpvclstatusupstart = None
-                self.catmpvclstatusuptransition = None
+                super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable.Catmcurstatusuppvclentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.atmvclvci is None:
-                    raise YPYModelError('Key property atmvclvci is None')
+                self.yang_name = "catmCurStatusUpPVclEntry"
+                self.yang_parent_name = "catmCurStatusUpPVclTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatusUpPVclTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatusUpPVclEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVci = ' + str(self.atmvclvci) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.atmvclvci = YLeaf(YType.str, "atmVclVci")
+
+                self.catmpvclaisrdistatusupend = YLeaf(YType.uint32, "catmPVclAISRDIStatusUpEnd")
+
+                self.catmpvclaisrdistatusupstart = YLeaf(YType.uint32, "catmPVclAISRDIStatusUpStart")
+
+                self.catmpvclaisrdistatusuptransition = YLeaf(YType.uint32, "catmPVclAISRDIStatusUpTransition")
+
+                self.catmpvclcurrecovertime = YLeaf(YType.uint32, "catmPVclCurRecoverTime")
+
+                self.catmpvclendccstatusupend = YLeaf(YType.uint32, "catmPVclEndCCStatusUpEnd")
+
+                self.catmpvclendccstatusupstart = YLeaf(YType.uint32, "catmPVclEndCCStatusUpStart")
+
+                self.catmpvclendccstatusuptransition = YLeaf(YType.uint32, "catmPVclEndCCStatusUpTransition")
+
+                self.catmpvclprevfailtime = YLeaf(YType.uint32, "catmPVclPrevFailTime")
+
+                self.catmpvclrecoveryreason = YLeaf(YType.enumeration, "catmPVclRecoveryReason")
+
+                self.catmpvclsegccstatusupend = YLeaf(YType.uint32, "catmPVclSegCCStatusUpEnd")
+
+                self.catmpvclsegccstatusupstart = YLeaf(YType.uint32, "catmPVclSegCCStatusUpStart")
+
+                self.catmpvclsegccstatusuptransition = YLeaf(YType.uint32, "catmPVclSegCCStatusUpTransition")
+
+                self.catmpvclstatusupend = YLeaf(YType.uint32, "catmPVclStatusUpEnd")
+
+                self.catmpvclstatusupstart = YLeaf(YType.uint32, "catmPVclStatusUpStart")
+
+                self.catmpvclstatusuptransition = YLeaf(YType.uint32, "catmPVclStatusUpTransition")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "atmvclvci",
+                                "catmpvclaisrdistatusupend",
+                                "catmpvclaisrdistatusupstart",
+                                "catmpvclaisrdistatusuptransition",
+                                "catmpvclcurrecovertime",
+                                "catmpvclendccstatusupend",
+                                "catmpvclendccstatusupstart",
+                                "catmpvclendccstatusuptransition",
+                                "catmpvclprevfailtime",
+                                "catmpvclrecoveryreason",
+                                "catmpvclsegccstatusupend",
+                                "catmpvclsegccstatusupstart",
+                                "catmpvclsegccstatusuptransition",
+                                "catmpvclstatusupend",
+                                "catmpvclstatusupstart",
+                                "catmpvclstatusuptransition") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable.Catmcurstatusuppvclentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable.Catmcurstatusuppvclentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.atmvclvci.is_set or
+                    self.catmpvclaisrdistatusupend.is_set or
+                    self.catmpvclaisrdistatusupstart.is_set or
+                    self.catmpvclaisrdistatusuptransition.is_set or
+                    self.catmpvclcurrecovertime.is_set or
+                    self.catmpvclendccstatusupend.is_set or
+                    self.catmpvclendccstatusupstart.is_set or
+                    self.catmpvclendccstatusuptransition.is_set or
+                    self.catmpvclprevfailtime.is_set or
+                    self.catmpvclrecoveryreason.is_set or
+                    self.catmpvclsegccstatusupend.is_set or
+                    self.catmpvclsegccstatusupstart.is_set or
+                    self.catmpvclsegccstatusuptransition.is_set or
+                    self.catmpvclstatusupend.is_set or
+                    self.catmpvclstatusupstart.is_set or
+                    self.catmpvclstatusuptransition.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.atmvclvci.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdistatusuptransition.yfilter != YFilter.not_set or
+                    self.catmpvclcurrecovertime.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclendccstatusuptransition.yfilter != YFilter.not_set or
+                    self.catmpvclprevfailtime.yfilter != YFilter.not_set or
+                    self.catmpvclrecoveryreason.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclsegccstatusuptransition.yfilter != YFilter.not_set or
+                    self.catmpvclstatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclstatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclstatusuptransition.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmCurStatusUpPVclEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[atmVclVci='" + self.atmvclvci.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatusUpPVclTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.atmvclvci.is_set or self.atmvclvci.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvci.get_name_leafdata())
+                if (self.catmpvclaisrdistatusupend.is_set or self.catmpvclaisrdistatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatusupend.get_name_leafdata())
+                if (self.catmpvclaisrdistatusupstart.is_set or self.catmpvclaisrdistatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatusupstart.get_name_leafdata())
+                if (self.catmpvclaisrdistatusuptransition.is_set or self.catmpvclaisrdistatusuptransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdistatusuptransition.get_name_leafdata())
+                if (self.catmpvclcurrecovertime.is_set or self.catmpvclcurrecovertime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclcurrecovertime.get_name_leafdata())
+                if (self.catmpvclendccstatusupend.is_set or self.catmpvclendccstatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatusupend.get_name_leafdata())
+                if (self.catmpvclendccstatusupstart.is_set or self.catmpvclendccstatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatusupstart.get_name_leafdata())
+                if (self.catmpvclendccstatusuptransition.is_set or self.catmpvclendccstatusuptransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccstatusuptransition.get_name_leafdata())
+                if (self.catmpvclprevfailtime.is_set or self.catmpvclprevfailtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclprevfailtime.get_name_leafdata())
+                if (self.catmpvclrecoveryreason.is_set or self.catmpvclrecoveryreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrecoveryreason.get_name_leafdata())
+                if (self.catmpvclsegccstatusupend.is_set or self.catmpvclsegccstatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatusupend.get_name_leafdata())
+                if (self.catmpvclsegccstatusupstart.is_set or self.catmpvclsegccstatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatusupstart.get_name_leafdata())
+                if (self.catmpvclsegccstatusuptransition.is_set or self.catmpvclsegccstatusuptransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccstatusuptransition.get_name_leafdata())
+                if (self.catmpvclstatusupend.is_set or self.catmpvclstatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatusupend.get_name_leafdata())
+                if (self.catmpvclstatusupstart.is_set or self.catmpvclstatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatusupstart.get_name_leafdata())
+                if (self.catmpvclstatusuptransition.is_set or self.catmpvclstatusuptransition.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclstatusuptransition.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "atmVclVci" or name == "catmPVclAISRDIStatusUpEnd" or name == "catmPVclAISRDIStatusUpStart" or name == "catmPVclAISRDIStatusUpTransition" or name == "catmPVclCurRecoverTime" or name == "catmPVclEndCCStatusUpEnd" or name == "catmPVclEndCCStatusUpStart" or name == "catmPVclEndCCStatusUpTransition" or name == "catmPVclPrevFailTime" or name == "catmPVclRecoveryReason" or name == "catmPVclSegCCStatusUpEnd" or name == "catmPVclSegCCStatusUpStart" or name == "catmPVclSegCCStatusUpTransition" or name == "catmPVclStatusUpEnd" or name == "catmPVclStatusUpStart" or name == "catmPVclStatusUpTransition"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVci"):
+                    self.atmvclvci = value
+                    self.atmvclvci.value_namespace = name_space
+                    self.atmvclvci.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusUpEnd"):
+                    self.catmpvclaisrdistatusupend = value
+                    self.catmpvclaisrdistatusupend.value_namespace = name_space
+                    self.catmpvclaisrdistatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusUpStart"):
+                    self.catmpvclaisrdistatusupstart = value
+                    self.catmpvclaisrdistatusupstart.value_namespace = name_space
+                    self.catmpvclaisrdistatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIStatusUpTransition"):
+                    self.catmpvclaisrdistatusuptransition = value
+                    self.catmpvclaisrdistatusuptransition.value_namespace = name_space
+                    self.catmpvclaisrdistatusuptransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclCurRecoverTime"):
+                    self.catmpvclcurrecovertime = value
+                    self.catmpvclcurrecovertime.value_namespace = name_space
+                    self.catmpvclcurrecovertime.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusUpEnd"):
+                    self.catmpvclendccstatusupend = value
+                    self.catmpvclendccstatusupend.value_namespace = name_space
+                    self.catmpvclendccstatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusUpStart"):
+                    self.catmpvclendccstatusupstart = value
+                    self.catmpvclendccstatusupstart.value_namespace = name_space
+                    self.catmpvclendccstatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCStatusUpTransition"):
+                    self.catmpvclendccstatusuptransition = value
+                    self.catmpvclendccstatusuptransition.value_namespace = name_space
+                    self.catmpvclendccstatusuptransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclPrevFailTime"):
+                    self.catmpvclprevfailtime = value
+                    self.catmpvclprevfailtime.value_namespace = name_space
+                    self.catmpvclprevfailtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRecoveryReason"):
+                    self.catmpvclrecoveryreason = value
+                    self.catmpvclrecoveryreason.value_namespace = name_space
+                    self.catmpvclrecoveryreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusUpEnd"):
+                    self.catmpvclsegccstatusupend = value
+                    self.catmpvclsegccstatusupend.value_namespace = name_space
+                    self.catmpvclsegccstatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusUpStart"):
+                    self.catmpvclsegccstatusupstart = value
+                    self.catmpvclsegccstatusupstart.value_namespace = name_space
+                    self.catmpvclsegccstatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCStatusUpTransition"):
+                    self.catmpvclsegccstatusuptransition = value
+                    self.catmpvclsegccstatusuptransition.value_namespace = name_space
+                    self.catmpvclsegccstatusuptransition.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusUpEnd"):
+                    self.catmpvclstatusupend = value
+                    self.catmpvclstatusupend.value_namespace = name_space
+                    self.catmpvclstatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusUpStart"):
+                    self.catmpvclstatusupstart = value
+                    self.catmpvclstatusupstart.value_namespace = name_space
+                    self.catmpvclstatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclStatusUpTransition"):
+                    self.catmpvclstatusuptransition = value
+                    self.catmpvclstatusuptransition.value_namespace = name_space
+                    self.catmpvclstatusuptransition.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmcurstatusuppvclentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.atmvclvci is not None:
-                    return True
-
-                if self.catmpvclaisrdistatusupend is not None:
-                    return True
-
-                if self.catmpvclaisrdistatusupstart is not None:
-                    return True
-
-                if self.catmpvclaisrdistatusuptransition is not None:
-                    return True
-
-                if self.catmpvclcurrecovertime is not None:
-                    return True
-
-                if self.catmpvclendccstatusupend is not None:
-                    return True
-
-                if self.catmpvclendccstatusupstart is not None:
-                    return True
-
-                if self.catmpvclendccstatusuptransition is not None:
-                    return True
-
-                if self.catmpvclprevfailtime is not None:
-                    return True
-
-                if self.catmpvclrecoveryreason is not None:
-                    return True
-
-                if self.catmpvclsegccstatusupend is not None:
-                    return True
-
-                if self.catmpvclsegccstatusupstart is not None:
-                    return True
-
-                if self.catmpvclsegccstatusuptransition is not None:
-                    return True
-
-                if self.catmpvclstatusupend is not None:
-                    return True
-
-                if self.catmpvclstatusupstart is not None:
-                    return True
-
-                if self.catmpvclstatusuptransition is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable.Catmcurstatusuppvclentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmCurStatusUpPVclTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmcurstatusuppvclentry is not None:
-                for child_ref in self.catmcurstatusuppvclentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmcurstatusuppvclentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmCurStatusUpPVclTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmCurStatusUpPVclEntry"):
+                for c in self.catmcurstatusuppvclentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable.Catmcurstatusuppvclentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmcurstatusuppvclentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmCurStatusUpPVclEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmstatusuppvclrangetable(object):
+    class Catmstatusuppvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -1716,13 +2978,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmstatusuppvclrangeentry = YList()
-            self.catmstatusuppvclrangeentry.parent = self
-            self.catmstatusuppvclrangeentry.name = 'catmstatusuppvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable, self).__init__()
+
+            self.yang_name = "catmStatusUpPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmstatusuppvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmstatusuppvclrangeentry(object):
+        class Catmstatusuppvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -1793,83 +3081,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclrangestatusupend = None
-                self.catmpvclrangestatusupstart = None
-                self.catmpvcluphigherrangevalue = None
-                self.catmpvcluplowerrangevalue = None
+                super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable.Catmstatusuppvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmStatusUpPVclRangeEntry"
+                self.yang_parent_name = "catmStatusUpPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusUpPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusUpPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclrangestatusupend = YLeaf(YType.uint32, "catmPVclRangeStatusUpEnd")
+
+                self.catmpvclrangestatusupstart = YLeaf(YType.uint32, "catmPVclRangeStatusUpStart")
+
+                self.catmpvcluphigherrangevalue = YLeaf(YType.int32, "catmPVclUpHigherRangeValue")
+
+                self.catmpvcluplowerrangevalue = YLeaf(YType.int32, "catmPVclUpLowerRangeValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclrangestatusupend",
+                                "catmpvclrangestatusupstart",
+                                "catmpvcluphigherrangevalue",
+                                "catmpvcluplowerrangevalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable.Catmstatusuppvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable.Catmstatusuppvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclrangestatusupend.is_set or
+                    self.catmpvclrangestatusupstart.is_set or
+                    self.catmpvcluphigherrangevalue.is_set or
+                    self.catmpvcluplowerrangevalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclrangestatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclrangestatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvcluphigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvcluplowerrangevalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmStatusUpPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusUpPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclrangestatusupend.is_set or self.catmpvclrangestatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangestatusupend.get_name_leafdata())
+                if (self.catmpvclrangestatusupstart.is_set or self.catmpvclrangestatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangestatusupstart.get_name_leafdata())
+                if (self.catmpvcluphigherrangevalue.is_set or self.catmpvcluphigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvcluphigherrangevalue.get_name_leafdata())
+                if (self.catmpvcluplowerrangevalue.is_set or self.catmpvcluplowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvcluplowerrangevalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclRangeStatusUpEnd" or name == "catmPVclRangeStatusUpStart" or name == "catmPVclUpHigherRangeValue" or name == "catmPVclUpLowerRangeValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeStatusUpEnd"):
+                    self.catmpvclrangestatusupend = value
+                    self.catmpvclrangestatusupend.value_namespace = name_space
+                    self.catmpvclrangestatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeStatusUpStart"):
+                    self.catmpvclrangestatusupstart = value
+                    self.catmpvclrangestatusupstart.value_namespace = name_space
+                    self.catmpvclrangestatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclUpHigherRangeValue"):
+                    self.catmpvcluphigherrangevalue = value
+                    self.catmpvcluphigherrangevalue.value_namespace = name_space
+                    self.catmpvcluphigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclUpLowerRangeValue"):
+                    self.catmpvcluplowerrangevalue = value
+                    self.catmpvcluplowerrangevalue.value_namespace = name_space
+                    self.catmpvcluplowerrangevalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmstatusuppvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclrangestatusupend is not None:
-                    return True
-
-                if self.catmpvclrangestatusupstart is not None:
-                    return True
-
-                if self.catmpvcluphigherrangevalue is not None:
-                    return True
-
-                if self.catmpvcluplowerrangevalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable.Catmstatusuppvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusUpPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmstatusuppvclrangeentry is not None:
-                for child_ref in self.catmstatusuppvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmstatusuppvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmStatusUpPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmStatusUpPVclRangeEntry"):
+                for c in self.catmstatusuppvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable.Catmstatusuppvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmstatusuppvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmStatusUpPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmsegccstatusuppvclrangetable(object):
+    class Catmsegccstatusuppvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
         range and for each VCL there is an active row in the
@@ -1890,13 +3304,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmsegccstatusuppvclrangeentry = YList()
-            self.catmsegccstatusuppvclrangeentry.parent = self
-            self.catmsegccstatusuppvclrangeentry.name = 'catmsegccstatusuppvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable, self).__init__()
+
+            self.yang_name = "catmSegCCStatusUpPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmsegccstatusuppvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmsegccstatusuppvclrangeentry(object):
+        class Catmsegccstatusuppvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and
             for each VCL there is an active row in the atmVclTable having
@@ -1967,83 +3407,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclsegccrangestatusupend = None
-                self.catmpvclsegccrangestatusupstart = None
-                self.catmpvclsegccuphigherrangevalue = None
-                self.catmpvclsegccuplowerrangevalue = None
+                super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmSegCCStatusUpPVclRangeEntry"
+                self.yang_parent_name = "catmSegCCStatusUpPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusUpPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusUpPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclsegccrangestatusupend = YLeaf(YType.uint32, "catmPVclSegCCRangeStatusUpEnd")
+
+                self.catmpvclsegccrangestatusupstart = YLeaf(YType.uint32, "catmPVclSegCCRangeStatusUpStart")
+
+                self.catmpvclsegccuphigherrangevalue = YLeaf(YType.int32, "catmPVclSegCCUpHigherRangeValue")
+
+                self.catmpvclsegccuplowerrangevalue = YLeaf(YType.int32, "catmPVclSegCCUpLowerRangeValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclsegccrangestatusupend",
+                                "catmpvclsegccrangestatusupstart",
+                                "catmpvclsegccuphigherrangevalue",
+                                "catmpvclsegccuplowerrangevalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclsegccrangestatusupend.is_set or
+                    self.catmpvclsegccrangestatusupstart.is_set or
+                    self.catmpvclsegccuphigherrangevalue.is_set or
+                    self.catmpvclsegccuplowerrangevalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclsegccrangestatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclsegccrangestatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclsegccuphigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclsegccuplowerrangevalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmSegCCStatusUpPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusUpPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclsegccrangestatusupend.is_set or self.catmpvclsegccrangestatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccrangestatusupend.get_name_leafdata())
+                if (self.catmpvclsegccrangestatusupstart.is_set or self.catmpvclsegccrangestatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccrangestatusupstart.get_name_leafdata())
+                if (self.catmpvclsegccuphigherrangevalue.is_set or self.catmpvclsegccuphigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccuphigherrangevalue.get_name_leafdata())
+                if (self.catmpvclsegccuplowerrangevalue.is_set or self.catmpvclsegccuplowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclsegccuplowerrangevalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclSegCCRangeStatusUpEnd" or name == "catmPVclSegCCRangeStatusUpStart" or name == "catmPVclSegCCUpHigherRangeValue" or name == "catmPVclSegCCUpLowerRangeValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCRangeStatusUpEnd"):
+                    self.catmpvclsegccrangestatusupend = value
+                    self.catmpvclsegccrangestatusupend.value_namespace = name_space
+                    self.catmpvclsegccrangestatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCRangeStatusUpStart"):
+                    self.catmpvclsegccrangestatusupstart = value
+                    self.catmpvclsegccrangestatusupstart.value_namespace = name_space
+                    self.catmpvclsegccrangestatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCUpHigherRangeValue"):
+                    self.catmpvclsegccuphigherrangevalue = value
+                    self.catmpvclsegccuphigherrangevalue.value_namespace = name_space
+                    self.catmpvclsegccuphigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclSegCCUpLowerRangeValue"):
+                    self.catmpvclsegccuplowerrangevalue = value
+                    self.catmpvclsegccuplowerrangevalue.value_namespace = name_space
+                    self.catmpvclsegccuplowerrangevalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmsegccstatusuppvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclsegccrangestatusupend is not None:
-                    return True
-
-                if self.catmpvclsegccrangestatusupstart is not None:
-                    return True
-
-                if self.catmpvclsegccuphigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclsegccuplowerrangevalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmSegCCStatusUpPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmsegccstatusuppvclrangeentry is not None:
-                for child_ref in self.catmsegccstatusuppvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmsegccstatusuppvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmSegCCStatusUpPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmSegCCStatusUpPVclRangeEntry"):
+                for c in self.catmsegccstatusuppvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmsegccstatusuppvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmSegCCStatusUpPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmendccstatusuppvclrangetable(object):
+    class Catmendccstatusuppvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
         range and for each VCL there is an active row in the
@@ -2064,13 +3630,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmendccstatusuppvclrangeentry = YList()
-            self.catmendccstatusuppvclrangeentry.parent = self
-            self.catmendccstatusuppvclrangeentry.name = 'catmendccstatusuppvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable, self).__init__()
+
+            self.yang_name = "catmEndCCStatusUpPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmendccstatusuppvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmendccstatusuppvclrangeentry(object):
+        class Catmendccstatusuppvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and
             for each VCL there is an active row in the atmVclTable having
@@ -2141,83 +3733,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclendccrangestatusupend = None
-                self.catmpvclendccrangestatusupstart = None
-                self.catmpvclendccuphigherrangevalue = None
-                self.catmpvclendccuplowerrangevalue = None
+                super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmEndCCStatusUpPVclRangeEntry"
+                self.yang_parent_name = "catmEndCCStatusUpPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusUpPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusUpPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclendccrangestatusupend = YLeaf(YType.uint32, "catmPVclEndCCRangeStatusUpEnd")
+
+                self.catmpvclendccrangestatusupstart = YLeaf(YType.uint32, "catmPVclEndCCRangeStatusUpStart")
+
+                self.catmpvclendccuphigherrangevalue = YLeaf(YType.int32, "catmPVclEndCCUpHigherRangeValue")
+
+                self.catmpvclendccuplowerrangevalue = YLeaf(YType.int32, "catmPVclEndCCUpLowerRangeValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclendccrangestatusupend",
+                                "catmpvclendccrangestatusupstart",
+                                "catmpvclendccuphigherrangevalue",
+                                "catmpvclendccuplowerrangevalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclendccrangestatusupend.is_set or
+                    self.catmpvclendccrangestatusupstart.is_set or
+                    self.catmpvclendccuphigherrangevalue.is_set or
+                    self.catmpvclendccuplowerrangevalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclendccrangestatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclendccrangestatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclendccuphigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclendccuplowerrangevalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmEndCCStatusUpPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusUpPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclendccrangestatusupend.is_set or self.catmpvclendccrangestatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccrangestatusupend.get_name_leafdata())
+                if (self.catmpvclendccrangestatusupstart.is_set or self.catmpvclendccrangestatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccrangestatusupstart.get_name_leafdata())
+                if (self.catmpvclendccuphigherrangevalue.is_set or self.catmpvclendccuphigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccuphigherrangevalue.get_name_leafdata())
+                if (self.catmpvclendccuplowerrangevalue.is_set or self.catmpvclendccuplowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclendccuplowerrangevalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclEndCCRangeStatusUpEnd" or name == "catmPVclEndCCRangeStatusUpStart" or name == "catmPVclEndCCUpHigherRangeValue" or name == "catmPVclEndCCUpLowerRangeValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCRangeStatusUpEnd"):
+                    self.catmpvclendccrangestatusupend = value
+                    self.catmpvclendccrangestatusupend.value_namespace = name_space
+                    self.catmpvclendccrangestatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCRangeStatusUpStart"):
+                    self.catmpvclendccrangestatusupstart = value
+                    self.catmpvclendccrangestatusupstart.value_namespace = name_space
+                    self.catmpvclendccrangestatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCUpHigherRangeValue"):
+                    self.catmpvclendccuphigherrangevalue = value
+                    self.catmpvclendccuphigherrangevalue.value_namespace = name_space
+                    self.catmpvclendccuphigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclEndCCUpLowerRangeValue"):
+                    self.catmpvclendccuplowerrangevalue = value
+                    self.catmpvclendccuplowerrangevalue.value_namespace = name_space
+                    self.catmpvclendccuplowerrangevalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmendccstatusuppvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclendccrangestatusupend is not None:
-                    return True
-
-                if self.catmpvclendccrangestatusupstart is not None:
-                    return True
-
-                if self.catmpvclendccuphigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclendccuplowerrangevalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmEndCCStatusUpPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmendccstatusuppvclrangeentry is not None:
-                for child_ref in self.catmendccstatusuppvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmendccstatusuppvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmEndCCStatusUpPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmEndCCStatusUpPVclRangeEntry"):
+                for c in self.catmendccstatusuppvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmendccstatusuppvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmEndCCStatusUpPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmaisrdistatusuppvclrangetable(object):
+    class Catmaisrdistatusuppvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
         range and for each VCL there is an active row in the
@@ -2238,13 +3956,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmaisrdistatusuppvclrangeentry = YList()
-            self.catmaisrdistatusuppvclrangeentry.parent = self
-            self.catmaisrdistatusuppvclrangeentry.name = 'catmaisrdistatusuppvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable, self).__init__()
+
+            self.yang_name = "catmAISRDIStatusUpPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmaisrdistatusuppvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmaisrdistatusuppvclrangeentry(object):
+        class Catmaisrdistatusuppvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and
             for each VCL there is an active row in the atmVclTable having
@@ -2315,83 +4059,209 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmpvclaisrdirangestatusupend = None
-                self.catmpvclaisrdirangestatusupstart = None
-                self.catmpvclaisrdiuphigherrangevalue = None
-                self.catmpvclaisrdiuplowerrangevalue = None
+                super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmAISRDIStatusUpPVclRangeEntry"
+                self.yang_parent_name = "catmAISRDIStatusUpPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusUpPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusUpPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmpvclaisrdirangestatusupend = YLeaf(YType.uint32, "catmPVclAISRDIRangeStatusUpEnd")
+
+                self.catmpvclaisrdirangestatusupstart = YLeaf(YType.uint32, "catmPVclAISRDIRangeStatusUpStart")
+
+                self.catmpvclaisrdiuphigherrangevalue = YLeaf(YType.int32, "catmPVclAISRDIUpHigherRangeValue")
+
+                self.catmpvclaisrdiuplowerrangevalue = YLeaf(YType.int32, "catmPVclAISRDIUpLowerRangeValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmpvclaisrdirangestatusupend",
+                                "catmpvclaisrdirangestatusupstart",
+                                "catmpvclaisrdiuphigherrangevalue",
+                                "catmpvclaisrdiuplowerrangevalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmpvclaisrdirangestatusupend.is_set or
+                    self.catmpvclaisrdirangestatusupstart.is_set or
+                    self.catmpvclaisrdiuphigherrangevalue.is_set or
+                    self.catmpvclaisrdiuplowerrangevalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdirangestatusupend.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdirangestatusupstart.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdiuphigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmpvclaisrdiuplowerrangevalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmAISRDIStatusUpPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusUpPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmpvclaisrdirangestatusupend.is_set or self.catmpvclaisrdirangestatusupend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdirangestatusupend.get_name_leafdata())
+                if (self.catmpvclaisrdirangestatusupstart.is_set or self.catmpvclaisrdirangestatusupstart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdirangestatusupstart.get_name_leafdata())
+                if (self.catmpvclaisrdiuphigherrangevalue.is_set or self.catmpvclaisrdiuphigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdiuphigherrangevalue.get_name_leafdata())
+                if (self.catmpvclaisrdiuplowerrangevalue.is_set or self.catmpvclaisrdiuplowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclaisrdiuplowerrangevalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPVclAISRDIRangeStatusUpEnd" or name == "catmPVclAISRDIRangeStatusUpStart" or name == "catmPVclAISRDIUpHigherRangeValue" or name == "catmPVclAISRDIUpLowerRangeValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIRangeStatusUpEnd"):
+                    self.catmpvclaisrdirangestatusupend = value
+                    self.catmpvclaisrdirangestatusupend.value_namespace = name_space
+                    self.catmpvclaisrdirangestatusupend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIRangeStatusUpStart"):
+                    self.catmpvclaisrdirangestatusupstart = value
+                    self.catmpvclaisrdirangestatusupstart.value_namespace = name_space
+                    self.catmpvclaisrdirangestatusupstart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIUpHigherRangeValue"):
+                    self.catmpvclaisrdiuphigherrangevalue = value
+                    self.catmpvclaisrdiuphigherrangevalue.value_namespace = name_space
+                    self.catmpvclaisrdiuphigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclAISRDIUpLowerRangeValue"):
+                    self.catmpvclaisrdiuplowerrangevalue = value
+                    self.catmpvclaisrdiuplowerrangevalue.value_namespace = name_space
+                    self.catmpvclaisrdiuplowerrangevalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmaisrdistatusuppvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmpvclaisrdirangestatusupend is not None:
-                    return True
-
-                if self.catmpvclaisrdirangestatusupstart is not None:
-                    return True
-
-                if self.catmpvclaisrdiuphigherrangevalue is not None:
-                    return True
-
-                if self.catmpvclaisrdiuplowerrangevalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmAISRDIStatusUpPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmaisrdistatusuppvclrangeentry is not None:
-                for child_ref in self.catmaisrdistatusuppvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmaisrdistatusuppvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmAISRDIStatusUpPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmAISRDIStatusUpPVclRangeEntry"):
+                for c in self.catmaisrdistatusuppvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmaisrdistatusuppvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmAISRDIStatusUpPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Catmuppvclrangetable(object):
+    class Catmuppvclrangetable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
         range and for each VCL there is an active row in the 
@@ -2412,13 +4282,39 @@ class CiscoAtmPvctrapExtnMib(object):
         _revision = '2003-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.catmuppvclrangeentry = YList()
-            self.catmuppvclrangeentry.parent = self
-            self.catmuppvclrangeentry.name = 'catmuppvclrangeentry'
+            super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable, self).__init__()
+
+            self.yang_name = "catmUpPVclRangeTable"
+            self.yang_parent_name = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+
+            self.catmuppvclrangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable, self).__setattr__(name, value)
 
 
-        class Catmuppvclrangeentry(object):
+        class Catmuppvclrangeentry(Entity):
             """
             Each entry in this table represents a range of VCLs and 
             for each VCL there is an active row in the atmVclTable having
@@ -2470,7 +4366,7 @@ class CiscoAtmPvctrapExtnMib(object):
             .. attribute:: catmpvclrangerecoveryreason
             
             	Type of OAM Recovered
-            	**type**\:   :py:class:`CatmoamrecoverytypeEnum <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmoamrecoverytypeEnum>`
+            	**type**\:   :py:class:`Catmoamrecoverytype <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.Catmoamrecoverytype>`
             
             .. attribute:: catmuppvclhigherrangevalue
             
@@ -2508,144 +4404,388 @@ class CiscoAtmPvctrapExtnMib(object):
             _revision = '2003-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.atmvclvpi = None
-                self.catmstatuschangepvclrangeindex = None
-                self.catmprevdownpvclrangeend = None
-                self.catmprevdownpvclrangestart = None
-                self.catmpvclrangerecoveryreason = None
-                self.catmuppvclhigherrangevalue = None
-                self.catmuppvcllowerrangevalue = None
-                self.catmuppvclrangeend = None
-                self.catmuppvclrangestart = None
+                super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable.Catmuppvclrangeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.atmvclvpi is None:
-                    raise YPYModelError('Key property atmvclvpi is None')
-                if self.catmstatuschangepvclrangeindex is None:
-                    raise YPYModelError('Key property catmstatuschangepvclrangeindex is None')
+                self.yang_name = "catmUpPVclRangeEntry"
+                self.yang_parent_name = "catmUpPVclRangeTable"
 
-                return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmUpPVclRangeTable/CISCO-ATM-PVCTRAP-EXTN-MIB:catmUpPVclRangeEntry[CISCO-ATM-PVCTRAP-EXTN-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:atmVclVpi = ' + str(self.atmvclvpi) + '][CISCO-ATM-PVCTRAP-EXTN-MIB:catmStatusChangePVclRangeIndex = ' + str(self.catmstatuschangepvclrangeindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
+
+                self.catmstatuschangepvclrangeindex = YLeaf(YType.str, "catmStatusChangePVclRangeIndex")
+
+                self.catmprevdownpvclrangeend = YLeaf(YType.uint32, "catmPrevDownPVclRangeEnd")
+
+                self.catmprevdownpvclrangestart = YLeaf(YType.uint32, "catmPrevDownPVclRangeStart")
+
+                self.catmpvclrangerecoveryreason = YLeaf(YType.enumeration, "catmPVclRangeRecoveryReason")
+
+                self.catmuppvclhigherrangevalue = YLeaf(YType.int32, "catmUpPVclHigherRangeValue")
+
+                self.catmuppvcllowerrangevalue = YLeaf(YType.int32, "catmUpPVclLowerRangeValue")
+
+                self.catmuppvclrangeend = YLeaf(YType.uint32, "catmUpPVclRangeEnd")
+
+                self.catmuppvclrangestart = YLeaf(YType.uint32, "catmUpPVclRangeStart")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "atmvclvpi",
+                                "catmstatuschangepvclrangeindex",
+                                "catmprevdownpvclrangeend",
+                                "catmprevdownpvclrangestart",
+                                "catmpvclrangerecoveryreason",
+                                "catmuppvclhigherrangevalue",
+                                "catmuppvcllowerrangevalue",
+                                "catmuppvclrangeend",
+                                "catmuppvclrangestart") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable.Catmuppvclrangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAtmPvctrapExtnMib.Catmuppvclrangetable.Catmuppvclrangeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.atmvclvpi.is_set or
+                    self.catmstatuschangepvclrangeindex.is_set or
+                    self.catmprevdownpvclrangeend.is_set or
+                    self.catmprevdownpvclrangestart.is_set or
+                    self.catmpvclrangerecoveryreason.is_set or
+                    self.catmuppvclhigherrangevalue.is_set or
+                    self.catmuppvcllowerrangevalue.is_set or
+                    self.catmuppvclrangeend.is_set or
+                    self.catmuppvclrangestart.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.atmvclvpi.yfilter != YFilter.not_set or
+                    self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set or
+                    self.catmprevdownpvclrangeend.yfilter != YFilter.not_set or
+                    self.catmprevdownpvclrangestart.yfilter != YFilter.not_set or
+                    self.catmpvclrangerecoveryreason.yfilter != YFilter.not_set or
+                    self.catmuppvclhigherrangevalue.yfilter != YFilter.not_set or
+                    self.catmuppvcllowerrangevalue.yfilter != YFilter.not_set or
+                    self.catmuppvclrangeend.yfilter != YFilter.not_set or
+                    self.catmuppvclrangestart.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "catmUpPVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[catmStatusChangePVclRangeIndex='" + self.catmstatuschangepvclrangeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmUpPVclRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.atmvclvpi.is_set or self.atmvclvpi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.atmvclvpi.get_name_leafdata())
+                if (self.catmstatuschangepvclrangeindex.is_set or self.catmstatuschangepvclrangeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmstatuschangepvclrangeindex.get_name_leafdata())
+                if (self.catmprevdownpvclrangeend.is_set or self.catmprevdownpvclrangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmprevdownpvclrangeend.get_name_leafdata())
+                if (self.catmprevdownpvclrangestart.is_set or self.catmprevdownpvclrangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmprevdownpvclrangestart.get_name_leafdata())
+                if (self.catmpvclrangerecoveryreason.is_set or self.catmpvclrangerecoveryreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmpvclrangerecoveryreason.get_name_leafdata())
+                if (self.catmuppvclhigherrangevalue.is_set or self.catmuppvclhigherrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmuppvclhigherrangevalue.get_name_leafdata())
+                if (self.catmuppvcllowerrangevalue.is_set or self.catmuppvcllowerrangevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmuppvcllowerrangevalue.get_name_leafdata())
+                if (self.catmuppvclrangeend.is_set or self.catmuppvclrangeend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmuppvclrangeend.get_name_leafdata())
+                if (self.catmuppvclrangestart.is_set or self.catmuppvclrangestart.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.catmuppvclrangestart.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "atmVclVpi" or name == "catmStatusChangePVclRangeIndex" or name == "catmPrevDownPVclRangeEnd" or name == "catmPrevDownPVclRangeStart" or name == "catmPVclRangeRecoveryReason" or name == "catmUpPVclHigherRangeValue" or name == "catmUpPVclLowerRangeValue" or name == "catmUpPVclRangeEnd" or name == "catmUpPVclRangeStart"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "atmVclVpi"):
+                    self.atmvclvpi = value
+                    self.atmvclvpi.value_namespace = name_space
+                    self.atmvclvpi.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmStatusChangePVclRangeIndex"):
+                    self.catmstatuschangepvclrangeindex = value
+                    self.catmstatuschangepvclrangeindex.value_namespace = name_space
+                    self.catmstatuschangepvclrangeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPrevDownPVclRangeEnd"):
+                    self.catmprevdownpvclrangeend = value
+                    self.catmprevdownpvclrangeend.value_namespace = name_space
+                    self.catmprevdownpvclrangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPrevDownPVclRangeStart"):
+                    self.catmprevdownpvclrangestart = value
+                    self.catmprevdownpvclrangestart.value_namespace = name_space
+                    self.catmprevdownpvclrangestart.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmPVclRangeRecoveryReason"):
+                    self.catmpvclrangerecoveryreason = value
+                    self.catmpvclrangerecoveryreason.value_namespace = name_space
+                    self.catmpvclrangerecoveryreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmUpPVclHigherRangeValue"):
+                    self.catmuppvclhigherrangevalue = value
+                    self.catmuppvclhigherrangevalue.value_namespace = name_space
+                    self.catmuppvclhigherrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmUpPVclLowerRangeValue"):
+                    self.catmuppvcllowerrangevalue = value
+                    self.catmuppvcllowerrangevalue.value_namespace = name_space
+                    self.catmuppvcllowerrangevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmUpPVclRangeEnd"):
+                    self.catmuppvclrangeend = value
+                    self.catmuppvclrangeend.value_namespace = name_space
+                    self.catmuppvclrangeend.value_namespace_prefix = name_space_prefix
+                if(value_path == "catmUpPVclRangeStart"):
+                    self.catmuppvclrangestart = value
+                    self.catmuppvclrangestart.value_namespace = name_space
+                    self.catmuppvclrangestart.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.catmuppvclrangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.atmvclvpi is not None:
-                    return True
-
-                if self.catmstatuschangepvclrangeindex is not None:
-                    return True
-
-                if self.catmprevdownpvclrangeend is not None:
-                    return True
-
-                if self.catmprevdownpvclrangestart is not None:
-                    return True
-
-                if self.catmpvclrangerecoveryreason is not None:
-                    return True
-
-                if self.catmuppvclhigherrangevalue is not None:
-                    return True
-
-                if self.catmuppvcllowerrangevalue is not None:
-                    return True
-
-                if self.catmuppvclrangeend is not None:
-                    return True
-
-                if self.catmuppvclrangestart is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-                return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmuppvclrangetable.Catmuppvclrangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/CISCO-ATM-PVCTRAP-EXTN-MIB:catmUpPVclRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.catmuppvclrangeentry is not None:
-                for child_ref in self.catmuppvclrangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.catmuppvclrangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "catmUpPVclRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "catmUpPVclRangeEntry"):
+                for c in self.catmuppvclrangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAtmPvctrapExtnMib.Catmuppvclrangetable.Catmuppvclrangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.catmuppvclrangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "catmUpPVclRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-            return meta._meta_table['CiscoAtmPvctrapExtnMib.Catmuppvclrangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.catmaisrdistatuschpvclrangetable is not None and self.catmaisrdistatuschpvclrangetable.has_data()) or
+            (self.catmaisrdistatusuppvclrangetable is not None and self.catmaisrdistatusuppvclrangetable.has_data()) or
+            (self.catmcurstatchangepvcltable is not None and self.catmcurstatchangepvcltable.has_data()) or
+            (self.catmcurstatusuppvcltable is not None and self.catmcurstatusuppvcltable.has_data()) or
+            (self.catmdownpvclrangetable is not None and self.catmdownpvclrangetable.has_data()) or
+            (self.catmendccstatuschpvclrangetable is not None and self.catmendccstatuschpvclrangetable.has_data()) or
+            (self.catmendccstatusuppvclrangetable is not None and self.catmendccstatusuppvclrangetable.has_data()) or
+            (self.catmsegccstatuschpvclrangetable is not None and self.catmsegccstatuschpvclrangetable.has_data()) or
+            (self.catmsegccstatusuppvclrangetable is not None and self.catmsegccstatusuppvclrangetable.has_data()) or
+            (self.catmstatuschangepvclrangetable is not None and self.catmstatuschangepvclrangetable.has_data()) or
+            (self.catmstatusuppvclrangetable is not None and self.catmstatusuppvclrangetable.has_data()) or
+            (self.catmuppvclrangetable is not None and self.catmuppvclrangetable.has_data()))
 
-        return '/CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.catmaisrdistatuschpvclrangetable is not None and self.catmaisrdistatuschpvclrangetable.has_operation()) or
+            (self.catmaisrdistatusuppvclrangetable is not None and self.catmaisrdistatusuppvclrangetable.has_operation()) or
+            (self.catmcurstatchangepvcltable is not None and self.catmcurstatchangepvcltable.has_operation()) or
+            (self.catmcurstatusuppvcltable is not None and self.catmcurstatusuppvcltable.has_operation()) or
+            (self.catmdownpvclrangetable is not None and self.catmdownpvclrangetable.has_operation()) or
+            (self.catmendccstatuschpvclrangetable is not None and self.catmendccstatuschpvclrangetable.has_operation()) or
+            (self.catmendccstatusuppvclrangetable is not None and self.catmendccstatusuppvclrangetable.has_operation()) or
+            (self.catmsegccstatuschpvclrangetable is not None and self.catmsegccstatuschpvclrangetable.has_operation()) or
+            (self.catmsegccstatusuppvclrangetable is not None and self.catmsegccstatusuppvclrangetable.has_operation()) or
+            (self.catmstatuschangepvclrangetable is not None and self.catmstatuschangepvclrangetable.has_operation()) or
+            (self.catmstatusuppvclrangetable is not None and self.catmstatusuppvclrangetable.has_operation()) or
+            (self.catmuppvclrangetable is not None and self.catmuppvclrangetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "catmAISRDIStatusChPVclRangeTable"):
+            if (self.catmaisrdistatuschpvclrangetable is None):
+                self.catmaisrdistatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmaisrdistatuschpvclrangetable()
+                self.catmaisrdistatuschpvclrangetable.parent = self
+                self._children_name_map["catmaisrdistatuschpvclrangetable"] = "catmAISRDIStatusChPVclRangeTable"
+            return self.catmaisrdistatuschpvclrangetable
+
+        if (child_yang_name == "catmAISRDIStatusUpPVclRangeTable"):
+            if (self.catmaisrdistatusuppvclrangetable is None):
+                self.catmaisrdistatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmaisrdistatusuppvclrangetable()
+                self.catmaisrdistatusuppvclrangetable.parent = self
+                self._children_name_map["catmaisrdistatusuppvclrangetable"] = "catmAISRDIStatusUpPVclRangeTable"
+            return self.catmaisrdistatusuppvclrangetable
+
+        if (child_yang_name == "catmCurStatChangePVclTable"):
+            if (self.catmcurstatchangepvcltable is None):
+                self.catmcurstatchangepvcltable = CiscoAtmPvctrapExtnMib.Catmcurstatchangepvcltable()
+                self.catmcurstatchangepvcltable.parent = self
+                self._children_name_map["catmcurstatchangepvcltable"] = "catmCurStatChangePVclTable"
+            return self.catmcurstatchangepvcltable
+
+        if (child_yang_name == "catmCurStatusUpPVclTable"):
+            if (self.catmcurstatusuppvcltable is None):
+                self.catmcurstatusuppvcltable = CiscoAtmPvctrapExtnMib.Catmcurstatusuppvcltable()
+                self.catmcurstatusuppvcltable.parent = self
+                self._children_name_map["catmcurstatusuppvcltable"] = "catmCurStatusUpPVclTable"
+            return self.catmcurstatusuppvcltable
+
+        if (child_yang_name == "catmDownPVclRangeTable"):
+            if (self.catmdownpvclrangetable is None):
+                self.catmdownpvclrangetable = CiscoAtmPvctrapExtnMib.Catmdownpvclrangetable()
+                self.catmdownpvclrangetable.parent = self
+                self._children_name_map["catmdownpvclrangetable"] = "catmDownPVclRangeTable"
+            return self.catmdownpvclrangetable
+
+        if (child_yang_name == "catmEndCCStatusChPVclRangeTable"):
+            if (self.catmendccstatuschpvclrangetable is None):
+                self.catmendccstatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmendccstatuschpvclrangetable()
+                self.catmendccstatuschpvclrangetable.parent = self
+                self._children_name_map["catmendccstatuschpvclrangetable"] = "catmEndCCStatusChPVclRangeTable"
+            return self.catmendccstatuschpvclrangetable
+
+        if (child_yang_name == "catmEndCCStatusUpPVclRangeTable"):
+            if (self.catmendccstatusuppvclrangetable is None):
+                self.catmendccstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmendccstatusuppvclrangetable()
+                self.catmendccstatusuppvclrangetable.parent = self
+                self._children_name_map["catmendccstatusuppvclrangetable"] = "catmEndCCStatusUpPVclRangeTable"
+            return self.catmendccstatusuppvclrangetable
+
+        if (child_yang_name == "catmSegCCStatusChPVclRangeTable"):
+            if (self.catmsegccstatuschpvclrangetable is None):
+                self.catmsegccstatuschpvclrangetable = CiscoAtmPvctrapExtnMib.Catmsegccstatuschpvclrangetable()
+                self.catmsegccstatuschpvclrangetable.parent = self
+                self._children_name_map["catmsegccstatuschpvclrangetable"] = "catmSegCCStatusChPVclRangeTable"
+            return self.catmsegccstatuschpvclrangetable
+
+        if (child_yang_name == "catmSegCCStatusUpPVclRangeTable"):
+            if (self.catmsegccstatusuppvclrangetable is None):
+                self.catmsegccstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmsegccstatusuppvclrangetable()
+                self.catmsegccstatusuppvclrangetable.parent = self
+                self._children_name_map["catmsegccstatusuppvclrangetable"] = "catmSegCCStatusUpPVclRangeTable"
+            return self.catmsegccstatusuppvclrangetable
+
+        if (child_yang_name == "catmStatusChangePVclRangeTable"):
+            if (self.catmstatuschangepvclrangetable is None):
+                self.catmstatuschangepvclrangetable = CiscoAtmPvctrapExtnMib.Catmstatuschangepvclrangetable()
+                self.catmstatuschangepvclrangetable.parent = self
+                self._children_name_map["catmstatuschangepvclrangetable"] = "catmStatusChangePVclRangeTable"
+            return self.catmstatuschangepvclrangetable
+
+        if (child_yang_name == "catmStatusUpPVclRangeTable"):
+            if (self.catmstatusuppvclrangetable is None):
+                self.catmstatusuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmstatusuppvclrangetable()
+                self.catmstatusuppvclrangetable.parent = self
+                self._children_name_map["catmstatusuppvclrangetable"] = "catmStatusUpPVclRangeTable"
+            return self.catmstatusuppvclrangetable
+
+        if (child_yang_name == "catmUpPVclRangeTable"):
+            if (self.catmuppvclrangetable is None):
+                self.catmuppvclrangetable = CiscoAtmPvctrapExtnMib.Catmuppvclrangetable()
+                self.catmuppvclrangetable.parent = self
+                self._children_name_map["catmuppvclrangetable"] = "catmUpPVclRangeTable"
+            return self.catmuppvclrangetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "catmAISRDIStatusChPVclRangeTable" or name == "catmAISRDIStatusUpPVclRangeTable" or name == "catmCurStatChangePVclTable" or name == "catmCurStatusUpPVclTable" or name == "catmDownPVclRangeTable" or name == "catmEndCCStatusChPVclRangeTable" or name == "catmEndCCStatusUpPVclRangeTable" or name == "catmSegCCStatusChPVclRangeTable" or name == "catmSegCCStatusUpPVclRangeTable" or name == "catmStatusChangePVclRangeTable" or name == "catmStatusUpPVclRangeTable" or name == "catmUpPVclRangeTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.catmaisrdistatuschpvclrangetable is not None and self.catmaisrdistatuschpvclrangetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.catmaisrdistatusuppvclrangetable is not None and self.catmaisrdistatusuppvclrangetable._has_data():
-            return True
-
-        if self.catmcurstatchangepvcltable is not None and self.catmcurstatchangepvcltable._has_data():
-            return True
-
-        if self.catmcurstatusuppvcltable is not None and self.catmcurstatusuppvcltable._has_data():
-            return True
-
-        if self.catmdownpvclrangetable is not None and self.catmdownpvclrangetable._has_data():
-            return True
-
-        if self.catmendccstatuschpvclrangetable is not None and self.catmendccstatuschpvclrangetable._has_data():
-            return True
-
-        if self.catmendccstatusuppvclrangetable is not None and self.catmendccstatusuppvclrangetable._has_data():
-            return True
-
-        if self.catmsegccstatuschpvclrangetable is not None and self.catmsegccstatuschpvclrangetable._has_data():
-            return True
-
-        if self.catmsegccstatusuppvclrangetable is not None and self.catmsegccstatusuppvclrangetable._has_data():
-            return True
-
-        if self.catmstatuschangepvclrangetable is not None and self.catmstatuschangepvclrangetable._has_data():
-            return True
-
-        if self.catmstatusuppvclrangetable is not None and self.catmstatusuppvclrangetable._has_data():
-            return True
-
-        if self.catmuppvclrangetable is not None and self.catmuppvclrangetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_PVCTRAP_EXTN_MIB as meta
-        return meta._meta_table['CiscoAtmPvctrapExtnMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoAtmPvctrapExtnMib()
+        return self._top_entity
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EtherCtrlTransportModeEnum(Enum):
+class EtherCtrlTransportMode(Enum):
     """
-    EtherCtrlTransportModeEnum
+    EtherCtrlTransportMode
 
     Ether ctrl transport mode
 
@@ -44,22 +38,16 @@ class EtherCtrlTransportModeEnum(Enum):
 
     """
 
-    wan = 1
+    wan = Enum.YLeaf(1, "wan")
 
-    otnopu1e = 2
+    otnopu1e = Enum.YLeaf(2, "otnopu1e")
 
-    otnopu2e = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
-        return meta._meta_table['EtherCtrlTransportModeEnum']
+    otnopu2e = Enum.YLeaf(3, "otnopu2e")
 
 
-class PermitPluggableEnum(Enum):
+class PermitPluggable(Enum):
     """
-    PermitPluggableEnum
+    PermitPluggable
 
     Permit pluggable
 
@@ -69,18 +57,12 @@ class PermitPluggableEnum(Enum):
 
     """
 
-    all = 1
+    all = Enum.YLeaf(1, "all")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
-        return meta._meta_table['PermitPluggableEnum']
-
-
-class PermitPluggablePidEnum(Enum):
+class PermitPluggablePid(Enum):
     """
-    PermitPluggablePidEnum
+    PermitPluggablePid
 
     Permit pluggable pid
 
@@ -90,13 +72,7 @@ class PermitPluggablePidEnum(Enum):
 
     """
 
-    all = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
-        return meta._meta_table['PermitPluggablePidEnum']
+    all = Enum.YLeaf(1, "all")
 
 
 

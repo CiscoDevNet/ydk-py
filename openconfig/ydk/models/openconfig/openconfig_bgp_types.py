@@ -5,22 +5,16 @@ policy. It can be imported by modules that make use of BGP
 attributes
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BgpOriginAttrTypeEnum(Enum):
+class BgpOriginAttrType(Enum):
     """
-    BgpOriginAttrTypeEnum
+    BgpOriginAttrType
 
     Type definition for standard BGP origin attribute
 
@@ -38,22 +32,16 @@ class BgpOriginAttrTypeEnum(Enum):
 
     """
 
-    IGP = 0
+    IGP = Enum.YLeaf(0, "IGP")
 
-    EGP = 1
+    EGP = Enum.YLeaf(1, "EGP")
 
-    INCOMPLETE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['BgpOriginAttrTypeEnum']
+    INCOMPLETE = Enum.YLeaf(2, "INCOMPLETE")
 
 
-class BgpSessionDirectionEnum(Enum):
+class BgpSessionDirection(Enum):
     """
-    BgpSessionDirectionEnum
+    BgpSessionDirection
 
     Type to describe the direction of NLRI transmission
 
@@ -67,20 +55,14 @@ class BgpSessionDirectionEnum(Enum):
 
     """
 
-    INBOUND = 0
+    INBOUND = Enum.YLeaf(0, "INBOUND")
 
-    OUTBOUND = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['BgpSessionDirectionEnum']
+    OUTBOUND = Enum.YLeaf(1, "OUTBOUND")
 
 
-class CommunityTypeEnum(Enum):
+class CommunityType(Enum):
     """
-    CommunityTypeEnum
+    CommunityType
 
     type describing variations of community attributes\:
 
@@ -108,24 +90,18 @@ class CommunityTypeEnum(Enum):
 
     """
 
-    STANDARD = 0
+    STANDARD = Enum.YLeaf(0, "STANDARD")
 
-    EXTENDED = 1
+    EXTENDED = Enum.YLeaf(1, "EXTENDED")
 
-    BOTH = 2
+    BOTH = Enum.YLeaf(2, "BOTH")
 
-    NONE = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['CommunityTypeEnum']
+    NONE = Enum.YLeaf(3, "NONE")
 
 
-class PeerTypeEnum(Enum):
+class PeerType(Enum):
     """
-    PeerTypeEnum
+    PeerType
 
     labels a peer or peer group as explicitly internal or
 
@@ -141,88 +117,13 @@ class PeerTypeEnum(Enum):
 
     """
 
-    INTERNAL = 0
+    INTERNAL = Enum.YLeaf(0, "INTERNAL")
 
-    EXTERNAL = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['PeerTypeEnum']
-
-
-class RemovePrivateAsOptionEnum(Enum):
-    """
-    RemovePrivateAsOptionEnum
-
-    set of options for configuring how private AS path numbers
-
-    are removed from advertisements
-
-    .. data:: ALL = 0
-
-    	remove all private ASes in the path
-
-    .. data:: REPLACE = 1
-
-    	replace private ASes with local AS
-
-    """
-
-    ALL = 0
-
-    REPLACE = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['RemovePrivateAsOptionEnum']
+    EXTERNAL = Enum.YLeaf(1, "EXTERNAL")
 
 
 
-class BgpCapabilityIdentity(object):
-    """
-    Base identity for a BGP capability
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['BgpCapabilityIdentity']['meta_info']
-
-
-class AfiSafiTypeIdentity(object):
-    """
-    Base identity type for AFI,SAFI tuples for BGP\-4
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['AfiSafiTypeIdentity']['meta_info']
-
-
-class BgpWellKnownStdCommunityIdentity(object):
+class Bgp_Well_Known_Std_Community(Identity):
     """
     Reserved communities within the standard community space
     defined by RFC1997. These communities must fall within the
@@ -232,39 +133,60 @@ class BgpWellKnownStdCommunityIdentity(object):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['BgpWellKnownStdCommunityIdentity']['meta_info']
+        super(Bgp_Well_Known_Std_Community, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:BGP_WELL_KNOWN_STD_COMMUNITY")
 
 
-class RouteRefreshIdentity(BgpCapabilityIdentity):
+class Remove_Private_As_Option(Identity):
     """
-    The BGP route\-refresh functionality
+    Base identity for options for removing private autonomous
+    system numbers from the AS\_PATH attribute
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpCapabilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['RouteRefreshIdentity']['meta_info']
+        super(Remove_Private_As_Option, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:REMOVE_PRIVATE_AS_OPTION")
 
 
-class No_ExportIdentity(BgpWellKnownStdCommunityIdentity):
+class Afi_Safi_Type(Identity):
+    """
+    Base identity type for AFI,SAFI tuples for BGP\-4
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(Afi_Safi_Type, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:AFI_SAFI_TYPE")
+
+
+class Bgp_Capability(Identity):
+    """
+    Base identity for a BGP capability
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(Bgp_Capability, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:BGP_CAPABILITY")
+
+
+class No_Export(Identity):
     """
     Do not export NLRI received carrying this community outside
     the bounds of this autonomous system, or this confederation if
@@ -275,41 +197,74 @@ class No_ExportIdentity(BgpWellKnownStdCommunityIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpWellKnownStdCommunityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['No_ExportIdentity']['meta_info']
+        super(No_Export, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:NO_EXPORT")
 
 
-class No_Export_SubconfedIdentity(BgpWellKnownStdCommunityIdentity):
+class Graceful_Restart(Identity):
     """
-    All NLRI received carrying this community must not be
-    advertised to external BGP peers \- including over confederation
-    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
+    Graceful restart functionality
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpWellKnownStdCommunityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['No_Export_SubconfedIdentity']['meta_info']
+        super(Graceful_Restart, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:GRACEFUL_RESTART")
 
 
-class L3VpnIpv4MulticastIdentity(AfiSafiTypeIdentity):
+class Ipv4_Labeled_Unicast(Identity):
+    """
+    Labeled IPv4 unicast (AFI,SAFI = 1,4)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(Ipv4_Labeled_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:IPV4_LABELED_UNICAST")
+
+
+class Ipv6_Unicast(Identity):
+    """
+    IPv6 unicast (AFI,SAFI = 2,1)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(Ipv6_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:IPV6_UNICAST")
+
+
+class L3Vpn_Ipv4_Unicast(Identity):
+    """
+    Unicast IPv4 MPLS L3VPN (AFI,SAFI = 1,128)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(L3Vpn_Ipv4_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L3VPN_IPV4_UNICAST")
+
+
+class L3Vpn_Ipv4_Multicast(Identity):
     """
     Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
     
@@ -317,39 +272,44 @@ class L3VpnIpv4MulticastIdentity(AfiSafiTypeIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv4MulticastIdentity']['meta_info']
+        super(L3Vpn_Ipv4_Multicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L3VPN_IPV4_MULTICAST")
 
 
-class L2VpnVplsIdentity(AfiSafiTypeIdentity):
+class Route_Refresh(Identity):
     """
-    BGP\-signalled VPLS (AFI,SAFI = 25,65)
+    The BGP route\-refresh functionality
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L2VpnVplsIdentity']['meta_info']
+        super(Route_Refresh, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:ROUTE_REFRESH")
 
 
-class NopeerIdentity(BgpWellKnownStdCommunityIdentity):
+class L2Vpn_Evpn(Identity):
+    """
+    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(L2Vpn_Evpn, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L2VPN_EVPN")
+
+
+class Nopeer(Identity):
     """
     An autonomous system receiving NLRI tagged with this community
     is advised not to readvertise the NLRI to external bi\-lateral
@@ -361,59 +321,14 @@ class NopeerIdentity(BgpWellKnownStdCommunityIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpWellKnownStdCommunityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['NopeerIdentity']['meta_info']
+        super(Nopeer, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:NOPEER")
 
 
-class Ipv6LabelledUnicastIdentity(AfiSafiTypeIdentity):
-    """
-    Labelled IPv6 unicast (AFI,SAFI = 2,4)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv6LabelledUnicastIdentity']['meta_info']
-
-
-class GracefulRestartIdentity(BgpCapabilityIdentity):
-    """
-    Graceful restart functionality
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        BgpCapabilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['GracefulRestartIdentity']['meta_info']
-
-
-class MpbgpIdentity(BgpCapabilityIdentity):
+class Mpbgp(Identity):
     """
     Multi\-protocol extensions to BGP
     
@@ -421,39 +336,29 @@ class MpbgpIdentity(BgpCapabilityIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpCapabilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['MpbgpIdentity']['meta_info']
+        super(Mpbgp, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:MPBGP")
 
 
-class Ipv4UnicastIdentity(AfiSafiTypeIdentity):
+class Add_Paths(Identity):
     """
-    IPv4 unicast (AFI,SAFI = 1,1)
+    BGP add\-paths
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv4UnicastIdentity']['meta_info']
+        super(Add_Paths, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:ADD_PATHS")
 
 
-class L3VpnIpv6UnicastIdentity(AfiSafiTypeIdentity):
+class L3Vpn_Ipv6_Unicast(Identity):
     """
     Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
     
@@ -461,99 +366,59 @@ class L3VpnIpv6UnicastIdentity(AfiSafiTypeIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv6UnicastIdentity']['meta_info']
+        super(L3Vpn_Ipv6_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L3VPN_IPV6_UNICAST")
 
 
-class Asn32Identity(BgpCapabilityIdentity):
+class Ipv4_Unicast(Identity):
     """
-    4\-byte (32\-bit) AS number functionality
+    IPv4 unicast (AFI,SAFI = 1,1)
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpCapabilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Asn32Identity']['meta_info']
+        super(Ipv4_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:IPV4_UNICAST")
 
 
-class L3VpnIpv4UnicastIdentity(AfiSafiTypeIdentity):
+class L2Vpn_Vpls(Identity):
     """
-    Unicast IPv4 MPLS L3VPN (AFI,SAFI = 1,128)
+    BGP\-signalled VPLS (AFI,SAFI = 25,65)
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv4UnicastIdentity']['meta_info']
+        super(L2Vpn_Vpls, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L2VPN_VPLS")
 
 
-class Ipv4LabelledUnicastIdentity(AfiSafiTypeIdentity):
+class Ipv6_Labeled_Unicast(Identity):
     """
-    Labelled IPv4 unicast (AFI,SAFI = 1,4)
+    Labeled IPv6 unicast (AFI,SAFI = 2,4)
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv4LabelledUnicastIdentity']['meta_info']
+        super(Ipv6_Labeled_Unicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:IPV6_LABELED_UNICAST")
 
 
-class L3VpnIpv6MulticastIdentity(AfiSafiTypeIdentity):
-    """
-    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv6MulticastIdentity']['meta_info']
-
-
-class No_AdvertiseIdentity(BgpWellKnownStdCommunityIdentity):
+class No_Advertise(Identity):
     """
     All NLRI received carrying this community must not be
     advertised to other BGP peers. This community has a value of
@@ -563,75 +428,94 @@ class No_AdvertiseIdentity(BgpWellKnownStdCommunityIdentity):
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpWellKnownStdCommunityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['No_AdvertiseIdentity']['meta_info']
+        super(No_Advertise, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:NO_ADVERTISE")
 
 
-class AddPathsIdentity(BgpCapabilityIdentity):
+class No_Export_Subconfed(Identity):
     """
-    BGP add\-paths
+    All NLRI received carrying this community must not be
+    advertised to external BGP peers \- including over confederation
+    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        BgpCapabilityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['AddPathsIdentity']['meta_info']
+        super(No_Export_Subconfed, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:NO_EXPORT_SUBCONFED")
 
 
-class Ipv6UnicastIdentity(AfiSafiTypeIdentity):
+class Asn32(Identity):
     """
-    IPv6 unicast (AFI,SAFI = 2,1)
+    4\-byte (32\-bit) AS number functionality
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv6UnicastIdentity']['meta_info']
+        super(Asn32, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:ASN32")
 
 
-class L2VpnEvpnIdentity(AfiSafiTypeIdentity):
+class Private_As_Remove_All(Identity):
     """
-    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    Strip all private autonmous system numbers from the AS\_PATH.
+    This action is performed regardless of the other content of the
+    AS\_PATH attribute, and for all instances of private AS numbers
+    within that attribute.
     
     
 
     """
 
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
 
     def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
+        super(Private_As_Remove_All, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:PRIVATE_AS_REMOVE_ALL")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L2VpnEvpnIdentity']['meta_info']
+
+class L3Vpn_Ipv6_Multicast(Identity):
+    """
+    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(L3Vpn_Ipv6_Multicast, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:L3VPN_IPV6_MULTICAST")
+
+
+class Private_As_Replace_All(Identity):
+    """
+    Replace all instances of private autonomous system numbers in
+    the AS\_PATH with the local BGP speaker's autonomous system
+    number. This action is performed regardless of the other
+    content of the AS\_PATH attribute, and for all instances of
+    private AS number within that attribute.
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2016-06-21'
+
+    def __init__(self):
+        super(Private_As_Replace_All, self).__init__("http://openconfig.net/yang/bgp-types", "openconfig-bgp-types", "openconfig-bgp-types:PRIVATE_AS_REPLACE_ALL")
 
 

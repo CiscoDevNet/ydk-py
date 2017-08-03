@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ipv4AclDscpNumberEnum(Enum):
+class Ipv4AclDscpNumber(Enum):
     """
-    Ipv4AclDscpNumberEnum
+    Ipv4AclDscpNumber
 
     Ipv4 acl dscp number
 
@@ -112,58 +106,52 @@ class Ipv4AclDscpNumberEnum(Enum):
 
     """
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    af11 = 10
+    af11 = Enum.YLeaf(10, "af11")
 
-    af12 = 12
+    af12 = Enum.YLeaf(12, "af12")
 
-    af13 = 14
+    af13 = Enum.YLeaf(14, "af13")
 
-    af21 = 18
+    af21 = Enum.YLeaf(18, "af21")
 
-    af22 = 20
+    af22 = Enum.YLeaf(20, "af22")
 
-    af23 = 22
+    af23 = Enum.YLeaf(22, "af23")
 
-    af31 = 26
+    af31 = Enum.YLeaf(26, "af31")
 
-    af32 = 28
+    af32 = Enum.YLeaf(28, "af32")
 
-    af33 = 30
+    af33 = Enum.YLeaf(30, "af33")
 
-    af41 = 34
+    af41 = Enum.YLeaf(34, "af41")
 
-    af42 = 36
+    af42 = Enum.YLeaf(36, "af42")
 
-    af43 = 38
+    af43 = Enum.YLeaf(38, "af43")
 
-    cs1 = 8
+    cs1 = Enum.YLeaf(8, "cs1")
 
-    cs2 = 16
+    cs2 = Enum.YLeaf(16, "cs2")
 
-    cs3 = 24
+    cs3 = Enum.YLeaf(24, "cs3")
 
-    cs4 = 32
+    cs4 = Enum.YLeaf(32, "cs4")
 
-    cs5 = 40
+    cs5 = Enum.YLeaf(40, "cs5")
 
-    cs6 = 48
+    cs6 = Enum.YLeaf(48, "cs6")
 
-    cs7 = 56
+    cs7 = Enum.YLeaf(56, "cs7")
 
-    ef = 46
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclDscpNumberEnum']
+    ef = Enum.YLeaf(46, "ef")
 
 
-class Ipv4AclGrantEnumEnum(Enum):
+class Ipv4AclGrantEnum(Enum):
     """
-    Ipv4AclGrantEnumEnum
+    Ipv4AclGrantEnum
 
     Ipv4 acl grant enum
 
@@ -177,20 +165,14 @@ class Ipv4AclGrantEnumEnum(Enum):
 
     """
 
-    deny = 0
+    deny = Enum.YLeaf(0, "deny")
 
-    permit = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclGrantEnumEnum']
+    permit = Enum.YLeaf(1, "permit")
 
 
-class Ipv4AclIcmpTypeCodeEnumEnum(Enum):
+class Ipv4AclIcmpTypeCodeEnum(Enum):
     """
-    Ipv4AclIcmpTypeCodeEnumEnum
+    Ipv4AclIcmpTypeCodeEnum
 
     Ipv4 acl icmp type code enum
 
@@ -372,104 +354,98 @@ class Ipv4AclIcmpTypeCodeEnumEnum(Enum):
 
     """
 
-    echo_reply = 65535
+    echo_reply = Enum.YLeaf(65535, "echo-reply")
 
-    network_unreachable = 196608
+    network_unreachable = Enum.YLeaf(196608, "network-unreachable")
 
-    host_unreachable = 196609
+    host_unreachable = Enum.YLeaf(196609, "host-unreachable")
 
-    protocol_unreachable = 196610
+    protocol_unreachable = Enum.YLeaf(196610, "protocol-unreachable")
 
-    port_unreachable = 196611
+    port_unreachable = Enum.YLeaf(196611, "port-unreachable")
 
-    packet_too_big = 196612
+    packet_too_big = Enum.YLeaf(196612, "packet-too-big")
 
-    source_route_failed = 196613
+    source_route_failed = Enum.YLeaf(196613, "source-route-failed")
 
-    network_unknown = 196614
+    network_unknown = Enum.YLeaf(196614, "network-unknown")
 
-    host_unknown = 196615
+    host_unknown = Enum.YLeaf(196615, "host-unknown")
 
-    host_isolated = 196616
+    host_isolated = Enum.YLeaf(196616, "host-isolated")
 
-    dod_net_prohibited = 196617
+    dod_net_prohibited = Enum.YLeaf(196617, "dod-net-prohibited")
 
-    dod_host_prohibited = 196618
+    dod_host_prohibited = Enum.YLeaf(196618, "dod-host-prohibited")
 
-    host_tos_unreachable = 196619
+    host_tos_unreachable = Enum.YLeaf(196619, "host-tos-unreachable")
 
-    net_tos_unreachable = 196620
+    net_tos_unreachable = Enum.YLeaf(196620, "net-tos-unreachable")
 
-    administratively_prohibited = 196621
+    administratively_prohibited = Enum.YLeaf(196621, "administratively-prohibited")
 
-    host_precedence_unreachable = 196622
+    host_precedence_unreachable = Enum.YLeaf(196622, "host-precedence-unreachable")
 
-    precedence_unreachable = 196623
+    precedence_unreachable = Enum.YLeaf(196623, "precedence-unreachable")
 
-    unreachable = 262143
+    unreachable = Enum.YLeaf(262143, "unreachable")
 
-    source_quench = 327679
+    source_quench = Enum.YLeaf(327679, "source-quench")
 
-    network_redirect = 327680
+    network_redirect = Enum.YLeaf(327680, "network-redirect")
 
-    host_redirect = 327681
+    host_redirect = Enum.YLeaf(327681, "host-redirect")
 
-    net_tos_redirect = 327682
+    net_tos_redirect = Enum.YLeaf(327682, "net-tos-redirect")
 
-    host_tos_redirect = 327683
+    host_tos_redirect = Enum.YLeaf(327683, "host-tos-redirect")
 
-    redirect = 393215
+    redirect = Enum.YLeaf(393215, "redirect")
 
-    alternate_address = 458751
+    alternate_address = Enum.YLeaf(458751, "alternate-address")
 
-    echo = 589823
+    echo = Enum.YLeaf(589823, "echo")
 
-    router_advertisement = 655359
+    router_advertisement = Enum.YLeaf(655359, "router-advertisement")
 
-    router_solicitation = 720895
+    router_solicitation = Enum.YLeaf(720895, "router-solicitation")
 
-    ttl_exceeded = 720896
+    ttl_exceeded = Enum.YLeaf(720896, "ttl-exceeded")
 
-    reassembly_timeout = 720897
+    reassembly_timeout = Enum.YLeaf(720897, "reassembly-timeout")
 
-    time_exceeded = 786431
+    time_exceeded = Enum.YLeaf(786431, "time-exceeded")
 
-    general_parameter_problem = 786432
+    general_parameter_problem = Enum.YLeaf(786432, "general-parameter-problem")
 
-    option_missing = 786433
+    option_missing = Enum.YLeaf(786433, "option-missing")
 
-    no_room_for_option = 786434
+    no_room_for_option = Enum.YLeaf(786434, "no-room-for-option")
 
-    parameter_problem = 851967
+    parameter_problem = Enum.YLeaf(851967, "parameter-problem")
 
-    timestamp_request = 917503
+    timestamp_request = Enum.YLeaf(917503, "timestamp-request")
 
-    timestamp_reply = 983039
+    timestamp_reply = Enum.YLeaf(983039, "timestamp-reply")
 
-    information_request = 1048575
+    information_request = Enum.YLeaf(1048575, "information-request")
 
-    information_reply = 1114111
+    information_reply = Enum.YLeaf(1114111, "information-reply")
 
-    mask_request = 1179647
+    mask_request = Enum.YLeaf(1179647, "mask-request")
 
-    mask_reply = 1245183
+    mask_reply = Enum.YLeaf(1245183, "mask-reply")
 
-    traceroute = 2031615
+    traceroute = Enum.YLeaf(2031615, "traceroute")
 
-    conversion_error = 2097151
+    conversion_error = Enum.YLeaf(2097151, "conversion-error")
 
-    mobile_redirect = 2162687
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclIcmpTypeCodeEnumEnum']
+    mobile_redirect = Enum.YLeaf(2162687, "mobile-redirect")
 
 
-class Ipv4AclIgmpNumberEnum(Enum):
+class Ipv4AclIgmpNumber(Enum):
     """
-    Ipv4AclIgmpNumberEnum
+    Ipv4AclIgmpNumber
 
     Ipv4 acl igmp number
 
@@ -515,36 +491,30 @@ class Ipv4AclIgmpNumberEnum(Enum):
 
     """
 
-    host_query = 17
+    host_query = Enum.YLeaf(17, "host-query")
 
-    host_report = 18
+    host_report = Enum.YLeaf(18, "host-report")
 
-    dvmrp = 19
+    dvmrp = Enum.YLeaf(19, "dvmrp")
 
-    pim = 20
+    pim = Enum.YLeaf(20, "pim")
 
-    trace = 21
+    trace = Enum.YLeaf(21, "trace")
 
-    v2_report = 22
+    v2_report = Enum.YLeaf(22, "v2-report")
 
-    v2_leave = 23
+    v2_leave = Enum.YLeaf(23, "v2-leave")
 
-    mtrace_response = 30
+    mtrace_response = Enum.YLeaf(30, "mtrace-response")
 
-    mtrace = 31
+    mtrace = Enum.YLeaf(31, "mtrace")
 
-    v3_report = 34
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclIgmpNumberEnum']
+    v3_report = Enum.YLeaf(34, "v3-report")
 
 
-class Ipv4AclLoggingEnumEnum(Enum):
+class Ipv4AclLoggingEnum(Enum):
     """
-    Ipv4AclLoggingEnumEnum
+    Ipv4AclLoggingEnum
 
     Ipv4 acl logging enum
 
@@ -560,20 +530,14 @@ class Ipv4AclLoggingEnumEnum(Enum):
 
     """
 
-    log = 1
+    log = Enum.YLeaf(1, "log")
 
-    log_input = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclLoggingEnumEnum']
+    log_input = Enum.YLeaf(2, "log-input")
 
 
-class Ipv4AclOperatorEnumEnum(Enum):
+class Ipv4AclOperatorEnum(Enum):
     """
-    Ipv4AclOperatorEnumEnum
+    Ipv4AclOperatorEnum
 
     Ipv4 acl operator enum
 
@@ -599,26 +563,20 @@ class Ipv4AclOperatorEnumEnum(Enum):
 
     """
 
-    equal = 1
+    equal = Enum.YLeaf(1, "equal")
 
-    greater_than = 2
+    greater_than = Enum.YLeaf(2, "greater-than")
 
-    less_than = 3
+    less_than = Enum.YLeaf(3, "less-than")
 
-    not_equal = 4
+    not_equal = Enum.YLeaf(4, "not-equal")
 
-    range = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclOperatorEnumEnum']
+    range = Enum.YLeaf(5, "range")
 
 
-class Ipv4AclPortNumberEnum(Enum):
+class Ipv4AclPortNumber(Enum):
     """
-    Ipv4AclPortNumberEnum
+    Ipv4AclPortNumber
 
     Ipv4 acl port number
 
@@ -872,112 +830,106 @@ class Ipv4AclPortNumberEnum(Enum):
 
     """
 
-    echo = 7
+    echo = Enum.YLeaf(7, "echo")
 
-    discard = 9
+    discard = Enum.YLeaf(9, "discard")
 
-    daytime = 13
+    daytime = Enum.YLeaf(13, "daytime")
 
-    char_gen = 19
+    char_gen = Enum.YLeaf(19, "char-gen")
 
-    ftp_data = 20
+    ftp_data = Enum.YLeaf(20, "ftp-data")
 
-    ftp = 21
+    ftp = Enum.YLeaf(21, "ftp")
 
-    telnet = 23
+    telnet = Enum.YLeaf(23, "telnet")
 
-    smtp = 25
+    smtp = Enum.YLeaf(25, "smtp")
 
-    time = 37
+    time = Enum.YLeaf(37, "time")
 
-    name_server = 42
+    name_server = Enum.YLeaf(42, "name-server")
 
-    who_is = 43
+    who_is = Enum.YLeaf(43, "who-is")
 
-    tacacs = 49
+    tacacs = Enum.YLeaf(49, "tacacs")
 
-    dns = 53
+    dns = Enum.YLeaf(53, "dns")
 
-    boot_ps = 67
+    boot_ps = Enum.YLeaf(67, "boot-ps")
 
-    boot_pc = 68
+    boot_pc = Enum.YLeaf(68, "boot-pc")
 
-    tftp = 69
+    tftp = Enum.YLeaf(69, "tftp")
 
-    gopher = 70
+    gopher = Enum.YLeaf(70, "gopher")
 
-    finger = 79
+    finger = Enum.YLeaf(79, "finger")
 
-    www = 80
+    www = Enum.YLeaf(80, "www")
 
-    host_name = 101
+    host_name = Enum.YLeaf(101, "host-name")
 
-    pop2 = 109
+    pop2 = Enum.YLeaf(109, "pop2")
 
-    pop3 = 110
+    pop3 = Enum.YLeaf(110, "pop3")
 
-    sun_rpc = 111
+    sun_rpc = Enum.YLeaf(111, "sun-rpc")
 
-    ident = 113
+    ident = Enum.YLeaf(113, "ident")
 
-    nntp = 119
+    nntp = Enum.YLeaf(119, "nntp")
 
-    ntp = 123
+    ntp = Enum.YLeaf(123, "ntp")
 
-    net_bios_ns = 137
+    net_bios_ns = Enum.YLeaf(137, "net-bios-ns")
 
-    net_bios_dgs = 138
+    net_bios_dgs = Enum.YLeaf(138, "net-bios-dgs")
 
-    net_bios_ss = 139
+    net_bios_ss = Enum.YLeaf(139, "net-bios-ss")
 
-    snmp = 161
+    snmp = Enum.YLeaf(161, "snmp")
 
-    snmp_trap = 162
+    snmp_trap = Enum.YLeaf(162, "snmp-trap")
 
-    xdmcp = 177
+    xdmcp = Enum.YLeaf(177, "xdmcp")
 
-    bgp = 179
+    bgp = Enum.YLeaf(179, "bgp")
 
-    irc = 194
+    irc = Enum.YLeaf(194, "irc")
 
-    dnsix = 195
+    dnsix = Enum.YLeaf(195, "dnsix")
 
-    mobile_ip = 434
+    mobile_ip = Enum.YLeaf(434, "mobile-ip")
 
-    pim_auto_rp = 496
+    pim_auto_rp = Enum.YLeaf(496, "pim-auto-rp")
 
-    isakmp = 500
+    isakmp = Enum.YLeaf(500, "isakmp")
 
-    exec_or_biff = 512
+    exec_or_biff = Enum.YLeaf(512, "exec-or-biff")
 
-    login_or_who = 513
+    login_or_who = Enum.YLeaf(513, "login-or-who")
 
-    cmd_or_syslog = 514
+    cmd_or_syslog = Enum.YLeaf(514, "cmd-or-syslog")
 
-    lpd = 515
+    lpd = Enum.YLeaf(515, "lpd")
 
-    talk = 517
+    talk = Enum.YLeaf(517, "talk")
 
-    rip = 520
+    rip = Enum.YLeaf(520, "rip")
 
-    uucp = 540
+    uucp = Enum.YLeaf(540, "uucp")
 
-    klogin = 543
+    klogin = Enum.YLeaf(543, "klogin")
 
-    kshell = 544
+    kshell = Enum.YLeaf(544, "kshell")
 
-    ldp = 646
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclPortNumberEnum']
+    ldp = Enum.YLeaf(646, "ldp")
 
 
-class Ipv4AclPrecedenceNumberEnum(Enum):
+class Ipv4AclPrecedenceNumber(Enum):
     """
-    Ipv4AclPrecedenceNumberEnum
+    Ipv4AclPrecedenceNumber
 
     Ipv4 acl precedence number
 
@@ -1017,32 +969,26 @@ class Ipv4AclPrecedenceNumberEnum(Enum):
 
     """
 
-    critical = 5
+    critical = Enum.YLeaf(5, "critical")
 
-    flash = 3
+    flash = Enum.YLeaf(3, "flash")
 
-    flash_override = 4
+    flash_override = Enum.YLeaf(4, "flash-override")
 
-    immediate = 2
+    immediate = Enum.YLeaf(2, "immediate")
 
-    internet = 6
+    internet = Enum.YLeaf(6, "internet")
 
-    network = 7
+    network = Enum.YLeaf(7, "network")
 
-    priority = 1
+    priority = Enum.YLeaf(1, "priority")
 
-    routine = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclPrecedenceNumberEnum']
+    routine = Enum.YLeaf(0, "routine")
 
 
-class Ipv4AclProtocolNumberEnum(Enum):
+class Ipv4AclProtocolNumber(Enum):
     """
-    Ipv4AclProtocolNumberEnum
+    Ipv4AclProtocolNumber
 
     Ipv4 acl protocol number
 
@@ -1112,48 +1058,42 @@ class Ipv4AclProtocolNumberEnum(Enum):
 
     """
 
-    ip = 0
+    ip = Enum.YLeaf(0, "ip")
 
-    icmp = 1
+    icmp = Enum.YLeaf(1, "icmp")
 
-    igmp = 2
+    igmp = Enum.YLeaf(2, "igmp")
 
-    ip_in_ip = 4
+    ip_in_ip = Enum.YLeaf(4, "ip-in-ip")
 
-    tcp = 6
+    tcp = Enum.YLeaf(6, "tcp")
 
-    igrp = 9
+    igrp = Enum.YLeaf(9, "igrp")
 
-    udp = 17
+    udp = Enum.YLeaf(17, "udp")
 
-    gre = 47
+    gre = Enum.YLeaf(47, "gre")
 
-    esp = 50
+    esp = Enum.YLeaf(50, "esp")
 
-    ahp = 51
+    ahp = Enum.YLeaf(51, "ahp")
 
-    eigrp = 88
+    eigrp = Enum.YLeaf(88, "eigrp")
 
-    ospf = 89
+    ospf = Enum.YLeaf(89, "ospf")
 
-    nos = 94
+    nos = Enum.YLeaf(94, "nos")
 
-    pim = 103
+    pim = Enum.YLeaf(103, "pim")
 
-    pcp = 108
+    pcp = Enum.YLeaf(108, "pcp")
 
-    sctp = 132
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclProtocolNumberEnum']
+    sctp = Enum.YLeaf(132, "sctp")
 
 
-class Ipv4AclStatusEnumEnum(Enum):
+class Ipv4AclStatusEnum(Enum):
     """
-    Ipv4AclStatusEnumEnum
+    Ipv4AclStatusEnum
 
     Ipv4 acl status enum
 
@@ -1167,20 +1107,14 @@ class Ipv4AclStatusEnumEnum(Enum):
 
     """
 
-    disabled = 0
+    disabled = Enum.YLeaf(0, "disabled")
 
-    enabled = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclStatusEnumEnum']
+    enabled = Enum.YLeaf(1, "enabled")
 
 
-class Ipv4AclTcpBitsNumberEnum(Enum):
+class Ipv4AclTcpBitsNumber(Enum):
     """
-    Ipv4AclTcpBitsNumberEnum
+    Ipv4AclTcpBitsNumber
 
     Ipv4 acl tcp bits number
 
@@ -1214,30 +1148,24 @@ class Ipv4AclTcpBitsNumberEnum(Enum):
 
     """
 
-    established = 20
+    established = Enum.YLeaf(20, "established")
 
-    ack = 16
+    ack = Enum.YLeaf(16, "ack")
 
-    rst = 4
+    rst = Enum.YLeaf(4, "rst")
 
-    fin = 1
+    fin = Enum.YLeaf(1, "fin")
 
-    psh = 8
+    psh = Enum.YLeaf(8, "psh")
 
-    syn = 2
+    syn = Enum.YLeaf(2, "syn")
 
-    urg = 32
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclTcpBitsNumberEnum']
+    urg = Enum.YLeaf(32, "urg")
 
 
-class Ipv4AclTcpMatchOperatorEnumEnum(Enum):
+class Ipv4AclTcpMatchOperatorEnum(Enum):
     """
-    Ipv4AclTcpMatchOperatorEnumEnum
+    Ipv4AclTcpMatchOperatorEnum
 
     Ipv4 acl tcp match operator enum
 
@@ -1253,15 +1181,9 @@ class Ipv4AclTcpMatchOperatorEnumEnum(Enum):
 
     """
 
-    match_all = 1
+    match_all = Enum.YLeaf(1, "match-all")
 
-    match_any = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
-        return meta._meta_table['Ipv4AclTcpMatchOperatorEnumEnum']
+    match_any = Enum.YLeaf(3, "match-any")
 
 
 

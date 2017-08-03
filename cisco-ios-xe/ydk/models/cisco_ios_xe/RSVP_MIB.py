@@ -3,22 +3,16 @@
 The MIB module to describe the RSVP Protocol
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RsvpencapsulationEnum(Enum):
+class Rsvpencapsulation(Enum):
     """
-    RsvpencapsulationEnum
+    Rsvpencapsulation
 
     This indicates the encapsulation that an  RSVP
 
@@ -32,21 +26,15 @@ class RsvpencapsulationEnum(Enum):
 
     """
 
-    ip = 1
+    ip = Enum.YLeaf(1, "ip")
 
-    udp = 2
+    udp = Enum.YLeaf(2, "udp")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-        return meta._meta_table['RsvpencapsulationEnum']
+    both = Enum.YLeaf(3, "both")
 
 
 
-class RsvpMib(object):
+class RsvpMib(Entity):
     """
     
     
@@ -98,25 +86,54 @@ class RsvpMib(object):
     _revision = '1998-08-25'
 
     def __init__(self):
+        super(RsvpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "RSVP-MIB"
+        self.yang_parent_name = "RSVP-MIB"
+
         self.rsvpgenobjects = RsvpMib.Rsvpgenobjects()
         self.rsvpgenobjects.parent = self
+        self._children_name_map["rsvpgenobjects"] = "rsvpGenObjects"
+        self._children_yang_names.add("rsvpGenObjects")
+
         self.rsvpiftable = RsvpMib.Rsvpiftable()
         self.rsvpiftable.parent = self
+        self._children_name_map["rsvpiftable"] = "rsvpIfTable"
+        self._children_yang_names.add("rsvpIfTable")
+
         self.rsvpnbrtable = RsvpMib.Rsvpnbrtable()
         self.rsvpnbrtable.parent = self
+        self._children_name_map["rsvpnbrtable"] = "rsvpNbrTable"
+        self._children_yang_names.add("rsvpNbrTable")
+
         self.rsvpresvfwdtable = RsvpMib.Rsvpresvfwdtable()
         self.rsvpresvfwdtable.parent = self
+        self._children_name_map["rsvpresvfwdtable"] = "rsvpResvFwdTable"
+        self._children_yang_names.add("rsvpResvFwdTable")
+
         self.rsvpresvtable = RsvpMib.Rsvpresvtable()
         self.rsvpresvtable.parent = self
+        self._children_name_map["rsvpresvtable"] = "rsvpResvTable"
+        self._children_yang_names.add("rsvpResvTable")
+
         self.rsvpsenderoutinterfacetable = RsvpMib.Rsvpsenderoutinterfacetable()
         self.rsvpsenderoutinterfacetable.parent = self
+        self._children_name_map["rsvpsenderoutinterfacetable"] = "rsvpSenderOutInterfaceTable"
+        self._children_yang_names.add("rsvpSenderOutInterfaceTable")
+
         self.rsvpsendertable = RsvpMib.Rsvpsendertable()
         self.rsvpsendertable.parent = self
+        self._children_name_map["rsvpsendertable"] = "rsvpSenderTable"
+        self._children_yang_names.add("rsvpSenderTable")
+
         self.rsvpsessiontable = RsvpMib.Rsvpsessiontable()
         self.rsvpsessiontable.parent = self
+        self._children_name_map["rsvpsessiontable"] = "rsvpSessionTable"
+        self._children_yang_names.add("rsvpSessionTable")
 
 
-    class Rsvpgenobjects(object):
+    class Rsvpgenobjects(Entity):
         """
         
         
@@ -163,47 +180,130 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpbadpackets = None
-            self.rsvpresvfwdnewindex = None
-            self.rsvpresvnewindex = None
-            self.rsvpsendernewindex = None
-            self.rsvpsessionnewindex = None
+            super(RsvpMib.Rsvpgenobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "rsvpGenObjects"
+            self.yang_parent_name = "RSVP-MIB"
 
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpGenObjects'
+            self.rsvpbadpackets = YLeaf(YType.uint32, "rsvpBadPackets")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.rsvpresvfwdnewindex = YLeaf(YType.int32, "rsvpResvFwdNewIndex")
+
+            self.rsvpresvnewindex = YLeaf(YType.int32, "rsvpResvNewIndex")
+
+            self.rsvpsendernewindex = YLeaf(YType.int32, "rsvpSenderNewIndex")
+
+            self.rsvpsessionnewindex = YLeaf(YType.int32, "rsvpSessionNewIndex")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("rsvpbadpackets",
+                            "rsvpresvfwdnewindex",
+                            "rsvpresvnewindex",
+                            "rsvpsendernewindex",
+                            "rsvpsessionnewindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpgenobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpgenobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.rsvpbadpackets.is_set or
+                self.rsvpresvfwdnewindex.is_set or
+                self.rsvpresvnewindex.is_set or
+                self.rsvpsendernewindex.is_set or
+                self.rsvpsessionnewindex.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.rsvpbadpackets.yfilter != YFilter.not_set or
+                self.rsvpresvfwdnewindex.yfilter != YFilter.not_set or
+                self.rsvpresvnewindex.yfilter != YFilter.not_set or
+                self.rsvpsendernewindex.yfilter != YFilter.not_set or
+                self.rsvpsessionnewindex.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpGenObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.rsvpbadpackets.is_set or self.rsvpbadpackets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.rsvpbadpackets.get_name_leafdata())
+            if (self.rsvpresvfwdnewindex.is_set or self.rsvpresvfwdnewindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.rsvpresvfwdnewindex.get_name_leafdata())
+            if (self.rsvpresvnewindex.is_set or self.rsvpresvnewindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.rsvpresvnewindex.get_name_leafdata())
+            if (self.rsvpsendernewindex.is_set or self.rsvpsendernewindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.rsvpsendernewindex.get_name_leafdata())
+            if (self.rsvpsessionnewindex.is_set or self.rsvpsessionnewindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.rsvpsessionnewindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpBadPackets" or name == "rsvpResvFwdNewIndex" or name == "rsvpResvNewIndex" or name == "rsvpSenderNewIndex" or name == "rsvpSessionNewIndex"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.rsvpbadpackets is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "rsvpBadPackets"):
+                self.rsvpbadpackets = value
+                self.rsvpbadpackets.value_namespace = name_space
+                self.rsvpbadpackets.value_namespace_prefix = name_space_prefix
+            if(value_path == "rsvpResvFwdNewIndex"):
+                self.rsvpresvfwdnewindex = value
+                self.rsvpresvfwdnewindex.value_namespace = name_space
+                self.rsvpresvfwdnewindex.value_namespace_prefix = name_space_prefix
+            if(value_path == "rsvpResvNewIndex"):
+                self.rsvpresvnewindex = value
+                self.rsvpresvnewindex.value_namespace = name_space
+                self.rsvpresvnewindex.value_namespace_prefix = name_space_prefix
+            if(value_path == "rsvpSenderNewIndex"):
+                self.rsvpsendernewindex = value
+                self.rsvpsendernewindex.value_namespace = name_space
+                self.rsvpsendernewindex.value_namespace_prefix = name_space_prefix
+            if(value_path == "rsvpSessionNewIndex"):
+                self.rsvpsessionnewindex = value
+                self.rsvpsessionnewindex.value_namespace = name_space
+                self.rsvpsessionnewindex.value_namespace_prefix = name_space_prefix
 
-            if self.rsvpresvfwdnewindex is not None:
-                return True
 
-            if self.rsvpresvnewindex is not None:
-                return True
-
-            if self.rsvpsendernewindex is not None:
-                return True
-
-            if self.rsvpsessionnewindex is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpgenobjects']['meta_info']
-
-
-    class Rsvpsessiontable(object):
+    class Rsvpsessiontable(Entity):
         """
         A table  of	 all  sessions	seen  by  a  given
         system.
@@ -221,13 +321,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpsessionentry = YList()
-            self.rsvpsessionentry.parent = self
-            self.rsvpsessionentry.name = 'rsvpsessionentry'
+            super(RsvpMib.Rsvpsessiontable, self).__init__()
+
+            self.yang_name = "rsvpSessionTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpsessionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpsessiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpsessiontable, self).__setattr__(name, value)
 
 
-        class Rsvpsessionentry(object):
+        class Rsvpsessionentry(Entity):
             """
             A single session seen by a given system.
             
@@ -302,87 +428,231 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.rsvpsessionnumber = None
-                self.rsvpsessiondestaddr = None
-                self.rsvpsessiondestaddrlength = None
-                self.rsvpsessionport = None
-                self.rsvpsessionprotocol = None
-                self.rsvpsessionreceivers = None
-                self.rsvpsessionrequests = None
-                self.rsvpsessionsenders = None
-                self.rsvpsessiontype = None
+                super(RsvpMib.Rsvpsessiontable.Rsvpsessionentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rsvpsessionnumber is None:
-                    raise YPYModelError('Key property rsvpsessionnumber is None')
+                self.yang_name = "rsvpSessionEntry"
+                self.yang_parent_name = "rsvpSessionTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSessionTable/RSVP-MIB:rsvpSessionEntry[RSVP-MIB:rsvpSessionNumber = ' + str(self.rsvpsessionnumber) + ']'
+                self.rsvpsessionnumber = YLeaf(YType.int32, "rsvpSessionNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpsessiondestaddr = YLeaf(YType.str, "rsvpSessionDestAddr")
+
+                self.rsvpsessiondestaddrlength = YLeaf(YType.int32, "rsvpSessionDestAddrLength")
+
+                self.rsvpsessionport = YLeaf(YType.str, "rsvpSessionPort")
+
+                self.rsvpsessionprotocol = YLeaf(YType.int32, "rsvpSessionProtocol")
+
+                self.rsvpsessionreceivers = YLeaf(YType.uint32, "rsvpSessionReceivers")
+
+                self.rsvpsessionrequests = YLeaf(YType.uint32, "rsvpSessionRequests")
+
+                self.rsvpsessionsenders = YLeaf(YType.uint32, "rsvpSessionSenders")
+
+                self.rsvpsessiontype = YLeaf(YType.int32, "rsvpSessionType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rsvpsessionnumber",
+                                "rsvpsessiondestaddr",
+                                "rsvpsessiondestaddrlength",
+                                "rsvpsessionport",
+                                "rsvpsessionprotocol",
+                                "rsvpsessionreceivers",
+                                "rsvpsessionrequests",
+                                "rsvpsessionsenders",
+                                "rsvpsessiontype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpsessiontable.Rsvpsessionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpsessiontable.Rsvpsessionentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rsvpsessionnumber.is_set or
+                    self.rsvpsessiondestaddr.is_set or
+                    self.rsvpsessiondestaddrlength.is_set or
+                    self.rsvpsessionport.is_set or
+                    self.rsvpsessionprotocol.is_set or
+                    self.rsvpsessionreceivers.is_set or
+                    self.rsvpsessionrequests.is_set or
+                    self.rsvpsessionsenders.is_set or
+                    self.rsvpsessiontype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rsvpsessionnumber.yfilter != YFilter.not_set or
+                    self.rsvpsessiondestaddr.yfilter != YFilter.not_set or
+                    self.rsvpsessiondestaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpsessionport.yfilter != YFilter.not_set or
+                    self.rsvpsessionprotocol.yfilter != YFilter.not_set or
+                    self.rsvpsessionreceivers.yfilter != YFilter.not_set or
+                    self.rsvpsessionrequests.yfilter != YFilter.not_set or
+                    self.rsvpsessionsenders.yfilter != YFilter.not_set or
+                    self.rsvpsessiontype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpSessionEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpSessionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rsvpsessionnumber.is_set or self.rsvpsessionnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionnumber.get_name_leafdata())
+                if (self.rsvpsessiondestaddr.is_set or self.rsvpsessiondestaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessiondestaddr.get_name_leafdata())
+                if (self.rsvpsessiondestaddrlength.is_set or self.rsvpsessiondestaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessiondestaddrlength.get_name_leafdata())
+                if (self.rsvpsessionport.is_set or self.rsvpsessionport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionport.get_name_leafdata())
+                if (self.rsvpsessionprotocol.is_set or self.rsvpsessionprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionprotocol.get_name_leafdata())
+                if (self.rsvpsessionreceivers.is_set or self.rsvpsessionreceivers.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionreceivers.get_name_leafdata())
+                if (self.rsvpsessionrequests.is_set or self.rsvpsessionrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionrequests.get_name_leafdata())
+                if (self.rsvpsessionsenders.is_set or self.rsvpsessionsenders.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionsenders.get_name_leafdata())
+                if (self.rsvpsessiontype.is_set or self.rsvpsessiontype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessiontype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rsvpSessionNumber" or name == "rsvpSessionDestAddr" or name == "rsvpSessionDestAddrLength" or name == "rsvpSessionPort" or name == "rsvpSessionProtocol" or name == "rsvpSessionReceivers" or name == "rsvpSessionRequests" or name == "rsvpSessionSenders" or name == "rsvpSessionType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rsvpsessionnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rsvpSessionNumber"):
+                    self.rsvpsessionnumber = value
+                    self.rsvpsessionnumber.value_namespace = name_space
+                    self.rsvpsessionnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionDestAddr"):
+                    self.rsvpsessiondestaddr = value
+                    self.rsvpsessiondestaddr.value_namespace = name_space
+                    self.rsvpsessiondestaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionDestAddrLength"):
+                    self.rsvpsessiondestaddrlength = value
+                    self.rsvpsessiondestaddrlength.value_namespace = name_space
+                    self.rsvpsessiondestaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionPort"):
+                    self.rsvpsessionport = value
+                    self.rsvpsessionport.value_namespace = name_space
+                    self.rsvpsessionport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionProtocol"):
+                    self.rsvpsessionprotocol = value
+                    self.rsvpsessionprotocol.value_namespace = name_space
+                    self.rsvpsessionprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionReceivers"):
+                    self.rsvpsessionreceivers = value
+                    self.rsvpsessionreceivers.value_namespace = name_space
+                    self.rsvpsessionreceivers.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionRequests"):
+                    self.rsvpsessionrequests = value
+                    self.rsvpsessionrequests.value_namespace = name_space
+                    self.rsvpsessionrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionSenders"):
+                    self.rsvpsessionsenders = value
+                    self.rsvpsessionsenders.value_namespace = name_space
+                    self.rsvpsessionsenders.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSessionType"):
+                    self.rsvpsessiontype = value
+                    self.rsvpsessiontype.value_namespace = name_space
+                    self.rsvpsessiontype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpsessionentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpsessiondestaddr is not None:
-                    return True
-
-                if self.rsvpsessiondestaddrlength is not None:
-                    return True
-
-                if self.rsvpsessionport is not None:
-                    return True
-
-                if self.rsvpsessionprotocol is not None:
-                    return True
-
-                if self.rsvpsessionreceivers is not None:
-                    return True
-
-                if self.rsvpsessionrequests is not None:
-                    return True
-
-                if self.rsvpsessionsenders is not None:
-                    return True
-
-                if self.rsvpsessiontype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpsessiontable.Rsvpsessionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSessionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpsessionentry is not None:
-                for child_ref in self.rsvpsessionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpsessionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpSessionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpSessionEntry"):
+                for c in self.rsvpsessionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpsessiontable.Rsvpsessionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpsessionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpSessionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpsessiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpsendertable(object):
+    class Rsvpsendertable(Entity):
         """
         Information	describing the	state  information
         displayed by	senders	in PATH	messages.
@@ -400,13 +670,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpsenderentry = YList()
-            self.rsvpsenderentry.parent = self
-            self.rsvpsenderentry.name = 'rsvpsenderentry'
+            super(RsvpMib.Rsvpsendertable, self).__init__()
+
+            self.yang_name = "rsvpSenderTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpsenderentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpsendertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpsendertable, self).__setattr__(name, value)
 
 
-        class Rsvpsenderentry(object):
+        class Rsvpsenderentry(Entity):
             """
             Information	describing the	state  information
             displayed by	a single sender's PATH message.
@@ -696,7 +992,7 @@ class RsvpMib(object):
             .. attribute:: rsvpsenderstatus
             
             	'active' for all active PATH  messages.   This object  may	be  used  to  install  static PATH information or delete PATH information
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: rsvpsendertspecburst
             
@@ -761,237 +1057,638 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.rsvpsessionnumber = None
-                self.rsvpsendernumber = None
-                self.rsvpsenderaddr = None
-                self.rsvpsenderaddrlength = None
-                self.rsvpsenderadspecbreak = None
-                self.rsvpsenderadspecctrlloadbreak = None
-                self.rsvpsenderadspecctrlloadhopcount = None
-                self.rsvpsenderadspecctrlloadminlatency = None
-                self.rsvpsenderadspecctrlloadmtu = None
-                self.rsvpsenderadspecctrlloadpathbw = None
-                self.rsvpsenderadspecctrlloadsvc = None
-                self.rsvpsenderadspecguaranteedbreak = None
-                self.rsvpsenderadspecguaranteedcsum = None
-                self.rsvpsenderadspecguaranteedctot = None
-                self.rsvpsenderadspecguaranteeddsum = None
-                self.rsvpsenderadspecguaranteeddtot = None
-                self.rsvpsenderadspecguaranteedhopcount = None
-                self.rsvpsenderadspecguaranteedminlatency = None
-                self.rsvpsenderadspecguaranteedmtu = None
-                self.rsvpsenderadspecguaranteedpathbw = None
-                self.rsvpsenderadspecguaranteedsvc = None
-                self.rsvpsenderadspechopcount = None
-                self.rsvpsenderadspecminlatency = None
-                self.rsvpsenderadspecmtu = None
-                self.rsvpsenderadspecpathbw = None
-                self.rsvpsenderdestaddr = None
-                self.rsvpsenderdestaddrlength = None
-                self.rsvpsenderdestport = None
-                self.rsvpsenderflowid = None
-                self.rsvpsenderhopaddr = None
-                self.rsvpsenderhoplih = None
-                self.rsvpsenderinterface = None
-                self.rsvpsenderinterval = None
-                self.rsvpsenderlastchange = None
-                self.rsvpsenderpolicy = None
-                self.rsvpsenderport = None
-                self.rsvpsenderprotocol = None
-                self.rsvpsenderrsvphop = None
-                self.rsvpsenderstatus = None
-                self.rsvpsendertspecburst = None
-                self.rsvpsendertspecmaxtu = None
-                self.rsvpsendertspecmintu = None
-                self.rsvpsendertspecpeakrate = None
-                self.rsvpsendertspecrate = None
-                self.rsvpsenderttl = None
-                self.rsvpsendertype = None
+                super(RsvpMib.Rsvpsendertable.Rsvpsenderentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rsvpsessionnumber is None:
-                    raise YPYModelError('Key property rsvpsessionnumber is None')
-                if self.rsvpsendernumber is None:
-                    raise YPYModelError('Key property rsvpsendernumber is None')
+                self.yang_name = "rsvpSenderEntry"
+                self.yang_parent_name = "rsvpSenderTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSenderTable/RSVP-MIB:rsvpSenderEntry[RSVP-MIB:rsvpSessionNumber = ' + str(self.rsvpsessionnumber) + '][RSVP-MIB:rsvpSenderNumber = ' + str(self.rsvpsendernumber) + ']'
+                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpsendernumber = YLeaf(YType.int32, "rsvpSenderNumber")
+
+                self.rsvpsenderaddr = YLeaf(YType.str, "rsvpSenderAddr")
+
+                self.rsvpsenderaddrlength = YLeaf(YType.int32, "rsvpSenderAddrLength")
+
+                self.rsvpsenderadspecbreak = YLeaf(YType.boolean, "rsvpSenderAdspecBreak")
+
+                self.rsvpsenderadspecctrlloadbreak = YLeaf(YType.boolean, "rsvpSenderAdspecCtrlLoadBreak")
+
+                self.rsvpsenderadspecctrlloadhopcount = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadHopCount")
+
+                self.rsvpsenderadspecctrlloadminlatency = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadMinLatency")
+
+                self.rsvpsenderadspecctrlloadmtu = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadMtu")
+
+                self.rsvpsenderadspecctrlloadpathbw = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadPathBw")
+
+                self.rsvpsenderadspecctrlloadsvc = YLeaf(YType.boolean, "rsvpSenderAdspecCtrlLoadSvc")
+
+                self.rsvpsenderadspecguaranteedbreak = YLeaf(YType.boolean, "rsvpSenderAdspecGuaranteedBreak")
+
+                self.rsvpsenderadspecguaranteedcsum = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedCsum")
+
+                self.rsvpsenderadspecguaranteedctot = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedCtot")
+
+                self.rsvpsenderadspecguaranteeddsum = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedDsum")
+
+                self.rsvpsenderadspecguaranteeddtot = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedDtot")
+
+                self.rsvpsenderadspecguaranteedhopcount = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedHopCount")
+
+                self.rsvpsenderadspecguaranteedminlatency = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedMinLatency")
+
+                self.rsvpsenderadspecguaranteedmtu = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedMtu")
+
+                self.rsvpsenderadspecguaranteedpathbw = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedPathBw")
+
+                self.rsvpsenderadspecguaranteedsvc = YLeaf(YType.boolean, "rsvpSenderAdspecGuaranteedSvc")
+
+                self.rsvpsenderadspechopcount = YLeaf(YType.int32, "rsvpSenderAdspecHopCount")
+
+                self.rsvpsenderadspecminlatency = YLeaf(YType.int32, "rsvpSenderAdspecMinLatency")
+
+                self.rsvpsenderadspecmtu = YLeaf(YType.int32, "rsvpSenderAdspecMtu")
+
+                self.rsvpsenderadspecpathbw = YLeaf(YType.int32, "rsvpSenderAdspecPathBw")
+
+                self.rsvpsenderdestaddr = YLeaf(YType.str, "rsvpSenderDestAddr")
+
+                self.rsvpsenderdestaddrlength = YLeaf(YType.int32, "rsvpSenderDestAddrLength")
+
+                self.rsvpsenderdestport = YLeaf(YType.str, "rsvpSenderDestPort")
+
+                self.rsvpsenderflowid = YLeaf(YType.int32, "rsvpSenderFlowId")
+
+                self.rsvpsenderhopaddr = YLeaf(YType.str, "rsvpSenderHopAddr")
+
+                self.rsvpsenderhoplih = YLeaf(YType.int32, "rsvpSenderHopLih")
+
+                self.rsvpsenderinterface = YLeaf(YType.int32, "rsvpSenderInterface")
+
+                self.rsvpsenderinterval = YLeaf(YType.int32, "rsvpSenderInterval")
+
+                self.rsvpsenderlastchange = YLeaf(YType.uint32, "rsvpSenderLastChange")
+
+                self.rsvpsenderpolicy = YLeaf(YType.str, "rsvpSenderPolicy")
+
+                self.rsvpsenderport = YLeaf(YType.str, "rsvpSenderPort")
+
+                self.rsvpsenderprotocol = YLeaf(YType.int32, "rsvpSenderProtocol")
+
+                self.rsvpsenderrsvphop = YLeaf(YType.boolean, "rsvpSenderRSVPHop")
+
+                self.rsvpsenderstatus = YLeaf(YType.enumeration, "rsvpSenderStatus")
+
+                self.rsvpsendertspecburst = YLeaf(YType.int32, "rsvpSenderTSpecBurst")
+
+                self.rsvpsendertspecmaxtu = YLeaf(YType.int32, "rsvpSenderTSpecMaxTU")
+
+                self.rsvpsendertspecmintu = YLeaf(YType.int32, "rsvpSenderTSpecMinTU")
+
+                self.rsvpsendertspecpeakrate = YLeaf(YType.int32, "rsvpSenderTSpecPeakRate")
+
+                self.rsvpsendertspecrate = YLeaf(YType.int32, "rsvpSenderTSpecRate")
+
+                self.rsvpsenderttl = YLeaf(YType.int32, "rsvpSenderTTL")
+
+                self.rsvpsendertype = YLeaf(YType.int32, "rsvpSenderType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rsvpsessionnumber",
+                                "rsvpsendernumber",
+                                "rsvpsenderaddr",
+                                "rsvpsenderaddrlength",
+                                "rsvpsenderadspecbreak",
+                                "rsvpsenderadspecctrlloadbreak",
+                                "rsvpsenderadspecctrlloadhopcount",
+                                "rsvpsenderadspecctrlloadminlatency",
+                                "rsvpsenderadspecctrlloadmtu",
+                                "rsvpsenderadspecctrlloadpathbw",
+                                "rsvpsenderadspecctrlloadsvc",
+                                "rsvpsenderadspecguaranteedbreak",
+                                "rsvpsenderadspecguaranteedcsum",
+                                "rsvpsenderadspecguaranteedctot",
+                                "rsvpsenderadspecguaranteeddsum",
+                                "rsvpsenderadspecguaranteeddtot",
+                                "rsvpsenderadspecguaranteedhopcount",
+                                "rsvpsenderadspecguaranteedminlatency",
+                                "rsvpsenderadspecguaranteedmtu",
+                                "rsvpsenderadspecguaranteedpathbw",
+                                "rsvpsenderadspecguaranteedsvc",
+                                "rsvpsenderadspechopcount",
+                                "rsvpsenderadspecminlatency",
+                                "rsvpsenderadspecmtu",
+                                "rsvpsenderadspecpathbw",
+                                "rsvpsenderdestaddr",
+                                "rsvpsenderdestaddrlength",
+                                "rsvpsenderdestport",
+                                "rsvpsenderflowid",
+                                "rsvpsenderhopaddr",
+                                "rsvpsenderhoplih",
+                                "rsvpsenderinterface",
+                                "rsvpsenderinterval",
+                                "rsvpsenderlastchange",
+                                "rsvpsenderpolicy",
+                                "rsvpsenderport",
+                                "rsvpsenderprotocol",
+                                "rsvpsenderrsvphop",
+                                "rsvpsenderstatus",
+                                "rsvpsendertspecburst",
+                                "rsvpsendertspecmaxtu",
+                                "rsvpsendertspecmintu",
+                                "rsvpsendertspecpeakrate",
+                                "rsvpsendertspecrate",
+                                "rsvpsenderttl",
+                                "rsvpsendertype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpsendertable.Rsvpsenderentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpsendertable.Rsvpsenderentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rsvpsessionnumber.is_set or
+                    self.rsvpsendernumber.is_set or
+                    self.rsvpsenderaddr.is_set or
+                    self.rsvpsenderaddrlength.is_set or
+                    self.rsvpsenderadspecbreak.is_set or
+                    self.rsvpsenderadspecctrlloadbreak.is_set or
+                    self.rsvpsenderadspecctrlloadhopcount.is_set or
+                    self.rsvpsenderadspecctrlloadminlatency.is_set or
+                    self.rsvpsenderadspecctrlloadmtu.is_set or
+                    self.rsvpsenderadspecctrlloadpathbw.is_set or
+                    self.rsvpsenderadspecctrlloadsvc.is_set or
+                    self.rsvpsenderadspecguaranteedbreak.is_set or
+                    self.rsvpsenderadspecguaranteedcsum.is_set or
+                    self.rsvpsenderadspecguaranteedctot.is_set or
+                    self.rsvpsenderadspecguaranteeddsum.is_set or
+                    self.rsvpsenderadspecguaranteeddtot.is_set or
+                    self.rsvpsenderadspecguaranteedhopcount.is_set or
+                    self.rsvpsenderadspecguaranteedminlatency.is_set or
+                    self.rsvpsenderadspecguaranteedmtu.is_set or
+                    self.rsvpsenderadspecguaranteedpathbw.is_set or
+                    self.rsvpsenderadspecguaranteedsvc.is_set or
+                    self.rsvpsenderadspechopcount.is_set or
+                    self.rsvpsenderadspecminlatency.is_set or
+                    self.rsvpsenderadspecmtu.is_set or
+                    self.rsvpsenderadspecpathbw.is_set or
+                    self.rsvpsenderdestaddr.is_set or
+                    self.rsvpsenderdestaddrlength.is_set or
+                    self.rsvpsenderdestport.is_set or
+                    self.rsvpsenderflowid.is_set or
+                    self.rsvpsenderhopaddr.is_set or
+                    self.rsvpsenderhoplih.is_set or
+                    self.rsvpsenderinterface.is_set or
+                    self.rsvpsenderinterval.is_set or
+                    self.rsvpsenderlastchange.is_set or
+                    self.rsvpsenderpolicy.is_set or
+                    self.rsvpsenderport.is_set or
+                    self.rsvpsenderprotocol.is_set or
+                    self.rsvpsenderrsvphop.is_set or
+                    self.rsvpsenderstatus.is_set or
+                    self.rsvpsendertspecburst.is_set or
+                    self.rsvpsendertspecmaxtu.is_set or
+                    self.rsvpsendertspecmintu.is_set or
+                    self.rsvpsendertspecpeakrate.is_set or
+                    self.rsvpsendertspecrate.is_set or
+                    self.rsvpsenderttl.is_set or
+                    self.rsvpsendertype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rsvpsessionnumber.yfilter != YFilter.not_set or
+                    self.rsvpsendernumber.yfilter != YFilter.not_set or
+                    self.rsvpsenderaddr.yfilter != YFilter.not_set or
+                    self.rsvpsenderaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecbreak.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadbreak.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadhopcount.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadminlatency.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadmtu.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadpathbw.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecctrlloadsvc.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedbreak.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedcsum.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedctot.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteeddsum.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteeddtot.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedhopcount.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedminlatency.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedmtu.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedpathbw.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecguaranteedsvc.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspechopcount.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecminlatency.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecmtu.yfilter != YFilter.not_set or
+                    self.rsvpsenderadspecpathbw.yfilter != YFilter.not_set or
+                    self.rsvpsenderdestaddr.yfilter != YFilter.not_set or
+                    self.rsvpsenderdestaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpsenderdestport.yfilter != YFilter.not_set or
+                    self.rsvpsenderflowid.yfilter != YFilter.not_set or
+                    self.rsvpsenderhopaddr.yfilter != YFilter.not_set or
+                    self.rsvpsenderhoplih.yfilter != YFilter.not_set or
+                    self.rsvpsenderinterface.yfilter != YFilter.not_set or
+                    self.rsvpsenderinterval.yfilter != YFilter.not_set or
+                    self.rsvpsenderlastchange.yfilter != YFilter.not_set or
+                    self.rsvpsenderpolicy.yfilter != YFilter.not_set or
+                    self.rsvpsenderport.yfilter != YFilter.not_set or
+                    self.rsvpsenderprotocol.yfilter != YFilter.not_set or
+                    self.rsvpsenderrsvphop.yfilter != YFilter.not_set or
+                    self.rsvpsenderstatus.yfilter != YFilter.not_set or
+                    self.rsvpsendertspecburst.yfilter != YFilter.not_set or
+                    self.rsvpsendertspecmaxtu.yfilter != YFilter.not_set or
+                    self.rsvpsendertspecmintu.yfilter != YFilter.not_set or
+                    self.rsvpsendertspecpeakrate.yfilter != YFilter.not_set or
+                    self.rsvpsendertspecrate.yfilter != YFilter.not_set or
+                    self.rsvpsenderttl.yfilter != YFilter.not_set or
+                    self.rsvpsendertype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpSenderEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpSenderNumber='" + self.rsvpsendernumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpSenderTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rsvpsessionnumber.is_set or self.rsvpsessionnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionnumber.get_name_leafdata())
+                if (self.rsvpsendernumber.is_set or self.rsvpsendernumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendernumber.get_name_leafdata())
+                if (self.rsvpsenderaddr.is_set or self.rsvpsenderaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderaddr.get_name_leafdata())
+                if (self.rsvpsenderaddrlength.is_set or self.rsvpsenderaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderaddrlength.get_name_leafdata())
+                if (self.rsvpsenderadspecbreak.is_set or self.rsvpsenderadspecbreak.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecbreak.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadbreak.is_set or self.rsvpsenderadspecctrlloadbreak.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadbreak.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadhopcount.is_set or self.rsvpsenderadspecctrlloadhopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadhopcount.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadminlatency.is_set or self.rsvpsenderadspecctrlloadminlatency.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadminlatency.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadmtu.is_set or self.rsvpsenderadspecctrlloadmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadmtu.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadpathbw.is_set or self.rsvpsenderadspecctrlloadpathbw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadpathbw.get_name_leafdata())
+                if (self.rsvpsenderadspecctrlloadsvc.is_set or self.rsvpsenderadspecctrlloadsvc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecctrlloadsvc.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedbreak.is_set or self.rsvpsenderadspecguaranteedbreak.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedbreak.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedcsum.is_set or self.rsvpsenderadspecguaranteedcsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedcsum.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedctot.is_set or self.rsvpsenderadspecguaranteedctot.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedctot.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteeddsum.is_set or self.rsvpsenderadspecguaranteeddsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteeddsum.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteeddtot.is_set or self.rsvpsenderadspecguaranteeddtot.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteeddtot.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedhopcount.is_set or self.rsvpsenderadspecguaranteedhopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedhopcount.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedminlatency.is_set or self.rsvpsenderadspecguaranteedminlatency.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedminlatency.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedmtu.is_set or self.rsvpsenderadspecguaranteedmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedmtu.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedpathbw.is_set or self.rsvpsenderadspecguaranteedpathbw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedpathbw.get_name_leafdata())
+                if (self.rsvpsenderadspecguaranteedsvc.is_set or self.rsvpsenderadspecguaranteedsvc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecguaranteedsvc.get_name_leafdata())
+                if (self.rsvpsenderadspechopcount.is_set or self.rsvpsenderadspechopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspechopcount.get_name_leafdata())
+                if (self.rsvpsenderadspecminlatency.is_set or self.rsvpsenderadspecminlatency.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecminlatency.get_name_leafdata())
+                if (self.rsvpsenderadspecmtu.is_set or self.rsvpsenderadspecmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecmtu.get_name_leafdata())
+                if (self.rsvpsenderadspecpathbw.is_set or self.rsvpsenderadspecpathbw.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderadspecpathbw.get_name_leafdata())
+                if (self.rsvpsenderdestaddr.is_set or self.rsvpsenderdestaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderdestaddr.get_name_leafdata())
+                if (self.rsvpsenderdestaddrlength.is_set or self.rsvpsenderdestaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderdestaddrlength.get_name_leafdata())
+                if (self.rsvpsenderdestport.is_set or self.rsvpsenderdestport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderdestport.get_name_leafdata())
+                if (self.rsvpsenderflowid.is_set or self.rsvpsenderflowid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderflowid.get_name_leafdata())
+                if (self.rsvpsenderhopaddr.is_set or self.rsvpsenderhopaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderhopaddr.get_name_leafdata())
+                if (self.rsvpsenderhoplih.is_set or self.rsvpsenderhoplih.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderhoplih.get_name_leafdata())
+                if (self.rsvpsenderinterface.is_set or self.rsvpsenderinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderinterface.get_name_leafdata())
+                if (self.rsvpsenderinterval.is_set or self.rsvpsenderinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderinterval.get_name_leafdata())
+                if (self.rsvpsenderlastchange.is_set or self.rsvpsenderlastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderlastchange.get_name_leafdata())
+                if (self.rsvpsenderpolicy.is_set or self.rsvpsenderpolicy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderpolicy.get_name_leafdata())
+                if (self.rsvpsenderport.is_set or self.rsvpsenderport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderport.get_name_leafdata())
+                if (self.rsvpsenderprotocol.is_set or self.rsvpsenderprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderprotocol.get_name_leafdata())
+                if (self.rsvpsenderrsvphop.is_set or self.rsvpsenderrsvphop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderrsvphop.get_name_leafdata())
+                if (self.rsvpsenderstatus.is_set or self.rsvpsenderstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderstatus.get_name_leafdata())
+                if (self.rsvpsendertspecburst.is_set or self.rsvpsendertspecburst.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertspecburst.get_name_leafdata())
+                if (self.rsvpsendertspecmaxtu.is_set or self.rsvpsendertspecmaxtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertspecmaxtu.get_name_leafdata())
+                if (self.rsvpsendertspecmintu.is_set or self.rsvpsendertspecmintu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertspecmintu.get_name_leafdata())
+                if (self.rsvpsendertspecpeakrate.is_set or self.rsvpsendertspecpeakrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertspecpeakrate.get_name_leafdata())
+                if (self.rsvpsendertspecrate.is_set or self.rsvpsendertspecrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertspecrate.get_name_leafdata())
+                if (self.rsvpsenderttl.is_set or self.rsvpsenderttl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderttl.get_name_leafdata())
+                if (self.rsvpsendertype.is_set or self.rsvpsendertype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendertype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rsvpSessionNumber" or name == "rsvpSenderNumber" or name == "rsvpSenderAddr" or name == "rsvpSenderAddrLength" or name == "rsvpSenderAdspecBreak" or name == "rsvpSenderAdspecCtrlLoadBreak" or name == "rsvpSenderAdspecCtrlLoadHopCount" or name == "rsvpSenderAdspecCtrlLoadMinLatency" or name == "rsvpSenderAdspecCtrlLoadMtu" or name == "rsvpSenderAdspecCtrlLoadPathBw" or name == "rsvpSenderAdspecCtrlLoadSvc" or name == "rsvpSenderAdspecGuaranteedBreak" or name == "rsvpSenderAdspecGuaranteedCsum" or name == "rsvpSenderAdspecGuaranteedCtot" or name == "rsvpSenderAdspecGuaranteedDsum" or name == "rsvpSenderAdspecGuaranteedDtot" or name == "rsvpSenderAdspecGuaranteedHopCount" or name == "rsvpSenderAdspecGuaranteedMinLatency" or name == "rsvpSenderAdspecGuaranteedMtu" or name == "rsvpSenderAdspecGuaranteedPathBw" or name == "rsvpSenderAdspecGuaranteedSvc" or name == "rsvpSenderAdspecHopCount" or name == "rsvpSenderAdspecMinLatency" or name == "rsvpSenderAdspecMtu" or name == "rsvpSenderAdspecPathBw" or name == "rsvpSenderDestAddr" or name == "rsvpSenderDestAddrLength" or name == "rsvpSenderDestPort" or name == "rsvpSenderFlowId" or name == "rsvpSenderHopAddr" or name == "rsvpSenderHopLih" or name == "rsvpSenderInterface" or name == "rsvpSenderInterval" or name == "rsvpSenderLastChange" or name == "rsvpSenderPolicy" or name == "rsvpSenderPort" or name == "rsvpSenderProtocol" or name == "rsvpSenderRSVPHop" or name == "rsvpSenderStatus" or name == "rsvpSenderTSpecBurst" or name == "rsvpSenderTSpecMaxTU" or name == "rsvpSenderTSpecMinTU" or name == "rsvpSenderTSpecPeakRate" or name == "rsvpSenderTSpecRate" or name == "rsvpSenderTTL" or name == "rsvpSenderType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rsvpsessionnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rsvpSessionNumber"):
+                    self.rsvpsessionnumber = value
+                    self.rsvpsessionnumber.value_namespace = name_space
+                    self.rsvpsessionnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderNumber"):
+                    self.rsvpsendernumber = value
+                    self.rsvpsendernumber.value_namespace = name_space
+                    self.rsvpsendernumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAddr"):
+                    self.rsvpsenderaddr = value
+                    self.rsvpsenderaddr.value_namespace = name_space
+                    self.rsvpsenderaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAddrLength"):
+                    self.rsvpsenderaddrlength = value
+                    self.rsvpsenderaddrlength.value_namespace = name_space
+                    self.rsvpsenderaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecBreak"):
+                    self.rsvpsenderadspecbreak = value
+                    self.rsvpsenderadspecbreak.value_namespace = name_space
+                    self.rsvpsenderadspecbreak.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadBreak"):
+                    self.rsvpsenderadspecctrlloadbreak = value
+                    self.rsvpsenderadspecctrlloadbreak.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadbreak.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadHopCount"):
+                    self.rsvpsenderadspecctrlloadhopcount = value
+                    self.rsvpsenderadspecctrlloadhopcount.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadhopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadMinLatency"):
+                    self.rsvpsenderadspecctrlloadminlatency = value
+                    self.rsvpsenderadspecctrlloadminlatency.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadminlatency.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadMtu"):
+                    self.rsvpsenderadspecctrlloadmtu = value
+                    self.rsvpsenderadspecctrlloadmtu.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadPathBw"):
+                    self.rsvpsenderadspecctrlloadpathbw = value
+                    self.rsvpsenderadspecctrlloadpathbw.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadpathbw.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecCtrlLoadSvc"):
+                    self.rsvpsenderadspecctrlloadsvc = value
+                    self.rsvpsenderadspecctrlloadsvc.value_namespace = name_space
+                    self.rsvpsenderadspecctrlloadsvc.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedBreak"):
+                    self.rsvpsenderadspecguaranteedbreak = value
+                    self.rsvpsenderadspecguaranteedbreak.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedbreak.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedCsum"):
+                    self.rsvpsenderadspecguaranteedcsum = value
+                    self.rsvpsenderadspecguaranteedcsum.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedcsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedCtot"):
+                    self.rsvpsenderadspecguaranteedctot = value
+                    self.rsvpsenderadspecguaranteedctot.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedctot.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedDsum"):
+                    self.rsvpsenderadspecguaranteeddsum = value
+                    self.rsvpsenderadspecguaranteeddsum.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteeddsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedDtot"):
+                    self.rsvpsenderadspecguaranteeddtot = value
+                    self.rsvpsenderadspecguaranteeddtot.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteeddtot.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedHopCount"):
+                    self.rsvpsenderadspecguaranteedhopcount = value
+                    self.rsvpsenderadspecguaranteedhopcount.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedhopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedMinLatency"):
+                    self.rsvpsenderadspecguaranteedminlatency = value
+                    self.rsvpsenderadspecguaranteedminlatency.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedminlatency.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedMtu"):
+                    self.rsvpsenderadspecguaranteedmtu = value
+                    self.rsvpsenderadspecguaranteedmtu.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedPathBw"):
+                    self.rsvpsenderadspecguaranteedpathbw = value
+                    self.rsvpsenderadspecguaranteedpathbw.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedpathbw.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecGuaranteedSvc"):
+                    self.rsvpsenderadspecguaranteedsvc = value
+                    self.rsvpsenderadspecguaranteedsvc.value_namespace = name_space
+                    self.rsvpsenderadspecguaranteedsvc.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecHopCount"):
+                    self.rsvpsenderadspechopcount = value
+                    self.rsvpsenderadspechopcount.value_namespace = name_space
+                    self.rsvpsenderadspechopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecMinLatency"):
+                    self.rsvpsenderadspecminlatency = value
+                    self.rsvpsenderadspecminlatency.value_namespace = name_space
+                    self.rsvpsenderadspecminlatency.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecMtu"):
+                    self.rsvpsenderadspecmtu = value
+                    self.rsvpsenderadspecmtu.value_namespace = name_space
+                    self.rsvpsenderadspecmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderAdspecPathBw"):
+                    self.rsvpsenderadspecpathbw = value
+                    self.rsvpsenderadspecpathbw.value_namespace = name_space
+                    self.rsvpsenderadspecpathbw.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderDestAddr"):
+                    self.rsvpsenderdestaddr = value
+                    self.rsvpsenderdestaddr.value_namespace = name_space
+                    self.rsvpsenderdestaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderDestAddrLength"):
+                    self.rsvpsenderdestaddrlength = value
+                    self.rsvpsenderdestaddrlength.value_namespace = name_space
+                    self.rsvpsenderdestaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderDestPort"):
+                    self.rsvpsenderdestport = value
+                    self.rsvpsenderdestport.value_namespace = name_space
+                    self.rsvpsenderdestport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderFlowId"):
+                    self.rsvpsenderflowid = value
+                    self.rsvpsenderflowid.value_namespace = name_space
+                    self.rsvpsenderflowid.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderHopAddr"):
+                    self.rsvpsenderhopaddr = value
+                    self.rsvpsenderhopaddr.value_namespace = name_space
+                    self.rsvpsenderhopaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderHopLih"):
+                    self.rsvpsenderhoplih = value
+                    self.rsvpsenderhoplih.value_namespace = name_space
+                    self.rsvpsenderhoplih.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderInterface"):
+                    self.rsvpsenderinterface = value
+                    self.rsvpsenderinterface.value_namespace = name_space
+                    self.rsvpsenderinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderInterval"):
+                    self.rsvpsenderinterval = value
+                    self.rsvpsenderinterval.value_namespace = name_space
+                    self.rsvpsenderinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderLastChange"):
+                    self.rsvpsenderlastchange = value
+                    self.rsvpsenderlastchange.value_namespace = name_space
+                    self.rsvpsenderlastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderPolicy"):
+                    self.rsvpsenderpolicy = value
+                    self.rsvpsenderpolicy.value_namespace = name_space
+                    self.rsvpsenderpolicy.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderPort"):
+                    self.rsvpsenderport = value
+                    self.rsvpsenderport.value_namespace = name_space
+                    self.rsvpsenderport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderProtocol"):
+                    self.rsvpsenderprotocol = value
+                    self.rsvpsenderprotocol.value_namespace = name_space
+                    self.rsvpsenderprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderRSVPHop"):
+                    self.rsvpsenderrsvphop = value
+                    self.rsvpsenderrsvphop.value_namespace = name_space
+                    self.rsvpsenderrsvphop.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderStatus"):
+                    self.rsvpsenderstatus = value
+                    self.rsvpsenderstatus.value_namespace = name_space
+                    self.rsvpsenderstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTSpecBurst"):
+                    self.rsvpsendertspecburst = value
+                    self.rsvpsendertspecburst.value_namespace = name_space
+                    self.rsvpsendertspecburst.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTSpecMaxTU"):
+                    self.rsvpsendertspecmaxtu = value
+                    self.rsvpsendertspecmaxtu.value_namespace = name_space
+                    self.rsvpsendertspecmaxtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTSpecMinTU"):
+                    self.rsvpsendertspecmintu = value
+                    self.rsvpsendertspecmintu.value_namespace = name_space
+                    self.rsvpsendertspecmintu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTSpecPeakRate"):
+                    self.rsvpsendertspecpeakrate = value
+                    self.rsvpsendertspecpeakrate.value_namespace = name_space
+                    self.rsvpsendertspecpeakrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTSpecRate"):
+                    self.rsvpsendertspecrate = value
+                    self.rsvpsendertspecrate.value_namespace = name_space
+                    self.rsvpsendertspecrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderTTL"):
+                    self.rsvpsenderttl = value
+                    self.rsvpsenderttl.value_namespace = name_space
+                    self.rsvpsenderttl.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderType"):
+                    self.rsvpsendertype = value
+                    self.rsvpsendertype.value_namespace = name_space
+                    self.rsvpsendertype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpsenderentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpsendernumber is not None:
-                    return True
-
-                if self.rsvpsenderaddr is not None:
-                    return True
-
-                if self.rsvpsenderaddrlength is not None:
-                    return True
-
-                if self.rsvpsenderadspecbreak is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadbreak is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadhopcount is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadminlatency is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadmtu is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadpathbw is not None:
-                    return True
-
-                if self.rsvpsenderadspecctrlloadsvc is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedbreak is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedcsum is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedctot is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteeddsum is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteeddtot is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedhopcount is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedminlatency is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedmtu is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedpathbw is not None:
-                    return True
-
-                if self.rsvpsenderadspecguaranteedsvc is not None:
-                    return True
-
-                if self.rsvpsenderadspechopcount is not None:
-                    return True
-
-                if self.rsvpsenderadspecminlatency is not None:
-                    return True
-
-                if self.rsvpsenderadspecmtu is not None:
-                    return True
-
-                if self.rsvpsenderadspecpathbw is not None:
-                    return True
-
-                if self.rsvpsenderdestaddr is not None:
-                    return True
-
-                if self.rsvpsenderdestaddrlength is not None:
-                    return True
-
-                if self.rsvpsenderdestport is not None:
-                    return True
-
-                if self.rsvpsenderflowid is not None:
-                    return True
-
-                if self.rsvpsenderhopaddr is not None:
-                    return True
-
-                if self.rsvpsenderhoplih is not None:
-                    return True
-
-                if self.rsvpsenderinterface is not None:
-                    return True
-
-                if self.rsvpsenderinterval is not None:
-                    return True
-
-                if self.rsvpsenderlastchange is not None:
-                    return True
-
-                if self.rsvpsenderpolicy is not None:
-                    return True
-
-                if self.rsvpsenderport is not None:
-                    return True
-
-                if self.rsvpsenderprotocol is not None:
-                    return True
-
-                if self.rsvpsenderrsvphop is not None:
-                    return True
-
-                if self.rsvpsenderstatus is not None:
-                    return True
-
-                if self.rsvpsendertspecburst is not None:
-                    return True
-
-                if self.rsvpsendertspecmaxtu is not None:
-                    return True
-
-                if self.rsvpsendertspecmintu is not None:
-                    return True
-
-                if self.rsvpsendertspecpeakrate is not None:
-                    return True
-
-                if self.rsvpsendertspecrate is not None:
-                    return True
-
-                if self.rsvpsenderttl is not None:
-                    return True
-
-                if self.rsvpsendertype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpsendertable.Rsvpsenderentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSenderTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpsenderentry is not None:
-                for child_ref in self.rsvpsenderentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpsenderentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpSenderTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpSenderEntry"):
+                for c in self.rsvpsenderentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpsendertable.Rsvpsenderentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpsenderentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpSenderEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpsendertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpsenderoutinterfacetable(object):
+    class Rsvpsenderoutinterfacetable(Entity):
         """
         List of outgoing interfaces	that PATH messages
         use.	 The  ifIndex  is the ifIndex value of the
@@ -1010,13 +1707,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpsenderoutinterfaceentry = YList()
-            self.rsvpsenderoutinterfaceentry.parent = self
-            self.rsvpsenderoutinterfaceentry.name = 'rsvpsenderoutinterfaceentry'
+            super(RsvpMib.Rsvpsenderoutinterfacetable, self).__init__()
+
+            self.yang_name = "rsvpSenderOutInterfaceTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpsenderoutinterfaceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpsenderoutinterfacetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpsenderoutinterfacetable, self).__setattr__(name, value)
 
 
-        class Rsvpsenderoutinterfaceentry(object):
+        class Rsvpsenderoutinterfaceentry(Entity):
             """
             List of outgoing interfaces	that a	particular
             PATH	message	has.
@@ -1051,7 +1774,7 @@ class RsvpMib(object):
             .. attribute:: rsvpsenderoutinterfacestatus
             
             	'active' for all active PATH messages
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -1061,71 +1784,176 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.rsvpsessionnumber = None
-                self.rsvpsendernumber = None
-                self.ifindex = None
-                self.rsvpsenderoutinterfacestatus = None
+                super(RsvpMib.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rsvpsessionnumber is None:
-                    raise YPYModelError('Key property rsvpsessionnumber is None')
-                if self.rsvpsendernumber is None:
-                    raise YPYModelError('Key property rsvpsendernumber is None')
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "rsvpSenderOutInterfaceEntry"
+                self.yang_parent_name = "rsvpSenderOutInterfaceTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSenderOutInterfaceTable/RSVP-MIB:rsvpSenderOutInterfaceEntry[RSVP-MIB:rsvpSessionNumber = ' + str(self.rsvpsessionnumber) + '][RSVP-MIB:rsvpSenderNumber = ' + str(self.rsvpsendernumber) + '][RSVP-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpsendernumber = YLeaf(YType.str, "rsvpSenderNumber")
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.rsvpsenderoutinterfacestatus = YLeaf(YType.enumeration, "rsvpSenderOutInterfaceStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rsvpsessionnumber",
+                                "rsvpsendernumber",
+                                "ifindex",
+                                "rsvpsenderoutinterfacestatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rsvpsessionnumber.is_set or
+                    self.rsvpsendernumber.is_set or
+                    self.ifindex.is_set or
+                    self.rsvpsenderoutinterfacestatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rsvpsessionnumber.yfilter != YFilter.not_set or
+                    self.rsvpsendernumber.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.rsvpsenderoutinterfacestatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpSenderNumber='" + self.rsvpsendernumber.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpSenderOutInterfaceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rsvpsessionnumber.is_set or self.rsvpsessionnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionnumber.get_name_leafdata())
+                if (self.rsvpsendernumber.is_set or self.rsvpsendernumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsendernumber.get_name_leafdata())
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.rsvpsenderoutinterfacestatus.is_set or self.rsvpsenderoutinterfacestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsenderoutinterfacestatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rsvpSessionNumber" or name == "rsvpSenderNumber" or name == "ifIndex" or name == "rsvpSenderOutInterfaceStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rsvpsessionnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rsvpSessionNumber"):
+                    self.rsvpsessionnumber = value
+                    self.rsvpsessionnumber.value_namespace = name_space
+                    self.rsvpsessionnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderNumber"):
+                    self.rsvpsendernumber = value
+                    self.rsvpsendernumber.value_namespace = name_space
+                    self.rsvpsendernumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpSenderOutInterfaceStatus"):
+                    self.rsvpsenderoutinterfacestatus = value
+                    self.rsvpsenderoutinterfacestatus.value_namespace = name_space
+                    self.rsvpsenderoutinterfacestatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpsenderoutinterfaceentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpsendernumber is not None:
-                    return True
-
-                if self.ifindex is not None:
-                    return True
-
-                if self.rsvpsenderoutinterfacestatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpSenderOutInterfaceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpsenderoutinterfaceentry is not None:
-                for child_ref in self.rsvpsenderoutinterfaceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpsenderoutinterfaceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpSenderOutInterfaceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpSenderOutInterfaceEntry"):
+                for c in self.rsvpsenderoutinterfaceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpsenderoutinterfaceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpSenderOutInterfaceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpsenderoutinterfacetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpresvtable(object):
+    class Rsvpresvtable(Entity):
         """
         Information	describing the	state  information
         displayed by	receivers in RESV messages.
@@ -1143,13 +1971,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpresventry = YList()
-            self.rsvpresventry.parent = self
-            self.rsvpresventry.name = 'rsvpresventry'
+            super(RsvpMib.Rsvpresvtable, self).__init__()
+
+            self.yang_name = "rsvpResvTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpresventry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpresvtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpresvtable, self).__setattr__(name, value)
 
 
-        class Rsvpresventry(object):
+        class Rsvpresventry(Entity):
             """
             Information	describing the	state  information
             displayed  by  a single receiver's RESV message
@@ -1307,7 +2161,7 @@ class RsvpMib(object):
             .. attribute:: rsvpresvservice
             
             	The	QoS Service  classification  requested	by the receiver
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.Qosservice>`
             
             .. attribute:: rsvpresvshared
             
@@ -1317,7 +2171,7 @@ class RsvpMib(object):
             .. attribute:: rsvpresvstatus
             
             	'active' for all active RESV  messages.   This object  may	be  used  to  install  static RESV information or delete RESV information
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: rsvpresvtspecburst
             
@@ -1382,177 +2236,473 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.rsvpsessionnumber = None
-                self.rsvpresvnumber = None
-                self.rsvpresvdestaddr = None
-                self.rsvpresvdestaddrlength = None
-                self.rsvpresvdestport = None
-                self.rsvpresvexplicit = None
-                self.rsvpresvflowid = None
-                self.rsvpresvhopaddr = None
-                self.rsvpresvhoplih = None
-                self.rsvpresvinterface = None
-                self.rsvpresvinterval = None
-                self.rsvpresvlastchange = None
-                self.rsvpresvpolicy = None
-                self.rsvpresvport = None
-                self.rsvpresvprotocol = None
-                self.rsvpresvrspecrate = None
-                self.rsvpresvrspecslack = None
-                self.rsvpresvrsvphop = None
-                self.rsvpresvscope = None
-                self.rsvpresvsenderaddr = None
-                self.rsvpresvsenderaddrlength = None
-                self.rsvpresvservice = None
-                self.rsvpresvshared = None
-                self.rsvpresvstatus = None
-                self.rsvpresvtspecburst = None
-                self.rsvpresvtspecmaxtu = None
-                self.rsvpresvtspecmintu = None
-                self.rsvpresvtspecpeakrate = None
-                self.rsvpresvtspecrate = None
-                self.rsvpresvttl = None
-                self.rsvpresvtype = None
+                super(RsvpMib.Rsvpresvtable.Rsvpresventry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rsvpsessionnumber is None:
-                    raise YPYModelError('Key property rsvpsessionnumber is None')
-                if self.rsvpresvnumber is None:
-                    raise YPYModelError('Key property rsvpresvnumber is None')
+                self.yang_name = "rsvpResvEntry"
+                self.yang_parent_name = "rsvpResvTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpResvTable/RSVP-MIB:rsvpResvEntry[RSVP-MIB:rsvpSessionNumber = ' + str(self.rsvpsessionnumber) + '][RSVP-MIB:rsvpResvNumber = ' + str(self.rsvpresvnumber) + ']'
+                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpresvnumber = YLeaf(YType.int32, "rsvpResvNumber")
+
+                self.rsvpresvdestaddr = YLeaf(YType.str, "rsvpResvDestAddr")
+
+                self.rsvpresvdestaddrlength = YLeaf(YType.int32, "rsvpResvDestAddrLength")
+
+                self.rsvpresvdestport = YLeaf(YType.str, "rsvpResvDestPort")
+
+                self.rsvpresvexplicit = YLeaf(YType.boolean, "rsvpResvExplicit")
+
+                self.rsvpresvflowid = YLeaf(YType.int32, "rsvpResvFlowId")
+
+                self.rsvpresvhopaddr = YLeaf(YType.str, "rsvpResvHopAddr")
+
+                self.rsvpresvhoplih = YLeaf(YType.int32, "rsvpResvHopLih")
+
+                self.rsvpresvinterface = YLeaf(YType.int32, "rsvpResvInterface")
+
+                self.rsvpresvinterval = YLeaf(YType.int32, "rsvpResvInterval")
+
+                self.rsvpresvlastchange = YLeaf(YType.uint32, "rsvpResvLastChange")
+
+                self.rsvpresvpolicy = YLeaf(YType.str, "rsvpResvPolicy")
+
+                self.rsvpresvport = YLeaf(YType.str, "rsvpResvPort")
+
+                self.rsvpresvprotocol = YLeaf(YType.int32, "rsvpResvProtocol")
+
+                self.rsvpresvrspecrate = YLeaf(YType.int32, "rsvpResvRSpecRate")
+
+                self.rsvpresvrspecslack = YLeaf(YType.int32, "rsvpResvRSpecSlack")
+
+                self.rsvpresvrsvphop = YLeaf(YType.boolean, "rsvpResvRSVPHop")
+
+                self.rsvpresvscope = YLeaf(YType.str, "rsvpResvScope")
+
+                self.rsvpresvsenderaddr = YLeaf(YType.str, "rsvpResvSenderAddr")
+
+                self.rsvpresvsenderaddrlength = YLeaf(YType.int32, "rsvpResvSenderAddrLength")
+
+                self.rsvpresvservice = YLeaf(YType.enumeration, "rsvpResvService")
+
+                self.rsvpresvshared = YLeaf(YType.boolean, "rsvpResvShared")
+
+                self.rsvpresvstatus = YLeaf(YType.enumeration, "rsvpResvStatus")
+
+                self.rsvpresvtspecburst = YLeaf(YType.int32, "rsvpResvTSpecBurst")
+
+                self.rsvpresvtspecmaxtu = YLeaf(YType.int32, "rsvpResvTSpecMaxTU")
+
+                self.rsvpresvtspecmintu = YLeaf(YType.int32, "rsvpResvTSpecMinTU")
+
+                self.rsvpresvtspecpeakrate = YLeaf(YType.int32, "rsvpResvTSpecPeakRate")
+
+                self.rsvpresvtspecrate = YLeaf(YType.int32, "rsvpResvTSpecRate")
+
+                self.rsvpresvttl = YLeaf(YType.int32, "rsvpResvTTL")
+
+                self.rsvpresvtype = YLeaf(YType.int32, "rsvpResvType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rsvpsessionnumber",
+                                "rsvpresvnumber",
+                                "rsvpresvdestaddr",
+                                "rsvpresvdestaddrlength",
+                                "rsvpresvdestport",
+                                "rsvpresvexplicit",
+                                "rsvpresvflowid",
+                                "rsvpresvhopaddr",
+                                "rsvpresvhoplih",
+                                "rsvpresvinterface",
+                                "rsvpresvinterval",
+                                "rsvpresvlastchange",
+                                "rsvpresvpolicy",
+                                "rsvpresvport",
+                                "rsvpresvprotocol",
+                                "rsvpresvrspecrate",
+                                "rsvpresvrspecslack",
+                                "rsvpresvrsvphop",
+                                "rsvpresvscope",
+                                "rsvpresvsenderaddr",
+                                "rsvpresvsenderaddrlength",
+                                "rsvpresvservice",
+                                "rsvpresvshared",
+                                "rsvpresvstatus",
+                                "rsvpresvtspecburst",
+                                "rsvpresvtspecmaxtu",
+                                "rsvpresvtspecmintu",
+                                "rsvpresvtspecpeakrate",
+                                "rsvpresvtspecrate",
+                                "rsvpresvttl",
+                                "rsvpresvtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpresvtable.Rsvpresventry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpresvtable.Rsvpresventry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rsvpsessionnumber.is_set or
+                    self.rsvpresvnumber.is_set or
+                    self.rsvpresvdestaddr.is_set or
+                    self.rsvpresvdestaddrlength.is_set or
+                    self.rsvpresvdestport.is_set or
+                    self.rsvpresvexplicit.is_set or
+                    self.rsvpresvflowid.is_set or
+                    self.rsvpresvhopaddr.is_set or
+                    self.rsvpresvhoplih.is_set or
+                    self.rsvpresvinterface.is_set or
+                    self.rsvpresvinterval.is_set or
+                    self.rsvpresvlastchange.is_set or
+                    self.rsvpresvpolicy.is_set or
+                    self.rsvpresvport.is_set or
+                    self.rsvpresvprotocol.is_set or
+                    self.rsvpresvrspecrate.is_set or
+                    self.rsvpresvrspecslack.is_set or
+                    self.rsvpresvrsvphop.is_set or
+                    self.rsvpresvscope.is_set or
+                    self.rsvpresvsenderaddr.is_set or
+                    self.rsvpresvsenderaddrlength.is_set or
+                    self.rsvpresvservice.is_set or
+                    self.rsvpresvshared.is_set or
+                    self.rsvpresvstatus.is_set or
+                    self.rsvpresvtspecburst.is_set or
+                    self.rsvpresvtspecmaxtu.is_set or
+                    self.rsvpresvtspecmintu.is_set or
+                    self.rsvpresvtspecpeakrate.is_set or
+                    self.rsvpresvtspecrate.is_set or
+                    self.rsvpresvttl.is_set or
+                    self.rsvpresvtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rsvpsessionnumber.yfilter != YFilter.not_set or
+                    self.rsvpresvnumber.yfilter != YFilter.not_set or
+                    self.rsvpresvdestaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvdestaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpresvdestport.yfilter != YFilter.not_set or
+                    self.rsvpresvexplicit.yfilter != YFilter.not_set or
+                    self.rsvpresvflowid.yfilter != YFilter.not_set or
+                    self.rsvpresvhopaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvhoplih.yfilter != YFilter.not_set or
+                    self.rsvpresvinterface.yfilter != YFilter.not_set or
+                    self.rsvpresvinterval.yfilter != YFilter.not_set or
+                    self.rsvpresvlastchange.yfilter != YFilter.not_set or
+                    self.rsvpresvpolicy.yfilter != YFilter.not_set or
+                    self.rsvpresvport.yfilter != YFilter.not_set or
+                    self.rsvpresvprotocol.yfilter != YFilter.not_set or
+                    self.rsvpresvrspecrate.yfilter != YFilter.not_set or
+                    self.rsvpresvrspecslack.yfilter != YFilter.not_set or
+                    self.rsvpresvrsvphop.yfilter != YFilter.not_set or
+                    self.rsvpresvscope.yfilter != YFilter.not_set or
+                    self.rsvpresvsenderaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvsenderaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpresvservice.yfilter != YFilter.not_set or
+                    self.rsvpresvshared.yfilter != YFilter.not_set or
+                    self.rsvpresvstatus.yfilter != YFilter.not_set or
+                    self.rsvpresvtspecburst.yfilter != YFilter.not_set or
+                    self.rsvpresvtspecmaxtu.yfilter != YFilter.not_set or
+                    self.rsvpresvtspecmintu.yfilter != YFilter.not_set or
+                    self.rsvpresvtspecpeakrate.yfilter != YFilter.not_set or
+                    self.rsvpresvtspecrate.yfilter != YFilter.not_set or
+                    self.rsvpresvttl.yfilter != YFilter.not_set or
+                    self.rsvpresvtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpResvEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpResvNumber='" + self.rsvpresvnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpResvTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rsvpsessionnumber.is_set or self.rsvpsessionnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionnumber.get_name_leafdata())
+                if (self.rsvpresvnumber.is_set or self.rsvpresvnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvnumber.get_name_leafdata())
+                if (self.rsvpresvdestaddr.is_set or self.rsvpresvdestaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvdestaddr.get_name_leafdata())
+                if (self.rsvpresvdestaddrlength.is_set or self.rsvpresvdestaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvdestaddrlength.get_name_leafdata())
+                if (self.rsvpresvdestport.is_set or self.rsvpresvdestport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvdestport.get_name_leafdata())
+                if (self.rsvpresvexplicit.is_set or self.rsvpresvexplicit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvexplicit.get_name_leafdata())
+                if (self.rsvpresvflowid.is_set or self.rsvpresvflowid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvflowid.get_name_leafdata())
+                if (self.rsvpresvhopaddr.is_set or self.rsvpresvhopaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvhopaddr.get_name_leafdata())
+                if (self.rsvpresvhoplih.is_set or self.rsvpresvhoplih.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvhoplih.get_name_leafdata())
+                if (self.rsvpresvinterface.is_set or self.rsvpresvinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvinterface.get_name_leafdata())
+                if (self.rsvpresvinterval.is_set or self.rsvpresvinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvinterval.get_name_leafdata())
+                if (self.rsvpresvlastchange.is_set or self.rsvpresvlastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvlastchange.get_name_leafdata())
+                if (self.rsvpresvpolicy.is_set or self.rsvpresvpolicy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvpolicy.get_name_leafdata())
+                if (self.rsvpresvport.is_set or self.rsvpresvport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvport.get_name_leafdata())
+                if (self.rsvpresvprotocol.is_set or self.rsvpresvprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvprotocol.get_name_leafdata())
+                if (self.rsvpresvrspecrate.is_set or self.rsvpresvrspecrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvrspecrate.get_name_leafdata())
+                if (self.rsvpresvrspecslack.is_set or self.rsvpresvrspecslack.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvrspecslack.get_name_leafdata())
+                if (self.rsvpresvrsvphop.is_set or self.rsvpresvrsvphop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvrsvphop.get_name_leafdata())
+                if (self.rsvpresvscope.is_set or self.rsvpresvscope.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvscope.get_name_leafdata())
+                if (self.rsvpresvsenderaddr.is_set or self.rsvpresvsenderaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvsenderaddr.get_name_leafdata())
+                if (self.rsvpresvsenderaddrlength.is_set or self.rsvpresvsenderaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvsenderaddrlength.get_name_leafdata())
+                if (self.rsvpresvservice.is_set or self.rsvpresvservice.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvservice.get_name_leafdata())
+                if (self.rsvpresvshared.is_set or self.rsvpresvshared.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvshared.get_name_leafdata())
+                if (self.rsvpresvstatus.is_set or self.rsvpresvstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvstatus.get_name_leafdata())
+                if (self.rsvpresvtspecburst.is_set or self.rsvpresvtspecburst.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtspecburst.get_name_leafdata())
+                if (self.rsvpresvtspecmaxtu.is_set or self.rsvpresvtspecmaxtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtspecmaxtu.get_name_leafdata())
+                if (self.rsvpresvtspecmintu.is_set or self.rsvpresvtspecmintu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtspecmintu.get_name_leafdata())
+                if (self.rsvpresvtspecpeakrate.is_set or self.rsvpresvtspecpeakrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtspecpeakrate.get_name_leafdata())
+                if (self.rsvpresvtspecrate.is_set or self.rsvpresvtspecrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtspecrate.get_name_leafdata())
+                if (self.rsvpresvttl.is_set or self.rsvpresvttl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvttl.get_name_leafdata())
+                if (self.rsvpresvtype.is_set or self.rsvpresvtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rsvpSessionNumber" or name == "rsvpResvNumber" or name == "rsvpResvDestAddr" or name == "rsvpResvDestAddrLength" or name == "rsvpResvDestPort" or name == "rsvpResvExplicit" or name == "rsvpResvFlowId" or name == "rsvpResvHopAddr" or name == "rsvpResvHopLih" or name == "rsvpResvInterface" or name == "rsvpResvInterval" or name == "rsvpResvLastChange" or name == "rsvpResvPolicy" or name == "rsvpResvPort" or name == "rsvpResvProtocol" or name == "rsvpResvRSpecRate" or name == "rsvpResvRSpecSlack" or name == "rsvpResvRSVPHop" or name == "rsvpResvScope" or name == "rsvpResvSenderAddr" or name == "rsvpResvSenderAddrLength" or name == "rsvpResvService" or name == "rsvpResvShared" or name == "rsvpResvStatus" or name == "rsvpResvTSpecBurst" or name == "rsvpResvTSpecMaxTU" or name == "rsvpResvTSpecMinTU" or name == "rsvpResvTSpecPeakRate" or name == "rsvpResvTSpecRate" or name == "rsvpResvTTL" or name == "rsvpResvType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rsvpsessionnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rsvpSessionNumber"):
+                    self.rsvpsessionnumber = value
+                    self.rsvpsessionnumber.value_namespace = name_space
+                    self.rsvpsessionnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvNumber"):
+                    self.rsvpresvnumber = value
+                    self.rsvpresvnumber.value_namespace = name_space
+                    self.rsvpresvnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvDestAddr"):
+                    self.rsvpresvdestaddr = value
+                    self.rsvpresvdestaddr.value_namespace = name_space
+                    self.rsvpresvdestaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvDestAddrLength"):
+                    self.rsvpresvdestaddrlength = value
+                    self.rsvpresvdestaddrlength.value_namespace = name_space
+                    self.rsvpresvdestaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvDestPort"):
+                    self.rsvpresvdestport = value
+                    self.rsvpresvdestport.value_namespace = name_space
+                    self.rsvpresvdestport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvExplicit"):
+                    self.rsvpresvexplicit = value
+                    self.rsvpresvexplicit.value_namespace = name_space
+                    self.rsvpresvexplicit.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFlowId"):
+                    self.rsvpresvflowid = value
+                    self.rsvpresvflowid.value_namespace = name_space
+                    self.rsvpresvflowid.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvHopAddr"):
+                    self.rsvpresvhopaddr = value
+                    self.rsvpresvhopaddr.value_namespace = name_space
+                    self.rsvpresvhopaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvHopLih"):
+                    self.rsvpresvhoplih = value
+                    self.rsvpresvhoplih.value_namespace = name_space
+                    self.rsvpresvhoplih.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvInterface"):
+                    self.rsvpresvinterface = value
+                    self.rsvpresvinterface.value_namespace = name_space
+                    self.rsvpresvinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvInterval"):
+                    self.rsvpresvinterval = value
+                    self.rsvpresvinterval.value_namespace = name_space
+                    self.rsvpresvinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvLastChange"):
+                    self.rsvpresvlastchange = value
+                    self.rsvpresvlastchange.value_namespace = name_space
+                    self.rsvpresvlastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvPolicy"):
+                    self.rsvpresvpolicy = value
+                    self.rsvpresvpolicy.value_namespace = name_space
+                    self.rsvpresvpolicy.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvPort"):
+                    self.rsvpresvport = value
+                    self.rsvpresvport.value_namespace = name_space
+                    self.rsvpresvport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvProtocol"):
+                    self.rsvpresvprotocol = value
+                    self.rsvpresvprotocol.value_namespace = name_space
+                    self.rsvpresvprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvRSpecRate"):
+                    self.rsvpresvrspecrate = value
+                    self.rsvpresvrspecrate.value_namespace = name_space
+                    self.rsvpresvrspecrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvRSpecSlack"):
+                    self.rsvpresvrspecslack = value
+                    self.rsvpresvrspecslack.value_namespace = name_space
+                    self.rsvpresvrspecslack.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvRSVPHop"):
+                    self.rsvpresvrsvphop = value
+                    self.rsvpresvrsvphop.value_namespace = name_space
+                    self.rsvpresvrsvphop.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvScope"):
+                    self.rsvpresvscope = value
+                    self.rsvpresvscope.value_namespace = name_space
+                    self.rsvpresvscope.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvSenderAddr"):
+                    self.rsvpresvsenderaddr = value
+                    self.rsvpresvsenderaddr.value_namespace = name_space
+                    self.rsvpresvsenderaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvSenderAddrLength"):
+                    self.rsvpresvsenderaddrlength = value
+                    self.rsvpresvsenderaddrlength.value_namespace = name_space
+                    self.rsvpresvsenderaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvService"):
+                    self.rsvpresvservice = value
+                    self.rsvpresvservice.value_namespace = name_space
+                    self.rsvpresvservice.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvShared"):
+                    self.rsvpresvshared = value
+                    self.rsvpresvshared.value_namespace = name_space
+                    self.rsvpresvshared.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvStatus"):
+                    self.rsvpresvstatus = value
+                    self.rsvpresvstatus.value_namespace = name_space
+                    self.rsvpresvstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTSpecBurst"):
+                    self.rsvpresvtspecburst = value
+                    self.rsvpresvtspecburst.value_namespace = name_space
+                    self.rsvpresvtspecburst.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTSpecMaxTU"):
+                    self.rsvpresvtspecmaxtu = value
+                    self.rsvpresvtspecmaxtu.value_namespace = name_space
+                    self.rsvpresvtspecmaxtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTSpecMinTU"):
+                    self.rsvpresvtspecmintu = value
+                    self.rsvpresvtspecmintu.value_namespace = name_space
+                    self.rsvpresvtspecmintu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTSpecPeakRate"):
+                    self.rsvpresvtspecpeakrate = value
+                    self.rsvpresvtspecpeakrate.value_namespace = name_space
+                    self.rsvpresvtspecpeakrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTSpecRate"):
+                    self.rsvpresvtspecrate = value
+                    self.rsvpresvtspecrate.value_namespace = name_space
+                    self.rsvpresvtspecrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvTTL"):
+                    self.rsvpresvttl = value
+                    self.rsvpresvttl.value_namespace = name_space
+                    self.rsvpresvttl.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvType"):
+                    self.rsvpresvtype = value
+                    self.rsvpresvtype.value_namespace = name_space
+                    self.rsvpresvtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpresventry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpresvnumber is not None:
-                    return True
-
-                if self.rsvpresvdestaddr is not None:
-                    return True
-
-                if self.rsvpresvdestaddrlength is not None:
-                    return True
-
-                if self.rsvpresvdestport is not None:
-                    return True
-
-                if self.rsvpresvexplicit is not None:
-                    return True
-
-                if self.rsvpresvflowid is not None:
-                    return True
-
-                if self.rsvpresvhopaddr is not None:
-                    return True
-
-                if self.rsvpresvhoplih is not None:
-                    return True
-
-                if self.rsvpresvinterface is not None:
-                    return True
-
-                if self.rsvpresvinterval is not None:
-                    return True
-
-                if self.rsvpresvlastchange is not None:
-                    return True
-
-                if self.rsvpresvpolicy is not None:
-                    return True
-
-                if self.rsvpresvport is not None:
-                    return True
-
-                if self.rsvpresvprotocol is not None:
-                    return True
-
-                if self.rsvpresvrspecrate is not None:
-                    return True
-
-                if self.rsvpresvrspecslack is not None:
-                    return True
-
-                if self.rsvpresvrsvphop is not None:
-                    return True
-
-                if self.rsvpresvscope is not None:
-                    return True
-
-                if self.rsvpresvsenderaddr is not None:
-                    return True
-
-                if self.rsvpresvsenderaddrlength is not None:
-                    return True
-
-                if self.rsvpresvservice is not None:
-                    return True
-
-                if self.rsvpresvshared is not None:
-                    return True
-
-                if self.rsvpresvstatus is not None:
-                    return True
-
-                if self.rsvpresvtspecburst is not None:
-                    return True
-
-                if self.rsvpresvtspecmaxtu is not None:
-                    return True
-
-                if self.rsvpresvtspecmintu is not None:
-                    return True
-
-                if self.rsvpresvtspecpeakrate is not None:
-                    return True
-
-                if self.rsvpresvtspecrate is not None:
-                    return True
-
-                if self.rsvpresvttl is not None:
-                    return True
-
-                if self.rsvpresvtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpresvtable.Rsvpresventry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpResvTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpresventry is not None:
-                for child_ref in self.rsvpresventry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpresventry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpResvTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpResvEntry"):
+                for c in self.rsvpresventry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpresvtable.Rsvpresventry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpresventry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpResvEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpresvtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpresvfwdtable(object):
+    class Rsvpresvfwdtable(Entity):
         """
         Information	describing the	state  information
         displayed upstream in RESV messages.
@@ -1570,13 +2720,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpresvfwdentry = YList()
-            self.rsvpresvfwdentry.parent = self
-            self.rsvpresvfwdentry.name = 'rsvpresvfwdentry'
+            super(RsvpMib.Rsvpresvfwdtable, self).__init__()
+
+            self.yang_name = "rsvpResvFwdTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpresvfwdentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpresvfwdtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpresvfwdtable, self).__setattr__(name, value)
 
 
-        class Rsvpresvfwdentry(object):
+        class Rsvpresvfwdentry(Entity):
             """
             Information	describing the	state  information
             displayed   upstream	  in   an   RESV   message
@@ -1734,7 +2910,7 @@ class RsvpMib(object):
             .. attribute:: rsvpresvfwdservice
             
             	The	QoS Service classification requested
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.Qosservice>`
             
             .. attribute:: rsvpresvfwdshared
             
@@ -1744,7 +2920,7 @@ class RsvpMib(object):
             .. attribute:: rsvpresvfwdstatus
             
             	'active' for all active RESV  messages.   This object may be used to delete	RESV information
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: rsvpresvfwdtspecburst
             
@@ -1809,177 +2985,473 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.rsvpsessionnumber = None
-                self.rsvpresvfwdnumber = None
-                self.rsvpresvfwddestaddr = None
-                self.rsvpresvfwddestaddrlength = None
-                self.rsvpresvfwddestport = None
-                self.rsvpresvfwdexplicit = None
-                self.rsvpresvfwdflowid = None
-                self.rsvpresvfwdhopaddr = None
-                self.rsvpresvfwdhoplih = None
-                self.rsvpresvfwdinterface = None
-                self.rsvpresvfwdinterval = None
-                self.rsvpresvfwdlastchange = None
-                self.rsvpresvfwdpolicy = None
-                self.rsvpresvfwdport = None
-                self.rsvpresvfwdprotocol = None
-                self.rsvpresvfwdrspecrate = None
-                self.rsvpresvfwdrspecslack = None
-                self.rsvpresvfwdrsvphop = None
-                self.rsvpresvfwdscope = None
-                self.rsvpresvfwdsenderaddr = None
-                self.rsvpresvfwdsenderaddrlength = None
-                self.rsvpresvfwdservice = None
-                self.rsvpresvfwdshared = None
-                self.rsvpresvfwdstatus = None
-                self.rsvpresvfwdtspecburst = None
-                self.rsvpresvfwdtspecmaxtu = None
-                self.rsvpresvfwdtspecmintu = None
-                self.rsvpresvfwdtspecpeakrate = None
-                self.rsvpresvfwdtspecrate = None
-                self.rsvpresvfwdttl = None
-                self.rsvpresvfwdtype = None
+                super(RsvpMib.Rsvpresvfwdtable.Rsvpresvfwdentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rsvpsessionnumber is None:
-                    raise YPYModelError('Key property rsvpsessionnumber is None')
-                if self.rsvpresvfwdnumber is None:
-                    raise YPYModelError('Key property rsvpresvfwdnumber is None')
+                self.yang_name = "rsvpResvFwdEntry"
+                self.yang_parent_name = "rsvpResvFwdTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpResvFwdTable/RSVP-MIB:rsvpResvFwdEntry[RSVP-MIB:rsvpSessionNumber = ' + str(self.rsvpsessionnumber) + '][RSVP-MIB:rsvpResvFwdNumber = ' + str(self.rsvpresvfwdnumber) + ']'
+                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpresvfwdnumber = YLeaf(YType.int32, "rsvpResvFwdNumber")
+
+                self.rsvpresvfwddestaddr = YLeaf(YType.str, "rsvpResvFwdDestAddr")
+
+                self.rsvpresvfwddestaddrlength = YLeaf(YType.int32, "rsvpResvFwdDestAddrLength")
+
+                self.rsvpresvfwddestport = YLeaf(YType.str, "rsvpResvFwdDestPort")
+
+                self.rsvpresvfwdexplicit = YLeaf(YType.boolean, "rsvpResvFwdExplicit")
+
+                self.rsvpresvfwdflowid = YLeaf(YType.int32, "rsvpResvFwdFlowId")
+
+                self.rsvpresvfwdhopaddr = YLeaf(YType.str, "rsvpResvFwdHopAddr")
+
+                self.rsvpresvfwdhoplih = YLeaf(YType.int32, "rsvpResvFwdHopLih")
+
+                self.rsvpresvfwdinterface = YLeaf(YType.int32, "rsvpResvFwdInterface")
+
+                self.rsvpresvfwdinterval = YLeaf(YType.int32, "rsvpResvFwdInterval")
+
+                self.rsvpresvfwdlastchange = YLeaf(YType.uint32, "rsvpResvFwdLastChange")
+
+                self.rsvpresvfwdpolicy = YLeaf(YType.str, "rsvpResvFwdPolicy")
+
+                self.rsvpresvfwdport = YLeaf(YType.str, "rsvpResvFwdPort")
+
+                self.rsvpresvfwdprotocol = YLeaf(YType.int32, "rsvpResvFwdProtocol")
+
+                self.rsvpresvfwdrspecrate = YLeaf(YType.int32, "rsvpResvFwdRSpecRate")
+
+                self.rsvpresvfwdrspecslack = YLeaf(YType.int32, "rsvpResvFwdRSpecSlack")
+
+                self.rsvpresvfwdrsvphop = YLeaf(YType.boolean, "rsvpResvFwdRSVPHop")
+
+                self.rsvpresvfwdscope = YLeaf(YType.str, "rsvpResvFwdScope")
+
+                self.rsvpresvfwdsenderaddr = YLeaf(YType.str, "rsvpResvFwdSenderAddr")
+
+                self.rsvpresvfwdsenderaddrlength = YLeaf(YType.int32, "rsvpResvFwdSenderAddrLength")
+
+                self.rsvpresvfwdservice = YLeaf(YType.enumeration, "rsvpResvFwdService")
+
+                self.rsvpresvfwdshared = YLeaf(YType.boolean, "rsvpResvFwdShared")
+
+                self.rsvpresvfwdstatus = YLeaf(YType.enumeration, "rsvpResvFwdStatus")
+
+                self.rsvpresvfwdtspecburst = YLeaf(YType.int32, "rsvpResvFwdTSpecBurst")
+
+                self.rsvpresvfwdtspecmaxtu = YLeaf(YType.int32, "rsvpResvFwdTSpecMaxTU")
+
+                self.rsvpresvfwdtspecmintu = YLeaf(YType.int32, "rsvpResvFwdTSpecMinTU")
+
+                self.rsvpresvfwdtspecpeakrate = YLeaf(YType.int32, "rsvpResvFwdTSpecPeakRate")
+
+                self.rsvpresvfwdtspecrate = YLeaf(YType.int32, "rsvpResvFwdTSpecRate")
+
+                self.rsvpresvfwdttl = YLeaf(YType.int32, "rsvpResvFwdTTL")
+
+                self.rsvpresvfwdtype = YLeaf(YType.int32, "rsvpResvFwdType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rsvpsessionnumber",
+                                "rsvpresvfwdnumber",
+                                "rsvpresvfwddestaddr",
+                                "rsvpresvfwddestaddrlength",
+                                "rsvpresvfwddestport",
+                                "rsvpresvfwdexplicit",
+                                "rsvpresvfwdflowid",
+                                "rsvpresvfwdhopaddr",
+                                "rsvpresvfwdhoplih",
+                                "rsvpresvfwdinterface",
+                                "rsvpresvfwdinterval",
+                                "rsvpresvfwdlastchange",
+                                "rsvpresvfwdpolicy",
+                                "rsvpresvfwdport",
+                                "rsvpresvfwdprotocol",
+                                "rsvpresvfwdrspecrate",
+                                "rsvpresvfwdrspecslack",
+                                "rsvpresvfwdrsvphop",
+                                "rsvpresvfwdscope",
+                                "rsvpresvfwdsenderaddr",
+                                "rsvpresvfwdsenderaddrlength",
+                                "rsvpresvfwdservice",
+                                "rsvpresvfwdshared",
+                                "rsvpresvfwdstatus",
+                                "rsvpresvfwdtspecburst",
+                                "rsvpresvfwdtspecmaxtu",
+                                "rsvpresvfwdtspecmintu",
+                                "rsvpresvfwdtspecpeakrate",
+                                "rsvpresvfwdtspecrate",
+                                "rsvpresvfwdttl",
+                                "rsvpresvfwdtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpresvfwdtable.Rsvpresvfwdentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpresvfwdtable.Rsvpresvfwdentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rsvpsessionnumber.is_set or
+                    self.rsvpresvfwdnumber.is_set or
+                    self.rsvpresvfwddestaddr.is_set or
+                    self.rsvpresvfwddestaddrlength.is_set or
+                    self.rsvpresvfwddestport.is_set or
+                    self.rsvpresvfwdexplicit.is_set or
+                    self.rsvpresvfwdflowid.is_set or
+                    self.rsvpresvfwdhopaddr.is_set or
+                    self.rsvpresvfwdhoplih.is_set or
+                    self.rsvpresvfwdinterface.is_set or
+                    self.rsvpresvfwdinterval.is_set or
+                    self.rsvpresvfwdlastchange.is_set or
+                    self.rsvpresvfwdpolicy.is_set or
+                    self.rsvpresvfwdport.is_set or
+                    self.rsvpresvfwdprotocol.is_set or
+                    self.rsvpresvfwdrspecrate.is_set or
+                    self.rsvpresvfwdrspecslack.is_set or
+                    self.rsvpresvfwdrsvphop.is_set or
+                    self.rsvpresvfwdscope.is_set or
+                    self.rsvpresvfwdsenderaddr.is_set or
+                    self.rsvpresvfwdsenderaddrlength.is_set or
+                    self.rsvpresvfwdservice.is_set or
+                    self.rsvpresvfwdshared.is_set or
+                    self.rsvpresvfwdstatus.is_set or
+                    self.rsvpresvfwdtspecburst.is_set or
+                    self.rsvpresvfwdtspecmaxtu.is_set or
+                    self.rsvpresvfwdtspecmintu.is_set or
+                    self.rsvpresvfwdtspecpeakrate.is_set or
+                    self.rsvpresvfwdtspecrate.is_set or
+                    self.rsvpresvfwdttl.is_set or
+                    self.rsvpresvfwdtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rsvpsessionnumber.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdnumber.yfilter != YFilter.not_set or
+                    self.rsvpresvfwddestaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvfwddestaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpresvfwddestport.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdexplicit.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdflowid.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdhopaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdhoplih.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdinterface.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdinterval.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdlastchange.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdpolicy.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdport.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdprotocol.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdrspecrate.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdrspecslack.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdrsvphop.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdscope.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdsenderaddr.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdsenderaddrlength.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdservice.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdshared.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdstatus.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtspecburst.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtspecmaxtu.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtspecmintu.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtspecpeakrate.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtspecrate.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdttl.yfilter != YFilter.not_set or
+                    self.rsvpresvfwdtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpResvFwdNumber='" + self.rsvpresvfwdnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpResvFwdTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rsvpsessionnumber.is_set or self.rsvpsessionnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpsessionnumber.get_name_leafdata())
+                if (self.rsvpresvfwdnumber.is_set or self.rsvpresvfwdnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdnumber.get_name_leafdata())
+                if (self.rsvpresvfwddestaddr.is_set or self.rsvpresvfwddestaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwddestaddr.get_name_leafdata())
+                if (self.rsvpresvfwddestaddrlength.is_set or self.rsvpresvfwddestaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwddestaddrlength.get_name_leafdata())
+                if (self.rsvpresvfwddestport.is_set or self.rsvpresvfwddestport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwddestport.get_name_leafdata())
+                if (self.rsvpresvfwdexplicit.is_set or self.rsvpresvfwdexplicit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdexplicit.get_name_leafdata())
+                if (self.rsvpresvfwdflowid.is_set or self.rsvpresvfwdflowid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdflowid.get_name_leafdata())
+                if (self.rsvpresvfwdhopaddr.is_set or self.rsvpresvfwdhopaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdhopaddr.get_name_leafdata())
+                if (self.rsvpresvfwdhoplih.is_set or self.rsvpresvfwdhoplih.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdhoplih.get_name_leafdata())
+                if (self.rsvpresvfwdinterface.is_set or self.rsvpresvfwdinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdinterface.get_name_leafdata())
+                if (self.rsvpresvfwdinterval.is_set or self.rsvpresvfwdinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdinterval.get_name_leafdata())
+                if (self.rsvpresvfwdlastchange.is_set or self.rsvpresvfwdlastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdlastchange.get_name_leafdata())
+                if (self.rsvpresvfwdpolicy.is_set or self.rsvpresvfwdpolicy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdpolicy.get_name_leafdata())
+                if (self.rsvpresvfwdport.is_set or self.rsvpresvfwdport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdport.get_name_leafdata())
+                if (self.rsvpresvfwdprotocol.is_set or self.rsvpresvfwdprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdprotocol.get_name_leafdata())
+                if (self.rsvpresvfwdrspecrate.is_set or self.rsvpresvfwdrspecrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdrspecrate.get_name_leafdata())
+                if (self.rsvpresvfwdrspecslack.is_set or self.rsvpresvfwdrspecslack.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdrspecslack.get_name_leafdata())
+                if (self.rsvpresvfwdrsvphop.is_set or self.rsvpresvfwdrsvphop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdrsvphop.get_name_leafdata())
+                if (self.rsvpresvfwdscope.is_set or self.rsvpresvfwdscope.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdscope.get_name_leafdata())
+                if (self.rsvpresvfwdsenderaddr.is_set or self.rsvpresvfwdsenderaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdsenderaddr.get_name_leafdata())
+                if (self.rsvpresvfwdsenderaddrlength.is_set or self.rsvpresvfwdsenderaddrlength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdsenderaddrlength.get_name_leafdata())
+                if (self.rsvpresvfwdservice.is_set or self.rsvpresvfwdservice.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdservice.get_name_leafdata())
+                if (self.rsvpresvfwdshared.is_set or self.rsvpresvfwdshared.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdshared.get_name_leafdata())
+                if (self.rsvpresvfwdstatus.is_set or self.rsvpresvfwdstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdstatus.get_name_leafdata())
+                if (self.rsvpresvfwdtspecburst.is_set or self.rsvpresvfwdtspecburst.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtspecburst.get_name_leafdata())
+                if (self.rsvpresvfwdtspecmaxtu.is_set or self.rsvpresvfwdtspecmaxtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtspecmaxtu.get_name_leafdata())
+                if (self.rsvpresvfwdtspecmintu.is_set or self.rsvpresvfwdtspecmintu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtspecmintu.get_name_leafdata())
+                if (self.rsvpresvfwdtspecpeakrate.is_set or self.rsvpresvfwdtspecpeakrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtspecpeakrate.get_name_leafdata())
+                if (self.rsvpresvfwdtspecrate.is_set or self.rsvpresvfwdtspecrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtspecrate.get_name_leafdata())
+                if (self.rsvpresvfwdttl.is_set or self.rsvpresvfwdttl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdttl.get_name_leafdata())
+                if (self.rsvpresvfwdtype.is_set or self.rsvpresvfwdtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpresvfwdtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rsvpSessionNumber" or name == "rsvpResvFwdNumber" or name == "rsvpResvFwdDestAddr" or name == "rsvpResvFwdDestAddrLength" or name == "rsvpResvFwdDestPort" or name == "rsvpResvFwdExplicit" or name == "rsvpResvFwdFlowId" or name == "rsvpResvFwdHopAddr" or name == "rsvpResvFwdHopLih" or name == "rsvpResvFwdInterface" or name == "rsvpResvFwdInterval" or name == "rsvpResvFwdLastChange" or name == "rsvpResvFwdPolicy" or name == "rsvpResvFwdPort" or name == "rsvpResvFwdProtocol" or name == "rsvpResvFwdRSpecRate" or name == "rsvpResvFwdRSpecSlack" or name == "rsvpResvFwdRSVPHop" or name == "rsvpResvFwdScope" or name == "rsvpResvFwdSenderAddr" or name == "rsvpResvFwdSenderAddrLength" or name == "rsvpResvFwdService" or name == "rsvpResvFwdShared" or name == "rsvpResvFwdStatus" or name == "rsvpResvFwdTSpecBurst" or name == "rsvpResvFwdTSpecMaxTU" or name == "rsvpResvFwdTSpecMinTU" or name == "rsvpResvFwdTSpecPeakRate" or name == "rsvpResvFwdTSpecRate" or name == "rsvpResvFwdTTL" or name == "rsvpResvFwdType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rsvpsessionnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rsvpSessionNumber"):
+                    self.rsvpsessionnumber = value
+                    self.rsvpsessionnumber.value_namespace = name_space
+                    self.rsvpsessionnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdNumber"):
+                    self.rsvpresvfwdnumber = value
+                    self.rsvpresvfwdnumber.value_namespace = name_space
+                    self.rsvpresvfwdnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdDestAddr"):
+                    self.rsvpresvfwddestaddr = value
+                    self.rsvpresvfwddestaddr.value_namespace = name_space
+                    self.rsvpresvfwddestaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdDestAddrLength"):
+                    self.rsvpresvfwddestaddrlength = value
+                    self.rsvpresvfwddestaddrlength.value_namespace = name_space
+                    self.rsvpresvfwddestaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdDestPort"):
+                    self.rsvpresvfwddestport = value
+                    self.rsvpresvfwddestport.value_namespace = name_space
+                    self.rsvpresvfwddestport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdExplicit"):
+                    self.rsvpresvfwdexplicit = value
+                    self.rsvpresvfwdexplicit.value_namespace = name_space
+                    self.rsvpresvfwdexplicit.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdFlowId"):
+                    self.rsvpresvfwdflowid = value
+                    self.rsvpresvfwdflowid.value_namespace = name_space
+                    self.rsvpresvfwdflowid.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdHopAddr"):
+                    self.rsvpresvfwdhopaddr = value
+                    self.rsvpresvfwdhopaddr.value_namespace = name_space
+                    self.rsvpresvfwdhopaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdHopLih"):
+                    self.rsvpresvfwdhoplih = value
+                    self.rsvpresvfwdhoplih.value_namespace = name_space
+                    self.rsvpresvfwdhoplih.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdInterface"):
+                    self.rsvpresvfwdinterface = value
+                    self.rsvpresvfwdinterface.value_namespace = name_space
+                    self.rsvpresvfwdinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdInterval"):
+                    self.rsvpresvfwdinterval = value
+                    self.rsvpresvfwdinterval.value_namespace = name_space
+                    self.rsvpresvfwdinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdLastChange"):
+                    self.rsvpresvfwdlastchange = value
+                    self.rsvpresvfwdlastchange.value_namespace = name_space
+                    self.rsvpresvfwdlastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdPolicy"):
+                    self.rsvpresvfwdpolicy = value
+                    self.rsvpresvfwdpolicy.value_namespace = name_space
+                    self.rsvpresvfwdpolicy.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdPort"):
+                    self.rsvpresvfwdport = value
+                    self.rsvpresvfwdport.value_namespace = name_space
+                    self.rsvpresvfwdport.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdProtocol"):
+                    self.rsvpresvfwdprotocol = value
+                    self.rsvpresvfwdprotocol.value_namespace = name_space
+                    self.rsvpresvfwdprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdRSpecRate"):
+                    self.rsvpresvfwdrspecrate = value
+                    self.rsvpresvfwdrspecrate.value_namespace = name_space
+                    self.rsvpresvfwdrspecrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdRSpecSlack"):
+                    self.rsvpresvfwdrspecslack = value
+                    self.rsvpresvfwdrspecslack.value_namespace = name_space
+                    self.rsvpresvfwdrspecslack.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdRSVPHop"):
+                    self.rsvpresvfwdrsvphop = value
+                    self.rsvpresvfwdrsvphop.value_namespace = name_space
+                    self.rsvpresvfwdrsvphop.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdScope"):
+                    self.rsvpresvfwdscope = value
+                    self.rsvpresvfwdscope.value_namespace = name_space
+                    self.rsvpresvfwdscope.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdSenderAddr"):
+                    self.rsvpresvfwdsenderaddr = value
+                    self.rsvpresvfwdsenderaddr.value_namespace = name_space
+                    self.rsvpresvfwdsenderaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdSenderAddrLength"):
+                    self.rsvpresvfwdsenderaddrlength = value
+                    self.rsvpresvfwdsenderaddrlength.value_namespace = name_space
+                    self.rsvpresvfwdsenderaddrlength.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdService"):
+                    self.rsvpresvfwdservice = value
+                    self.rsvpresvfwdservice.value_namespace = name_space
+                    self.rsvpresvfwdservice.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdShared"):
+                    self.rsvpresvfwdshared = value
+                    self.rsvpresvfwdshared.value_namespace = name_space
+                    self.rsvpresvfwdshared.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdStatus"):
+                    self.rsvpresvfwdstatus = value
+                    self.rsvpresvfwdstatus.value_namespace = name_space
+                    self.rsvpresvfwdstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTSpecBurst"):
+                    self.rsvpresvfwdtspecburst = value
+                    self.rsvpresvfwdtspecburst.value_namespace = name_space
+                    self.rsvpresvfwdtspecburst.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTSpecMaxTU"):
+                    self.rsvpresvfwdtspecmaxtu = value
+                    self.rsvpresvfwdtspecmaxtu.value_namespace = name_space
+                    self.rsvpresvfwdtspecmaxtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTSpecMinTU"):
+                    self.rsvpresvfwdtspecmintu = value
+                    self.rsvpresvfwdtspecmintu.value_namespace = name_space
+                    self.rsvpresvfwdtspecmintu.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTSpecPeakRate"):
+                    self.rsvpresvfwdtspecpeakrate = value
+                    self.rsvpresvfwdtspecpeakrate.value_namespace = name_space
+                    self.rsvpresvfwdtspecpeakrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTSpecRate"):
+                    self.rsvpresvfwdtspecrate = value
+                    self.rsvpresvfwdtspecrate.value_namespace = name_space
+                    self.rsvpresvfwdtspecrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdTTL"):
+                    self.rsvpresvfwdttl = value
+                    self.rsvpresvfwdttl.value_namespace = name_space
+                    self.rsvpresvfwdttl.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpResvFwdType"):
+                    self.rsvpresvfwdtype = value
+                    self.rsvpresvfwdtype.value_namespace = name_space
+                    self.rsvpresvfwdtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpresvfwdentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpresvfwdnumber is not None:
-                    return True
-
-                if self.rsvpresvfwddestaddr is not None:
-                    return True
-
-                if self.rsvpresvfwddestaddrlength is not None:
-                    return True
-
-                if self.rsvpresvfwddestport is not None:
-                    return True
-
-                if self.rsvpresvfwdexplicit is not None:
-                    return True
-
-                if self.rsvpresvfwdflowid is not None:
-                    return True
-
-                if self.rsvpresvfwdhopaddr is not None:
-                    return True
-
-                if self.rsvpresvfwdhoplih is not None:
-                    return True
-
-                if self.rsvpresvfwdinterface is not None:
-                    return True
-
-                if self.rsvpresvfwdinterval is not None:
-                    return True
-
-                if self.rsvpresvfwdlastchange is not None:
-                    return True
-
-                if self.rsvpresvfwdpolicy is not None:
-                    return True
-
-                if self.rsvpresvfwdport is not None:
-                    return True
-
-                if self.rsvpresvfwdprotocol is not None:
-                    return True
-
-                if self.rsvpresvfwdrspecrate is not None:
-                    return True
-
-                if self.rsvpresvfwdrspecslack is not None:
-                    return True
-
-                if self.rsvpresvfwdrsvphop is not None:
-                    return True
-
-                if self.rsvpresvfwdscope is not None:
-                    return True
-
-                if self.rsvpresvfwdsenderaddr is not None:
-                    return True
-
-                if self.rsvpresvfwdsenderaddrlength is not None:
-                    return True
-
-                if self.rsvpresvfwdservice is not None:
-                    return True
-
-                if self.rsvpresvfwdshared is not None:
-                    return True
-
-                if self.rsvpresvfwdstatus is not None:
-                    return True
-
-                if self.rsvpresvfwdtspecburst is not None:
-                    return True
-
-                if self.rsvpresvfwdtspecmaxtu is not None:
-                    return True
-
-                if self.rsvpresvfwdtspecmintu is not None:
-                    return True
-
-                if self.rsvpresvfwdtspecpeakrate is not None:
-                    return True
-
-                if self.rsvpresvfwdtspecrate is not None:
-                    return True
-
-                if self.rsvpresvfwdttl is not None:
-                    return True
-
-                if self.rsvpresvfwdtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpresvfwdtable.Rsvpresvfwdentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpResvFwdTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpresvfwdentry is not None:
-                for child_ref in self.rsvpresvfwdentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpresvfwdentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpResvFwdTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpResvFwdEntry"):
+                for c in self.rsvpresvfwdentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpresvfwdtable.Rsvpresvfwdentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpresvfwdentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpResvFwdEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpresvfwdtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpiftable(object):
+    class Rsvpiftable(Entity):
         """
         The	RSVP\-specific attributes of  the  system's
         interfaces.
@@ -1997,13 +3469,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpifentry = YList()
-            self.rsvpifentry.parent = self
-            self.rsvpifentry.name = 'rsvpifentry'
+            super(RsvpMib.Rsvpiftable, self).__init__()
+
+            self.yang_name = "rsvpIfTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpiftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpiftable, self).__setattr__(name, value)
 
 
-        class Rsvpifentry(object):
+        class Rsvpifentry(Entity):
             """
             The	RSVP\-specific attributes of  the  a  given
             interface.
@@ -2071,7 +3569,7 @@ class RsvpMib(object):
             .. attribute:: rsvpifstatus
             
             	'active' on	interfaces that	are configured for RSVP
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: rsvpifttl
             
@@ -2100,99 +3598,264 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.rsvpifenabled = None
-                self.rsvpifipnbrs = None
-                self.rsvpifnbrs = None
-                self.rsvpifrefreshblockademultiple = None
-                self.rsvpifrefreshinterval = None
-                self.rsvpifrefreshmultiple = None
-                self.rsvpifroutedelay = None
-                self.rsvpifstatus = None
-                self.rsvpifttl = None
-                self.rsvpifudpnbrs = None
-                self.rsvpifudprequired = None
+                super(RsvpMib.Rsvpiftable.Rsvpifentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "rsvpIfEntry"
+                self.yang_parent_name = "rsvpIfTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpIfTable/RSVP-MIB:rsvpIfEntry[RSVP-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpifenabled = YLeaf(YType.boolean, "rsvpIfEnabled")
+
+                self.rsvpifipnbrs = YLeaf(YType.uint32, "rsvpIfIpNbrs")
+
+                self.rsvpifnbrs = YLeaf(YType.uint32, "rsvpIfNbrs")
+
+                self.rsvpifrefreshblockademultiple = YLeaf(YType.int32, "rsvpIfRefreshBlockadeMultiple")
+
+                self.rsvpifrefreshinterval = YLeaf(YType.int32, "rsvpIfRefreshInterval")
+
+                self.rsvpifrefreshmultiple = YLeaf(YType.int32, "rsvpIfRefreshMultiple")
+
+                self.rsvpifroutedelay = YLeaf(YType.int32, "rsvpIfRouteDelay")
+
+                self.rsvpifstatus = YLeaf(YType.enumeration, "rsvpIfStatus")
+
+                self.rsvpifttl = YLeaf(YType.int32, "rsvpIfTTL")
+
+                self.rsvpifudpnbrs = YLeaf(YType.uint32, "rsvpIfUdpNbrs")
+
+                self.rsvpifudprequired = YLeaf(YType.boolean, "rsvpIfUdpRequired")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "rsvpifenabled",
+                                "rsvpifipnbrs",
+                                "rsvpifnbrs",
+                                "rsvpifrefreshblockademultiple",
+                                "rsvpifrefreshinterval",
+                                "rsvpifrefreshmultiple",
+                                "rsvpifroutedelay",
+                                "rsvpifstatus",
+                                "rsvpifttl",
+                                "rsvpifudpnbrs",
+                                "rsvpifudprequired") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpiftable.Rsvpifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpiftable.Rsvpifentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.rsvpifenabled.is_set or
+                    self.rsvpifipnbrs.is_set or
+                    self.rsvpifnbrs.is_set or
+                    self.rsvpifrefreshblockademultiple.is_set or
+                    self.rsvpifrefreshinterval.is_set or
+                    self.rsvpifrefreshmultiple.is_set or
+                    self.rsvpifroutedelay.is_set or
+                    self.rsvpifstatus.is_set or
+                    self.rsvpifttl.is_set or
+                    self.rsvpifudpnbrs.is_set or
+                    self.rsvpifudprequired.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.rsvpifenabled.yfilter != YFilter.not_set or
+                    self.rsvpifipnbrs.yfilter != YFilter.not_set or
+                    self.rsvpifnbrs.yfilter != YFilter.not_set or
+                    self.rsvpifrefreshblockademultiple.yfilter != YFilter.not_set or
+                    self.rsvpifrefreshinterval.yfilter != YFilter.not_set or
+                    self.rsvpifrefreshmultiple.yfilter != YFilter.not_set or
+                    self.rsvpifroutedelay.yfilter != YFilter.not_set or
+                    self.rsvpifstatus.yfilter != YFilter.not_set or
+                    self.rsvpifttl.yfilter != YFilter.not_set or
+                    self.rsvpifudpnbrs.yfilter != YFilter.not_set or
+                    self.rsvpifudprequired.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpIfEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.rsvpifenabled.is_set or self.rsvpifenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifenabled.get_name_leafdata())
+                if (self.rsvpifipnbrs.is_set or self.rsvpifipnbrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifipnbrs.get_name_leafdata())
+                if (self.rsvpifnbrs.is_set or self.rsvpifnbrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifnbrs.get_name_leafdata())
+                if (self.rsvpifrefreshblockademultiple.is_set or self.rsvpifrefreshblockademultiple.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifrefreshblockademultiple.get_name_leafdata())
+                if (self.rsvpifrefreshinterval.is_set or self.rsvpifrefreshinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifrefreshinterval.get_name_leafdata())
+                if (self.rsvpifrefreshmultiple.is_set or self.rsvpifrefreshmultiple.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifrefreshmultiple.get_name_leafdata())
+                if (self.rsvpifroutedelay.is_set or self.rsvpifroutedelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifroutedelay.get_name_leafdata())
+                if (self.rsvpifstatus.is_set or self.rsvpifstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifstatus.get_name_leafdata())
+                if (self.rsvpifttl.is_set or self.rsvpifttl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifttl.get_name_leafdata())
+                if (self.rsvpifudpnbrs.is_set or self.rsvpifudpnbrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifudpnbrs.get_name_leafdata())
+                if (self.rsvpifudprequired.is_set or self.rsvpifudprequired.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpifudprequired.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "rsvpIfEnabled" or name == "rsvpIfIpNbrs" or name == "rsvpIfNbrs" or name == "rsvpIfRefreshBlockadeMultiple" or name == "rsvpIfRefreshInterval" or name == "rsvpIfRefreshMultiple" or name == "rsvpIfRouteDelay" or name == "rsvpIfStatus" or name == "rsvpIfTTL" or name == "rsvpIfUdpNbrs" or name == "rsvpIfUdpRequired"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfEnabled"):
+                    self.rsvpifenabled = value
+                    self.rsvpifenabled.value_namespace = name_space
+                    self.rsvpifenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfIpNbrs"):
+                    self.rsvpifipnbrs = value
+                    self.rsvpifipnbrs.value_namespace = name_space
+                    self.rsvpifipnbrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfNbrs"):
+                    self.rsvpifnbrs = value
+                    self.rsvpifnbrs.value_namespace = name_space
+                    self.rsvpifnbrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfRefreshBlockadeMultiple"):
+                    self.rsvpifrefreshblockademultiple = value
+                    self.rsvpifrefreshblockademultiple.value_namespace = name_space
+                    self.rsvpifrefreshblockademultiple.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfRefreshInterval"):
+                    self.rsvpifrefreshinterval = value
+                    self.rsvpifrefreshinterval.value_namespace = name_space
+                    self.rsvpifrefreshinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfRefreshMultiple"):
+                    self.rsvpifrefreshmultiple = value
+                    self.rsvpifrefreshmultiple.value_namespace = name_space
+                    self.rsvpifrefreshmultiple.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfRouteDelay"):
+                    self.rsvpifroutedelay = value
+                    self.rsvpifroutedelay.value_namespace = name_space
+                    self.rsvpifroutedelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfStatus"):
+                    self.rsvpifstatus = value
+                    self.rsvpifstatus.value_namespace = name_space
+                    self.rsvpifstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfTTL"):
+                    self.rsvpifttl = value
+                    self.rsvpifttl.value_namespace = name_space
+                    self.rsvpifttl.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfUdpNbrs"):
+                    self.rsvpifudpnbrs = value
+                    self.rsvpifudpnbrs.value_namespace = name_space
+                    self.rsvpifudpnbrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpIfUdpRequired"):
+                    self.rsvpifudprequired = value
+                    self.rsvpifudprequired.value_namespace = name_space
+                    self.rsvpifudprequired.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpifentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpifenabled is not None:
-                    return True
-
-                if self.rsvpifipnbrs is not None:
-                    return True
-
-                if self.rsvpifnbrs is not None:
-                    return True
-
-                if self.rsvpifrefreshblockademultiple is not None:
-                    return True
-
-                if self.rsvpifrefreshinterval is not None:
-                    return True
-
-                if self.rsvpifrefreshmultiple is not None:
-                    return True
-
-                if self.rsvpifroutedelay is not None:
-                    return True
-
-                if self.rsvpifstatus is not None:
-                    return True
-
-                if self.rsvpifttl is not None:
-                    return True
-
-                if self.rsvpifudpnbrs is not None:
-                    return True
-
-                if self.rsvpifudprequired is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpiftable.Rsvpifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpifentry is not None:
-                for child_ref in self.rsvpifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpIfEntry"):
+                for c in self.rsvpifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpiftable.Rsvpifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpiftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Rsvpnbrtable(object):
+    class Rsvpnbrtable(Entity):
         """
         Information	describing  the	 Neighbors  of	an
         RSVP	system.
@@ -2210,13 +3873,39 @@ class RsvpMib(object):
         _revision = '1998-08-25'
 
         def __init__(self):
-            self.parent = None
-            self.rsvpnbrentry = YList()
-            self.rsvpnbrentry.parent = self
-            self.rsvpnbrentry.name = 'rsvpnbrentry'
+            super(RsvpMib.Rsvpnbrtable, self).__init__()
+
+            self.yang_name = "rsvpNbrTable"
+            self.yang_parent_name = "RSVP-MIB"
+
+            self.rsvpnbrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(RsvpMib.Rsvpnbrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(RsvpMib.Rsvpnbrtable, self).__setattr__(name, value)
 
 
-        class Rsvpnbrentry(object):
+        class Rsvpnbrentry(Entity):
             """
             Information	  describing   a    single    RSVP
             Neighbor.
@@ -2240,12 +3929,12 @@ class RsvpMib(object):
             .. attribute:: rsvpnbrprotocol
             
             	The	  encapsulation	  being	  used	 by   this neighbor
-            	**type**\:   :py:class:`RsvpencapsulationEnum <ydk.models.cisco_ios_xe.RSVP_MIB.RsvpencapsulationEnum>`
+            	**type**\:   :py:class:`Rsvpencapsulation <ydk.models.cisco_ios_xe.RSVP_MIB.Rsvpencapsulation>`
             
             .. attribute:: rsvpnbrstatus
             
             	'active' for all neighbors.	 This  object  may be	used   to  configure  neighbors.   In  the presence   of   configured	 neighbors,    the implementation  may	(but  is  not required to) limit the  set  of  valid  neighbors	 to  those configured
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -2255,106 +3944,286 @@ class RsvpMib(object):
             _revision = '1998-08-25'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.rsvpnbraddress = None
-                self.rsvpnbrprotocol = None
-                self.rsvpnbrstatus = None
+                super(RsvpMib.Rsvpnbrtable.Rsvpnbrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.rsvpnbraddress is None:
-                    raise YPYModelError('Key property rsvpnbraddress is None')
+                self.yang_name = "rsvpNbrEntry"
+                self.yang_parent_name = "rsvpNbrTable"
 
-                return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpNbrTable/RSVP-MIB:rsvpNbrEntry[RSVP-MIB:ifIndex = ' + str(self.ifindex) + '][RSVP-MIB:rsvpNbrAddress = ' + str(self.rsvpnbraddress) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rsvpnbraddress = YLeaf(YType.str, "rsvpNbrAddress")
+
+                self.rsvpnbrprotocol = YLeaf(YType.enumeration, "rsvpNbrProtocol")
+
+                self.rsvpnbrstatus = YLeaf(YType.enumeration, "rsvpNbrStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "rsvpnbraddress",
+                                "rsvpnbrprotocol",
+                                "rsvpnbrstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(RsvpMib.Rsvpnbrtable.Rsvpnbrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(RsvpMib.Rsvpnbrtable.Rsvpnbrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.rsvpnbraddress.is_set or
+                    self.rsvpnbrprotocol.is_set or
+                    self.rsvpnbrstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.rsvpnbraddress.yfilter != YFilter.not_set or
+                    self.rsvpnbrprotocol.yfilter != YFilter.not_set or
+                    self.rsvpnbrstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rsvpNbrEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[rsvpNbrAddress='" + self.rsvpnbraddress.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "RSVP-MIB:RSVP-MIB/rsvpNbrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.rsvpnbraddress.is_set or self.rsvpnbraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpnbraddress.get_name_leafdata())
+                if (self.rsvpnbrprotocol.is_set or self.rsvpnbrprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpnbrprotocol.get_name_leafdata())
+                if (self.rsvpnbrstatus.is_set or self.rsvpnbrstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rsvpnbrstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "rsvpNbrAddress" or name == "rsvpNbrProtocol" or name == "rsvpNbrStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpNbrAddress"):
+                    self.rsvpnbraddress = value
+                    self.rsvpnbraddress.value_namespace = name_space
+                    self.rsvpnbraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpNbrProtocol"):
+                    self.rsvpnbrprotocol = value
+                    self.rsvpnbrprotocol.value_namespace = name_space
+                    self.rsvpnbrprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "rsvpNbrStatus"):
+                    self.rsvpnbrstatus = value
+                    self.rsvpnbrstatus.value_namespace = name_space
+                    self.rsvpnbrstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rsvpnbrentry:
+                if (c.has_data()):
                     return True
-
-                if self.rsvpnbraddress is not None:
-                    return True
-
-                if self.rsvpnbrprotocol is not None:
-                    return True
-
-                if self.rsvpnbrstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-                return meta._meta_table['RsvpMib.Rsvpnbrtable.Rsvpnbrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/RSVP-MIB:RSVP-MIB/RSVP-MIB:rsvpNbrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rsvpnbrentry is not None:
-                for child_ref in self.rsvpnbrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rsvpnbrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rsvpNbrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "RSVP-MIB:RSVP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rsvpNbrEntry"):
+                for c in self.rsvpnbrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = RsvpMib.Rsvpnbrtable.Rsvpnbrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rsvpnbrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rsvpNbrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-            return meta._meta_table['RsvpMib.Rsvpnbrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.rsvpgenobjects is not None and self.rsvpgenobjects.has_data()) or
+            (self.rsvpiftable is not None and self.rsvpiftable.has_data()) or
+            (self.rsvpnbrtable is not None and self.rsvpnbrtable.has_data()) or
+            (self.rsvpresvfwdtable is not None and self.rsvpresvfwdtable.has_data()) or
+            (self.rsvpresvtable is not None and self.rsvpresvtable.has_data()) or
+            (self.rsvpsenderoutinterfacetable is not None and self.rsvpsenderoutinterfacetable.has_data()) or
+            (self.rsvpsendertable is not None and self.rsvpsendertable.has_data()) or
+            (self.rsvpsessiontable is not None and self.rsvpsessiontable.has_data()))
 
-        return '/RSVP-MIB:RSVP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.rsvpgenobjects is not None and self.rsvpgenobjects.has_operation()) or
+            (self.rsvpiftable is not None and self.rsvpiftable.has_operation()) or
+            (self.rsvpnbrtable is not None and self.rsvpnbrtable.has_operation()) or
+            (self.rsvpresvfwdtable is not None and self.rsvpresvfwdtable.has_operation()) or
+            (self.rsvpresvtable is not None and self.rsvpresvtable.has_operation()) or
+            (self.rsvpsenderoutinterfacetable is not None and self.rsvpsenderoutinterfacetable.has_operation()) or
+            (self.rsvpsendertable is not None and self.rsvpsendertable.has_operation()) or
+            (self.rsvpsessiontable is not None and self.rsvpsessiontable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "RSVP-MIB:RSVP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "rsvpGenObjects"):
+            if (self.rsvpgenobjects is None):
+                self.rsvpgenobjects = RsvpMib.Rsvpgenobjects()
+                self.rsvpgenobjects.parent = self
+                self._children_name_map["rsvpgenobjects"] = "rsvpGenObjects"
+            return self.rsvpgenobjects
+
+        if (child_yang_name == "rsvpIfTable"):
+            if (self.rsvpiftable is None):
+                self.rsvpiftable = RsvpMib.Rsvpiftable()
+                self.rsvpiftable.parent = self
+                self._children_name_map["rsvpiftable"] = "rsvpIfTable"
+            return self.rsvpiftable
+
+        if (child_yang_name == "rsvpNbrTable"):
+            if (self.rsvpnbrtable is None):
+                self.rsvpnbrtable = RsvpMib.Rsvpnbrtable()
+                self.rsvpnbrtable.parent = self
+                self._children_name_map["rsvpnbrtable"] = "rsvpNbrTable"
+            return self.rsvpnbrtable
+
+        if (child_yang_name == "rsvpResvFwdTable"):
+            if (self.rsvpresvfwdtable is None):
+                self.rsvpresvfwdtable = RsvpMib.Rsvpresvfwdtable()
+                self.rsvpresvfwdtable.parent = self
+                self._children_name_map["rsvpresvfwdtable"] = "rsvpResvFwdTable"
+            return self.rsvpresvfwdtable
+
+        if (child_yang_name == "rsvpResvTable"):
+            if (self.rsvpresvtable is None):
+                self.rsvpresvtable = RsvpMib.Rsvpresvtable()
+                self.rsvpresvtable.parent = self
+                self._children_name_map["rsvpresvtable"] = "rsvpResvTable"
+            return self.rsvpresvtable
+
+        if (child_yang_name == "rsvpSenderOutInterfaceTable"):
+            if (self.rsvpsenderoutinterfacetable is None):
+                self.rsvpsenderoutinterfacetable = RsvpMib.Rsvpsenderoutinterfacetable()
+                self.rsvpsenderoutinterfacetable.parent = self
+                self._children_name_map["rsvpsenderoutinterfacetable"] = "rsvpSenderOutInterfaceTable"
+            return self.rsvpsenderoutinterfacetable
+
+        if (child_yang_name == "rsvpSenderTable"):
+            if (self.rsvpsendertable is None):
+                self.rsvpsendertable = RsvpMib.Rsvpsendertable()
+                self.rsvpsendertable.parent = self
+                self._children_name_map["rsvpsendertable"] = "rsvpSenderTable"
+            return self.rsvpsendertable
+
+        if (child_yang_name == "rsvpSessionTable"):
+            if (self.rsvpsessiontable is None):
+                self.rsvpsessiontable = RsvpMib.Rsvpsessiontable()
+                self.rsvpsessiontable.parent = self
+                self._children_name_map["rsvpsessiontable"] = "rsvpSessionTable"
+            return self.rsvpsessiontable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "rsvpGenObjects" or name == "rsvpIfTable" or name == "rsvpNbrTable" or name == "rsvpResvFwdTable" or name == "rsvpResvTable" or name == "rsvpSenderOutInterfaceTable" or name == "rsvpSenderTable" or name == "rsvpSessionTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.rsvpgenobjects is not None and self.rsvpgenobjects._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.rsvpiftable is not None and self.rsvpiftable._has_data():
-            return True
-
-        if self.rsvpnbrtable is not None and self.rsvpnbrtable._has_data():
-            return True
-
-        if self.rsvpresvfwdtable is not None and self.rsvpresvfwdtable._has_data():
-            return True
-
-        if self.rsvpresvtable is not None and self.rsvpresvtable._has_data():
-            return True
-
-        if self.rsvpsenderoutinterfacetable is not None and self.rsvpsenderoutinterfacetable._has_data():
-            return True
-
-        if self.rsvpsendertable is not None and self.rsvpsendertable._has_data():
-            return True
-
-        if self.rsvpsessiontable is not None and self.rsvpsessiontable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _RSVP_MIB as meta
-        return meta._meta_table['RsvpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = RsvpMib()
+        return self._top_entity
 

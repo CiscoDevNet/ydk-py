@@ -4,22 +4,16 @@ This MIB Module provides Textual Conventions
 and OBJECT\-IDENTITY Objects to be used PW services.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CpwoperstatusEnum(Enum):
+class Cpwoperstatus(Enum):
     """
-    CpwoperstatusEnum
+    Cpwoperstatus
 
     Indicate the operational status of the PW VC. 
 
@@ -67,30 +61,24 @@ class CpwoperstatusEnum(Enum):
 
     """
 
-    up = 1
+    up = Enum.YLeaf(1, "up")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    testing = 3
+    testing = Enum.YLeaf(3, "testing")
 
-    unknown = 4
+    unknown = Enum.YLeaf(4, "unknown")
 
-    dormant = 5
+    dormant = Enum.YLeaf(5, "dormant")
 
-    notPresent = 6
+    notPresent = Enum.YLeaf(6, "notPresent")
 
-    lowerLayerDown = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TC_MIB as meta
-        return meta._meta_table['CpwoperstatusEnum']
+    lowerLayerDown = Enum.YLeaf(7, "lowerLayerDown")
 
 
-class CpwvctypeEnum(Enum):
+class Cpwvctype(Enum):
     """
-    CpwvctypeEnum
+    Cpwvctype
 
     Indicate the VC type (i.e. the carried service). 
 
@@ -140,51 +128,45 @@ class CpwvctypeEnum(Enum):
 
     """
 
-    other = 0
+    other = Enum.YLeaf(0, "other")
 
-    frameRelay = 1
+    frameRelay = Enum.YLeaf(1, "frameRelay")
 
-    atmAal5Vcc = 2
+    atmAal5Vcc = Enum.YLeaf(2, "atmAal5Vcc")
 
-    atmTransparent = 3
+    atmTransparent = Enum.YLeaf(3, "atmTransparent")
 
-    ethernetVLAN = 4
+    ethernetVLAN = Enum.YLeaf(4, "ethernetVLAN")
 
-    ethernet = 5
+    ethernet = Enum.YLeaf(5, "ethernet")
 
-    hdlc = 6
+    hdlc = Enum.YLeaf(6, "hdlc")
 
-    ppp = 7
+    ppp = Enum.YLeaf(7, "ppp")
 
-    cep = 8
+    cep = Enum.YLeaf(8, "cep")
 
-    atmVccCell = 9
+    atmVccCell = Enum.YLeaf(9, "atmVccCell")
 
-    atmVpcCell = 10
+    atmVpcCell = Enum.YLeaf(10, "atmVpcCell")
 
-    ethernetVPLS = 11
+    ethernetVPLS = Enum.YLeaf(11, "ethernetVPLS")
 
-    e1Satop = 12
+    e1Satop = Enum.YLeaf(12, "e1Satop")
 
-    t1Satop = 13
+    t1Satop = Enum.YLeaf(13, "t1Satop")
 
-    e3Satop = 14
+    e3Satop = Enum.YLeaf(14, "e3Satop")
 
-    t3Satop = 15
+    t3Satop = Enum.YLeaf(15, "t3Satop")
 
-    basicCesPsn = 16
+    basicCesPsn = Enum.YLeaf(16, "basicCesPsn")
 
-    basicTdmIp = 17
+    basicTdmIp = Enum.YLeaf(17, "basicTdmIp")
 
-    tdmCasCesPsn = 18
+    tdmCasCesPsn = Enum.YLeaf(18, "tdmCasCesPsn")
 
-    tdmCasTdmIp = 19
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_TC_MIB as meta
-        return meta._meta_table['CpwvctypeEnum']
+    tdmCasTdmIp = Enum.YLeaf(19, "tdmCasTdmIp")
 
 
 
