@@ -23,7 +23,7 @@ Linux
 ~~~~~
 Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Py::
 
-   $ sudo apt-get install gdebi-core python3-dev python-dev
+   $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
    $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.6.0/libydk_0.6.0-1_amd64.deb
    $ sudo gdebi libydk_0.6.0-1_amd64.deb
 
