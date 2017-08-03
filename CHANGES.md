@@ -24,7 +24,7 @@
 The [backward incompatible](http://ydk.cisco.com/py/docs/backward_compatibility.html) changes introduced with `0.6.0` release include:
 
  * **Installation:** When installing `YDK-Py`, there is a new system requirement which needs to be installed. This is the `libydk` library, which is available on the DevHub website for various OS platforms. Please refer to the [system requirements](https://github.com/CiscoDevNet/ydk-py/blob/master/README.rst#system-requirements) for details.
-* **Windows support:** From release ``0.6.0`` onwards, YDK no longer is supported on the Windows platform. We plan to add back support for this platform in the future.
+* **Windows support:** From release ``0.6.0`` onwards, YDK is no longer supported on the Windows platform. We plan to add back support for this platform in the future.
 * **API changes:**
    * `NetconfServiceProvider` no longer has the `close()` method. There is no need to explicitly close the provider as it will be automatically cleaned up when the object goes out of scope.
    * `YFilter` has replaced the functionality of the `READ` and `DELETE` objects
